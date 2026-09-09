@@ -1,0 +1,18 @@
+# ListSimulatorsRequest
+
+## Example Usage
+
+```typescript
+import { ListSimulatorsRequest } from "@continuous-labs/sdk/models/operations";
+
+let value: ListSimulatorsRequest = {};
+```
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `status`                                                                                             | [operations.ListSimulatorsStatus](../../models/operations/list-simulators-status.md)                 | :heavy_minus_sign:                                                                                   | Optional build status filter.                                                                        |
+| `name`                                                                                               | *string*                                                                                             | :heavy_minus_sign:                                                                                   | Optional exact Simulator name. Prefix a catalog name with continuous/. Names cannot start with smr_. |
+| `limit`                                                                                              | *number*                                                                                             | :heavy_minus_sign:                                                                                   | Page size. Values below 1 use 50. Values above 200 use 200.                                          |
+| `cursor`                                                                                             | *string*                                                                                             | :heavy_minus_sign:                                                                                   | Opaque next_cursor value from a previous page.                                                       |

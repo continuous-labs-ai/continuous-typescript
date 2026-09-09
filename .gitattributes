@@ -1,0 +1,16 @@
+/src/** linguist-generated=true
+/docs/** linguist-generated=true
+/examples/** linguist-generated=true
+/USAGE.md linguist-generated=true
+/FUNCTIONS.md linguist-generated=true
+/RUNTIMES.md linguist-generated=true
+/CONTRIBUTING.md linguist-generated=true
+/package.json linguist-generated=true
+/package-lock.json linguist-generated=true
+/jsr.json linguist-generated=true
+/tsconfig.json linguist-generated=true
+/.speakeasy/gen.lock linguist-generated=true
+/.speakeasy/workflow.lock linguist-generated=true
+/.speakeasy/out.openapi.yaml linguist-generated=true
+/.speakeasy/gen.yaml linguist-generated=false
+/.speakeasy/workflow.yaml linguist-generated=false

@@ -1,0 +1,55 @@
+speakeasyVersion: 1.796.4
+sources:
+    ContinuousSimulation-OAS:
+        sourceNamespace: continuous-simulation
+        sourceRevisionDigest: sha256:4c417777143926ee34edb54cf5d52fa4c34692b9ebdde0fd834153f87f631e8e
+        sourceBlobDigest: sha256:9a72676ce4c321324d8c8aee63ba41a2b870e4d2687afb40f559e8f7f9ec1787
+        tags:
+            - latest
+    continuous-simulation:
+        sourceNamespace: continuous-simulation
+        sourceRevisionDigest: sha256:4c417777143926ee34edb54cf5d52fa4c34692b9ebdde0fd834153f87f631e8e
+        sourceBlobDigest: sha256:9a72676ce4c321324d8c8aee63ba41a2b870e4d2687afb40f559e8f7f9ec1787
+        tags:
+            - latest
+targets:
+    continuous-simulation:
+        source: ContinuousSimulation-OAS
+        sourceNamespace: continuous-simulation
+        sourceRevisionDigest: sha256:4c417777143926ee34edb54cf5d52fa4c34692b9ebdde0fd834153f87f631e8e
+        sourceBlobDigest: sha256:9a72676ce4c321324d8c8aee63ba41a2b870e4d2687afb40f559e8f7f9ec1787
+        codeSamplesNamespace: continuous-simulation-oas-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:801b1fdf26b760a7962f2b69235aa6304afdb4907f5ec47a23a00808e89f95da
+    continuous-simulation-typescript:
+        source: continuous-simulation
+        sourceNamespace: continuous-simulation
+        sourceRevisionDigest: sha256:4c417777143926ee34edb54cf5d52fa4c34692b9ebdde0fd834153f87f631e8e
+        sourceBlobDigest: sha256:9a72676ce4c321324d8c8aee63ba41a2b870e4d2687afb40f559e8f7f9ec1787
+        codeSamplesNamespace: continuous-simulation-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:360859ad0b57351e003f29085c38828e891ae3feac1734bc657cd4e54f65b4d1
+    continuous-typescript:
+        source: continuous-simulation
+        sourceNamespace: continuous-simulation
+        sourceRevisionDigest: sha256:4c417777143926ee34edb54cf5d52fa4c34692b9ebdde0fd834153f87f631e8e
+        sourceBlobDigest: sha256:9a72676ce4c321324d8c8aee63ba41a2b870e4d2687afb40f559e8f7f9ec1787
+        codeSamplesNamespace: continuous-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:7ca69b3ee6f310a5b77b2dd1fa9886c05bc6d4ee4ec785ccfb95d180038baa88
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: 1.796.4
+    sources:
+        continuous-simulation:
+            inputs:
+                - location: registry.speakeasyapi.dev/continuous/continuous/continuous-simulation@main
+            output: .speakeasy/out.openapi.yaml
+    targets:
+        continuous-typescript:
+            target: typescript
+            source: continuous-simulation
+            publish:
+                npm:
+                    token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/continuous/continuous/continuous-typescript-code-samples
+                blocking: false
