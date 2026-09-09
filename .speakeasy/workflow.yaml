@@ -11,7 +11,7 @@ targets:
         source: continuous-simulation
         publish:
             npm:
-                useTrustedPublishing: true
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/continuous/continuous/continuous-typescript-code-samples
