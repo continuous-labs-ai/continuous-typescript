@@ -5,15 +5,15 @@ management:
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.0.4
-  configChecksum: 2480aa8e394864297ff49d86f8ec8904
-  repoURL: https://github.com/continuous-labs-ai/continuous-typescript
+  releaseVersion: 0.0.5
+  configChecksum: fa5e9d80df9150d6d8992c45ce6bb8a6
+  repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 561580fd-58b1-495d-bd09-eb8a8f62c2a1
-  pristine_commit_hash: cdb1cc899b4810baa630a2c8574f78870214fc97
-  pristine_tree_hash: 2a2ff1c16e40803ec16974306038614f7892a06d
+  generation_id: b83c9906-94d3-42a3-baef-6499dd86607f
+  pristine_commit_hash: 8dd358122383a6fd4e61154fc7971c32ac6b6041
+  pristine_tree_hash: bd1f00b05076c11d4fd13cc819df8ef9fc189905
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -36,8 +36,8 @@ features:
 trackedFiles:
   .devcontainer/README.md:
     id: b170c0f184ac
-    last_write_checksum: sha1:8cde197600e6cca67ba7d9fb9320f73b060a3a48
-    pristine_git_object: c6b73890372f07d71491e7ed614a691e4b9f2643
+    last_write_checksum: sha1:87f1f524a0d31d4a0213ae3077a95089e6b7e2db
+    pristine_git_object: e6c18ec69a476966c8eb18ee3b294c979fd19fb8
   .devcontainer/devcontainer.json:
     id: b34062a34eb1
     last_write_checksum: sha1:d0b15193202c961e7d1875864ddb15f9d17c84dd
@@ -292,12 +292,12 @@ trackedFiles:
     pristine_git_object: c6df7f1511a765e549e301fa4bd16b5bd606d603
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:6f1229b0e3bf70029c5810e66cad6faa349340d5
-    pristine_git_object: 36fada5831afa31dded430a36f88481cc30762e5
+    last_write_checksum: sha1:eee41beb83ae946d23de1e7243af4c3014698b9a
+    pristine_git_object: 4f34c18001280ef478fb7da05d075390e22896f9
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:3665848228f0e02646c18ccd8fddb6fa15d1b113
-    pristine_git_object: 0b043cf9fb801c0c6745cf6014ad78758b41216d
+    last_write_checksum: sha1:07276d5c4e4805d2bc5f2ea6f568ef3694555769
+    pristine_git_object: 14390d128c448aa679da5e70dcc9d24340fa7eaa
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -408,8 +408,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:e4305e50abadab5fd7ce3e8835466e924ba37823
-    pristine_git_object: 4ff9e52260c8c2bd08a85481a241d214c977af9d
+    last_write_checksum: sha1:e3b4c4f152d840b07c95f21a397eca87fae8e1a5
+    pristine_git_object: 2d58e7e59c93e75e7636e02f7b75c96cafe8df73
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
