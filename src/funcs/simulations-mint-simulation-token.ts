@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Mint Simulation Token
  *
  * @remarks
- * Mints an expiring data-plane token. Send it in X-Continuous-Simulation-Token. Other unexpired tokens remain valid.
+ * Creates another token for requests to the Simulation endpoint. Send it in the X-Continuous-Simulation-Token header. Earlier tokens stay valid until they expire.
  */
 export function simulationsMintSimulationToken(
   client: ContinuousCore,

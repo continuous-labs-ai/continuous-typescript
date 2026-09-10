@@ -12,6 +12,6 @@ let value: DeleteSimulationRequest = {
 
 ## Fields
 
-| Field               | Type                | Required            | Description         |
-| ------------------- | ------------------- | ------------------- | ------------------- |
-| `id`                | *string*            | :heavy_check_mark:  | Stable resource ID. |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `id`               | *string*           | :heavy_check_mark: | Simulation ID.     |

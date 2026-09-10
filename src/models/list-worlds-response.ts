@@ -12,7 +12,7 @@ import { World, World$inboundSchema } from "./world.js";
 
 export type ListWorldsResponse = {
   /**
-   * Cursor for the next page, or null when this is the last page.
+   * Cursor for the next page, or null.
    */
   nextCursor: string | null;
   /**

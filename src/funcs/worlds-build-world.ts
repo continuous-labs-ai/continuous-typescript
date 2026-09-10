@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Build World
  *
  * @remarks
- * Builds a World definition from stable Simulator IDs. Start the World to create its Simulations.
+ * Starts an asynchronous World build from one or more ready Simulators and returns the World in the building state. Start the World once it is ready to create its Simulations.
  */
 export function worldsBuildWorld(
   client: ContinuousCore,

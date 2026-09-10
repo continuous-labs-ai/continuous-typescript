@@ -2,7 +2,7 @@
 
 ## Overview
 
-Create and control isolated runtime instances of ready Simulators.
+Create Simulations from ready Simulators, then fork, stop, start, and delete them.
 
 ### Available Operations
 
@@ -89,7 +89,7 @@ run();
 
 ## createSimulation
 
-Creates an isolated runtime from a ready Simulator. The response includes its endpoint and a 1-hour token.
+Creates a Simulation from a ready Simulator and starts it. The response includes the Simulation endpoint and a token that expires in 1 hour. List and get do not return the token.
 
 ### Example Usage
 
@@ -241,7 +241,7 @@ run();
 
 ## getSimulation
 
-Returns a Simulation and its current runtime status. The response does not include data-plane tokens.
+Returns a Simulation and its current status. The response does not include tokens.
 
 ### Example Usage
 
@@ -316,7 +316,7 @@ run();
 
 ## forkSimulation
 
-Creates a Simulation with a 1-hour token. The source Simulation continues to run.
+Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and a token that expires in 1 hour.
 
 ### Example Usage
 
@@ -399,7 +399,7 @@ run();
 
 ## startSimulation
 
-Starts a stopped Simulation from its saved runtime state. Its endpoint becomes available after the runtime starts.
+Starts a stopped Simulation from its saved state. The endpoint serves requests once the response returns. A Simulation that is already running or paused is returned unchanged.
 
 ### Example Usage
 
@@ -474,7 +474,7 @@ run();
 
 ## listSimulationSteps
 
-Returns recorded steps for a running or paused Simulation. Use any step to create a deterministic fork.
+Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. Pass a step number as at_step when you fork to start the child from the state after that step. A stopped Simulation returns 409 simulation_stopped; start it first.
 
 ### Example Usage
 
@@ -549,7 +549,7 @@ run();
 
 ## stopSimulation
 
-Stops a Simulation and saves its runtime state. You can start it later from the saved state.
+Stops a Simulation and saves its state. Requests to its endpoint return 409 simulation_stopped until you start it again. A stopped Simulation is returned unchanged.
 
 ### Example Usage
 
@@ -624,7 +624,7 @@ run();
 
 ## mintSimulationToken
 
-Mints an expiring data-plane token. Send it in X-Continuous-Simulation-Token. Other unexpired tokens remain valid.
+Creates another token for requests to the Simulation endpoint. Send it in the X-Continuous-Simulation-Token header. Earlier tokens stay valid until they expire.
 
 ### Example Usage
 

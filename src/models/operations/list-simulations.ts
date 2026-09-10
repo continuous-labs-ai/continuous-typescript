@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Optional lifecycle status filter.
+ * Optional status filter.
  */
 export const ListSimulationsStatus = {
   Running: "running",
@@ -15,17 +15,17 @@ export const ListSimulationsStatus = {
   Stopped: "stopped",
 } as const;
 /**
- * Optional lifecycle status filter.
+ * Optional status filter.
  */
 export type ListSimulationsStatus = ClosedEnum<typeof ListSimulationsStatus>;
 
 export type ListSimulationsRequest = {
   /**
-   * Optional lifecycle status filter.
+   * Optional status filter.
    */
   status?: ListSimulationsStatus | undefined;
   /**
-   * Optional stable Simulator ID filter.
+   * Optional Simulator ID filter.
    */
   simulatorId?: string | undefined;
   /**

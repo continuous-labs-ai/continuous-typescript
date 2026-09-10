@@ -25,7 +25,7 @@ let value: ListWorldsResponse = {
 
 ## Fields
 
-| Field                                                         | Type                                                          | Required                                                      | Description                                                   |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `nextCursor`                                                  | *string*                                                      | :heavy_check_mark:                                            | Cursor for the next page, or null when this is the last page. |
-| `worlds`                                                      | [models.World](../models/world.md)[]                          | :heavy_check_mark:                                            | Worlds in this page.                                          |
+| Field                                | Type                                 | Required                             | Description                          |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `nextCursor`                         | *string*                             | :heavy_check_mark:                   | Cursor for the next page, or null.   |
+| `worlds`                             | [models.World](../models/world.md)[] | :heavy_check_mark:                   | Worlds in this page.                 |

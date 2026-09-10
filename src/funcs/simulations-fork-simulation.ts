@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Fork Simulation
  *
  * @remarks
- * Creates a Simulation with a 1-hour token. The source Simulation continues to run.
+ * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and a token that expires in 1 hour.
  */
 export function simulationsForkSimulation(
   client: ContinuousCore,

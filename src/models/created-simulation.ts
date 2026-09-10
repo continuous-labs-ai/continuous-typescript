@@ -12,7 +12,7 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
- * Current Simulation status.
+ * Current status. running serves requests. paused means the Simulation was idle and the platform paused it; the next request wakes it. stopped means its state is saved and requests return 409 until you start it.
  */
 export const CreatedSimulationStatus = {
   Running: "running",
@@ -20,7 +20,7 @@ export const CreatedSimulationStatus = {
   Stopped: "stopped",
 } as const;
 /**
- * Current Simulation status.
+ * Current status. running serves requests. paused means the Simulation was idle and the platform paused it; the next request wakes it. stopped means its state is saved and requests return 409 until you start it.
  */
 export type CreatedSimulationStatus = OpenEnum<typeof CreatedSimulationStatus>;
 
@@ -30,7 +30,7 @@ export type CreatedSimulation = {
    */
   createdAt: Date;
   /**
-   * Data-plane endpoint for the Simulation.
+   * Base URL for requests to the Simulation.
    */
   endpoint: string;
   /**
@@ -38,7 +38,7 @@ export type CreatedSimulation = {
    */
   expiresAt: Date;
   /**
-   * Stable Simulation ID.
+   * Simulation ID.
    */
   id: string;
   /**
@@ -46,19 +46,19 @@ export type CreatedSimulation = {
    */
   name: string;
   /**
-   * Stable source Simulation ID for a fork, or null.
+   * Source Simulation ID for a fork, or null.
    */
   parentId: string | null;
   /**
-   * Stable ID of the Simulator.
+   * ID of the Simulator.
    */
   simulatorId: string;
   /**
-   * Current Simulation status.
+   * Current status. running serves requests. paused means the Simulation was idle and the platform paused it; the next request wakes it. stopped means its state is saved and requests return 409 until you start it.
    */
   status: CreatedSimulationStatus;
   /**
-   * One-time data-plane token.
+   * Token for requests to the Simulation endpoint. Send it in the X-Continuous-Simulation-Token header. It is returned only here; list and get omit it. Create more with POST /v1/simulations/{id}/tokens.
    */
   token: string;
 };

@@ -7,7 +7,7 @@ import * as models from "../index.js";
 
 export type ForkSimulationRequest = {
   /**
-   * Stable source Simulation ID.
+   * Source Simulation ID.
    */
   id: string;
   body: models.ForkSimulationRequest;

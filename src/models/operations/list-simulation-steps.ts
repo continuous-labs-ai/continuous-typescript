@@ -6,7 +6,7 @@ import * as z from "zod/v4-mini";
 
 export type ListSimulationStepsRequest = {
   /**
-   * Stable Simulation ID.
+   * Simulation ID.
    */
   id: string;
   /**

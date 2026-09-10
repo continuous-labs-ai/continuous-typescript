@@ -10,11 +10,11 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type Step = {
   /**
-   * Request label. It usually contains the HTTP method and path.
+   * HTTP method and path of the request that produced this step, without the query string, for example POST /v1/widgets.
    */
   label: string;
   /**
-   * Completed request number. Use this value as at_step when you fork the Simulation.
+   * Step number. Use it as at_step when you fork.
    */
   step: number;
 };

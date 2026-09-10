@@ -7,7 +7,7 @@ import * as models from "../index.js";
 
 export type MintSimulationTokenRequest = {
   /**
-   * Stable Simulation ID.
+   * Simulation ID.
    */
   id: string;
   body: models.MintSimulationTokenRequest;

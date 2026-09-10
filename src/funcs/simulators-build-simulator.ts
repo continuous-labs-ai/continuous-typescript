@@ -39,7 +39,7 @@ import { isReadableStream } from "../types/streams.js";
  * Build Simulator
  *
  * @remarks
- * Creates a Simulator from an OpenAPI or WSDL source. The build runs asynchronously. Send multipart/form-data with one JSON request part, and one spec file part for a spec build.
+ * Starts an asynchronous Simulator build and returns the Simulator with status building. Send multipart/form-data with a JSON part named request. To build from a document, add a file part named spec with the OpenAPI or WSDL document. For an incremental build, omit spec and set parent_id and instructions.
  */
 export function simulatorsBuildSimulator(
   client: ContinuousCore,

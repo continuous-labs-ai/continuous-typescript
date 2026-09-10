@@ -6,7 +6,7 @@ import * as z from "zod/v4-mini";
 
 export type GetWorldRequest = {
   /**
-   * Stable World ID.
+   * World ID.
    */
   id: string;
 };

@@ -13,7 +13,7 @@ let value: WorldSimulation = {
 
 ## Fields
 
-| Field                                                 | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `id`                                                  | *string*                                              | :heavy_check_mark:                                    | Stable ID of the created Simulation.                  |
-| `simulatorId`                                         | *string*                                              | :heavy_check_mark:                                    | Stable ID of the Simulator that this Simulation runs. |
+| Field                                          | Type                                           | Required                                       | Description                                    |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| `id`                                           | *string*                                       | :heavy_check_mark:                             | ID of the created Simulation.                  |
+| `simulatorId`                                  | *string*                                       | :heavy_check_mark:                             | ID of the Simulator that this Simulation runs. |

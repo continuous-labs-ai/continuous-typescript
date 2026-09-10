@@ -1,6 +1,6 @@
 {
   "name": "@continuous-labs/sdk",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Continuous Labs",
   "license": "MIT",
   "type": "module",

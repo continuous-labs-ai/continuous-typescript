@@ -7,14 +7,14 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Builder provider. The default is claude.
+ * Model provider that builds the Simulator. Defaults to claude.
  */
 export const Builder = {
   Openai: "openai",
   Claude: "claude",
 } as const;
 /**
- * Builder provider. The default is claude.
+ * Model provider that builds the Simulator. Defaults to claude.
  */
 export type Builder = ClosedEnum<typeof Builder>;
 
@@ -32,15 +32,15 @@ export type SpecKind = ClosedEnum<typeof SpecKind>;
 
 export type BuildSimulatorRequest = {
   /**
-   * Builder provider. The default is claude.
+   * Model provider that builds the Simulator. Defaults to claude.
    */
   builder?: Builder | undefined;
   /**
-   * Optional operation filter regular expressions. Supply at most 64 expressions, with 1,024 characters in each expression. An empty list keeps all operations.
+   * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId or the WSDL operation name; an operation is kept when any expression matches, and an OpenAPI operation without an operationId is dropped. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation. Not allowed for an incremental build.
    */
   filter?: Array<string> | undefined;
   /**
-   * Build guidance. At most 16,384 characters and 65,536 UTF-8 bytes. U+0000 is not permitted.
+   * Instructions for the builder. Required for an incremental build. At most 16,384 characters and 65,536 UTF-8 bytes; must not be blank or contain U+0000.
    */
   instructions?: string | undefined;
   /**
@@ -48,7 +48,7 @@ export type BuildSimulatorRequest = {
    */
   name?: string | undefined;
   /**
-   * Stable parent Simulator ID for an incremental build.
+   * Parent Simulator ID. With instructions and no spec this starts an incremental build: the parent must be ready, and the request takes no filter or spec_kind.
    */
   parentId?: string | undefined;
   /**

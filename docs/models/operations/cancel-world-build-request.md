@@ -14,4 +14,4 @@ let value: CancelWorldBuildRequest = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *string*           | :heavy_check_mark: | Stable World ID.   |
+| `id`               | *string*           | :heavy_check_mark: | World ID.          |
