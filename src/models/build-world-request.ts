@@ -6,11 +6,11 @@ import * as z from "zod/v4-mini";
 
 export type BuildWorldRequest = {
   /**
-   * Build guidance. At most 16,384 characters and 65,536 UTF-8 bytes. U+0000 is not permitted.
+   * Instructions for the builder. At most 16,384 characters and 65,536 UTF-8 bytes; must not be blank or contain U+0000.
    */
   instructions?: string | undefined;
   /**
-   * Stable Simulator IDs for the World.
+   * Simulator IDs for the World.
    */
   simulators: Array<string>;
 };

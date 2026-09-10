@@ -11,11 +11,11 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type WorldSimulation = {
   /**
-   * Stable ID of the created Simulation.
+   * ID of the created Simulation.
    */
   id: string;
   /**
-   * Stable ID of the Simulator that this Simulation runs.
+   * ID of the Simulator that this Simulation runs.
    */
   simulatorId: string;
 };

@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Stop Simulation
  *
  * @remarks
- * Stops a Simulation and saves its runtime state. You can start it later from the saved state.
+ * Stops a Simulation and saves its state. Requests to its endpoint return 409 simulation_stopped until you start it again. A stopped Simulation is returned unchanged.
  */
 export function simulationsStopSimulation(
   client: ContinuousCore,

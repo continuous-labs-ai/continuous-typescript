@@ -6,7 +6,7 @@ import * as z from "zod/v4-mini";
 
 export type DeleteSimulatorRequest = {
   /**
-   * Stable Simulator ID.
+   * Simulator ID.
    */
   id: string;
 };

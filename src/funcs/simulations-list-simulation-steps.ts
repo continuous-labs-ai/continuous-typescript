@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * List Simulation Steps
  *
  * @remarks
- * Returns recorded steps for a running or paused Simulation. Use any step to create a deterministic fork.
+ * Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. Pass a step number as at_step when you fork to start the child from the state after that step. A stopped Simulation returns 409 simulation_stopped; start it first.
  */
 export function simulationsListSimulationSteps(
   client: ContinuousCore,

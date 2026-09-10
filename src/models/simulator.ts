@@ -16,19 +16,19 @@ import {
 } from "./resource-error.js";
 
 /**
- * Simulator source.
+ * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
  */
 export const Source = {
   Workspace: "workspace",
   Catalog: "catalog",
 } as const;
 /**
- * Simulator source.
+ * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
  */
 export type Source = OpenEnum<typeof Source>;
 
 /**
- * Current build status.
+ * building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
  */
 export const SimulatorStatus = {
   Building: "building",
@@ -37,7 +37,7 @@ export const SimulatorStatus = {
   Canceled: "canceled",
 } as const;
 /**
- * Current build status.
+ * building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
  */
 export type SimulatorStatus = OpenEnum<typeof SimulatorStatus>;
 
@@ -48,7 +48,7 @@ export type Simulator = {
   createdAt: Date;
   error: ResourceError | null;
   /**
-   * Stable Simulator ID.
+   * Simulator ID.
    */
   id: string;
   /**
@@ -56,15 +56,15 @@ export type Simulator = {
    */
   name: string;
   /**
-   * Stable parent Simulator ID, or null.
+   * Parent Simulator ID, or null.
    */
   parentId: string | null;
   /**
-   * Simulator source.
+   * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
    */
   source: Source;
   /**
-   * Current build status.
+   * building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
    */
   status: SimulatorStatus;
 };

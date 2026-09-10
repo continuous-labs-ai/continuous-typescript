@@ -16,4 +16,4 @@ let value: CreateSimulationRequest = {
 | Field                                                | Type                                                 | Required                                             | Description                                          |
 | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
 | `name`                                               | *string*                                             | :heavy_minus_sign:                                   | Optional Simulation name. Omission generates a name. |
-| `simulatorId`                                        | *string*                                             | :heavy_check_mark:                                   | Stable ID of the ready Simulator.                    |
+| `simulatorId`                                        | *string*                                             | :heavy_check_mark:                                   | ID of the ready Simulator.                           |

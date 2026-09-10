@@ -15,7 +15,7 @@ export type SimulationToken = {
    */
   expiresAt: Date;
   /**
-   * New data-plane token.
+   * New token for requests to the Simulation endpoint. Send it in the X-Continuous-Simulation-Token header.
    */
   token: string;
 };

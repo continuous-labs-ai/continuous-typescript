@@ -11,7 +11,7 @@ export type CreateSimulationRequest = {
    */
   name?: string | undefined;
   /**
-   * Stable ID of the ready Simulator.
+   * ID of the ready Simulator.
    */
   simulatorId: string;
 };

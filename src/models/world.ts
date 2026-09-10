@@ -20,7 +20,7 @@ import {
 } from "./world-simulation.js";
 
 /**
- * Current World lifecycle status.
+ * building while the build runs; ready when the World can be started; running or stopped once its Simulations exist; failed when the first start could not create its Simulations; canceled when the build was canceled.
  */
 export const WorldStatus = {
   Building: "building",
@@ -31,18 +31,18 @@ export const WorldStatus = {
   Canceled: "canceled",
 } as const;
 /**
- * Current World lifecycle status.
+ * building while the build runs; ready when the World can be started; running or stopped once its Simulations exist; failed when the first start could not create its Simulations; canceled when the build was canceled.
  */
 export type WorldStatus = OpenEnum<typeof WorldStatus>;
 
 export type World = {
   /**
-   * Time when the World build started.
+   * World creation time.
    */
   createdAt: Date;
   error: ResourceError | null;
   /**
-   * Stable World ID.
+   * World ID.
    */
   id: string;
   /**
@@ -50,15 +50,15 @@ export type World = {
    */
   instructions: string;
   /**
-   * Created member Simulations. This list is empty before first start.
+   * Simulations in the World. Empty unless the World is running or stopped.
    */
   simulations: Array<WorldSimulation>;
   /**
-   * Stable Simulator IDs in member order.
+   * Simulator IDs in member order.
    */
   simulators: Array<string>;
   /**
-   * Current World lifecycle status.
+   * building while the build runs; ready when the World can be started; running or stopped once its Simulations exist; failed when the first start could not create its Simulations; canceled when the build was canceled.
    */
   status: WorldStatus;
 };

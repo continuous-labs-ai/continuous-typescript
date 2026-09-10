@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Create Simulation
  *
  * @remarks
- * Creates an isolated runtime from a ready Simulator. The response includes its endpoint and a 1-hour token.
+ * Creates a Simulation from a ready Simulator and starts it. The response includes the Simulation endpoint and a token that expires in 1 hour. List and get do not return the token.
  */
 export function simulationsCreateSimulation(
   client: ContinuousCore,

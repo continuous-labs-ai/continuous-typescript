@@ -6,7 +6,7 @@ import * as z from "zod/v4-mini";
 
 export type DeleteSimulationRequest = {
   /**
-   * Stable resource ID.
+   * Simulation ID.
    */
   id: string;
 };

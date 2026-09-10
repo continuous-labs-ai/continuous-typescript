@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Get Simulation
  *
  * @remarks
- * Returns a Simulation and its current runtime status. The response does not include data-plane tokens.
+ * Returns a Simulation and its current status. The response does not include tokens.
  */
 export function simulationsGetSimulation(
   client: ContinuousCore,

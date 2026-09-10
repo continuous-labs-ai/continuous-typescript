@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Start World
  *
  * @remarks
- * Creates member Simulations on first start. Later starts restore stopped Simulations from saved state.
+ * Starts every Simulation in the World. The first start creates the Simulations; later starts restore them from saved state. The World must be ready or stopped, and the workspace must have room for all members under its active-Simulation limit. A running World is returned unchanged.
  */
 export function worldsStartWorld(
   client: ContinuousCore,

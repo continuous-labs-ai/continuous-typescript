@@ -10,7 +10,7 @@ export type ListWorldsRequest = {
    */
   limit?: number | undefined;
   /**
-   * Opaque cursor from the previous page.
+   * Opaque next_cursor value from a previous page.
    */
   cursor?: string | undefined;
 };

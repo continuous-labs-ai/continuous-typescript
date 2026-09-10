@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Start Simulation
  *
  * @remarks
- * Starts a stopped Simulation from its saved runtime state. Its endpoint becomes available after the runtime starts.
+ * Starts a stopped Simulation from its saved state. The endpoint serves requests once the response returns. A Simulation that is already running or paused is returned unchanged.
  */
 export function simulationsStartSimulation(
   client: ContinuousCore,

@@ -25,7 +25,7 @@ export type ListSimulatorsRequest = {
    */
   status?: ListSimulatorsStatus | undefined;
   /**
-   * Optional exact Simulator name. Prefix a catalog name with continuous/. Names cannot start with smr_.
+   * Return only the Simulator with this exact name. For a Simulator from the Continuous catalog, prefix the name with continuous/. Names cannot start with smr_.
    */
   name?: string | undefined;
   /**
