@@ -167,7 +167,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, models.ListWorldsResponse$inboundSchema),
-    M.jsonErr([400, 401, 403, 404, 422], errors.ErrorT$inboundSchema, {
+    M.jsonErr([400, 401, 422], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {

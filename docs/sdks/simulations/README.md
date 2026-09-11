@@ -83,7 +83,7 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404, 422       | application/problem+json      |
+| errors.ErrorT                 | 400, 401, 422                 | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
@@ -91,7 +91,58 @@ run();
 
 Creates a Simulation from a ready Simulator and starts it. The response includes the Simulation endpoint and a token that expires in 1 hour. List and get do not return the token.
 
-### Example Usage
+### Example Usage: bad_request_body
+
+<!-- UsageSnippet language="typescript" operationID="create-simulation" method="post" path="/v1/simulations" example="bad_request_body" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulations.createSimulation({
+    name: "billing-sandbox",
+    simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulationsCreateSimulation } from "@continuous-labs/sdk/funcs/simulations-create-simulation.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulationsCreateSimulation(continuous, {
+    name: "billing-sandbox",
+    simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulationsCreateSimulation failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: simulator_unknown
 
 <!-- UsageSnippet language="typescript" operationID="create-simulation" method="post" path="/v1/simulations" example="simulator_unknown" -->
 ```typescript
@@ -158,11 +209,11 @@ run();
 
 ### Errors
 
-| Error Type                                       | Status Code                                      | Content Type                                     |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| errors.ErrorT                                    | 400, 401, 403, 404, 408, 409, 413, 415, 422, 429 | application/problem+json                         |
-| errors.ErrorT                                    | 500, 503, 504                                    | application/problem+json                         |
-| errors.ContinuousDefaultError                    | 4XX, 5XX                                         | \*/\*                                            |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 408, 409, 413, 415, 422, 429 | application/problem+json               |
+| errors.ErrorT                          | 500, 503, 504                          | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
 ## deleteSimulation
 
@@ -235,8 +286,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404, 409       | application/problem+json      |
-| errors.ErrorT                 | 500, 503, 504                 | application/problem+json      |
+| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
+| errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## getSimulation
@@ -310,7 +361,7 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404            | application/problem+json      |
+| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
@@ -320,7 +371,7 @@ Creates a new Simulation from the source Simulation's current state, or from an 
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="fork-simulation" method="post" path="/v1/simulations/{id}/fork" -->
+<!-- UsageSnippet language="typescript" operationID="fork-simulation" method="post" path="/v1/simulations/{id}/fork" example="bad_request_body" -->
 ```typescript
 import { Continuous } from "@continuous-labs/sdk";
 
@@ -468,7 +519,7 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404, 409, 429  | application/problem+json      |
+| errors.ErrorT                 | 401, 403, 404, 409, 429       | application/problem+json      |
 | errors.ErrorT                 | 500, 503, 504                 | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
@@ -618,8 +669,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404, 409       | application/problem+json      |
-| errors.ErrorT                 | 500, 503, 504                 | application/problem+json      |
+| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
+| errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## mintSimulationToken
@@ -628,7 +679,7 @@ Creates another token for requests to the Simulation endpoint. Send it in the X-
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="mint-simulation-token" method="post" path="/v1/simulations/{id}/tokens" -->
+<!-- UsageSnippet language="typescript" operationID="mint-simulation-token" method="post" path="/v1/simulations/{id}/tokens" example="bad_request_body" -->
 ```typescript
 import { Continuous } from "@continuous-labs/sdk";
 

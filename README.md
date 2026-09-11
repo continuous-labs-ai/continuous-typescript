@@ -358,7 +358,7 @@ run();
 ### Error Classes
 **Primary errors:**
 * [`ContinuousError`](./src/models/errors/continuous-error.ts): The base class for HTTP error responses.
-  * [`ErrorT`](./src/models/errors/error-t.ts): Bad Request.
+  * [`ErrorT`](./src/models/errors/error-t.ts): Generic error.
 
 <details><summary>Less common errors (6)</summary>
 

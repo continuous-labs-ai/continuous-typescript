@@ -79,7 +79,7 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404, 422       | application/problem+json      |
+| errors.ErrorT                 | 400, 401, 422                 | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
@@ -87,7 +87,66 @@ run();
 
 Starts an asynchronous Simulator build and returns the Simulator with status building. Send multipart/form-data with a JSON part named request. To build from a document, add a file part named spec with the OpenAPI or WSDL document. For an incremental build, omit spec and set parent_id and instructions.
 
-### Example Usage
+### Example Usage: bad_request_body
+
+<!-- UsageSnippet language="typescript" operationID="build-simulator" method="post" path="/v1/simulators" example="bad_request_body" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulators.buildSimulator({
+    request: {
+      filter: [],
+      instructions: "Return stable example data for every operation.",
+      name: "billing-api",
+      specKind: "openapi",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulatorsBuildSimulator } from "@continuous-labs/sdk/funcs/simulators-build-simulator.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulatorsBuildSimulator(continuous, {
+    request: {
+      filter: [],
+      instructions: "Return stable example data for every operation.",
+      name: "billing-api",
+      specKind: "openapi",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulatorsBuildSimulator failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: simulator_unknown_parent
 
 <!-- UsageSnippet language="typescript" operationID="build-simulator" method="post" path="/v1/simulators" example="simulator_unknown_parent" -->
 ```typescript
@@ -158,15 +217,17 @@ run();
 
 ### Response
 
-**Promise\<[models.Simulator](../../models/simulator.md)\>**
+**Promise\<[operations.BuildSimulatorResponse](../../models/operations/build-simulator-response.md)\>**
 
 ### Errors
 
-| Error Type                                       | Status Code                                      | Content Type                                     |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| errors.ErrorT                                    | 400, 401, 403, 404, 408, 409, 413, 415, 422, 429 | application/problem+json                         |
-| errors.ErrorT                                    | 500, 503                                         | application/problem+json                         |
-| errors.ContinuousDefaultError                    | 4XX, 5XX                                         | \*/\*                                            |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorT                     | 400, 401, 408, 409, 413, 415, 422 | application/problem+json          |
+| errors.ErrorT                     | 429                               | application/problem+json          |
+| errors.ErrorT                     | 500                               | application/problem+json          |
+| errors.ErrorT                     | 503                               | application/problem+json          |
+| errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
 
 ## deleteSimulator
 
@@ -239,7 +300,7 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404, 409, 422  | application/problem+json      |
+| errors.ErrorT                 | 401, 403, 404, 409, 422       | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
@@ -314,7 +375,7 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404, 422       | application/problem+json      |
+| errors.ErrorT                 | 401, 403, 404, 422            | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
@@ -389,6 +450,6 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404, 409, 422  | application/problem+json      |
+| errors.ErrorT                 | 401, 403, 404, 422            | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |

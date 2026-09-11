@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Build World
  *
  * @remarks
- * Starts an asynchronous World build from one or more ready Simulators and returns the World in the building state. Start the World once it is ready to create its Simulations.
+ * Starts an asynchronous World build from ready Simulators and returns it in the building state. Instructions generate and validate initial synthetic data. Start the World once it is ready to create its Simulations.
  */
 export function worldsBuildWorld(
   client: ContinuousCore,
@@ -161,7 +161,7 @@ async function $do(
   >(
     M.json(202, models.World$inboundSchema),
     M.jsonErr(
-      [400, 401, 403, 404, 408, 409, 413, 415, 422],
+      [400, 401, 408, 409, 413, 415, 422],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),

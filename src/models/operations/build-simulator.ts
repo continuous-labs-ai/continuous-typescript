@@ -3,7 +3,11 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { blobLikeSchema } from "../../types/blobs.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type Spec = {
@@ -17,6 +21,11 @@ export type BuildSimulatorRequest = {
    * OpenAPI or WSDL document, UTF-8 encoded, at most 64 MiB. Required unless the request is an incremental build (parent_id and instructions, no spec).
    */
   spec?: Spec | Blob | undefined;
+};
+
+export type BuildSimulatorResponse = {
+  headers: { [k: string]: Array<string> };
+  result: models.Simulator;
 };
 
 /** @internal */
@@ -64,5 +73,32 @@ export function buildSimulatorRequestToJSON(
 ): string {
   return JSON.stringify(
     BuildSimulatorRequest$outboundSchema.parse(buildSimulatorRequest),
+  );
+}
+
+/** @internal */
+export const BuildSimulatorResponse$inboundSchema: z.ZodMiniType<
+  BuildSimulatorResponse,
+  unknown
+> = z.pipe(
+  z.object({
+    Headers: z._default(z.record(z.string(), z.array(z.string())), {}),
+    Result: models.Simulator$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  }),
+);
+
+export function buildSimulatorResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<BuildSimulatorResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BuildSimulatorResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BuildSimulatorResponse' from JSON`,
   );
 }

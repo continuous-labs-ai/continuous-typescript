@@ -161,7 +161,7 @@ async function $do(
   >(
     M.json(201, models.CreatedSimulation$inboundSchema),
     M.jsonErr(
-      [400, 401, 403, 404, 408, 409, 413, 415, 422, 429],
+      [400, 401, 408, 409, 413, 415, 422, 429],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),

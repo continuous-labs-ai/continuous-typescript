@@ -10,17 +10,15 @@ import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import {
-  ResourceError,
-  ResourceError$inboundSchema,
-} from "./resource-error.js";
+import { WorldBuild, WorldBuild$inboundSchema } from "./world-build.js";
+import { WorldError, WorldError$inboundSchema } from "./world-error.js";
 import {
   WorldSimulation,
   WorldSimulation$inboundSchema,
 } from "./world-simulation.js";
 
 /**
- * building while the build runs; ready when the World can be started; running or stopped once its Simulations exist; failed when the first start could not create its Simulations; canceled when the build was canceled.
+ * building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
  */
 export const WorldStatus = {
   Building: "building",
@@ -31,26 +29,27 @@ export const WorldStatus = {
   Canceled: "canceled",
 } as const;
 /**
- * building while the build runs; ready when the World can be started; running or stopped once its Simulations exist; failed when the first start could not create its Simulations; canceled when the build was canceled.
+ * building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
  */
 export type WorldStatus = OpenEnum<typeof WorldStatus>;
 
 export type World = {
+  build?: WorldBuild | undefined;
   /**
-   * World creation time.
+   * Time when the World build started.
    */
   createdAt: Date;
-  error: ResourceError | null;
+  error: WorldError | null;
   /**
    * World ID.
    */
   id: string;
   /**
-   * Build guidance stored with the World.
+   * Instructions for the initial synthetic data and relationships.
    */
   instructions: string;
   /**
-   * Simulations in the World. Empty unless the World is running or stopped.
+   * Created member Simulations. This list is empty before first start.
    */
   simulations: Array<WorldSimulation>;
   /**
@@ -58,7 +57,7 @@ export type World = {
    */
   simulators: Array<string>;
   /**
-   * building while the build runs; ready when the World can be started; running or stopped once its Simulations exist; failed when the first start could not create its Simulations; canceled when the build was canceled.
+   * building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
    */
   status: WorldStatus;
 };
@@ -70,8 +69,9 @@ export const WorldStatus$inboundSchema: z.ZodMiniType<WorldStatus, unknown> =
 /** @internal */
 export const World$inboundSchema: z.ZodMiniType<World, unknown> = z.pipe(
   z.object({
+    build: types.optional(WorldBuild$inboundSchema),
     created_at: types.date(),
-    error: types.nullable(ResourceError$inboundSchema),
+    error: types.nullable(WorldError$inboundSchema),
     id: types.string(),
     instructions: types.string(),
     simulations: z.array(WorldSimulation$inboundSchema),

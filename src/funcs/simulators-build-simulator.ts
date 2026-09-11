@@ -28,7 +28,6 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { isBlobLike } from "../types/blobs.js";
@@ -47,7 +46,7 @@ export function simulatorsBuildSimulator(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.Simulator,
+    operations.BuildSimulatorResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -73,7 +72,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.Simulator,
+      operations.BuildSimulatorResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -188,7 +187,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.Simulator,
+    operations.BuildSimulatorResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -199,14 +198,24 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(202, models.Simulator$inboundSchema),
+    M.json(202, operations.BuildSimulatorResponse$inboundSchema, {
+      key: "Result",
+    }),
     M.jsonErr(
-      [400, 401, 403, 404, 408, 409, 413, 415, 422, 429],
+      [400, 401, 408, 409, 413, 415, 422],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),
-    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
+    M.jsonErr(429, errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
+      hdrs: true,
+    }),
+    M.jsonErr(500, errors.ErrorT$inboundSchema, {
+      ctype: "application/problem+json",
+    }),
+    M.jsonErr(503, errors.ErrorT$inboundSchema, {
+      ctype: "application/problem+json",
+      hdrs: true,
     }),
     M.fail("4XX"),
     M.fail("5XX"),
