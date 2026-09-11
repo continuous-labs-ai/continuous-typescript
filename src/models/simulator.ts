@@ -11,9 +11,9 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import {
-  ResourceError,
-  ResourceError$inboundSchema,
-} from "./resource-error.js";
+  SimulatorError,
+  SimulatorError$inboundSchema,
+} from "./simulator-error.js";
 
 /**
  * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
@@ -46,7 +46,7 @@ export type Simulator = {
    * Simulator creation time.
    */
   createdAt: Date;
-  error: ResourceError | null;
+  error: SimulatorError | null;
   /**
    * Simulator ID.
    */
@@ -84,7 +84,7 @@ export const Simulator$inboundSchema: z.ZodMiniType<Simulator, unknown> = z
   .pipe(
     z.object({
       created_at: types.date(),
-      error: types.nullable(ResourceError$inboundSchema),
+      error: types.nullable(SimulatorError$inboundSchema),
       id: types.string(),
       name: types.string(),
       parent_id: types.nullable(types.string()),

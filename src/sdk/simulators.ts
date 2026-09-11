@@ -39,7 +39,7 @@ export class Simulators extends ClientSDK {
   async buildSimulator(
     request: operations.BuildSimulatorRequest,
     options?: RequestOptions,
-  ): Promise<models.Simulator> {
+  ): Promise<operations.BuildSimulatorResponse> {
     return unwrapAsync(simulatorsBuildSimulator(
       this,
       request,

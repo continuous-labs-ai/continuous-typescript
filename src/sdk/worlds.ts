@@ -36,7 +36,7 @@ export class Worlds extends ClientSDK {
    * Build World
    *
    * @remarks
-   * Starts an asynchronous World build from one or more ready Simulators and returns the World in the building state. Start the World once it is ready to create its Simulations.
+   * Starts an asynchronous World build from ready Simulators and returns it in the building state. Instructions generate and validate initial synthetic data. Start the World once it is ready to create its Simulations.
    */
   async buildWorld(
     request: models.BuildWorldRequest,
