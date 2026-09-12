@@ -9,14 +9,16 @@ import { ClosedEnum } from "../types/enums.js";
 /**
  * Model provider that builds the Simulator. Defaults to claude.
  */
-export const Builder = {
+export const BuildSimulatorRequestBuilder = {
   Openai: "openai",
   Claude: "claude",
 } as const;
 /**
  * Model provider that builds the Simulator. Defaults to claude.
  */
-export type Builder = ClosedEnum<typeof Builder>;
+export type BuildSimulatorRequestBuilder = ClosedEnum<
+  typeof BuildSimulatorRequestBuilder
+>;
 
 /**
  * Source specification format. Omission detects the format.
@@ -34,7 +36,7 @@ export type BuildSimulatorRequest = {
   /**
    * Model provider that builds the Simulator. Defaults to claude.
    */
-  builder?: Builder | undefined;
+  builder?: BuildSimulatorRequestBuilder | undefined;
   /**
    * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId or the WSDL operation name; an operation is kept when any expression matches, and an OpenAPI operation without an operationId is dropped. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation. Not allowed for an incremental build.
    */
@@ -58,9 +60,9 @@ export type BuildSimulatorRequest = {
 };
 
 /** @internal */
-export const Builder$outboundSchema: z.ZodMiniEnum<typeof Builder> = z.enum(
-  Builder,
-);
+export const BuildSimulatorRequestBuilder$outboundSchema: z.ZodMiniEnum<
+  typeof BuildSimulatorRequestBuilder
+> = z.enum(BuildSimulatorRequestBuilder);
 
 /** @internal */
 export const SpecKind$outboundSchema: z.ZodMiniEnum<typeof SpecKind> = z.enum(
@@ -83,7 +85,7 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
   BuildSimulatorRequest
 > = z.pipe(
   z.object({
-    builder: z._default(Builder$outboundSchema, "claude"),
+    builder: z._default(BuildSimulatorRequestBuilder$outboundSchema, "claude"),
     filter: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
     name: z.optional(z.string()),

@@ -14,5 +14,5 @@ let value: WorldBuild = {
 
 | Field                                                      | Type                                                       | Required                                                   | Description                                                |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `stage`                                                    | [models.Stage](../models/stage.md)                         | :heavy_check_mark:                                         | Current phase of starting-data preparation.                |
+| `stage`                                                    | [models.WorldBuildStage](../models/world-build-stage.md)   | :heavy_check_mark:                                         | Current phase of starting-data preparation.                |
 | `summary`                                                  | [models.WorldDataSummary](../models/world-data-summary.md) | :heavy_minus_sign:                                         | N/A                                                        |

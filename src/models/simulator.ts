@@ -11,6 +11,10 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import {
+  SimulatorBuildProgress,
+  SimulatorBuildProgress$inboundSchema,
+} from "./simulator-build-progress.js";
+import {
   SimulatorError,
   SimulatorError$inboundSchema,
 } from "./simulator-error.js";
@@ -42,6 +46,10 @@ export const SimulatorStatus = {
 export type SimulatorStatus = OpenEnum<typeof SimulatorStatus>;
 
 export type Simulator = {
+  /**
+   * The build's latest progress report, or null before the first report. A terminal Simulator keeps its last report.
+   */
+  build: SimulatorBuildProgress | null;
   /**
    * Simulator creation time.
    */
@@ -83,6 +91,7 @@ export const SimulatorStatus$inboundSchema: z.ZodMiniType<
 export const Simulator$inboundSchema: z.ZodMiniType<Simulator, unknown> = z
   .pipe(
     z.object({
+      build: types.nullable(SimulatorBuildProgress$inboundSchema),
       created_at: types.date(),
       error: types.nullable(SimulatorError$inboundSchema),
       id: types.string(),

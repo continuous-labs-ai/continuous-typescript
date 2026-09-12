@@ -15,6 +15,7 @@ export * from "./mint-simulation-token-request.js";
 export * from "./security.js";
 export * from "./simulation-token.js";
 export * from "./simulation.js";
+export * from "./simulator-build-progress.js";
 export * from "./simulator-error.js";
 export * from "./simulator.js";
 export * from "./step.js";

@@ -1,13 +1,13 @@
-# Stage
+# WorldBuildStage
 
 Current phase of starting-data preparation.
 
 ## Example Usage
 
 ```typescript
-import { Stage } from "@continuous-labs/sdk/models";
+import { WorldBuildStage } from "@continuous-labs/sdk/models";
 
-let value: Stage = "planning";
+let value: WorldBuildStage = "complete";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```
