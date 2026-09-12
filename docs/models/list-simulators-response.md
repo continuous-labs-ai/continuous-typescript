@@ -9,6 +9,15 @@ let value: ListSimulatorsResponse = {
   nextCursor: null,
   simulators: [
     {
+      build: {
+        builder: "claude",
+        lastSubmission: "rejected",
+        lastTool: "test",
+        stage: "build",
+        submissions: 1,
+        toolCalls: 7,
+        updatedAt: new Date("2026-01-15T12:05:00Z"),
+      },
       createdAt: new Date("2026-01-15T12:00:00Z"),
       error: null,
       id: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",

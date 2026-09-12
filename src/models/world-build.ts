@@ -17,7 +17,7 @@ import {
 /**
  * Current phase of starting-data preparation.
  */
-export const Stage = {
+export const WorldBuildStage = {
   Planning: "planning",
   Generating: "generating",
   Validating: "validating",
@@ -26,24 +26,26 @@ export const Stage = {
 /**
  * Current phase of starting-data preparation.
  */
-export type Stage = OpenEnum<typeof Stage>;
+export type WorldBuildStage = OpenEnum<typeof WorldBuildStage>;
 
 export type WorldBuild = {
   /**
    * Current phase of starting-data preparation.
    */
-  stage: Stage;
+  stage: WorldBuildStage;
   summary?: WorldDataSummary | undefined;
 };
 
 /** @internal */
-export const Stage$inboundSchema: z.ZodMiniType<Stage, unknown> = openEnums
-  .inboundSchema(Stage);
+export const WorldBuildStage$inboundSchema: z.ZodMiniType<
+  WorldBuildStage,
+  unknown
+> = openEnums.inboundSchema(WorldBuildStage);
 
 /** @internal */
 export const WorldBuild$inboundSchema: z.ZodMiniType<WorldBuild, unknown> = z
   .object({
-    stage: Stage$inboundSchema,
+    stage: WorldBuildStage$inboundSchema,
     summary: types.optional(WorldDataSummary$inboundSchema),
   });
 
