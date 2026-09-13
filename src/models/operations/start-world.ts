@@ -3,17 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import * as models from "../index.js";
 
 export type StartWorldRequest = {
   /**
    * World ID.
    */
   id: string;
+  body?: models.StartWorldRequest | undefined;
 };
 
 /** @internal */
 export type StartWorldRequest$Outbound = {
   id: string;
+  body?: models.StartWorldRequest$Outbound | undefined;
 };
 
 /** @internal */
@@ -22,6 +25,7 @@ export const StartWorldRequest$outboundSchema: z.ZodMiniType<
   StartWorldRequest
 > = z.object({
   id: z.string(),
+  body: z.optional(models.StartWorldRequest$outboundSchema),
 });
 
 export function startWorldRequestToJSON(

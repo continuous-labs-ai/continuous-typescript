@@ -12,6 +12,7 @@ let value: StartWorldRequest = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *string*           | :heavy_check_mark: | World ID.          |
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `id`                                                            | *string*                                                        | :heavy_check_mark:                                              | World ID.                                                       |
+| `body`                                                          | [models.StartWorldRequest](../../models/start-world-request.md) | :heavy_minus_sign:                                              | N/A                                                             |

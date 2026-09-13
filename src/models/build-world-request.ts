@@ -3,8 +3,27 @@
  */
 
 import * as z from "zod/v4-mini";
+import { ClosedEnum } from "../types/enums.js";
+
+/**
+ * Model provider that builds starting data. Defaults to claude.
+ */
+export const BuildWorldRequestBuilder = {
+  Openai: "openai",
+  Claude: "claude",
+} as const;
+/**
+ * Model provider that builds starting data. Defaults to claude.
+ */
+export type BuildWorldRequestBuilder = ClosedEnum<
+  typeof BuildWorldRequestBuilder
+>;
 
 export type BuildWorldRequest = {
+  /**
+   * Model provider that builds starting data. Defaults to claude.
+   */
+  builder?: BuildWorldRequestBuilder | undefined;
   /**
    * Describe the initial data, scenario, and relationships. Populated Worlds support up to 8 selected Simulators and 1,000 starting records in total. Named record types replace their default data. At most 16,384 characters and 65,536 UTF-8 bytes. U+0000 is not permitted.
    */
@@ -16,7 +35,13 @@ export type BuildWorldRequest = {
 };
 
 /** @internal */
+export const BuildWorldRequestBuilder$outboundSchema: z.ZodMiniEnum<
+  typeof BuildWorldRequestBuilder
+> = z.enum(BuildWorldRequestBuilder);
+
+/** @internal */
 export type BuildWorldRequest$Outbound = {
+  builder: string;
   instructions?: string | undefined;
   simulators: Array<string>;
 };
@@ -26,6 +51,7 @@ export const BuildWorldRequest$outboundSchema: z.ZodMiniType<
   BuildWorldRequest$Outbound,
   BuildWorldRequest
 > = z.object({
+  builder: z._default(BuildWorldRequestBuilder$outboundSchema, "claude"),
   instructions: z.optional(z.string()),
   simulators: z.array(z.string()),
 });

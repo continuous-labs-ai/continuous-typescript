@@ -137,6 +137,9 @@ run();
 * [createSimulation](docs/sdks/simulations/README.md#createsimulation) - Create Simulation
 * [deleteSimulation](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation
 * [getSimulation](docs/sdks/simulations/README.md#getsimulation) - Get Simulation
+* [advanceSimulationTime](docs/sdks/simulations/README.md#advancesimulationtime) - Advance Simulation Time
+* [getSimulationAdvance](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance
+* [listSimulationAdvanceEvents](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events
 * [forkSimulation](docs/sdks/simulations/README.md#forksimulation) - Fork Simulation
 * [startSimulation](docs/sdks/simulations/README.md#startsimulation) - Start Simulation
 * [listSimulationSteps](docs/sdks/simulations/README.md#listsimulationsteps) - List Simulation Steps
@@ -157,6 +160,8 @@ run();
 * [buildWorld](docs/sdks/worlds/README.md#buildworld) - Build World
 * [deleteWorld](docs/sdks/worlds/README.md#deleteworld) - Delete World
 * [getWorld](docs/sdks/worlds/README.md#getworld) - Get World
+* [advanceWorldTime](docs/sdks/worlds/README.md#advanceworldtime) - Advance World Time
+* [getWorldAdvance](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance
 * [cancelWorldBuild](docs/sdks/worlds/README.md#cancelworldbuild) - Cancel World Build
 * [startWorld](docs/sdks/worlds/README.md#startworld) - Start World
 * [stopWorld](docs/sdks/worlds/README.md#stopworld) - Stop World
@@ -179,10 +184,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
+- [`simulationsAdvanceSimulationTime`](docs/sdks/simulations/README.md#advancesimulationtime) - Advance Simulation Time
 - [`simulationsCreateSimulation`](docs/sdks/simulations/README.md#createsimulation) - Create Simulation
 - [`simulationsDeleteSimulation`](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation
 - [`simulationsForkSimulation`](docs/sdks/simulations/README.md#forksimulation) - Fork Simulation
 - [`simulationsGetSimulation`](docs/sdks/simulations/README.md#getsimulation) - Get Simulation
+- [`simulationsGetSimulationAdvance`](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance
+- [`simulationsListSimulationAdvanceEvents`](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events
 - [`simulationsListSimulations`](docs/sdks/simulations/README.md#listsimulations) - List Simulations
 - [`simulationsListSimulationSteps`](docs/sdks/simulations/README.md#listsimulationsteps) - List Simulation Steps
 - [`simulationsMintSimulationToken`](docs/sdks/simulations/README.md#mintsimulationtoken) - Mint Simulation Token
@@ -193,10 +201,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`simulatorsDeleteSimulator`](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
 - [`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
 - [`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators) - List Simulators
+- [`worldsAdvanceWorldTime`](docs/sdks/worlds/README.md#advanceworldtime) - Advance World Time
 - [`worldsBuildWorld`](docs/sdks/worlds/README.md#buildworld) - Build World
 - [`worldsCancelWorldBuild`](docs/sdks/worlds/README.md#cancelworldbuild) - Cancel World Build
 - [`worldsDeleteWorld`](docs/sdks/worlds/README.md#deleteworld) - Delete World
 - [`worldsGetWorld`](docs/sdks/worlds/README.md#getworld) - Get World
+- [`worldsGetWorldAdvance`](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance
 - [`worldsListWorlds`](docs/sdks/worlds/README.md#listworlds) - List Worlds
 - [`worldsStartWorld`](docs/sdks/worlds/README.md#startworld) - Start World
 - [`worldsStopWorld`](docs/sdks/worlds/README.md#stopworld) - Stop World

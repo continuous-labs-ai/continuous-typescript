@@ -34,11 +34,19 @@ export const WorldStatus = {
 export type WorldStatus = OpenEnum<typeof WorldStatus>;
 
 export type World = {
+  /**
+   * Current clock advance operation ID, or null.
+   */
+  activeAdvanceId: string | null;
   build?: WorldBuild | undefined;
   /**
    * Time when the World build started.
    */
   createdAt: Date;
+  /**
+   * Current shared simulated time.
+   */
+  currentTime: Date;
   error: WorldError | null;
   /**
    * World ID.
@@ -57,6 +65,10 @@ export type World = {
    */
   simulators: Array<string>;
   /**
+   * Initial simulated time. Before first Start this is the default time.
+   */
+  startTime: Date;
+  /**
    * building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
    */
   status: WorldStatus;
@@ -69,18 +81,24 @@ export const WorldStatus$inboundSchema: z.ZodMiniType<WorldStatus, unknown> =
 /** @internal */
 export const World$inboundSchema: z.ZodMiniType<World, unknown> = z.pipe(
   z.object({
+    active_advance_id: types.nullable(types.string()),
     build: types.optional(WorldBuild$inboundSchema),
     created_at: types.date(),
+    current_time: types.date(),
     error: types.nullable(WorldError$inboundSchema),
     id: types.string(),
     instructions: types.string(),
     simulations: z.array(WorldSimulation$inboundSchema),
     simulators: z.array(types.string()),
+    start_time: types.date(),
     status: WorldStatus$inboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {
+      "active_advance_id": "activeAdvanceId",
       "created_at": "createdAt",
+      "current_time": "currentTime",
+      "start_time": "startTime",
     });
   }),
 );

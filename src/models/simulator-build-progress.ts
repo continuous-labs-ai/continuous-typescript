@@ -28,14 +28,16 @@ export type SimulatorBuildProgressBuilder = OpenEnum<
 /**
  * Outcome of the most recent submit attempt, or null.
  */
-export const LastSubmission = {
+export const SimulatorBuildProgressLastSubmission = {
   Accepted: "accepted",
   Rejected: "rejected",
 } as const;
 /**
  * Outcome of the most recent submit attempt, or null.
  */
-export type LastSubmission = OpenEnum<typeof LastSubmission>;
+export type SimulatorBuildProgressLastSubmission = OpenEnum<
+  typeof SimulatorBuildProgressLastSubmission
+>;
 
 /**
  * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
@@ -60,7 +62,7 @@ export type SimulatorBuildProgress = {
   /**
    * Outcome of the most recent submit attempt, or null.
    */
-  lastSubmission: LastSubmission | null;
+  lastSubmission: SimulatorBuildProgressLastSubmission | null;
   /**
    * Name of the most recent tool call, or null.
    */
@@ -90,10 +92,10 @@ export const SimulatorBuildProgressBuilder$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(SimulatorBuildProgressBuilder);
 
 /** @internal */
-export const LastSubmission$inboundSchema: z.ZodMiniType<
-  LastSubmission,
+export const SimulatorBuildProgressLastSubmission$inboundSchema: z.ZodMiniType<
+  SimulatorBuildProgressLastSubmission,
   unknown
-> = openEnums.inboundSchema(LastSubmission);
+> = openEnums.inboundSchema(SimulatorBuildProgressLastSubmission);
 
 /** @internal */
 export const SimulatorBuildProgressStage$inboundSchema: z.ZodMiniType<
@@ -108,7 +110,9 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     builder: SimulatorBuildProgressBuilder$inboundSchema,
-    last_submission: types.nullable(LastSubmission$inboundSchema),
+    last_submission: types.nullable(
+      SimulatorBuildProgressLastSubmission$inboundSchema,
+    ),
     last_tool: types.nullable(types.string()),
     stage: SimulatorBuildProgressStage$inboundSchema,
     submissions: types.number(),
