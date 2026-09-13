@@ -3,12 +3,35 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
+import * as openEnums from "../types/enums.js";
+import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
+/**
+ * api for an API write or advance for a clock advance.
+ */
+export const Kind = {
+  Api: "api",
+  Advance: "advance",
+} as const;
+/**
+ * api for an API write or advance for a clock advance.
+ */
+export type Kind = OpenEnum<typeof Kind>;
+
 export type Step = {
+  /**
+   * Advance that produced this step, if any.
+   */
+  advanceId: string | null;
+  /**
+   * api for an API write or advance for a clock advance.
+   */
+  kind: Kind;
   /**
    * HTTP method and path of the request that produced this step, without the query string, for example POST /v1/widgets.
    */
@@ -17,13 +40,38 @@ export type Step = {
    * Step number. Use it as at_step when you fork.
    */
   step: number;
+  /**
+   * Clock after the step.
+   */
+  timeAfter: Date | null;
+  /**
+   * Clock before the step.
+   */
+  timeBefore: Date | null;
 };
 
 /** @internal */
-export const Step$inboundSchema: z.ZodMiniType<Step, unknown> = z.object({
-  label: types.string(),
-  step: types.number(),
-});
+export const Kind$inboundSchema: z.ZodMiniType<Kind, unknown> = openEnums
+  .inboundSchema(Kind);
+
+/** @internal */
+export const Step$inboundSchema: z.ZodMiniType<Step, unknown> = z.pipe(
+  z.object({
+    advance_id: types.nullable(types.string()),
+    kind: Kind$inboundSchema,
+    label: types.string(),
+    step: types.number(),
+    time_after: types.nullable(types.date()),
+    time_before: types.nullable(types.date()),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "advance_id": "advanceId",
+      "time_after": "timeAfter",
+      "time_before": "timeBefore",
+    });
+  }),
+);
 
 export function stepFromJSON(
   jsonString: string,

@@ -10,6 +10,9 @@ Create Simulations from ready Simulators, then fork, stop, start, and delete the
 * [createSimulation](#createsimulation) - Create Simulation
 * [deleteSimulation](#deletesimulation) - Delete Simulation
 * [getSimulation](#getsimulation) - Get Simulation
+* [advanceSimulationTime](#advancesimulationtime) - Advance Simulation Time
+* [getSimulationAdvance](#getsimulationadvance) - Get Simulation Clock Advance
+* [listSimulationAdvanceEvents](#listsimulationadvanceevents) - List Clock Advance Events
 * [forkSimulation](#forksimulation) - Fork Simulation
 * [startSimulation](#startsimulation) - Start Simulation
 * [listSimulationSteps](#listsimulationsteps) - List Simulation Steps
@@ -362,6 +365,243 @@ run();
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
+| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## advanceSimulationTime
+
+Schedules an absolute clock advance. Each successful advance commits all due local events in one step. World members advance through their World. Poll the returned operation until it completes.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="advance-simulation-time" method="post" path="/v1/simulations/{id}/advance-time" example="bad_request_body" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulations.advanceSimulationTime({
+    id: "<id>",
+    idempotencyKey: "<value>",
+    body: {
+      to: new Date("2026-11-25T01:01:24.107Z"),
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulationsAdvanceSimulationTime } from "@continuous-labs/sdk/funcs/simulations-advance-simulation-time.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulationsAdvanceSimulationTime(continuous, {
+    id: "<id>",
+    idempotencyKey: "<value>",
+    body: {
+      to: new Date("2026-11-25T01:01:24.107Z"),
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulationsAdvanceSimulationTime failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.AdvanceSimulationTimeRequest](../../models/operations/advance-simulation-time-request.md)                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.ClockAdvance](../../models/clock-advance.md)\>**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
+| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
+
+## getSimulationAdvance
+
+Returns durable clock progress, the event count, and the committed step or failure.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="get-simulation-advance" method="get" path="/v1/simulations/{id}/advances/{advance_id}" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulations.getSimulationAdvance({
+    id: "<id>",
+    advanceId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulationsGetSimulationAdvance } from "@continuous-labs/sdk/funcs/simulations-get-simulation-advance.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulationsGetSimulationAdvance(continuous, {
+    id: "<id>",
+    advanceId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulationsGetSimulationAdvance failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSimulationAdvanceRequest](../../models/operations/get-simulation-advance-request.md)                                                                            | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.ClockAdvance](../../models/clock-advance.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
+| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## listSimulationAdvanceEvents
+
+Returns the ordered event trace for a committed advance. The Simulation must be running or paused. Forks retain traces in their inherited state.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="list-simulation-advance-events" method="get" path="/v1/simulations/{id}/advances/{advance_id}/events" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulations.listSimulationAdvanceEvents({
+    id: "<id>",
+    advanceId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulationsListSimulationAdvanceEvents } from "@continuous-labs/sdk/funcs/simulations-list-simulation-advance-events.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulationsListSimulationAdvanceEvents(continuous, {
+    id: "<id>",
+    advanceId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulationsListSimulationAdvanceEvents failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListSimulationAdvanceEventsRequest](../../models/operations/list-simulation-advance-events-request.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.ListAdvanceEventsOutputBody](../../models/list-advance-events-output-body.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ErrorT                 | 400, 401, 403, 404, 409, 422  | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 

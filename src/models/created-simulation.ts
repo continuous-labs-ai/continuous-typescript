@@ -26,9 +26,17 @@ export type CreatedSimulationStatus = OpenEnum<typeof CreatedSimulationStatus>;
 
 export type CreatedSimulation = {
   /**
+   * Current clock advance operation ID, or null.
+   */
+  activeAdvanceId: string | null;
+  /**
    * Simulation creation time.
    */
   createdAt: Date;
+  /**
+   * Current simulated time.
+   */
+  currentTime: Date;
   /**
    * Base URL for requests to the Simulation.
    */
@@ -54,6 +62,10 @@ export type CreatedSimulation = {
    */
   simulatorId: string;
   /**
+   * Initial simulated time.
+   */
+  startTime: Date;
+  /**
    * Current status. running serves requests. paused means the Simulation was idle and the platform paused it; the next request wakes it. stopped means its state is saved and requests return 409 until you start it.
    */
   status: CreatedSimulationStatus;
@@ -75,22 +87,28 @@ export const CreatedSimulation$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
+    active_advance_id: types.nullable(types.string()),
     created_at: types.date(),
+    current_time: types.date(),
     endpoint: types.string(),
     expires_at: types.date(),
     id: types.string(),
     name: types.string(),
     parent_id: types.nullable(types.string()),
     simulator_id: types.string(),
+    start_time: types.date(),
     status: CreatedSimulationStatus$inboundSchema,
     token: types.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
+      "active_advance_id": "activeAdvanceId",
       "created_at": "createdAt",
+      "current_time": "currentTime",
       "expires_at": "expiresAt",
       "parent_id": "parentId",
       "simulator_id": "simulatorId",
+      "start_time": "startTime",
     });
   }),
 );

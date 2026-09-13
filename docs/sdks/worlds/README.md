@@ -10,6 +10,8 @@ Build Worlds from one or more Simulators and start or stop their Simulations tog
 * [buildWorld](#buildworld) - Build World
 * [deleteWorld](#deleteworld) - Delete World
 * [getWorld](#getworld) - Get World
+* [advanceWorldTime](#advanceworldtime) - Advance World Time
+* [getWorldAdvance](#getworldadvance) - Get World Clock Advance
 * [cancelWorldBuild](#cancelworldbuild) - Cancel World Build
 * [startWorld](#startworld) - Start World
 * [stopWorld](#stopworld) - Stop World
@@ -371,6 +373,166 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
+## advanceWorldTime
+
+Fences all members, advances each local clock, and returns a durable operation. A partial failure keeps members fenced while the operation retries. The World clock changes after all members commit.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="advance-world-time" method="post" path="/v1/worlds/{id}/advance-time" example="bad_request_body" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.worlds.advanceWorldTime({
+    id: "<id>",
+    idempotencyKey: "<value>",
+    body: {
+      to: new Date("2026-11-05T04:15:58.628Z"),
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { worldsAdvanceWorldTime } from "@continuous-labs/sdk/funcs/worlds-advance-world-time.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await worldsAdvanceWorldTime(continuous, {
+    id: "<id>",
+    idempotencyKey: "<value>",
+    body: {
+      to: new Date("2026-11-05T04:15:58.628Z"),
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("worldsAdvanceWorldTime failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.AdvanceWorldTimeRequest](../../models/operations/advance-world-time-request.md)                                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.ClockAdvance](../../models/clock-advance.md)\>**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
+| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
+
+## getWorldAdvance
+
+Returns durable progress for each member. Members remain fenced until the whole advance can finish.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="get-world-advance" method="get" path="/v1/worlds/{id}/advances/{advance_id}" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.worlds.getWorldAdvance({
+    id: "<id>",
+    advanceId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { worldsGetWorldAdvance } from "@continuous-labs/sdk/funcs/worlds-get-world-advance.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await worldsGetWorldAdvance(continuous, {
+    id: "<id>",
+    advanceId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("worldsGetWorldAdvance failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetWorldAdvanceRequest](../../models/operations/get-world-advance-request.md)                                                                                      | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.ClockAdvance](../../models/clock-advance.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
+| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+
 ## cancelWorldBuild
 
 Cancels an active World build. Repeated cancellation returns the current World.
@@ -515,11 +677,11 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409, 429       | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 429 | application/problem+json                    |
+| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
 ## stopWorld
 

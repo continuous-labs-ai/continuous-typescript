@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
@@ -13,6 +14,32 @@ import {
   WorldDataSummary,
   WorldDataSummary$inboundSchema,
 } from "./world-data-summary.js";
+
+/**
+ * Selected model provider. Absent for builds created before provider selection.
+ */
+export const WorldBuildBuilder = {
+  Openai: "openai",
+  Claude: "claude",
+} as const;
+/**
+ * Selected model provider. Absent for builds created before provider selection.
+ */
+export type WorldBuildBuilder = OpenEnum<typeof WorldBuildBuilder>;
+
+/**
+ * Outcome of the most recent plan submission.
+ */
+export const WorldBuildLastSubmission = {
+  Accepted: "accepted",
+  Rejected: "rejected",
+} as const;
+/**
+ * Outcome of the most recent plan submission.
+ */
+export type WorldBuildLastSubmission = OpenEnum<
+  typeof WorldBuildLastSubmission
+>;
 
 /**
  * Current phase of starting-data preparation.
@@ -30,11 +57,43 @@ export type WorldBuildStage = OpenEnum<typeof WorldBuildStage>;
 
 export type WorldBuild = {
   /**
+   * Selected model provider. Absent for builds created before provider selection.
+   */
+  builder?: WorldBuildBuilder | undefined;
+  /**
+   * Outcome of the most recent plan submission.
+   */
+  lastSubmission?: WorldBuildLastSubmission | undefined;
+  /**
+   * Name of the most recent tool. Tool arguments and output are private.
+   */
+  lastTool?: string | undefined;
+  /**
    * Current phase of starting-data preparation.
    */
   stage: WorldBuildStage;
+  /**
+   * Number of submitted starting-data plans.
+   */
+  submissions?: number | undefined;
   summary?: WorldDataSummary | undefined;
+  /**
+   * Number of agent tool calls.
+   */
+  toolCalls?: number | undefined;
 };
+
+/** @internal */
+export const WorldBuildBuilder$inboundSchema: z.ZodMiniType<
+  WorldBuildBuilder,
+  unknown
+> = openEnums.inboundSchema(WorldBuildBuilder);
+
+/** @internal */
+export const WorldBuildLastSubmission$inboundSchema: z.ZodMiniType<
+  WorldBuildLastSubmission,
+  unknown
+> = openEnums.inboundSchema(WorldBuildLastSubmission);
 
 /** @internal */
 export const WorldBuildStage$inboundSchema: z.ZodMiniType<
@@ -44,10 +103,24 @@ export const WorldBuildStage$inboundSchema: z.ZodMiniType<
 
 /** @internal */
 export const WorldBuild$inboundSchema: z.ZodMiniType<WorldBuild, unknown> = z
-  .object({
-    stage: WorldBuildStage$inboundSchema,
-    summary: types.optional(WorldDataSummary$inboundSchema),
-  });
+  .pipe(
+    z.object({
+      builder: types.optional(WorldBuildBuilder$inboundSchema),
+      last_submission: types.optional(WorldBuildLastSubmission$inboundSchema),
+      last_tool: types.optional(types.string()),
+      stage: WorldBuildStage$inboundSchema,
+      submissions: types.optional(types.number()),
+      summary: types.optional(WorldDataSummary$inboundSchema),
+      tool_calls: types.optional(types.number()),
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "last_submission": "lastSubmission",
+        "last_tool": "lastTool",
+        "tool_calls": "toolCalls",
+      });
+    }),
+  );
 
 export function worldBuildFromJSON(
   jsonString: string,

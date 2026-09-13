@@ -14,12 +14,17 @@ export type CreateSimulationRequest = {
    * ID of the ready Simulator.
    */
   simulatorId: string;
+  /**
+   * Initial simulated time in RFC 3339 format. Omission uses 2024-01-01T00:00:00Z. Precision is milliseconds.
+   */
+  startTime?: Date | undefined;
 };
 
 /** @internal */
 export type CreateSimulationRequest$Outbound = {
   name?: string | undefined;
   simulator_id: string;
+  start_time?: string | undefined;
 };
 
 /** @internal */
@@ -30,10 +35,12 @@ export const CreateSimulationRequest$outboundSchema: z.ZodMiniType<
   z.object({
     name: z.optional(z.string()),
     simulatorId: z.string(),
+    startTime: z.optional(z.pipe(z.date(), z.transform(v => v.toISOString()))),
   }),
   z.transform((v) => {
     return remap$(v, {
       simulatorId: "simulator_id",
+      startTime: "start_time",
     });
   }),
 );
