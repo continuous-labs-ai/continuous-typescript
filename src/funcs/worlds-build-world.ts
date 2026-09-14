@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Build World
  *
  * @remarks
- * Starts an asynchronous World build from ready Simulators and returns it in the building state. Instructions generate and validate initial synthetic data. Start the World once it is ready to create its Simulations.
+ * Starts an asynchronous World build from ready Simulators and returns it in the pending state. Builds start in queue order when workspace capacity is available. Instructions generate and validate initial synthetic data. Start the World once it is ready to create its Simulations.
  */
 export function worldsBuildWorld(
   client: ContinuousCore,

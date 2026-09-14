@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
@@ -29,9 +30,21 @@ export type BuildWorldRequest = {
    */
   instructions?: string | undefined;
   /**
+   * Name for the World. Omission generates a name. The ID stays its identity, and names need not be unique.
+   */
+  name?: string | undefined;
+  /**
    * Simulator IDs for the World.
    */
   simulators: Array<string>;
+  /**
+   * Simulated time the World starts at, in RFC 3339 format. Omission uses 2024-01-01T00:00:00Z. Saved starting data keeps its build dates.
+   */
+  startTime?: Date | undefined;
+  /**
+   * Time limit for generation and validation in seconds, from 1 to 43200. Defaults to 3600 (one hour). Excludes queue wait and finalization. Retries share the same deadline.
+   */
+  timeoutSeconds?: number | undefined;
 };
 
 /** @internal */
@@ -43,18 +56,32 @@ export const BuildWorldRequestBuilder$outboundSchema: z.ZodMiniEnum<
 export type BuildWorldRequest$Outbound = {
   builder: string;
   instructions?: string | undefined;
+  name?: string | undefined;
   simulators: Array<string>;
+  start_time?: string | undefined;
+  timeout_seconds: number;
 };
 
 /** @internal */
 export const BuildWorldRequest$outboundSchema: z.ZodMiniType<
   BuildWorldRequest$Outbound,
   BuildWorldRequest
-> = z.object({
-  builder: z._default(BuildWorldRequestBuilder$outboundSchema, "claude"),
-  instructions: z.optional(z.string()),
-  simulators: z.array(z.string()),
-});
+> = z.pipe(
+  z.object({
+    builder: z._default(BuildWorldRequestBuilder$outboundSchema, "claude"),
+    instructions: z.optional(z.string()),
+    name: z.optional(z.string()),
+    simulators: z.array(z.string()),
+    startTime: z.optional(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    timeoutSeconds: z._default(z.int(), 3600),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      startTime: "start_time",
+      timeoutSeconds: "timeout_seconds",
+    });
+  }),
+);
 
 export function buildWorldRequestToJSON(
   buildWorldRequest: BuildWorldRequest,

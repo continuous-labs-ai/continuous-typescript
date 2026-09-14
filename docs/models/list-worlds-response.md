@@ -10,11 +10,31 @@ let value: ListWorldsResponse = {
   worlds: [
     {
       activeAdvanceId: null,
+      build: {
+        builder: "claude",
+        lastSubmission: "rejected",
+        lastTool: "test",
+        recentTools: [
+          {
+            at: new Date("2026-01-15T12:04:00Z"),
+            tool: "test",
+          },
+          {
+            at: new Date("2026-01-15T12:05:00Z"),
+            tool: "submit",
+          },
+        ],
+        stage: "generating",
+        submissions: 1,
+        summary: null,
+        toolCalls: 7,
+      },
       createdAt: new Date("2026-01-15T12:00:00Z"),
       currentTime: new Date("2024-01-01T00:00:00Z"),
       error: null,
       id: "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7",
       instructions: "Use stable example data for each Simulator.",
+      name: "open-orders",
       simulations: [],
       simulators: [
         "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",

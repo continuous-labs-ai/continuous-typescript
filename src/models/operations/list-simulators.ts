@@ -9,6 +9,7 @@ import { ClosedEnum } from "../../types/enums.js";
  * Optional build status filter.
  */
 export const ListSimulatorsStatus = {
+  Pending: "pending",
   Building: "building",
   Ready: "ready",
   Failed: "failed",

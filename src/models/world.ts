@@ -10,7 +10,10 @@ import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import { WorldBuild, WorldBuild$inboundSchema } from "./world-build.js";
+import {
+  WorldBuildProgress,
+  WorldBuildProgress$inboundSchema,
+} from "./world-build-progress.js";
 import { WorldError, WorldError$inboundSchema } from "./world-error.js";
 import {
   WorldSimulation,
@@ -18,9 +21,10 @@ import {
 } from "./world-simulation.js";
 
 /**
- * building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
+ * pending while waiting for capacity; building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
  */
 export const WorldStatus = {
+  Pending: "pending",
   Building: "building",
   Ready: "ready",
   Running: "running",
@@ -29,7 +33,7 @@ export const WorldStatus = {
   Canceled: "canceled",
 } as const;
 /**
- * building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
+ * pending while waiting for capacity; building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
  */
 export type WorldStatus = OpenEnum<typeof WorldStatus>;
 
@@ -38,9 +42,12 @@ export type World = {
    * Current clock advance operation ID, or null.
    */
   activeAdvanceId: string | null;
-  build?: WorldBuild | undefined;
   /**
-   * Time when the World build started.
+   * The build's latest progress report and verified starting data, or null before the first report.
+   */
+  build: WorldBuildProgress | null;
+  /**
+   * Time when the World was created.
    */
   createdAt: Date;
   /**
@@ -57,6 +64,10 @@ export type World = {
    */
   instructions: string;
   /**
+   * Name for the World.
+   */
+  name: string;
+  /**
    * Created member Simulations. This list is empty before first start.
    */
   simulations: Array<WorldSimulation>;
@@ -65,11 +76,11 @@ export type World = {
    */
   simulators: Array<string>;
   /**
-   * Initial simulated time. Before first Start this is the default time.
+   * Simulated time the World starts at: chosen at build, and changeable on the first Start.
    */
   startTime: Date;
   /**
-   * building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
+   * pending while waiting for capacity; building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
    */
   status: WorldStatus;
 };
@@ -82,12 +93,13 @@ export const WorldStatus$inboundSchema: z.ZodMiniType<WorldStatus, unknown> =
 export const World$inboundSchema: z.ZodMiniType<World, unknown> = z.pipe(
   z.object({
     active_advance_id: types.nullable(types.string()),
-    build: types.optional(WorldBuild$inboundSchema),
+    build: types.nullable(WorldBuildProgress$inboundSchema),
     created_at: types.date(),
     current_time: types.date(),
     error: types.nullable(WorldError$inboundSchema),
     id: types.string(),
     instructions: types.string(),
+    name: types.string(),
     simulations: z.array(WorldSimulation$inboundSchema),
     simulators: z.array(types.string()),
     start_time: types.date(),

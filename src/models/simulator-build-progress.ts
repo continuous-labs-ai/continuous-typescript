@@ -9,6 +9,10 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import {
+  BuildToolCall,
+  BuildToolCall$inboundSchema,
+} from "./build-tool-call.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
@@ -68,6 +72,10 @@ export type SimulatorBuildProgress = {
    */
   lastTool: string | null;
   /**
+   * The most recent tool calls, oldest first, at most 20.
+   */
+  recentTools: Array<BuildToolCall>;
+  /**
    * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
    */
   stage: SimulatorBuildProgressStage;
@@ -114,6 +122,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
       SimulatorBuildProgressLastSubmission$inboundSchema,
     ),
     last_tool: types.nullable(types.string()),
+    recent_tools: z.array(BuildToolCall$inboundSchema),
     stage: SimulatorBuildProgressStage$inboundSchema,
     submissions: types.number(),
     tool_calls: types.number(),
@@ -123,6 +132,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
     return remap$(v, {
       "last_submission": "lastSubmission",
       "last_tool": "lastTool",
+      "recent_tools": "recentTools",
       "tool_calls": "toolCalls",
       "updated_at": "updatedAt",
     });

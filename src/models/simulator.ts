@@ -32,16 +32,29 @@ export const Source = {
 export type Source = OpenEnum<typeof Source>;
 
 /**
- * building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
+ * The specification the Simulator was built from, or null until a build has read it.
+ */
+export const SimulatorSpecKind = {
+  Openapi: "openapi",
+  Wsdl: "wsdl",
+} as const;
+/**
+ * The specification the Simulator was built from, or null until a build has read it.
+ */
+export type SimulatorSpecKind = OpenEnum<typeof SimulatorSpecKind>;
+
+/**
+ * pending while waiting for capacity; building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
  */
 export const SimulatorStatus = {
+  Pending: "pending",
   Building: "building",
   Ready: "ready",
   Failed: "failed",
   Canceled: "canceled",
 } as const;
 /**
- * building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
+ * pending while waiting for capacity; building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
  */
 export type SimulatorStatus = OpenEnum<typeof SimulatorStatus>;
 
@@ -60,6 +73,10 @@ export type Simulator = {
    */
   id: string;
   /**
+   * The instructions the build followed, or empty when none were given.
+   */
+  instructions: string;
+  /**
    * Simulator name. Names cannot start with smr_.
    */
   name: string;
@@ -72,7 +89,11 @@ export type Simulator = {
    */
   source: Source;
   /**
-   * building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
+   * The specification the Simulator was built from, or null until a build has read it.
+   */
+  specKind: SimulatorSpecKind | null;
+  /**
+   * pending while waiting for capacity; building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
    */
   status: SimulatorStatus;
 };
@@ -80,6 +101,12 @@ export type Simulator = {
 /** @internal */
 export const Source$inboundSchema: z.ZodMiniType<Source, unknown> = openEnums
   .inboundSchema(Source);
+
+/** @internal */
+export const SimulatorSpecKind$inboundSchema: z.ZodMiniType<
+  SimulatorSpecKind,
+  unknown
+> = openEnums.inboundSchema(SimulatorSpecKind);
 
 /** @internal */
 export const SimulatorStatus$inboundSchema: z.ZodMiniType<
@@ -95,15 +122,18 @@ export const Simulator$inboundSchema: z.ZodMiniType<Simulator, unknown> = z
       created_at: types.date(),
       error: types.nullable(SimulatorError$inboundSchema),
       id: types.string(),
+      instructions: types.string(),
       name: types.string(),
       parent_id: types.nullable(types.string()),
       source: Source$inboundSchema,
+      spec_kind: types.nullable(SimulatorSpecKind$inboundSchema),
       status: SimulatorStatus$inboundSchema,
     }),
     z.transform((v) => {
       return remap$(v, {
         "created_at": "createdAt",
         "parent_id": "parentId",
+        "spec_kind": "specKind",
       });
     }),
   );
