@@ -23,14 +23,16 @@ export type BuildSimulatorRequestBuilder = ClosedEnum<
 /**
  * Source specification format. Omission detects the format.
  */
-export const SpecKind = {
+export const BuildSimulatorRequestSpecKind = {
   Openapi: "openapi",
   Wsdl: "wsdl",
 } as const;
 /**
  * Source specification format. Omission detects the format.
  */
-export type SpecKind = ClosedEnum<typeof SpecKind>;
+export type BuildSimulatorRequestSpecKind = ClosedEnum<
+  typeof BuildSimulatorRequestSpecKind
+>;
 
 export type BuildSimulatorRequest = {
   /**
@@ -56,7 +58,11 @@ export type BuildSimulatorRequest = {
   /**
    * Source specification format. Omission detects the format.
    */
-  specKind?: SpecKind | undefined;
+  specKind?: BuildSimulatorRequestSpecKind | undefined;
+  /**
+   * Time limit for generation and validation in seconds, from 1 to 43200. Defaults to 3600 (one hour). Excludes queue wait and finalization. Retries share the same deadline.
+   */
+  timeoutSeconds?: number | undefined;
 };
 
 /** @internal */
@@ -65,9 +71,9 @@ export const BuildSimulatorRequestBuilder$outboundSchema: z.ZodMiniEnum<
 > = z.enum(BuildSimulatorRequestBuilder);
 
 /** @internal */
-export const SpecKind$outboundSchema: z.ZodMiniEnum<typeof SpecKind> = z.enum(
-  SpecKind,
-);
+export const BuildSimulatorRequestSpecKind$outboundSchema: z.ZodMiniEnum<
+  typeof BuildSimulatorRequestSpecKind
+> = z.enum(BuildSimulatorRequestSpecKind);
 
 /** @internal */
 export type BuildSimulatorRequest$Outbound = {
@@ -77,6 +83,7 @@ export type BuildSimulatorRequest$Outbound = {
   name?: string | undefined;
   parent_id?: string | undefined;
   spec_kind?: string | undefined;
+  timeout_seconds: number;
 };
 
 /** @internal */
@@ -90,12 +97,14 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
     instructions: z.optional(z.string()),
     name: z.optional(z.string()),
     parentId: z.optional(z.string()),
-    specKind: z.optional(SpecKind$outboundSchema),
+    specKind: z.optional(BuildSimulatorRequestSpecKind$outboundSchema),
+    timeoutSeconds: z._default(z.int(), 3600),
   }),
   z.transform((v) => {
     return remap$(v, {
       parentId: "parent_id",
       specKind: "spec_kind",
+      timeoutSeconds: "timeout_seconds",
     });
   }),
 );

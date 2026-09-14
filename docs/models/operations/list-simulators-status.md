@@ -13,5 +13,5 @@ let value: ListSimulatorsStatus = "failed";
 ## Values
 
 ```typescript
-"building" | "ready" | "failed" | "canceled"
+"pending" | "building" | "ready" | "failed" | "canceled"
 ```

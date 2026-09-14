@@ -1,6 +1,6 @@
 # SimulatorStatus
 
-building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
+pending while waiting for capacity; building while the build runs; ready when Simulations, Worlds, and incremental builds can use it; failed when the build failed; canceled when a cancel request took effect.
 
 ## Example Usage
 
@@ -15,5 +15,5 @@ let value: SimulatorStatus = "canceled";
 ## Values
 
 ```typescript
-"building" | "ready" | "failed" | "canceled" | Unrecognized<string>
+"pending" | "building" | "ready" | "failed" | "canceled" | Unrecognized<string>
 ```

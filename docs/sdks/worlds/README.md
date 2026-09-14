@@ -89,7 +89,7 @@ run();
 
 ## buildWorld
 
-Starts an asynchronous World build from ready Simulators and returns it in the building state. Instructions generate and validate initial synthetic data. Start the World once it is ready to create its Simulations.
+Starts an asynchronous World build from ready Simulators and returns it in the pending state. Builds start in queue order when workspace capacity is available. Instructions generate and validate initial synthetic data. Start the World once it is ready to create its Simulations.
 
 ### Example Usage: bad_request_body
 

@@ -4,6 +4,7 @@
 
 export * from "./advance-time-input-body.js";
 export * from "./build-simulator-request.js";
+export * from "./build-tool-call.js";
 export * from "./build-world-request.js";
 export * from "./clock-advance-member.js";
 export * from "./clock-advance.js";
@@ -26,7 +27,7 @@ export * from "./simulator-error.js";
 export * from "./simulator.js";
 export * from "./start-world-request.js";
 export * from "./step.js";
-export * from "./world-build.js";
+export * from "./world-build-progress.js";
 export * from "./world-data-summary.js";
 export * from "./world-error.js";
 export * from "./world-record-count.js";
