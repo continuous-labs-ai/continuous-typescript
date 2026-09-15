@@ -14,7 +14,7 @@ Build Simulators from OpenAPI or WSDL documents, check or cancel a build, and de
 
 ## listSimulators
 
-Returns all Simulators that the API key can access. Results can be filtered by status or name.
+Returns all Simulators that the API key can access. Results can be filtered by status.
 
 ### Example Usage
 

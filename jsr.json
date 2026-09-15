@@ -2,7 +2,7 @@
 
 {
   "name": "@continuous-labs/sdk",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "exports": {
     ".": "./src/index.ts",    
     "./models/errors": "./src/models/errors/index.ts",    

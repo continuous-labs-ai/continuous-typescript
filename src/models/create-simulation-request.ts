@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type CreateSimulationRequest = {
   /**
-   * Optional Simulation name. Omission generates a name.
+   * Name for the Simulation. Omission generates a name. The ID stays its identity, and names need not be unique.
    */
   name?: string | undefined;
   /**

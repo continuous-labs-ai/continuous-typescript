@@ -11,7 +11,7 @@ export type ForkSimulationRequest = {
    */
   atStep?: number | undefined;
   /**
-   * Optional child Simulation name. Omission generates a name.
+   * Name for the child Simulation. Omission generates a name. The ID stays its identity, and names need not be unique.
    */
   name?: string | undefined;
 };
