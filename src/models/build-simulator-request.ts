@@ -48,7 +48,7 @@ export type BuildSimulatorRequest = {
    */
   instructions?: string | undefined;
   /**
-   * Optional Simulator name. Names cannot start with smr_. Omission generates a name.
+   * Name for the Simulator. Omission generates a name. The ID stays its identity, and names need not be unique.
    */
   name?: string | undefined;
   /**

@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * List Simulators
  *
  * @remarks
- * Returns all Simulators that the API key can access. Results can be filtered by status or name.
+ * Returns all Simulators that the API key can access. Results can be filtered by status.
  */
 export function simulatorsListSimulators(
   client: ContinuousCore,
@@ -100,7 +100,6 @@ async function $do(
   const query = encodeFormQuery({
     "cursor": payload?.cursor,
     "limit": payload?.limit,
-    "name": payload?.name,
     "status": payload?.status,
   }, { explode: false });
 

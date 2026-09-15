@@ -26,10 +26,6 @@ export type ListSimulatorsRequest = {
    */
   status?: ListSimulatorsStatus | undefined;
   /**
-   * Return only the Simulator with this exact name. For a Simulator from the Continuous catalog, prefix the name with continuous/. Names cannot start with smr_.
-   */
-  name?: string | undefined;
-  /**
    * Page size. Values below 1 use 50. Values above 200 use 200.
    */
   limit?: number | undefined;
@@ -47,7 +43,6 @@ export const ListSimulatorsStatus$outboundSchema: z.ZodMiniEnum<
 /** @internal */
 export type ListSimulatorsRequest$Outbound = {
   status?: string | undefined;
-  name?: string | undefined;
   limit: number;
   cursor?: string | undefined;
 };
@@ -58,7 +53,6 @@ export const ListSimulatorsRequest$outboundSchema: z.ZodMiniType<
   ListSimulatorsRequest
 > = z.object({
   status: z.optional(ListSimulatorsStatus$outboundSchema),
-  name: z.optional(z.string()),
   limit: z._default(z.int(), 50),
   cursor: z.optional(z.string()),
 });

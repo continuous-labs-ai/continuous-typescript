@@ -77,7 +77,7 @@ export type Simulator = {
    */
   instructions: string;
   /**
-   * Simulator name. Names cannot start with smr_.
+   * Simulator name. The ID is its identity, and names need not be unique.
    */
   name: string;
   /**

@@ -50,7 +50,7 @@ export type CreatedSimulation = {
    */
   id: string;
   /**
-   * Simulation name.
+   * Simulation name. The ID is its identity, and names need not be unique.
    */
   name: string;
   /**
