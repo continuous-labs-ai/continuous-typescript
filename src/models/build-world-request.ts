@@ -42,7 +42,7 @@ export type BuildWorldRequest = {
    */
   startTime?: Date | undefined;
   /**
-   * Time limit for generation and validation in seconds, from 1 to 72000. Defaults to 7200 (two hours). Excludes queue wait and finalization. Retries share the same deadline.
+   * Time limit for generation and validation in seconds, from 1 to 72000. Defaults to 14400 (four hours). Excludes queue wait and finalization. Retries share the same deadline.
    */
   timeoutSeconds?: number | undefined;
 };
@@ -73,7 +73,7 @@ export const BuildWorldRequest$outboundSchema: z.ZodMiniType<
     name: z.optional(z.string()),
     simulators: z.array(z.string()),
     startTime: z.optional(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-    timeoutSeconds: z._default(z.int(), 7200),
+    timeoutSeconds: z._default(z.int(), 14400),
   }),
   z.transform((v) => {
     return remap$(v, {
