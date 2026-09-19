@@ -48,7 +48,7 @@ export type BuildSimulatorRequest = {
    */
   instructions?: string | undefined;
   /**
-   * Name for the Simulator. Omission generates a name. The ID stays its identity, and names need not be unique.
+   * Name for the Simulator. Omission generates a name. Names must not contain U+0000. The ID stays its identity, and names need not be unique.
    */
   name?: string | undefined;
   /**
