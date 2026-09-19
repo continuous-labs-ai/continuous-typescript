@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: 9fc4641c741d914e36031ac2e73e34d6
+  docChecksum: fe3c90617986af000e87f021e73bf862
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.0.13
-  configChecksum: 61f10e2578a1b1a4bde66dcf2b19ff87
+  releaseVersion: 0.0.14
+  configChecksum: 7a10861821d6070cb0e77caa770f2b9c
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 8af4ac3f-d902-49bd-b83d-d7878bbe013b
-  pristine_commit_hash: 5ec839825f622a0e4fc050a2c406501da7b9a17c
-  pristine_tree_hash: 186cb27d2ac762b592ebb84398695bc3125a08be
+  generation_id: fc9a3608-f748-4bef-b84d-0d4e363c4990
+  pristine_commit_hash: b1ae238cb89717e5ed505e78c78b151ceb662737
+  pristine_tree_hash: e926fad53374c67d4841a7e11f30e79d99ae8b96
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -84,8 +84,8 @@ trackedFiles:
     pristine_git_object: 670fe6ba74f8f3633e8cb2b78f0d8f91e203974c
   docs/models/build-simulator-request.md:
     id: b6246c28546a
-    last_write_checksum: sha1:8cf5621bc0d48fb5a3829a3397d4d63aa87ac50d
-    pristine_git_object: 56c87ff5df3235e6c109860c777d626e0c6a0233
+    last_write_checksum: sha1:60ff6da556faf13a92bfd00646c804726992f584
+    pristine_git_object: c990b53e204c9e5ec80ce4b8ba005e66e449f595
   docs/models/build-tool-call.md:
     id: abfbb32e86b0
     last_write_checksum: sha1:6432a3f7656c2ef6e31ea430d51e22711e077bfe
@@ -420,12 +420,12 @@ trackedFiles:
     pristine_git_object: c6df7f1511a765e549e301fa4bd16b5bd606d603
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:6bca821fe3612d0020923531dda2762cd16bb8a6
-    pristine_git_object: 0f4cef62d91cabe3f761e21720d0acc0e88d0f50
+    last_write_checksum: sha1:d5a190a0d624a25617cb6a0af6788b43e81225e3
+    pristine_git_object: 08dc9b083aaa0b66515f62bf7f5bb8131de69d10
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:db71e4f3a812b074b46ddd2dfb12db05752106df
-    pristine_git_object: fdc63981a62ef4480ab82162a1fa5d76d1bd90ac
+    last_write_checksum: sha1:a0adcb5ace71f5658ca2873a4809246b07375427
+    pristine_git_object: 31f952163b9688d90a9948f6bc5af84ca3289b84
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -556,8 +556,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:447b3362a71e19b56c775ffa48d71a66173bfd92
-    pristine_git_object: fb84d19089948193a02e3965f03db29ec902eada
+    last_write_checksum: sha1:df2bd367195f45f19b874dc792905d1ab8b93bfb
+    pristine_git_object: d930104e8527e885723aa28b34314f5adede1409
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -612,8 +612,8 @@ trackedFiles:
     pristine_git_object: ecd86479b0e5ae2a3727e4a3c14f58029f1f10b4
   src/models/build-simulator-request.ts:
     id: 3a8cd2fe64c6
-    last_write_checksum: sha1:0731aa989750577f252180a5bff2d4e005c4ade6
-    pristine_git_object: a288e0a54271e484e2cf2b2213c227de9364d647
+    last_write_checksum: sha1:b7c3db86661576d5d6ff2af1a89c653d8a35481a
+    pristine_git_object: abd7df23c3d28255e2679224ace371051a45459f
   src/models/build-tool-call.ts:
     id: 2f16a7fd48a0
     last_write_checksum: sha1:8016a91325f2388b0c65cf00a6c3dac67427a08e
