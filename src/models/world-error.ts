@@ -28,6 +28,24 @@ export const WorldErrorCode = {
  */
 export type WorldErrorCode = OpenEnum<typeof WorldErrorCode>;
 
+/**
+ * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+ */
+export const WorldErrorReason = {
+  Canceled: "canceled",
+  SpecificationInvalid: "specification_invalid",
+  TimeLimit: "time_limit",
+  ServiceUnavailable: "service_unavailable",
+  BuildFailed: "build_failed",
+  PopulationUnsupported: "population_unsupported",
+  WorldStartFailed: "world_start_failed",
+  WorldOperationFailed: "world_operation_failed",
+} as const;
+/**
+ * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+ */
+export type WorldErrorReason = OpenEnum<typeof WorldErrorReason>;
+
 export type WorldError = {
   /**
    * Stable World error code.
@@ -37,6 +55,10 @@ export type WorldError = {
    * Safe human-readable error detail.
    */
   detail: string;
+  /**
+   * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+   */
+  reason: WorldErrorReason | null;
 };
 
 /** @internal */
@@ -46,10 +68,17 @@ export const WorldErrorCode$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(WorldErrorCode);
 
 /** @internal */
+export const WorldErrorReason$inboundSchema: z.ZodMiniType<
+  WorldErrorReason,
+  unknown
+> = openEnums.inboundSchema(WorldErrorReason);
+
+/** @internal */
 export const WorldError$inboundSchema: z.ZodMiniType<WorldError, unknown> = z
   .object({
     code: WorldErrorCode$inboundSchema,
     detail: types.string(),
+    reason: types.nullable(WorldErrorReason$inboundSchema),
   });
 
 export function worldErrorFromJSON(

@@ -356,6 +356,7 @@ async function run() {
       if (error instanceof errors.ErrorT) {
         console.log(error.data$.code); // string
         console.log(error.data$.detail); // string
+        console.log(error.data$.validation); // models.SpecificationValidation
       }
     }
   }
