@@ -7,7 +7,7 @@ Stable Simulator build error code.
 ```typescript
 import { SimulatorErrorCode } from "@continuous-labs/sdk/models";
 
-let value: SimulatorErrorCode = "build_cancelled";
+let value: SimulatorErrorCode = "specification_validation_failed";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```
@@ -15,5 +15,5 @@ let value: SimulatorErrorCode = "build_cancelled";
 ## Values
 
 ```typescript
-"build_failed" | "build_cancelled" | Unrecognized<string>
+"build_failed" | "build_cancelled" | "specification_validation_failed" | Unrecognized<string>
 ```

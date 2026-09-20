@@ -14,14 +14,14 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 /**
  * api for an API write or advance for a clock advance.
  */
-export const Kind = {
+export const StepKind = {
   Api: "api",
   Advance: "advance",
 } as const;
 /**
  * api for an API write or advance for a clock advance.
  */
-export type Kind = OpenEnum<typeof Kind>;
+export type StepKind = OpenEnum<typeof StepKind>;
 
 export type Step = {
   /**
@@ -31,7 +31,7 @@ export type Step = {
   /**
    * api for an API write or advance for a clock advance.
    */
-  kind: Kind;
+  kind: StepKind;
   /**
    * HTTP method and path of the request that produced this step, without the query string, for example POST /v1/widgets.
    */
@@ -51,14 +51,14 @@ export type Step = {
 };
 
 /** @internal */
-export const Kind$inboundSchema: z.ZodMiniType<Kind, unknown> = openEnums
-  .inboundSchema(Kind);
+export const StepKind$inboundSchema: z.ZodMiniType<StepKind, unknown> =
+  openEnums.inboundSchema(StepKind);
 
 /** @internal */
 export const Step$inboundSchema: z.ZodMiniType<Step, unknown> = z.pipe(
   z.object({
     advance_id: types.nullable(types.string()),
-    kind: Kind$inboundSchema,
+    kind: StepKind$inboundSchema,
     label: types.string(),
     step: types.number(),
     time_after: types.nullable(types.date()),

@@ -10,7 +10,8 @@ import { ErrorT } from "@continuous-labs/sdk/models/errors";
 
 ## Fields
 
-| Field                               | Type                                | Required                            | Description                         |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| `code`                              | *string*                            | :heavy_check_mark:                  | Stable machine-readable error code. |
-| `detail`                            | *string*                            | :heavy_check_mark:                  | Safe human-readable error detail.   |
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `code`                                                                     | *string*                                                                   | :heavy_check_mark:                                                         | Stable machine-readable error code.                                        |
+| `detail`                                                                   | *string*                                                                   | :heavy_check_mark:                                                         | Safe human-readable error detail.                                          |
+| `validation`                                                               | [models.SpecificationValidation](../../models/specification-validation.md) | :heavy_check_mark:                                                         | N/A                                                                        |

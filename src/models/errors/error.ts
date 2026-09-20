@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import * as types from "../../types/primitives.js";
+import * as models from "../index.js";
 import { ContinuousError } from "./continuous-error.js";
 
 export type ErrorTData = {
@@ -15,6 +16,7 @@ export type ErrorTData = {
    * Safe human-readable error detail.
    */
   detail: string;
+  validation: models.SpecificationValidation | null;
 };
 
 export class ErrorT extends ContinuousError {
@@ -26,6 +28,7 @@ export class ErrorT extends ContinuousError {
    * Safe human-readable error detail.
    */
   detail: string;
+  validation: models.SpecificationValidation | null;
 
   /** The original data that was passed to this error instance. */
   data$: ErrorTData;
@@ -41,6 +44,7 @@ export class ErrorT extends ContinuousError {
     this.data$ = err;
     this.code = err.code;
     this.detail = err.detail;
+    this.validation = err.validation;
 
     this.name = "ErrorT";
   }
@@ -51,6 +55,7 @@ export const ErrorT$inboundSchema: z.ZodMiniType<ErrorT, unknown> = z.pipe(
   z.object({
     code: types.string(),
     detail: types.string(),
+    validation: types.nullable(models.SpecificationValidation$inboundSchema),
     request$: z.custom<Request>(x => x instanceof Request),
     response$: z.custom<Response>(x => x instanceof Response),
     body$: z.string(),

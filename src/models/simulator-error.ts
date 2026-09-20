@@ -3,12 +3,17 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import {
+  SpecificationValidation,
+  SpecificationValidation$inboundSchema,
+} from "./specification-validation.js";
 
 /**
  * Stable Simulator build error code.
@@ -16,13 +21,36 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 export const SimulatorErrorCode = {
   BuildFailed: "build_failed",
   BuildCancelled: "build_cancelled",
+  SpecificationValidationFailed: "specification_validation_failed",
 } as const;
 /**
  * Stable Simulator build error code.
  */
 export type SimulatorErrorCode = OpenEnum<typeof SimulatorErrorCode>;
 
+/**
+ * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+ */
+export const SimulatorErrorReason = {
+  Canceled: "canceled",
+  SpecificationInvalid: "specification_invalid",
+  TimeLimit: "time_limit",
+  ServiceUnavailable: "service_unavailable",
+  BuildFailed: "build_failed",
+  PopulationUnsupported: "population_unsupported",
+  WorldStartFailed: "world_start_failed",
+  WorldOperationFailed: "world_operation_failed",
+} as const;
+/**
+ * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+ */
+export type SimulatorErrorReason = OpenEnum<typeof SimulatorErrorReason>;
+
 export type SimulatorError = {
+  /**
+   * Plain-text explanation from the build agent, when it could not continue. At most 4096 UTF-8 bytes.
+   */
+  agentMessage: string | null;
   /**
    * Stable Simulator build error code.
    */
@@ -31,6 +59,11 @@ export type SimulatorError = {
    * Safe human-readable error detail.
    */
   detail: string;
+  /**
+   * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+   */
+  reason: SimulatorErrorReason | null;
+  validation: SpecificationValidation | null;
 };
 
 /** @internal */
@@ -40,13 +73,29 @@ export const SimulatorErrorCode$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(SimulatorErrorCode);
 
 /** @internal */
+export const SimulatorErrorReason$inboundSchema: z.ZodMiniType<
+  SimulatorErrorReason,
+  unknown
+> = openEnums.inboundSchema(SimulatorErrorReason);
+
+/** @internal */
 export const SimulatorError$inboundSchema: z.ZodMiniType<
   SimulatorError,
   unknown
-> = z.object({
-  code: SimulatorErrorCode$inboundSchema,
-  detail: types.string(),
-});
+> = z.pipe(
+  z.object({
+    agent_message: types.nullable(types.string()),
+    code: SimulatorErrorCode$inboundSchema,
+    detail: types.string(),
+    reason: types.nullable(SimulatorErrorReason$inboundSchema),
+    validation: types.nullable(SpecificationValidation$inboundSchema),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "agent_message": "agentMessage",
+    });
+  }),
+);
 
 export function simulatorErrorFromJSON(
   jsonString: string,
