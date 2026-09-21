@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: 0220256366625819c0bd6a18f330dc17
+  docChecksum: 10d240909deecfcc5d32ee40b15ddbe8
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.0.15
-  configChecksum: b59a35d0dd9324db73efff65adeea7c6
+  releaseVersion: 0.0.16
+  configChecksum: 3728ed64e20018e1b47e897094d3c2d4
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 8b55e964-8964-4f10-9c77-fed89a9191df
-  pristine_commit_hash: edef07234e25d17896d154f3126bf8d404df274a
-  pristine_tree_hash: 6aa600618c672e9aee231b36dae6c4d5b82dae77
+  generation_id: 1ba326cf-c15b-46a4-9c60-6b74b97e27ad
+  pristine_commit_hash: 195f5f340c429516fb6b127246db87261607a6cb
+  pristine_tree_hash: 38df9228c6f212a28fcda7783534f05691b67cae
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -138,6 +138,10 @@ trackedFiles:
     id: 03d17e666028
     last_write_checksum: sha1:fa6a67dd53b675f92bebe55a21963f88a56dc249
     pristine_git_object: 831b786e05ce0885567c65548317a9176a21ec2c
+  docs/models/last-validation-code.md:
+    id: 214c94dd8377
+    last_write_checksum: sha1:9a467a97ca759c756996f859d159e120cee2b511
+    pristine_git_object: a32631891950173590b57e0730f431fecd8fa10d
   docs/models/list-advance-events-output-body.md:
     id: b03d9402151e
     last_write_checksum: sha1:a30f15cb68584d81e1a3a29768dafa262b1368fb
@@ -152,12 +156,12 @@ trackedFiles:
     pristine_git_object: 039c80a16a677b83247737751587c784c699859a
   docs/models/list-simulators-response.md:
     id: 90b92f75161b
-    last_write_checksum: sha1:08132a7d87822aa66f992e4ca1a3264dbf6fa27a
-    pristine_git_object: 26210f3e66f2063a937a9ccf3e790812d696aa13
+    last_write_checksum: sha1:af9b24ef64e450870271402266994649ad2dbc01
+    pristine_git_object: 10660606039629aa9da2a4f4e13cb435696bcd8f
   docs/models/list-worlds-response.md:
     id: 5fa0178e5c18
-    last_write_checksum: sha1:d50d54cd1de1f594312040974f900fbbe582e6a1
-    pristine_git_object: 411e0022bea529ed0e7e192d8697957b93978a32
+    last_write_checksum: sha1:3c0ae43780f797a1e9ac2b263ede44ac2153456d
+    pristine_git_object: 98422e4a79028018b514daaf3ad8e6f68acff387
   docs/models/mint-simulation-token-request.md:
     id: 48bffcee68c5
     last_write_checksum: sha1:e13288e0632d7f7de4bbf08e43fa007b6b99d541
@@ -176,8 +180,8 @@ trackedFiles:
     pristine_git_object: 276ad5eab6841d7acfdaa1e37129da4e2bc554fa
   docs/models/operations/build-simulator-response.md:
     id: 6c3c62dddab1
-    last_write_checksum: sha1:759e8f66284005a720b92feef5f54a6597e569f3
-    pristine_git_object: 0a204fb7419b94d52ec05b54485f88033408eeec
+    last_write_checksum: sha1:3ff1ee026ff832e6fadb7e10a422486d0013669c
+    pristine_git_object: 9aa9134d1199a49cc2462ca784e8ee4549873b84
   docs/models/operations/cancel-simulator-build-request.md:
     id: abf7ea9bb8a4
     last_write_checksum: sha1:aa4fbdc8840ede4681fa6fe3d886cd3d19cd13b6
@@ -278,6 +282,10 @@ trackedFiles:
     id: 6ab16b3e829d
     last_write_checksum: sha1:b59554534726fb8b5eae90b0d42e5b893e1e9b13
     pristine_git_object: 07e2eb482a49ce9712cd5cd74b33fc89d36b9492
+  docs/models/review-status.md:
+    id: cc778a90fb38
+    last_write_checksum: sha1:a5283554d717df49df07a927e686d657a8c0d337
+    pristine_git_object: 8c3a66aca1599d0d154e7aa77e7ceae6f7ffdd83
   docs/models/security.md:
     id: 452e4d4eb67a
     last_write_checksum: sha1:c18492870c9496bc6616202e1cb85d23a5659660
@@ -302,14 +310,18 @@ trackedFiles:
     id: ce17e8a5c043
     last_write_checksum: sha1:80048fa7daaf63615cc0eec765ec0379b949dc9d
     pristine_git_object: b379f3402970e8b494b066392c1b28373269055d
+  docs/models/simulator-build-progress-phase.md:
+    id: 6c14eb676b7e
+    last_write_checksum: sha1:b989c8ec494943aee9912f79a207385fa5ced413
+    pristine_git_object: d6f37e98f872386cc8a4b11962a2c1e5663ea3af
   docs/models/simulator-build-progress-stage.md:
     id: 619e6cc7a3f0
     last_write_checksum: sha1:e5a80922e1bdadd3f72881b545f1997656dcf18b
     pristine_git_object: ea64b7d8198911d799d9d9cbfe45c6b28630d3a2
   docs/models/simulator-build-progress.md:
     id: 64c4c681ac0e
-    last_write_checksum: sha1:036196a4f06a72f2f7dd55c3d33104d5d79c6427
-    pristine_git_object: 3a6f5c06ea07754a264e9a6c473f391539448131
+    last_write_checksum: sha1:1f4a0ec49c40f74c74014a544645ea3c3f31075f
+    pristine_git_object: 8da3bc077b3dc118163c017d34a581e5fb859c22
   docs/models/simulator-error-code.md:
     id: f3fd09b89093
     last_write_checksum: sha1:2b16d81c323bc890829f86144715281b33051cc4
@@ -332,8 +344,8 @@ trackedFiles:
     pristine_git_object: 4eb34880ab8c8dfb78a740d0783e8a0b1642c5a5
   docs/models/simulator.md:
     id: ee400a6c5eda
-    last_write_checksum: sha1:2804a4d087648dfb0e0efaeb777c061176f91522
-    pristine_git_object: 5d1dfe14dca28ae15ab82d8ef3608df8502d4c50
+    last_write_checksum: sha1:8871a7dd9f579251fa5c37ad086b176f51e3472e
+    pristine_git_object: 5cd366f611657d93d7c9d3cd8a5e152a1f4a84ab
   docs/models/source.md:
     id: 6541ef7b41e7
     last_write_checksum: sha1:52e9cfaaab43cec1fa8f128d50ae59853b343108
@@ -370,22 +382,26 @@ trackedFiles:
     id: 20e998f097a5
     last_write_checksum: sha1:21c2af17997722cce74ad3d36c1b821e6dcb587e
     pristine_git_object: 531a57ca180f29d996990073782b34f53ecf94f1
+  docs/models/world-build-progress-phase.md:
+    id: "902503183096"
+    last_write_checksum: sha1:6dbf5d0052bd305110383a0c872fe4032d38f219
+    pristine_git_object: 71b0a757139cae5d9eaa64ad0622ce85434a6b79
   docs/models/world-build-progress-stage.md:
     id: c2964a8cb485
-    last_write_checksum: sha1:372409a946ee3709dda9ac3203be9297e2da44b8
-    pristine_git_object: 6f62188c850ccb6bc16fc0b2899c52f9c306e32d
+    last_write_checksum: sha1:22288ca93f7cb89b7b6c44d606bdcde2212da7c3
+    pristine_git_object: 51de485116929d67a320f86df3db17581f71321f
   docs/models/world-build-progress.md:
     id: 8e81909f56d5
-    last_write_checksum: sha1:4cf8c0bf1e2f884b30eca903ed96fa13124d101d
-    pristine_git_object: fe77304cc2cc97f89af153d42c9df118958875c9
+    last_write_checksum: sha1:28585dc50da4abfe44cb898e37303d162d2bd1c8
+    pristine_git_object: f4e253aa5e4dd74cd72d9d4aef146bc4c8dd7e31
   docs/models/world-data-summary.md:
     id: d8a52d4ffdd2
     last_write_checksum: sha1:ede32ef826c8ada9c81ceb037d0346c1013f76b8
     pristine_git_object: d324d97f72c6997c2d9ab177159b8bad00bc1ff9
   docs/models/world-error-code.md:
     id: eadc7ba44baf
-    last_write_checksum: sha1:f3138e195f0044527f9f22eee0486c0e20bbfbd9
-    pristine_git_object: e30dfb34ed601d2d99e96157ef7dbd66e8815a92
+    last_write_checksum: sha1:9a514567df630110fdc0d0bb21ccd0f7c0de007d
+    pristine_git_object: 8d584d95e6666e76509e072ec8a1145fe44ac971
   docs/models/world-error-reason.md:
     id: 9556915cf93e
     last_write_checksum: sha1:382f2ed4394c64c205880befe5ae15614f5133b8
@@ -408,8 +424,8 @@ trackedFiles:
     pristine_git_object: 10d3bb1a8e706962dc4a3356806d23037cf8e506
   docs/models/world.md:
     id: d58530de63e7
-    last_write_checksum: sha1:b60f565660715b42ccfd8f6ac1f7d12800e2b90b
-    pristine_git_object: b5fc8b96b6cbab8ba0b2d18d13343cb7293cbb9f
+    last_write_checksum: sha1:94af1b226b9d48c58feb01078f98a0a1ffd629b5
+    pristine_git_object: 55b2c16feccaa119f9650be501b3efa759e168e1
   docs/sdks/simulations/README.md:
     id: a9e027fcb2b0
     last_write_checksum: sha1:b43c95c4fcbc9dec413701b8e14e68a231fe1fc5
@@ -440,12 +456,12 @@ trackedFiles:
     pristine_git_object: c6df7f1511a765e549e301fa4bd16b5bd606d603
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:1aa3c9baad319adec58fd166b59925cecd77344b
-    pristine_git_object: 18773b3c948e26c8534612d31328a2ce62c60e4c
+    last_write_checksum: sha1:15c1281ec945415d35e254a3b515bfbacffd32c1
+    pristine_git_object: 0e894f3d5135890c2314d7f2a9bd7e0ad8abd1f5
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:a43cc58ece9f0f2e6ff23343e1af8e5f667841e3
-    pristine_git_object: 0970e7ba933b886d0c0dee44e62e347e4b298fbb
+    last_write_checksum: sha1:3b9e13b4bd9bc3c338c5ef23babfe7602febdb4c
+    pristine_git_object: 3b2cfbb2f076cfdfea259b87e186c6a3e45bd098
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -576,8 +592,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:e650f3cd53b458fe02905a695c5d4c8de5fbe708
-    pristine_git_object: 0e61b35550ffbb17e1f403393e7e261fd9cffb27
+    last_write_checksum: sha1:887baeddf7d2e614102f9ef4881c43c57d8ea56c
+    pristine_git_object: 3fed014afc33fb13ba3175fe32f8a51bafb112cc
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -840,8 +856,8 @@ trackedFiles:
     pristine_git_object: b81d98782a9fea5d22f5e2ec1955c2da976df9d5
   src/models/simulator-build-progress.ts:
     id: 86f1ba299bcb
-    last_write_checksum: sha1:90aac31c20eabcfcb54de11b72d3b46ff1162417
-    pristine_git_object: a014df07f118986c507f8db80255ad3051082fac
+    last_write_checksum: sha1:0723c1625a9391b7a2be074b0280d71addb4b3d2
+    pristine_git_object: f6acf4a3a2d9a6fb60dc7cd456a4f04027460ac4
   src/models/simulator-error.ts:
     id: 27d673ea1602
     last_write_checksum: sha1:ec8211a606c53d4a4831e0f98e827ca41c0302b0
@@ -868,16 +884,16 @@ trackedFiles:
     pristine_git_object: 4ae49400924ae9d6800001d32224a570e172f87b
   src/models/world-build-progress.ts:
     id: 0d256f4ed468
-    last_write_checksum: sha1:acca5da687325a91cf33d74d3753da4c09469f5e
-    pristine_git_object: e62f239b6b3c67f04c4a74b1b5ac4382848b4526
+    last_write_checksum: sha1:3682edb2f3f786187b0321d9f9d234a3236dee5c
+    pristine_git_object: 3e423f35fbff754f99737374cc9283380fabd76e
   src/models/world-data-summary.ts:
     id: 84d358c5ce75
     last_write_checksum: sha1:9a79d11d9eb80b416fd3c166b7c26f3be5019b7e
     pristine_git_object: 7b56e97409e59e338e8f2a3419e85db686ceedde
   src/models/world-error.ts:
     id: d1730ae9932c
-    last_write_checksum: sha1:7f2f9bd991075e5c783a828b2ffcade47b3c312d
-    pristine_git_object: 26650cc60a64bf448ae489a03e8c851c71ce59ff
+    last_write_checksum: sha1:58e632fb0f28782ce6c17b4d27bafa53d7cc5689
+    pristine_git_object: 8851a98d7554f71bb0b1bdd0805cf64b12537c0c
   src/models/world-record-count.ts:
     id: 475892b92e51
     last_write_checksum: sha1:c57077ce6a33e8b1aee8b85a275a2b674afc4666
@@ -1241,7 +1257,7 @@ examples:
           limit: 50
       responses:
         "200":
-          application/json: {"next_cursor": "<value>", "simulators": [{"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "<value>", "recent_tools": [], "stage": "assemble", "submissions": 113509, "tool_calls": 913897, "updated_at": "2024-11-16T22:17:20.816Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "<value>", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "wsdl", "status": "building"}]}
+          application/json: {"next_cursor": "<value>", "simulators": [{"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "<value>", "phase": "build", "recent_tools": [], "stage": "assemble", "submissions": 113509, "tool_calls": 913897, "updated_at": "2024-11-16T22:17:20.816Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "<value>", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "wsdl", "status": "building"}]}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1264,7 +1280,7 @@ examples:
         multipart/form-data: {"request": {"builder": "claude", "filter": [], "instructions": "Return stable example data for every operation.", "name": "billing-api", "spec_kind": "openapi", "timeout_seconds": 14400}}
       responses:
         "202":
-          application/json: {"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "phase": "build", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1322,7 +1338,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "phase": "build", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1354,7 +1370,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "phase": "build", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1395,7 +1411,7 @@ examples:
           limit: 50
       responses:
         "200":
-          application/json: {"next_cursor": "<value>", "worlds": [{"active_advance_id": "<id>", "build": {"builder": "openai", "last_submission": "rejected", "last_tool": "<value>", "recent_tools": [], "stage": "validating", "submissions": 22199, "summary": null, "tool_calls": 98602}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2025-09-18T08:14:47.236Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "<value>", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-07-28T13:30:18.464Z", "status": "building"}]}
+          application/json: {"next_cursor": "<value>", "worlds": [{"active_advance_id": "<id>", "build": {"builder": "openai", "last_submission": "rejected", "last_tool": "<value>", "last_validation_code": "nested_proof", "phase": "finalize", "recent_tools": [], "review_status": "accepted", "stage": "validating", "submissions": 22199, "summary": null, "tests": 352213, "tool_calls": 98602}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2025-09-18T08:14:47.236Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "<value>", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-07-28T13:30:18.464Z", "status": "building"}]}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "message": "<value>", "operation": "<value>", "path": "/usr/libexec", "suggestion": "<value>"}]}}
         "500":
@@ -1414,7 +1430,7 @@ examples:
         application/json: {"builder": "claude", "instructions": "Use stable example data for each Simulator.", "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "timeout_seconds": 14400}
       responses:
         "202":
-          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "generating", "submissions": 1, "summary": null, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
+          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1464,7 +1480,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "generating", "submissions": 1, "summary": null, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
+          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1496,7 +1512,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "generating", "submissions": 1, "summary": null, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
+          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1528,7 +1544,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "generating", "submissions": 1, "summary": null, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
+          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1569,7 +1585,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "generating", "submissions": 1, "summary": null, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
+          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1746,4 +1762,15 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "message": "<value>", "operation": "<value>", "path": "/home/user/dir", "suggestion": "<value>"}]}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.simulations.listSimulations()`:  `error.validation` **Added**\n* `continuous.simulations.createSimulation()`:  `error.validation` **Added**\n* `continuous.simulations.deleteSimulation()`:  `error.validation` **Added**\n* `continuous.simulations.getSimulation()`:  `error.validation` **Added**\n* `continuous.simulations.advanceSimulationTime()`:  `error.validation` **Added**\n* `continuous.simulations.getSimulationAdvance()`:  `error.validation` **Added**\n* `continuous.simulations.listSimulationAdvanceEvents()`:  `error.validation` **Added**\n* `continuous.simulations.forkSimulation()`:  `error.validation` **Added**\n* `continuous.simulations.startSimulation()`:  `error.validation` **Added**\n* `continuous.simulations.listSimulationSteps()`:  `error.validation` **Added**\n* `continuous.simulations.stopSimulation()`:  `error.validation` **Added**\n* `continuous.simulations.mintSimulationToken()`:  `error.validation` **Added**\n* `continuous.simulators.listSimulators()`: \n  *  `response.simulators[].error` **Changed**\n  *  `error.validation` **Added**\n* `continuous.simulators.buildSimulator()`: \n  *  `response.error` **Changed**\n  *  `error.validation` **Added**\n* `continuous.simulators.deleteSimulator()`:  `error.validation` **Added**\n* `continuous.simulators.getSimulator()`: \n  *  `response.error` **Changed**\n  *  `error.validation` **Added**\n* `continuous.simulators.cancelSimulatorBuild()`: \n  *  `response.error` **Changed**\n  *  `error.validation` **Added**\n* `continuous.worlds.listWorlds()`: \n  *  `response.worlds[].error.reason` **Added**\n  *  `error.validation` **Added**\n* `continuous.worlds.buildWorld()`: \n  *  `response.error.reason` **Added**\n  *  `error.validation` **Added**\n* `continuous.worlds.deleteWorld()`:  `error.validation` **Added**\n* `continuous.worlds.getWorld()`: \n  *  `response.error.reason` **Added**\n  *  `error.validation` **Added**\n* `continuous.worlds.advanceWorldTime()`:  `error.validation` **Added**\n* `continuous.worlds.getWorldAdvance()`:  `error.validation` **Added**\n* `continuous.worlds.cancelWorldBuild()`: \n  *  `response.error.reason` **Added**\n  *  `error.validation` **Added**\n* `continuous.worlds.startWorld()`: \n  *  `response.error.reason` **Added**\n  *  `error.validation` **Added**\n* `continuous.worlds.stopWorld()`: \n  *  `response.error.reason` **Added**\n  *  `error.validation` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `continuous.simulators.listSimulators()`:  `response.simulators[].build.phase` **Added**
+  * `continuous.simulators.buildSimulator()`:  `response.build.phase` **Added**
+  * `continuous.simulators.getSimulator()`:  `response.build.phase` **Added**
+  * `continuous.simulators.cancelSimulatorBuild()`:  `response.build.phase` **Added**
+  * `continuous.worlds.listWorlds()`:  `response.worlds[]` **Changed**
+  * `continuous.worlds.buildWorld()`:  `response` **Changed**
+  * `continuous.worlds.getWorld()`:  `response` **Changed**
+  * `continuous.worlds.cancelWorldBuild()`:  `response` **Changed**
+  * `continuous.worlds.startWorld()`:  `response` **Changed**
+  * `continuous.worlds.stopWorld()`:  `response` **Changed**
