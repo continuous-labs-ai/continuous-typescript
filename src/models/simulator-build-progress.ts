@@ -44,6 +44,21 @@ export type SimulatorBuildProgressLastSubmission = OpenEnum<
 >;
 
 /**
+ * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
+ */
+export const SimulatorBuildProgressPhase = {
+  Build: "build",
+  Review: "review",
+  Finalize: "finalize",
+} as const;
+/**
+ * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
+ */
+export type SimulatorBuildProgressPhase = OpenEnum<
+  typeof SimulatorBuildProgressPhase
+>;
+
+/**
  * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
  */
 export const SimulatorBuildProgressStage = {
@@ -71,6 +86,10 @@ export type SimulatorBuildProgress = {
    * Name of the most recent tool call, or null.
    */
   lastTool: string | null;
+  /**
+   * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
+   */
+  phase: SimulatorBuildProgressPhase | null;
   /**
    * The most recent tool calls, oldest first, at most 20.
    */
@@ -106,6 +125,12 @@ export const SimulatorBuildProgressLastSubmission$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(SimulatorBuildProgressLastSubmission);
 
 /** @internal */
+export const SimulatorBuildProgressPhase$inboundSchema: z.ZodMiniType<
+  SimulatorBuildProgressPhase,
+  unknown
+> = openEnums.inboundSchema(SimulatorBuildProgressPhase);
+
+/** @internal */
 export const SimulatorBuildProgressStage$inboundSchema: z.ZodMiniType<
   SimulatorBuildProgressStage,
   unknown
@@ -122,6 +147,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
       SimulatorBuildProgressLastSubmission$inboundSchema,
     ),
     last_tool: types.nullable(types.string()),
+    phase: types.nullable(SimulatorBuildProgressPhase$inboundSchema),
     recent_tools: z.array(BuildToolCall$inboundSchema),
     stage: SimulatorBuildProgressStage$inboundSchema,
     submissions: types.number(),

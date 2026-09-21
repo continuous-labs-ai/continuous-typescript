@@ -22,6 +22,7 @@ export const WorldErrorCode = {
   WorldPopulationUnsupported: "world_population_unsupported",
   WorldPopulationInvalid: "world_population_invalid",
   WorldPopulationUnavailable: "world_population_unavailable",
+  WorldPopulationIncompatible: "world_population_incompatible",
 } as const;
 /**
  * Stable World error code.

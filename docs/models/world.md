@@ -11,6 +11,8 @@ let value: World = {
     builder: "claude",
     lastSubmission: "rejected",
     lastTool: "test",
+    lastValidationCode: "request_not_satisfied",
+    phase: "finalize",
     recentTools: [
       {
         at: new Date("2026-01-15T12:04:00Z"),
@@ -21,9 +23,11 @@ let value: World = {
         tool: "submit",
       },
     ],
+    reviewStatus: "rejected",
     stage: "generating",
     submissions: 1,
     summary: null,
+    tests: 2,
     toolCalls: 7,
   },
   createdAt: new Date("2026-01-15T12:00:00Z"),

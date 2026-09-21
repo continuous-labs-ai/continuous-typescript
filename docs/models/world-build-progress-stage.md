@@ -1,6 +1,6 @@
 # WorldBuildProgressStage
 
-Current phase of starting-data preparation.
+Internal step of starting-data preparation.
 
 ## Example Usage
 
@@ -15,5 +15,5 @@ let value: WorldBuildProgressStage = "generating";
 ## Values
 
 ```typescript
-"planning" | "generating" | "validating" | "complete" | Unrecognized<string>
+"planning" | "generating" | "validating" | "reviewing" | "complete" | Unrecognized<string>
 ```

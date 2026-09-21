@@ -10,6 +10,7 @@ let value: Simulator = {
     builder: "claude",
     lastSubmission: "rejected",
     lastTool: "test",
+    phase: "build",
     recentTools: [
       {
         at: new Date("2026-01-15T12:04:00Z"),

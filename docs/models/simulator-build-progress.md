@@ -9,11 +9,17 @@ let value: SimulatorBuildProgress = {
   builder: "openai",
   lastSubmission: "accepted",
   lastTool: "<value>",
-  recentTools: [],
+  phase: "finalize",
+  recentTools: [
+    {
+      at: new Date("2026-01-06T20:50:24.684Z"),
+      tool: "<value>",
+    },
+  ],
   stage: "assemble",
-  submissions: 750587,
-  toolCalls: 672325,
-  updatedAt: new Date("2026-09-14T22:49:56.518Z"),
+  submissions: 485509,
+  toolCalls: 448718,
+  updatedAt: new Date("2024-03-31T01:41:37.988Z"),
 };
 ```
 
@@ -24,6 +30,7 @@ let value: SimulatorBuildProgress = {
 | `builder`                                                                                                                                                   | [models.SimulatorBuildProgressBuilder](../models/simulator-build-progress-builder.md)                                                                       | :heavy_check_mark:                                                                                                                                          | The coding-loop provider.                                                                                                                                   |
 | `lastSubmission`                                                                                                                                            | [models.SimulatorBuildProgressLastSubmission](../models/simulator-build-progress-last-submission.md)                                                        | :heavy_check_mark:                                                                                                                                          | Outcome of the most recent submit attempt, or null.                                                                                                         |
 | `lastTool`                                                                                                                                                  | *string*                                                                                                                                                    | :heavy_check_mark:                                                                                                                                          | Name of the most recent tool call, or null.                                                                                                                 |
+| `phase`                                                                                                                                                     | [models.SimulatorBuildProgressPhase](../models/simulator-build-progress-phase.md)                                                                           | :heavy_check_mark:                                                                                                                                          | Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.                       |
 | `recentTools`                                                                                                                                               | [models.BuildToolCall](../models/build-tool-call.md)[]                                                                                                      | :heavy_check_mark:                                                                                                                                          | The most recent tool calls, oldest first, at most 20.                                                                                                       |
 | `stage`                                                                                                                                                     | [models.SimulatorBuildProgressStage](../models/simulator-build-progress-stage.md)                                                                           | :heavy_check_mark:                                                                                                                                          | derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes. |
 | `submissions`                                                                                                                                               | *number*                                                                                                                                                    | :heavy_check_mark:                                                                                                                                          | Submit attempts.                                                                                                                                            |

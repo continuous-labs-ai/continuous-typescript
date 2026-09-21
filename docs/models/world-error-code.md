@@ -15,5 +15,5 @@ let value: WorldErrorCode = "world_population_failed";
 ## Values
 
 ```typescript
-"world_build_canceled" | "world_start_failed" | "world_create_failed" | "world_failed" | "world_population_failed" | "world_population_unsupported" | "world_population_invalid" | "world_population_unavailable" | Unrecognized<string>
+"world_build_canceled" | "world_start_failed" | "world_create_failed" | "world_failed" | "world_population_failed" | "world_population_unsupported" | "world_population_invalid" | "world_population_unavailable" | "world_population_incompatible" | Unrecognized<string>
 ```
