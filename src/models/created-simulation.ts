@@ -58,9 +58,9 @@ export type CreatedSimulation = {
    */
   parentId: string | null;
   /**
-   * ID of the Simulator.
+   * ID of the Simulator, or null for a digest-addressed Simulation.
    */
-  simulatorId: string;
+  simulatorId: string | null;
   /**
    * Initial simulated time.
    */
@@ -95,7 +95,7 @@ export const CreatedSimulation$inboundSchema: z.ZodMiniType<
     id: types.string(),
     name: types.string(),
     parent_id: types.nullable(types.string()),
-    simulator_id: types.string(),
+    simulator_id: types.nullable(types.string()),
     start_time: types.date(),
     status: CreatedSimulationStatus$inboundSchema,
     token: types.string(),
