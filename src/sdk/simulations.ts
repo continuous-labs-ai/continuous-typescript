@@ -24,7 +24,7 @@ export class Simulations extends ClientSDK {
    * List Simulations
    *
    * @remarks
-   * Returns all Simulations that the API key can access. Results can be filtered by status or Simulator.
+   * Returns all Simulations that the API key can access. Results can be filtered by status, Simulator ID, or pinned Simulator digest.
    */
   async listSimulations(
     request?: operations.ListSimulationsRequest | undefined,

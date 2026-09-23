@@ -21,7 +21,7 @@ Create Simulations from ready Simulators, then fork, stop, start, and delete the
 
 ## listSimulations
 
-Returns all Simulations that the API key can access. Results can be filtered by status or Simulator.
+Returns all Simulations that the API key can access. Results can be filtered by status, Simulator ID, or pinned Simulator digest.
 
 ### Example Usage
 
