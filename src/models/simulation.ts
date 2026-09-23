@@ -54,9 +54,13 @@ export type Simulation = {
    */
   parentId: string | null;
   /**
-   * ID of the Simulator, or null for a digest-addressed Simulation.
+   * OCI manifest digest pinned when the Simulation was created.
    */
-  simulatorId: string | null;
+  simulatorDigest: string;
+  /**
+   * ID of the Simulator bound to this Simulation.
+   */
+  simulatorId: string;
   /**
    * Initial simulated time.
    */
@@ -84,7 +88,8 @@ export const Simulation$inboundSchema: z.ZodMiniType<Simulation, unknown> = z
       id: types.string(),
       name: types.string(),
       parent_id: types.nullable(types.string()),
-      simulator_id: types.nullable(types.string()),
+      simulator_digest: types.string(),
+      simulator_id: types.string(),
       start_time: types.date(),
       status: SimulationStatus$inboundSchema,
     }),
@@ -94,6 +99,7 @@ export const Simulation$inboundSchema: z.ZodMiniType<Simulation, unknown> = z
         "created_at": "createdAt",
         "current_time": "currentTime",
         "parent_id": "parentId",
+        "simulator_digest": "simulatorDigest",
         "simulator_id": "simulatorId",
         "start_time": "startTime",
       });

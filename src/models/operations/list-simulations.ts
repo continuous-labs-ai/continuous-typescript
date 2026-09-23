@@ -29,6 +29,10 @@ export type ListSimulationsRequest = {
    */
   simulatorId?: string | undefined;
   /**
+   * Optional exact pinned OCI manifest digest filter.
+   */
+  simulatorDigest?: string | undefined;
+  /**
    * Page size. Values below 1 use 50. Values above 200 use 200.
    */
   limit?: number | undefined;
@@ -47,6 +51,7 @@ export const ListSimulationsStatus$outboundSchema: z.ZodMiniEnum<
 export type ListSimulationsRequest$Outbound = {
   status?: string | undefined;
   simulator_id?: string | undefined;
+  simulator_digest?: string | undefined;
   limit: number;
   cursor?: string | undefined;
 };
@@ -59,12 +64,14 @@ export const ListSimulationsRequest$outboundSchema: z.ZodMiniType<
   z.object({
     status: z.optional(ListSimulationsStatus$outboundSchema),
     simulatorId: z.optional(z.string()),
+    simulatorDigest: z.optional(z.string()),
     limit: z._default(z.int(), 50),
     cursor: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
       simulatorId: "simulator_id",
+      simulatorDigest: "simulator_digest",
     });
   }),
 );
