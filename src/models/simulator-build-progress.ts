@@ -44,6 +44,22 @@ export type SimulatorBuildProgressLastSubmission = OpenEnum<
 >;
 
 /**
+ * The model the builder and reviewer run on. A build recorded before model selection reports its provider's default.
+ */
+export const SimulatorBuildProgressModel = {
+  Gpt6Astra: "gpt-6-astra",
+  Gpt6Sol: "gpt-6-sol",
+  ClaudeOpus55: "claude-opus-5-5",
+  ClaudeFable51: "claude-fable-5-1",
+} as const;
+/**
+ * The model the builder and reviewer run on. A build recorded before model selection reports its provider's default.
+ */
+export type SimulatorBuildProgressModel = OpenEnum<
+  typeof SimulatorBuildProgressModel
+>;
+
+/**
  * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
  */
 export const SimulatorBuildProgressPhase = {
@@ -87,6 +103,10 @@ export type SimulatorBuildProgress = {
    */
   lastTool: string | null;
   /**
+   * The model the builder and reviewer run on. A build recorded before model selection reports its provider's default.
+   */
+  model: SimulatorBuildProgressModel;
+  /**
    * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
    */
   phase: SimulatorBuildProgressPhase | null;
@@ -125,6 +145,12 @@ export const SimulatorBuildProgressLastSubmission$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(SimulatorBuildProgressLastSubmission);
 
 /** @internal */
+export const SimulatorBuildProgressModel$inboundSchema: z.ZodMiniType<
+  SimulatorBuildProgressModel,
+  unknown
+> = openEnums.inboundSchema(SimulatorBuildProgressModel);
+
+/** @internal */
 export const SimulatorBuildProgressPhase$inboundSchema: z.ZodMiniType<
   SimulatorBuildProgressPhase,
   unknown
@@ -147,6 +173,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
       SimulatorBuildProgressLastSubmission$inboundSchema,
     ),
     last_tool: types.nullable(types.string()),
+    model: SimulatorBuildProgressModel$inboundSchema,
     phase: types.nullable(SimulatorBuildProgressPhase$inboundSchema),
     recent_tools: z.array(BuildToolCall$inboundSchema),
     stage: SimulatorBuildProgressStage$inboundSchema,

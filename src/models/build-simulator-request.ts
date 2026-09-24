@@ -7,17 +7,33 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Model provider that builds the Simulator. Defaults to claude.
+ * Legacy provider selection. Alone it selects the provider's default model (openai is gpt-6-astra, claude is claude-fable-5-1); with model it must name the model's provider.
  */
 export const BuildSimulatorRequestBuilder = {
   Openai: "openai",
   Claude: "claude",
 } as const;
 /**
- * Model provider that builds the Simulator. Defaults to claude.
+ * Legacy provider selection. Alone it selects the provider's default model (openai is gpt-6-astra, claude is claude-fable-5-1); with model it must name the model's provider.
  */
 export type BuildSimulatorRequestBuilder = ClosedEnum<
   typeof BuildSimulatorRequestBuilder
+>;
+
+/**
+ * Model that builds and reviews the Simulator. Defaults to gpt-6-astra. Its provider is derived from the model.
+ */
+export const BuildSimulatorRequestModel = {
+  Gpt6Astra: "gpt-6-astra",
+  Gpt6Sol: "gpt-6-sol",
+  ClaudeOpus55: "claude-opus-5-5",
+  ClaudeFable51: "claude-fable-5-1",
+} as const;
+/**
+ * Model that builds and reviews the Simulator. Defaults to gpt-6-astra. Its provider is derived from the model.
+ */
+export type BuildSimulatorRequestModel = ClosedEnum<
+  typeof BuildSimulatorRequestModel
 >;
 
 /**
@@ -36,7 +52,7 @@ export type BuildSimulatorRequestSpecKind = ClosedEnum<
 
 export type BuildSimulatorRequest = {
   /**
-   * Model provider that builds the Simulator. Defaults to claude.
+   * Legacy provider selection. Alone it selects the provider's default model (openai is gpt-6-astra, claude is claude-fable-5-1); with model it must name the model's provider.
    */
   builder?: BuildSimulatorRequestBuilder | undefined;
   /**
@@ -47,6 +63,10 @@ export type BuildSimulatorRequest = {
    * Instructions for the builder. Required for an incremental build. At most 16,384 characters and 65,536 UTF-8 bytes; must not be blank or contain U+0000.
    */
   instructions?: string | undefined;
+  /**
+   * Model that builds and reviews the Simulator. Defaults to gpt-6-astra. Its provider is derived from the model.
+   */
+  model?: BuildSimulatorRequestModel | undefined;
   /**
    * Name for the Simulator. Omission generates a name. Names must not contain U+0000. The ID stays its identity, and names need not be unique.
    */
@@ -71,15 +91,21 @@ export const BuildSimulatorRequestBuilder$outboundSchema: z.ZodMiniEnum<
 > = z.enum(BuildSimulatorRequestBuilder);
 
 /** @internal */
+export const BuildSimulatorRequestModel$outboundSchema: z.ZodMiniEnum<
+  typeof BuildSimulatorRequestModel
+> = z.enum(BuildSimulatorRequestModel);
+
+/** @internal */
 export const BuildSimulatorRequestSpecKind$outboundSchema: z.ZodMiniEnum<
   typeof BuildSimulatorRequestSpecKind
 > = z.enum(BuildSimulatorRequestSpecKind);
 
 /** @internal */
 export type BuildSimulatorRequest$Outbound = {
-  builder: string;
+  builder?: string | undefined;
   filter?: Array<string> | undefined;
   instructions?: string | undefined;
+  model: string;
   name?: string | undefined;
   parent_id?: string | undefined;
   spec_kind?: string | undefined;
@@ -92,9 +118,10 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
   BuildSimulatorRequest
 > = z.pipe(
   z.object({
-    builder: z._default(BuildSimulatorRequestBuilder$outboundSchema, "claude"),
+    builder: z.optional(BuildSimulatorRequestBuilder$outboundSchema),
     filter: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
+    model: z._default(BuildSimulatorRequestModel$outboundSchema, "gpt-6-astra"),
     name: z.optional(z.string()),
     parentId: z.optional(z.string()),
     specKind: z.optional(BuildSimulatorRequestSpecKind$outboundSchema),

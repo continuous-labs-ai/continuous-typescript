@@ -240,6 +240,7 @@ async function run() {
     request: {
       filter: [],
       instructions: "Return stable example data for every operation.",
+      model: "claude-fable-5-1",
       name: "billing-api",
       specKind: "openapi",
     },

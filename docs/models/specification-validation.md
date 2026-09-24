@@ -10,9 +10,9 @@ let value: SpecificationValidation = {
     {
       code: "<value>",
       kind: "unsupported",
+      location: "<value>",
       message: "<value>",
       operation: "<value>",
-      path: "/private",
       suggestion: "<value>",
     },
   ],
