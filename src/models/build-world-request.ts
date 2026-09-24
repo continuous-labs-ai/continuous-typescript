@@ -7,28 +7,46 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Model provider that builds starting data. Defaults to claude.
+ * Legacy provider selection. Alone it selects the provider's default model (openai is gpt-6-astra, claude is claude-fable-5-1); with model it must name the model's provider.
  */
 export const BuildWorldRequestBuilder = {
   Openai: "openai",
   Claude: "claude",
 } as const;
 /**
- * Model provider that builds starting data. Defaults to claude.
+ * Legacy provider selection. Alone it selects the provider's default model (openai is gpt-6-astra, claude is claude-fable-5-1); with model it must name the model's provider.
  */
 export type BuildWorldRequestBuilder = ClosedEnum<
   typeof BuildWorldRequestBuilder
 >;
 
+/**
+ * Model that builds and reviews starting data. Defaults to gpt-6-astra. Its provider is derived from the model.
+ */
+export const BuildWorldRequestModel = {
+  Gpt6Astra: "gpt-6-astra",
+  Gpt6Sol: "gpt-6-sol",
+  ClaudeOpus55: "claude-opus-5-5",
+  ClaudeFable51: "claude-fable-5-1",
+} as const;
+/**
+ * Model that builds and reviews starting data. Defaults to gpt-6-astra. Its provider is derived from the model.
+ */
+export type BuildWorldRequestModel = ClosedEnum<typeof BuildWorldRequestModel>;
+
 export type BuildWorldRequest = {
   /**
-   * Model provider that builds starting data. Defaults to claude.
+   * Legacy provider selection. Alone it selects the provider's default model (openai is gpt-6-astra, claude is claude-fable-5-1); with model it must name the model's provider.
    */
   builder?: BuildWorldRequestBuilder | undefined;
   /**
    * Describe the initial data, scenario, and relationships. Populated Worlds support up to 8 selected Simulators and 1,000 starting records in total. Named record types replace their default data. At most 16,384 characters and 65,536 UTF-8 bytes. U+0000 is not permitted.
    */
   instructions?: string | undefined;
+  /**
+   * Model that builds and reviews starting data. Defaults to gpt-6-astra. Its provider is derived from the model.
+   */
+  model?: BuildWorldRequestModel | undefined;
   /**
    * Name for the World. Omission generates a name. The ID stays its identity, and names need not be unique.
    */
@@ -53,9 +71,15 @@ export const BuildWorldRequestBuilder$outboundSchema: z.ZodMiniEnum<
 > = z.enum(BuildWorldRequestBuilder);
 
 /** @internal */
+export const BuildWorldRequestModel$outboundSchema: z.ZodMiniEnum<
+  typeof BuildWorldRequestModel
+> = z.enum(BuildWorldRequestModel);
+
+/** @internal */
 export type BuildWorldRequest$Outbound = {
-  builder: string;
+  builder?: string | undefined;
   instructions?: string | undefined;
+  model: string;
   name?: string | undefined;
   simulators: Array<string>;
   start_time?: string | undefined;
@@ -68,8 +92,9 @@ export const BuildWorldRequest$outboundSchema: z.ZodMiniType<
   BuildWorldRequest
 > = z.pipe(
   z.object({
-    builder: z._default(BuildWorldRequestBuilder$outboundSchema, "claude"),
+    builder: z.optional(BuildWorldRequestBuilder$outboundSchema),
     instructions: z.optional(z.string()),
+    model: z._default(BuildWorldRequestModel$outboundSchema, "gpt-6-astra"),
     name: z.optional(z.string()),
     simulators: z.array(z.string()),
     startTime: z.optional(z.pipe(z.date(), z.transform(v => v.toISOString()))),

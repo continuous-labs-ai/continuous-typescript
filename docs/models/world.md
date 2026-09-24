@@ -12,6 +12,7 @@ let value: World = {
     lastSubmission: "rejected",
     lastTool: "test",
     lastValidationCode: "request_not_satisfied",
+    model: "claude-fable-5-1",
     phase: "finalize",
     recentTools: [
       {

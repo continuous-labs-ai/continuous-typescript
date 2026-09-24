@@ -64,6 +64,20 @@ export const LastValidationCode = {
 export type LastValidationCode = OpenEnum<typeof LastValidationCode>;
 
 /**
+ * The model the builder and reviewer run on, or null for a build created before provider selection. A build recorded before model selection reports its provider's default.
+ */
+export const WorldBuildProgressModel = {
+  Gpt6Astra: "gpt-6-astra",
+  Gpt6Sol: "gpt-6-sol",
+  ClaudeOpus55: "claude-opus-5-5",
+  ClaudeFable51: "claude-fable-5-1",
+} as const;
+/**
+ * The model the builder and reviewer run on, or null for a build created before provider selection. A build recorded before model selection reports its provider's default.
+ */
+export type WorldBuildProgressModel = OpenEnum<typeof WorldBuildProgressModel>;
+
+/**
  * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
  */
 export const WorldBuildProgressPhase = {
@@ -122,6 +136,10 @@ export type WorldBuildProgress = {
    */
   lastValidationCode: LastValidationCode | null;
   /**
+   * The model the builder and reviewer run on, or null for a build created before provider selection. A build recorded before model selection reports its provider's default.
+   */
+  model: WorldBuildProgressModel | null;
+  /**
    * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
    */
   phase: WorldBuildProgressPhase | null;
@@ -174,6 +192,12 @@ export const LastValidationCode$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(LastValidationCode);
 
 /** @internal */
+export const WorldBuildProgressModel$inboundSchema: z.ZodMiniType<
+  WorldBuildProgressModel,
+  unknown
+> = openEnums.inboundSchema(WorldBuildProgressModel);
+
+/** @internal */
 export const WorldBuildProgressPhase$inboundSchema: z.ZodMiniType<
   WorldBuildProgressPhase,
   unknown
@@ -201,6 +225,7 @@ export const WorldBuildProgress$inboundSchema: z.ZodMiniType<
     ),
     last_tool: types.nullable(types.string()),
     last_validation_code: types.nullable(LastValidationCode$inboundSchema),
+    model: types.nullable(WorldBuildProgressModel$inboundSchema),
     phase: types.nullable(WorldBuildProgressPhase$inboundSchema),
     recent_tools: z.array(BuildToolCall$inboundSchema),
     review_status: types.nullable(ReviewStatus$inboundSchema),

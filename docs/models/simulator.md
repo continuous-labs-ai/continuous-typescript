@@ -10,6 +10,7 @@ let value: Simulator = {
     builder: "claude",
     lastSubmission: "rejected",
     lastTool: "test",
+    model: "claude-fable-5-1",
     phase: "build",
     recentTools: [
       {

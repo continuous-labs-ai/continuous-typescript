@@ -34,6 +34,10 @@ export type SpecificationIssue = {
    */
   kind: SpecificationIssueKind;
   /**
+   * Readable endpoint or field affected by this issue.
+   */
+  location: string;
+  /**
    * What needs attention at this location.
    */
   message: string;
@@ -41,10 +45,6 @@ export type SpecificationIssue = {
    * Affected operation ID or method and path, when available. Empty for document-level issues.
    */
   operation: string;
-  /**
-   * Location in the submitted specification, as a JSON pointer or XML path.
-   */
-  path: string;
   /**
    * How to correct or address the problem.
    */
@@ -64,9 +64,9 @@ export const SpecificationIssue$inboundSchema: z.ZodMiniType<
 > = z.object({
   code: types.string(),
   kind: SpecificationIssueKind$inboundSchema,
+  location: types.string(),
   message: types.string(),
   operation: types.string(),
-  path: types.string(),
   suggestion: types.string(),
 });
 
