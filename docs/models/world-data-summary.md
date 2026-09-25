@@ -17,9 +17,9 @@ let value: WorldDataSummary = {
   ],
   records: [
     {
-      count: 543190,
+      count: 494879,
       entity: "<value>",
-      memberIndex: 28794,
+      memberIndex: 788904,
       simulatorId: "<id>",
     },
   ],

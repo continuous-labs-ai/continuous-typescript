@@ -16,20 +16,6 @@ import {
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
- * The coding-loop provider.
- */
-export const SimulatorBuildProgressBuilder = {
-  Claude: "claude",
-  Openai: "openai",
-} as const;
-/**
- * The coding-loop provider.
- */
-export type SimulatorBuildProgressBuilder = OpenEnum<
-  typeof SimulatorBuildProgressBuilder
->;
-
-/**
  * Outcome of the most recent submit attempt, or null.
  */
 export const SimulatorBuildProgressLastSubmission = {
@@ -91,10 +77,6 @@ export type SimulatorBuildProgressStage = OpenEnum<
 
 export type SimulatorBuildProgress = {
   /**
-   * The coding-loop provider.
-   */
-  builder: SimulatorBuildProgressBuilder;
-  /**
    * Outcome of the most recent submit attempt, or null.
    */
   lastSubmission: SimulatorBuildProgressLastSubmission | null;
@@ -133,12 +115,6 @@ export type SimulatorBuildProgress = {
 };
 
 /** @internal */
-export const SimulatorBuildProgressBuilder$inboundSchema: z.ZodMiniType<
-  SimulatorBuildProgressBuilder,
-  unknown
-> = openEnums.inboundSchema(SimulatorBuildProgressBuilder);
-
-/** @internal */
 export const SimulatorBuildProgressLastSubmission$inboundSchema: z.ZodMiniType<
   SimulatorBuildProgressLastSubmission,
   unknown
@@ -168,7 +144,6 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    builder: SimulatorBuildProgressBuilder$inboundSchema,
     last_submission: types.nullable(
       SimulatorBuildProgressLastSubmission$inboundSchema,
     ),
