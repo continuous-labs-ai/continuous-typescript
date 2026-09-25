@@ -46,6 +46,10 @@ export type Simulation = {
    */
   id: string;
   /**
+   * Customer JSON metadata, or null.
+   */
+  metadata: any;
+  /**
    * Simulation name. The ID is its identity, and names need not be unique.
    */
   name: string;
@@ -86,6 +90,7 @@ export const Simulation$inboundSchema: z.ZodMiniType<Simulation, unknown> = z
       current_time: types.date(),
       endpoint: types.string(),
       id: types.string(),
+      metadata: z.any(),
       name: types.string(),
       parent_id: types.nullable(types.string()),
       simulator_digest: types.string(),

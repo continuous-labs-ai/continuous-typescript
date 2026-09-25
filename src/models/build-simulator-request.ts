@@ -7,20 +7,6 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Legacy provider selection. Alone it selects the provider's default model (openai is gpt-6-astra, claude is claude-fable-5-1); with model it must name the model's provider.
- */
-export const BuildSimulatorRequestBuilder = {
-  Openai: "openai",
-  Claude: "claude",
-} as const;
-/**
- * Legacy provider selection. Alone it selects the provider's default model (openai is gpt-6-astra, claude is claude-fable-5-1); with model it must name the model's provider.
- */
-export type BuildSimulatorRequestBuilder = ClosedEnum<
-  typeof BuildSimulatorRequestBuilder
->;
-
-/**
  * Model that builds and reviews the Simulator. Defaults to gpt-6-astra. Its provider is derived from the model.
  */
 export const BuildSimulatorRequestModel = {
@@ -52,10 +38,6 @@ export type BuildSimulatorRequestSpecKind = ClosedEnum<
 
 export type BuildSimulatorRequest = {
   /**
-   * Legacy provider selection. Alone it selects the provider's default model (openai is gpt-6-astra, claude is claude-fable-5-1); with model it must name the model's provider.
-   */
-  builder?: BuildSimulatorRequestBuilder | undefined;
-  /**
    * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId or the WSDL operation name; an operation is kept when any expression matches, and an OpenAPI operation without an operationId is dropped. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation. Not allowed for an incremental build.
    */
   filter?: Array<string> | undefined;
@@ -86,11 +68,6 @@ export type BuildSimulatorRequest = {
 };
 
 /** @internal */
-export const BuildSimulatorRequestBuilder$outboundSchema: z.ZodMiniEnum<
-  typeof BuildSimulatorRequestBuilder
-> = z.enum(BuildSimulatorRequestBuilder);
-
-/** @internal */
 export const BuildSimulatorRequestModel$outboundSchema: z.ZodMiniEnum<
   typeof BuildSimulatorRequestModel
 > = z.enum(BuildSimulatorRequestModel);
@@ -102,7 +79,6 @@ export const BuildSimulatorRequestSpecKind$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type BuildSimulatorRequest$Outbound = {
-  builder?: string | undefined;
   filter?: Array<string> | undefined;
   instructions?: string | undefined;
   model: string;
@@ -118,7 +94,6 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
   BuildSimulatorRequest
 > = z.pipe(
   z.object({
-    builder: z.optional(BuildSimulatorRequestBuilder$outboundSchema),
     filter: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
     model: z._default(BuildSimulatorRequestModel$outboundSchema, "gpt-6-astra"),

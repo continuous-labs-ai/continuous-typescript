@@ -20,20 +20,6 @@ import {
 } from "./world-data-summary.js";
 
 /**
- * Selected model provider, or null for a build created before provider selection.
- */
-export const WorldBuildProgressBuilder = {
-  Openai: "openai",
-  Claude: "claude",
-} as const;
-/**
- * Selected model provider, or null for a build created before provider selection.
- */
-export type WorldBuildProgressBuilder = OpenEnum<
-  typeof WorldBuildProgressBuilder
->;
-
-/**
  * Outcome of the most recent plan submission, or null.
  */
 export const WorldBuildProgressLastSubmission = {
@@ -120,10 +106,6 @@ export type WorldBuildProgressStage = OpenEnum<typeof WorldBuildProgressStage>;
 
 export type WorldBuildProgress = {
   /**
-   * Selected model provider, or null for a build created before provider selection.
-   */
-  builder: WorldBuildProgressBuilder | null;
-  /**
    * Outcome of the most recent plan submission, or null.
    */
   lastSubmission: WorldBuildProgressLastSubmission | null;
@@ -174,12 +156,6 @@ export type WorldBuildProgress = {
 };
 
 /** @internal */
-export const WorldBuildProgressBuilder$inboundSchema: z.ZodMiniType<
-  WorldBuildProgressBuilder,
-  unknown
-> = openEnums.inboundSchema(WorldBuildProgressBuilder);
-
-/** @internal */
 export const WorldBuildProgressLastSubmission$inboundSchema: z.ZodMiniType<
   WorldBuildProgressLastSubmission,
   unknown
@@ -219,7 +195,6 @@ export const WorldBuildProgress$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    builder: types.nullable(WorldBuildProgressBuilder$inboundSchema),
     last_submission: types.nullable(
       WorldBuildProgressLastSubmission$inboundSchema,
     ),

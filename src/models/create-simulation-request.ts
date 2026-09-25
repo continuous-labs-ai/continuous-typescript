@@ -7,6 +7,10 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type CreateSimulationRequest = {
   /**
+   * Customer JSON metadata, up to 16 KiB and 64 nesting levels. Returned by create, get, and list. Omission uses null.
+   */
+  metadata?: any | undefined;
+  /**
    * Name for the Simulation. Omission generates a name. The ID stays its identity, and names need not be unique.
    */
   name?: string | undefined;
@@ -22,6 +26,7 @@ export type CreateSimulationRequest = {
 
 /** @internal */
 export type CreateSimulationRequest$Outbound = {
+  metadata?: any | undefined;
   name?: string | undefined;
   simulator_id: string;
   start_time?: string | undefined;
@@ -33,6 +38,7 @@ export const CreateSimulationRequest$outboundSchema: z.ZodMiniType<
   CreateSimulationRequest
 > = z.pipe(
   z.object({
+    metadata: z.optional(z.any()),
     name: z.optional(z.string()),
     simulatorId: z.string(),
     startTime: z.optional(z.pipe(z.date(), z.transform(v => v.toISOString()))),

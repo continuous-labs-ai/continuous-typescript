@@ -64,6 +64,10 @@ export type World = {
    */
   instructions: string;
   /**
+   * Customer JSON metadata, or null.
+   */
+  metadata: any;
+  /**
    * Name for the World.
    */
   name: string;
@@ -99,6 +103,7 @@ export const World$inboundSchema: z.ZodMiniType<World, unknown> = z.pipe(
     error: types.nullable(WorldError$inboundSchema),
     id: types.string(),
     instructions: types.string(),
+    metadata: z.any(),
     name: types.string(),
     simulations: z.array(WorldSimulation$inboundSchema),
     simulators: z.array(types.string()),

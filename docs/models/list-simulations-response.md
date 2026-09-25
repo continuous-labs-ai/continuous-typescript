@@ -15,6 +15,9 @@ let value: ListSimulationsResponse = {
       endpoint:
         "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6",
       id: "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6",
+      metadata: {
+        "customer_id": "cust_123",
+      },
       name: "billing-sandbox",
       parentId: "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8",
       simulatorDigest:

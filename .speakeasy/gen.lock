@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: 1a7cf0621c28fbd535a3de4d87d0424a
+  docChecksum: 10e3e6938a095c9c364b3bd6b57366e9
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.0.19
-  configChecksum: 79026b6d010614e70dd70489fe4fffd6
+  releaseVersion: 0.0.20
+  configChecksum: da535d29783664f8302e2a33a508f5fc
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: d04c5a50-0afb-450e-8590-3829a9da5e9a
-  pristine_commit_hash: 0c08de17c22e59078074be785b10af60033f67b0
-  pristine_tree_hash: bba699cfc91a32f91a28deb6204dbb711d611f53
+  generation_id: bf4fa683-4d38-44c2-af94-514113e9733e
+  pristine_commit_hash: a2c7eb415f8b0693d532fdd3c38c5476d2181e1f
+  pristine_tree_hash: 6c061532282f3b05b3cf4bbce8e19c364f6aa226
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -74,10 +74,6 @@ trackedFiles:
     id: 061f7cb65b11
     last_write_checksum: sha1:5548d233213ee9fb74ca955b4cd43e787d5aae6b
     pristine_git_object: 5fb859774551ea16bf1bcc204e301abbc1874775
-  docs/models/build-simulator-request-builder.md:
-    id: 87ee10510929
-    last_write_checksum: sha1:09d6c580fd440e9771ba4b5020196b09656600e3
-    pristine_git_object: 654dbe51ad1ccade18403494a8befc582153f051
   docs/models/build-simulator-request-model.md:
     id: c353ce92d853
     last_write_checksum: sha1:1233ff86952b451675642bf1610317053227801f
@@ -88,24 +84,20 @@ trackedFiles:
     pristine_git_object: 670fe6ba74f8f3633e8cb2b78f0d8f91e203974c
   docs/models/build-simulator-request.md:
     id: b6246c28546a
-    last_write_checksum: sha1:222a53a6091e8896e54b1723d27ed1ad60c53f21
-    pristine_git_object: 07a33d9837bbffef2dd1fd4833f348f2be025101
+    last_write_checksum: sha1:223103c8e69e7d927c3a5a5f170dd588cbf1d60f
+    pristine_git_object: 45a25987f73635cfb1883e71af9f239f66c24e59
   docs/models/build-tool-call.md:
     id: abfbb32e86b0
     last_write_checksum: sha1:6432a3f7656c2ef6e31ea430d51e22711e077bfe
     pristine_git_object: 4e8834340e29dcdb5cab11634f05f1e5c6517e15
-  docs/models/build-world-request-builder.md:
-    id: 89cf8e3d3aba
-    last_write_checksum: sha1:89a322377d10febf311bc2f7f403d44841e3aad8
-    pristine_git_object: 622fca15c27f2acec285f8c51cba08a21674b87f
   docs/models/build-world-request-model.md:
     id: 2ba7097d3183
     last_write_checksum: sha1:0a7b4dcfda82d8834217213bb9333d6c69a2fbd9
     pristine_git_object: e315cfc002cc33a3d416a9edc3e4cbf56cb9e99b
   docs/models/build-world-request.md:
     id: 75249b76ab14
-    last_write_checksum: sha1:d9f6041b3fdfde95e107a58f2225f27f7f4f0b2e
-    pristine_git_object: 846636b5c94cb837ee7fda141f987866fe75277f
+    last_write_checksum: sha1:8802ee31d9d89c82f16df55f17d85a9f6078927a
+    pristine_git_object: 9a1d2f36dd7d78ea3200a3654d97eedb05367bb1
   docs/models/clock-advance-member-status.md:
     id: 68bade113394
     last_write_checksum: sha1:a1716001e455e9075a5432746af6d0750be5b733
@@ -128,16 +120,16 @@ trackedFiles:
     pristine_git_object: 93be18242747999d2a7f396dc11fbec96f01639c
   docs/models/create-simulation-request.md:
     id: 16b46262ec4f
-    last_write_checksum: sha1:ce6bd4f45726f7df37ea1586e649ab658c78a03b
-    pristine_git_object: aa760c41aeb2fc59977d4e45a6f1536a1332c32a
+    last_write_checksum: sha1:a2d8af67032b9a136d3c04fa1c8eb857736976f2
+    pristine_git_object: fa566b47b803c28bcc7646e95affcb1ca5f68318
   docs/models/created-simulation-status.md:
     id: ed822d4f9941
     last_write_checksum: sha1:64894dcfcb5b6bf68b93813dd6aa3caba81c98a8
     pristine_git_object: bc56bed3073142d80d16ba111eee7d667e472c67
   docs/models/created-simulation.md:
     id: 8df45647bc47
-    last_write_checksum: sha1:0becde74b04527cc92a1833c9773ca44bf0cdf2f
-    pristine_git_object: 4fdde875ff15efd1021d78b786a16e14f933af40
+    last_write_checksum: sha1:8a7ec0472b9fa06f8150d8fb8d980645af3eb3b9
+    pristine_git_object: 31d7500aa5a77735097865623ab1c3da0cf22289
   docs/models/errors/error-t.md:
     id: ee0036d35000
     last_write_checksum: sha1:c97f3dec8da1057b7a7057c7f5c1abbcc0f7d9fd
@@ -160,16 +152,16 @@ trackedFiles:
     pristine_git_object: 7c4c123fec7c66ab6f8269d0eb5d838c7450e8cb
   docs/models/list-simulations-response.md:
     id: 3d867f0af96e
-    last_write_checksum: sha1:639fe4d1426eb77c846cf6e35da57dd62f80b369
-    pristine_git_object: 4529ab3ba40bf41daa84b54d669998281d455862
+    last_write_checksum: sha1:a4f49daae2a85509ca897e9b903d021e387f4ba6
+    pristine_git_object: 258df5c9140b8f3d2b33d57b7ecd6e10010c2ae4
   docs/models/list-simulators-response.md:
     id: 90b92f75161b
-    last_write_checksum: sha1:54cda2e05e3e9d1be96a9264dd16233df0684c60
-    pristine_git_object: 68fb4d9f8896f4dbbe00128819f453bebb3e9885
+    last_write_checksum: sha1:f51bd025362ae6b50c470610df57804ea737fa05
+    pristine_git_object: 1b7539866f8028ac64eacc66adc3917a2433159e
   docs/models/list-worlds-response.md:
     id: 5fa0178e5c18
-    last_write_checksum: sha1:c24fd601a4742cb12fa3ef0332b2a765ce418a38
-    pristine_git_object: 0cc54d62cedbd15412a070900dedbb26f6c19e9f
+    last_write_checksum: sha1:ba9b718ef8ee006d1e6c392f283d56882370a50c
+    pristine_git_object: 8215d4727c1b9c989d45527ad747caeedbb2e477
   docs/models/mint-simulation-token-request.md:
     id: 48bffcee68c5
     last_write_checksum: sha1:e13288e0632d7f7de4bbf08e43fa007b6b99d541
@@ -188,8 +180,8 @@ trackedFiles:
     pristine_git_object: 4269a7843b705e3544e5aab5c7ab0e9f2a462bc5
   docs/models/operations/build-simulator-response.md:
     id: 6c3c62dddab1
-    last_write_checksum: sha1:68501956c9ed7ecb1a9b7a71fdbd635c9cc87c43
-    pristine_git_object: c624c7a1e39a5ce27c1add20eccd43ace02dd689
+    last_write_checksum: sha1:f912a17d0874bfdb73a97a9dfa905c86b4c659ae
+    pristine_git_object: 86a3b0ea3adbe074d9e66ff5383c5661655998fc
   docs/models/operations/cancel-simulator-build-request.md:
     id: abf7ea9bb8a4
     last_write_checksum: sha1:aa4fbdc8840ede4681fa6fe3d886cd3d19cd13b6
@@ -308,12 +300,8 @@ trackedFiles:
     pristine_git_object: 7ab6ea6516f0b828b5eccb328809836f88a8230d
   docs/models/simulation.md:
     id: 9184bd42be0a
-    last_write_checksum: sha1:bd6d40a8cb7c61be4c667d8ba6591d7b78b4c0b1
-    pristine_git_object: a6aefeccd45c2c02ee1d078c28166df7d0f3e495
-  docs/models/simulator-build-progress-builder.md:
-    id: 807a777ea1fc
-    last_write_checksum: sha1:1ef3fd5038b241dff4fe0fb8b5cedcb5757ff4dc
-    pristine_git_object: efc4dc4a91ed2c4ef072303f5f0974b154e6e2b1
+    last_write_checksum: sha1:315d7481a1cf1b6ec91d7d869939eb24c1686282
+    pristine_git_object: 577ae58c268e90fd26b074833877cf7af65118b3
   docs/models/simulator-build-progress-last-submission.md:
     id: ce17e8a5c043
     last_write_checksum: sha1:80048fa7daaf63615cc0eec765ec0379b949dc9d
@@ -332,8 +320,8 @@ trackedFiles:
     pristine_git_object: ea64b7d8198911d799d9d9cbfe45c6b28630d3a2
   docs/models/simulator-build-progress.md:
     id: 64c4c681ac0e
-    last_write_checksum: sha1:6fb57341505469c8786a860b12d10b25aec09df1
-    pristine_git_object: de1c1c8cf2eee27c88d59ea50beb53a3cd9c3357
+    last_write_checksum: sha1:e77d50b27655fdc0c7d704a85652a2d4eb89768b
+    pristine_git_object: 3d8593469defc3b277a635d6a0231d9675f74f04
   docs/models/simulator-error-code.md:
     id: f3fd09b89093
     last_write_checksum: sha1:2b16d81c323bc890829f86144715281b33051cc4
@@ -356,8 +344,8 @@ trackedFiles:
     pristine_git_object: 4eb34880ab8c8dfb78a740d0783e8a0b1642c5a5
   docs/models/simulator.md:
     id: ee400a6c5eda
-    last_write_checksum: sha1:53ee703af24387c1f2d1fc686896c411f488661e
-    pristine_git_object: 89bfd6419035b2f1c5895ffcc960b1e546afb2f8
+    last_write_checksum: sha1:749bcd0621ba1cf867c851a6a10294fef659364d
+    pristine_git_object: ae5fd1bfa532555c07b15e81f95a79c8d42c8dd3
   docs/models/source.md:
     id: 6541ef7b41e7
     last_write_checksum: sha1:52e9cfaaab43cec1fa8f128d50ae59853b343108
@@ -386,10 +374,6 @@ trackedFiles:
     id: 5550ae854e09
     last_write_checksum: sha1:38438e1f1c329bb07069308baaf4061296b4e8f9
     pristine_git_object: 56ea6e9743355db1efe79293c04cd4489f696795
-  docs/models/world-build-progress-builder.md:
-    id: aabfabc020f8
-    last_write_checksum: sha1:65016b5311ef1b1f47ff942fcf7f2066e2b73cb6
-    pristine_git_object: a5faa3aeab96f05a409f6217484b1328fc809091
   docs/models/world-build-progress-last-submission.md:
     id: 20e998f097a5
     last_write_checksum: sha1:21c2af17997722cce74ad3d36c1b821e6dcb587e
@@ -408,12 +392,12 @@ trackedFiles:
     pristine_git_object: 51de485116929d67a320f86df3db17581f71321f
   docs/models/world-build-progress.md:
     id: 8e81909f56d5
-    last_write_checksum: sha1:f517fe797c7f5e950d419a736f1e2ff504b94e6c
-    pristine_git_object: 4598099eafe671d8b0f8b9e546002602f20333ec
+    last_write_checksum: sha1:263776446e9aa656c883b43982ffb9ed8cf1a761
+    pristine_git_object: d55e3392d99293de26080e84b4c31776e4bd0a54
   docs/models/world-data-summary.md:
     id: d8a52d4ffdd2
-    last_write_checksum: sha1:e36eb246b9ad068f718f7a3e94950c0228823612
-    pristine_git_object: 976ecfff9dc4982713202f0558fd6c1db1deded9
+    last_write_checksum: sha1:ede32ef826c8ada9c81ceb037d0346c1013f76b8
+    pristine_git_object: d324d97f72c6997c2d9ab177159b8bad00bc1ff9
   docs/models/world-error-code.md:
     id: eadc7ba44baf
     last_write_checksum: sha1:9a514567df630110fdc0d0bb21ccd0f7c0de007d
@@ -440,20 +424,20 @@ trackedFiles:
     pristine_git_object: 10d3bb1a8e706962dc4a3356806d23037cf8e506
   docs/models/world.md:
     id: d58530de63e7
-    last_write_checksum: sha1:371b035e6458f4afd63490d17c85788ddee4691f
-    pristine_git_object: 9fa60372f138a6e06144c276c2133027562e939b
+    last_write_checksum: sha1:5d62c98c101d6e2710333a9ae99eea6e34420643
+    pristine_git_object: 6dbdb183a17cc2bed484a63942f0c1ea145b6e79
   docs/sdks/simulations/README.md:
     id: a9e027fcb2b0
-    last_write_checksum: sha1:a5c0ed7f2c78482b1a2d307a6156d239e394483c
-    pristine_git_object: 5edaaa3e6dcdbf81db5d65d6b62639e836467b73
+    last_write_checksum: sha1:b7322a7b6078b371dcc2cb36256b29b5be90214b
+    pristine_git_object: 04dd1509be0c5086a8778470f155f0420854fe00
   docs/sdks/simulators/README.md:
     id: 55eacdd8fa62
     last_write_checksum: sha1:8768235e66040a97647ea81b4930332a3d0ae2a2
     pristine_git_object: 859695eb2252cbdee1bda9e8a998eac43fb9425b
   docs/sdks/worlds/README.md:
     id: c57d3f2ebb66
-    last_write_checksum: sha1:66477ae145cad6c78b15f04cae0a9c2c7548460d
-    pristine_git_object: fab2e8bc48653bddbe2d2c02d2a2d2c6075bc447
+    last_write_checksum: sha1:b3bd816745144efafa7d3ec63f8cc55dfca4fa45
+    pristine_git_object: e197a185e2b0d2156424026a393fb4f22b750eb1
   examples/.env.template:
     id: 52cbe5afed92
     last_write_checksum: sha1:5efb9f04268a512dea693dbdefdd798fbd924d40
@@ -472,12 +456,12 @@ trackedFiles:
     pristine_git_object: c6df7f1511a765e549e301fa4bd16b5bd606d603
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:6438bbee16f750b41aa46d7f84f9227b88242fc3
-    pristine_git_object: c2781c2988140a0aed7b11e4d1ca768e830b30b3
+    last_write_checksum: sha1:485c1e73368ebb55dd556b351256eccea0d17187
+    pristine_git_object: 2f2520d0c17c0cf0d19f299213cbc7fa8ed8a557
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:066e382890745a048af3be11297c35cf98bc973f
-    pristine_git_object: 5f07be40e8bb24c1036d4e078c97a380f8273903
+    last_write_checksum: sha1:474350f5492e972cf003ad6df3bab0f504195645
+    pristine_git_object: 43afcfd29f032dd78906459f8461654ab5a5180f
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -608,8 +592,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:ee4247cfa263cab5c032790f43405da0df898f39
-    pristine_git_object: 1076d482d40c08aac94e4afa35d6320a6e2a9fb0
+    last_write_checksum: sha1:c2aff6972e92e75761602639670bd3d46365d01d
+    pristine_git_object: ede267d01a023b634673f7b821023b860d4179dd
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -664,16 +648,16 @@ trackedFiles:
     pristine_git_object: ecd86479b0e5ae2a3727e4a3c14f58029f1f10b4
   src/models/build-simulator-request.ts:
     id: 3a8cd2fe64c6
-    last_write_checksum: sha1:1c4179aa799d0eea219cecc975af2a18dff26fe8
-    pristine_git_object: 02959db000d9d69b2dcc569066217b369a83cf4e
+    last_write_checksum: sha1:bfb408ec864f1ce5b2a50a9d4f04f56a4f4e8eb9
+    pristine_git_object: f79217c718b3e3effb2c9f56def61f9eecc08386
   src/models/build-tool-call.ts:
     id: 2f16a7fd48a0
     last_write_checksum: sha1:8016a91325f2388b0c65cf00a6c3dac67427a08e
     pristine_git_object: 254b3b413c40e0656fce14d57dd80d13c6ce11e0
   src/models/build-world-request.ts:
     id: 29763dfe247c
-    last_write_checksum: sha1:3f76cac5c686844814efe4d5146edecd67207245
-    pristine_git_object: 3b5f1c4c32704e78e8ab00cabad35adf0fd114b4
+    last_write_checksum: sha1:c56c0b49f4dbb1a3e77db7239be64f323002ec8f
+    pristine_git_object: e785346f321217c3305f557e1f74c18f32447d2d
   src/models/clock-advance-member.ts:
     id: "963694071905"
     last_write_checksum: sha1:6cacf7524fa31614c1f5c41ade8ecdbae9d24a04
@@ -688,12 +672,12 @@ trackedFiles:
     pristine_git_object: 2ca838b3c5fcd4a215bc0dbb0e7b0126e1a73654
   src/models/create-simulation-request.ts:
     id: 0cf20400e5a9
-    last_write_checksum: sha1:ae1fdff257dd615e8d0d0aed94405f2eeb4ee9e3
-    pristine_git_object: c6987bc4afc458300266998b220ec19c04614be9
+    last_write_checksum: sha1:91564bb96e45e8d07e5773e14efe7465198e0fe2
+    pristine_git_object: 820ffeaa52b3565a9c458892639a43f822713708
   src/models/created-simulation.ts:
     id: 92ec8d7019b5
-    last_write_checksum: sha1:6175342cd193b14d0d32d0188cc65d5a3b10b5b0
-    pristine_git_object: 44c9c6b5d304bc5fa3bff8f7bb4827cc145d27a7
+    last_write_checksum: sha1:abea5f7ecce61c548f6768155f8119a807081ca1
+    pristine_git_object: 3d9a734c10f3ec495e887711ff7999df7c288c26
   src/models/errors/continuous-default-error.ts:
     id: 1d9c5a9fc2ec
     last_write_checksum: sha1:4b1812ce52f4e705b559664f3b59a0c30ac1a847
@@ -868,12 +852,12 @@ trackedFiles:
     pristine_git_object: 8ea5b40e23e7a46eecc024a25915c00c9844ccef
   src/models/simulation.ts:
     id: c5d19f241eb5
-    last_write_checksum: sha1:07e8a77606264bc5698d2575b6ef1740db714684
-    pristine_git_object: 005139c3225e4e8992a9f2b7123aa95de6d7f6e7
+    last_write_checksum: sha1:1c12762920f4284075b508b0961415dde14435f9
+    pristine_git_object: 06d1ac63966e67471346a7ab1bba8934c2c02c31
   src/models/simulator-build-progress.ts:
     id: 86f1ba299bcb
-    last_write_checksum: sha1:7bb56602b77a573046d5bf13c14f614da9512b5b
-    pristine_git_object: ddc8802d59143d7cbdcb93e77707ad3e7c00d040
+    last_write_checksum: sha1:347357944774b8770df2a82ebd8f8e5531ff6eae
+    pristine_git_object: 0210a65ce485ba3b8a2e6551eb9378f12b81227d
   src/models/simulator-error.ts:
     id: 27d673ea1602
     last_write_checksum: sha1:ec8211a606c53d4a4831e0f98e827ca41c0302b0
@@ -900,8 +884,8 @@ trackedFiles:
     pristine_git_object: 4ae49400924ae9d6800001d32224a570e172f87b
   src/models/world-build-progress.ts:
     id: 0d256f4ed468
-    last_write_checksum: sha1:b041d6d24d45baa462fff247aee518af957f884f
-    pristine_git_object: c138ac52545af13b26fcbf99c9a18c512196d130
+    last_write_checksum: sha1:60373cf8d30ddc4fde466984bd5e7feb94743776
+    pristine_git_object: 1effb1c28e7b3e9cfe2ec531d82ae6193ee50e02
   src/models/world-data-summary.ts:
     id: 84d358c5ce75
     last_write_checksum: sha1:9a79d11d9eb80b416fd3c166b7c26f3be5019b7e
@@ -920,8 +904,8 @@ trackedFiles:
     pristine_git_object: 93d76cd9df0d8dc6a97c7d3ddb6b56c00b4089cb
   src/models/world.ts:
     id: f489311e5a23
-    last_write_checksum: sha1:bcf4eda63bd6ed2ec2c6303cd53e13157602a3b9
-    pristine_git_object: 99eb67e86cf3665402c35fc5e55c868512eb3a6a
+    last_write_checksum: sha1:abda3c4ce16dfc411463f55e626eadb03f92b91c
+    pristine_git_object: 6c48cff8960ad3073642b5e2e4ae269928e2637b
   src/sdk/index.ts:
     id: a857902a703f
     last_write_checksum: sha1:ed6d64f2a6135349aa8498b8d8cff9ba85c7fb8f
@@ -1024,7 +1008,7 @@ examples:
           limit: 50
       responses:
         "200":
-          application/json: {"next_cursor": "<value>", "simulations": [{"active_advance_id": "<id>", "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-05-07T13:39:47.962Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "<value>", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2025-10-24T14:15:51.051Z", "status": "running"}]}
+          application/json: {"next_cursor": "<value>", "simulations": [{"active_advance_id": "<id>", "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-05-07T13:39:47.962Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "metadata": "<value>", "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "<value>", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2025-10-24T14:15:51.051Z", "status": "running"}]}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1032,7 +1016,7 @@ examples:
   create-simulation:
     simulator_unknown:
       requestBody:
-        application/json: {"name": "billing-sandbox", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"}
+        application/json: {"metadata": {"customer_id": "cust_123"}, "name": "billing-sandbox", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"}
       responses:
         "400":
           application/problem+json: {"code": "simulator_unknown", "detail": "The Simulator with ID \"smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5\" is unknown or belongs to another workspace.", "validation": null}
@@ -1040,17 +1024,17 @@ examples:
           application/problem+json: {"code": "simulator_unknown", "detail": "The Simulator with ID \"smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5\" is unknown or belongs to another workspace.", "validation": null}
     speakeasy-default-create-simulation:
       requestBody:
-        application/json: {"name": "billing-sandbox", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"}
+        application/json: {"metadata": {"customer_id": "cust_123"}, "name": "billing-sandbox", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"}
       responses:
         "201":
-          application/json: {"active_advance_id": null, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "expires_at": "2026-01-15T13:00:00Z", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2024-01-01T00:00:00Z", "status": "running", "token": "<redacted>"}
+          application/json: {"active_advance_id": null, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "expires_at": "2026-01-15T13:00:00Z", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "metadata": {"customer_id": "cust_123"}, "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2024-01-01T00:00:00Z", "status": "running", "token": "<redacted>"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
     bad_request_body:
       requestBody:
-        application/json: {"name": "billing-sandbox", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"}
+        application/json: {"metadata": {"customer_id": "cust_123"}, "name": "billing-sandbox", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"}
       responses:
         "400":
           application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
@@ -1093,7 +1077,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2024-01-01T00:00:00Z", "status": "running"}
+          application/json: {"active_advance_id": null, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "metadata": {"customer_id": "cust_123"}, "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2024-01-01T00:00:00Z", "status": "running"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1127,7 +1111,7 @@ examples:
         application/json: {"at_step": 42, "name": "billing-fork"}
       responses:
         "201":
-          application/json: {"active_advance_id": null, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "expires_at": "2026-01-15T13:00:00Z", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2024-01-01T00:00:00Z", "status": "running", "token": "<redacted>"}
+          application/json: {"active_advance_id": null, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "expires_at": "2026-01-15T13:00:00Z", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "metadata": {"customer_id": "cust_123"}, "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2024-01-01T00:00:00Z", "status": "running", "token": "<redacted>"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1150,7 +1134,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2024-01-01T00:00:00Z", "status": "running"}
+          application/json: {"active_advance_id": null, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "metadata": {"customer_id": "cust_123"}, "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2024-01-01T00:00:00Z", "status": "running"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1207,7 +1191,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2024-01-01T00:00:00Z", "status": "running"}
+          application/json: {"active_advance_id": null, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "endpoint": "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6", "metadata": {"customer_id": "cust_123"}, "name": "billing-sandbox", "parent_id": "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8", "simulator_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "simulator_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "start_time": "2024-01-01T00:00:00Z", "status": "running"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1273,7 +1257,7 @@ examples:
           limit: 50
       responses:
         "200":
-          application/json: {"next_cursor": "<value>", "simulators": [{"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "<value>", "model": "gpt-6-sol", "phase": "build", "recent_tools": [], "stage": "assemble", "submissions": 113509, "tool_calls": 913897, "updated_at": "2024-11-16T22:17:20.816Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "<value>", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "wsdl", "status": "building"}]}
+          application/json: {"next_cursor": "<value>", "simulators": [{"build": {"last_submission": "rejected", "last_tool": "<value>", "model": "gpt-6-sol", "phase": "build", "recent_tools": [], "stage": "assemble", "submissions": 113509, "tool_calls": 913897, "updated_at": "2024-11-16T22:17:20.816Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "<value>", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "wsdl", "status": "building"}]}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1296,7 +1280,7 @@ examples:
         multipart/form-data: {"request": {"filter": [], "instructions": "Return stable example data for every operation.", "model": "claude-fable-5-1", "name": "billing-api", "spec_kind": "openapi", "timeout_seconds": 14400}}
       responses:
         "202":
-          application/json: {"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "model": "claude-fable-5-1", "phase": "build", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"last_submission": "rejected", "last_tool": "test", "model": "claude-fable-5-1", "phase": "build", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1354,7 +1338,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "model": "claude-fable-5-1", "phase": "build", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"last_submission": "rejected", "last_tool": "test", "model": "claude-fable-5-1", "phase": "build", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1386,7 +1370,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "model": "claude-fable-5-1", "phase": "build", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"last_submission": "rejected", "last_tool": "test", "model": "claude-fable-5-1", "phase": "build", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "stage": "build", "submissions": 1, "tool_calls": 7, "updated_at": "2026-01-15T12:05:00Z"}, "created_at": "2026-01-15T12:00:00Z", "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "source": "workspace", "spec_kind": "openapi", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1427,7 +1411,7 @@ examples:
           limit: 50
       responses:
         "200":
-          application/json: {"next_cursor": "<value>", "worlds": [{"active_advance_id": "<id>", "build": {"builder": "openai", "last_submission": "rejected", "last_tool": "<value>", "last_validation_code": "nested_proof", "model": "claude-opus-5-5", "phase": "finalize", "recent_tools": [], "review_status": "accepted", "stage": "validating", "submissions": 22199, "summary": null, "tests": 352213, "tool_calls": 98602}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2025-09-18T08:14:47.236Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "<value>", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-07-28T13:30:18.464Z", "status": "building"}]}
+          application/json: {"next_cursor": "<value>", "worlds": [{"active_advance_id": "<id>", "build": {"last_submission": "rejected", "last_tool": "<value>", "last_validation_code": "nested_proof", "model": "claude-opus-5-5", "phase": "finalize", "recent_tools": [], "review_status": "accepted", "stage": "validating", "submissions": 22199, "summary": null, "tests": 352213, "tool_calls": 98602}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2025-09-18T08:14:47.236Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "metadata": "<value>", "name": "<value>", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-07-28T13:30:18.464Z", "status": "building"}]}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
         "500":
@@ -1435,7 +1419,7 @@ examples:
   build-world:
     simulator_unknown:
       requestBody:
-        application/json: {"instructions": "Use stable example data for each Simulator.", "model": "gpt-6-astra", "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "timeout_seconds": 14400}
+        application/json: {"instructions": "Use stable example data for each Simulator.", "metadata": {"customer_id": "cust_123"}, "model": "gpt-6-astra", "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "timeout_seconds": 14400}
       responses:
         "400":
           application/problem+json: {"code": "simulator_unknown", "detail": "The Simulator with ID \"smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5\" is unknown or belongs to another workspace.", "validation": null}
@@ -1443,17 +1427,17 @@ examples:
           application/problem+json: {"code": "simulator_unknown", "detail": "The Simulator with ID \"smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5\" is unknown or belongs to another workspace.", "validation": null}
     speakeasy-default-build-world:
       requestBody:
-        application/json: {"instructions": "Use stable example data for each Simulator.", "model": "gpt-6-astra", "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "timeout_seconds": 14400}
+        application/json: {"instructions": "Use stable example data for each Simulator.", "metadata": {"customer_id": "cust_123"}, "model": "gpt-6-astra", "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "timeout_seconds": 14400}
       responses:
         "202":
-          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "model": "claude-fable-5-1", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
+          application/json: {"active_advance_id": null, "build": {"last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "model": "claude-fable-5-1", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "metadata": {"customer_id": "cust_123"}, "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
     bad_request_body:
       requestBody:
-        application/json: {"instructions": "Use stable example data for each Simulator.", "model": "gpt-6-astra", "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "timeout_seconds": 14400}
+        application/json: {"instructions": "Use stable example data for each Simulator.", "metadata": {"customer_id": "cust_123"}, "model": "gpt-6-astra", "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "timeout_seconds": 14400}
       responses:
         "400":
           application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
@@ -1496,7 +1480,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "model": "claude-fable-5-1", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
+          application/json: {"active_advance_id": null, "build": {"last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "model": "claude-fable-5-1", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "metadata": {"customer_id": "cust_123"}, "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1528,7 +1512,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "model": "claude-fable-5-1", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
+          application/json: {"active_advance_id": null, "build": {"last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "model": "claude-fable-5-1", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "metadata": {"customer_id": "cust_123"}, "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1560,7 +1544,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "model": "claude-fable-5-1", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
+          application/json: {"active_advance_id": null, "build": {"last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "model": "claude-fable-5-1", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "metadata": {"customer_id": "cust_123"}, "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1601,7 +1585,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"active_advance_id": null, "build": {"builder": "claude", "last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "model": "claude-fable-5-1", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
+          application/json: {"active_advance_id": null, "build": {"last_submission": "rejected", "last_tool": "test", "last_validation_code": "request_not_satisfied", "model": "claude-fable-5-1", "phase": "finalize", "recent_tools": [{"at": "2026-01-15T12:04:00Z", "tool": "test"}, {"at": "2026-01-15T12:05:00Z", "tool": "submit"}], "review_status": "rejected", "stage": "generating", "submissions": 1, "summary": null, "tests": 2, "tool_calls": 7}, "created_at": "2026-01-15T12:00:00Z", "current_time": "2024-01-01T00:00:00Z", "error": null, "id": "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7", "instructions": "Use stable example data for each Simulator.", "metadata": {"customer_id": "cust_123"}, "name": "open-orders", "simulations": [], "simulators": ["smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5"], "start_time": "2024-01-01T00:00:00Z", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -1778,4 +1762,4 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.simulations.listSimulations()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.createSimulation()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.deleteSimulation()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.getSimulation()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.advanceSimulationTime()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.getSimulationAdvance()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.listSimulationAdvanceEvents()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.forkSimulation()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.startSimulation()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.listSimulationSteps()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.stopSimulation()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulations.mintSimulationToken()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulators.listSimulators()`: \n  *  `response.simulators[]` **Changed** (Breaking ⚠️)\n  *  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulators.buildSimulator()`: \n  *  `request.request` **Changed**\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulators.deleteSimulator()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulators.getSimulator()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.simulators.cancelSimulatorBuild()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.listWorlds()`: \n  *  `response.worlds[].build.model` **Added**\n  *  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.buildWorld()`: \n  *  `request` **Changed**\n  *  `response.build.model` **Added**\n  *  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.deleteWorld()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.getWorld()`: \n  *  `response.build.model` **Added**\n  *  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.advanceWorldTime()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.getWorldAdvance()`:  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.cancelWorldBuild()`: \n  *  `response.build.model` **Added**\n  *  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.startWorld()`: \n  *  `response.build.model` **Added**\n  *  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.stopWorld()`: \n  *  `response.build.model` **Added**\n  *  `error.validation.issues[]` **Changed** (Breaking ⚠️)\n"
+releaseNotes: "## Typescript SDK Changes:\n* `continuous.worlds.getWorld()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.worlds.listWorlds()`:  `response.worlds[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.stopWorld()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.worlds.startWorld()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.worlds.cancelWorldBuild()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.worlds.buildWorld()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `continuous.simulators.listSimulators()`:  `response.simulators[].build.builder` **Removed** (Breaking ⚠️)\n* `continuous.simulators.cancelSimulatorBuild()`:  `response.build.builder` **Removed** (Breaking ⚠️)\n* `continuous.simulators.getSimulator()`:  `response.build.builder` **Removed** (Breaking ⚠️)\n* `continuous.simulators.buildSimulator()`: \n  *  `request.request` **Changed** (Breaking ⚠️)\n  *  `response.build.builder` **Removed** (Breaking ⚠️)\n* `continuous.simulations.createSimulation()`: \n  *  `request.metadata` **Added**\n  *  `response.metadata` **Added**\n* `continuous.simulations.stopSimulation()`:  `response.metadata` **Added**\n* `continuous.simulations.listSimulations()`:  `response.simulations[].metadata` **Added**\n* `continuous.simulations.startSimulation()`:  `response.metadata` **Added**\n* `continuous.simulations.forkSimulation()`:  `response.metadata` **Added**\n* `continuous.simulations.getSimulation()`:  `response.metadata` **Added**\n"

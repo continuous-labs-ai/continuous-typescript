@@ -6,38 +6,29 @@
 import { WorldBuildProgress } from "@continuous-labs/sdk/models";
 
 let value: WorldBuildProgress = {
-  builder: "claude",
   lastSubmission: "rejected",
-  lastTool: null,
-  lastValidationCode: "nested_proof",
-  model: "gpt-6-astra",
-  phase: null,
+  lastTool: "<value>",
+  lastValidationCode: "invalid_plan",
+  model: "claude-opus-5-5",
+  phase: "build",
   recentTools: [],
-  reviewStatus: "accepted",
-  stage: "reviewing",
-  submissions: 409166,
+  reviewStatus: null,
+  stage: "validating",
+  submissions: 355176,
   summary: {
-    assumptions: [],
-    conditions: [
+    assumptions: [
+      "<value 1>",
+    ],
+    conditions: [],
+    records: [],
+    relationships: [
       "<value 1>",
       "<value 2>",
       "<value 3>",
     ],
-    records: [
-      {
-        count: 543190,
-        entity: "<value>",
-        memberIndex: 28794,
-        simulatorId: "<id>",
-      },
-    ],
-    relationships: [
-      "<value 1>",
-      "<value 2>",
-    ],
   },
-  tests: 519104,
-  toolCalls: 728638,
+  tests: 926072,
+  toolCalls: 543190,
 };
 ```
 
@@ -45,7 +36,6 @@ let value: WorldBuildProgress = {
 
 | Field                                                                                                                                                                     | Type                                                                                                                                                                      | Required                                                                                                                                                                  | Description                                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `builder`                                                                                                                                                                 | [models.WorldBuildProgressBuilder](../models/world-build-progress-builder.md)                                                                                             | :heavy_check_mark:                                                                                                                                                        | Selected model provider, or null for a build created before provider selection.                                                                                           |
 | `lastSubmission`                                                                                                                                                          | [models.WorldBuildProgressLastSubmission](../models/world-build-progress-last-submission.md)                                                                              | :heavy_check_mark:                                                                                                                                                        | Outcome of the most recent plan submission, or null.                                                                                                                      |
 | `lastTool`                                                                                                                                                                | *string*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                        | Name of the most recent tool, or null. Tool arguments and output are private.                                                                                             |
 | `lastValidationCode`                                                                                                                                                      | [models.LastValidationCode](../models/last-validation-code.md)                                                                                                            | :heavy_check_mark:                                                                                                                                                        | Fixed code for the latest validation finding. Null when no finding is available. Authored details stay private.                                                           |

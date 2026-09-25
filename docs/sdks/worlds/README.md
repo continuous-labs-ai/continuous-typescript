@@ -104,6 +104,9 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.worlds.buildWorld({
     instructions: "Use stable example data for each Simulator.",
+    metadata: {
+      "customer_id": "cust_123",
+    },
     simulators: [
       "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
     ],
@@ -132,6 +135,9 @@ const continuous = new ContinuousCore({
 async function run() {
   const res = await worldsBuildWorld(continuous, {
     instructions: "Use stable example data for each Simulator.",
+    metadata: {
+      "customer_id": "cust_123",
+    },
     simulators: [
       "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
     ],
@@ -159,6 +165,9 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.worlds.buildWorld({
     instructions: "Use stable example data for each Simulator.",
+    metadata: {
+      "customer_id": "cust_123",
+    },
     simulators: [
       "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
     ],
@@ -187,6 +196,9 @@ const continuous = new ContinuousCore({
 async function run() {
   const res = await worldsBuildWorld(continuous, {
     instructions: "Use stable example data for each Simulator.",
+    metadata: {
+      "customer_id": "cust_123",
+    },
     simulators: [
       "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
     ],

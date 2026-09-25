@@ -11,7 +11,6 @@ let value: ListWorldsResponse = {
     {
       activeAdvanceId: null,
       build: {
-        builder: "claude",
         lastSubmission: "rejected",
         lastTool: "test",
         lastValidationCode: "request_not_satisfied",
@@ -39,6 +38,9 @@ let value: ListWorldsResponse = {
       error: null,
       id: "wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7",
       instructions: "Use stable example data for each Simulator.",
+      metadata: {
+        "customer_id": "cust_123",
+      },
       name: "open-orders",
       simulations: [],
       simulators: [
