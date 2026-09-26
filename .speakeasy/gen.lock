@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: 10e3e6938a095c9c364b3bd6b57366e9
+  docChecksum: 1e0ed421d29a74b5ed80460249e81974
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.0.20
-  configChecksum: da535d29783664f8302e2a33a508f5fc
+  releaseVersion: 0.0.21
+  configChecksum: 928b6fec466ea01062ac050348cdc8b6
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: bf4fa683-4d38-44c2-af94-514113e9733e
-  pristine_commit_hash: a2c7eb415f8b0693d532fdd3c38c5476d2181e1f
-  pristine_tree_hash: 6c061532282f3b05b3cf4bbce8e19c364f6aa226
+  generation_id: 9140d590-a00c-43ab-b7c6-1ee5686f6857
+  pristine_commit_hash: 342142e3eb6cc7be656bf93719928460248f86c0
+  pristine_tree_hash: ac55becb75e5cccd0860fcf729e6c4abbd595b8e
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -100,20 +100,20 @@ trackedFiles:
     pristine_git_object: 9a1d2f36dd7d78ea3200a3654d97eedb05367bb1
   docs/models/clock-advance-member-status.md:
     id: 68bade113394
-    last_write_checksum: sha1:a1716001e455e9075a5432746af6d0750be5b733
-    pristine_git_object: 280ba4410281dd65fb21e6ed05d0d52a35299e92
+    last_write_checksum: sha1:16cf422c0f91a2fba07d1c5e4b300bfe9e2396c9
+    pristine_git_object: b903f1a680df8f61e0a01a0ce15fbfaa3a6cd84c
   docs/models/clock-advance-member.md:
     id: d2993952032a
-    last_write_checksum: sha1:ffedc10bbfcffd7116ef877173aad301476b6213
-    pristine_git_object: de5e7aaaeaa4f49202a9de5d37903f275a265bda
+    last_write_checksum: sha1:f3809d906790b63ce33dc62ea553548869b925f2
+    pristine_git_object: 99598ecc9c0bd2bc8ee3f21d130b696fa1600201
   docs/models/clock-advance-status.md:
     id: 961ce47edc49
     last_write_checksum: sha1:8a966764fb624bd30f0d248d8eac9b4a063ac2ca
     pristine_git_object: bc2ab9f47d14ded98d9746cddbea1ba431a57f04
   docs/models/clock-advance.md:
     id: b268e6781b02
-    last_write_checksum: sha1:80f7f0aba9954f0d45fcfd2e090d144a63197e99
-    pristine_git_object: dfaea2d473214cf0bd162d695cddedabdf7cf065
+    last_write_checksum: sha1:e64957b78e56a278aa7cb3a59347f2170cc70ff7
+    pristine_git_object: 0d81842006624e3231570096f9da006b067c63ea
   docs/models/clock-event.md:
     id: 241e2b3c15f2
     last_write_checksum: sha1:7b66d81d448e01ffa2d84bae4495e60016cd7770
@@ -424,8 +424,8 @@ trackedFiles:
     pristine_git_object: 10d3bb1a8e706962dc4a3356806d23037cf8e506
   docs/models/world.md:
     id: d58530de63e7
-    last_write_checksum: sha1:5d62c98c101d6e2710333a9ae99eea6e34420643
-    pristine_git_object: 6dbdb183a17cc2bed484a63942f0c1ea145b6e79
+    last_write_checksum: sha1:81027e06ad6998afd508229455aea8e374bc2f96
+    pristine_git_object: 522995b054bacf0f80411e7d4c974f118a92ef8f
   docs/sdks/simulations/README.md:
     id: a9e027fcb2b0
     last_write_checksum: sha1:b7322a7b6078b371dcc2cb36256b29b5be90214b
@@ -436,8 +436,8 @@ trackedFiles:
     pristine_git_object: 859695eb2252cbdee1bda9e8a998eac43fb9425b
   docs/sdks/worlds/README.md:
     id: c57d3f2ebb66
-    last_write_checksum: sha1:b3bd816745144efafa7d3ec63f8cc55dfca4fa45
-    pristine_git_object: e197a185e2b0d2156424026a393fb4f22b750eb1
+    last_write_checksum: sha1:eb1ec8e18b008de8b8a9639b4443ca3bc4792626
+    pristine_git_object: 4fe2942aebd402d6435e9d95432cc0055f867227
   examples/.env.template:
     id: 52cbe5afed92
     last_write_checksum: sha1:5efb9f04268a512dea693dbdefdd798fbd924d40
@@ -456,12 +456,12 @@ trackedFiles:
     pristine_git_object: c6df7f1511a765e549e301fa4bd16b5bd606d603
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:485c1e73368ebb55dd556b351256eccea0d17187
-    pristine_git_object: 2f2520d0c17c0cf0d19f299213cbc7fa8ed8a557
+    last_write_checksum: sha1:22648ab7358fa6045e1773cd9b9728f7912ccb1a
+    pristine_git_object: 3d9ac31ee01159af127aa77066b10029225ab507
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:474350f5492e972cf003ad6df3bab0f504195645
-    pristine_git_object: 43afcfd29f032dd78906459f8461654ab5a5180f
+    last_write_checksum: sha1:7fdcc5be35ac7bc8eed628c4a7c5ef7f261d4ce9
+    pristine_git_object: 60f363d2ce39d7d934e0af1bfdfb4b9007629383
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -536,8 +536,8 @@ trackedFiles:
     pristine_git_object: 24c289442e9c4af6f01f1bdf52bd7d96770abe03
   src/funcs/worlds-advance-world-time.ts:
     id: ff7f098b89ac
-    last_write_checksum: sha1:204d8f9e0d1b26f690036056535fd1b428d3f7b7
-    pristine_git_object: 9387f44786da391ed1034946ae96d4ef6421f082
+    last_write_checksum: sha1:ba49303b3501443c7ef8bcd115958f1a098b141c
+    pristine_git_object: 840797373bd342fd078064ad7cbb180041a98330
   src/funcs/worlds-build-world.ts:
     id: ea68ce6a30f2
     last_write_checksum: sha1:9d7159146f337582cf0880074037edc442ef5c45
@@ -552,8 +552,8 @@ trackedFiles:
     pristine_git_object: 09e5177a3477c404ed84c7749986cba9b8e9b890
   src/funcs/worlds-get-world-advance.ts:
     id: 77457556adff
-    last_write_checksum: sha1:54a3c1d605eb8b9a5175bfda01aae064465923b6
-    pristine_git_object: 171d3381a4cb4c13011450d173e31cb27f63c0e1
+    last_write_checksum: sha1:f474345c74dc607fd5af50587c3f9829c7877894
+    pristine_git_object: a2f62ca1a116ab2c2434098a38ed49f28f38c509
   src/funcs/worlds-get-world.ts:
     id: 244e8f190435
     last_write_checksum: sha1:f339f2b4455d6281a11952d188c5d0533dbc6f4e
@@ -592,8 +592,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:c2aff6972e92e75761602639670bd3d46365d01d
-    pristine_git_object: ede267d01a023b634673f7b821023b860d4179dd
+    last_write_checksum: sha1:f57e6d56a7734a4490476a75a3eae759331683d7
+    pristine_git_object: a839785c8e839f679df42daaa8745ecf279cac47
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -660,8 +660,8 @@ trackedFiles:
     pristine_git_object: e785346f321217c3305f557e1f74c18f32447d2d
   src/models/clock-advance-member.ts:
     id: "963694071905"
-    last_write_checksum: sha1:6cacf7524fa31614c1f5c41ade8ecdbae9d24a04
-    pristine_git_object: c9b198d9b136c84ddc1d7ecc80f6f1a186e9e74e
+    last_write_checksum: sha1:a2520f4fbe09eab1662235364781c55ec2350e42
+    pristine_git_object: 0104cbdad771e26060b78b8fa8873c8b4aaee96e
   src/models/clock-advance.ts:
     id: b6e800d3a70e
     last_write_checksum: sha1:cf5e1944ad17846c775638d91af86f58eb5af338
@@ -904,8 +904,8 @@ trackedFiles:
     pristine_git_object: 93d76cd9df0d8dc6a97c7d3ddb6b56c00b4089cb
   src/models/world.ts:
     id: f489311e5a23
-    last_write_checksum: sha1:abda3c4ce16dfc411463f55e626eadb03f92b91c
-    pristine_git_object: 6c48cff8960ad3073642b5e2e4ae269928e2637b
+    last_write_checksum: sha1:53fb8207a02f737af3dcf3ed3300e9fc0f5b36ba
+    pristine_git_object: 5ecdea57e30b078f765a94a436f40a096704444c
   src/sdk/index.ts:
     id: a857902a703f
     last_write_checksum: sha1:ed6d64f2a6135349aa8498b8d8cff9ba85c7fb8f
@@ -924,8 +924,8 @@ trackedFiles:
     pristine_git_object: 6b0afd0bde2b3442ae5e23c2d74a575857631ba3
   src/sdk/worlds.ts:
     id: dcbef97a55ca
-    last_write_checksum: sha1:7d6913a10e7bb83b3c1cb8d42a7bbac84da6dc4b
-    pristine_git_object: bd2d99c58e7e0f8886ae77f2f9fe1ef296626127
+    last_write_checksum: sha1:5edb26c37be6eb28f9a50f93c516fab920a307c8
+    pristine_git_object: 14ae7fecc91bbe604d0756b3eeaf79f14ba935f2
   src/types/async.ts:
     id: fac8da972f86
     last_write_checksum: sha1:675d04bb4b4081dc3482f18de98674f9b446e7b4
@@ -1762,4 +1762,9 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.worlds.getWorld()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.worlds.listWorlds()`:  `response.worlds[]` **Changed** (Breaking ⚠️)\n* `continuous.worlds.stopWorld()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.worlds.startWorld()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.worlds.cancelWorldBuild()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.worlds.buildWorld()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `continuous.simulators.listSimulators()`:  `response.simulators[].build.builder` **Removed** (Breaking ⚠️)\n* `continuous.simulators.cancelSimulatorBuild()`:  `response.build.builder` **Removed** (Breaking ⚠️)\n* `continuous.simulators.getSimulator()`:  `response.build.builder` **Removed** (Breaking ⚠️)\n* `continuous.simulators.buildSimulator()`: \n  *  `request.request` **Changed** (Breaking ⚠️)\n  *  `response.build.builder` **Removed** (Breaking ⚠️)\n* `continuous.simulations.createSimulation()`: \n  *  `request.metadata` **Added**\n  *  `response.metadata` **Added**\n* `continuous.simulations.stopSimulation()`:  `response.metadata` **Added**\n* `continuous.simulations.listSimulations()`:  `response.simulations[].metadata` **Added**\n* `continuous.simulations.startSimulation()`:  `response.metadata` **Added**\n* `continuous.simulations.forkSimulation()`:  `response.metadata` **Added**\n* `continuous.simulations.getSimulation()`:  `response.metadata` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `continuous.simulations.advanceSimulationTime()`:  `response.members[].status.enum(skipped)` **Added**
+  * `continuous.simulations.getSimulationAdvance()`:  `response.members[].status.enum(skipped)` **Added**
+  * `continuous.worlds.advanceWorldTime()`:  `response.members[].status.enum(skipped)` **Added**
+  * `continuous.worlds.getWorldAdvance()`:  `response.members[].status.enum(skipped)` **Added**

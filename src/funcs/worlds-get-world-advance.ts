@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Get World Clock Advance
  *
  * @remarks
- * Returns durable progress for each member. Members remain fenced until the whole advance can finish.
+ * Returns completed, failed, or skipped outcomes for each member. A failed call can have an unconfirmed runtime outcome. Reusing the request key returns the same result.
  */
 export function worldsGetWorldAdvance(
   client: ContinuousCore,

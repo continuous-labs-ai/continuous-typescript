@@ -21,7 +21,7 @@ let value: ClockAdvance = {
       },
       eventCount: 125513,
       simulationId: "<id>",
-      status: "failed",
+      status: "skipped",
       step: 182548,
     },
   ],

@@ -89,7 +89,7 @@ export class Worlds extends ClientSDK {
    * Advance World Time
    *
    * @remarks
-   * Fences all members, advances each local clock, and returns a durable operation. A partial failure keeps members fenced while the operation retries. The World clock changes after all members commit.
+   * Advances each running member independently and skips paused or stopped members without waking them. Successful advances remain committed when another member fails. The World current_time records the last settled request target; member clocks can differ.
    */
   async advanceWorldTime(
     request: operations.AdvanceWorldTimeRequest,
@@ -106,7 +106,7 @@ export class Worlds extends ClientSDK {
    * Get World Clock Advance
    *
    * @remarks
-   * Returns durable progress for each member. Members remain fenced until the whole advance can finish.
+   * Returns completed, failed, or skipped outcomes for each member. A failed call can have an unconfirmed runtime outcome. Reusing the request key returns the same result.
    */
   async getWorldAdvance(
     request: operations.GetWorldAdvanceRequest,
