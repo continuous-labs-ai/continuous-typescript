@@ -1,6 +1,6 @@
 # ClockAdvanceMemberStatus
 
-Whether this member is pending, committed, or rolled back after a deterministic failure.
+Whether this member is pending, committed, failed, or skipped because it is not running.
 
 ## Example Usage
 
@@ -15,5 +15,5 @@ let value: ClockAdvanceMemberStatus = "completed";
 ## Values
 
 ```typescript
-"pending" | "completed" | "failed" | Unrecognized<string>
+"pending" | "completed" | "failed" | "skipped" | Unrecognized<string>
 ```

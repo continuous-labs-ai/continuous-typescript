@@ -51,7 +51,7 @@ export type World = {
    */
   createdAt: Date;
   /**
-   * Current shared simulated time.
+   * Target of the last settled World clock request. Individual member clocks can differ.
    */
   currentTime: Date;
   error: WorldError | null;

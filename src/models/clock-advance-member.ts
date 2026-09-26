@@ -16,15 +16,16 @@ import {
 } from "./resource-error.js";
 
 /**
- * Whether this member is pending, committed, or rolled back after a deterministic failure.
+ * Whether this member is pending, committed, failed, or skipped because it is not running.
  */
 export const ClockAdvanceMemberStatus = {
   Pending: "pending",
   Completed: "completed",
   Failed: "failed",
+  Skipped: "skipped",
 } as const;
 /**
- * Whether this member is pending, committed, or rolled back after a deterministic failure.
+ * Whether this member is pending, committed, failed, or skipped because it is not running.
  */
 export type ClockAdvanceMemberStatus = OpenEnum<
   typeof ClockAdvanceMemberStatus
@@ -41,7 +42,7 @@ export type ClockAdvanceMember = {
    */
   simulationId: string;
   /**
-   * Whether this member is pending, committed, or rolled back after a deterministic failure.
+   * Whether this member is pending, committed, failed, or skipped because it is not running.
    */
   status: ClockAdvanceMemberStatus;
   /**
