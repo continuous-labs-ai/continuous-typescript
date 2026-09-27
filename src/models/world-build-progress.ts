@@ -9,10 +9,6 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
-import {
-  BuildToolCall,
-  BuildToolCall$inboundSchema,
-} from "./build-tool-call.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import {
   WorldDataSummary,
@@ -32,22 +28,6 @@ export const WorldBuildProgressLastSubmission = {
 export type WorldBuildProgressLastSubmission = OpenEnum<
   typeof WorldBuildProgressLastSubmission
 >;
-
-/**
- * Fixed code for the latest validation finding. Null when no finding is available. Authored details stay private.
- */
-export const LastValidationCode = {
-  InvalidPlan: "invalid_plan",
-  UnsupportedClaim: "unsupported_claim",
-  InvalidRequirement: "invalid_requirement",
-  NestedProof: "nested_proof",
-  RequestNotSatisfied: "request_not_satisfied",
-  VerificationUnavailable: "verification_unavailable",
-} as const;
-/**
- * Fixed code for the latest validation finding. Null when no finding is available. Authored details stay private.
- */
-export type LastValidationCode = OpenEnum<typeof LastValidationCode>;
 
 /**
  * The model the builder and reviewer run on, or null for a build created before provider selection. A build recorded before model selection reports its provider's default.
@@ -77,20 +57,7 @@ export const WorldBuildProgressPhase = {
 export type WorldBuildProgressPhase = OpenEnum<typeof WorldBuildProgressPhase>;
 
 /**
- * Status of the original independent review, not approval of later edits. Null before review.
- */
-export const ReviewStatus = {
-  Pending: "pending",
-  Accepted: "accepted",
-  Rejected: "rejected",
-} as const;
-/**
- * Status of the original independent review, not approval of later edits. Null before review.
- */
-export type ReviewStatus = OpenEnum<typeof ReviewStatus>;
-
-/**
- * Internal step of starting-data preparation.
+ * planning while the build prepares; generating while the builder writes starting data; validating while the data is checked through the Simulators' APIs; reviewing while the separate reviewer checks it; complete when verified starting data is saved.
  */
 export const WorldBuildProgressStage = {
   Planning: "planning",
@@ -100,7 +67,7 @@ export const WorldBuildProgressStage = {
   Complete: "complete",
 } as const;
 /**
- * Internal step of starting-data preparation.
+ * planning while the build prepares; generating while the builder writes starting data; validating while the data is checked through the Simulators' APIs; reviewing while the separate reviewer checks it; complete when verified starting data is saved.
  */
 export type WorldBuildProgressStage = OpenEnum<typeof WorldBuildProgressStage>;
 
@@ -110,13 +77,9 @@ export type WorldBuildProgress = {
    */
   lastSubmission: WorldBuildProgressLastSubmission | null;
   /**
-   * Name of the most recent tool, or null. Tool arguments and output are private.
+   * Name of the most recent tool call, or null. Tool arguments and output are private.
    */
   lastTool: string | null;
-  /**
-   * Fixed code for the latest validation finding. Null when no finding is available. Authored details stay private.
-   */
-  lastValidationCode: LastValidationCode | null;
   /**
    * The model the builder and reviewer run on, or null for a build created before provider selection. A build recorded before model selection reports its provider's default.
    */
@@ -126,15 +89,7 @@ export type WorldBuildProgress = {
    */
   phase: WorldBuildProgressPhase | null;
   /**
-   * The most recent tool calls, oldest first, at most 20.
-   */
-  recentTools: Array<BuildToolCall>;
-  /**
-   * Status of the original independent review, not approval of later edits. Null before review.
-   */
-  reviewStatus: ReviewStatus | null;
-  /**
-   * Internal step of starting-data preparation.
+   * planning while the build prepares; generating while the builder writes starting data; validating while the data is checked through the Simulators' APIs; reviewing while the separate reviewer checks it; complete when verified starting data is saved.
    */
   stage: WorldBuildProgressStage;
   /**
@@ -145,10 +100,6 @@ export type WorldBuildProgress = {
    * Verified starting data, or null before a completed build.
    */
   summary: WorldDataSummary | null;
-  /**
-   * Number of distinct candidate plans tested. Zero when not recorded.
-   */
-  tests: number;
   /**
    * Number of agent tool calls.
    */
@@ -162,12 +113,6 @@ export const WorldBuildProgressLastSubmission$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(WorldBuildProgressLastSubmission);
 
 /** @internal */
-export const LastValidationCode$inboundSchema: z.ZodMiniType<
-  LastValidationCode,
-  unknown
-> = openEnums.inboundSchema(LastValidationCode);
-
-/** @internal */
 export const WorldBuildProgressModel$inboundSchema: z.ZodMiniType<
   WorldBuildProgressModel,
   unknown
@@ -178,10 +123,6 @@ export const WorldBuildProgressPhase$inboundSchema: z.ZodMiniType<
   WorldBuildProgressPhase,
   unknown
 > = openEnums.inboundSchema(WorldBuildProgressPhase);
-
-/** @internal */
-export const ReviewStatus$inboundSchema: z.ZodMiniType<ReviewStatus, unknown> =
-  openEnums.inboundSchema(ReviewStatus);
 
 /** @internal */
 export const WorldBuildProgressStage$inboundSchema: z.ZodMiniType<
@@ -199,24 +140,17 @@ export const WorldBuildProgress$inboundSchema: z.ZodMiniType<
       WorldBuildProgressLastSubmission$inboundSchema,
     ),
     last_tool: types.nullable(types.string()),
-    last_validation_code: types.nullable(LastValidationCode$inboundSchema),
     model: types.nullable(WorldBuildProgressModel$inboundSchema),
     phase: types.nullable(WorldBuildProgressPhase$inboundSchema),
-    recent_tools: z.array(BuildToolCall$inboundSchema),
-    review_status: types.nullable(ReviewStatus$inboundSchema),
     stage: WorldBuildProgressStage$inboundSchema,
     submissions: types.number(),
     summary: types.nullable(WorldDataSummary$inboundSchema),
-    tests: types.number(),
     tool_calls: types.number(),
   }),
   z.transform((v) => {
     return remap$(v, {
       "last_submission": "lastSubmission",
       "last_tool": "lastTool",
-      "last_validation_code": "lastValidationCode",
-      "recent_tools": "recentTools",
-      "review_status": "reviewStatus",
       "tool_calls": "toolCalls",
     });
   }),

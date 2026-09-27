@@ -15,5 +15,5 @@ let value: SimulatorErrorCode = "specification_validation_failed";
 ## Values
 
 ```typescript
-"build_failed" | "build_cancelled" | "specification_validation_failed" | Unrecognized<string>
+"build_failed" | "build_canceled" | "specification_validation_failed" | Unrecognized<string>
 ```

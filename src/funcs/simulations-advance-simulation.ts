@@ -34,9 +34,9 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Schedules an absolute clock advance. Each successful advance commits all due local events in one step. World members advance through their World. Poll the returned operation until it completes.
  */
-export function simulationsAdvanceSimulationTime(
+export function simulationsAdvanceSimulation(
   client: ContinuousCore,
-  request: operations.AdvanceSimulationTimeRequest,
+  request: operations.AdvanceSimulationRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -61,7 +61,7 @@ export function simulationsAdvanceSimulationTime(
 
 async function $do(
   client: ContinuousCore,
-  request: operations.AdvanceSimulationTimeRequest,
+  request: operations.AdvanceSimulationRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -83,7 +83,7 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      z.parse(operations.AdvanceSimulationTimeRequest$outboundSchema, value),
+      z.parse(operations.AdvanceSimulationRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -117,7 +117,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "advance-simulation-time",
+    operationID: "advance-simulation",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,

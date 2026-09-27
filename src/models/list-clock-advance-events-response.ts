@@ -10,7 +10,7 @@ import * as types from "../types/primitives.js";
 import { ClockEvent, ClockEvent$inboundSchema } from "./clock-event.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type ListAdvanceEventsOutputBody = {
+export type ListClockAdvanceEventsResponse = {
   /**
    * Committed events in execution order.
    */
@@ -22,8 +22,8 @@ export type ListAdvanceEventsOutputBody = {
 };
 
 /** @internal */
-export const ListAdvanceEventsOutputBody$inboundSchema: z.ZodMiniType<
-  ListAdvanceEventsOutputBody,
+export const ListClockAdvanceEventsResponse$inboundSchema: z.ZodMiniType<
+  ListClockAdvanceEventsResponse,
   unknown
 > = z.pipe(
   z.object({
@@ -37,12 +37,12 @@ export const ListAdvanceEventsOutputBody$inboundSchema: z.ZodMiniType<
   }),
 );
 
-export function listAdvanceEventsOutputBodyFromJSON(
+export function listClockAdvanceEventsResponseFromJSON(
   jsonString: string,
-): SafeParseResult<ListAdvanceEventsOutputBody, SDKValidationError> {
+): SafeParseResult<ListClockAdvanceEventsResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ListAdvanceEventsOutputBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListAdvanceEventsOutputBody' from JSON`,
+    (x) => ListClockAdvanceEventsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListClockAdvanceEventsResponse' from JSON`,
   );
 }

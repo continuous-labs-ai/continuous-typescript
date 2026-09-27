@@ -30,11 +30,10 @@ export const WorldErrorCode = {
 export type WorldErrorCode = OpenEnum<typeof WorldErrorCode>;
 
 /**
- * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+ * Bounded failure reason for selecting recovery guidance, or null when unavailable.
  */
 export const WorldErrorReason = {
   Canceled: "canceled",
-  SpecificationInvalid: "specification_invalid",
   TimeLimit: "time_limit",
   ServiceUnavailable: "service_unavailable",
   BuildFailed: "build_failed",
@@ -43,7 +42,7 @@ export const WorldErrorReason = {
   WorldOperationFailed: "world_operation_failed",
 } as const;
 /**
- * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+ * Bounded failure reason for selecting recovery guidance, or null when unavailable.
  */
 export type WorldErrorReason = OpenEnum<typeof WorldErrorReason>;
 
@@ -57,7 +56,7 @@ export type WorldError = {
    */
   detail: string;
   /**
-   * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+   * Bounded failure reason for selecting recovery guidance, or null when unavailable.
    */
   reason: WorldErrorReason | null;
 };

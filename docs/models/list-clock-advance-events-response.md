@@ -1,19 +1,12 @@
-# ListAdvanceEventsOutputBody
+# ListClockAdvanceEventsResponse
 
 ## Example Usage
 
 ```typescript
-import { ListAdvanceEventsOutputBody } from "@continuous-labs/sdk/models";
+import { ListClockAdvanceEventsResponse } from "@continuous-labs/sdk/models";
 
-let value: ListAdvanceEventsOutputBody = {
-  events: [
-    {
-      at: new Date("2024-08-27T23:33:25.418Z"),
-      eventId: "<id>",
-      sequence: 709886,
-      type: "<value>",
-    },
-  ],
+let value: ListClockAdvanceEventsResponse = {
+  events: [],
   nextCursor: "<value>",
 };
 ```

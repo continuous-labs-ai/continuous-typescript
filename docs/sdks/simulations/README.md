@@ -10,7 +10,7 @@ Create Simulations from ready Simulators, then fork, stop, start, and delete the
 * [createSimulation](#createsimulation) - Create Simulation
 * [deleteSimulation](#deletesimulation) - Delete Simulation
 * [getSimulation](#getsimulation) - Get Simulation
-* [advanceSimulationTime](#advancesimulationtime) - Advance Simulation Time
+* [advanceSimulation](#advancesimulation) - Advance Simulation Time
 * [getSimulationAdvance](#getsimulationadvance) - Get Simulation Clock Advance
 * [listSimulationAdvanceEvents](#listsimulationadvanceevents) - List Clock Advance Events
 * [forkSimulation](#forksimulation) - Fork Simulation
@@ -97,6 +97,63 @@ Creates a Simulation from a ready Simulator and starts it. The response includes
 ### Example Usage: bad_request_body
 
 <!-- UsageSnippet language="typescript" operationID="create-simulation" method="post" path="/v1/simulations" example="bad_request_body" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulations.createSimulation({
+    metadata: {
+      "customer_id": "cust_123",
+    },
+    name: "billing-sandbox",
+    simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulationsCreateSimulation } from "@continuous-labs/sdk/funcs/simulations-create-simulation.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulationsCreateSimulation(continuous, {
+    metadata: {
+      "customer_id": "cust_123",
+    },
+    name: "billing-sandbox",
+    simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulationsCreateSimulation failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: bad_request_sample_data
+
+<!-- UsageSnippet language="typescript" operationID="create-simulation" method="post" path="/v1/simulations" example="bad_request_sample_data" -->
 ```typescript
 import { Continuous } from "@continuous-labs/sdk";
 
@@ -380,13 +437,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## advanceSimulationTime
+## advanceSimulation
 
 Schedules an absolute clock advance. Each successful advance commits all due local events in one step. World members advance through their World. Poll the returned operation until it completes.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="advance-simulation-time" method="post" path="/v1/simulations/{id}/advance-time" example="bad_request_body" -->
+<!-- UsageSnippet language="typescript" operationID="advance-simulation" method="post" path="/v1/simulations/{id}/advance-time" example="bad_request_body" -->
 ```typescript
 import { Continuous } from "@continuous-labs/sdk";
 
@@ -395,11 +452,11 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.simulations.advanceSimulationTime({
+  const result = await continuous.simulations.advanceSimulation({
     id: "<id>",
     idempotencyKey: "<value>",
     body: {
-      to: new Date("2026-11-25T01:01:24.107Z"),
+      to: new Date("2026-01-27T00:02:09.022Z"),
     },
   });
 
@@ -415,7 +472,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { simulationsAdvanceSimulationTime } from "@continuous-labs/sdk/funcs/simulations-advance-simulation-time.js";
+import { simulationsAdvanceSimulation } from "@continuous-labs/sdk/funcs/simulations-advance-simulation.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -424,18 +481,18 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await simulationsAdvanceSimulationTime(continuous, {
+  const res = await simulationsAdvanceSimulation(continuous, {
     id: "<id>",
     idempotencyKey: "<value>",
     body: {
-      to: new Date("2026-11-25T01:01:24.107Z"),
+      to: new Date("2026-01-27T00:02:09.022Z"),
     },
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("simulationsAdvanceSimulationTime failed:", res.error);
+    console.log("simulationsAdvanceSimulation failed:", res.error);
   }
 }
 
@@ -446,7 +503,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.AdvanceSimulationTimeRequest](../../models/operations/advance-simulation-time-request.md)                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.AdvanceSimulationRequest](../../models/operations/advance-simulation-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -607,7 +664,7 @@ run();
 
 ### Response
 
-**Promise\<[models.ListAdvanceEventsOutputBody](../../models/list-advance-events-output-body.md)\>**
+**Promise\<[models.ListClockAdvanceEventsResponse](../../models/list-clock-advance-events-response.md)\>**
 
 ### Errors
 

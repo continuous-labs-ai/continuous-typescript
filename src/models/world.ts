@@ -47,7 +47,7 @@ export type World = {
    */
   build: WorldBuildProgress | null;
   /**
-   * Time when the World was created.
+   * World creation time.
    */
   createdAt: Date;
   /**
@@ -60,7 +60,7 @@ export type World = {
    */
   id: string;
   /**
-   * Instructions for the initial synthetic data and relationships.
+   * Instructions for the initial synthetic data and relationships, or empty when none were given.
    */
   instructions: string;
   /**
@@ -68,7 +68,7 @@ export type World = {
    */
   metadata: any;
   /**
-   * Name for the World.
+   * World name. The ID is its identity, and names need not be unique.
    */
   name: string;
   /**

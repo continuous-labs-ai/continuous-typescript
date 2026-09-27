@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 
 export type GetWorldAdvanceRequest = {
   /**
-   * Simulation or World ID.
+   * World ID.
    */
   id: string;
   /**

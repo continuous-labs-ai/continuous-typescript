@@ -7,6 +7,10 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type CreateSimulationRequest = {
   /**
+   * Start with the Simulator's sample data: a realistic account loaded on top of its seed before the first request. Defaults to false, a brand-new workspace. Requires a Simulator that carries sample data; see its composition.
+   */
+  includeSampleData?: boolean | undefined;
+  /**
    * Customer JSON metadata, up to 16 KiB and 64 nesting levels. Returned by create, get, and list. Omission uses null.
    */
   metadata?: any | undefined;
@@ -26,6 +30,7 @@ export type CreateSimulationRequest = {
 
 /** @internal */
 export type CreateSimulationRequest$Outbound = {
+  include_sample_data?: boolean | undefined;
   metadata?: any | undefined;
   name?: string | undefined;
   simulator_id: string;
@@ -38,6 +43,7 @@ export const CreateSimulationRequest$outboundSchema: z.ZodMiniType<
   CreateSimulationRequest
 > = z.pipe(
   z.object({
+    includeSampleData: z.optional(z.boolean()),
     metadata: z.optional(z.any()),
     name: z.optional(z.string()),
     simulatorId: z.string(),
@@ -45,6 +51,7 @@ export const CreateSimulationRequest$outboundSchema: z.ZodMiniType<
   }),
   z.transform((v) => {
     return remap$(v, {
+      includeSampleData: "include_sample_data",
       simulatorId: "simulator_id",
       startTime: "start_time",
     });

@@ -6,34 +6,34 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
-export type AdvanceSimulationTimeRequest = {
+export type AdvanceSimulationRequest = {
   /**
-   * Simulation or World ID.
+   * Simulation ID.
    */
   id: string;
   /**
    * Stable key for this request. Reuse with the same target returns the same operation.
    */
   idempotencyKey: string;
-  body: models.AdvanceTimeInputBody;
+  body: models.AdvanceTimeRequest;
 };
 
 /** @internal */
-export type AdvanceSimulationTimeRequest$Outbound = {
+export type AdvanceSimulationRequest$Outbound = {
   id: string;
   "Idempotency-Key": string;
-  body: models.AdvanceTimeInputBody$Outbound;
+  body: models.AdvanceTimeRequest$Outbound;
 };
 
 /** @internal */
-export const AdvanceSimulationTimeRequest$outboundSchema: z.ZodMiniType<
-  AdvanceSimulationTimeRequest$Outbound,
-  AdvanceSimulationTimeRequest
+export const AdvanceSimulationRequest$outboundSchema: z.ZodMiniType<
+  AdvanceSimulationRequest$Outbound,
+  AdvanceSimulationRequest
 > = z.pipe(
   z.object({
     id: z.string(),
     idempotencyKey: z.string(),
-    body: models.AdvanceTimeInputBody$outboundSchema,
+    body: models.AdvanceTimeRequest$outboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -42,12 +42,10 @@ export const AdvanceSimulationTimeRequest$outboundSchema: z.ZodMiniType<
   }),
 );
 
-export function advanceSimulationTimeRequestToJSON(
-  advanceSimulationTimeRequest: AdvanceSimulationTimeRequest,
+export function advanceSimulationRequestToJSON(
+  advanceSimulationRequest: AdvanceSimulationRequest,
 ): string {
   return JSON.stringify(
-    AdvanceSimulationTimeRequest$outboundSchema.parse(
-      advanceSimulationTimeRequest,
-    ),
+    AdvanceSimulationRequest$outboundSchema.parse(advanceSimulationRequest),
   );
 }

@@ -18,10 +18,6 @@ export type WorldDataSummary = {
    */
   assumptions: Array<string>;
   /**
-   * Record conditions and counts computed from a complete census of served records.
-   */
-  conditions: Array<string>;
-  /**
    * Observed starting record counts for each member and record type.
    */
   records: Array<WorldRecordCount>;
@@ -37,7 +33,6 @@ export const WorldDataSummary$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   assumptions: z.array(types.string()),
-  conditions: z.array(types.string()),
   records: z.array(WorldRecordCount$inboundSchema),
   relationships: z.array(types.string()),
 });

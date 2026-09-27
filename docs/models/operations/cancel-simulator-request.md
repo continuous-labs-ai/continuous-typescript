@@ -1,11 +1,11 @@
-# CancelWorldBuildRequest
+# CancelSimulatorRequest
 
 ## Example Usage
 
 ```typescript
-import { CancelWorldBuildRequest } from "@continuous-labs/sdk/models/operations";
+import { CancelSimulatorRequest } from "@continuous-labs/sdk/models/operations";
 
-let value: CancelWorldBuildRequest = {
+let value: CancelSimulatorRequest = {
   id: "<id>",
 };
 ```
@@ -14,4 +14,4 @@ let value: CancelWorldBuildRequest = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *string*           | :heavy_check_mark: | World ID.          |
+| `id`               | *string*           | :heavy_check_mark: | Simulator ID.      |

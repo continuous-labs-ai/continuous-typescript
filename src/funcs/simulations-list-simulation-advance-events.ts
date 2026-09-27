@@ -40,7 +40,7 @@ export function simulationsListSimulationAdvanceEvents(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.ListAdvanceEventsOutputBody,
+    models.ListClockAdvanceEventsResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.ListAdvanceEventsOutputBody,
+      models.ListClockAdvanceEventsResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -170,7 +170,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.ListAdvanceEventsOutputBody,
+    models.ListClockAdvanceEventsResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -181,7 +181,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.ListAdvanceEventsOutputBody$inboundSchema),
+    M.json(200, models.ListClockAdvanceEventsResponse$inboundSchema),
     M.jsonErr([400, 401, 403, 404, 409, 422], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

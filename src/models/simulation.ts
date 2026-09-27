@@ -46,6 +46,10 @@ export type Simulation = {
    */
   id: string;
   /**
+   * Whether the Simulation started with the Simulator's sample data. A fork inherits its source's state and reports false.
+   */
+  includeSampleData: boolean;
+  /**
    * Customer JSON metadata, or null.
    */
   metadata: any;
@@ -73,6 +77,10 @@ export type Simulation = {
    * Current status. running serves requests. paused means the Simulation was idle and the platform paused it; the next request wakes it. stopped means its state is saved and requests return 409 until you start it.
    */
   status: SimulationStatus;
+  /**
+   * ID of the World that owns this Simulation, or null.
+   */
+  worldId: string | null;
 };
 
 /** @internal */
@@ -90,6 +98,7 @@ export const Simulation$inboundSchema: z.ZodMiniType<Simulation, unknown> = z
       current_time: types.date(),
       endpoint: types.string(),
       id: types.string(),
+      include_sample_data: types.boolean(),
       metadata: z.any(),
       name: types.string(),
       parent_id: types.nullable(types.string()),
@@ -97,16 +106,19 @@ export const Simulation$inboundSchema: z.ZodMiniType<Simulation, unknown> = z
       simulator_id: types.string(),
       start_time: types.date(),
       status: SimulationStatus$inboundSchema,
+      world_id: types.nullable(types.string()),
     }),
     z.transform((v) => {
       return remap$(v, {
         "active_advance_id": "activeAdvanceId",
         "created_at": "createdAt",
         "current_time": "currentTime",
+        "include_sample_data": "includeSampleData",
         "parent_id": "parentId",
         "simulator_digest": "simulatorDigest",
         "simulator_id": "simulatorId",
         "start_time": "startTime",
+        "world_id": "worldId",
       });
     }),
   );

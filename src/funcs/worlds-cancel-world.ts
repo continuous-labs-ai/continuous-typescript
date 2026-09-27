@@ -34,9 +34,9 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Cancels an active World build. Repeated cancellation returns the current World.
  */
-export function worldsCancelWorldBuild(
+export function worldsCancelWorld(
   client: ContinuousCore,
-  request: operations.CancelWorldBuildRequest,
+  request: operations.CancelWorldRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -61,7 +61,7 @@ export function worldsCancelWorldBuild(
 
 async function $do(
   client: ContinuousCore,
-  request: operations.CancelWorldBuildRequest,
+  request: operations.CancelWorldRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -82,8 +82,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      z.parse(operations.CancelWorldBuildRequest$outboundSchema, value),
+    (value) => z.parse(operations.CancelWorldRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -111,7 +110,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "cancel-world-build",
+    operationID: "cancel-world",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,

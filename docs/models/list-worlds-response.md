@@ -13,24 +13,11 @@ let value: ListWorldsResponse = {
       build: {
         lastSubmission: "rejected",
         lastTool: "test",
-        lastValidationCode: "request_not_satisfied",
         model: "claude-fable-5-1",
         phase: "finalize",
-        recentTools: [
-          {
-            at: new Date("2026-01-15T12:04:00Z"),
-            tool: "test",
-          },
-          {
-            at: new Date("2026-01-15T12:05:00Z"),
-            tool: "submit",
-          },
-        ],
-        reviewStatus: "rejected",
         stage: "generating",
         submissions: 1,
         summary: null,
-        tests: 2,
         toolCalls: 7,
       },
       createdAt: new Date("2026-01-15T12:00:00Z"),
