@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { ContinuousCore } from "../core.js";
-import { encodeJSON, encodeSimple } from "../lib/encodings.js";
+import { encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -29,18 +29,18 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Advance World Time
+ * Cancel Simulator Build
  *
  * @remarks
- * Advances each running member independently and skips paused or stopped members without waking them. Successful advances remain committed when another member fails. The World current_time records the last settled request target; member clocks can differ.
+ * Requests cancellation of an active Simulator build. The build can finish before cancellation takes effect. A Simulator that is not building is returned unchanged.
  */
-export function worldsAdvanceWorldTime(
+export function simulatorsCancelSimulator(
   client: ContinuousCore,
-  request: operations.AdvanceWorldTimeRequest,
+  request: operations.CancelSimulatorRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.ClockAdvance,
+    models.Simulator,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -61,12 +61,12 @@ export function worldsAdvanceWorldTime(
 
 async function $do(
   client: ContinuousCore,
-  request: operations.AdvanceWorldTimeRequest,
+  request: operations.CancelSimulatorRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.ClockAdvance,
+      models.Simulator,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -82,15 +82,14 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      z.parse(operations.AdvanceWorldTimeRequest$outboundSchema, value),
+    (value) => z.parse(operations.CancelSimulatorRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.body, { explode: true });
+  const body = null;
 
   const pathParams = {
     id: encodeSimple("id", payload.id, {
@@ -98,16 +97,10 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-  const path = pathToFunc("/v1/worlds/{id}/advance-time")(pathParams);
+  const path = pathToFunc("/v1/simulators/{id}/cancel")(pathParams);
 
   const headers = new Headers(compactMap({
-    "Content-Type": "application/json",
     Accept: "application/json",
-    "Idempotency-Key": encodeSimple(
-      "Idempotency-Key",
-      payload["Idempotency-Key"],
-      { explode: false, charEncoding: "none" },
-    ),
   }));
 
   const secConfig = await extractSecurity(client._options.apiKeyAuth);
@@ -117,7 +110,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "advance-world-time",
+    operationID: "cancel-simulator",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -161,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.ClockAdvance,
+    models.Simulator,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -172,12 +165,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(202, models.ClockAdvance$inboundSchema),
-    M.jsonErr(
-      [400, 401, 403, 404, 408, 409, 413, 415, 422],
-      errors.ErrorT$inboundSchema,
-      { ctype: "application/problem+json" },
-    ),
+    M.json(200, models.Simulator$inboundSchema),
+    M.jsonErr([401, 403, 404, 422], errors.ErrorT$inboundSchema, {
+      ctype: "application/problem+json",
+    }),
     M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

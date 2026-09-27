@@ -15,21 +15,21 @@ export type ListSimulationAdvanceEventsRequest = {
    */
   advanceId: string;
   /**
-   * Cursor from the previous page.
-   */
-  cursor?: string | undefined;
-  /**
-   * Page size, up to 200.
+   * Page size. Values below 1 use 50. Values above 200 use 200.
    */
   limit?: number | undefined;
+  /**
+   * Opaque next_cursor value from a previous page.
+   */
+  cursor?: string | undefined;
 };
 
 /** @internal */
 export type ListSimulationAdvanceEventsRequest$Outbound = {
   id: string;
   advance_id: string;
-  cursor?: string | undefined;
   limit: number;
+  cursor?: string | undefined;
 };
 
 /** @internal */
@@ -40,8 +40,8 @@ export const ListSimulationAdvanceEventsRequest$outboundSchema: z.ZodMiniType<
   z.object({
     id: z.string(),
     advanceId: z.string(),
-    cursor: z.optional(z.string()),
     limit: z._default(z.int(), 50),
+    cursor: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

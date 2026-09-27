@@ -137,7 +137,7 @@ run();
 * [createSimulation](docs/sdks/simulations/README.md#createsimulation) - Create Simulation
 * [deleteSimulation](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation
 * [getSimulation](docs/sdks/simulations/README.md#getsimulation) - Get Simulation
-* [advanceSimulationTime](docs/sdks/simulations/README.md#advancesimulationtime) - Advance Simulation Time
+* [advanceSimulation](docs/sdks/simulations/README.md#advancesimulation) - Advance Simulation Time
 * [getSimulationAdvance](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance
 * [listSimulationAdvanceEvents](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events
 * [forkSimulation](docs/sdks/simulations/README.md#forksimulation) - Fork Simulation
@@ -152,7 +152,7 @@ run();
 * [buildSimulator](docs/sdks/simulators/README.md#buildsimulator) - Build Simulator
 * [deleteSimulator](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
 * [getSimulator](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
-* [cancelSimulatorBuild](docs/sdks/simulators/README.md#cancelsimulatorbuild) - Cancel Simulator Build
+* [cancelSimulator](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build
 
 ### [Worlds](docs/sdks/worlds/README.md)
 
@@ -160,9 +160,9 @@ run();
 * [buildWorld](docs/sdks/worlds/README.md#buildworld) - Build World
 * [deleteWorld](docs/sdks/worlds/README.md#deleteworld) - Delete World
 * [getWorld](docs/sdks/worlds/README.md#getworld) - Get World
-* [advanceWorldTime](docs/sdks/worlds/README.md#advanceworldtime) - Advance World Time
+* [advanceWorld](docs/sdks/worlds/README.md#advanceworld) - Advance World Time
 * [getWorldAdvance](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance
-* [cancelWorldBuild](docs/sdks/worlds/README.md#cancelworldbuild) - Cancel World Build
+* [cancelWorld](docs/sdks/worlds/README.md#cancelworld) - Cancel World Build
 * [startWorld](docs/sdks/worlds/README.md#startworld) - Start World
 * [stopWorld](docs/sdks/worlds/README.md#stopworld) - Stop World
 
@@ -184,7 +184,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`simulationsAdvanceSimulationTime`](docs/sdks/simulations/README.md#advancesimulationtime) - Advance Simulation Time
+- [`simulationsAdvanceSimulation`](docs/sdks/simulations/README.md#advancesimulation) - Advance Simulation Time
 - [`simulationsCreateSimulation`](docs/sdks/simulations/README.md#createsimulation) - Create Simulation
 - [`simulationsDeleteSimulation`](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation
 - [`simulationsForkSimulation`](docs/sdks/simulations/README.md#forksimulation) - Fork Simulation
@@ -197,13 +197,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`simulationsStartSimulation`](docs/sdks/simulations/README.md#startsimulation) - Start Simulation
 - [`simulationsStopSimulation`](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation
 - [`simulatorsBuildSimulator`](docs/sdks/simulators/README.md#buildsimulator) - Build Simulator
-- [`simulatorsCancelSimulatorBuild`](docs/sdks/simulators/README.md#cancelsimulatorbuild) - Cancel Simulator Build
+- [`simulatorsCancelSimulator`](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build
 - [`simulatorsDeleteSimulator`](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
 - [`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
 - [`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators) - List Simulators
-- [`worldsAdvanceWorldTime`](docs/sdks/worlds/README.md#advanceworldtime) - Advance World Time
+- [`worldsAdvanceWorld`](docs/sdks/worlds/README.md#advanceworld) - Advance World Time
 - [`worldsBuildWorld`](docs/sdks/worlds/README.md#buildworld) - Build World
-- [`worldsCancelWorldBuild`](docs/sdks/worlds/README.md#cancelworldbuild) - Cancel World Build
+- [`worldsCancelWorld`](docs/sdks/worlds/README.md#cancelworld) - Cancel World Build
 - [`worldsDeleteWorld`](docs/sdks/worlds/README.md#deleteworld) - Delete World
 - [`worldsGetWorld`](docs/sdks/worlds/README.md#getworld) - Get World
 - [`worldsGetWorldAdvance`](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance

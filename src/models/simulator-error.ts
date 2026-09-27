@@ -20,7 +20,7 @@ import {
  */
 export const SimulatorErrorCode = {
   BuildFailed: "build_failed",
-  BuildCancelled: "build_cancelled",
+  BuildCanceled: "build_canceled",
   SpecificationValidationFailed: "specification_validation_failed",
 } as const;
 /**
@@ -29,7 +29,7 @@ export const SimulatorErrorCode = {
 export type SimulatorErrorCode = OpenEnum<typeof SimulatorErrorCode>;
 
 /**
- * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+ * Bounded failure reason for selecting recovery guidance, or null when unavailable.
  */
 export const SimulatorErrorReason = {
   Canceled: "canceled",
@@ -37,12 +37,9 @@ export const SimulatorErrorReason = {
   TimeLimit: "time_limit",
   ServiceUnavailable: "service_unavailable",
   BuildFailed: "build_failed",
-  PopulationUnsupported: "population_unsupported",
-  WorldStartFailed: "world_start_failed",
-  WorldOperationFailed: "world_operation_failed",
 } as const;
 /**
- * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+ * Bounded failure reason for selecting recovery guidance, or null when unavailable.
  */
 export type SimulatorErrorReason = OpenEnum<typeof SimulatorErrorReason>;
 
@@ -60,7 +57,7 @@ export type SimulatorError = {
    */
   detail: string;
   /**
-   * Bounded failure reason for selecting recovery guidance, or null when unavailable. Older servers can omit this field.
+   * Bounded failure reason for selecting recovery guidance, or null when unavailable.
    */
   reason: SimulatorErrorReason | null;
   validation: SpecificationValidation | null;

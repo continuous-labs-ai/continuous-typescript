@@ -3,7 +3,7 @@
  */
 
 import { simulatorsBuildSimulator } from "../funcs/simulators-build-simulator.js";
-import { simulatorsCancelSimulatorBuild } from "../funcs/simulators-cancel-simulator-build.js";
+import { simulatorsCancelSimulator } from "../funcs/simulators-cancel-simulator.js";
 import { simulatorsDeleteSimulator } from "../funcs/simulators-delete-simulator.js";
 import { simulatorsGetSimulator } from "../funcs/simulators-get-simulator.js";
 import { simulatorsListSimulators } from "../funcs/simulators-list-simulators.js";
@@ -85,13 +85,13 @@ export class Simulators extends ClientSDK {
    * Cancel Simulator Build
    *
    * @remarks
-   * Requests cancellation of an active Simulator build. The build can finish before cancellation takes effect.
+   * Requests cancellation of an active Simulator build. The build can finish before cancellation takes effect. A Simulator that is not building is returned unchanged.
    */
-  async cancelSimulatorBuild(
-    request: operations.CancelSimulatorBuildRequest,
+  async cancelSimulator(
+    request: operations.CancelSimulatorRequest,
     options?: RequestOptions,
   ): Promise<models.Simulator> {
-    return unwrapAsync(simulatorsCancelSimulatorBuild(
+    return unwrapAsync(simulatorsCancelSimulator(
       this,
       request,
       options,

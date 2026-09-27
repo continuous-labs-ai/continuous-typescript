@@ -3,8 +3,30 @@
  */
 
 import * as z from "zod/v4-mini";
+import { ClosedEnum } from "../../types/enums.js";
+
+/**
+ * Optional status filter.
+ */
+export const ListWorldsStatus = {
+  Pending: "pending",
+  Building: "building",
+  Ready: "ready",
+  Running: "running",
+  Stopped: "stopped",
+  Failed: "failed",
+  Canceled: "canceled",
+} as const;
+/**
+ * Optional status filter.
+ */
+export type ListWorldsStatus = ClosedEnum<typeof ListWorldsStatus>;
 
 export type ListWorldsRequest = {
+  /**
+   * Optional status filter.
+   */
+  status?: ListWorldsStatus | undefined;
   /**
    * Page size. Values below 1 use 50. Values above 200 use 200.
    */
@@ -16,7 +38,13 @@ export type ListWorldsRequest = {
 };
 
 /** @internal */
+export const ListWorldsStatus$outboundSchema: z.ZodMiniEnum<
+  typeof ListWorldsStatus
+> = z.enum(ListWorldsStatus);
+
+/** @internal */
 export type ListWorldsRequest$Outbound = {
+  status?: string | undefined;
   limit: number;
   cursor?: string | undefined;
 };
@@ -26,6 +54,7 @@ export const ListWorldsRequest$outboundSchema: z.ZodMiniType<
   ListWorldsRequest$Outbound,
   ListWorldsRequest
 > = z.object({
+  status: z.optional(ListWorldsStatus$outboundSchema),
   limit: z._default(z.int(), 50),
   cursor: z.optional(z.string()),
 });

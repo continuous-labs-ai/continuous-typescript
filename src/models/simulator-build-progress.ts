@@ -9,10 +9,6 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
-import {
-  BuildToolCall,
-  BuildToolCall$inboundSchema,
-} from "./build-tool-call.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
@@ -81,7 +77,7 @@ export type SimulatorBuildProgress = {
    */
   lastSubmission: SimulatorBuildProgressLastSubmission | null;
   /**
-   * Name of the most recent tool call, or null.
+   * Name of the most recent tool call, or null. Tool arguments and output are private.
    */
   lastTool: string | null;
   /**
@@ -92,10 +88,6 @@ export type SimulatorBuildProgress = {
    * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
    */
   phase: SimulatorBuildProgressPhase | null;
-  /**
-   * The most recent tool calls, oldest first, at most 20.
-   */
-  recentTools: Array<BuildToolCall>;
   /**
    * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
    */
@@ -108,10 +100,6 @@ export type SimulatorBuildProgress = {
    * Tool calls the coding loop executed.
    */
   toolCalls: number;
-  /**
-   * Time of the last progress report.
-   */
-  updatedAt: Date;
 };
 
 /** @internal */
@@ -150,19 +138,15 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
     last_tool: types.nullable(types.string()),
     model: SimulatorBuildProgressModel$inboundSchema,
     phase: types.nullable(SimulatorBuildProgressPhase$inboundSchema),
-    recent_tools: z.array(BuildToolCall$inboundSchema),
     stage: SimulatorBuildProgressStage$inboundSchema,
     submissions: types.number(),
     tool_calls: types.number(),
-    updated_at: types.date(),
   }),
   z.transform((v) => {
     return remap$(v, {
       "last_submission": "lastSubmission",
       "last_tool": "lastTool",
-      "recent_tools": "recentTools",
       "tool_calls": "toolCalls",
-      "updated_at": "updatedAt",
     });
   }),
 );

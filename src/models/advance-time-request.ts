@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 
-export type AdvanceTimeInputBody = {
+export type AdvanceTimeRequest = {
   /**
    * Absolute target time in RFC 3339, with at most millisecond precision.
    */
@@ -12,22 +12,22 @@ export type AdvanceTimeInputBody = {
 };
 
 /** @internal */
-export type AdvanceTimeInputBody$Outbound = {
+export type AdvanceTimeRequest$Outbound = {
   to: string;
 };
 
 /** @internal */
-export const AdvanceTimeInputBody$outboundSchema: z.ZodMiniType<
-  AdvanceTimeInputBody$Outbound,
-  AdvanceTimeInputBody
+export const AdvanceTimeRequest$outboundSchema: z.ZodMiniType<
+  AdvanceTimeRequest$Outbound,
+  AdvanceTimeRequest
 > = z.object({
   to: z.pipe(z.date(), z.transform(v => v.toISOString())),
 });
 
-export function advanceTimeInputBodyToJSON(
-  advanceTimeInputBody: AdvanceTimeInputBody,
+export function advanceTimeRequestToJSON(
+  advanceTimeRequest: AdvanceTimeRequest,
 ): string {
   return JSON.stringify(
-    AdvanceTimeInputBody$outboundSchema.parse(advanceTimeInputBody),
+    AdvanceTimeRequest$outboundSchema.parse(advanceTimeRequest),
   );
 }

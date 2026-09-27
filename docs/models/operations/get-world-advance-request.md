@@ -15,5 +15,5 @@ let value: GetWorldAdvanceRequest = {
 
 | Field                       | Type                        | Required                    | Description                 |
 | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
-| `id`                        | *string*                    | :heavy_check_mark:          | Simulation or World ID.     |
+| `id`                        | *string*                    | :heavy_check_mark:          | World ID.                   |
 | `advanceId`                 | *string*                    | :heavy_check_mark:          | Clock advance operation ID. |

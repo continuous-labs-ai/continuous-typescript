@@ -15,6 +15,7 @@ let value: ListSimulationsResponse = {
       endpoint:
         "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6",
       id: "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6",
+      includeSampleData: false,
       metadata: {
         "customer_id": "cust_123",
       },
@@ -25,6 +26,7 @@ let value: ListSimulationsResponse = {
       simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
       startTime: new Date("2024-01-01T00:00:00Z"),
       status: "running",
+      worldId: null,
     },
   ],
 };

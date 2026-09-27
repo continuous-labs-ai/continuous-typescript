@@ -10,7 +10,7 @@ Build Simulators from OpenAPI or WSDL documents, check or cancel a build, and de
 * [buildSimulator](#buildsimulator) - Build Simulator
 * [deleteSimulator](#deletesimulator) - Delete Simulator
 * [getSimulator](#getsimulator) - Get Simulator
-* [cancelSimulatorBuild](#cancelsimulatorbuild) - Cancel Simulator Build
+* [cancelSimulator](#cancelsimulator) - Cancel Simulator Build
 
 ## listSimulators
 
@@ -383,13 +383,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## cancelSimulatorBuild
+## cancelSimulator
 
-Requests cancellation of an active Simulator build. The build can finish before cancellation takes effect.
+Requests cancellation of an active Simulator build. The build can finish before cancellation takes effect. A Simulator that is not building is returned unchanged.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="cancel-simulator-build" method="post" path="/v1/simulators/{id}/cancel" -->
+<!-- UsageSnippet language="typescript" operationID="cancel-simulator" method="post" path="/v1/simulators/{id}/cancel" -->
 ```typescript
 import { Continuous } from "@continuous-labs/sdk";
 
@@ -398,7 +398,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.simulators.cancelSimulatorBuild({
+  const result = await continuous.simulators.cancelSimulator({
     id: "<id>",
   });
 
@@ -414,7 +414,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { simulatorsCancelSimulatorBuild } from "@continuous-labs/sdk/funcs/simulators-cancel-simulator-build.js";
+import { simulatorsCancelSimulator } from "@continuous-labs/sdk/funcs/simulators-cancel-simulator.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -423,14 +423,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await simulatorsCancelSimulatorBuild(continuous, {
+  const res = await simulatorsCancelSimulator(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("simulatorsCancelSimulatorBuild failed:", res.error);
+    console.log("simulatorsCancelSimulator failed:", res.error);
   }
 }
 
@@ -441,7 +441,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CancelSimulatorBuildRequest](../../models/operations/cancel-simulator-build-request.md)                                                                            | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CancelSimulatorRequest](../../models/operations/cancel-simulator-request.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

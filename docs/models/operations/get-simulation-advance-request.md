@@ -15,5 +15,5 @@ let value: GetSimulationAdvanceRequest = {
 
 | Field                       | Type                        | Required                    | Description                 |
 | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
-| `id`                        | *string*                    | :heavy_check_mark:          | Simulation or World ID.     |
+| `id`                        | *string*                    | :heavy_check_mark:          | Simulation ID.              |
 | `advanceId`                 | *string*                    | :heavy_check_mark:          | Clock advance operation ID. |

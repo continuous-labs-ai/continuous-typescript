@@ -1,12 +1,12 @@
-# AdvanceTimeInputBody
+# AdvanceTimeRequest
 
 ## Example Usage
 
 ```typescript
-import { AdvanceTimeInputBody } from "@continuous-labs/sdk/models";
+import { AdvanceTimeRequest } from "@continuous-labs/sdk/models";
 
-let value: AdvanceTimeInputBody = {
-  to: new Date("2024-04-08T03:50:55.967Z"),
+let value: AdvanceTimeRequest = {
+  to: new Date("2024-11-02T13:08:00.478Z"),
 };
 ```
 

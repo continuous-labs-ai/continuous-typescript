@@ -50,6 +50,10 @@ export type CreatedSimulation = {
    */
   id: string;
   /**
+   * Whether the Simulation started with the Simulator's sample data. A fork inherits its source's state and reports false.
+   */
+  includeSampleData: boolean;
+  /**
    * Customer JSON metadata, or null.
    */
   metadata: any;
@@ -101,6 +105,7 @@ export const CreatedSimulation$inboundSchema: z.ZodMiniType<
     endpoint: types.string(),
     expires_at: types.date(),
     id: types.string(),
+    include_sample_data: types.boolean(),
     metadata: z.any(),
     name: types.string(),
     parent_id: types.nullable(types.string()),
@@ -116,6 +121,7 @@ export const CreatedSimulation$inboundSchema: z.ZodMiniType<
       "created_at": "createdAt",
       "current_time": "currentTime",
       "expires_at": "expiresAt",
+      "include_sample_data": "includeSampleData",
       "parent_id": "parentId",
       "simulator_digest": "simulatorDigest",
       "simulator_id": "simulatorId",

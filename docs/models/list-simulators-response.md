@@ -14,20 +14,9 @@ let value: ListSimulatorsResponse = {
         lastTool: "test",
         model: "claude-fable-5-1",
         phase: "build",
-        recentTools: [
-          {
-            at: new Date("2026-01-15T12:04:00Z"),
-            tool: "test",
-          },
-          {
-            at: new Date("2026-01-15T12:05:00Z"),
-            tool: "submit",
-          },
-        ],
         stage: "build",
         submissions: 1,
         toolCalls: 7,
-        updatedAt: new Date("2026-01-15T12:05:00Z"),
       },
       createdAt: new Date("2026-01-15T12:00:00Z"),
       error: null,
