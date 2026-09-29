@@ -17,6 +17,8 @@ Create Simulations from ready Simulators, then fork, stop, start, and delete the
 * [startSimulation](#startsimulation) - Start Simulation
 * [listSimulationSteps](#listsimulationsteps) - List Simulation Steps
 * [stopSimulation](#stopsimulation) - Stop Simulation
+* [getSimulationToken](#getsimulationtoken) - Get Current Simulation Token
+* [regenerateSimulationToken](#regeneratesimulationtoken) - Regenerate Simulation Token
 * [mintSimulationToken](#mintsimulationtoken) - Mint Simulation Token
 
 ## listSimulations
@@ -92,7 +94,7 @@ run();
 
 ## createSimulation
 
-Creates a Simulation from a ready Simulator and starts it. The response includes the Simulation endpoint and a token that expires in 1 hour. List and get do not return the token.
+Creates a Simulation from a ready Simulator and starts it. The response includes the endpoint and a token. New persistent Simulations keep the token across stop and restart; legacy Simulations receive an expiring token.
 
 ### Example Usage: bad_request_body
 
@@ -277,7 +279,7 @@ run();
 
 ### Response
 
-**Promise\<[models.CreatedSimulation](../../models/created-simulation.md)\>**
+**Promise\<[operations.CreateSimulationResponse](../../models/operations/create-simulation-response.md)\>**
 
 ### Errors
 
@@ -364,7 +366,7 @@ run();
 
 ## getSimulation
 
-Returns a Simulation and its current status. The response does not include tokens.
+Returns a Simulation, its current status, and the actors a request can act as. The response does not include tokens.
 
 ### Example Usage
 
@@ -427,7 +429,7 @@ run();
 
 ### Response
 
-**Promise\<[models.Simulation](../../models/simulation.md)\>**
+**Promise\<[models.SimulationDetail](../../models/simulation-detail.md)\>**
 
 ### Errors
 
@@ -676,7 +678,7 @@ run();
 
 ## forkSimulation
 
-Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and a token that expires in 1 hour.
+Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token. A persistent token survives stop and restart; a legacy token expires.
 
 ### Example Usage
 
@@ -747,7 +749,7 @@ run();
 
 ### Response
 
-**Promise\<[models.CreatedSimulation](../../models/created-simulation.md)\>**
+**Promise\<[operations.ForkSimulationResponse](../../models/operations/fork-simulation-response.md)\>**
 
 ### Errors
 
@@ -759,7 +761,7 @@ run();
 
 ## startSimulation
 
-Starts a stopped Simulation from its saved state. The endpoint serves requests once the response returns. A Simulation that is already running or paused is returned unchanged.
+Starts a stopped Simulation from its saved state and returns a usable endpoint token. An already running or paused Simulation returns its current token and status.
 
 ### Example Usage
 
@@ -822,7 +824,7 @@ run();
 
 ### Response
 
-**Promise\<[models.Simulation](../../models/simulation.md)\>**
+**Promise\<[operations.StartSimulationResponse](../../models/operations/start-simulation-response.md)\>**
 
 ### Errors
 
@@ -982,9 +984,161 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
+## getSimulationToken
+
+Returns the current persistent credential, including while stopped, without rotating it. Legacy Simulations require the deprecated token-mint endpoint or explicit regeneration.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="get-simulation-token" method="get" path="/v1/simulations/{id}/token" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulations.getSimulationToken({
+    id: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulationsGetSimulationToken } from "@continuous-labs/sdk/funcs/simulations-get-simulation-token.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulationsGetSimulationToken(continuous, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulationsGetSimulationToken failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSimulationTokenRequest](../../models/operations/get-simulation-token-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetSimulationTokenResponse](../../models/operations/get-simulation-token-response.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
+| errors.ErrorT                 | 500, 502, 503                 | application/problem+json      |
+| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## regenerateSimulationToken
+
+Explicitly replaces the current Simulation credential. The previous token stops authenticating when the transaction commits. Reuse the Idempotency-Key to retry safely.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="regenerate-simulation-token" method="post" path="/v1/simulations/{id}/token/regenerate" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulations.regenerateSimulationToken({
+    id: "<id>",
+    idempotencyKey: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulationsRegenerateSimulationToken } from "@continuous-labs/sdk/funcs/simulations-regenerate-simulation-token.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulationsRegenerateSimulationToken(continuous, {
+    id: "<id>",
+    idempotencyKey: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulationsRegenerateSimulationToken failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.RegenerateSimulationTokenRequest](../../models/operations/regenerate-simulation-token-request.md)                                                                  | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.RegenerateSimulationTokenResponse](../../models/operations/regenerate-simulation-token-response.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ErrorT                 | 401, 403, 404, 409, 422       | application/problem+json      |
+| errors.ErrorT                 | 500, 502, 503                 | application/problem+json      |
+| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+
 ## mintSimulationToken
 
-Creates another token for requests to the Simulation endpoint. Send it in the X-Continuous-Simulation-Token header. Earlier tokens stay valid until they expire.
+For an active legacy Simulation, creates another expiring token. For a persistent Simulation, returns its current token without rotating it, including while stopped. Send the token in the X-Continuous-Simulation-Token header.
 
 ### Example Usage
 
@@ -1053,12 +1207,12 @@ run();
 
 ### Response
 
-**Promise\<[models.SimulationToken](../../models/simulation-token.md)\>**
+**Promise\<[operations.MintSimulationTokenResponse](../../models/operations/mint-simulation-token-response.md)\>**
 
 ### Errors
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
 | errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
-| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.ErrorT                               | 500, 502, 503                               | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |

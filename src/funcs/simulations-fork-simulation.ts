@@ -23,7 +23,6 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -32,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Fork Simulation
  *
  * @remarks
- * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and a token that expires in 1 hour.
+ * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token. A persistent token survives stop and restart; a legacy token expires.
  */
 export function simulationsForkSimulation(
   client: ContinuousCore,
@@ -40,7 +39,7 @@ export function simulationsForkSimulation(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.CreatedSimulation,
+    operations.ForkSimulationResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +65,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.CreatedSimulation,
+      operations.ForkSimulationResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -155,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.CreatedSimulation,
+    operations.ForkSimulationResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -166,7 +165,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, models.CreatedSimulation$inboundSchema),
+    M.json(201, operations.ForkSimulationResponse$inboundSchema, {
+      hdrs: true,
+      key: "Result",
+    }),
     M.jsonErr(
       [400, 401, 403, 404, 408, 409, 413, 415, 422, 429],
       errors.ErrorT$inboundSchema,

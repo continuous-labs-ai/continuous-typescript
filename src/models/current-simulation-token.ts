@@ -9,24 +9,24 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type SimulationToken = {
+export type CurrentSimulationToken = {
   /**
-   * Token expiration time.
+   * Null for a lifetime credential.
    */
-  expiresAt: Date;
+  expiresAt: Date | null;
   /**
-   * New token for requests to the Simulation endpoint. Send it in the X-Continuous-Simulation-Token header.
+   * Current Simulation endpoint credential.
    */
   token: string;
 };
 
 /** @internal */
-export const SimulationToken$inboundSchema: z.ZodMiniType<
-  SimulationToken,
+export const CurrentSimulationToken$inboundSchema: z.ZodMiniType<
+  CurrentSimulationToken,
   unknown
 > = z.pipe(
   z.object({
-    expires_at: types.date(),
+    expires_at: types.nullable(types.date()),
     token: types.string(),
   }),
   z.transform((v) => {
@@ -36,12 +36,12 @@ export const SimulationToken$inboundSchema: z.ZodMiniType<
   }),
 );
 
-export function simulationTokenFromJSON(
+export function currentSimulationTokenFromJSON(
   jsonString: string,
-): SafeParseResult<SimulationToken, SDKValidationError> {
+): SafeParseResult<CurrentSimulationToken, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SimulationToken$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SimulationToken' from JSON`,
+    (x) => CurrentSimulationToken$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CurrentSimulationToken' from JSON`,
   );
 }

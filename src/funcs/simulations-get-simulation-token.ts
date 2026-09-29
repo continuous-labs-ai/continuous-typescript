@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { ContinuousCore } from "../core.js";
-import { encodeJSON } from "../lib/encodings.js";
+import { encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -23,24 +23,23 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Create Simulation
+ * Get Current Simulation Token
  *
  * @remarks
- * Creates a Simulation from a ready Simulator and starts it. The response includes the endpoint and a token. New persistent Simulations keep the token across stop and restart; legacy Simulations receive an expiring token.
+ * Returns the current persistent credential, including while stopped, without rotating it. Legacy Simulations require the deprecated token-mint endpoint or explicit regeneration.
  */
-export function simulationsCreateSimulation(
+export function simulationsGetSimulationToken(
   client: ContinuousCore,
-  request: models.CreateSimulationRequest,
+  request: operations.GetSimulationTokenRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.CreateSimulationResponse,
+    operations.GetSimulationTokenResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -61,12 +60,12 @@ export function simulationsCreateSimulation(
 
 async function $do(
   client: ContinuousCore,
-  request: models.CreateSimulationRequest,
+  request: operations.GetSimulationTokenRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.CreateSimulationResponse,
+      operations.GetSimulationTokenResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -82,19 +81,25 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(models.CreateSimulationRequest$outboundSchema, value),
+    (value) =>
+      z.parse(operations.GetSimulationTokenRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload, { explode: true });
+  const body = null;
 
-  const path = pathToFunc("/v1/simulations")();
+  const pathParams = {
+    id: encodeSimple("id", payload.id, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
+  const path = pathToFunc("/v1/simulations/{id}/token")(pathParams);
 
   const headers = new Headers(compactMap({
-    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -105,7 +110,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "create-simulation",
+    operationID: "get-simulation-token",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -119,7 +124,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "POST",
+    method: "GET",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -149,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.CreateSimulationResponse,
+    operations.GetSimulationTokenResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -160,16 +165,14 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, operations.CreateSimulationResponse$inboundSchema, {
+    M.json(200, operations.GetSimulationTokenResponse$inboundSchema, {
       hdrs: true,
       key: "Result",
     }),
-    M.jsonErr(
-      [400, 401, 408, 409, 413, 415, 422, 429],
-      errors.ErrorT$inboundSchema,
-      { ctype: "application/problem+json" },
-    ),
-    M.jsonErr([500, 503, 504], errors.ErrorT$inboundSchema, {
+    M.jsonErr([401, 403, 404, 409], errors.ErrorT$inboundSchema, {
+      ctype: "application/problem+json",
+    }),
+    M.jsonErr([500, 502, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

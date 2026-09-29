@@ -7,11 +7,13 @@ import { simulationsCreateSimulation } from "../funcs/simulations-create-simulat
 import { simulationsDeleteSimulation } from "../funcs/simulations-delete-simulation.js";
 import { simulationsForkSimulation } from "../funcs/simulations-fork-simulation.js";
 import { simulationsGetSimulationAdvance } from "../funcs/simulations-get-simulation-advance.js";
+import { simulationsGetSimulationToken } from "../funcs/simulations-get-simulation-token.js";
 import { simulationsGetSimulation } from "../funcs/simulations-get-simulation.js";
 import { simulationsListSimulationAdvanceEvents } from "../funcs/simulations-list-simulation-advance-events.js";
 import { simulationsListSimulationSteps } from "../funcs/simulations-list-simulation-steps.js";
 import { simulationsListSimulations } from "../funcs/simulations-list-simulations.js";
 import { simulationsMintSimulationToken } from "../funcs/simulations-mint-simulation-token.js";
+import { simulationsRegenerateSimulationToken } from "../funcs/simulations-regenerate-simulation-token.js";
 import { simulationsStartSimulation } from "../funcs/simulations-start-simulation.js";
 import { simulationsStopSimulation } from "../funcs/simulations-stop-simulation.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -41,12 +43,12 @@ export class Simulations extends ClientSDK {
    * Create Simulation
    *
    * @remarks
-   * Creates a Simulation from a ready Simulator and starts it. The response includes the Simulation endpoint and a token that expires in 1 hour. List and get do not return the token.
+   * Creates a Simulation from a ready Simulator and starts it. The response includes the endpoint and a token. New persistent Simulations keep the token across stop and restart; legacy Simulations receive an expiring token.
    */
   async createSimulation(
     request: models.CreateSimulationRequest,
     options?: RequestOptions,
-  ): Promise<models.CreatedSimulation> {
+  ): Promise<operations.CreateSimulationResponse> {
     return unwrapAsync(simulationsCreateSimulation(
       this,
       request,
@@ -75,12 +77,12 @@ export class Simulations extends ClientSDK {
    * Get Simulation
    *
    * @remarks
-   * Returns a Simulation and its current status. The response does not include tokens.
+   * Returns a Simulation, its current status, and the actors a request can act as. The response does not include tokens.
    */
   async getSimulation(
     request: operations.GetSimulationRequest,
     options?: RequestOptions,
-  ): Promise<models.Simulation> {
+  ): Promise<models.SimulationDetail> {
     return unwrapAsync(simulationsGetSimulation(
       this,
       request,
@@ -143,12 +145,12 @@ export class Simulations extends ClientSDK {
    * Fork Simulation
    *
    * @remarks
-   * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and a token that expires in 1 hour.
+   * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token. A persistent token survives stop and restart; a legacy token expires.
    */
   async forkSimulation(
     request: operations.ForkSimulationRequest,
     options?: RequestOptions,
-  ): Promise<models.CreatedSimulation> {
+  ): Promise<operations.ForkSimulationResponse> {
     return unwrapAsync(simulationsForkSimulation(
       this,
       request,
@@ -160,12 +162,12 @@ export class Simulations extends ClientSDK {
    * Start Simulation
    *
    * @remarks
-   * Starts a stopped Simulation from its saved state. The endpoint serves requests once the response returns. A Simulation that is already running or paused is returned unchanged.
+   * Starts a stopped Simulation from its saved state and returns a usable endpoint token. An already running or paused Simulation returns its current token and status.
    */
   async startSimulation(
     request: operations.StartSimulationRequest,
     options?: RequestOptions,
-  ): Promise<models.Simulation> {
+  ): Promise<operations.StartSimulationResponse> {
     return unwrapAsync(simulationsStartSimulation(
       this,
       request,
@@ -208,15 +210,49 @@ export class Simulations extends ClientSDK {
   }
 
   /**
+   * Get Current Simulation Token
+   *
+   * @remarks
+   * Returns the current persistent credential, including while stopped, without rotating it. Legacy Simulations require the deprecated token-mint endpoint or explicit regeneration.
+   */
+  async getSimulationToken(
+    request: operations.GetSimulationTokenRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetSimulationTokenResponse> {
+    return unwrapAsync(simulationsGetSimulationToken(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Regenerate Simulation Token
+   *
+   * @remarks
+   * Explicitly replaces the current Simulation credential. The previous token stops authenticating when the transaction commits. Reuse the Idempotency-Key to retry safely.
+   */
+  async regenerateSimulationToken(
+    request: operations.RegenerateSimulationTokenRequest,
+    options?: RequestOptions,
+  ): Promise<operations.RegenerateSimulationTokenResponse> {
+    return unwrapAsync(simulationsRegenerateSimulationToken(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Mint Simulation Token
    *
    * @remarks
-   * Creates another token for requests to the Simulation endpoint. Send it in the X-Continuous-Simulation-Token header. Earlier tokens stay valid until they expire.
+   * For an active legacy Simulation, creates another expiring token. For a persistent Simulation, returns its current token without rotating it, including while stopped. Send the token in the X-Continuous-Simulation-Token header.
    */
   async mintSimulationToken(
     request: operations.MintSimulationTokenRequest,
     options?: RequestOptions,
-  ): Promise<models.SimulationToken> {
+  ): Promise<operations.MintSimulationTokenResponse> {
     return unwrapAsync(simulationsMintSimulationToken(
       this,
       request,

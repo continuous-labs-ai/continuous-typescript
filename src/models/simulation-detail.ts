@@ -10,11 +10,15 @@ import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import {
+  SimulatorActor,
+  SimulatorActor$inboundSchema,
+} from "./simulator-actor.js";
 
 /**
  * Current status. running serves requests. paused means the Simulation was idle and the platform paused it; the next request wakes it. stopped means its state is saved and requests return 409 until you start it.
  */
-export const CreatedSimulationStatus = {
+export const SimulationDetailStatus = {
   Running: "running",
   Paused: "paused",
   Stopped: "stopped",
@@ -22,13 +26,17 @@ export const CreatedSimulationStatus = {
 /**
  * Current status. running serves requests. paused means the Simulation was idle and the platform paused it; the next request wakes it. stopped means its state is saved and requests return 409 until you start it.
  */
-export type CreatedSimulationStatus = OpenEnum<typeof CreatedSimulationStatus>;
+export type SimulationDetailStatus = OpenEnum<typeof SimulationDetailStatus>;
 
-export type CreatedSimulation = {
+export type SimulationDetail = {
   /**
    * Current clock advance operation ID, or null.
    */
   activeAdvanceId: string | null;
+  /**
+   * The callers a request can act as by sending an actor's id in the X-Continuous-Actor header. Without the header, a request acts as the default actor. Empty when the Simulator's build names none or its artifact cannot be read now.
+   */
+  actors: Array<SimulatorActor>;
   /**
    * Simulation creation time.
    */
@@ -41,10 +49,6 @@ export type CreatedSimulation = {
    * Base URL for requests to the Simulation.
    */
   endpoint: string;
-  /**
-   * Token expiration time for a legacy token, or null for a persistent token. This field remains through the compatibility release.
-   */
-  expiresAt: Date | null;
   /**
    * Simulation ID.
    */
@@ -80,30 +84,30 @@ export type CreatedSimulation = {
   /**
    * Current status. running serves requests. paused means the Simulation was idle and the platform paused it; the next request wakes it. stopped means its state is saved and requests return 409 until you start it.
    */
-  status: CreatedSimulationStatus;
+  status: SimulationDetailStatus;
   /**
-   * Current token for requests to the Simulation endpoint. Send it in the X-Continuous-Simulation-Token header, with an actor's id from GET /v1/simulations/{id} in X-Continuous-Actor to act as that caller. Retrieve it later with GET /v1/simulations/{id}/token.
+   * ID of the World that owns this Simulation, or null.
    */
-  token: string;
+  worldId: string | null;
 };
 
 /** @internal */
-export const CreatedSimulationStatus$inboundSchema: z.ZodMiniType<
-  CreatedSimulationStatus,
+export const SimulationDetailStatus$inboundSchema: z.ZodMiniType<
+  SimulationDetailStatus,
   unknown
-> = openEnums.inboundSchema(CreatedSimulationStatus);
+> = openEnums.inboundSchema(SimulationDetailStatus);
 
 /** @internal */
-export const CreatedSimulation$inboundSchema: z.ZodMiniType<
-  CreatedSimulation,
+export const SimulationDetail$inboundSchema: z.ZodMiniType<
+  SimulationDetail,
   unknown
 > = z.pipe(
   z.object({
     active_advance_id: types.nullable(types.string()),
+    actors: z.array(SimulatorActor$inboundSchema),
     created_at: types.date(),
     current_time: types.date(),
     endpoint: types.string(),
-    expires_at: types.nullable(types.date()),
     id: types.string(),
     include_sample_data: types.boolean(),
     metadata: z.any(),
@@ -112,30 +116,30 @@ export const CreatedSimulation$inboundSchema: z.ZodMiniType<
     simulator_digest: types.string(),
     simulator_id: types.string(),
     start_time: types.date(),
-    status: CreatedSimulationStatus$inboundSchema,
-    token: types.string(),
+    status: SimulationDetailStatus$inboundSchema,
+    world_id: types.nullable(types.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
       "active_advance_id": "activeAdvanceId",
       "created_at": "createdAt",
       "current_time": "currentTime",
-      "expires_at": "expiresAt",
       "include_sample_data": "includeSampleData",
       "parent_id": "parentId",
       "simulator_digest": "simulatorDigest",
       "simulator_id": "simulatorId",
       "start_time": "startTime",
+      "world_id": "worldId",
     });
   }),
 );
 
-export function createdSimulationFromJSON(
+export function simulationDetailFromJSON(
   jsonString: string,
-): SafeParseResult<CreatedSimulation, SDKValidationError> {
+): SafeParseResult<SimulationDetail, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CreatedSimulation$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreatedSimulation' from JSON`,
+    (x) => SimulationDetail$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SimulationDetail' from JSON`,
   );
 }
