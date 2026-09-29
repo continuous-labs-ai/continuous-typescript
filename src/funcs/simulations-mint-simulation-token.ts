@@ -23,7 +23,6 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -32,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Mint Simulation Token
  *
  * @remarks
- * Creates another token for requests to the Simulation endpoint. Send it in the X-Continuous-Simulation-Token header. Earlier tokens stay valid until they expire.
+ * For an active legacy Simulation, creates another expiring token. For a persistent Simulation, returns its current token without rotating it, including while stopped. Send the token in the X-Continuous-Simulation-Token header.
  */
 export function simulationsMintSimulationToken(
   client: ContinuousCore,
@@ -40,7 +39,7 @@ export function simulationsMintSimulationToken(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.SimulationToken,
+    operations.MintSimulationTokenResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +65,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.SimulationToken,
+      operations.MintSimulationTokenResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -156,7 +155,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.SimulationToken,
+    operations.MintSimulationTokenResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -167,13 +166,16 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.SimulationToken$inboundSchema),
+    M.json(200, operations.MintSimulationTokenResponse$inboundSchema, {
+      hdrs: true,
+      key: "Result",
+    }),
     M.jsonErr(
       [400, 401, 403, 404, 408, 409, 413, 415, 422],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),
-    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 502, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

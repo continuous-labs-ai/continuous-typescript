@@ -3,6 +3,10 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
 export type ForkSimulationRequest = {
@@ -11,6 +15,11 @@ export type ForkSimulationRequest = {
    */
   id: string;
   body: models.ForkSimulationRequest;
+};
+
+export type ForkSimulationResponse = {
+  headers: { [k: string]: Array<string> };
+  result: models.CreatedSimulation;
 };
 
 /** @internal */
@@ -33,5 +42,32 @@ export function forkSimulationRequestToJSON(
 ): string {
   return JSON.stringify(
     ForkSimulationRequest$outboundSchema.parse(forkSimulationRequest),
+  );
+}
+
+/** @internal */
+export const ForkSimulationResponse$inboundSchema: z.ZodMiniType<
+  ForkSimulationResponse,
+  unknown
+> = z.pipe(
+  z.object({
+    Headers: z._default(z.record(z.string(), z.array(z.string())), {}),
+    Result: models.CreatedSimulation$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  }),
+);
+
+export function forkSimulationResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ForkSimulationResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ForkSimulationResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ForkSimulationResponse' from JSON`,
   );
 }

@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Model that builds and reviews the Simulator. Defaults to gpt-6-astra. Its provider is derived from the model.
+ * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model.
  */
 export const BuildSimulatorRequestModel = {
   Gpt6Astra: "gpt-6-astra",
@@ -16,7 +16,7 @@ export const BuildSimulatorRequestModel = {
   ClaudeFable51: "claude-fable-5-1",
 } as const;
 /**
- * Model that builds and reviews the Simulator. Defaults to gpt-6-astra. Its provider is derived from the model.
+ * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model.
  */
 export type BuildSimulatorRequestModel = ClosedEnum<
   typeof BuildSimulatorRequestModel
@@ -46,7 +46,7 @@ export type BuildSimulatorRequest = {
    */
   instructions?: string | undefined;
   /**
-   * Model that builds and reviews the Simulator. Defaults to gpt-6-astra. Its provider is derived from the model.
+   * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model.
    */
   model?: BuildSimulatorRequestModel | undefined;
   /**
@@ -96,7 +96,10 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
   z.object({
     filter: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
-    model: z._default(BuildSimulatorRequestModel$outboundSchema, "gpt-6-astra"),
+    model: z._default(
+      BuildSimulatorRequestModel$outboundSchema,
+      "claude-opus-5-5",
+    ),
     name: z.optional(z.string()),
     parentId: z.optional(z.string()),
     specKind: z.optional(BuildSimulatorRequestSpecKind$outboundSchema),

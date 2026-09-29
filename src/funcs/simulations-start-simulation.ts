@@ -23,7 +23,6 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -32,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Start Simulation
  *
  * @remarks
- * Starts a stopped Simulation from its saved state. The endpoint serves requests once the response returns. A Simulation that is already running or paused is returned unchanged.
+ * Starts a stopped Simulation from its saved state and returns a usable endpoint token. An already running or paused Simulation returns its current token and status.
  */
 export function simulationsStartSimulation(
   client: ContinuousCore,
@@ -40,7 +39,7 @@ export function simulationsStartSimulation(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.Simulation,
+    operations.StartSimulationResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +65,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.Simulation,
+      operations.StartSimulationResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -154,7 +153,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.Simulation,
+    operations.StartSimulationResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -165,7 +164,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.Simulation$inboundSchema),
+    M.json(200, operations.StartSimulationResponse$inboundSchema, {
+      hdrs: true,
+      key: "Result",
+    }),
     M.jsonErr([401, 403, 404, 409, 429], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

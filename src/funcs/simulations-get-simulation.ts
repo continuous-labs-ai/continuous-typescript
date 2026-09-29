@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Get Simulation
  *
  * @remarks
- * Returns a Simulation and its current status. The response does not include tokens.
+ * Returns a Simulation, its current status, and the actors a request can act as. The response does not include tokens.
  */
 export function simulationsGetSimulation(
   client: ContinuousCore,
@@ -40,7 +40,7 @@ export function simulationsGetSimulation(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.Simulation,
+    models.SimulationDetail,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.Simulation,
+      models.SimulationDetail,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -154,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.Simulation,
+    models.SimulationDetail,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -165,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.Simulation$inboundSchema),
+    M.json(200, models.SimulationDetail$inboundSchema),
     M.jsonErr([401, 403, 404], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

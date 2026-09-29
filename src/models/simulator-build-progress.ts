@@ -10,6 +10,10 @@ import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import {
+  SpecificationWarning,
+  SpecificationWarning$inboundSchema,
+} from "./specification-warning.js";
 
 /**
  * Outcome of the most recent submit attempt, or null.
@@ -100,6 +104,10 @@ export type SimulatorBuildProgress = {
    * Tool calls the coding loop executed.
    */
   toolCalls: number;
+  /**
+   * Specification defects the build tolerated without changing the specification, set when the build prepares its specification, and limitations the accepted build records, set when the build is accepted. Empty when none.
+   */
+  warnings: Array<SpecificationWarning>;
 };
 
 /** @internal */
@@ -141,6 +149,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
     stage: SimulatorBuildProgressStage$inboundSchema,
     submissions: types.number(),
     tool_calls: types.number(),
+    warnings: z.array(SpecificationWarning$inboundSchema),
   }),
   z.transform((v) => {
     return remap$(v, {

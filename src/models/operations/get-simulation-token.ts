@@ -9,45 +9,42 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
-export type MintSimulationTokenRequest = {
+export type GetSimulationTokenRequest = {
   /**
    * Simulation ID.
    */
   id: string;
-  body: models.MintSimulationTokenRequest;
 };
 
-export type MintSimulationTokenResponse = {
+export type GetSimulationTokenResponse = {
   headers: { [k: string]: Array<string> };
   result: models.CurrentSimulationToken;
 };
 
 /** @internal */
-export type MintSimulationTokenRequest$Outbound = {
+export type GetSimulationTokenRequest$Outbound = {
   id: string;
-  body: models.MintSimulationTokenRequest$Outbound;
 };
 
 /** @internal */
-export const MintSimulationTokenRequest$outboundSchema: z.ZodMiniType<
-  MintSimulationTokenRequest$Outbound,
-  MintSimulationTokenRequest
+export const GetSimulationTokenRequest$outboundSchema: z.ZodMiniType<
+  GetSimulationTokenRequest$Outbound,
+  GetSimulationTokenRequest
 > = z.object({
   id: z.string(),
-  body: models.MintSimulationTokenRequest$outboundSchema,
 });
 
-export function mintSimulationTokenRequestToJSON(
-  mintSimulationTokenRequest: MintSimulationTokenRequest,
+export function getSimulationTokenRequestToJSON(
+  getSimulationTokenRequest: GetSimulationTokenRequest,
 ): string {
   return JSON.stringify(
-    MintSimulationTokenRequest$outboundSchema.parse(mintSimulationTokenRequest),
+    GetSimulationTokenRequest$outboundSchema.parse(getSimulationTokenRequest),
   );
 }
 
 /** @internal */
-export const MintSimulationTokenResponse$inboundSchema: z.ZodMiniType<
-  MintSimulationTokenResponse,
+export const GetSimulationTokenResponse$inboundSchema: z.ZodMiniType<
+  GetSimulationTokenResponse,
   unknown
 > = z.pipe(
   z.object({
@@ -62,12 +59,12 @@ export const MintSimulationTokenResponse$inboundSchema: z.ZodMiniType<
   }),
 );
 
-export function mintSimulationTokenResponseFromJSON(
+export function getSimulationTokenResponseFromJSON(
   jsonString: string,
-): SafeParseResult<MintSimulationTokenResponse, SDKValidationError> {
+): SafeParseResult<GetSimulationTokenResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => MintSimulationTokenResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MintSimulationTokenResponse' from JSON`,
+    (x) => GetSimulationTokenResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSimulationTokenResponse' from JSON`,
   );
 }

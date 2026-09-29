@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Model that builds and reviews starting data. Defaults to gpt-6-astra. Its provider is derived from the model.
+ * Model that builds and reviews starting data. Defaults to claude-opus-5-5. Its provider is derived from the model.
  */
 export const BuildWorldRequestModel = {
   Gpt6Astra: "gpt-6-astra",
@@ -16,7 +16,7 @@ export const BuildWorldRequestModel = {
   ClaudeFable51: "claude-fable-5-1",
 } as const;
 /**
- * Model that builds and reviews starting data. Defaults to gpt-6-astra. Its provider is derived from the model.
+ * Model that builds and reviews starting data. Defaults to claude-opus-5-5. Its provider is derived from the model.
  */
 export type BuildWorldRequestModel = ClosedEnum<typeof BuildWorldRequestModel>;
 
@@ -30,7 +30,7 @@ export type BuildWorldRequest = {
    */
   metadata?: any | undefined;
   /**
-   * Model that builds and reviews starting data. Defaults to gpt-6-astra. Its provider is derived from the model.
+   * Model that builds and reviews starting data. Defaults to claude-opus-5-5. Its provider is derived from the model.
    */
   model?: BuildWorldRequestModel | undefined;
   /**
@@ -75,7 +75,7 @@ export const BuildWorldRequest$outboundSchema: z.ZodMiniType<
   z.object({
     instructions: z.optional(z.string()),
     metadata: z.optional(z.any()),
-    model: z._default(BuildWorldRequestModel$outboundSchema, "gpt-6-astra"),
+    model: z._default(BuildWorldRequestModel$outboundSchema, "claude-opus-5-5"),
     name: z.optional(z.string()),
     simulators: z.array(z.string()),
     startTime: z.optional(z.pipe(z.date(), z.transform(v => v.toISOString()))),

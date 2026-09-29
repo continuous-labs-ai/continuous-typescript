@@ -144,6 +144,8 @@ run();
 * [startSimulation](docs/sdks/simulations/README.md#startsimulation) - Start Simulation
 * [listSimulationSteps](docs/sdks/simulations/README.md#listsimulationsteps) - List Simulation Steps
 * [stopSimulation](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation
+* [getSimulationToken](docs/sdks/simulations/README.md#getsimulationtoken) - Get Current Simulation Token
+* [regenerateSimulationToken](docs/sdks/simulations/README.md#regeneratesimulationtoken) - Regenerate Simulation Token
 * [mintSimulationToken](docs/sdks/simulations/README.md#mintsimulationtoken) - Mint Simulation Token
 
 ### [Simulators](docs/sdks/simulators/README.md)
@@ -190,10 +192,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`simulationsForkSimulation`](docs/sdks/simulations/README.md#forksimulation) - Fork Simulation
 - [`simulationsGetSimulation`](docs/sdks/simulations/README.md#getsimulation) - Get Simulation
 - [`simulationsGetSimulationAdvance`](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance
+- [`simulationsGetSimulationToken`](docs/sdks/simulations/README.md#getsimulationtoken) - Get Current Simulation Token
 - [`simulationsListSimulationAdvanceEvents`](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events
 - [`simulationsListSimulations`](docs/sdks/simulations/README.md#listsimulations) - List Simulations
 - [`simulationsListSimulationSteps`](docs/sdks/simulations/README.md#listsimulationsteps) - List Simulation Steps
 - [`simulationsMintSimulationToken`](docs/sdks/simulations/README.md#mintsimulationtoken) - Mint Simulation Token
+- [`simulationsRegenerateSimulationToken`](docs/sdks/simulations/README.md#regeneratesimulationtoken) - Regenerate Simulation Token
 - [`simulationsStartSimulation`](docs/sdks/simulations/README.md#startsimulation) - Start Simulation
 - [`simulationsStopSimulation`](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation
 - [`simulatorsBuildSimulator`](docs/sdks/simulators/README.md#buildsimulator) - Build Simulator
