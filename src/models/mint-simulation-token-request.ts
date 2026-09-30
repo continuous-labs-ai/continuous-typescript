@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type MintSimulationTokenRequest = {
   /**
-   * Token lifetime in seconds, from 60 through 86,400.
+   * Accepted for compatibility, from 60 through 86,400. It does not change the token's lifetime.
    */
   ttlSeconds: number;
 };

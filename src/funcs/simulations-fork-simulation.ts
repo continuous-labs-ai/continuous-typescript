@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Fork Simulation
  *
  * @remarks
- * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token. A persistent token survives stop and restart; a legacy token expires.
+ * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token, which does not expire.
  */
 export function simulationsForkSimulation(
   client: ContinuousCore,

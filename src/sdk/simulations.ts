@@ -43,7 +43,7 @@ export class Simulations extends ClientSDK {
    * Create Simulation
    *
    * @remarks
-   * Creates a Simulation from a ready Simulator and starts it. The response includes the endpoint and a token. New persistent Simulations keep the token across stop and restart; legacy Simulations receive an expiring token.
+   * Creates a Simulation from a ready Simulator and starts it. The response includes the endpoint and the Simulation's token, which does not expire.
    */
   async createSimulation(
     request: models.CreateSimulationRequest,
@@ -145,7 +145,7 @@ export class Simulations extends ClientSDK {
    * Fork Simulation
    *
    * @remarks
-   * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token. A persistent token survives stop and restart; a legacy token expires.
+   * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token, which does not expire.
    */
   async forkSimulation(
     request: operations.ForkSimulationRequest,
@@ -162,7 +162,7 @@ export class Simulations extends ClientSDK {
    * Start Simulation
    *
    * @remarks
-   * Starts a stopped Simulation from its saved state and returns a usable endpoint token. An already running or paused Simulation returns its current token and status.
+   * Starts a stopped Simulation from its saved state. The response includes the Simulation's token, which stop and start do not change. An already running or paused Simulation returns its current token and status.
    */
   async startSimulation(
     request: operations.StartSimulationRequest,
@@ -213,7 +213,7 @@ export class Simulations extends ClientSDK {
    * Get Current Simulation Token
    *
    * @remarks
-   * Returns the current persistent credential, including while stopped, without rotating it. Legacy Simulations require the deprecated token-mint endpoint or explicit regeneration.
+   * Returns the Simulation's current token without rotating it, including while the Simulation is stopped.
    */
   async getSimulationToken(
     request: operations.GetSimulationTokenRequest,
@@ -230,7 +230,7 @@ export class Simulations extends ClientSDK {
    * Regenerate Simulation Token
    *
    * @remarks
-   * Explicitly replaces the current Simulation credential. The previous token stops authenticating when the transaction commits. Reuse the Idempotency-Key to retry safely.
+   * Replaces the Simulation's token, including while the Simulation is stopped. When the replacement commits, requests with the previous token return 401 auth_invalid with X-Continuous-Simulation-Token-Rejected: true. Reuse the Idempotency-Key to retry safely.
    */
   async regenerateSimulationToken(
     request: operations.RegenerateSimulationTokenRequest,
@@ -247,7 +247,9 @@ export class Simulations extends ClientSDK {
    * Mint Simulation Token
    *
    * @remarks
-   * For an active legacy Simulation, creates another expiring token. For a persistent Simulation, returns its current token without rotating it, including while stopped. Send the token in the X-Continuous-Simulation-Token header.
+   * Deprecated compatibility alias for GET /v1/simulations/{id}/token. Returns the Simulation's current token without rotating it, including while the Simulation is stopped. ttl_seconds is validated but does not change the token's lifetime.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async mintSimulationToken(
     request: operations.MintSimulationTokenRequest,

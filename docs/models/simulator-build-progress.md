@@ -8,7 +8,7 @@ import { SimulatorBuildProgress } from "@continuous-labs/sdk/models";
 let value: SimulatorBuildProgress = {
   lastSubmission: "rejected",
   lastTool: "<value>",
-  model: "gpt-6-sol",
+  model: "claude-opus-5-5",
   phase: "finalize",
   stage: "assemble",
   submissions: 672325,

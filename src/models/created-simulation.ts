@@ -42,7 +42,9 @@ export type CreatedSimulation = {
    */
   endpoint: string;
   /**
-   * Token expiration time for a legacy token, or null for a persistent token. This field remains through the compatibility release.
+   * Always null; Simulation tokens do not expire. Deprecated; will be removed.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   expiresAt: Date | null;
   /**
@@ -82,7 +84,7 @@ export type CreatedSimulation = {
    */
   status: CreatedSimulationStatus;
   /**
-   * Current token for requests to the Simulation endpoint. Send it in the X-Continuous-Simulation-Token header, with an actor's id from GET /v1/simulations/{id} in X-Continuous-Actor to act as that caller. Retrieve it later with GET /v1/simulations/{id}/token.
+   * The Simulation's token for requests to its endpoint. It does not expire. Send it in the X-Continuous-Simulation-Token header, with an actor's id from GET /v1/simulations/{id} in X-Continuous-Actor to act as that caller. Retrieve it later with GET /v1/simulations/{id}/token.
    */
   token: string;
 };

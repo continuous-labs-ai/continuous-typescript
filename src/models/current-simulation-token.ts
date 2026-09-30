@@ -11,11 +11,13 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type CurrentSimulationToken = {
   /**
-   * Null for a lifetime credential.
+   * Always null; Simulation tokens do not expire. Deprecated; will be removed.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   expiresAt: Date | null;
   /**
-   * Current Simulation endpoint credential.
+   * The Simulation's current token for requests to its endpoint. Send it in the X-Continuous-Simulation-Token header.
    */
   token: string;
 };

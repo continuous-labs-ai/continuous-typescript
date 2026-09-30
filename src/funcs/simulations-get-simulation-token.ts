@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Get Current Simulation Token
  *
  * @remarks
- * Returns the current persistent credential, including while stopped, without rotating it. Legacy Simulations require the deprecated token-mint endpoint or explicit regeneration.
+ * Returns the Simulation's current token without rotating it, including while the Simulation is stopped.
  */
 export function simulationsGetSimulationToken(
   client: ContinuousCore,
