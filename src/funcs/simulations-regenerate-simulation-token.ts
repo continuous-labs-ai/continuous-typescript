@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Regenerate Simulation Token
  *
  * @remarks
- * Explicitly replaces the current Simulation credential. The previous token stops authenticating when the transaction commits. Reuse the Idempotency-Key to retry safely.
+ * Replaces the Simulation's token, including while the Simulation is stopped. When the replacement commits, requests with the previous token return 401 auth_invalid with X-Continuous-Simulation-Token-Rejected: true. Reuse the Idempotency-Key to retry safely.
  */
 export function simulationsRegenerateSimulationToken(
   client: ContinuousCore,

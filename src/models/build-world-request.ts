@@ -11,7 +11,7 @@ import { ClosedEnum } from "../types/enums.js";
  */
 export const BuildWorldRequestModel = {
   Gpt6Astra: "gpt-6-astra",
-  Gpt6Sol: "gpt-6-sol",
+  Gpt61Sol: "gpt-6.1-sol",
   ClaudeOpus55: "claude-opus-5-5",
   ClaudeFable51: "claude-fable-5-1",
 } as const;

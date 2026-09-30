@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Start Simulation
  *
  * @remarks
- * Starts a stopped Simulation from its saved state and returns a usable endpoint token. An already running or paused Simulation returns its current token and status.
+ * Starts a stopped Simulation from its saved state. The response includes the Simulation's token, which stop and start do not change. An already running or paused Simulation returns its current token and status.
  */
 export function simulationsStartSimulation(
   client: ContinuousCore,

@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Create Simulation
  *
  * @remarks
- * Creates a Simulation from a ready Simulator and starts it. The response includes the endpoint and a token. New persistent Simulations keep the token across stop and restart; legacy Simulations receive an expiring token.
+ * Creates a Simulation from a ready Simulator and starts it. The response includes the endpoint and the Simulation's token, which does not expire.
  */
 export function simulationsCreateSimulation(
   client: ContinuousCore,

@@ -31,7 +31,9 @@ import { Result } from "../types/fp.js";
  * Mint Simulation Token
  *
  * @remarks
- * For an active legacy Simulation, creates another expiring token. For a persistent Simulation, returns its current token without rotating it, including while stopped. Send the token in the X-Continuous-Simulation-Token header.
+ * Deprecated compatibility alias for GET /v1/simulations/{id}/token. Returns the Simulation's current token without rotating it, including while the Simulation is stopped. ttl_seconds is validated but does not change the token's lifetime.
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function simulationsMintSimulationToken(
   client: ContinuousCore,

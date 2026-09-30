@@ -34,9 +34,10 @@ export type WorldBuildProgressLastSubmission = OpenEnum<
  */
 export const WorldBuildProgressModel = {
   Gpt6Astra: "gpt-6-astra",
-  Gpt6Sol: "gpt-6-sol",
+  Gpt61Sol: "gpt-6.1-sol",
   ClaudeOpus55: "claude-opus-5-5",
   ClaudeFable51: "claude-fable-5-1",
+  Gpt6Sol: "gpt-6-sol",
 } as const;
 /**
  * The model the builder and reviewer run on, or null for a build created before provider selection. A build recorded before model selection reports its provider's default.
