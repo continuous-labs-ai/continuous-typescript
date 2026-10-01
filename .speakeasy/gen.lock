@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: ab8da733a2e81edb12011ff8dd602b4c
+  docChecksum: e116c367da999ff679fe2671c422f178
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.1.0
-  configChecksum: c9a445baee9bea5397deb436428e37e9
+  releaseVersion: 0.1.1
+  configChecksum: b8567c2f6083efd8fb97fd73ef4ddd5a
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 74bd2846-b24f-4d85-954a-a806f784d88c
-  pristine_commit_hash: 16d3fbcc2cdae6bff76cb6ccd06a6fe18c938b0a
-  pristine_tree_hash: aa5b5096efe38304a281e5b545f372419c3583b2
+  generation_id: ed9d8b12-033a-406a-bd03-eac9268380db
+  pristine_commit_hash: 12aac345494b352f7d0f02acffe314595cae2456
+  pristine_tree_hash: 007ca5964fed853f7fba3b198dba8da66c5b7053
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -501,12 +501,12 @@ trackedFiles:
     pristine_git_object: c6df7f1511a765e549e301fa4bd16b5bd606d603
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:ba0f4ce6f36821ee0111672dfa41bdd8ace3e751
-    pristine_git_object: 9b732850a34ecb6acd764cc452824898cf3bb069
+    last_write_checksum: sha1:26967898a1427e2828ba187474e408dd0c9e9402
+    pristine_git_object: 22e24de76ef8ff5b77d265f6d85b843f7f8564e4
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:17b7c51b062b707fb86d69db986d043dd4c79d4a
-    pristine_git_object: c867f0335e26134c9f125249fb244410647a503c
+    last_write_checksum: sha1:aafb699b651efd5d7b53ec0235b456a65750f8f4
+    pristine_git_object: ea75fa0c2975b9ac9ecbb37c3835a6cb17fea13c
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -645,8 +645,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:228672e098c65c5f23a7dd4ae87d3c90a50a1d70
-    pristine_git_object: 6c8d29faefcac1f9898f8ecd3ee69601f864ed57
+    last_write_checksum: sha1:a94ffd7c179681fdea24a74051e668f614eeb445
+    pristine_git_object: 7f25c83680d26e0833d08f9a434b29a574055f5b
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -2027,4 +2027,3 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.simulators.buildSimulator()`: \n  *  `request.request` **Changed** (Breaking ⚠️)\n  *  `response.build.model.enum(gpt6.1Sol)` **Added**\n* `continuous.worlds.buildWorld()`: \n  *  `request.model` **Changed** (Breaking ⚠️)\n  *  `response.build.model.enum(gpt6.1Sol)` **Added**\n* `continuous.simulations.mintSimulationToken()`: **Deprecated**\n* `continuous.simulators.listSimulators()`:  `response.simulators[].build.model.enum(gpt6.1Sol)` **Added**\n* `continuous.simulators.getSimulator()`:  `response.build.model.enum(gpt6.1Sol)` **Added**\n* `continuous.simulators.cancelSimulator()`:  `response.build.model.enum(gpt6.1Sol)` **Added**\n* `continuous.worlds.listWorlds()`:  `response.worlds[].build.model.enum(gpt6.1Sol)` **Added**\n* `continuous.worlds.getWorld()`:  `response.build.model.enum(gpt6.1Sol)` **Added**\n* `continuous.worlds.cancelWorld()`:  `response.build.model.enum(gpt6.1Sol)` **Added**\n* `continuous.worlds.startWorld()`:  `response.build.model.enum(gpt6.1Sol)` **Added**\n* `continuous.worlds.stopWorld()`:  `response.build.model.enum(gpt6.1Sol)` **Added**\n"
