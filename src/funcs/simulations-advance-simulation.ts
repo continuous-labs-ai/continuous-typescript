@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Advance Simulation Time
  *
  * @remarks
- * Schedules an absolute clock advance. Each successful advance commits all due local events in one step. World members advance through their World. Poll the returned operation until it completes.
+ * Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. World members advance through their World. Poll the returned operation until it completes.
  */
 export function simulationsAdvanceSimulation(
   client: ContinuousCore,

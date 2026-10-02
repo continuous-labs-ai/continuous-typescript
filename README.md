@@ -146,7 +146,6 @@ run();
 * [stopSimulation](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation
 * [getSimulationToken](docs/sdks/simulations/README.md#getsimulationtoken) - Get Current Simulation Token
 * [regenerateSimulationToken](docs/sdks/simulations/README.md#regeneratesimulationtoken) - Regenerate Simulation Token
-* [~~mintSimulationToken~~](docs/sdks/simulations/README.md#mintsimulationtoken) - Mint Simulation Token :warning: **Deprecated**
 
 ### [Simulators](docs/sdks/simulators/README.md)
 
@@ -213,7 +212,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`worldsListWorlds`](docs/sdks/worlds/README.md#listworlds) - List Worlds
 - [`worldsStartWorld`](docs/sdks/worlds/README.md#startworld) - Start World
 - [`worldsStopWorld`](docs/sdks/worlds/README.md#stopworld) - Stop World
-- ~~[`simulationsMintSimulationToken`](docs/sdks/simulations/README.md#mintsimulationtoken)~~ - Mint Simulation Token :warning: **Deprecated**
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->

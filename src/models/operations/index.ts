@@ -23,7 +23,6 @@ export * from "./list-simulation-steps.js";
 export * from "./list-simulations.js";
 export * from "./list-simulators.js";
 export * from "./list-worlds.js";
-export * from "./mint-simulation-token.js";
 export * from "./regenerate-simulation-token.js";
 export * from "./start-simulation.js";
 export * from "./start-world.js";

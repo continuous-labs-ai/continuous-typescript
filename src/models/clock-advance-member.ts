@@ -38,6 +38,10 @@ export type ClockAdvanceMember = {
    */
   eventCount: number;
   /**
+   * Clock time a failed advance reached with the batches it kept committed.
+   */
+  reached?: Date | undefined;
+  /**
    * Member Simulation ID.
    */
   simulationId: string;
@@ -46,7 +50,7 @@ export type ClockAdvanceMember = {
    */
   status: ClockAdvanceMemberStatus;
   /**
-   * Committed local step, or null for no change or a failed advance.
+   * Last committed local step, or null when the advance committed none.
    */
   step: number | null;
 };
@@ -65,6 +69,7 @@ export const ClockAdvanceMember$inboundSchema: z.ZodMiniType<
   z.object({
     error: types.nullable(ResourceError$inboundSchema),
     event_count: types.number(),
+    reached: types.optional(types.date()),
     simulation_id: types.string(),
     status: ClockAdvanceMemberStatus$inboundSchema,
     step: types.nullable(types.number()),

@@ -19,7 +19,6 @@ Create Simulations from ready Simulators, then fork, stop, start, and delete the
 * [stopSimulation](#stopsimulation) - Stop Simulation
 * [getSimulationToken](#getsimulationtoken) - Get Current Simulation Token
 * [regenerateSimulationToken](#regeneratesimulationtoken) - Regenerate Simulation Token
-* [~~mintSimulationToken~~](#mintsimulationtoken) - Mint Simulation Token :warning: **Deprecated**
 
 ## listSimulations
 
@@ -441,7 +440,7 @@ run();
 
 ## advanceSimulation
 
-Schedules an absolute clock advance. Each successful advance commits all due local events in one step. World members advance through their World. Poll the returned operation until it completes.
+Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. World members advance through their World. Poll the returned operation until it completes.
 
 ### Example Usage
 
@@ -1135,86 +1134,3 @@ run();
 | errors.ErrorT                 | 401, 403, 404, 409, 422       | application/problem+json      |
 | errors.ErrorT                 | 500, 502, 503                 | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## ~~mintSimulationToken~~
-
-Deprecated compatibility alias for GET /v1/simulations/{id}/token. Returns the Simulation's current token without rotating it, including while the Simulation is stopped. ttl_seconds is validated but does not change the token's lifetime.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="mint-simulation-token" method="post" path="/v1/simulations/{id}/tokens" example="bad_request_body" -->
-```typescript
-import { Continuous } from "@continuous-labs/sdk";
-
-const continuous = new Continuous({
-  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
-});
-
-async function run() {
-  const result = await continuous.simulations.mintSimulationToken({
-    id: "<id>",
-    body: {
-      ttlSeconds: 3600,
-    },
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { simulationsMintSimulationToken } from "@continuous-labs/sdk/funcs/simulations-mint-simulation-token.js";
-
-// Use `ContinuousCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const continuous = new ContinuousCore({
-  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
-});
-
-async function run() {
-  const res = await simulationsMintSimulationToken(continuous, {
-    id: "<id>",
-    body: {
-      ttlSeconds: 3600,
-    },
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("simulationsMintSimulationToken failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.MintSimulationTokenRequest](../../models/operations/mint-simulation-token-request.md)                                                                              | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[operations.MintSimulationTokenResponse](../../models/operations/mint-simulation-token-response.md)\>**
-
-### Errors
-
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
-| errors.ErrorT                               | 500, 502, 503                               | application/problem+json                    |
-| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
