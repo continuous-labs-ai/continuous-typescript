@@ -11,7 +11,7 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
- * Stable warning code. build.limitation marks behavior the Simulator does not serve like the real system.
+ * Stable warning code. build.limitation marks behavior the Simulator does not serve like the real system. build.unrepaired marks such behavior that review did not mark a limit of the pinned contract or the scaffold, or that the build declared after review.
  */
 export const SpecificationWarningCode = {
   SpecEnumDuplicate: "spec.enum_duplicate",
@@ -19,10 +19,14 @@ export const SpecificationWarningCode = {
   SpecDefaultInvalid: "spec.default_invalid",
   SpecResponseUntyped: "spec.response_untyped",
   SpecSchemaLimit: "spec.schema_limit",
+  SpecOperationUnservable: "spec.operation_unservable",
+  SpecVersionAmbiguous: "spec.version_ambiguous",
+  SpecExampleNull: "spec.example_null",
   BuildLimitation: "build.limitation",
+  BuildUnrepaired: "build.unrepaired",
 } as const;
 /**
- * Stable warning code. build.limitation marks behavior the Simulator does not serve like the real system.
+ * Stable warning code. build.limitation marks behavior the Simulator does not serve like the real system. build.unrepaired marks such behavior that review did not mark a limit of the pinned contract or the scaffold, or that the build declared after review.
  */
 export type SpecificationWarningCode = OpenEnum<
   typeof SpecificationWarningCode
@@ -30,7 +34,7 @@ export type SpecificationWarningCode = OpenEnum<
 
 export type SpecificationWarning = {
   /**
-   * Stable warning code. build.limitation marks behavior the Simulator does not serve like the real system.
+   * Stable warning code. build.limitation marks behavior the Simulator does not serve like the real system. build.unrepaired marks such behavior that review did not mark a limit of the pinned contract or the scaffold, or that the build declared after review.
    */
   code: SpecificationWarningCode;
   /**

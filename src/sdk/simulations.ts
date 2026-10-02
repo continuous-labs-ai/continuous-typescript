@@ -12,7 +12,6 @@ import { simulationsGetSimulation } from "../funcs/simulations-get-simulation.js
 import { simulationsListSimulationAdvanceEvents } from "../funcs/simulations-list-simulation-advance-events.js";
 import { simulationsListSimulationSteps } from "../funcs/simulations-list-simulation-steps.js";
 import { simulationsListSimulations } from "../funcs/simulations-list-simulations.js";
-import { simulationsMintSimulationToken } from "../funcs/simulations-mint-simulation-token.js";
 import { simulationsRegenerateSimulationToken } from "../funcs/simulations-regenerate-simulation-token.js";
 import { simulationsStartSimulation } from "../funcs/simulations-start-simulation.js";
 import { simulationsStopSimulation } from "../funcs/simulations-stop-simulation.js";
@@ -94,7 +93,7 @@ export class Simulations extends ClientSDK {
    * Advance Simulation Time
    *
    * @remarks
-   * Schedules an absolute clock advance. Each successful advance commits all due local events in one step. World members advance through their World. Poll the returned operation until it completes.
+   * Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. World members advance through their World. Poll the returned operation until it completes.
    */
   async advanceSimulation(
     request: operations.AdvanceSimulationRequest,
@@ -237,25 +236,6 @@ export class Simulations extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.RegenerateSimulationTokenResponse> {
     return unwrapAsync(simulationsRegenerateSimulationToken(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Mint Simulation Token
-   *
-   * @remarks
-   * Deprecated compatibility alias for GET /v1/simulations/{id}/token. Returns the Simulation's current token without rotating it, including while the Simulation is stopped. ttl_seconds is validated but does not change the token's lifetime.
-   *
-   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  async mintSimulationToken(
-    request: operations.MintSimulationTokenRequest,
-    options?: RequestOptions,
-  ): Promise<operations.MintSimulationTokenResponse> {
-    return unwrapAsync(simulationsMintSimulationToken(
       this,
       request,
       options,

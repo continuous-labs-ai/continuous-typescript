@@ -17,7 +17,6 @@ export * from "./list-simulation-steps-response.js";
 export * from "./list-simulations-response.js";
 export * from "./list-simulators-response.js";
 export * from "./list-worlds-response.js";
-export * from "./mint-simulation-token-request.js";
 export * from "./resource-error.js";
 export * from "./security.js";
 export * from "./simulation-detail.js";
