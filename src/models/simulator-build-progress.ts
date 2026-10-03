@@ -10,6 +10,7 @@ import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import { Limitation, Limitation$inboundSchema } from "./limitation.js";
 import {
   SpecificationWarning,
   SpecificationWarning$inboundSchema,
@@ -78,6 +79,10 @@ export type SimulatorBuildProgressStage = OpenEnum<
 
 export type SimulatorBuildProgress = {
   /**
+   * Limitations the accepted build records beyond those listed in limitations.
+   */
+  hiddenLimitations: number;
+  /**
    * Outcome of the most recent submit attempt, or null.
    */
   lastSubmission: SimulatorBuildProgressLastSubmission | null;
@@ -85,6 +90,10 @@ export type SimulatorBuildProgress = {
    * Name of the most recent tool call, or null. Tool arguments and output are private.
    */
   lastTool: string | null;
+  /**
+   * Behavior the accepted build does not serve like the real system, most important first, set when the build is accepted. Empty when none.
+   */
+  limitations: Array<Limitation>;
   /**
    * The model the builder and reviewer run on. A build recorded before model selection reports its provider's default.
    */
@@ -106,7 +115,7 @@ export type SimulatorBuildProgress = {
    */
   toolCalls: number;
   /**
-   * Specification defects the build tolerated without changing the specification, set when the build prepares its specification, and limitations the accepted build records, set when the build is accepted. Empty when none.
+   * Specification defects the build tolerated without changing the specification, set when the build prepares its specification. Empty when none.
    */
   warnings: Array<SpecificationWarning>;
 };
@@ -141,10 +150,12 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
+    hidden_limitations: types.number(),
     last_submission: types.nullable(
       SimulatorBuildProgressLastSubmission$inboundSchema,
     ),
     last_tool: types.nullable(types.string()),
+    limitations: z.array(Limitation$inboundSchema),
     model: SimulatorBuildProgressModel$inboundSchema,
     phase: types.nullable(SimulatorBuildProgressPhase$inboundSchema),
     stage: SimulatorBuildProgressStage$inboundSchema,
@@ -154,6 +165,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
   }),
   z.transform((v) => {
     return remap$(v, {
+      "hidden_limitations": "hiddenLimitations",
       "last_submission": "lastSubmission",
       "last_tool": "lastTool",
       "tool_calls": "toolCalls",

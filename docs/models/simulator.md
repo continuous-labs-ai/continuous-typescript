@@ -7,8 +7,10 @@ import { Simulator } from "@continuous-labs/sdk/models";
 
 let value: Simulator = {
   build: {
+    hiddenLimitations: 0,
     lastSubmission: "rejected",
     lastTool: "test",
+    limitations: [],
     model: "claude-fable-5-1",
     phase: "build",
     stage: "build",
