@@ -11,7 +11,7 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
- * Stable warning code. build.limitation marks behavior the Simulator does not serve like the real system. build.unrepaired marks such behavior that review did not mark a limit of the pinned contract or the scaffold, or that the build declared after review.
+ * Stable warning code.
  */
 export const SpecificationWarningCode = {
   SpecEnumDuplicate: "spec.enum_duplicate",
@@ -22,11 +22,9 @@ export const SpecificationWarningCode = {
   SpecOperationUnservable: "spec.operation_unservable",
   SpecVersionAmbiguous: "spec.version_ambiguous",
   SpecExampleNull: "spec.example_null",
-  BuildLimitation: "build.limitation",
-  BuildUnrepaired: "build.unrepaired",
 } as const;
 /**
- * Stable warning code. build.limitation marks behavior the Simulator does not serve like the real system. build.unrepaired marks such behavior that review did not mark a limit of the pinned contract or the scaffold, or that the build declared after review.
+ * Stable warning code.
  */
 export type SpecificationWarningCode = OpenEnum<
   typeof SpecificationWarningCode
@@ -34,19 +32,19 @@ export type SpecificationWarningCode = OpenEnum<
 
 export type SpecificationWarning = {
   /**
-   * Stable warning code. build.limitation marks behavior the Simulator does not serve like the real system. build.unrepaired marks such behavior that review did not mark a limit of the pinned contract or the scaffold, or that the build declared after review.
+   * Stable warning code.
    */
   code: SpecificationWarningCode;
   /**
-   * Readable endpoint or field affected by this warning, or the affected operations for a limitation.
+   * Readable endpoint or field affected by this warning.
    */
   location: string;
   /**
-   * What the specification declares and how the build handles it, or what the limitation is.
+   * What the specification declares and how the build handles it.
    */
   message: string;
   /**
-   * Operation IDs a limitation affects, or empty when the warning names none.
+   * Always empty.
    */
   operations: Array<string>;
 };

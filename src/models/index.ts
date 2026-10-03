@@ -12,6 +12,7 @@ export * from "./create-simulation-request.js";
 export * from "./created-simulation.js";
 export * from "./current-simulation-token.js";
 export * from "./fork-simulation-request.js";
+export * from "./limitation.js";
 export * from "./list-clock-advance-events-response.js";
 export * from "./list-simulation-steps-response.js";
 export * from "./list-simulations-response.js";

@@ -10,8 +10,10 @@ let value: ListSimulatorsResponse = {
   simulators: [
     {
       build: {
+        hiddenLimitations: 0,
         lastSubmission: "rejected",
         lastTool: "test",
+        limitations: [],
         model: "claude-fable-5-1",
         phase: "build",
         stage: "build",
