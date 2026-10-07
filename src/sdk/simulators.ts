@@ -4,6 +4,7 @@
 
 import { simulatorsBuildSimulator } from "../funcs/simulators-build-simulator.js";
 import { simulatorsCancelSimulator } from "../funcs/simulators-cancel-simulator.js";
+import { simulatorsCloneSimulator } from "../funcs/simulators-clone-simulator.js";
 import { simulatorsDeleteSimulator } from "../funcs/simulators-delete-simulator.js";
 import { simulatorsGetSimulator } from "../funcs/simulators-get-simulator.js";
 import { simulatorsListSimulators } from "../funcs/simulators-list-simulators.js";
@@ -92,6 +93,23 @@ export class Simulators extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.Simulator> {
     return unwrapAsync(simulatorsCancelSimulator(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Clone Simulator
+   *
+   * @remarks
+   * Creates a ready copy of a ready Simulator in another workspace. The clone has a new ID and the source's image digest; the source is unchanged. The source is the caller's workspace: an API key's own workspace, or X-Workspace-Id for a session. An API key may clone into any other workspace of its organization.
+   */
+  async cloneSimulator(
+    request: operations.CloneSimulatorRequest,
+    options?: RequestOptions,
+  ): Promise<models.CloneSimulatorResponse> {
+    return unwrapAsync(simulatorsCloneSimulator(
       this,
       request,
       options,

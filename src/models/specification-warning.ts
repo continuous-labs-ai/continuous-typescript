@@ -20,7 +20,6 @@ export const SpecificationWarningCode = {
   SpecResponseUntyped: "spec.response_untyped",
   SpecSchemaLimit: "spec.schema_limit",
   SpecOperationUnservable: "spec.operation_unservable",
-  SpecVersionAmbiguous: "spec.version_ambiguous",
   SpecExampleNull: "spec.example_null",
 } as const;
 /**

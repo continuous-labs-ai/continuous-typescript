@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: ae92c6f38f45ea30acc2e5af0fed9a9d
+  docChecksum: c89742f574666e3ff7a19a8d9fe3e926
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.1.3
-  configChecksum: ea8ee9c96b9e5a8dfd9135b96c77b524
+  releaseVersion: 0.1.4
+  configChecksum: a5836e55ef7db32020729b65c642f3b6
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 9d5e35f7-7284-4dfb-bf1a-b82eac31be87
-  pristine_commit_hash: df070f3c671b57a7ce3b83ec13d8b1752ce678f5
-  pristine_tree_hash: c82c352d267ec0d8b03286aeda78037f3e3b39db
+  generation_id: 1d0507fd-11e5-4ed6-a61e-d8fab3ce7d78
+  pristine_commit_hash: f116fcd87f308b8d0bc0bc00ec60ecba4ea038fa
+  pristine_tree_hash: 225ca72a45d188cbb71aee8a38dcc683accb119d
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -115,6 +115,14 @@ trackedFiles:
     id: 241e2b3c15f2
     last_write_checksum: sha1:7b66d81d448e01ffa2d84bae4495e60016cd7770
     pristine_git_object: 93be18242747999d2a7f396dc11fbec96f01639c
+  docs/models/clone-simulator-request.md:
+    id: 2baacbaf0386
+    last_write_checksum: sha1:0c58ff84652c719930ca72e7f032bab4388b60e7
+    pristine_git_object: 3680633b1038e72bad66b5f98ff35e8cf9642ef0
+  docs/models/clone-simulator-response.md:
+    id: 5e0c6d57fe9a
+    last_write_checksum: sha1:2deed70b25a814e4af89097b1e1dec91f28cc08d
+    pristine_git_object: 92c1da3854b3d6ad1be3e5c31bce44301cb8b646
   docs/models/create-simulation-request.md:
     id: 16b46262ec4f
     last_write_checksum: sha1:f26fc3a4070a9a92401ed2ceb76cf53e6cc14c28
@@ -187,6 +195,10 @@ trackedFiles:
     id: dfabe3dc979a
     last_write_checksum: sha1:10ef99ecc5f0ad2b2ea50d10285296ada4ed4390
     pristine_git_object: ef8aa382936259b0bd7786cfc6e5c4b237c17180
+  docs/models/operations/clone-simulator-request.md:
+    id: 8f2a2077b22a
+    last_write_checksum: sha1:da00cc65e2edc20f7d330468dffbcac01fd2e19a
+    pristine_git_object: f5ae0b77df4da2ed38bd9c67ca0c756253a064ad
   docs/models/operations/create-simulation-response.md:
     id: 8d5b75dabec4
     last_write_checksum: sha1:b3573f91e7c38f931b6dc6be53e3b9fe015148a6
@@ -393,8 +405,8 @@ trackedFiles:
     pristine_git_object: 0607aa69289ac482490c42ceb40724af11eb8eaf
   docs/models/specification-warning-code.md:
     id: 1c4b2eb6c7fa
-    last_write_checksum: sha1:91c9f6841434d5f66b101df12454f05a41577874
-    pristine_git_object: 9d0994d6ddfe148594dfbcefaae996a3c35e4b5c
+    last_write_checksum: sha1:29924daea862fb3e4493d8d6e829cfd6c7afd05a
+    pristine_git_object: 45bab4798973aedccb4817aab8f5d970ca20ed59
   docs/models/specification-warning.md:
     id: 41636990b551
     last_write_checksum: sha1:ef934d5e523fe8e843ecea574439a5cc762f1f27
@@ -469,8 +481,8 @@ trackedFiles:
     pristine_git_object: 814ab7559cc13362f5cb36f7a85f446c4a38720a
   docs/sdks/simulators/README.md:
     id: 55eacdd8fa62
-    last_write_checksum: sha1:1c4f5e1683e67ed62ea1f191540fe44de9d50c4e
-    pristine_git_object: 2db59387ed23ac776fa4b64d3c4d0cbc2f290dfa
+    last_write_checksum: sha1:302b3d81084cd8d561da0ee82a5e2427f83c0c32
+    pristine_git_object: 6d7462de8be1ce01193471573584c54be812eb03
   docs/sdks/worlds/README.md:
     id: c57d3f2ebb66
     last_write_checksum: sha1:1024aa9be669a2f8e705920ca649f7e789608c86
@@ -493,12 +505,12 @@ trackedFiles:
     pristine_git_object: c6df7f1511a765e549e301fa4bd16b5bd606d603
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:cf7b163be1d62e4c55ba54314d0ebd9da71eddec
-    pristine_git_object: 12b36865bee87433ef9aae997213728ea4dd52bc
+    last_write_checksum: sha1:ebc00e48c283e261c34a78045fe0484fb54e7d28
+    pristine_git_object: 924f50d307492900ec1ff05e977cb7cba4fe80b8
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:7fa94f246dcc05574cd8b07481ab386c23311b12
-    pristine_git_object: 34aa56aec5c7f0d6fb0a21a22ac9c6073257af87
+    last_write_checksum: sha1:d292e9820638166427b0e6eca061b0f2d45af61d
+    pristine_git_object: 042eeac1a1a7653f7999e2f1c40b673c8c178e28
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -563,6 +575,10 @@ trackedFiles:
     id: 78529d3bd4a4
     last_write_checksum: sha1:be8ab85142c540fb18657d35d5616a0515c2acec
     pristine_git_object: 902f10c7ef6bd987bdd5f65e9a8765947ba7e79f
+  src/funcs/simulators-clone-simulator.ts:
+    id: 032934ef1a02
+    last_write_checksum: sha1:7ba8d5345bacf393825ef0ec113cc816ad8635b1
+    pristine_git_object: 8a95acf38dc7ae6ab56df4ecd3a195e5b5a774fa
   src/funcs/simulators-delete-simulator.ts:
     id: 39ae64564776
     last_write_checksum: sha1:d7410c2509529689a96d7785b12697134e183d40
@@ -633,8 +649,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:9565e6ec446b0a6ff2d692b99b3dff03f1941b4c
-    pristine_git_object: c4d0ec8f6cfb8b6d86cc6b7aecefd83d31ce7aca
+    last_write_checksum: sha1:8fb135cf4855d7eeb7a144b601592cab25681f0a
+    pristine_git_object: 8b5f7915a8c4fe47b170b7e6194eaaefcf40166f
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -707,6 +723,14 @@ trackedFiles:
     id: 69dfc4d8af6f
     last_write_checksum: sha1:416d1a8119bb03bc1f25fe07fa04503e40d598c9
     pristine_git_object: 2ca838b3c5fcd4a215bc0dbb0e7b0126e1a73654
+  src/models/clone-simulator-request.ts:
+    id: 2abd9682b97f
+    last_write_checksum: sha1:af7546934fed416b365f4aac70963c9930373b92
+    pristine_git_object: a6280c4410f182729c841a37519bd2fbe0fd961b
+  src/models/clone-simulator-response.ts:
+    id: a2499e2ecd62
+    last_write_checksum: sha1:a3a358f6079d723e068db0f9aab926fd71a6b0ba
+    pristine_git_object: b8e08d441d1a5cd514bf8c21bad2451d1d112801
   src/models/create-simulation-request.ts:
     id: 0cf20400e5a9
     last_write_checksum: sha1:b9501882bf35581fb322821be29ee3d48b4c7410
@@ -753,8 +777,8 @@ trackedFiles:
     pristine_git_object: e0caa233004a04d6138072145cfbf8137fecd940
   src/models/index.ts:
     id: f93644b0f37e
-    last_write_checksum: sha1:80deb4fbcee1ea770f9b44d1705499dbf387bfab
-    pristine_git_object: f6a7a47cc0736b9171f56f1271596948231fe664
+    last_write_checksum: sha1:bf9a029e07d8afd0d632f19dc834b0946f06032c
+    pristine_git_object: c7e1ba55c0a92d1c2af1cb3d4fb3cd6d4a0cdd6e
   src/models/limitation.ts:
     id: f246fad7e459
     last_write_checksum: sha1:b0f0803d0c81e656d0a385bb2e28f2920d8bf86a
@@ -799,6 +823,10 @@ trackedFiles:
     id: 86a9f1b937f0
     last_write_checksum: sha1:9a762d3043ef9f8d11e805be89a34bfb6860d87f
     pristine_git_object: de70691c82dfb2c450cc43ec9f5c6b30bc8d33ae
+  src/models/operations/clone-simulator.ts:
+    id: 138fd46f1f22
+    last_write_checksum: sha1:7283869c86975b6ede859cc4dc1de66037a87b05
+    pristine_git_object: 1d090c654320e8be100889bc663739bed51d46c9
   src/models/operations/create-simulation.ts:
     id: 2308ec8505b7
     last_write_checksum: sha1:6c4430917505b64283925c7c8795a5f9293f45de
@@ -845,8 +873,8 @@ trackedFiles:
     pristine_git_object: 3fd5eb51169beac01af107a5722b812b64e23011
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:1e23721d16b7f88b219cdde00c8215bda50df2c0
-    pristine_git_object: 2bd6d3b20321a5d363761685ede04b91e0ad19fa
+    last_write_checksum: sha1:e68812b4940f3c1a129ece2bcfc581293913094d
+    pristine_git_object: bfa24f34816d98f9b043fb28f355a0dea54d9a9f
   src/models/operations/list-simulation-advance-events.ts:
     id: bae6e4f49d5f
     last_write_checksum: sha1:b97050dd14fa14b8c8b340b9c494bfa0e286a1c9
@@ -929,8 +957,8 @@ trackedFiles:
     pristine_git_object: a1ba5555829859f6c4520e118c130cc3708ca368
   src/models/specification-warning.ts:
     id: 5bd97afcaa13
-    last_write_checksum: sha1:fbe286d7282ea924881decb3aa00c57c989cc950
-    pristine_git_object: f4833c7cb700d877ad03bfdc4b80f33972853740
+    last_write_checksum: sha1:8c06e4c332f6c3f29ce5439eae908e07943dc988
+    pristine_git_object: 6e4fe1b50e72b604f8eebcb38cfa01f6b99b3928
   src/models/start-world-request.ts:
     id: 93f698bd832e
     last_write_checksum: sha1:444de153ae24dfdfca15c9ea7d9d05530b4712a4
@@ -977,8 +1005,8 @@ trackedFiles:
     pristine_git_object: db50a33d0bad4984ae7ba2e746178ca74822ee2e
   src/sdk/simulators.ts:
     id: 96ce4e0e3f1a
-    last_write_checksum: sha1:de0c1bac6ac9a2b659be53f9e52085ddd01c2bd6
-    pristine_git_object: 660db5d82b3e5817313ceb6b8fdae597c0d8d804
+    last_write_checksum: sha1:2978dbe818e732ad5e8d4acc944fd789b1c6b881
+    pristine_git_object: da92d42f518e98e7d26de45667b92ab2dee044f4
   src/sdk/worlds.ts:
     id: dcbef97a55ca
     last_write_checksum: sha1:914c897e871ac683b7e42578ab0ff0360372afdc
@@ -2010,10 +2038,47 @@ examples:
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  clone-simulator:
+    bad_request_body:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"idempotency_key": "<value>", "target_workspace_id": "<id>"}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    bad_request_clone_target:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"idempotency_key": "<value>", "target_workspace_id": "<id>"}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "target_workspace_id must differ from the source workspace", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "target_workspace_id must differ from the source workspace", "validation": null}
+    speakeasy-default-clone-simulator:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"idempotency_key": "<value>", "target_workspace_id": "<id>"}
+      responses:
+        "201":
+          application/json: {"digest": "<value>", "id": "<id>", "name": "<value>", "workspace_id": "<id>"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `continuous.simulators.listSimulators()`:  `response.simulators[].build` **Changed** (Breaking ⚠️)
-  * `continuous.simulators.buildSimulator()`:  `response.build` **Changed** (Breaking ⚠️)
-  * `continuous.simulators.getSimulator()`:  `response.build` **Changed** (Breaking ⚠️)
-  * `continuous.simulators.cancelSimulator()`:  `response.build` **Changed** (Breaking ⚠️)
+  * `continuous.simulators.listSimulators()`:  `response.simulators[].build.warnings[].code.enum(spec.versionAmbiguous)` **Removed** (Breaking ⚠️)
+  * `continuous.simulators.buildSimulator()`:  `response.build.warnings[].code.enum(spec.versionAmbiguous)` **Removed** (Breaking ⚠️)
+  * `continuous.simulators.getSimulator()`:  `response.build.warnings[].code.enum(spec.versionAmbiguous)` **Removed** (Breaking ⚠️)
+  * `continuous.simulators.cancelSimulator()`:  `response.build.warnings[].code.enum(spec.versionAmbiguous)` **Removed** (Breaking ⚠️)
+  * `continuous.simulators.cloneSimulator()`: **Added**

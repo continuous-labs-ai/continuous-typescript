@@ -7,6 +7,7 @@ export * from "./advance-world.js";
 export * from "./build-simulator.js";
 export * from "./cancel-simulator.js";
 export * from "./cancel-world.js";
+export * from "./clone-simulator.js";
 export * from "./create-simulation.js";
 export * from "./delete-simulation.js";
 export * from "./delete-simulator.js";
