@@ -8,6 +8,8 @@ export * from "./build-world-request.js";
 export * from "./clock-advance-member.js";
 export * from "./clock-advance.js";
 export * from "./clock-event.js";
+export * from "./clone-simulator-request.js";
+export * from "./clone-simulator-response.js";
 export * from "./create-simulation-request.js";
 export * from "./created-simulation.js";
 export * from "./current-simulation-token.js";

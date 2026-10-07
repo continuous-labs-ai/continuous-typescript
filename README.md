@@ -154,6 +154,7 @@ run();
 * [deleteSimulator](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
 * [getSimulator](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
 * [cancelSimulator](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build
+* [cloneSimulator](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator
 
 ### [Worlds](docs/sdks/worlds/README.md)
 
@@ -200,6 +201,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`simulationsStopSimulation`](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation
 - [`simulatorsBuildSimulator`](docs/sdks/simulators/README.md#buildsimulator) - Build Simulator
 - [`simulatorsCancelSimulator`](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build
+- [`simulatorsCloneSimulator`](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator
 - [`simulatorsDeleteSimulator`](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
 - [`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
 - [`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators) - List Simulators
