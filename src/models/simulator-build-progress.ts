@@ -31,7 +31,7 @@ export type SimulatorBuildProgressLastSubmission = OpenEnum<
 >;
 
 /**
- * The model the builder and reviewer run on. A build recorded before model selection reports its provider's default.
+ * The model the builder and reviewer run on, or combined for a build with two reviewers. A build recorded before model selection reports its provider's default.
  */
 export const SimulatorBuildProgressModel = {
   Gpt6Astra: "gpt-6-astra",
@@ -39,9 +39,10 @@ export const SimulatorBuildProgressModel = {
   ClaudeOpus55: "claude-opus-5-5",
   ClaudeFable51: "claude-fable-5-1",
   Gpt6Sol: "gpt-6-sol",
+  Combined: "combined",
 } as const;
 /**
- * The model the builder and reviewer run on. A build recorded before model selection reports its provider's default.
+ * The model the builder and reviewer run on, or combined for a build with two reviewers. A build recorded before model selection reports its provider's default.
  */
 export type SimulatorBuildProgressModel = OpenEnum<
   typeof SimulatorBuildProgressModel
@@ -95,7 +96,7 @@ export type SimulatorBuildProgress = {
    */
   limitations: Array<Limitation>;
   /**
-   * The model the builder and reviewer run on. A build recorded before model selection reports its provider's default.
+   * The model the builder and reviewer run on, or combined for a build with two reviewers. A build recorded before model selection reports its provider's default.
    */
   model: SimulatorBuildProgressModel;
   /**

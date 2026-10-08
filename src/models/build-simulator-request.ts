@@ -7,16 +7,17 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model.
+ * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
  */
 export const BuildSimulatorRequestModel = {
   Gpt6Astra: "gpt-6-astra",
   Gpt61Sol: "gpt-6.1-sol",
   ClaudeOpus55: "claude-opus-5-5",
   ClaudeFable51: "claude-fable-5-1",
+  Combined: "combined",
 } as const;
 /**
- * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model.
+ * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
  */
 export type BuildSimulatorRequestModel = ClosedEnum<
   typeof BuildSimulatorRequestModel
@@ -46,7 +47,7 @@ export type BuildSimulatorRequest = {
    */
   instructions?: string | undefined;
   /**
-   * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model.
+   * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
    */
   model?: BuildSimulatorRequestModel | undefined;
   /**
