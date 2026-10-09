@@ -1,0 +1,18 @@
+# UpdateCredentialRequest
+
+## Example Usage
+
+```typescript
+import { UpdateCredentialRequest } from "@continuous-labs/sdk/models";
+
+let value: UpdateCredentialRequest = {};
+```
+
+## Fields
+
+| Field                                                                                                                                          | Type                                                                                                                                           | Required                                                                                                                                       | Description                                                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `baseUrl`                                                                                                                                      | *string*                                                                                                                                       | :heavy_minus_sign:                                                                                                                             | New https URL of the real system.                                                                                                              |
+| `header`                                                                                                                                       | *string*                                                                                                                                       | :heavy_minus_sign:                                                                                                                             | New HTTP header that carries the value.                                                                                                        |
+| `name`                                                                                                                                         | *string*                                                                                                                                       | :heavy_minus_sign:                                                                                                                             | New credential name.                                                                                                                           |
+| `value`                                                                                                                                        | *string*                                                                                                                                       | :heavy_minus_sign:                                                                                                                             | New full header value. Required when base_url or header changes. Builds that start an agent after the change use it. The API never returns it. |

@@ -3,11 +3,17 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { Credentials } from "./credentials.js";
 import { Simulations } from "./simulations.js";
 import { Simulators } from "./simulators.js";
 import { Worlds } from "./worlds.js";
 
 export class Continuous extends ClientSDK {
+  private _credentials?: Credentials;
+  get credentials(): Credentials {
+    return (this._credentials ??= new Credentials(this._options));
+  }
+
   private _simulations?: Simulations;
   get simulations(): Simulations {
     return (this._simulations ??= new Simulations(this._options));

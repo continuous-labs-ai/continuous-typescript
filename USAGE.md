@@ -7,7 +7,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.simulations.listSimulations({});
+  const result = await continuous.credentials.listCredentials({});
 
   console.log(result);
 }

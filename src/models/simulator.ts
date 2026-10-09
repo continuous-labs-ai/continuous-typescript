@@ -67,6 +67,10 @@ export type Simulator = {
    * Simulator creation time.
    */
   createdAt: Date;
+  /**
+   * Workspace credentials the build was allowed to call real systems with. Empty when none.
+   */
+  credentialIds: Array<string>;
   error: SimulatorError | null;
   /**
    * Simulator ID.
@@ -120,6 +124,7 @@ export const Simulator$inboundSchema: z.ZodMiniType<Simulator, unknown> = z
     z.object({
       build: types.nullable(SimulatorBuildProgress$inboundSchema),
       created_at: types.date(),
+      credential_ids: z.array(types.string()),
       error: types.nullable(SimulatorError$inboundSchema),
       id: types.string(),
       instructions: types.string(),
@@ -132,6 +137,7 @@ export const Simulator$inboundSchema: z.ZodMiniType<Simulator, unknown> = z
     z.transform((v) => {
       return remap$(v, {
         "created_at": "createdAt",
+        "credential_ids": "credentialIds",
         "parent_id": "parentId",
         "spec_kind": "specKind",
       });

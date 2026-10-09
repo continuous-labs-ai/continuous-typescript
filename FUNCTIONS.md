@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { simulationsListSimulations } from "@continuous-labs/sdk/funcs/simulations-list-simulations.js";
+import { credentialsListCredentials } from "@continuous-labs/sdk/funcs/credentials-list-credentials.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -29,12 +29,12 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await simulationsListSimulations(continuous, {});
+  const res = await credentialsListCredentials(continuous, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("simulationsListSimulations failed:", res.error);
+    console.log("credentialsListCredentials failed:", res.error);
   }
 }
 

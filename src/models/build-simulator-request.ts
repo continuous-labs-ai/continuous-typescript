@@ -39,6 +39,10 @@ export type BuildSimulatorRequestSpecKind = ClosedEnum<
 
 export type BuildSimulatorRequest = {
   /**
+   * Workspace credentials the builder and reviewer can call real systems with, to observe how they behave. At most 5. Each must belong to the workspace and have a base_url. They send only reads, as guidance; use test tenants.
+   */
+  credentialIds?: Array<string> | undefined;
+  /**
    * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId or the WSDL operation name; an operation is kept when any expression matches, and an OpenAPI operation without an operationId is dropped. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation. Not allowed for an incremental build.
    */
   filter?: Array<string> | undefined;
@@ -80,6 +84,7 @@ export const BuildSimulatorRequestSpecKind$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type BuildSimulatorRequest$Outbound = {
+  credential_ids?: Array<string> | undefined;
   filter?: Array<string> | undefined;
   instructions?: string | undefined;
   model: string;
@@ -95,6 +100,7 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
   BuildSimulatorRequest
 > = z.pipe(
   z.object({
+    credentialIds: z.optional(z.array(z.string())),
     filter: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
     model: z._default(
@@ -108,6 +114,7 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
   }),
   z.transform((v) => {
     return remap$(v, {
+      credentialIds: "credential_ids",
       parentId: "parent_id",
       specKind: "spec_kind",
       timeoutSeconds: "timeout_seconds",
