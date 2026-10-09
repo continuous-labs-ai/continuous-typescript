@@ -85,7 +85,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.simulations.listSimulations({});
+  const result = await continuous.credentials.listCredentials({});
 
   console.log(result);
 }
@@ -115,7 +115,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.simulations.listSimulations({});
+  const result = await continuous.credentials.listCredentials({});
 
   console.log(result);
 }
@@ -130,6 +130,14 @@ run();
 
 <details open>
 <summary>Available methods</summary>
+
+### [Credentials](docs/sdks/credentials/README.md)
+
+* [listCredentials](docs/sdks/credentials/README.md#listcredentials) - List credentials
+* [createCredential](docs/sdks/credentials/README.md#createcredential) - Create credential
+* [deleteCredential](docs/sdks/credentials/README.md#deletecredential) - Delete credential
+* [getCredential](docs/sdks/credentials/README.md#getcredential) - Get credential
+* [updateCredential](docs/sdks/credentials/README.md#updatecredential) - Update credential
 
 ### [Simulations](docs/sdks/simulations/README.md)
 
@@ -186,6 +194,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
+- [`credentialsCreateCredential`](docs/sdks/credentials/README.md#createcredential) - Create credential
+- [`credentialsDeleteCredential`](docs/sdks/credentials/README.md#deletecredential) - Delete credential
+- [`credentialsGetCredential`](docs/sdks/credentials/README.md#getcredential) - Get credential
+- [`credentialsListCredentials`](docs/sdks/credentials/README.md#listcredentials) - List credentials
+- [`credentialsUpdateCredential`](docs/sdks/credentials/README.md#updatecredential) - Update credential
 - [`simulationsAdvanceSimulation`](docs/sdks/simulations/README.md#advancesimulation) - Advance Simulation Time
 - [`simulationsCreateSimulation`](docs/sdks/simulations/README.md#createsimulation) - Create Simulation
 - [`simulationsDeleteSimulation`](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation
@@ -272,7 +285,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.simulations.listSimulations({}, {
+  const result = await continuous.credentials.listCredentials({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -311,7 +324,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.simulations.listSimulations({});
+  const result = await continuous.credentials.listCredentials({});
 
   console.log(result);
 }
@@ -346,7 +359,7 @@ const continuous = new Continuous({
 
 async function run() {
   try {
-    const result = await continuous.simulations.listSimulations({});
+    const result = await continuous.credentials.listCredentials({});
 
     console.log(result);
   } catch (error) {
@@ -409,7 +422,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.simulations.listSimulations({});
+  const result = await continuous.credentials.listCredentials({});
 
   console.log(result);
 }

@@ -22,6 +22,7 @@ let value: ListSimulatorsResponse = {
         warnings: [],
       },
       createdAt: new Date("2026-01-15T12:00:00Z"),
+      credentialIds: [],
       error: null,
       id: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
       instructions: "Return stable example data for every operation.",

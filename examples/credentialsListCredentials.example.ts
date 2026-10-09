@@ -8,7 +8,7 @@ dotenv.config();
  * Example usage of the @continuous-labs/sdk SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx simulationsListSimulations.example.ts
+ * npm run build && npx tsx credentialsListCredentials.example.ts
  */
 
 import { Continuous } from "@continuous-labs/sdk";
@@ -18,7 +18,7 @@ const continuous = new Continuous({
 });
 
 async function main() {
-  const result = await continuous.simulations.listSimulations({});
+  const result = await continuous.credentials.listCredentials({});
 
   console.log(result);
 }
