@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
+ * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
  */
 export const BuildSimulatorRequestModel = {
   Gpt6Astra: "gpt-6-astra",
@@ -17,7 +17,7 @@ export const BuildSimulatorRequestModel = {
   Combined: "combined",
 } as const;
 /**
- * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
+ * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
  */
 export type BuildSimulatorRequestModel = ClosedEnum<
   typeof BuildSimulatorRequestModel
@@ -51,7 +51,7 @@ export type BuildSimulatorRequest = {
    */
   instructions?: string | undefined;
   /**
-   * Model that builds and reviews the Simulator. Defaults to claude-opus-5-5. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
+   * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
    */
   model?: BuildSimulatorRequestModel | undefined;
   /**
@@ -103,10 +103,7 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
     credentialIds: z.optional(z.array(z.string())),
     filter: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
-    model: z._default(
-      BuildSimulatorRequestModel$outboundSchema,
-      "claude-opus-5-5",
-    ),
+    model: z._default(BuildSimulatorRequestModel$outboundSchema, "combined"),
     name: z.optional(z.string()),
     parentId: z.optional(z.string()),
     specKind: z.optional(BuildSimulatorRequestSpecKind$outboundSchema),

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: e0977c2d55fe7757ca82f15c532ca484
+  docChecksum: dd7640cefd38485f495fdd5f7dc90745
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.1.6
-  configChecksum: 64d1b8b8213be3a75386f1bb85eff1c4
+  releaseVersion: 0.1.7
+  configChecksum: 3f4f5948070e9e432d32922d4d390e5e
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 4e4ab839-ec81-4a20-8134-7622e651f6f1
-  pristine_commit_hash: 7387bed38d9bbedc5cf9b55d474efd714cfca168
-  pristine_tree_hash: 10f0f6091279967f1a101d21d11d6bf723386c09
+  generation_id: 60db6c3b-a644-4fde-b418-ed939918e163
+  pristine_commit_hash: 5e5adcf90d2ad2a21a9b040033e1390bcdbd0a1a
+  pristine_tree_hash: 83ce78671a6b18a83cb18a6ea0380b834d09632c
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -77,16 +77,16 @@ trackedFiles:
     pristine_git_object: 17a27b3d6b494dd488ab531332af817b308f2c9e
   docs/models/build-simulator-request-model.md:
     id: c353ce92d853
-    last_write_checksum: sha1:c57eb7e5fa5323d3911fc9a4e890aef59d3c044a
-    pristine_git_object: 26c6f730ba538e0bcc7b0edd960885dc695d0426
+    last_write_checksum: sha1:9d1a6bc72d150649ed5e38220ba9362e1e834739
+    pristine_git_object: d325731905d2be08ca6c3f206869dd7d849cf3e2
   docs/models/build-simulator-request-spec-kind.md:
     id: 76284d24a8f6
     last_write_checksum: sha1:218a906a41060e048ee808971a3bb86efb8675c0
     pristine_git_object: 670fe6ba74f8f3633e8cb2b78f0d8f91e203974c
   docs/models/build-simulator-request.md:
     id: b6246c28546a
-    last_write_checksum: sha1:8da8059cc8677253860c3d601ea02d74d4d5441f
-    pristine_git_object: e023d6e172e571aec9ac495c99f7141ce88ee5d1
+    last_write_checksum: sha1:685912105858efa3db2314159ae22be1ca4bae36
+    pristine_git_object: 5d39e822d363311f33f740a21e7dda1c18ee09ca
   docs/models/build-world-request-model.md:
     id: 2ba7097d3183
     last_write_checksum: sha1:24a78100f20f0fbe1ac8ad97b173d2ffbd7758c0
@@ -541,12 +541,12 @@ trackedFiles:
     pristine_git_object: a8174ac1b126a1796e076b9f3122a0ede68d2d7d
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:3809a0ec9d68e0a184f20d9035bcb1082b7be2ca
-    pristine_git_object: a774f752d6f5b326cb0094c10377fc918bd2bb72
+    last_write_checksum: sha1:e18c272d11c265adf6ab00c95847fec7e49d5cb6
+    pristine_git_object: bc97e5edc94a6f7d8f133f0a4faf0535e435913c
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:7816a1a21aa47284a1c74cccdafc20dbe23d2cbe
-    pristine_git_object: 17f34ae6f09dbf980c6c6fd95461acbc8794a0f7
+    last_write_checksum: sha1:30c8ed9e188775f43790e9b6a02eef3ae650946a
+    pristine_git_object: 5d3b8f474f8e065459460f21edb42550bcf168be
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -705,8 +705,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:b12cd7c63bfa517a02bd96d68c4dbce1d4e7f189
-    pristine_git_object: ba9ed58875c8e52114cb8fe282c82f6500209739
+    last_write_checksum: sha1:8b800b7d4f604d74599fc90b46e937d1f9f39420
+    pristine_git_object: 0e3cad07aabfb61ad1155c68fcd2f52b69a27859
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -761,8 +761,8 @@ trackedFiles:
     pristine_git_object: db9ca467797e4bd57e2353cf8eb50674156da86f
   src/models/build-simulator-request.ts:
     id: 3a8cd2fe64c6
-    last_write_checksum: sha1:97f58be84b9c181caaa32c35798bad0629924882
-    pristine_git_object: 509bb0846524c7ba6c9726e2873b1364e9def415
+    last_write_checksum: sha1:8ab133f2e869e8c1512fe9c1410196961ccd2de5
+    pristine_git_object: 62973f31b0c626f5d30118bb0f1ce90e579672a5
   src/models/build-world-request.ts:
     id: 29763dfe247c
     last_write_checksum: sha1:c4dfcfc5dd7c58a5fbc6978bfbc9dbe07749458b
@@ -2290,4 +2290,3 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.credentials.listCredentials()`: **Added**\n* `continuous.credentials.createCredential()`: **Added**\n* `continuous.credentials.deleteCredential()`: **Added**\n* `continuous.credentials.getCredential()`: **Added**\n* `continuous.credentials.updateCredential()`: **Added**\n* `continuous.simulators.listSimulators()`:  `response.simulators[].credentialIds` **Added**\n* `continuous.simulators.buildSimulator()`: \n  *  `request.request` **Changed**\n  *  `response.credentialIds` **Added**\n* `continuous.simulators.getSimulator()`:  `response.credentialIds` **Added**\n* `continuous.simulators.cancelSimulator()`:  `response.credentialIds` **Added**\n"
