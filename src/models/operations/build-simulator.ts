@@ -10,12 +10,21 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type Document = {
+  fileName: string;
+  content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
+};
+
 export type Spec = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
 export type BuildSimulatorRequest = {
+  /**
+   * Vendor documentation the builder and reviewer read before they start, as repeated file parts: UTF-8 text (.md, .txt, .html, .json, .yaml, .xml, .csv) or PDF (.pdf). The documents share the request body limit with the spec. A parent's documents are not inherited.
+   */
+  document?: Array<Document> | undefined;
   request: models.BuildSimulatorRequest;
   /**
    * OpenAPI or WSDL document, UTF-8 encoded, at most 64 MiB. Required unless the request is an incremental build (parent_id and instructions, no spec).
@@ -27,6 +36,30 @@ export type BuildSimulatorResponse = {
   headers: { [k: string]: Array<string> };
   result: models.Simulator;
 };
+
+/** @internal */
+export type Document$Outbound = {
+  fileName: string;
+  content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
+};
+
+/** @internal */
+export const Document$outboundSchema: z.ZodMiniType<
+  Document$Outbound,
+  Document
+> = z.object({
+  fileName: z.string(),
+  content: z.union([
+    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+    z.custom<Blob>(x => x instanceof Blob),
+    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+    z.custom<Uint8Array>(x => x instanceof Uint8Array),
+  ]),
+});
+
+export function documentToJSON(document: Document): string {
+  return JSON.stringify(Document$outboundSchema.parse(document));
+}
 
 /** @internal */
 export type Spec$Outbound = {
@@ -53,6 +86,7 @@ export function specToJSON(spec: Spec): string {
 
 /** @internal */
 export type BuildSimulatorRequest$Outbound = {
+  document?: Array<Document$Outbound> | undefined;
   request: models.BuildSimulatorRequest$Outbound;
   spec?: Spec$Outbound | Blob | undefined;
 };
@@ -62,6 +96,7 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
   BuildSimulatorRequest$Outbound,
   BuildSimulatorRequest
 > = z.object({
+  document: z.optional(z.array(z.lazy(() => Document$outboundSchema))),
   request: models.BuildSimulatorRequest$outboundSchema,
   spec: z.optional(
     z.union([z.lazy(() => Spec$outboundSchema), blobLikeSchema]),

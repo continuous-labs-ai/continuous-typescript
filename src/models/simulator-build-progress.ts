@@ -104,6 +104,14 @@ export type SimulatorBuildProgress = {
    */
   phase: SimulatorBuildProgressPhase | null;
   /**
+   * Review round that phase review or finalize belongs to, from 1. 0 before the first review.
+   */
+  reviewRound: number;
+  /**
+   * Review rounds the build runs at most. Fewer run when the reviewers agree early.
+   */
+  reviewRounds: number;
+  /**
    * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
    */
   stage: SimulatorBuildProgressStage;
@@ -159,6 +167,8 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
     limitations: z.array(Limitation$inboundSchema),
     model: SimulatorBuildProgressModel$inboundSchema,
     phase: types.nullable(SimulatorBuildProgressPhase$inboundSchema),
+    review_round: types.number(),
+    review_rounds: types.number(),
     stage: SimulatorBuildProgressStage$inboundSchema,
     submissions: types.number(),
     tool_calls: types.number(),
@@ -169,6 +179,8 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
       "hidden_limitations": "hiddenLimitations",
       "last_submission": "lastSubmission",
       "last_tool": "lastTool",
+      "review_round": "reviewRound",
+      "review_rounds": "reviewRounds",
       "tool_calls": "toolCalls",
     });
   }),

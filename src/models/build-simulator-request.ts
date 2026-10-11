@@ -63,6 +63,10 @@ export type BuildSimulatorRequest = {
    */
   parentId?: string | undefined;
   /**
+   * Review rounds, from 1 to 10. Defaults to 1. Each round is a review and a repair of its findings, by the same builder and reviewers. The rounds stop early when every reviewer reports no findings.
+   */
+  reviewRounds?: number | undefined;
+  /**
    * Source specification format. Omission detects the format.
    */
   specKind?: BuildSimulatorRequestSpecKind | undefined;
@@ -90,6 +94,7 @@ export type BuildSimulatorRequest$Outbound = {
   model: string;
   name?: string | undefined;
   parent_id?: string | undefined;
+  review_rounds: number;
   spec_kind?: string | undefined;
   timeout_seconds: number;
 };
@@ -106,6 +111,7 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
     model: z._default(BuildSimulatorRequestModel$outboundSchema, "combined"),
     name: z.optional(z.string()),
     parentId: z.optional(z.string()),
+    reviewRounds: z._default(z.int(), 1),
     specKind: z.optional(BuildSimulatorRequestSpecKind$outboundSchema),
     timeoutSeconds: z._default(z.int(), 14400),
   }),
@@ -113,6 +119,7 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
     return remap$(v, {
       credentialIds: "credential_ids",
       parentId: "parent_id",
+      reviewRounds: "review_rounds",
       specKind: "spec_kind",
       timeoutSeconds: "timeout_seconds",
     });

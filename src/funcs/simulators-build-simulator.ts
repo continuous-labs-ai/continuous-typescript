@@ -38,7 +38,7 @@ import { isReadableStream } from "../types/streams.js";
  * Build Simulator
  *
  * @remarks
- * Starts an asynchronous Simulator build and returns the Simulator with status pending. Builds start in queue order when workspace capacity is available. Send multipart/form-data with a JSON part named request. To build from a document, add a file part named spec with the OpenAPI or WSDL document. For an incremental build, omit spec and set parent_id and instructions.
+ * Starts an asynchronous Simulator build and returns the Simulator with status pending. Builds start in queue order when workspace capacity is available. Send multipart/form-data with a JSON part named request. To build from a document, add a file part named spec with the OpenAPI or WSDL document. For an incremental build, omit spec and set parent_id and instructions. Add file parts named document to give the builder and reviewer vendor documentation.
  */
 export function simulatorsBuildSimulator(
   client: ContinuousCore,
@@ -102,6 +102,35 @@ async function $do(
     "request",
     encodeJSON("request", payload.request, { explode: true }),
   );
+  if (payload.document !== undefined) {
+    for (const fileItem of payload.document ?? []) {
+      if (isBlobLike(fileItem)) {
+        const file = fileItem;
+        const blob = await normalizeBlob(file);
+        const name = "name" in file ? (file.name as string) : undefined;
+        appendForm(body, "document", blob, name);
+      } else if (isReadableStream(fileItem.content)) {
+        const buffer = await readableStreamToArrayBuffer(fileItem.content);
+        const contentType = getContentTypeFromFileName(fileItem.fileName)
+          || "application/octet-stream";
+        appendForm(
+          body,
+          "document",
+          bytesToBlob(buffer, contentType),
+          fileItem.fileName,
+        );
+      } else {
+        const contentType = getContentTypeFromFileName(fileItem.fileName)
+          || "application/octet-stream";
+        appendForm(
+          body,
+          "document",
+          bytesToBlob(fileItem.content, contentType),
+          fileItem.fileName,
+        );
+      }
+    }
+  }
   if (payload.spec !== undefined) {
     if (isBlobLike(payload.spec)) {
       const file = payload.spec;
