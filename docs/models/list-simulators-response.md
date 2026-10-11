@@ -16,6 +16,8 @@ let value: ListSimulatorsResponse = {
         limitations: [],
         model: "claude-fable-5-1",
         phase: "build",
+        reviewRound: 0,
+        reviewRounds: 1,
         stage: "build",
         submissions: 1,
         toolCalls: 7,

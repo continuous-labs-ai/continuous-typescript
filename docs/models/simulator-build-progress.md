@@ -12,10 +12,21 @@ let value: SimulatorBuildProgress = {
   limitations: [],
   model: "gpt-6-sol",
   phase: "finalize",
-  stage: "assemble",
-  submissions: 485509,
-  toolCalls: 448718,
-  warnings: [],
+  reviewRound: 901416,
+  reviewRounds: 485509,
+  stage: "build",
+  submissions: 82181,
+  toolCalls: 520742,
+  warnings: [
+    {
+      code: "spec.response_untyped",
+      location: "<value>",
+      message: "<value>",
+      operations: [
+        "<value 1>",
+      ],
+    },
+  ],
 };
 ```
 
@@ -29,6 +40,8 @@ let value: SimulatorBuildProgress = {
 | `limitations`                                                                                                                                                  | [models.Limitation](../models/limitation.md)[]                                                                                                                 | :heavy_check_mark:                                                                                                                                             | Behavior the accepted build does not serve like the real system, most important first, set when the build is accepted. Empty when none.                        |
 | `model`                                                                                                                                                        | [models.SimulatorBuildProgressModel](../models/simulator-build-progress-model.md)                                                                              | :heavy_check_mark:                                                                                                                                             | The model the builder and reviewer run on, or combined for a build with two reviewers. A build recorded before model selection reports its provider's default. |
 | `phase`                                                                                                                                                        | [models.SimulatorBuildProgressPhase](../models/simulator-build-progress-phase.md)                                                                              | :heavy_check_mark:                                                                                                                                             | Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.                          |
+| `reviewRound`                                                                                                                                                  | *number*                                                                                                                                                       | :heavy_check_mark:                                                                                                                                             | Review round that phase review or finalize belongs to, from 1. 0 before the first review.                                                                      |
+| `reviewRounds`                                                                                                                                                 | *number*                                                                                                                                                       | :heavy_check_mark:                                                                                                                                             | Review rounds the build runs at most. Fewer run when the reviewers agree early.                                                                                |
 | `stage`                                                                                                                                                        | [models.SimulatorBuildProgressStage](../models/simulator-build-progress-stage.md)                                                                              | :heavy_check_mark:                                                                                                                                             | derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.    |
 | `submissions`                                                                                                                                                  | *number*                                                                                                                                                       | :heavy_check_mark:                                                                                                                                             | Submit attempts.                                                                                                                                               |
 | `toolCalls`                                                                                                                                                    | *number*                                                                                                                                                       | :heavy_check_mark:                                                                                                                                             | Tool calls the coding loop executed.                                                                                                                           |
