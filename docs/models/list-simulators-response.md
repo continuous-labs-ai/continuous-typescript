@@ -30,6 +30,7 @@ let value: ListSimulatorsResponse = {
       instructions: "Return stable example data for every operation.",
       name: "billing-api",
       parentId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9",
+      research: null,
       source: "workspace",
       specKind: "openapi",
       status: "building",

@@ -49,15 +49,17 @@ export type SimulatorBuildProgressModel = OpenEnum<
 >;
 
 /**
- * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
+ * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round, finalize for author repair after review or QA. Null when not recorded.
  */
 export const SimulatorBuildProgressPhase = {
+  Research: "research",
   Build: "build",
   Review: "review",
+  Qa: "qa",
   Finalize: "finalize",
 } as const;
 /**
- * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
+ * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round, finalize for author repair after review or QA. Null when not recorded.
  */
 export type SimulatorBuildProgressPhase = OpenEnum<
   typeof SimulatorBuildProgressPhase
@@ -100,11 +102,11 @@ export type SimulatorBuildProgress = {
    */
   model: SimulatorBuildProgressModel;
   /**
-   * Agent phase: build for generation, review for the separate reviewer, finalize for author repair after review. Null when not recorded.
+   * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round, finalize for author repair after review or QA. Null when not recorded.
    */
   phase: SimulatorBuildProgressPhase | null;
   /**
-   * Review round that phase review or finalize belongs to, from 1. 0 before the first review.
+   * Review round that phase review, qa, or finalize belongs to, from 1. QA and the repair after it are in round review_rounds + 1. 0 before the first review.
    */
   reviewRound: number;
   /**

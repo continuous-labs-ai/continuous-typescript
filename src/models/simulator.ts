@@ -18,6 +18,10 @@ import {
   SimulatorError,
   SimulatorError$inboundSchema,
 } from "./simulator-error.js";
+import {
+  SimulatorResearch,
+  SimulatorResearch$inboundSchema,
+} from "./simulator-research.js";
 
 /**
  * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
@@ -89,6 +93,10 @@ export type Simulator = {
    */
   parentId: string | null;
   /**
+   * The build's research stage, or null for a Simulator built before research ran on every build.
+   */
+  research: SimulatorResearch | null;
+  /**
    * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
    */
   source: Source;
@@ -130,6 +138,7 @@ export const Simulator$inboundSchema: z.ZodMiniType<Simulator, unknown> = z
       instructions: types.string(),
       name: types.string(),
       parent_id: types.nullable(types.string()),
+      research: types.nullable(SimulatorResearch$inboundSchema),
       source: Source$inboundSchema,
       spec_kind: types.nullable(SimulatorSpecKind$inboundSchema),
       status: SimulatorStatus$inboundSchema,
