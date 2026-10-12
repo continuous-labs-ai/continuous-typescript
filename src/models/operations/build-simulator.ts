@@ -22,7 +22,7 @@ export type Spec = {
 
 export type BuildSimulatorRequest = {
   /**
-   * Vendor documentation the builder and reviewer read before they start, as repeated file parts: UTF-8 text (.md, .txt, .html, .json, .yaml, .xml, .csv) or PDF (.pdf). The documents share the request body limit with the spec. A parent's documents are not inherited.
+   * Vendor documentation the builder and reviewer read before they start, as repeated file parts: UTF-8 text (.md, .txt, .html, .json, .yaml, .xml, .csv) or PDF (.pdf). The documents share the request body limit with the spec. A parent's documents are not inherited. A document named INDEX.md indexes the others and skips research; the build fails if it names a document not sent or leaves out a selected operation.
    */
   document?: Array<Document> | undefined;
   request: models.BuildSimulatorRequest;
