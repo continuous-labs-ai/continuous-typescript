@@ -31,7 +31,7 @@ export type SimulatorBuildProgressLastSubmission = OpenEnum<
 >;
 
 /**
- * The model the builder and reviewer run on, or combined for a build with two reviewers. A build recorded before model selection reports its provider's default.
+ * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5. A build recorded before model selection reports its provider's default.
  */
 export const SimulatorBuildProgressModel = {
   Gpt6Astra: "gpt-6-astra",
@@ -42,7 +42,7 @@ export const SimulatorBuildProgressModel = {
   Combined: "combined",
 } as const;
 /**
- * The model the builder and reviewer run on, or combined for a build with two reviewers. A build recorded before model selection reports its provider's default.
+ * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5. A build recorded before model selection reports its provider's default.
  */
 export type SimulatorBuildProgressModel = OpenEnum<
   typeof SimulatorBuildProgressModel
@@ -98,7 +98,7 @@ export type SimulatorBuildProgress = {
    */
   limitations: Array<Limitation>;
   /**
-   * The model the builder and reviewer run on, or combined for a build with two reviewers. A build recorded before model selection reports its provider's default.
+   * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5. A build recorded before model selection reports its provider's default.
    */
   model: SimulatorBuildProgressModel;
   /**
@@ -110,7 +110,7 @@ export type SimulatorBuildProgress = {
    */
   reviewRound: number;
   /**
-   * Review rounds the build runs at most. Fewer run when the reviewers agree early.
+   * Review rounds the build runs at most. Fewer run when the reviewer agrees early.
    */
   reviewRounds: number;
   /**
