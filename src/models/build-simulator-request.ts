@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
+ * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
  */
 export const BuildSimulatorRequestModel = {
   Gpt6Astra: "gpt-6-astra",
@@ -17,7 +17,7 @@ export const BuildSimulatorRequestModel = {
   Combined: "combined",
 } as const;
 /**
- * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
+ * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
  */
 export type BuildSimulatorRequestModel = ClosedEnum<
   typeof BuildSimulatorRequestModel
@@ -51,7 +51,7 @@ export type BuildSimulatorRequest = {
    */
   instructions?: string | undefined;
   /**
-   * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined: builder on claude-opus-5-5, with two parallel reviews on claude-opus-5-5 and gpt-6-astra.
+   * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
    */
   model?: BuildSimulatorRequestModel | undefined;
   /**
@@ -63,7 +63,7 @@ export type BuildSimulatorRequest = {
    */
   parentId?: string | undefined;
   /**
-   * Review rounds, from 1 to 10. Defaults to 1. Each round is a review and a repair of its findings, by the same builder and reviewers. The rounds stop early when every reviewer reports no findings.
+   * Review rounds, from 1 to 10. Defaults to 1. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
    */
   reviewRounds?: number | undefined;
   /**
