@@ -38,9 +38,13 @@ export type CreatedSimulation = {
    */
   currentTime: Date;
   /**
-   * Base URL for requests to the Simulation.
+   * Base URL for requests to the Simulation. For a Simulation in your own runtime environment it is that environment's proxy, and the Continuous /sim/{id} URL answers 421 simulation_endpoint_external.
    */
   endpoint: string;
+  /**
+   * True when the endpoint is your own runtime environment's proxy rather than Continuous's, so a client calls it directly.
+   */
+  endpointExternal: boolean;
   /**
    * Always null; Simulation tokens do not expire. Deprecated; will be removed.
    *
@@ -105,6 +109,7 @@ export const CreatedSimulation$inboundSchema: z.ZodMiniType<
     created_at: types.date(),
     current_time: types.date(),
     endpoint: types.string(),
+    endpoint_external: types.boolean(),
     expires_at: types.nullable(types.date()),
     id: types.string(),
     include_sample_data: types.boolean(),
@@ -122,6 +127,7 @@ export const CreatedSimulation$inboundSchema: z.ZodMiniType<
       "active_advance_id": "activeAdvanceId",
       "created_at": "createdAt",
       "current_time": "currentTime",
+      "endpoint_external": "endpointExternal",
       "expires_at": "expiresAt",
       "include_sample_data": "includeSampleData",
       "parent_id": "parentId",

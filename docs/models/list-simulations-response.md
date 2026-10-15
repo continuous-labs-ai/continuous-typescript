@@ -14,6 +14,7 @@ let value: ListSimulationsResponse = {
       currentTime: new Date("2024-01-01T00:00:00Z"),
       endpoint:
         "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6",
+      endpointExternal: false,
       id: "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6",
       includeSampleData: false,
       metadata: {
