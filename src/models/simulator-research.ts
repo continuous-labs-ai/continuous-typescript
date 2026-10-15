@@ -11,7 +11,7 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
- * pending until the stage starts; running while the research agent indexes the documents and saves the vendor pages they lack; complete when it wrote the index; failed when it could not finish, which fails the build, or when the build ended first; provided when the documents included INDEX.md, so research did not run.
+ * pending until the stage starts; running while the research agent indexes the documents and saves the vendor pages they lack; complete when it wrote an index that names every document; failed when it could not finish, which fails the build, or when the build ended first; provided when the documents included INDEX.md, so research did not run.
  */
 export const SimulatorResearchStatus = {
   Pending: "pending",
@@ -21,7 +21,7 @@ export const SimulatorResearchStatus = {
   Provided: "provided",
 } as const;
 /**
- * pending until the stage starts; running while the research agent indexes the documents and saves the vendor pages they lack; complete when it wrote the index; failed when it could not finish, which fails the build, or when the build ended first; provided when the documents included INDEX.md, so research did not run.
+ * pending until the stage starts; running while the research agent indexes the documents and saves the vendor pages they lack; complete when it wrote an index that names every document; failed when it could not finish, which fails the build, or when the build ended first; provided when the documents included INDEX.md, so research did not run.
  */
 export type SimulatorResearchStatus = OpenEnum<typeof SimulatorResearchStatus>;
 
@@ -35,7 +35,7 @@ export type SimulatorResearch = {
    */
   pages: number;
   /**
-   * pending until the stage starts; running while the research agent indexes the documents and saves the vendor pages they lack; complete when it wrote the index; failed when it could not finish, which fails the build, or when the build ended first; provided when the documents included INDEX.md, so research did not run.
+   * pending until the stage starts; running while the research agent indexes the documents and saves the vendor pages they lack; complete when it wrote an index that names every document; failed when it could not finish, which fails the build, or when the build ended first; provided when the documents included INDEX.md, so research did not run.
    */
   status: SimulatorResearchStatus;
 };
