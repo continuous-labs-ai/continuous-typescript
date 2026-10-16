@@ -173,6 +173,9 @@ run();
 * [advanceWorld](docs/sdks/worlds/README.md#advanceworld) - Advance World Time
 * [getWorldAdvance](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance
 * [cancelWorld](docs/sdks/worlds/README.md#cancelworld) - Cancel World Build
+* [getWorldChange](docs/sdks/worlds/README.md#getworldchange) - Get World Change
+* [addWorldSimulation](docs/sdks/worlds/README.md#addworldsimulation) - Add World Simulation
+* [removeWorldSimulation](docs/sdks/worlds/README.md#removeworldsimulation) - Remove World Simulation
 * [startWorld](docs/sdks/worlds/README.md#startworld) - Start World
 * [stopWorld](docs/sdks/worlds/README.md#stopworld) - Stop World
 
@@ -218,13 +221,16 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`simulatorsDeleteSimulator`](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
 - [`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
 - [`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators) - List Simulators
+- [`worldsAddWorldSimulation`](docs/sdks/worlds/README.md#addworldsimulation) - Add World Simulation
 - [`worldsAdvanceWorld`](docs/sdks/worlds/README.md#advanceworld) - Advance World Time
 - [`worldsBuildWorld`](docs/sdks/worlds/README.md#buildworld) - Build World
 - [`worldsCancelWorld`](docs/sdks/worlds/README.md#cancelworld) - Cancel World Build
 - [`worldsDeleteWorld`](docs/sdks/worlds/README.md#deleteworld) - Delete World
 - [`worldsGetWorld`](docs/sdks/worlds/README.md#getworld) - Get World
 - [`worldsGetWorldAdvance`](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance
+- [`worldsGetWorldChange`](docs/sdks/worlds/README.md#getworldchange) - Get World Change
 - [`worldsListWorlds`](docs/sdks/worlds/README.md#listworlds) - List Worlds
+- [`worldsRemoveWorldSimulation`](docs/sdks/worlds/README.md#removeworldsimulation) - Remove World Simulation
 - [`worldsStartWorld`](docs/sdks/worlds/README.md#startworld) - Start World
 - [`worldsStopWorld`](docs/sdks/worlds/README.md#stopworld) - Stop World
 

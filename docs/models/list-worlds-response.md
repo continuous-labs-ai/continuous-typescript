@@ -10,6 +10,7 @@ let value: ListWorldsResponse = {
   worlds: [
     {
       activeAdvanceId: null,
+      activeChangeId: null,
       build: {
         lastSubmission: "rejected",
         lastTool: "test",
