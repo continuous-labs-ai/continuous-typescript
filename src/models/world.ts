@@ -43,6 +43,10 @@ export type World = {
    */
   activeAdvanceId: string | null;
   /**
+   * Current membership change ID, or null.
+   */
+  activeChangeId: string | null;
+  /**
    * The build's latest progress report and verified starting data, or null before the first report.
    */
   build: WorldBuildProgress | null;
@@ -97,6 +101,7 @@ export const WorldStatus$inboundSchema: z.ZodMiniType<WorldStatus, unknown> =
 export const World$inboundSchema: z.ZodMiniType<World, unknown> = z.pipe(
   z.object({
     active_advance_id: types.nullable(types.string()),
+    active_change_id: types.nullable(types.string()),
     build: types.nullable(WorldBuildProgress$inboundSchema),
     created_at: types.date(),
     current_time: types.date(),
@@ -113,6 +118,7 @@ export const World$inboundSchema: z.ZodMiniType<World, unknown> = z.pipe(
   z.transform((v) => {
     return remap$(v, {
       "active_advance_id": "activeAdvanceId",
+      "active_change_id": "activeChangeId",
       "created_at": "createdAt",
       "current_time": "currentTime",
       "start_time": "startTime",
