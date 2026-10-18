@@ -7,7 +7,7 @@ The specification the Simulator was built from, or null until a build has read i
 ```typescript
 import { SimulatorSpecKind } from "@continuous-labs/sdk/models";
 
-let value: SimulatorSpecKind = "openapi";
+let value: SimulatorSpecKind = "wsdl";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```
@@ -15,5 +15,5 @@ let value: SimulatorSpecKind = "openapi";
 ## Values
 
 ```typescript
-"openapi" | "wsdl" | Unrecognized<string>
+"openapi" | "wsdl" | "graphql" | Unrecognized<string>
 ```

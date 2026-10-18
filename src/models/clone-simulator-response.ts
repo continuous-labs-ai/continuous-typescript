@@ -8,6 +8,10 @@ import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import {
+  SimulatorPublication,
+  SimulatorPublication$inboundSchema,
+} from "./simulator-publication.js";
 
 export type CloneSimulatorResponse = {
   /**
@@ -23,6 +27,10 @@ export type CloneSimulatorResponse = {
    */
   name: string;
   /**
+   * The attempt to publish the image into the target workspace's default customer runtime environment, or null when it has none. A failure leaves the clone ready; creating a Simulation tries again.
+   */
+  publication: SimulatorPublication | null;
+  /**
    * Target workspace.
    */
   workspaceId: string;
@@ -37,6 +45,7 @@ export const CloneSimulatorResponse$inboundSchema: z.ZodMiniType<
     digest: types.string(),
     id: types.string(),
     name: types.string(),
+    publication: types.nullable(SimulatorPublication$inboundSchema),
     workspace_id: types.string(),
   }),
   z.transform((v) => {

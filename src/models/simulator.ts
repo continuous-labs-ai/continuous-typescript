@@ -19,6 +19,10 @@ import {
   SimulatorError$inboundSchema,
 } from "./simulator-error.js";
 import {
+  SimulatorPublication,
+  SimulatorPublication$inboundSchema,
+} from "./simulator-publication.js";
+import {
   SimulatorResearch,
   SimulatorResearch$inboundSchema,
 } from "./simulator-research.js";
@@ -41,6 +45,7 @@ export type Source = OpenEnum<typeof Source>;
 export const SimulatorSpecKind = {
   Openapi: "openapi",
   Wsdl: "wsdl",
+  Graphql: "graphql",
 } as const;
 /**
  * The specification the Simulator was built from, or null until a build has read it.
@@ -93,6 +98,10 @@ export type Simulator = {
    */
   parentId: string | null;
   /**
+   * The latest attempt to publish the Simulator's image into the workspace's default customer runtime environment, or null when the workspace has none, no attempt is recorded, or the response does not report it. Get and list report it.
+   */
+  publication: SimulatorPublication | null;
+  /**
    * The build's research stage, or null for a Simulator built before research ran on every build.
    */
   research: SimulatorResearch | null;
@@ -138,6 +147,7 @@ export const Simulator$inboundSchema: z.ZodMiniType<Simulator, unknown> = z
       instructions: types.string(),
       name: types.string(),
       parent_id: types.nullable(types.string()),
+      publication: types.nullable(SimulatorPublication$inboundSchema),
       research: types.nullable(SimulatorResearch$inboundSchema),
       source: Source$inboundSchema,
       spec_kind: types.nullable(SimulatorSpecKind$inboundSchema),

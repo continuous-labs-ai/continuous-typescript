@@ -1,6 +1,6 @@
 # BuildSimulatorRequestSpecKind
 
-Source specification format. Omission detects the format.
+Source specification format. Omission detects the format; GraphQL SDL needs graphql, and a GraphQL introspection result is stored as SDL.
 
 ## Example Usage
 
@@ -13,5 +13,5 @@ let value: BuildSimulatorRequestSpecKind = "openapi";
 ## Values
 
 ```typescript
-"openapi" | "wsdl"
+"openapi" | "wsdl" | "graphql"
 ```
