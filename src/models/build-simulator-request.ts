@@ -24,14 +24,15 @@ export type BuildSimulatorRequestModel = ClosedEnum<
 >;
 
 /**
- * Source specification format. Omission detects the format.
+ * Source specification format. Omission detects the format; GraphQL SDL needs graphql, and a GraphQL introspection result is stored as SDL.
  */
 export const BuildSimulatorRequestSpecKind = {
   Openapi: "openapi",
   Wsdl: "wsdl",
+  Graphql: "graphql",
 } as const;
 /**
- * Source specification format. Omission detects the format.
+ * Source specification format. Omission detects the format; GraphQL SDL needs graphql, and a GraphQL introspection result is stored as SDL.
  */
 export type BuildSimulatorRequestSpecKind = ClosedEnum<
   typeof BuildSimulatorRequestSpecKind
@@ -43,7 +44,7 @@ export type BuildSimulatorRequest = {
    */
   credentialIds?: Array<string> | undefined;
   /**
-   * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId or the WSDL operation name; an operation is kept when any expression matches, and an OpenAPI operation without an operationId is dropped. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation. Not allowed for an incremental build.
+   * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId, the WSDL operation name, or the GraphQL Query or Mutation field name; an operation is kept when any expression matches, and an OpenAPI operation without an operationId is dropped. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation. Not allowed for an incremental build.
    */
   filter?: Array<string> | undefined;
   /**
@@ -67,7 +68,7 @@ export type BuildSimulatorRequest = {
    */
   reviewRounds?: number | undefined;
   /**
-   * Source specification format. Omission detects the format.
+   * Source specification format. Omission detects the format; GraphQL SDL needs graphql, and a GraphQL introspection result is stored as SDL.
    */
   specKind?: BuildSimulatorRequestSpecKind | undefined;
   /**

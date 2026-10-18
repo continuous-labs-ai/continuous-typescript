@@ -27,7 +27,7 @@ export type BuildSimulatorRequest = {
   document?: Array<Document> | undefined;
   request: models.BuildSimulatorRequest;
   /**
-   * OpenAPI or WSDL document, UTF-8 encoded, at most 64 MiB. Required unless the request is an incremental build (parent_id and instructions, no spec).
+   * OpenAPI, WSDL or GraphQL document, UTF-8 encoded, at most 64 MiB. Required unless the request is an incremental build (parent_id and instructions, no spec).
    */
   spec?: Spec | Blob | undefined;
 };
