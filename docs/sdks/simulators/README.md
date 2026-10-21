@@ -303,11 +303,12 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409, 422       | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| errors.SimulatorDeleteConflictError | 409                                 | application/problem+json            |
+| errors.ErrorT                       | 401, 403, 404, 422                  | application/problem+json            |
+| errors.ErrorT                       | 500, 503                            | application/problem+json            |
+| errors.ContinuousDefaultError       | 4XX, 5XX                            | \*/\*                               |
 
 ## getSimulator
 

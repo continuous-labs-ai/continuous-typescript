@@ -40,6 +40,7 @@ export function simulatorsDeleteSimulator(
 ): APIPromise<
   Result<
     void,
+    | errors.SimulatorDeleteConflictError
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,6 +67,7 @@ async function $do(
   [
     Result<
       void,
+      | errors.SimulatorDeleteConflictError
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -154,6 +156,7 @@ async function $do(
 
   const [result] = await M.match<
     void,
+    | errors.SimulatorDeleteConflictError
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -165,7 +168,10 @@ async function $do(
     | SDKValidationError
   >(
     M.nil(204, z.void()),
-    M.jsonErr([401, 403, 404, 409, 422], errors.ErrorT$inboundSchema, {
+    M.jsonErr(409, errors.SimulatorDeleteConflictError$inboundSchema, {
+      ctype: "application/problem+json",
+    }),
+    M.jsonErr([401, 403, 404, 422], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {

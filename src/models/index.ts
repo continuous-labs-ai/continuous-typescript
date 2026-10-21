@@ -31,6 +31,7 @@ export * from "./simulation-detail.js";
 export * from "./simulation.js";
 export * from "./simulator-actor.js";
 export * from "./simulator-build-progress.js";
+export * from "./simulator-dependents.js";
 export * from "./simulator-error.js";
 export * from "./simulator-publication.js";
 export * from "./simulator-research.js";

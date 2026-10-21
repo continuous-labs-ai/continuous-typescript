@@ -395,7 +395,7 @@ run();
 * [`ContinuousError`](./src/models/errors/continuous-error.ts): The base class for HTTP error responses.
   * [`ErrorT`](./src/models/errors/error-t.ts): Generic error.
 
-<details><summary>Less common errors (6)</summary>
+<details><summary>Less common errors (7)</summary>
 
 <br />
 
@@ -408,9 +408,12 @@ run();
 
 
 **Inherit from [`ContinuousError`](./src/models/errors/continuous-error.ts)**:
+* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 36 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->

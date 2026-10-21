@@ -8,3 +8,4 @@ export * from "./error.js";
 export * from "./http-client-errors.js";
 export * from "./response-validation-error.js";
 export * from "./sdk-validation-error.js";
+export * from "./simulator-delete-conflict-error.js";
