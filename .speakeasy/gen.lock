@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: 3aac2c964e8c6577633622af48b14afc
+  docChecksum: 658625eb2d1e8535d07d12488f780a1a
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.1.14
-  configChecksum: d0a5fd5333e5cdb8a03e6c78ad78b776
+  releaseVersion: 0.1.15
+  configChecksum: e95e3d2951447ca5ab01731c19003389
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 83e602e8-db0a-497c-9cb4-d5297088bacd
-  pristine_commit_hash: 7b93131b850eb2d05374d74dd77cb4ea6a40e6ca
-  pristine_tree_hash: 7a596c7acbed2aee0ad595aee700c4076f3a2ca2
+  generation_id: 63c6d974-99d1-4e00-8e2a-b502723aa602
+  pristine_commit_hash: adbad6a2e4ef40c2a502fa97348fe43243ce45ff
+  pristine_tree_hash: 29825ea7621d29fa30cf68742add10015b521b9b
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -155,6 +155,10 @@ trackedFiles:
     id: ee0036d35000
     last_write_checksum: sha1:c97f3dec8da1057b7a7057c7f5c1abbcc0f7d9fd
     pristine_git_object: d998ff1a31926e3b244a400e8fce14b69798d43d
+  docs/models/errors/simulator-delete-conflict-error.md:
+    id: 510f0fe3bc83
+    last_write_checksum: sha1:20a1c6fe52459d68ab2bd925766c2c435b62322d
+    pristine_git_object: f75f2733d9c2bb96121baa6629f7c50434f5a761
   docs/models/fork-simulation-request.md:
     id: 03d17e666028
     last_write_checksum: sha1:fa6a67dd53b675f92bebe55a21963f88a56dc249
@@ -415,6 +419,10 @@ trackedFiles:
     id: 64c4c681ac0e
     last_write_checksum: sha1:fcc61afa8d9eaa3fc5e8e953f779ffde066c7624
     pristine_git_object: 363c379fcbf4c38dcfffbc8caca865cac838342a
+  docs/models/simulator-dependents.md:
+    id: 4304e4faca8f
+    last_write_checksum: sha1:6027803e8a76a6e2040af5bf7192542878f8365c
+    pristine_git_object: 1db7913f5920d54f358babc100152888a3276860
   docs/models/simulator-error-code.md:
     id: f3fd09b89093
     last_write_checksum: sha1:e12e4574e087573d2190a68b0374abd5f1f6a421
@@ -569,8 +577,8 @@ trackedFiles:
     pristine_git_object: 814ab7559cc13362f5cb36f7a85f446c4a38720a
   docs/sdks/simulators/README.md:
     id: 55eacdd8fa62
-    last_write_checksum: sha1:aa7841e786a58e4400586bbcec448e4e777288d8
-    pristine_git_object: 42ed39b89830107fa9310bb9e5fc791bbb1fba22
+    last_write_checksum: sha1:dab4d827bcfc858a10faba979f896301b99eaebc
+    pristine_git_object: ab1bfa6adac11a9ba9aa593ac7448db5de03ed46
   docs/sdks/worlds/README.md:
     id: c57d3f2ebb66
     last_write_checksum: sha1:5f502aa6d6dadcb2cb8ef02709e961fad9a224bb
@@ -593,12 +601,12 @@ trackedFiles:
     pristine_git_object: a8174ac1b126a1796e076b9f3122a0ede68d2d7d
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:91f47a6415fb4185f4dedf1c2a1a6f9dd58cc54f
-    pristine_git_object: 8e352a812b5edc74dc603d9c647a1206a1f1f5d1
+    last_write_checksum: sha1:703978fd38462fbdee036f222a93dfa095d8d2b6
+    pristine_git_object: be00d24dff8c02c7695ddef5ccd5da7fc0786a37
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:efd72ec239eb63a1bff4a9d2b3a7cc0c15823529
-    pristine_git_object: d3dd1831900d59d6afbb4f319a33490af2fe3027
+    last_write_checksum: sha1:5c535a3df570a673defbefec24e683650a6dad0f
+    pristine_git_object: 5ba274ddbf50a0152cdb2fec2f5c1fd1669b118d
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -689,8 +697,8 @@ trackedFiles:
     pristine_git_object: 8a95acf38dc7ae6ab56df4ecd3a195e5b5a774fa
   src/funcs/simulators-delete-simulator.ts:
     id: 39ae64564776
-    last_write_checksum: sha1:d7410c2509529689a96d7785b12697134e183d40
-    pristine_git_object: 632e424eb63ff0099660c85ee455ad53680d667b
+    last_write_checksum: sha1:6f2f05a49c0483ea8bea1fe60fa0edf5103e7f0a
+    pristine_git_object: 947dd3b8eee626dfc65970f3c17bef0a214d6be9
   src/funcs/simulators-get-simulator.ts:
     id: 9e6edbf771c2
     last_write_checksum: sha1:785d5ca58a615828cac908b467bf629459526983
@@ -769,8 +777,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:3cee6f09e18bec7540e2d1a901fb0382ed8ddf4a
-    pristine_git_object: 14a12a261e3a6b8fb9c8bb201243ede416ef5828
+    last_write_checksum: sha1:4c7bfff966580319041e1220bee57e43a3638f33
+    pristine_git_object: 7cb285c5b750e5fc3df188d5b7f128894fe5d2b2
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -893,8 +901,8 @@ trackedFiles:
     pristine_git_object: b34f612124c797c2a1106b9735708f679a90b74f
   src/models/errors/index.ts:
     id: c4e22507cb83
-    last_write_checksum: sha1:68f5392dd6fa66f551aac44052c41f8d1af62643
-    pristine_git_object: d3e7bec5f3eb09d3702c4417ede01b0201c133e2
+    last_write_checksum: sha1:2d6bb8ef8c6cd170c465a26f5f465caaf3cc84ff
+    pristine_git_object: 233a46cb0357f1a413cd1323953ac0cac06844ca
   src/models/errors/response-validation-error.ts:
     id: a6ce701a9571
     last_write_checksum: sha1:4dbdeb0226fd26eb14ca151732af4ccdc8568d30
@@ -903,14 +911,18 @@ trackedFiles:
     id: 9b17e7ef247f
     last_write_checksum: sha1:92771987c251f02fd86cfd824a3be709cd3c2837
     pristine_git_object: db00022e05d55600252f401eb0e6ab46278e0b07
+  src/models/errors/simulator-delete-conflict-error.ts:
+    id: 210d5876461d
+    last_write_checksum: sha1:b51ba924dd767d3161210cf35e5baf10b635b70f
+    pristine_git_object: a510536f4e08dafed3fe013c32ebcac7788abc68
   src/models/fork-simulation-request.ts:
     id: 95ab590e9d72
     last_write_checksum: sha1:39f8f88fe4670027f79121a2f3763e4b07459f2e
     pristine_git_object: e0caa233004a04d6138072145cfbf8137fecd940
   src/models/index.ts:
     id: f93644b0f37e
-    last_write_checksum: sha1:59138e1770775b4ec578ee046eaba99dc3cd3a19
-    pristine_git_object: 76cb5805cc9c3ce0127d93883c5fbcf4d47efa95
+    last_write_checksum: sha1:e62c79aa67210d1985d2a863b722c9af2326c7ea
+    pristine_git_object: dd9b42f13df3bba624d56ba4d95dcb723f0e83fb
   src/models/limitation.ts:
     id: f246fad7e459
     last_write_checksum: sha1:b0f0803d0c81e656d0a385bb2e28f2920d8bf86a
@@ -1107,6 +1119,10 @@ trackedFiles:
     id: 86f1ba299bcb
     last_write_checksum: sha1:1afefe38988589f6cc229a1bc2e5741a2ddcef3e
     pristine_git_object: d4dd38f1eb82b410d1d715cddd2bb4f62330760f
+  src/models/simulator-dependents.ts:
+    id: a09f72a2bb29
+    last_write_checksum: sha1:4a7dfef631647d21cbfb229f3c2617285ae253e1
+    pristine_git_object: def682b9fca46b67bd9816776cdfc7d5bae0fddb
   src/models/simulator-error.ts:
     id: 27d673ea1602
     last_write_checksum: sha1:4a13b595d349f99ed9820c4eb4c4fcc7c34c0e94
@@ -1591,9 +1607,11 @@ examples:
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
-          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
         "401":
-          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "409":
+          application/problem+json: {"code": "<value>", "dependents": {"child_simulators": ["<value 1>", "<value 2>"], "simulations": [], "worlds": []}, "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
     auth_invalid:
       parameters:
         path:
@@ -1612,6 +1630,13 @@ examples:
           application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
         "500":
           application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    simulator_in_use:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "409":
+          application/problem+json: {"code": "simulator_in_use", "dependents": {"child_simulators": [], "simulations": ["sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6"], "worlds": ["wld_01J8Z5X4K7M2N9P0Q1R2S3T4V7"]}, "detail": "The Simulator with ID \"smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5\" has dependent Worlds, Simulations, or child Simulators. Delete those resources before you delete this Simulator.", "validation": null}
   get-simulator:
     speakeasy-default-get-simulator:
       parameters:
@@ -2488,4 +2513,6 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.simulators.listSimulators()`:  `response.simulators[]` **Changed**\n* `continuous.simulators.buildSimulator()`: \n  *  `request.request` **Changed**\n  *  `response` **Changed**\n* `continuous.simulators.getSimulator()`:  `response` **Changed**\n* `continuous.simulators.cancelSimulator()`:  `response` **Changed**\n* `continuous.simulators.cloneSimulator()`:  `response.publication` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `continuous.simulators.deleteSimulator()`:  `error.dependents` **Added**

@@ -339,3 +339,13 @@ Based on:
 - [typescript v0.1.14] .
 ### Releases
 - [NPM v0.1.14] https://www.npmjs.com/package/@continuous-labs/sdk/v/0.1.14 - .
+
+## 2026-10-21 00:18:57
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.796.4 (2.935.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.1.15] .
+### Releases
+- [NPM v0.1.15] https://www.npmjs.com/package/@continuous-labs/sdk/v/0.1.15 - .
