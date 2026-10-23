@@ -85,7 +85,7 @@ run();
 
 ## createCredential
 
-Stores a connection to a real system: its base URL, the header that carries the credential, and the header value. Returns the credential without its value.
+Stores a connection to a real system: either an API base URL, the header that carries the credential, and the header value, or an app login with its sign-in URL, username, and password. Returns the credential without its value.
 
 ### Example Usage
 
@@ -100,6 +100,7 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.credentials.createCredential({
     baseUrl: "https://api.stripe.com",
+    header: "Authorization",
     name: "stripe-test",
     value: "Bearer <redacted>",
   });
@@ -127,6 +128,7 @@ const continuous = new ContinuousCore({
 async function run() {
   const res = await credentialsCreateCredential(continuous, {
     baseUrl: "https://api.stripe.com",
+    header: "Authorization",
     name: "stripe-test",
     value: "Bearer <redacted>",
   });
@@ -314,7 +316,7 @@ run();
 
 ## updateCredential
 
-Renames a credential, changes its base URL or header, or replaces its value. Omitted fields keep their current values.
+Renames a credential, changes its base URL and header or its login, or replaces its value. A credential keeps its kind. Omitted fields keep their current values.
 
 ### Example Usage
 

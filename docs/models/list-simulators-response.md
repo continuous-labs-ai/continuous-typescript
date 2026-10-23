@@ -28,6 +28,7 @@ let value: ListSimulatorsResponse = {
       error: null,
       id: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
       instructions: "Return stable example data for every operation.",
+      mode: "api",
       name: "billing-api",
       parentId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9",
       publication: null,

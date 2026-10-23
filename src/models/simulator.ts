@@ -28,6 +28,18 @@ import {
 } from "./simulator-research.js";
 
 /**
+ * api for a Simulator of the vendor's API; web_app for one of its logged-in web app.
+ */
+export const SimulatorMode = {
+  Api: "api",
+  WebApp: "web_app",
+} as const;
+/**
+ * api for a Simulator of the vendor's API; web_app for one of its logged-in web app.
+ */
+export type SimulatorMode = OpenEnum<typeof SimulatorMode>;
+
+/**
  * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
  */
 export const Source = {
@@ -40,15 +52,16 @@ export const Source = {
 export type Source = OpenEnum<typeof Source>;
 
 /**
- * The specification the Simulator was built from, or null until a build has read it.
+ * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the calls its discovery journeys captured.
  */
 export const SimulatorSpecKind = {
   Openapi: "openapi",
   Wsdl: "wsdl",
   Graphql: "graphql",
+  Recorded: "recorded",
 } as const;
 /**
- * The specification the Simulator was built from, or null until a build has read it.
+ * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the calls its discovery journeys captured.
  */
 export type SimulatorSpecKind = OpenEnum<typeof SimulatorSpecKind>;
 
@@ -90,6 +103,10 @@ export type Simulator = {
    */
   instructions: string;
   /**
+   * api for a Simulator of the vendor's API; web_app for one of its logged-in web app.
+   */
+  mode: SimulatorMode;
+  /**
    * Simulator name. The ID is its identity, and names need not be unique.
    */
   name: string;
@@ -110,7 +127,7 @@ export type Simulator = {
    */
   source: Source;
   /**
-   * The specification the Simulator was built from, or null until a build has read it.
+   * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the calls its discovery journeys captured.
    */
   specKind: SimulatorSpecKind | null;
   /**
@@ -118,6 +135,12 @@ export type Simulator = {
    */
   status: SimulatorStatus;
 };
+
+/** @internal */
+export const SimulatorMode$inboundSchema: z.ZodMiniType<
+  SimulatorMode,
+  unknown
+> = openEnums.inboundSchema(SimulatorMode);
 
 /** @internal */
 export const Source$inboundSchema: z.ZodMiniType<Source, unknown> = openEnums
@@ -145,6 +168,7 @@ export const Simulator$inboundSchema: z.ZodMiniType<Simulator, unknown> = z
       error: types.nullable(SimulatorError$inboundSchema),
       id: types.string(),
       instructions: types.string(),
+      mode: SimulatorMode$inboundSchema,
       name: types.string(),
       parent_id: types.nullable(types.string()),
       publication: types.nullable(SimulatorPublication$inboundSchema),
