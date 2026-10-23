@@ -4,30 +4,37 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../lib/primitives.js";
+import {
+  CredentialLoginRequest,
+  CredentialLoginRequest$Outbound,
+  CredentialLoginRequest$outboundSchema,
+} from "./credential-login-request.js";
 
 export type CreateCredentialRequest = {
   /**
-   * The https URL of the real system. Requests go to paths under it.
+   * The https URL of the real system. Requests go to paths under it. Send exactly one of base_url and login.
    */
-  baseUrl: string;
+  baseUrl?: string | undefined;
   /**
-   * The HTTP header that carries the value.
+   * The HTTP header that carries the value. Defaults to Authorization. Not allowed with login.
    */
   header?: string | undefined;
+  login?: CredentialLoginRequest | undefined;
   /**
    * Credential name.
    */
   name: string;
   /**
-   * The full header value, for example Bearer followed by a token. The API never returns it.
+   * The full header value, for example Bearer followed by a token, or the login password. The API never returns it.
    */
   value: string;
 };
 
 /** @internal */
 export type CreateCredentialRequest$Outbound = {
-  base_url: string;
-  header: string;
+  base_url?: string | undefined;
+  header?: string | undefined;
+  login?: CredentialLoginRequest$Outbound | undefined;
   name: string;
   value: string;
 };
@@ -38,8 +45,9 @@ export const CreateCredentialRequest$outboundSchema: z.ZodMiniType<
   CreateCredentialRequest
 > = z.pipe(
   z.object({
-    baseUrl: z.string(),
-    header: z._default(z.string(), "Authorization"),
+    baseUrl: z.optional(z.string()),
+    header: z.optional(z.string()),
+    login: z.optional(CredentialLoginRequest$outboundSchema),
     name: z.string(),
     value: z.string(),
   }),

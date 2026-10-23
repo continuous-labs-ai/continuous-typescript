@@ -34,7 +34,7 @@ export class Credentials extends ClientSDK {
    * Create credential
    *
    * @remarks
-   * Stores a connection to a real system: its base URL, the header that carries the credential, and the header value. Returns the credential without its value.
+   * Stores a connection to a real system: either an API base URL, the header that carries the credential, and the header value, or an app login with its sign-in URL, username, and password. Returns the credential without its value.
    */
   async createCredential(
     request: models.CreateCredentialRequest,
@@ -85,7 +85,7 @@ export class Credentials extends ClientSDK {
    * Update credential
    *
    * @remarks
-   * Renames a credential, changes its base URL or header, or replaces its value. Omitted fields keep their current values.
+   * Renames a credential, changes its base URL and header or its login, or replaces its value. A credential keeps its kind. Omitted fields keep their current values.
    */
   async updateCredential(
     request: operations.UpdateCredentialRequest,

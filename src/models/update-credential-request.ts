@@ -4,6 +4,11 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../lib/primitives.js";
+import {
+  CredentialLoginUpdate,
+  CredentialLoginUpdate$Outbound,
+  CredentialLoginUpdate$outboundSchema,
+} from "./credential-login-update.js";
 
 export type UpdateCredentialRequest = {
   /**
@@ -14,12 +19,13 @@ export type UpdateCredentialRequest = {
    * New HTTP header that carries the value.
    */
   header?: string | undefined;
+  login?: CredentialLoginUpdate | undefined;
   /**
    * New credential name.
    */
   name?: string | undefined;
   /**
-   * New full header value. Required when base_url or header changes. Builds that start an agent after the change use it. The API never returns it.
+   * New full header value or login password. Required when base_url, header, login.url, or login.hosts changes. Builds that start an agent after the change use it. The API never returns it.
    */
   value?: string | undefined;
 };
@@ -28,6 +34,7 @@ export type UpdateCredentialRequest = {
 export type UpdateCredentialRequest$Outbound = {
   base_url?: string | undefined;
   header?: string | undefined;
+  login?: CredentialLoginUpdate$Outbound | undefined;
   name?: string | undefined;
   value?: string | undefined;
 };
@@ -40,6 +47,7 @@ export const UpdateCredentialRequest$outboundSchema: z.ZodMiniType<
   z.object({
     baseUrl: z.optional(z.string()),
     header: z.optional(z.string()),
+    login: z.optional(CredentialLoginUpdate$outboundSchema),
     name: z.optional(z.string()),
     value: z.optional(z.string()),
   }),

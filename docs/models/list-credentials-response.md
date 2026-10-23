@@ -12,6 +12,7 @@ let value: ListCredentialsResponse = {
       createdAt: new Date("2026-01-15T12:00:00Z"),
       header: "Authorization",
       id: "crd_01J8Z5X4K7M2N9P0Q1R2S3T4VA",
+      login: null,
       name: "stripe-test",
     },
   ],

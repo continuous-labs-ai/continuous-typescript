@@ -7,6 +7,20 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
+ * What the Simulator simulates. api, the default, builds the vendor's API from a spec, or from a parent with instructions. web_app builds the vendor's logged-in web app and the private API behind it: it takes no spec, spec_kind or filter, needs exactly one Web App login credential in credential_ids, runs on a Claude model or combined, and starts with a Discovery stage that logs in and captures the app. With parent_id and instructions, it builds from a ready web_app Simulator and starts with that Simulator's captures instead of Discovery.
+ */
+export const BuildSimulatorRequestMode = {
+  Api: "api",
+  WebApp: "web_app",
+} as const;
+/**
+ * What the Simulator simulates. api, the default, builds the vendor's API from a spec, or from a parent with instructions. web_app builds the vendor's logged-in web app and the private API behind it: it takes no spec, spec_kind or filter, needs exactly one Web App login credential in credential_ids, runs on a Claude model or combined, and starts with a Discovery stage that logs in and captures the app. With parent_id and instructions, it builds from a ready web_app Simulator and starts with that Simulator's captures instead of Discovery.
+ */
+export type BuildSimulatorRequestMode = ClosedEnum<
+  typeof BuildSimulatorRequestMode
+>;
+
+/**
  * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
  */
 export const BuildSimulatorRequestModel = {
@@ -40,7 +54,7 @@ export type BuildSimulatorRequestSpecKind = ClosedEnum<
 
 export type BuildSimulatorRequest = {
   /**
-   * Workspace credentials QA and the builder can call real systems with, to compare the Simulator with them. A build with credentials runs QA after its review rounds. At most 5. Each must belong to the workspace and have a base_url. QA may create test objects in the live system and deletes them or, where the API cannot, leaves them in a final state; the builder sends only reads. Use a sandbox or test account.
+   * Workspace credentials QA and the builder can call real systems with, to compare the Simulator with them. A build with credentials runs QA after its review rounds. At most 5. Each must belong to the workspace and have a base_url, except the one Web App login a Web App build needs, which its Discovery, Build and QA stages use. QA, and the builder of a Web App build, may create test objects in the live system and delete them or, where the API cannot, leave them in a final state; otherwise the builder sends only reads. Use a sandbox or test account.
    */
   credentialIds?: Array<string> | undefined;
   /**
@@ -52,6 +66,10 @@ export type BuildSimulatorRequest = {
    */
   instructions?: string | undefined;
   /**
+   * What the Simulator simulates. api, the default, builds the vendor's API from a spec, or from a parent with instructions. web_app builds the vendor's logged-in web app and the private API behind it: it takes no spec, spec_kind or filter, needs exactly one Web App login credential in credential_ids, runs on a Claude model or combined, and starts with a Discovery stage that logs in and captures the app. With parent_id and instructions, it builds from a ready web_app Simulator and starts with that Simulator's captures instead of Discovery.
+   */
+  mode?: BuildSimulatorRequestMode | undefined;
+  /**
    * Model that builds and reviews the Simulator. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
    */
   model?: BuildSimulatorRequestModel | undefined;
@@ -60,7 +78,7 @@ export type BuildSimulatorRequest = {
    */
   name?: string | undefined;
   /**
-   * Parent Simulator ID. With instructions and no spec this starts an incremental build: the parent must be ready, and the request takes no filter or spec_kind.
+   * Parent Simulator ID. With instructions and no spec this starts an incremental build: the parent must be ready and in the build's mode, and the request takes no filter or spec_kind.
    */
   parentId?: string | undefined;
   /**
@@ -78,6 +96,11 @@ export type BuildSimulatorRequest = {
 };
 
 /** @internal */
+export const BuildSimulatorRequestMode$outboundSchema: z.ZodMiniEnum<
+  typeof BuildSimulatorRequestMode
+> = z.enum(BuildSimulatorRequestMode);
+
+/** @internal */
 export const BuildSimulatorRequestModel$outboundSchema: z.ZodMiniEnum<
   typeof BuildSimulatorRequestModel
 > = z.enum(BuildSimulatorRequestModel);
@@ -92,6 +115,7 @@ export type BuildSimulatorRequest$Outbound = {
   credential_ids?: Array<string> | undefined;
   filter?: Array<string> | undefined;
   instructions?: string | undefined;
+  mode: string;
   model: string;
   name?: string | undefined;
   parent_id?: string | undefined;
@@ -109,6 +133,7 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
     credentialIds: z.optional(z.array(z.string())),
     filter: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
+    mode: z._default(BuildSimulatorRequestMode$outboundSchema, "api"),
     model: z._default(BuildSimulatorRequestModel$outboundSchema, "combined"),
     name: z.optional(z.string()),
     parentId: z.optional(z.string()),

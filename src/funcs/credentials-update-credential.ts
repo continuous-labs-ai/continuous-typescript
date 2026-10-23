@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Update credential
  *
  * @remarks
- * Renames a credential, changes its base URL or header, or replaces its value. Omitted fields keep their current values.
+ * Renames a credential, changes its base URL and header or its login, or replaces its value. A credential keeps its kind. Omitted fields keep their current values.
  */
 export function credentialsUpdateCredential(
   client: ContinuousCore,

@@ -7,11 +7,15 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import {
+  CredentialLogin,
+  CredentialLogin$inboundSchema,
+} from "./credential-login.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type Credential = {
   /**
-   * The https URL of the real system, or null for a credential created without one. A build can use only a credential with a base URL.
+   * The https URL of the real system, or null for a login credential or one created without a URL. An API build can use only a credential with a base URL.
    */
   baseUrl: string | null;
   /**
@@ -19,13 +23,14 @@ export type Credential = {
    */
   createdAt: Date;
   /**
-   * The HTTP header that carries the value.
+   * The HTTP header that carries the value, or empty for a login credential.
    */
   header: string;
   /**
    * Credential ID.
    */
   id: string;
+  login: CredentialLogin | null;
   /**
    * Credential name. Names need not be unique.
    */
@@ -40,6 +45,7 @@ export const Credential$inboundSchema: z.ZodMiniType<Credential, unknown> = z
       created_at: types.date(),
       header: types.string(),
       id: types.string(),
+      login: types.nullable(CredentialLogin$inboundSchema),
       name: types.string(),
     }),
     z.transform((v) => {
