@@ -25,7 +25,7 @@ export type UpdateCredentialRequest = {
    */
   name?: string | undefined;
   /**
-   * New full header value or login password. Required when base_url, header, login.url, or login.hosts changes. Builds that start an agent after the change use it. The API never returns it.
+   * New full header value or login password. Required when base_url, header, or login.url changes. Builds that start an agent after the change use it. The API never returns it.
    */
   value?: string | undefined;
 };

@@ -127,7 +127,7 @@ export class Simulations extends ClientSDK {
    * List Clock Advance Events
    *
    * @remarks
-   * Returns the ordered event trace for a committed advance. The Simulation must be running or paused. Forks retain traces in their inherited state.
+   * Returns the ordered event trace for a committed advance. The Simulation must be running. Forks retain traces in their inherited state.
    */
   async listSimulationAdvanceEvents(
     request: operations.ListSimulationAdvanceEventsRequest,
@@ -144,7 +144,7 @@ export class Simulations extends ClientSDK {
    * Fork Simulation
    *
    * @remarks
-   * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running or paused; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token, which does not expire.
+   * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token, which does not expire.
    */
   async forkSimulation(
     request: operations.ForkSimulationRequest,
@@ -161,7 +161,7 @@ export class Simulations extends ClientSDK {
    * Start Simulation
    *
    * @remarks
-   * Starts a stopped Simulation from its saved state. The response includes the Simulation's token, which stop and start do not change. An already running or paused Simulation returns its current token and status.
+   * Starts a stopped Simulation from its saved state. The response includes the Simulation's token, which stop and start do not change. An already running Simulation returns its current token and status.
    */
   async startSimulation(
     request: operations.StartSimulationRequest,

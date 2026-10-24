@@ -6,10 +6,6 @@ import * as z from "zod/v4-mini";
 
 export type CredentialLoginRequest = {
   /**
-   * Further literal host names or IP addresses the app loads from, such as its API or CDN host. Send an empty list for none.
-   */
-  hosts: Array<string>;
-  /**
    * The https URL of the app's sign-in page, with a literal host name or IP address and no user information.
    */
   url: string;
@@ -21,7 +17,6 @@ export type CredentialLoginRequest = {
 
 /** @internal */
 export type CredentialLoginRequest$Outbound = {
-  hosts: Array<string>;
   url: string;
   username: string;
 };
@@ -31,7 +26,6 @@ export const CredentialLoginRequest$outboundSchema: z.ZodMiniType<
   CredentialLoginRequest$Outbound,
   CredentialLoginRequest
 > = z.object({
-  hosts: z.array(z.string()),
   url: z.string(),
   username: z.string(),
 });

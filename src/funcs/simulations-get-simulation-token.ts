@@ -169,7 +169,7 @@ async function $do(
       hdrs: true,
       key: "Result",
     }),
-    M.jsonErr([401, 403, 404, 409], errors.ErrorT$inboundSchema, {
+    M.jsonErr([401, 403, 404], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.jsonErr([500, 502, 503], errors.ErrorT$inboundSchema, {

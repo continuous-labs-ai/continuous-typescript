@@ -10,10 +10,6 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type CredentialLogin = {
   /**
-   * Further literal host names or IP addresses the app loads from, such as its API or CDN host.
-   */
-  hosts: Array<string>;
-  /**
    * The https URL of the app's sign-in page.
    */
   url: string;
@@ -28,7 +24,6 @@ export const CredentialLogin$inboundSchema: z.ZodMiniType<
   CredentialLogin,
   unknown
 > = z.object({
-  hosts: z.array(types.string()),
   url: types.string(),
   username: types.string(),
 });
