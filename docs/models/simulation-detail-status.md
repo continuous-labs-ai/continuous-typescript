@@ -1,6 +1,6 @@
 # SimulationDetailStatus
 
-Current status. running serves requests. paused means the Simulation was idle and the platform paused it; the next request wakes it. stopped means its state is saved and requests return 409 until you start it.
+Current status. running serves requests; after a period without requests, the first request can take longer while the Simulation resumes. stopped means its state is saved and requests return 409 until you start it.
 
 ## Example Usage
 
@@ -15,5 +15,5 @@ let value: SimulationDetailStatus = "running";
 ## Values
 
 ```typescript
-"running" | "paused" | "stopped" | Unrecognized<string>
+"running" | "stopped" | Unrecognized<string>
 ```

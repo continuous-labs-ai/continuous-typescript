@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * List Clock Advance Events
  *
  * @remarks
- * Returns the ordered event trace for a committed advance. The Simulation must be running or paused. Forks retain traces in their inherited state.
+ * Returns the ordered event trace for a committed advance. The Simulation must be running. Forks retain traces in their inherited state.
  */
 export function simulationsListSimulationAdvanceEvents(
   client: ContinuousCore,

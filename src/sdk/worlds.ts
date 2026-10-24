@@ -92,7 +92,7 @@ export class Worlds extends ClientSDK {
    * Advance World Time
    *
    * @remarks
-   * Advances each running member independently and skips paused or stopped members without waking them. Successful advances remain committed when another member fails. The World current_time records the last settled request target; member clocks can differ.
+   * Advances each member independently, waking an idle member first, and skips stopped members. Successful advances remain committed when another member fails. The World current_time records the last settled request target; member clocks can differ.
    */
   async advanceWorld(
     request: operations.AdvanceWorldRequest,

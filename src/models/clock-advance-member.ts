@@ -16,7 +16,7 @@ import {
 } from "./resource-error.js";
 
 /**
- * Whether this member is pending, committed, failed, or skipped because it is not running.
+ * Whether this member is pending, committed, failed, or skipped.
  */
 export const ClockAdvanceMemberStatus = {
   Pending: "pending",
@@ -25,7 +25,7 @@ export const ClockAdvanceMemberStatus = {
   Skipped: "skipped",
 } as const;
 /**
- * Whether this member is pending, committed, failed, or skipped because it is not running.
+ * Whether this member is pending, committed, failed, or skipped.
  */
 export type ClockAdvanceMemberStatus = OpenEnum<
   typeof ClockAdvanceMemberStatus
@@ -46,7 +46,7 @@ export type ClockAdvanceMember = {
    */
   simulationId: string;
   /**
-   * Whether this member is pending, committed, failed, or skipped because it is not running.
+   * Whether this member is pending, committed, failed, or skipped.
    */
   status: ClockAdvanceMemberStatus;
   /**

@@ -6,10 +6,6 @@ import * as z from "zod/v4-mini";
 
 export type CredentialLoginUpdate = {
   /**
-   * The full list of further hosts the app loads from, which replaces the current list. Send the current list to keep it.
-   */
-  hosts: Array<string>;
-  /**
    * New https URL of the app's sign-in page.
    */
   url?: string | undefined;
@@ -21,7 +17,6 @@ export type CredentialLoginUpdate = {
 
 /** @internal */
 export type CredentialLoginUpdate$Outbound = {
-  hosts: Array<string>;
   url?: string | undefined;
   username?: string | undefined;
 };
@@ -31,7 +26,6 @@ export const CredentialLoginUpdate$outboundSchema: z.ZodMiniType<
   CredentialLoginUpdate$Outbound,
   CredentialLoginUpdate
 > = z.object({
-  hosts: z.array(z.string()),
   url: z.optional(z.string()),
   username: z.optional(z.string()),
 });
