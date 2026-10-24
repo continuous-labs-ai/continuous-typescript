@@ -1,17 +1,17 @@
 # ListSimulationsStatus
 
-Optional status filter. paused is deprecated and matches the same Simulations as running.
+Optional status filter.
 
 ## Example Usage
 
 ```typescript
 import { ListSimulationsStatus } from "@continuous-labs/sdk/models/operations";
 
-let value: ListSimulationsStatus = "paused";
+let value: ListSimulationsStatus = "running";
 ```
 
 ## Values
 
 ```typescript
-"running" | "paused" | "stopped"
+"running" | "stopped"
 ```

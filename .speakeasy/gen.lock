@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: 2c538398365d56c94606e8b3be8fa36c
+  docChecksum: 1bec24509bdb0f0c3a844efb1c86ee84
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.1.17
-  configChecksum: 6e4f573b779bd514d29e9244d036b980
+  releaseVersion: 0.1.18
+  configChecksum: aacf56cfa77344eb880d588692abd80c
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 28bf30dd-ba7e-44df-bdcf-4ddcaa62f3ef
-  pristine_commit_hash: 26a8929dee6dba147b8b0d94c449cc9682e8969c
-  pristine_tree_hash: f59141f23e23aea441f432b4d54f04c51729297a
+  generation_id: 21d5c238-155d-42ce-8bde-487408effb6a
+  pristine_commit_hash: 7e6855bece58a6f5b2f8bb387b637d17498d2390
+  pristine_tree_hash: a7350fab1ebddafacdb4854f4e205ee5e7b81b09
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -321,12 +321,12 @@ trackedFiles:
     pristine_git_object: e832d990a0b94667169e028dadcf33c55148c9eb
   docs/models/operations/list-simulations-request.md:
     id: a5c8b3b1e393
-    last_write_checksum: sha1:3798319f0df272ee4ed17c878c0a4ae69b8cbdea
-    pristine_git_object: fb7a3f5b0a7c9e1aa7b1e309008c6b116e197416
+    last_write_checksum: sha1:27407ed10c2431e9073e448396dfa950c23f3c1c
+    pristine_git_object: c76af2a962b26d900af363f67b8a575f786636c8
   docs/models/operations/list-simulations-status.md:
     id: 2a6ff6d883f3
-    last_write_checksum: sha1:e53d6aab23f268d823eeffbfb63049b320bd3f76
-    pristine_git_object: b4d3eb8e68b2a03a55c75b153022c1d772cc305e
+    last_write_checksum: sha1:668ff2e6e2ec5817e7d59b96a46a0ff465b23973
+    pristine_git_object: fe0de5720aa73d37ca20145a461ccbaf410921ba
   docs/models/operations/list-simulators-request.md:
     id: 2522450605d7
     last_write_checksum: sha1:3d2764319c956060d8eeea69c304c07f7cff0041
@@ -621,12 +621,12 @@ trackedFiles:
     pristine_git_object: a8174ac1b126a1796e076b9f3122a0ede68d2d7d
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:e083eb845905ddf5231f9ed8bf49b1bdb19ad426
-    pristine_git_object: 558cf4c1be4be3fbb7d24fe46cdb13de31eea383
+    last_write_checksum: sha1:35e16b6fe2a3ccd00299f68f1eee241113f01ae1
+    pristine_git_object: 35f62c7cd585a7d4d8da0651ec864445584728ac
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:0553adee5efe24493b0da5a28bb5c826b7bb6ab9
-    pristine_git_object: 27f01990e26900a6306321f2af19f061105205bb
+    last_write_checksum: sha1:f1ef78d785b7435d083c20a701dac0cda54716c3
+    pristine_git_object: 7233e14ef95f5dea23b84544e7139f395a15d9e0
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -797,8 +797,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:9db46a21e25cd5b15321981aad951e6095d465fd
-    pristine_git_object: ddde0868bdc04ec8532863f46b36e3ca00484a00
+    last_write_checksum: sha1:fd49940b9e8392f9c14cab267faed88d2caaaf2d
+    pristine_git_object: 2edca9b19f5b3edfdd28ee67f1398c119fd940ea
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -1085,8 +1085,8 @@ trackedFiles:
     pristine_git_object: 2088e09dcf5c0284c1fe93a9e67d67798e196ec5
   src/models/operations/list-simulations.ts:
     id: 2ad2f9beddc3
-    last_write_checksum: sha1:830cd308d7decd2ef84741d3328db50f74327779
-    pristine_git_object: 3d9d20ee88e3eb7715e9d11c7241a37b73ea34bd
+    last_write_checksum: sha1:5bcaa659308d8648a97ccfca61e0059e0c320252
+    pristine_git_object: abffd80eaad40c02d44fce7c9b22eda9cb71b418
   src/models/operations/list-simulators.ts:
     id: f546f1c7ffbe
     last_write_checksum: sha1:c3bc57131c6b324f9dfb2b999d012bdf773bbe72
@@ -2545,4 +2545,4 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.credentials.listCredentials()`:  `response.credentials[].login.hosts` **Removed** (Breaking ⚠️)\n* `continuous.credentials.createCredential()`: \n  *  `request.login.hosts` **Removed** (Breaking ⚠️)\n  *  `response.login.hosts` **Removed** (Breaking ⚠️)\n* `continuous.credentials.getCredential()`:  `response.login.hosts` **Removed** (Breaking ⚠️)\n* `continuous.credentials.updateCredential()`: \n  *  `request.body.login.hosts` **Removed** (Breaking ⚠️)\n  *  `response.login.hosts` **Removed** (Breaking ⚠️)\n* `continuous.simulations.listSimulations()`:  `response.simulations[].status.enum(paused)` **Removed** (Breaking ⚠️)\n* `continuous.simulations.createSimulation()`:  `response.status.enum(paused)` **Removed** (Breaking ⚠️)\n* `continuous.simulations.getSimulation()`:  `response.status.enum(paused)` **Removed** (Breaking ⚠️)\n* `continuous.simulations.forkSimulation()`:  `response.status.enum(paused)` **Removed** (Breaking ⚠️)\n* `continuous.simulations.startSimulation()`:  `response.status.enum(paused)` **Removed** (Breaking ⚠️)\n* `continuous.simulations.stopSimulation()`:  `response.status.enum(paused)` **Removed** (Breaking ⚠️)\n* `continuous.simulations.getSimulationToken()`:  `error.status[409]` **Removed** (Breaking ⚠️)\n"
+releaseNotes: "## Typescript SDK Changes:\n* `continuous.simulations.listSimulations()`: \n  *  `request.status` **Changed** (Breaking ⚠️)\n"
