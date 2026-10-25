@@ -21,19 +21,21 @@ import {
 } from "./world-simulation.js";
 
 /**
- * pending while waiting for capacity; building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
+ * pending while waiting for capacity; building while the build runs; ready when it can be started; starting while its Simulations start; running or stopped once its Simulations exist; stopping while they stop; failed when building or first start fails; canceled when the build was canceled.
  */
 export const WorldStatus = {
   Pending: "pending",
   Building: "building",
   Ready: "ready",
+  Starting: "starting",
   Running: "running",
+  Stopping: "stopping",
   Stopped: "stopped",
   Failed: "failed",
   Canceled: "canceled",
 } as const;
 /**
- * pending while waiting for capacity; building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
+ * pending while waiting for capacity; building while the build runs; ready when it can be started; starting while its Simulations start; running or stopped once its Simulations exist; stopping while they stop; failed when building or first start fails; canceled when the build was canceled.
  */
 export type WorldStatus = OpenEnum<typeof WorldStatus>;
 
@@ -88,7 +90,7 @@ export type World = {
    */
   startTime: Date;
   /**
-   * pending while waiting for capacity; building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
+   * pending while waiting for capacity; building while the build runs; ready when it can be started; starting while its Simulations start; running or stopped once its Simulations exist; stopping while they stop; failed when building or first start fails; canceled when the build was canceled.
    */
   status: WorldStatus;
 };

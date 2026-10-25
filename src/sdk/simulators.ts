@@ -8,6 +8,7 @@ import { simulatorsCloneSimulator } from "../funcs/simulators-clone-simulator.js
 import { simulatorsDeleteSimulator } from "../funcs/simulators-delete-simulator.js";
 import { simulatorsGetSimulator } from "../funcs/simulators-get-simulator.js";
 import { simulatorsListSimulators } from "../funcs/simulators-list-simulators.js";
+import { simulatorsUpdateSimulator } from "../funcs/simulators-update-simulator.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
@@ -55,7 +56,7 @@ export class Simulators extends ClientSDK {
    * Delete Simulator
    *
    * @remarks
-   * Deletes a Simulator that has no dependent Worlds, Simulations, or child Simulators.
+   * Deletes a Simulator that has no dependent Worlds, Simulations, child Simulators, or Simulation Snapshots.
    */
   async deleteSimulator(
     request: operations.DeleteSimulatorRequest,
@@ -86,10 +87,27 @@ export class Simulators extends ClientSDK {
   }
 
   /**
+   * Update Simulator
+   *
+   * @remarks
+   * Renames a Simulator. Omitted fields keep their current values. Continuous catalog Simulators cannot be changed.
+   */
+  async updateSimulator(
+    request: operations.UpdateSimulatorRequest,
+    options?: RequestOptions,
+  ): Promise<models.Simulator> {
+    return unwrapAsync(simulatorsUpdateSimulator(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Cancel Simulator Build
    *
    * @remarks
-   * Requests cancellation of an active Simulator build. The build can finish before cancellation takes effect. A Simulator that is not building is returned unchanged.
+   * Requests cancellation of a pending or active Simulator build and returns the Simulator without waiting for the build to stop. Get the Simulator until its status leaves pending or building. The build can finish before cancellation takes effect. A Simulator whose build has settled is returned unchanged.
    */
   async cancelSimulator(
     request: operations.CancelSimulatorRequest,

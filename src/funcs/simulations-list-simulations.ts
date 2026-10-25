@@ -37,7 +37,7 @@ import {
  * List Simulations
  *
  * @remarks
- * Returns all Simulations that the API key can access. Results can be filtered by status, Simulator ID, or pinned Simulator digest.
+ * Returns all Simulations that the API key can access. Results can be filtered by status, Simulator ID, pinned Simulator digest, or the Snapshot they started from.
  */
 export function simulationsListSimulations(
   client: ContinuousCore,
@@ -113,6 +113,7 @@ async function $do(
     "limit": payload?.limit,
     "simulator_digest": payload?.simulator_digest,
     "simulator_id": payload?.simulator_id,
+    "snapshot_id": payload?.snapshot_id,
     "status": payload?.status,
   }, { explode: false });
 

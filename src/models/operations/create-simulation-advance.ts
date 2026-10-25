@@ -12,7 +12,7 @@ export type CreateSimulationAdvanceRequest = {
    */
   id: string;
   /**
-   * Stable key for this request. Reuse with the same target returns the same operation.
+   * Stable key for this request. Reuse with the same target returns the same operation; reuse with a different target returns 409 idempotency_conflict.
    */
   idempotencyKey: string;
   body: models.AdvanceTimeRequest;

@@ -14,6 +14,7 @@ import { worldsListWorlds } from "../funcs/worlds-list-worlds.js";
 import { worldsRemoveWorldSimulation } from "../funcs/worlds-remove-world-simulation.js";
 import { worldsStartWorld } from "../funcs/worlds-start-world.js";
 import { worldsStopWorld } from "../funcs/worlds-stop-world.js";
+import { worldsUpdateWorld } from "../funcs/worlds-update-world.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
@@ -45,7 +46,7 @@ export class Worlds extends ClientSDK {
    * Starts an asynchronous World build from ready Simulators and returns it in the pending state. Builds start in queue order when workspace capacity is available. Instructions generate and validate initial synthetic data. Start the World once it is ready to create its Simulations.
    */
   async buildWorld(
-    request: models.BuildWorldRequest,
+    request: operations.BuildWorldRequest,
     options?: RequestOptions,
   ): Promise<models.World> {
     return unwrapAsync(worldsBuildWorld(
@@ -90,6 +91,23 @@ export class Worlds extends ClientSDK {
   }
 
   /**
+   * Update World
+   *
+   * @remarks
+   * Renames a World or replaces its metadata. Omitted fields keep their current values.
+   */
+  async updateWorld(
+    request: operations.UpdateWorldRequest,
+    options?: RequestOptions,
+  ): Promise<models.World> {
+    return unwrapAsync(worldsUpdateWorld(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Advance World Time
    *
    * @remarks
@@ -127,7 +145,7 @@ export class Worlds extends ClientSDK {
    * Cancel World Build
    *
    * @remarks
-   * Cancels an active World build. Repeated cancellation returns the current World.
+   * Requests cancellation of a pending or active World build and returns the World without waiting for the build to stop. Get the World until its status leaves pending or building. The build can finish before cancellation takes effect. A World whose build has settled is returned unchanged.
    */
   async cancelWorld(
     request: operations.CancelWorldRequest,
@@ -195,7 +213,7 @@ export class Worlds extends ClientSDK {
    * Start World
    *
    * @remarks
-   * Starts every Simulation in the World. The first start creates the Simulations; later starts restore them from saved state. The World must be ready or stopped, and the workspace must have room for all members under its active-Simulation limit. A running World is returned unchanged.
+   * Starts every Simulation in the World. The first start creates the Simulations; later starts restore them from saved state. The World must be ready or stopped, and the workspace must have room for all members under its active-Simulation limit. The response returns once the start is accepted, with status starting; read the World until it is running. A running or starting World is returned unchanged.
    */
   async startWorld(
     request: operations.StartWorldRequest,
@@ -212,7 +230,7 @@ export class Worlds extends ClientSDK {
    * Stop World
    *
    * @remarks
-   * Stops a World and saves each Simulation state. You can start the World later from the saved states.
+   * Stops a World and saves each Simulation state. You can start the World later from the saved states. The response returns once the stop is accepted, with status stopping; read the World until it is stopped. A stopped or stopping World is returned unchanged.
    */
   async stopWorld(
     request: operations.StopWorldRequest,

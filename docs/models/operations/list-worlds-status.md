@@ -13,5 +13,5 @@ let value: ListWorldsStatus = "running";
 ## Values
 
 ```typescript
-"pending" | "building" | "ready" | "running" | "stopped" | "failed" | "canceled"
+"pending" | "building" | "ready" | "starting" | "running" | "stopping" | "stopped" | "failed" | "canceled"
 ```

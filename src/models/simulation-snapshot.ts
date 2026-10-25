@@ -5,23 +5,41 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
+import * as openEnums from "../types/enums.js";
+import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import {
+  ResourceError,
+  ResourceError$inboundSchema,
+} from "./resource-error.js";
+
+/**
+ * creating while the state is saved. A Simulation can start from a ready Snapshot. A failed Snapshot holds no state.
+ */
+export const SimulationSnapshotStatus = {
+  Creating: "creating",
+  Ready: "ready",
+  Failed: "failed",
+} as const;
+/**
+ * creating while the state is saved. A Simulation can start from a ready Snapshot. A failed Snapshot holds no state.
+ */
+export type SimulationSnapshotStatus = OpenEnum<
+  typeof SimulationSnapshotStatus
+>;
 
 export type SimulationSnapshot = {
-  /**
-   * Completed step the Snapshot saved, or null for the state that was latest when it was saved.
-   */
-  atStep: number | null;
   /**
    * Snapshot creation time.
    */
   createdAt: Date;
   /**
-   * Simulated time of the saved state, where a Simulation created from the Snapshot starts.
+   * Simulated time of the saved state, where a Simulation created from the Snapshot starts, or null until it is ready.
    */
-  currentTime: Date;
+  currentTime: Date | null;
+  error: ResourceError | null;
   /**
    * Snapshot ID.
    */
@@ -35,14 +53,28 @@ export type SimulationSnapshot = {
    */
   simulationId: string | null;
   /**
+   * Current name of the Simulation the Snapshot saved, or null once that Simulation is deleted.
+   */
+  simulationName: string | null;
+  /**
    * ID of the Simulator a Simulation created from the Snapshot runs, at the digest its source pinned.
    */
   simulatorId: string;
   /**
-   * Initial simulated time of a Simulation created from the Snapshot.
+   * Initial simulated time of a Simulation created from the Snapshot, or null until it is ready.
    */
-  startTime: Date;
+  startTime: Date | null;
+  /**
+   * creating while the state is saved. A Simulation can start from a ready Snapshot. A failed Snapshot holds no state.
+   */
+  status: SimulationSnapshotStatus;
 };
+
+/** @internal */
+export const SimulationSnapshotStatus$inboundSchema: z.ZodMiniType<
+  SimulationSnapshotStatus,
+  unknown
+> = openEnums.inboundSchema(SimulationSnapshotStatus);
 
 /** @internal */
 export const SimulationSnapshot$inboundSchema: z.ZodMiniType<
@@ -50,21 +82,23 @@ export const SimulationSnapshot$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    at_step: types.nullable(types.number()),
     created_at: types.date(),
-    current_time: types.date(),
+    current_time: types.nullable(types.date()),
+    error: types.nullable(ResourceError$inboundSchema),
     id: types.string(),
     name: types.string(),
     simulation_id: types.nullable(types.string()),
+    simulation_name: types.nullable(types.string()),
     simulator_id: types.string(),
-    start_time: types.date(),
+    start_time: types.nullable(types.date()),
+    status: SimulationSnapshotStatus$inboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {
-      "at_step": "atStep",
       "created_at": "createdAt",
       "current_time": "currentTime",
       "simulation_id": "simulationId",
+      "simulation_name": "simulationName",
       "simulator_id": "simulatorId",
       "start_time": "startTime",
     });

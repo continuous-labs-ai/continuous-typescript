@@ -2,7 +2,7 @@
 
 ## Overview
 
-Build Worlds from one or more Simulators and start or stop their Simulations together.
+Build Worlds from one or more Simulators, rename them, and start or stop their Simulations together.
 
 ### Available Operations
 
@@ -10,6 +10,7 @@ Build Worlds from one or more Simulators and start or stop their Simulations tog
 * [buildWorld](#buildworld) - Build World
 * [deleteWorld](#deleteworld) - Delete World
 * [getWorld](#getworld) - Get World
+* [updateWorld](#updateworld) - Update World
 * [createWorldAdvance](#createworldadvance) - Advance World Time
 * [getWorldAdvance](#getworldadvance) - Get World Clock Advance
 * [cancelWorld](#cancelworld) - Cancel World Build
@@ -110,13 +111,15 @@ const continuous = new Continuous({
 
 async function run() {
   const result = await continuous.worlds.buildWorld({
-    instructions: "Use stable example data for each Simulator.",
-    metadata: {
-      "customer_id": "cust_123",
+    body: {
+      instructions: "Use stable example data for each Simulator.",
+      metadata: {
+        "customer_id": "cust_123",
+      },
+      simulators: [
+        "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
+      ],
     },
-    simulators: [
-      "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
-    ],
   });
 
   console.log(result);
@@ -141,13 +144,15 @@ const continuous = new ContinuousCore({
 
 async function run() {
   const res = await worldsBuildWorld(continuous, {
-    instructions: "Use stable example data for each Simulator.",
-    metadata: {
-      "customer_id": "cust_123",
+    body: {
+      instructions: "Use stable example data for each Simulator.",
+      metadata: {
+        "customer_id": "cust_123",
+      },
+      simulators: [
+        "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
+      ],
     },
-    simulators: [
-      "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
-    ],
   });
   if (res.ok) {
     const { value: result } = res;
@@ -171,13 +176,15 @@ const continuous = new Continuous({
 
 async function run() {
   const result = await continuous.worlds.buildWorld({
-    instructions: "Use stable example data for each Simulator.",
-    metadata: {
-      "customer_id": "cust_123",
+    body: {
+      instructions: "Use stable example data for each Simulator.",
+      metadata: {
+        "customer_id": "cust_123",
+      },
+      simulators: [
+        "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
+      ],
     },
-    simulators: [
-      "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
-    ],
   });
 
   console.log(result);
@@ -202,13 +209,15 @@ const continuous = new ContinuousCore({
 
 async function run() {
   const res = await worldsBuildWorld(continuous, {
-    instructions: "Use stable example data for each Simulator.",
-    metadata: {
-      "customer_id": "cust_123",
+    body: {
+      instructions: "Use stable example data for each Simulator.",
+      metadata: {
+        "customer_id": "cust_123",
+      },
+      simulators: [
+        "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
+      ],
     },
-    simulators: [
-      "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
-    ],
   });
   if (res.ok) {
     const { value: result } = res;
@@ -225,7 +234,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.BuildWorldRequest](../../models/build-world-request.md)                                                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.BuildWorldRequest](../../models/operations/build-world-request.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -392,6 +401,83 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
+## updateWorld
+
+Renames a World or replaces its metadata. Omitted fields keep their current values.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="update-world" method="patch" path="/v1/worlds/{id}" example="bad_request_body" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.worlds.updateWorld({
+    id: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { worldsUpdateWorld } from "@continuous-labs/sdk/funcs/worlds-update-world.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await worldsUpdateWorld(continuous, {
+    id: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("worldsUpdateWorld failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateWorldRequest](../../models/operations/update-world-request.md)                                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.World](../../models/world.md)\>**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
+
 ## createWorldAdvance
 
 Advances each member independently, waking an idle member first, and skips stopped members. Successful advances remain committed when another member fails. The World current_time records the last settled request target; member clocks can differ.
@@ -554,7 +640,7 @@ run();
 
 ## cancelWorld
 
-Cancels an active World build. Repeated cancellation returns the current World.
+Requests cancellation of a pending or active World build and returns the World without waiting for the build to stop. Get the World until its status leaves pending or building. The build can finish before cancellation takes effect. A World whose build has settled is returned unchanged.
 
 ### Example Usage
 
@@ -925,7 +1011,7 @@ run();
 
 ## startWorld
 
-Starts every Simulation in the World. The first start creates the Simulations; later starts restore them from saved state. The World must be ready or stopped, and the workspace must have room for all members under its active-Simulation limit. A running World is returned unchanged.
+Starts every Simulation in the World. The first start creates the Simulations; later starts restore them from saved state. The World must be ready or stopped, and the workspace must have room for all members under its active-Simulation limit. The response returns once the start is accepted, with status starting; read the World until it is running. A running or starting World is returned unchanged.
 
 ### Example Usage
 
@@ -1000,7 +1086,7 @@ run();
 
 ## stopWorld
 
-Stops a World and saves each Simulation state. You can start the World later from the saved states.
+Stops a World and saves each Simulation state. You can start the World later from the saved states. The response returns once the stop is accepted, with status stopping; read the World until it is stopped. A stopped or stopping World is returned unchanged.
 
 ### Example Usage
 

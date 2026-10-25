@@ -6,6 +6,7 @@ import { simulationSnapshotsCreateSimulationSnapshot } from "../funcs/simulation
 import { simulationSnapshotsDeleteSimulationSnapshot } from "../funcs/simulation-snapshots-delete-simulation-snapshot.js";
 import { simulationSnapshotsGetSimulationSnapshot } from "../funcs/simulation-snapshots-get-simulation-snapshot.js";
 import { simulationSnapshotsListSimulationSnapshots } from "../funcs/simulation-snapshots-list-simulation-snapshots.js";
+import { simulationSnapshotsUpdateSimulationSnapshot } from "../funcs/simulation-snapshots-update-simulation-snapshot.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
@@ -36,7 +37,7 @@ export class SimulationSnapshots extends ClientSDK {
    * Create Simulation Snapshot
    *
    * @remarks
-   * Saves a running Simulation's current state, or its state after an earlier recorded step when you set at_step, and returns the Snapshot once the state is stored. Saving does not change the Simulation. Create Simulations from the Snapshot with snapshot_id; it outlives its Simulation. A stopped Simulation returns 409 simulation_stopped. Reuse the Idempotency-Key to retry safely.
+   * Saves a running Simulation's current state and returns the Snapshot once the state is stored. Saving closes the Simulation's open event streams and WebSockets and does not change its state. Create Simulations from the Snapshot with snapshot_id; it outlives its Simulation. A stopped Simulation returns 409 simulation_stopped. Reuse the Idempotency-Key to retry safely.
    */
   async createSimulationSnapshot(
     request: operations.CreateSimulationSnapshotRequest,
@@ -53,7 +54,7 @@ export class SimulationSnapshots extends ClientSDK {
    * Delete Simulation Snapshot
    *
    * @remarks
-   * Deletes a Snapshot and its saved state. Simulations created from it keep running, and their snapshot_id becomes null.
+   * Deletes a Snapshot and its saved state. Simulations created from it keep running, and their snapshot_id becomes null. While it is creating, the response is 409 snapshot_not_ready; while a Simulation is starting from it, 409 snapshot_in_use.
    */
   async deleteSimulationSnapshot(
     request: operations.DeleteSimulationSnapshotRequest,
@@ -77,6 +78,23 @@ export class SimulationSnapshots extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.SimulationSnapshot> {
     return unwrapAsync(simulationSnapshotsGetSimulationSnapshot(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Simulation Snapshot
+   *
+   * @remarks
+   * Renames a Snapshot. Omitted fields keep their current values.
+   */
+  async updateSimulationSnapshot(
+    request: operations.UpdateSimulationSnapshotRequest,
+    options?: RequestOptions,
+  ): Promise<models.SimulationSnapshot> {
+    return unwrapAsync(simulationSnapshotsUpdateSimulationSnapshot(
       this,
       request,
       options,

@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Stop Simulation
  *
  * @remarks
- * Stops a Simulation and saves its state. Requests to its endpoint return 409 simulation_stopped until you start it again. A stopped Simulation is returned unchanged.
+ * Stops a Simulation and saves its state. The response returns once the stop is accepted, with status stopping; read the Simulation until it is stopped. Requests to its endpoint are refused while it stops, and return 409 simulation_stopped once it is stopped, until you start it again. A stopped or stopping Simulation is returned unchanged.
  */
 export function simulationsStopSimulation(
   client: ContinuousCore,
@@ -165,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.Simulation$inboundSchema),
+    M.json(202, models.Simulation$inboundSchema),
     M.jsonErr([401, 403, 404, 409], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

@@ -9,10 +9,48 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+export type CreateSimulationRequest = {
+  /**
+   * Optional key for retrying this create safely. A retry with the same key and request returns the original result with its status; the same key with a different request returns 409 idempotency_conflict. Without a key, each request creates a new resource.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.CreateSimulationRequest;
+};
+
 export type CreateSimulationResponse = {
   headers: { [k: string]: Array<string> };
   result: models.CreatedSimulation;
 };
+
+/** @internal */
+export type CreateSimulationRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.CreateSimulationRequest$Outbound;
+};
+
+/** @internal */
+export const CreateSimulationRequest$outboundSchema: z.ZodMiniType<
+  CreateSimulationRequest$Outbound,
+  CreateSimulationRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.CreateSimulationRequest$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createSimulationRequestToJSON(
+  createSimulationRequest: CreateSimulationRequest,
+): string {
+  return JSON.stringify(
+    CreateSimulationRequest$outboundSchema.parse(createSimulationRequest),
+  );
+}
 
 /** @internal */
 export const CreateSimulationResponse$inboundSchema: z.ZodMiniType<

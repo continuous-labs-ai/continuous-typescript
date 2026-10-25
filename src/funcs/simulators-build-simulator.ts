@@ -4,7 +4,12 @@
 
 import * as z from "zod/v4-mini";
 import { ContinuousCore } from "../core.js";
-import { appendForm, encodeJSON, normalizeBlob } from "../lib/encodings.js";
+import {
+  appendForm,
+  encodeJSON,
+  encodeSimple,
+  normalizeBlob,
+} from "../lib/encodings.js";
 import {
   bytesToBlob,
   getContentTypeFromFileName,
@@ -100,10 +105,10 @@ async function $do(
   appendForm(
     body,
     "request",
-    encodeJSON("request", payload.request, { explode: true }),
+    encodeJSON("request", payload.body.request, { explode: true }),
   );
-  if (payload.document !== undefined) {
-    for (const fileItem of payload.document ?? []) {
+  if (payload.body.document !== undefined) {
+    for (const fileItem of payload.body.document ?? []) {
       if (isBlobLike(fileItem)) {
         const file = fileItem;
         const blob = await normalizeBlob(file);
@@ -131,30 +136,32 @@ async function $do(
       }
     }
   }
-  if (payload.spec !== undefined) {
-    if (isBlobLike(payload.spec)) {
-      const file = payload.spec;
+  if (payload.body.spec !== undefined) {
+    if (isBlobLike(payload.body.spec)) {
+      const file = payload.body.spec;
       const blob = await normalizeBlob(file);
       const name = "name" in file ? (file.name as string) : undefined;
       appendForm(body, "spec", blob, name);
-    } else if (isReadableStream(payload.spec.content)) {
-      const buffer = await readableStreamToArrayBuffer(payload.spec.content);
-      const contentType = getContentTypeFromFileName(payload.spec.fileName)
+    } else if (isReadableStream(payload.body.spec.content)) {
+      const buffer = await readableStreamToArrayBuffer(
+        payload.body.spec.content,
+      );
+      const contentType = getContentTypeFromFileName(payload.body.spec.fileName)
         || "application/octet-stream";
       appendForm(
         body,
         "spec",
         bytesToBlob(buffer, contentType),
-        payload.spec.fileName,
+        payload.body.spec.fileName,
       );
     } else {
-      const contentType = getContentTypeFromFileName(payload.spec.fileName)
+      const contentType = getContentTypeFromFileName(payload.body.spec.fileName)
         || "application/octet-stream";
       appendForm(
         body,
         "spec",
-        bytesToBlob(payload.spec.content, contentType),
-        payload.spec.fileName,
+        bytesToBlob(payload.body.spec.content, contentType),
+        payload.body.spec.fileName,
       );
     }
   }
@@ -163,6 +170,11 @@ async function $do(
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
+    "Idempotency-Key": encodeSimple(
+      "Idempotency-Key",
+      payload["Idempotency-Key"],
+      { explode: false, charEncoding: "none" },
+    ),
   }));
 
   const secConfig = await extractSecurity(client._options.apiKeyAuth);

@@ -20,7 +20,7 @@ export type Spec = {
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
-export type BuildSimulatorRequest = {
+export type BuildSimulatorRequestBody = {
   /**
    * Vendor documentation the builder and reviewer read before they start, as repeated file parts: UTF-8 text (.md, .txt, .html, .json, .yaml, .xml, .csv) or PDF (.pdf). The documents share the request body limit with the spec. An incremental build inherits its parent's documents and index; a document sent with the same name replaces the parent's. A document named INDEX.md indexes the others and skips research; the build fails if it names a document the build does not have, leaves a document unnamed, or leaves out a selected operation; an incremental build's documents include the inherited ones.
    */
@@ -30,6 +30,14 @@ export type BuildSimulatorRequest = {
    * OpenAPI, WSDL or GraphQL document, UTF-8 encoded, at most 64 MiB. Required unless the request is an incremental build (parent_id and instructions, no spec).
    */
   spec?: Spec | Blob | undefined;
+};
+
+export type BuildSimulatorRequest = {
+  /**
+   * Optional key for retrying this create safely. A retry with the same key and request returns the original result with its status; the same key with a different request returns 409 idempotency_conflict. Without a key, each request creates a new resource. The key is recorded before the build starts, so a retry never starts a second build.
+   */
+  idempotencyKey?: string | undefined;
+  body: BuildSimulatorRequestBody;
 };
 
 export type BuildSimulatorResponse = {
@@ -85,16 +93,16 @@ export function specToJSON(spec: Spec): string {
 }
 
 /** @internal */
-export type BuildSimulatorRequest$Outbound = {
+export type BuildSimulatorRequestBody$Outbound = {
   document?: Array<Document$Outbound> | undefined;
   request: models.BuildSimulatorRequest$Outbound;
   spec?: Spec$Outbound | Blob | undefined;
 };
 
 /** @internal */
-export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
-  BuildSimulatorRequest$Outbound,
-  BuildSimulatorRequest
+export const BuildSimulatorRequestBody$outboundSchema: z.ZodMiniType<
+  BuildSimulatorRequestBody$Outbound,
+  BuildSimulatorRequestBody
 > = z.object({
   document: z.optional(z.array(z.lazy(() => Document$outboundSchema))),
   request: models.BuildSimulatorRequest$outboundSchema,
@@ -102,6 +110,36 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
     z.union([z.lazy(() => Spec$outboundSchema), blobLikeSchema]),
   ),
 });
+
+export function buildSimulatorRequestBodyToJSON(
+  buildSimulatorRequestBody: BuildSimulatorRequestBody,
+): string {
+  return JSON.stringify(
+    BuildSimulatorRequestBody$outboundSchema.parse(buildSimulatorRequestBody),
+  );
+}
+
+/** @internal */
+export type BuildSimulatorRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: BuildSimulatorRequestBody$Outbound;
+};
+
+/** @internal */
+export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
+  BuildSimulatorRequest$Outbound,
+  BuildSimulatorRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: z.lazy(() => BuildSimulatorRequestBody$outboundSchema),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
 
 export function buildSimulatorRequestToJSON(
   buildSimulatorRequest: BuildSimulatorRequest,

@@ -19,7 +19,7 @@ export type RemoveWorldSimulationRequest = {
    */
   delete?: boolean | undefined;
   /**
-   * Stable key for this request. Reuse with the same delete value returns the same change.
+   * Stable key for this request. Reuse with the same member and delete value returns the same change; reuse with a different request returns 409 idempotency_conflict.
    */
   idempotencyKey: string;
 };

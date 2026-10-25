@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Cancel World Build
  *
  * @remarks
- * Cancels an active World build. Repeated cancellation returns the current World.
+ * Requests cancellation of a pending or active World build and returns the World without waiting for the build to stop. Get the World until its status leaves pending or building. The build can finish before cancellation takes effect. A World whose build has settled is returned unchanged.
  */
 export function worldsCancelWorld(
   client: ContinuousCore,
@@ -165,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.World$inboundSchema),
+    M.json(202, models.World$inboundSchema),
     M.jsonErr([401, 403, 404], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

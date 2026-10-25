@@ -36,6 +36,10 @@ export type ListSimulationsRequest = {
    */
   simulatorDigest?: string | undefined;
   /**
+   * Optional filter for the Simulations started from this Snapshot.
+   */
+  snapshotId?: string | undefined;
+  /**
    * Page size. Values below 1 use 50. Values above 200 use 200.
    */
   limit?: number | undefined;
@@ -59,6 +63,7 @@ export type ListSimulationsRequest$Outbound = {
   status?: string | undefined;
   simulator_id?: string | undefined;
   simulator_digest?: string | undefined;
+  snapshot_id?: string | undefined;
   limit: number;
   cursor?: string | undefined;
 };
@@ -72,6 +77,7 @@ export const ListSimulationsRequest$outboundSchema: z.ZodMiniType<
     status: z.optional(ListSimulationsStatus$outboundSchema),
     simulatorId: z.optional(z.string()),
     simulatorDigest: z.optional(z.string()),
+    snapshotId: z.optional(z.string()),
     limit: z._default(z.int(), 50),
     cursor: z.optional(z.string()),
   }),
@@ -79,6 +85,7 @@ export const ListSimulationsRequest$outboundSchema: z.ZodMiniType<
     return remap$(v, {
       simulatorId: "simulator_id",
       simulatorDigest: "simulator_digest",
+      snapshotId: "snapshot_id",
     });
   }),
 );

@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Delete Simulation Snapshot
  *
  * @remarks
- * Deletes a Snapshot and its saved state. Simulations created from it keep running, and their snapshot_id becomes null.
+ * Deletes a Snapshot and its saved state. Simulations created from it keep running, and their snapshot_id becomes null. While it is creating, the response is 409 snapshot_not_ready; while a Simulation is starting from it, 409 snapshot_in_use.
  */
 export function simulationSnapshotsDeleteSimulationSnapshot(
   client: ContinuousCore,

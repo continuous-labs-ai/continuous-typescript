@@ -4,6 +4,7 @@
 
 export * from "./add-world-simulation.js";
 export * from "./build-simulator.js";
+export * from "./build-world.js";
 export * from "./cancel-simulator.js";
 export * from "./cancel-world.js";
 export * from "./clone-simulator.js";
@@ -39,3 +40,7 @@ export * from "./start-world.js";
 export * from "./stop-simulation.js";
 export * from "./stop-world.js";
 export * from "./update-credential.js";
+export * from "./update-simulation-snapshot.js";
+export * from "./update-simulation.js";
+export * from "./update-simulator.js";
+export * from "./update-world.js";
