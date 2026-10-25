@@ -10,7 +10,7 @@ Build Worlds from one or more Simulators and start or stop their Simulations tog
 * [buildWorld](#buildworld) - Build World
 * [deleteWorld](#deleteworld) - Delete World
 * [getWorld](#getworld) - Get World
-* [advanceWorld](#advanceworld) - Advance World Time
+* [createWorldAdvance](#createworldadvance) - Advance World Time
 * [getWorldAdvance](#getworldadvance) - Get World Clock Advance
 * [cancelWorld](#cancelworld) - Cancel World Build
 * [getWorldChange](#getworldchange) - Get World Change
@@ -36,7 +36,9 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.worlds.listWorlds({});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -60,7 +62,9 @@ async function run() {
   const res = await worldsListWorlds(continuous, {});
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("worldsListWorlds failed:", res.error);
   }
@@ -80,7 +84,7 @@ run();
 
 ### Response
 
-**Promise\<[models.ListWorldsResponse](../../models/list-worlds-response.md)\>**
+**Promise\<[operations.ListWorldsResponse](../../models/operations/list-worlds-response.md)\>**
 
 ### Errors
 
@@ -388,13 +392,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## advanceWorld
+## createWorldAdvance
 
 Advances each member independently, waking an idle member first, and skips stopped members. Successful advances remain committed when another member fails. The World current_time records the last settled request target; member clocks can differ.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="advance-world" method="post" path="/v1/worlds/{id}/advance-time" example="bad_request_body" -->
+<!-- UsageSnippet language="typescript" operationID="create-world-advance" method="post" path="/v1/worlds/{id}/advances" example="bad_request_body" -->
 ```typescript
 import { Continuous } from "@continuous-labs/sdk";
 
@@ -403,11 +407,11 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.worlds.advanceWorld({
+  const result = await continuous.worlds.createWorldAdvance({
     id: "<id>",
     idempotencyKey: "<value>",
     body: {
-      to: new Date("2026-10-16T14:43:59.349Z"),
+      to: new Date("2024-03-26T21:37:05.744Z"),
     },
   });
 
@@ -423,7 +427,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { worldsAdvanceWorld } from "@continuous-labs/sdk/funcs/worlds-advance-world.js";
+import { worldsCreateWorldAdvance } from "@continuous-labs/sdk/funcs/worlds-create-world-advance.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -432,18 +436,18 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await worldsAdvanceWorld(continuous, {
+  const res = await worldsCreateWorldAdvance(continuous, {
     id: "<id>",
     idempotencyKey: "<value>",
     body: {
-      to: new Date("2026-10-16T14:43:59.349Z"),
+      to: new Date("2024-03-26T21:37:05.744Z"),
     },
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("worldsAdvanceWorld failed:", res.error);
+    console.log("worldsCreateWorldAdvance failed:", res.error);
   }
 }
 
@@ -454,7 +458,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.AdvanceWorldRequest](../../models/operations/advance-world-request.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CreateWorldAdvanceRequest](../../models/operations/create-world-advance-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -842,11 +846,11 @@ run();
 
 ## removeWorldSimulation
 
-Removes a member from a running or stopped World and returns the change. By default the member is detached and keeps running as a standalone Simulation; delete removes it and its saved state. A World keeps at least one member.
+Removes a member from a running or stopped World and returns the change. By default the member is detached and keeps running as a standalone Simulation; delete=true removes it and its saved state. A World keeps at least one member.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="remove-world-simulation" method="post" path="/v1/worlds/{id}/simulations/{simulation_id}/remove" -->
+<!-- UsageSnippet language="typescript" operationID="remove-world-simulation" method="delete" path="/v1/worlds/{id}/simulations/{simulation_id}" -->
 ```typescript
 import { Continuous } from "@continuous-labs/sdk";
 
@@ -913,11 +917,11 @@ run();
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
-| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
-| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ErrorT                 | 401, 403, 404, 409, 422       | application/problem+json      |
+| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## startWorld
 

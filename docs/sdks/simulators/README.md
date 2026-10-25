@@ -30,7 +30,9 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.simulators.listSimulators({});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -54,7 +56,9 @@ async function run() {
   const res = await simulatorsListSimulators(continuous, {});
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("simulatorsListSimulators failed:", res.error);
   }
@@ -74,7 +78,7 @@ run();
 
 ### Response
 
-**Promise\<[models.ListSimulatorsResponse](../../models/list-simulators-response.md)\>**
+**Promise\<[operations.ListSimulatorsResponse](../../models/operations/list-simulators-response.md)\>**
 
 ### Errors
 

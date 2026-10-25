@@ -1,0 +1,43 @@
+# ListSimulationsResponse
+
+## Example Usage
+
+```typescript
+import { ListSimulationsResponse } from "@continuous-labs/sdk/models/operations";
+
+let value: ListSimulationsResponse = {
+  result: {
+    nextCursor: "<value>",
+    simulations: [
+      {
+        activeAdvanceId: null,
+        createdAt: new Date("2026-01-15T12:00:00Z"),
+        currentTime: new Date("2024-01-01T00:00:00Z"),
+        endpoint:
+          "https://api.continuouslabs.ai/sim/sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6",
+        endpointExternal: false,
+        id: "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6",
+        includeSampleData: false,
+        metadata: {
+          "customer_id": "cust_123",
+        },
+        name: "billing-sandbox",
+        parentId: "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V8",
+        simulatorDigest:
+          "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
+        snapshotId: "sns_01J8Z5X4K7M2N9P0Q1R2S3T4VC",
+        startTime: new Date("2024-01-01T00:00:00Z"),
+        status: "running",
+        worldId: null,
+      },
+    ],
+  },
+};
+```
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `result`                                                                    | [models.ListSimulationsResponse](../../models/list-simulations-response.md) | :heavy_check_mark:                                                          | N/A                                                                         |

@@ -49,7 +49,7 @@ export type Simulation = {
    */
   id: string;
   /**
-   * Whether the Simulation started with the Simulator's sample data. A fork inherits its source's state and reports false.
+   * Whether the Simulation started with the Simulator's sample data. A Simulation created from a Snapshot takes the Snapshot's state and reports false.
    */
   includeSampleData: boolean;
   /**
@@ -61,7 +61,7 @@ export type Simulation = {
    */
   name: string;
   /**
-   * Source Simulation ID for a fork, or null.
+   * ID of the Simulation whose Snapshot this Simulation started from, or null.
    */
   parentId: string | null;
   /**
@@ -72,6 +72,10 @@ export type Simulation = {
    * ID of the Simulator bound to this Simulation.
    */
   simulatorId: string;
+  /**
+   * ID of the Snapshot the Simulation started from, or null once that Snapshot is deleted.
+   */
+  snapshotId: string | null;
   /**
    * Initial simulated time.
    */
@@ -108,6 +112,7 @@ export const Simulation$inboundSchema: z.ZodMiniType<Simulation, unknown> = z
       parent_id: types.nullable(types.string()),
       simulator_digest: types.string(),
       simulator_id: types.string(),
+      snapshot_id: types.nullable(types.string()),
       start_time: types.date(),
       status: SimulationStatus$inboundSchema,
       world_id: types.nullable(types.string()),
@@ -122,6 +127,7 @@ export const Simulation$inboundSchema: z.ZodMiniType<Simulation, unknown> = z
         "parent_id": "parentId",
         "simulator_digest": "simulatorDigest",
         "simulator_id": "simulatorId",
+        "snapshot_id": "snapshotId",
         "start_time": "startTime",
         "world_id": "worldId",
       });

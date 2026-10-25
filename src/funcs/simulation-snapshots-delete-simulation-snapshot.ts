@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { ContinuousCore } from "../core.js";
-import { encodeJSON, encodeSimple } from "../lib/encodings.js";
+import { encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -23,24 +23,23 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Advance World Time
+ * Delete Simulation Snapshot
  *
  * @remarks
- * Advances each member independently, waking an idle member first, and skips stopped members. Successful advances remain committed when another member fails. The World current_time records the last settled request target; member clocks can differ.
+ * Deletes a Snapshot and its saved state. Simulations created from it keep running, and their snapshot_id becomes null.
  */
-export function worldsAdvanceWorld(
+export function simulationSnapshotsDeleteSimulationSnapshot(
   client: ContinuousCore,
-  request: operations.AdvanceWorldRequest,
+  request: operations.DeleteSimulationSnapshotRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.ClockAdvance,
+    void,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -61,12 +60,12 @@ export function worldsAdvanceWorld(
 
 async function $do(
   client: ContinuousCore,
-  request: operations.AdvanceWorldRequest,
+  request: operations.DeleteSimulationSnapshotRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.ClockAdvance,
+      void,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -82,14 +81,15 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(operations.AdvanceWorldRequest$outboundSchema, value),
+    (value) =>
+      z.parse(operations.DeleteSimulationSnapshotRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.body, { explode: true });
+  const body = null;
 
   const pathParams = {
     id: encodeSimple("id", payload.id, {
@@ -97,16 +97,10 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-  const path = pathToFunc("/v1/worlds/{id}/advance-time")(pathParams);
+  const path = pathToFunc("/v1/simulation-snapshots/{id}")(pathParams);
 
   const headers = new Headers(compactMap({
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    "Idempotency-Key": encodeSimple(
-      "Idempotency-Key",
-      payload["Idempotency-Key"],
-      { explode: false, charEncoding: "none" },
-    ),
+    Accept: "application/problem+json",
   }));
 
   const secConfig = await extractSecurity(client._options.apiKeyAuth);
@@ -116,7 +110,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "advance-world",
+    operationID: "delete-simulation-snapshot",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -130,7 +124,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "POST",
+    method: "DELETE",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -160,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.ClockAdvance,
+    void,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -171,12 +165,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(202, models.ClockAdvance$inboundSchema),
-    M.jsonErr(
-      [400, 401, 403, 404, 408, 409, 413, 415, 422],
-      errors.ErrorT$inboundSchema,
-      { ctype: "application/problem+json" },
-    ),
+    M.nil(204, z.void()),
+    M.jsonErr([401, 404, 409], errors.ErrorT$inboundSchema, {
+      ctype: "application/problem+json",
+    }),
     M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

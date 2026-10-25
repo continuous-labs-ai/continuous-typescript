@@ -23,23 +23,24 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
+import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Fork Simulation
+ * Create Simulation Snapshot
  *
  * @remarks
- * Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token, which does not expire.
+ * Saves a running Simulation's current state, or its state after an earlier recorded step when you set at_step, and returns the Snapshot once the state is stored. Saving does not change the Simulation. Create Simulations from the Snapshot with snapshot_id; it outlives its Simulation. A stopped Simulation returns 409 simulation_stopped. Reuse the Idempotency-Key to retry safely.
  */
-export function simulationsForkSimulation(
+export function simulationSnapshotsCreateSimulationSnapshot(
   client: ContinuousCore,
-  request: operations.ForkSimulationRequest,
+  request: operations.CreateSimulationSnapshotRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.ForkSimulationResponse,
+    models.SimulationSnapshot,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -60,12 +61,12 @@ export function simulationsForkSimulation(
 
 async function $do(
   client: ContinuousCore,
-  request: operations.ForkSimulationRequest,
+  request: operations.CreateSimulationSnapshotRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.ForkSimulationResponse,
+      models.SimulationSnapshot,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -81,7 +82,8 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(operations.ForkSimulationRequest$outboundSchema, value),
+    (value) =>
+      z.parse(operations.CreateSimulationSnapshotRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -90,17 +92,16 @@ async function $do(
   const payload = parsed.value;
   const body = encodeJSON("body", payload.body, { explode: true });
 
-  const pathParams = {
-    id: encodeSimple("id", payload.id, {
-      explode: false,
-      charEncoding: "percent",
-    }),
-  };
-  const path = pathToFunc("/v1/simulations/{id}/fork")(pathParams);
+  const path = pathToFunc("/v1/simulation-snapshots")();
 
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
+    "Idempotency-Key": encodeSimple(
+      "Idempotency-Key",
+      payload["Idempotency-Key"],
+      { explode: false, charEncoding: "none" },
+    ),
   }));
 
   const secConfig = await extractSecurity(client._options.apiKeyAuth);
@@ -110,7 +111,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "fork-simulation",
+    operationID: "create-simulation-snapshot",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -154,7 +155,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.ForkSimulationResponse,
+    models.SimulationSnapshot,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -165,16 +166,13 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, operations.ForkSimulationResponse$inboundSchema, {
-      hdrs: true,
-      key: "Result",
-    }),
+    M.json(201, models.SimulationSnapshot$inboundSchema),
     M.jsonErr(
-      [400, 401, 403, 404, 408, 409, 413, 415, 422, 429],
+      [400, 401, 403, 404, 408, 409, 413, 415, 422],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),
-    M.jsonErr([500, 503, 504], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

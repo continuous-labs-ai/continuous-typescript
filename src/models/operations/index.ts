@@ -3,20 +3,22 @@
  */
 
 export * from "./add-world-simulation.js";
-export * from "./advance-simulation.js";
-export * from "./advance-world.js";
 export * from "./build-simulator.js";
 export * from "./cancel-simulator.js";
 export * from "./cancel-world.js";
 export * from "./clone-simulator.js";
+export * from "./create-simulation-advance.js";
+export * from "./create-simulation-snapshot.js";
 export * from "./create-simulation.js";
+export * from "./create-world-advance.js";
 export * from "./delete-credential.js";
+export * from "./delete-simulation-snapshot.js";
 export * from "./delete-simulation.js";
 export * from "./delete-simulator.js";
 export * from "./delete-world.js";
-export * from "./fork-simulation.js";
 export * from "./get-credential.js";
 export * from "./get-simulation-advance.js";
+export * from "./get-simulation-snapshot.js";
 export * from "./get-simulation-token.js";
 export * from "./get-simulation.js";
 export * from "./get-simulator.js";
@@ -25,6 +27,7 @@ export * from "./get-world-change.js";
 export * from "./get-world.js";
 export * from "./list-credentials.js";
 export * from "./list-simulation-advance-events.js";
+export * from "./list-simulation-snapshots.js";
 export * from "./list-simulation-steps.js";
 export * from "./list-simulations.js";
 export * from "./list-simulators.js";

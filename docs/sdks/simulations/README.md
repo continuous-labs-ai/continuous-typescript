@@ -2,7 +2,7 @@
 
 ## Overview
 
-Create Simulations from ready Simulators, then fork, stop, start, and delete them.
+Create Simulations from ready Simulators or Snapshots, then stop, start, and delete them.
 
 ### Available Operations
 
@@ -10,10 +10,9 @@ Create Simulations from ready Simulators, then fork, stop, start, and delete the
 * [createSimulation](#createsimulation) - Create Simulation
 * [deleteSimulation](#deletesimulation) - Delete Simulation
 * [getSimulation](#getsimulation) - Get Simulation
-* [advanceSimulation](#advancesimulation) - Advance Simulation Time
+* [createSimulationAdvance](#createsimulationadvance) - Advance Simulation Time
 * [getSimulationAdvance](#getsimulationadvance) - Get Simulation Clock Advance
 * [listSimulationAdvanceEvents](#listsimulationadvanceevents) - List Clock Advance Events
-* [forkSimulation](#forksimulation) - Fork Simulation
 * [startSimulation](#startsimulation) - Start Simulation
 * [listSimulationSteps](#listsimulationsteps) - List Simulation Steps
 * [stopSimulation](#stopsimulation) - Stop Simulation
@@ -37,7 +36,9 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.simulations.listSimulations({});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -61,7 +62,9 @@ async function run() {
   const res = await simulationsListSimulations(continuous, {});
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("simulationsListSimulations failed:", res.error);
   }
@@ -81,7 +84,7 @@ run();
 
 ### Response
 
-**Promise\<[models.ListSimulationsResponse](../../models/list-simulations-response.md)\>**
+**Promise\<[operations.ListSimulationsResponse](../../models/operations/list-simulations-response.md)\>**
 
 ### Errors
 
@@ -93,7 +96,7 @@ run();
 
 ## createSimulation
 
-Creates a Simulation from a ready Simulator and starts it. The response includes the endpoint and the Simulation's token, which does not expire.
+Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response includes the endpoint and the Simulation's token, which does not expire.
 
 ### Example Usage: bad_request_body
 
@@ -282,11 +285,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 408, 409, 413, 415, 422, 429 | application/problem+json               |
-| errors.ErrorT                          | 500, 503, 504                          | application/problem+json               |
-| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.ErrorT                               | 400, 401, 404, 408, 409, 413, 415, 422, 429 | application/problem+json                    |
+| errors.ErrorT                               | 500, 503, 504                               | application/problem+json                    |
+| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
 ## deleteSimulation
 
@@ -438,13 +441,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## advanceSimulation
+## createSimulationAdvance
 
 Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. World members advance through their World. Poll the returned operation until it completes.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="advance-simulation" method="post" path="/v1/simulations/{id}/advance-time" example="bad_request_body" -->
+<!-- UsageSnippet language="typescript" operationID="create-simulation-advance" method="post" path="/v1/simulations/{id}/advances" example="bad_request_body" -->
 ```typescript
 import { Continuous } from "@continuous-labs/sdk";
 
@@ -453,11 +456,11 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.simulations.advanceSimulation({
+  const result = await continuous.simulations.createSimulationAdvance({
     id: "<id>",
     idempotencyKey: "<value>",
     body: {
-      to: new Date("2026-01-27T00:02:09.022Z"),
+      to: new Date("2026-07-12T00:40:22.318Z"),
     },
   });
 
@@ -473,7 +476,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { simulationsAdvanceSimulation } from "@continuous-labs/sdk/funcs/simulations-advance-simulation.js";
+import { simulationsCreateSimulationAdvance } from "@continuous-labs/sdk/funcs/simulations-create-simulation-advance.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -482,18 +485,18 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await simulationsAdvanceSimulation(continuous, {
+  const res = await simulationsCreateSimulationAdvance(continuous, {
     id: "<id>",
     idempotencyKey: "<value>",
     body: {
-      to: new Date("2026-01-27T00:02:09.022Z"),
+      to: new Date("2026-07-12T00:40:22.318Z"),
     },
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("simulationsAdvanceSimulation failed:", res.error);
+    console.log("simulationsCreateSimulationAdvance failed:", res.error);
   }
 }
 
@@ -504,7 +507,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.AdvanceSimulationRequest](../../models/operations/advance-simulation-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CreateSimulationAdvanceRequest](../../models/operations/create-simulation-advance-request.md)                                                                      | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -600,7 +603,7 @@ run();
 
 ## listSimulationAdvanceEvents
 
-Returns the ordered event trace for a committed advance. The Simulation must be running. Forks retain traces in their inherited state.
+Returns the ordered event trace for a committed advance. The Simulation must be running. A Simulation created from a Snapshot keeps the traces in the state it started from.
 
 ### Example Usage
 
@@ -618,7 +621,9 @@ async function run() {
     advanceId: "<id>",
   });
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -645,7 +650,9 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("simulationsListSimulationAdvanceEvents failed:", res.error);
   }
@@ -665,7 +672,7 @@ run();
 
 ### Response
 
-**Promise\<[models.ListClockAdvanceEventsResponse](../../models/list-clock-advance-events-response.md)\>**
+**Promise\<[operations.ListSimulationAdvanceEventsResponse](../../models/operations/list-simulation-advance-events-response.md)\>**
 
 ### Errors
 
@@ -674,89 +681,6 @@ run();
 | errors.ErrorT                 | 400, 401, 403, 404, 409, 422  | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## forkSimulation
-
-Creates a new Simulation from the source Simulation's current state, or from an earlier recorded step when you set at_step. The source must be running; a stopped source returns 409 simulation_stopped. Forking does not change the source. The response includes the new endpoint and the fork's own token, which does not expire.
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="fork-simulation" method="post" path="/v1/simulations/{id}/fork" example="bad_request_body" -->
-```typescript
-import { Continuous } from "@continuous-labs/sdk";
-
-const continuous = new Continuous({
-  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
-});
-
-async function run() {
-  const result = await continuous.simulations.forkSimulation({
-    id: "<id>",
-    body: {
-      atStep: 42,
-      name: "billing-fork",
-    },
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { simulationsForkSimulation } from "@continuous-labs/sdk/funcs/simulations-fork-simulation.js";
-
-// Use `ContinuousCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const continuous = new ContinuousCore({
-  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
-});
-
-async function run() {
-  const res = await simulationsForkSimulation(continuous, {
-    id: "<id>",
-    body: {
-      atStep: 42,
-      name: "billing-fork",
-    },
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("simulationsForkSimulation failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ForkSimulationRequest](../../models/operations/fork-simulation-request.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[operations.ForkSimulationResponse](../../models/operations/fork-simulation-response.md)\>**
-
-### Errors
-
-| Error Type                                       | Status Code                                      | Content Type                                     |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| errors.ErrorT                                    | 400, 401, 403, 404, 408, 409, 413, 415, 422, 429 | application/problem+json                         |
-| errors.ErrorT                                    | 500, 503, 504                                    | application/problem+json                         |
-| errors.ContinuousDefaultError                    | 4XX, 5XX                                         | \*/\*                                            |
 
 ## startSimulation
 
@@ -835,7 +759,7 @@ run();
 
 ## listSimulationSteps
 
-Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. Pass a step number as at_step when you fork to start the child from the state after that step. A stopped Simulation returns 409 simulation_stopped; start it first.
+Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. Pass a step number as at_step when you save a Snapshot to save the state after that step. A stopped Simulation returns 409 simulation_stopped; start it first.
 
 ### Example Usage
 
@@ -852,7 +776,9 @@ async function run() {
     id: "<id>",
   });
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -878,7 +804,9 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("simulationsListSimulationSteps failed:", res.error);
   }
@@ -898,7 +826,7 @@ run();
 
 ### Response
 
-**Promise\<[models.ListSimulationStepsResponse](../../models/list-simulation-steps-response.md)\>**
+**Promise\<[operations.ListSimulationStepsResponse](../../models/operations/list-simulation-steps-response.md)\>**
 
 ### Errors
 

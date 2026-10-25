@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Credentials extends ClientSDK {
   /**
@@ -22,8 +23,10 @@ export class Credentials extends ClientSDK {
   async listCredentials(
     request?: operations.ListCredentialsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<models.ListCredentialsResponse> {
-    return unwrapAsync(credentialsListCredentials(
+  ): Promise<
+    PageIterator<operations.ListCredentialsResponse, { cursor: string }>
+  > {
+    return unwrapResultIterator(credentialsListCredentials(
       this,
       request,
       options,
@@ -34,7 +37,7 @@ export class Credentials extends ClientSDK {
    * Create credential
    *
    * @remarks
-   * Stores a connection to a real system: either an API base URL, the header that carries the credential, and the header value, or an app login with its sign-in URL, username, and password. Returns the credential without its value.
+   * Stores a connection to a real system: either an API base URL, the header that carries the credential, and the header value, or a Web App login with its sign-in URL, which a person then signs in to by hand in the console. Returns the credential without its value.
    */
   async createCredential(
     request: models.CreateCredentialRequest,

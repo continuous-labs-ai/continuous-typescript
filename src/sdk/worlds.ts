@@ -3,9 +3,9 @@
  */
 
 import { worldsAddWorldSimulation } from "../funcs/worlds-add-world-simulation.js";
-import { worldsAdvanceWorld } from "../funcs/worlds-advance-world.js";
 import { worldsBuildWorld } from "../funcs/worlds-build-world.js";
 import { worldsCancelWorld } from "../funcs/worlds-cancel-world.js";
+import { worldsCreateWorldAdvance } from "../funcs/worlds-create-world-advance.js";
 import { worldsDeleteWorld } from "../funcs/worlds-delete-world.js";
 import { worldsGetWorldAdvance } from "../funcs/worlds-get-world-advance.js";
 import { worldsGetWorldChange } from "../funcs/worlds-get-world-change.js";
@@ -18,6 +18,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Worlds extends ClientSDK {
   /**
@@ -29,8 +30,8 @@ export class Worlds extends ClientSDK {
   async listWorlds(
     request?: operations.ListWorldsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<models.ListWorldsResponse> {
-    return unwrapAsync(worldsListWorlds(
+  ): Promise<PageIterator<operations.ListWorldsResponse, { cursor: string }>> {
+    return unwrapResultIterator(worldsListWorlds(
       this,
       request,
       options,
@@ -94,11 +95,11 @@ export class Worlds extends ClientSDK {
    * @remarks
    * Advances each member independently, waking an idle member first, and skips stopped members. Successful advances remain committed when another member fails. The World current_time records the last settled request target; member clocks can differ.
    */
-  async advanceWorld(
-    request: operations.AdvanceWorldRequest,
+  async createWorldAdvance(
+    request: operations.CreateWorldAdvanceRequest,
     options?: RequestOptions,
   ): Promise<models.ClockAdvance> {
-    return unwrapAsync(worldsAdvanceWorld(
+    return unwrapAsync(worldsCreateWorldAdvance(
       this,
       request,
       options,
@@ -177,7 +178,7 @@ export class Worlds extends ClientSDK {
    * Remove World Simulation
    *
    * @remarks
-   * Removes a member from a running or stopped World and returns the change. By default the member is detached and keeps running as a standalone Simulation; delete removes it and its saved state. A World keeps at least one member.
+   * Removes a member from a running or stopped World and returns the change. By default the member is detached and keeps running as a standalone Simulation; delete=true removes it and its saved state. A World keeps at least one member.
    */
   async removeWorldSimulation(
     request: operations.RemoveWorldSimulationRequest,

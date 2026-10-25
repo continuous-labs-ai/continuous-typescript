@@ -8,8 +8,8 @@ sources:
             - latest
     continuous-simulation:
         sourceNamespace: continuous-simulation
-        sourceRevisionDigest: sha256:351bdbcab8d8040adfbfa9c0e5141b9ccea774dbf9fc33a31771b4bf9ecf49e5
-        sourceBlobDigest: sha256:1fabcffb63f59253d83812bc34f7176fa1884bd200812c5683c03d1dd6085516
+        sourceRevisionDigest: sha256:1522c6d29e22229e9db2396abc768769180ca174ee7a67136677fbbbd07ca98d
+        sourceBlobDigest: sha256:057b16a65ec9a1c49f41595502e6c247a946d3bf005bcababa31c81f1278f290
         tags:
             - latest
 targets:
@@ -30,10 +30,10 @@ targets:
     continuous-typescript:
         source: continuous-simulation
         sourceNamespace: continuous-simulation
-        sourceRevisionDigest: sha256:351bdbcab8d8040adfbfa9c0e5141b9ccea774dbf9fc33a31771b4bf9ecf49e5
-        sourceBlobDigest: sha256:1fabcffb63f59253d83812bc34f7176fa1884bd200812c5683c03d1dd6085516
+        sourceRevisionDigest: sha256:1522c6d29e22229e9db2396abc768769180ca174ee7a67136677fbbbd07ca98d
+        sourceBlobDigest: sha256:057b16a65ec9a1c49f41595502e6c247a946d3bf005bcababa31c81f1278f290
         codeSamplesNamespace: continuous-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:5315d770dde24795cce42b8d7357250c41167d330dec4bfe4d3372dd0c61a273
+        codeSamplesRevisionDigest: sha256:4b955ba2012dca4a9055ece363072c87c973aa7a6cde0a8c42b5e8b377aa333e
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.796.4

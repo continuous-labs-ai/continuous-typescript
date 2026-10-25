@@ -6,19 +6,14 @@ import * as z from "zod/v4-mini";
 
 export type CredentialLoginUpdate = {
   /**
-   * New https URL of the app's sign-in page.
+   * New https URL of the app's sign-in page. A new URL ends the saved sign-in.
    */
   url?: string | undefined;
-  /**
-   * New user name.
-   */
-  username?: string | undefined;
 };
 
 /** @internal */
 export type CredentialLoginUpdate$Outbound = {
   url?: string | undefined;
-  username?: string | undefined;
 };
 
 /** @internal */
@@ -27,7 +22,6 @@ export const CredentialLoginUpdate$outboundSchema: z.ZodMiniType<
   CredentialLoginUpdate
 > = z.object({
   url: z.optional(z.string()),
-  username: z.optional(z.string()),
 });
 
 export function credentialLoginUpdateToJSON(

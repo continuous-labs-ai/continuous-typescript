@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -10,23 +11,30 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type CredentialLogin = {
   /**
+   * When a person last signed in by hand in the console, or null. A build cannot use a login before its first sign-in.
+   */
+  signedInAt: Date | null;
+  /**
    * The https URL of the app's sign-in page.
    */
   url: string;
-  /**
-   * The user name to sign in with.
-   */
-  username: string;
 };
 
 /** @internal */
 export const CredentialLogin$inboundSchema: z.ZodMiniType<
   CredentialLogin,
   unknown
-> = z.object({
-  url: types.string(),
-  username: types.string(),
-});
+> = z.pipe(
+  z.object({
+    signed_in_at: types.nullable(types.date()),
+    url: types.string(),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "signed_in_at": "signedInAt",
+    });
+  }),
+);
 
 export function credentialLoginFromJSON(
   jsonString: string,

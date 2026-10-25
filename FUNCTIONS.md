@@ -32,7 +32,9 @@ async function run() {
   const res = await credentialsListCredentials(continuous, {});
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("credentialsListCredentials failed:", res.error);
   }

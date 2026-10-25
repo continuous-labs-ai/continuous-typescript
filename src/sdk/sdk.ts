@@ -4,6 +4,7 @@
 
 import { ClientSDK } from "../lib/sdks.js";
 import { Credentials } from "./credentials.js";
+import { SimulationSnapshots } from "./simulation-snapshots.js";
 import { Simulations } from "./simulations.js";
 import { Simulators } from "./simulators.js";
 import { Worlds } from "./worlds.js";
@@ -12,6 +13,13 @@ export class Continuous extends ClientSDK {
   private _credentials?: Credentials;
   get credentials(): Credentials {
     return (this._credentials ??= new Credentials(this._options));
+  }
+
+  private _simulationSnapshots?: SimulationSnapshots;
+  get simulationSnapshots(): SimulationSnapshots {
+    return (this._simulationSnapshots ??= new SimulationSnapshots(
+      this._options,
+    ));
   }
 
   private _simulations?: Simulations;

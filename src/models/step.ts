@@ -37,7 +37,7 @@ export type Step = {
    */
   label: string;
   /**
-   * Step number. Use it as at_step when you fork.
+   * Step number. Use it as at_step when you save a Snapshot.
    */
   step: number;
   /**
