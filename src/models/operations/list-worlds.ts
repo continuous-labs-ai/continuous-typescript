@@ -3,7 +3,12 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
+import * as models from "../index.js";
 
 /**
  * Optional status filter.
@@ -37,6 +42,10 @@ export type ListWorldsRequest = {
   cursor?: string | undefined;
 };
 
+export type ListWorldsResponse = {
+  result: models.ListWorldsResponse;
+};
+
 /** @internal */
 export const ListWorldsStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListWorldsStatus
@@ -64,5 +73,30 @@ export function listWorldsRequestToJSON(
 ): string {
   return JSON.stringify(
     ListWorldsRequest$outboundSchema.parse(listWorldsRequest),
+  );
+}
+
+/** @internal */
+export const ListWorldsResponse$inboundSchema: z.ZodMiniType<
+  ListWorldsResponse,
+  unknown
+> = z.pipe(
+  z.object({
+    Result: models.ListWorldsResponse$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
+
+export function listWorldsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ListWorldsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListWorldsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListWorldsResponse' from JSON`,
   );
 }

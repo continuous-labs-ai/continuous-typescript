@@ -4,6 +4,10 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
+import * as models from "../index.js";
 
 export type ListSimulationAdvanceEventsRequest = {
   /**
@@ -11,7 +15,7 @@ export type ListSimulationAdvanceEventsRequest = {
    */
   id: string;
   /**
-   * Advance ID. A historical fork can read inherited runtime receipts.
+   * Advance ID. A Simulation created from a Snapshot can read the runtime receipts in the state it started from.
    */
   advanceId: string;
   /**
@@ -22,6 +26,10 @@ export type ListSimulationAdvanceEventsRequest = {
    * Opaque next_cursor value from a previous page.
    */
   cursor?: string | undefined;
+};
+
+export type ListSimulationAdvanceEventsResponse = {
+  result: models.ListClockAdvanceEventsResponse;
 };
 
 /** @internal */
@@ -57,5 +65,31 @@ export function listSimulationAdvanceEventsRequestToJSON(
     ListSimulationAdvanceEventsRequest$outboundSchema.parse(
       listSimulationAdvanceEventsRequest,
     ),
+  );
+}
+
+/** @internal */
+export const ListSimulationAdvanceEventsResponse$inboundSchema: z.ZodMiniType<
+  ListSimulationAdvanceEventsResponse,
+  unknown
+> = z.pipe(
+  z.object({
+    Result: models.ListClockAdvanceEventsResponse$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
+
+export function listSimulationAdvanceEventsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ListSimulationAdvanceEventsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ListSimulationAdvanceEventsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListSimulationAdvanceEventsResponse' from JSON`,
   );
 }

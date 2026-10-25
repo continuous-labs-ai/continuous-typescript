@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import * as models from "../index.js";
 
 export type RemoveWorldSimulationRequest = {
   /**
@@ -16,18 +15,21 @@ export type RemoveWorldSimulationRequest = {
    */
   simulationId: string;
   /**
-   * Stable key for this request. Reuse with the same body returns the same change.
+   * true stops and deletes the member and its saved state. false, the default, detaches it: it keeps its ID, endpoint, token, clock, and data as a standalone Simulation.
+   */
+  delete?: boolean | undefined;
+  /**
+   * Stable key for this request. Reuse with the same delete value returns the same change.
    */
   idempotencyKey: string;
-  body?: models.RemoveWorldSimulationRequest | undefined;
 };
 
 /** @internal */
 export type RemoveWorldSimulationRequest$Outbound = {
   id: string;
   simulation_id: string;
+  delete?: boolean | undefined;
   "Idempotency-Key": string;
-  body?: models.RemoveWorldSimulationRequest$Outbound | undefined;
 };
 
 /** @internal */
@@ -38,8 +40,8 @@ export const RemoveWorldSimulationRequest$outboundSchema: z.ZodMiniType<
   z.object({
     id: z.string(),
     simulationId: z.string(),
+    delete: z.optional(z.boolean()),
     idempotencyKey: z.string(),
-    body: z.optional(models.RemoveWorldSimulationRequest$outboundSchema),
   }),
   z.transform((v) => {
     return remap$(v, {

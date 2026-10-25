@@ -12,6 +12,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Simulators extends ClientSDK {
   /**
@@ -23,8 +24,10 @@ export class Simulators extends ClientSDK {
   async listSimulators(
     request?: operations.ListSimulatorsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<models.ListSimulatorsResponse> {
-    return unwrapAsync(simulatorsListSimulators(
+  ): Promise<
+    PageIterator<operations.ListSimulatorsResponse, { cursor: string }>
+  > {
+    return unwrapResultIterator(simulatorsListSimulators(
       this,
       request,
       options,

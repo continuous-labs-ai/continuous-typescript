@@ -23,10 +23,15 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
+import {
+  createPageIterator,
+  haltIterator,
+  PageIterator,
+  Paginator,
+} from "../types/operations.js";
 
 /**
  * List Simulators
@@ -39,17 +44,20 @@ export function simulatorsListSimulators(
   request?: operations.ListSimulatorsRequest | undefined,
   options?: RequestOptions,
 ): APIPromise<
-  Result<
-    models.ListSimulatorsResponse,
-    | errors.ErrorT
-    | ContinuousError
-    | ResponseValidationError
-    | ConnectionError
-    | RequestAbortedError
-    | RequestTimeoutError
-    | InvalidRequestError
-    | UnexpectedClientError
-    | SDKValidationError
+  PageIterator<
+    Result<
+      operations.ListSimulatorsResponse,
+      | errors.ErrorT
+      | ContinuousError
+      | ResponseValidationError
+      | ConnectionError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
+    >,
+    { cursor: string }
   >
 > {
   return new APIPromise($do(
@@ -65,17 +73,20 @@ async function $do(
   options?: RequestOptions,
 ): Promise<
   [
-    Result<
-      models.ListSimulatorsResponse,
-      | errors.ErrorT
-      | ContinuousError
-      | ResponseValidationError
-      | ConnectionError
-      | RequestAbortedError
-      | RequestTimeoutError
-      | InvalidRequestError
-      | UnexpectedClientError
-      | SDKValidationError
+    PageIterator<
+      Result<
+        operations.ListSimulatorsResponse,
+        | errors.ErrorT
+        | ContinuousError
+        | ResponseValidationError
+        | ConnectionError
+        | RequestAbortedError
+        | RequestTimeoutError
+        | InvalidRequestError
+        | UnexpectedClientError
+        | SDKValidationError
+      >,
+      { cursor: string }
     >,
     APICall,
   ]
@@ -90,7 +101,7 @@ async function $do(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return [parsed, { status: "invalid" }];
+    return [haltIterator(parsed), { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -122,8 +133,18 @@ async function $do(
     securitySource: client._options.apiKeyAuth,
     retryConfig: options?.retries
       || client._options.retryConfig
+      || {
+        strategy: "backoff",
+        backoff: {
+          initialInterval: 500,
+          maxInterval: 5000,
+          exponent: 1.5,
+          maxElapsedTime: 60000,
+        },
+        retryConnectionErrors: true,
+      }
       || { strategy: "none" },
-    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
+    retryCodes: options?.retryCodes || ["502", "503", "504"],
   };
 
   const requestRes = client._createRequest(context, {
@@ -138,7 +159,7 @@ async function $do(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return [requestRes, { status: "invalid" }];
+    return [haltIterator(requestRes), { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -150,7 +171,7 @@ async function $do(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return [doResult, { status: "request-error", request: req }];
+    return [haltIterator(doResult), { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -158,8 +179,8 @@ async function $do(
     HttpMeta: { Response: response, Request: req },
   };
 
-  const [result] = await M.match<
-    models.ListSimulatorsResponse,
+  const [result, raw] = await M.match<
+    operations.ListSimulatorsResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -170,7 +191,9 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.ListSimulatorsResponse$inboundSchema),
+    M.json(200, operations.ListSimulatorsResponse$inboundSchema, {
+      key: "Result",
+    }),
     M.jsonErr([400, 401, 422], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
@@ -181,8 +204,58 @@ async function $do(
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });
   if (!result.ok) {
-    return [result, { status: "complete", request: req, response }];
+    return [haltIterator(result), {
+      status: "complete",
+      request: req,
+      response,
+    }];
   }
 
-  return [result, { status: "complete", request: req, response }];
+  const nextFunc = (
+    responseData: unknown,
+  ): {
+    next: Paginator<
+      Result<
+        operations.ListSimulatorsResponse,
+        | errors.ErrorT
+        | ContinuousError
+        | ResponseValidationError
+        | ConnectionError
+        | RequestAbortedError
+        | RequestTimeoutError
+        | InvalidRequestError
+        | UnexpectedClientError
+        | SDKValidationError
+      >
+    >;
+    "~next"?: { cursor: string };
+  } => {
+    const nextCursor =
+      (responseData as { next_cursor: unknown | null }).next_cursor;
+    if (typeof nextCursor !== "string") {
+      return { next: () => null };
+    }
+    if (nextCursor.trim() === "") {
+      return { next: () => null };
+    }
+
+    const nextVal = () =>
+      simulatorsListSimulators(
+        client,
+        {
+          ...request!,
+          cursor: nextCursor,
+        },
+        options,
+      );
+
+    return { next: nextVal, "~next": { cursor: nextCursor } };
+  };
+
+  const page = { ...result, ...nextFunc(raw) };
+  return [{ ...page, ...createPageIterator(page, (v) => !v.ok) }, {
+    status: "complete",
+    request: req,
+    response,
+  }];
 }

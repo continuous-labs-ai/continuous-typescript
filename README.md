@@ -20,6 +20,7 @@ Continuous Simulation API: Build Simulators from OpenAPI, WSDL or GraphQL docume
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
+  * [Pagination](#pagination)
   * [File uploads](#file-uploads)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
@@ -87,7 +88,9 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.credentials.listCredentials({});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -117,7 +120,9 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.credentials.listCredentials({});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -139,16 +144,22 @@ run();
 * [getCredential](docs/sdks/credentials/README.md#getcredential) - Get credential
 * [updateCredential](docs/sdks/credentials/README.md#updatecredential) - Update credential
 
+### [SimulationSnapshots](docs/sdks/simulationsnapshots/README.md)
+
+* [listSimulationSnapshots](docs/sdks/simulationsnapshots/README.md#listsimulationsnapshots) - List Simulation Snapshots
+* [createSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#createsimulationsnapshot) - Create Simulation Snapshot
+* [deleteSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#deletesimulationsnapshot) - Delete Simulation Snapshot
+* [getSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#getsimulationsnapshot) - Get Simulation Snapshot
+
 ### [Simulations](docs/sdks/simulations/README.md)
 
 * [listSimulations](docs/sdks/simulations/README.md#listsimulations) - List Simulations
 * [createSimulation](docs/sdks/simulations/README.md#createsimulation) - Create Simulation
 * [deleteSimulation](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation
 * [getSimulation](docs/sdks/simulations/README.md#getsimulation) - Get Simulation
-* [advanceSimulation](docs/sdks/simulations/README.md#advancesimulation) - Advance Simulation Time
+* [createSimulationAdvance](docs/sdks/simulations/README.md#createsimulationadvance) - Advance Simulation Time
 * [getSimulationAdvance](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance
 * [listSimulationAdvanceEvents](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events
-* [forkSimulation](docs/sdks/simulations/README.md#forksimulation) - Fork Simulation
 * [startSimulation](docs/sdks/simulations/README.md#startsimulation) - Start Simulation
 * [listSimulationSteps](docs/sdks/simulations/README.md#listsimulationsteps) - List Simulation Steps
 * [stopSimulation](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation
@@ -170,7 +181,7 @@ run();
 * [buildWorld](docs/sdks/worlds/README.md#buildworld) - Build World
 * [deleteWorld](docs/sdks/worlds/README.md#deleteworld) - Delete World
 * [getWorld](docs/sdks/worlds/README.md#getworld) - Get World
-* [advanceWorld](docs/sdks/worlds/README.md#advanceworld) - Advance World Time
+* [createWorldAdvance](docs/sdks/worlds/README.md#createworldadvance) - Advance World Time
 * [getWorldAdvance](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance
 * [cancelWorld](docs/sdks/worlds/README.md#cancelworld) - Cancel World Build
 * [getWorldChange](docs/sdks/worlds/README.md#getworldchange) - Get World Change
@@ -202,16 +213,19 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`credentialsGetCredential`](docs/sdks/credentials/README.md#getcredential) - Get credential
 - [`credentialsListCredentials`](docs/sdks/credentials/README.md#listcredentials) - List credentials
 - [`credentialsUpdateCredential`](docs/sdks/credentials/README.md#updatecredential) - Update credential
-- [`simulationsAdvanceSimulation`](docs/sdks/simulations/README.md#advancesimulation) - Advance Simulation Time
 - [`simulationsCreateSimulation`](docs/sdks/simulations/README.md#createsimulation) - Create Simulation
+- [`simulationsCreateSimulationAdvance`](docs/sdks/simulations/README.md#createsimulationadvance) - Advance Simulation Time
 - [`simulationsDeleteSimulation`](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation
-- [`simulationsForkSimulation`](docs/sdks/simulations/README.md#forksimulation) - Fork Simulation
 - [`simulationsGetSimulation`](docs/sdks/simulations/README.md#getsimulation) - Get Simulation
 - [`simulationsGetSimulationAdvance`](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance
 - [`simulationsGetSimulationToken`](docs/sdks/simulations/README.md#getsimulationtoken) - Get Current Simulation Token
 - [`simulationsListSimulationAdvanceEvents`](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events
 - [`simulationsListSimulations`](docs/sdks/simulations/README.md#listsimulations) - List Simulations
 - [`simulationsListSimulationSteps`](docs/sdks/simulations/README.md#listsimulationsteps) - List Simulation Steps
+- [`simulationSnapshotsCreateSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#createsimulationsnapshot) - Create Simulation Snapshot
+- [`simulationSnapshotsDeleteSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#deletesimulationsnapshot) - Delete Simulation Snapshot
+- [`simulationSnapshotsGetSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#getsimulationsnapshot) - Get Simulation Snapshot
+- [`simulationSnapshotsListSimulationSnapshots`](docs/sdks/simulationsnapshots/README.md#listsimulationsnapshots) - List Simulation Snapshots
 - [`simulationsRegenerateSimulationToken`](docs/sdks/simulations/README.md#regeneratesimulationtoken) - Regenerate Simulation Token
 - [`simulationsStartSimulation`](docs/sdks/simulations/README.md#startsimulation) - Start Simulation
 - [`simulationsStopSimulation`](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation
@@ -222,9 +236,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
 - [`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators) - List Simulators
 - [`worldsAddWorldSimulation`](docs/sdks/worlds/README.md#addworldsimulation) - Add World Simulation
-- [`worldsAdvanceWorld`](docs/sdks/worlds/README.md#advanceworld) - Advance World Time
 - [`worldsBuildWorld`](docs/sdks/worlds/README.md#buildworld) - Build World
 - [`worldsCancelWorld`](docs/sdks/worlds/README.md#cancelworld) - Cancel World Build
+- [`worldsCreateWorldAdvance`](docs/sdks/worlds/README.md#createworldadvance) - Advance World Time
 - [`worldsDeleteWorld`](docs/sdks/worlds/README.md#deleteworld) - Delete World
 - [`worldsGetWorld`](docs/sdks/worlds/README.md#getworld) - Get World
 - [`worldsGetWorldAdvance`](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance
@@ -236,6 +250,38 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
+
+<!-- Start Pagination [pagination] -->
+## Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you
+make your SDK calls as usual, but the returned response object will also be an
+async iterable that can be consumed using the [`for await...of`][for-await-of]
+syntax.
+
+[for-await-of]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
+
+Here's an example of one such pagination call:
+
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.credentials.listCredentials({});
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+
+```
+<!-- End Pagination [pagination] -->
 
 <!-- Start File uploads [file-upload] -->
 ## File uploads
@@ -304,7 +350,9 @@ async function run() {
     },
   });
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -332,7 +380,9 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.credentials.listCredentials({});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -367,7 +417,9 @@ async function run() {
   try {
     const result = await continuous.credentials.listCredentials({});
 
-    console.log(result);
+    for await (const page of result) {
+      console.log(page);
+    }
   } catch (error) {
     // The base class for HTTP error responses
     if (error instanceof errors.ContinuousError) {
@@ -408,7 +460,7 @@ run();
 
 
 **Inherit from [`ContinuousError`](./src/models/errors/continuous-error.ts)**:
-* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 36 methods.*
+* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 39 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -433,7 +485,9 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.credentials.listCredentials({});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();

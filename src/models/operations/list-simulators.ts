@@ -3,7 +3,12 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
+import * as models from "../index.js";
 
 /**
  * Optional build status filter.
@@ -35,6 +40,10 @@ export type ListSimulatorsRequest = {
   cursor?: string | undefined;
 };
 
+export type ListSimulatorsResponse = {
+  result: models.ListSimulatorsResponse;
+};
+
 /** @internal */
 export const ListSimulatorsStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListSimulatorsStatus
@@ -62,5 +71,30 @@ export function listSimulatorsRequestToJSON(
 ): string {
   return JSON.stringify(
     ListSimulatorsRequest$outboundSchema.parse(listSimulatorsRequest),
+  );
+}
+
+/** @internal */
+export const ListSimulatorsResponse$inboundSchema: z.ZodMiniType<
+  ListSimulatorsResponse,
+  unknown
+> = z.pipe(
+  z.object({
+    Result: models.ListSimulatorsResponse$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
+
+export function listSimulatorsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ListSimulatorsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListSimulatorsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListSimulatorsResponse' from JSON`,
   );
 }

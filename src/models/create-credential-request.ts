@@ -25,9 +25,9 @@ export type CreateCredentialRequest = {
    */
   name: string;
   /**
-   * The full header value, for example Bearer followed by a token, or the login password. The API never returns it.
+   * The full header value, for example Bearer followed by a token. Required with base_url; not allowed with login, which a person signs in to by hand after the credential exists. The API never returns it.
    */
-  value: string;
+  value?: string | undefined;
 };
 
 /** @internal */
@@ -36,7 +36,7 @@ export type CreateCredentialRequest$Outbound = {
   header?: string | undefined;
   login?: CredentialLoginRequest$Outbound | undefined;
   name: string;
-  value: string;
+  value?: string | undefined;
 };
 
 /** @internal */
@@ -49,7 +49,7 @@ export const CreateCredentialRequest$outboundSchema: z.ZodMiniType<
     header: z.optional(z.string()),
     login: z.optional(CredentialLoginRequest$outboundSchema),
     name: z.string(),
-    value: z.string(),
+    value: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

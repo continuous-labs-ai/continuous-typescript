@@ -1,15 +1,15 @@
-# AdvanceWorldRequest
+# CreateWorldAdvanceRequest
 
 ## Example Usage
 
 ```typescript
-import { AdvanceWorldRequest } from "@continuous-labs/sdk/models/operations";
+import { CreateWorldAdvanceRequest } from "@continuous-labs/sdk/models/operations";
 
-let value: AdvanceWorldRequest = {
+let value: CreateWorldAdvanceRequest = {
   id: "<id>",
   idempotencyKey: "<value>",
   body: {
-    to: new Date("2024-08-31T04:41:49.911Z"),
+    to: new Date("2026-06-05T17:59:41.070Z"),
   },
 };
 ```

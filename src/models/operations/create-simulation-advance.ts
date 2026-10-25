@@ -6,7 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
-export type AdvanceSimulationRequest = {
+export type CreateSimulationAdvanceRequest = {
   /**
    * Simulation ID.
    */
@@ -19,16 +19,16 @@ export type AdvanceSimulationRequest = {
 };
 
 /** @internal */
-export type AdvanceSimulationRequest$Outbound = {
+export type CreateSimulationAdvanceRequest$Outbound = {
   id: string;
   "Idempotency-Key": string;
   body: models.AdvanceTimeRequest$Outbound;
 };
 
 /** @internal */
-export const AdvanceSimulationRequest$outboundSchema: z.ZodMiniType<
-  AdvanceSimulationRequest$Outbound,
-  AdvanceSimulationRequest
+export const CreateSimulationAdvanceRequest$outboundSchema: z.ZodMiniType<
+  CreateSimulationAdvanceRequest$Outbound,
+  CreateSimulationAdvanceRequest
 > = z.pipe(
   z.object({
     id: z.string(),
@@ -42,10 +42,12 @@ export const AdvanceSimulationRequest$outboundSchema: z.ZodMiniType<
   }),
 );
 
-export function advanceSimulationRequestToJSON(
-  advanceSimulationRequest: AdvanceSimulationRequest,
+export function createSimulationAdvanceRequestToJSON(
+  createSimulationAdvanceRequest: CreateSimulationAdvanceRequest,
 ): string {
   return JSON.stringify(
-    AdvanceSimulationRequest$outboundSchema.parse(advanceSimulationRequest),
+    CreateSimulationAdvanceRequest$outboundSchema.parse(
+      createSimulationAdvanceRequest,
+    ),
   );
 }

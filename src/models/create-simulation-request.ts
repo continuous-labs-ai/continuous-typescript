@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type CreateSimulationRequest = {
   /**
-   * Start with the Simulator's sample data: a realistic account loaded on top of its seed before the first request. Defaults to false, a brand-new workspace. Requires a Simulator that carries sample data; see its composition.
+   * Start with the Simulator's sample data: a realistic account loaded on top of its seed before the first request. Defaults to false, a brand-new workspace. Requires a Simulator that carries sample data; see its composition. Not allowed with snapshot_id.
    */
   includeSampleData?: boolean | undefined;
   /**
@@ -19,11 +19,15 @@ export type CreateSimulationRequest = {
    */
   name?: string | undefined;
   /**
-   * ID of the ready Simulator.
+   * ID of the ready Simulator. Set exactly one of simulator_id and snapshot_id.
    */
-  simulatorId: string;
+  simulatorId?: string | undefined;
   /**
-   * Initial simulated time in RFC 3339 format. Omission uses 2024-01-01T00:00:00Z. Precision is milliseconds.
+   * ID of the Snapshot to start from. The Simulation takes its state, clock, Simulator digest and runtime placement. Set exactly one of simulator_id and snapshot_id.
+   */
+  snapshotId?: string | undefined;
+  /**
+   * Initial simulated time in RFC 3339 format. Omission uses 2024-01-01T00:00:00Z. Precision is milliseconds. Not allowed with snapshot_id.
    */
   startTime?: Date | undefined;
 };
@@ -33,7 +37,8 @@ export type CreateSimulationRequest$Outbound = {
   include_sample_data?: boolean | undefined;
   metadata?: any | undefined;
   name?: string | undefined;
-  simulator_id: string;
+  simulator_id?: string | undefined;
+  snapshot_id?: string | undefined;
   start_time?: string | undefined;
 };
 
@@ -46,13 +51,15 @@ export const CreateSimulationRequest$outboundSchema: z.ZodMiniType<
     includeSampleData: z.optional(z.boolean()),
     metadata: z.optional(z.any()),
     name: z.optional(z.string()),
-    simulatorId: z.string(),
+    simulatorId: z.optional(z.string()),
+    snapshotId: z.optional(z.string()),
     startTime: z.optional(z.pipe(z.date(), z.transform(v => v.toISOString()))),
   }),
   z.transform((v) => {
     return remap$(v, {
       includeSampleData: "include_sample_data",
       simulatorId: "simulator_id",
+      snapshotId: "snapshot_id",
       startTime: "start_time",
     });
   }),

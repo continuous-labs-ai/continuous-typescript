@@ -25,6 +25,7 @@ let value: ListSimulationsResponse = {
       simulatorDigest:
         "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
+      snapshotId: "sns_01J8Z5X4K7M2N9P0Q1R2S3T4VC",
       startTime: new Date("2024-01-01T00:00:00Z"),
       status: "running",
       worldId: null,

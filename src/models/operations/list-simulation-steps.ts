@@ -3,6 +3,11 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
+import * as models from "../index.js";
 
 export type ListSimulationStepsRequest = {
   /**
@@ -17,6 +22,10 @@ export type ListSimulationStepsRequest = {
    * Page size. Values below 1 use 50. Values above 200 use 200.
    */
   limit?: number | undefined;
+};
+
+export type ListSimulationStepsResponse = {
+  result: models.ListSimulationStepsResponse;
 };
 
 /** @internal */
@@ -41,5 +50,30 @@ export function listSimulationStepsRequestToJSON(
 ): string {
   return JSON.stringify(
     ListSimulationStepsRequest$outboundSchema.parse(listSimulationStepsRequest),
+  );
+}
+
+/** @internal */
+export const ListSimulationStepsResponse$inboundSchema: z.ZodMiniType<
+  ListSimulationStepsResponse,
+  unknown
+> = z.pipe(
+  z.object({
+    Result: models.ListSimulationStepsResponse$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
+
+export function listSimulationStepsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ListSimulationStepsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListSimulationStepsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListSimulationStepsResponse' from JSON`,
   );
 }

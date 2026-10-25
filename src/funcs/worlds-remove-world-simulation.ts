@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { ContinuousCore } from "../core.js";
-import { encodeJSON, encodeSimple } from "../lib/encodings.js";
+import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Remove World Simulation
  *
  * @remarks
- * Removes a member from a running or stopped World and returns the change. By default the member is detached and keeps running as a standalone Simulation; delete removes it and its saved state. A World keeps at least one member.
+ * Removes a member from a running or stopped World and returns the change. By default the member is detached and keeps running as a standalone Simulation; delete=true removes it and its saved state. A World keeps at least one member.
  */
 export function worldsRemoveWorldSimulation(
   client: ContinuousCore,
@@ -90,7 +90,7 @@ async function $do(
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.body, { explode: true });
+  const body = null;
 
   const pathParams = {
     id: encodeSimple("id", payload.id, {
@@ -102,12 +102,15 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-  const path = pathToFunc("/v1/worlds/{id}/simulations/{simulation_id}/remove")(
+  const path = pathToFunc("/v1/worlds/{id}/simulations/{simulation_id}")(
     pathParams,
   );
 
+  const query = encodeFormQuery({
+    "delete": payload.delete,
+  }, { explode: false });
+
   const headers = new Headers(compactMap({
-    "Content-Type": "application/json",
     Accept: "application/json",
     "Idempotency-Key": encodeSimple(
       "Idempotency-Key",
@@ -137,10 +140,11 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "POST",
+    method: "DELETE",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
@@ -179,11 +183,9 @@ async function $do(
     | SDKValidationError
   >(
     M.json(202, models.WorldChange$inboundSchema),
-    M.jsonErr(
-      [400, 401, 403, 404, 408, 409, 413, 415, 422],
-      errors.ErrorT$inboundSchema,
-      { ctype: "application/problem+json" },
-    ),
+    M.jsonErr([401, 403, 404, 409, 422], errors.ErrorT$inboundSchema, {
+      ctype: "application/problem+json",
+    }),
     M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

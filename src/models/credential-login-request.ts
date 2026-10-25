@@ -9,16 +9,11 @@ export type CredentialLoginRequest = {
    * The https URL of the app's sign-in page, with a literal host name or IP address and no user information.
    */
   url: string;
-  /**
-   * The user name to sign in with.
-   */
-  username: string;
 };
 
 /** @internal */
 export type CredentialLoginRequest$Outbound = {
   url: string;
-  username: string;
 };
 
 /** @internal */
@@ -27,7 +22,6 @@ export const CredentialLoginRequest$outboundSchema: z.ZodMiniType<
   CredentialLoginRequest
 > = z.object({
   url: z.string(),
-  username: z.string(),
 });
 
 export function credentialLoginRequestToJSON(

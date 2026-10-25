@@ -4,7 +4,11 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
+import * as models from "../index.js";
 
 /**
  * Optional status filter.
@@ -39,6 +43,10 @@ export type ListSimulationsRequest = {
    * Opaque next_cursor value from a previous page.
    */
   cursor?: string | undefined;
+};
+
+export type ListSimulationsResponse = {
+  result: models.ListSimulationsResponse;
 };
 
 /** @internal */
@@ -80,5 +88,30 @@ export function listSimulationsRequestToJSON(
 ): string {
   return JSON.stringify(
     ListSimulationsRequest$outboundSchema.parse(listSimulationsRequest),
+  );
+}
+
+/** @internal */
+export const ListSimulationsResponse$inboundSchema: z.ZodMiniType<
+  ListSimulationsResponse,
+  unknown
+> = z.pipe(
+  z.object({
+    Result: models.ListSimulationsResponse$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
+
+export function listSimulationsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ListSimulationsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListSimulationsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListSimulationsResponse' from JSON`,
   );
 }

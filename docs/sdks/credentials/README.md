@@ -29,7 +29,9 @@ const continuous = new Continuous({
 async function run() {
   const result = await continuous.credentials.listCredentials({});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -53,7 +55,9 @@ async function run() {
   const res = await credentialsListCredentials(continuous, {});
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("credentialsListCredentials failed:", res.error);
   }
@@ -73,7 +77,7 @@ run();
 
 ### Response
 
-**Promise\<[models.ListCredentialsResponse](../../models/list-credentials-response.md)\>**
+**Promise\<[operations.ListCredentialsResponse](../../models/operations/list-credentials-response.md)\>**
 
 ### Errors
 
@@ -85,7 +89,7 @@ run();
 
 ## createCredential
 
-Stores a connection to a real system: either an API base URL, the header that carries the credential, and the header value, or an app login with its sign-in URL, username, and password. Returns the credential without its value.
+Stores a connection to a real system: either an API base URL, the header that carries the credential, and the header value, or a Web App login with its sign-in URL, which a person then signs in to by hand in the console. Returns the credential without its value.
 
 ### Example Usage
 

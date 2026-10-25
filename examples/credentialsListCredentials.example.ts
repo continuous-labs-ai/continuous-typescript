@@ -20,7 +20,9 @@ const continuous = new Continuous({
 async function main() {
   const result = await continuous.credentials.listCredentials({});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 main().catch(console.error);

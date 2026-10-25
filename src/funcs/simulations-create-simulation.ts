@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Create Simulation
  *
  * @remarks
- * Creates a Simulation from a ready Simulator and starts it. The response includes the endpoint and the Simulation's token, which does not expire.
+ * Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response includes the endpoint and the Simulation's token, which does not expire.
  */
 export function simulationsCreateSimulation(
   client: ContinuousCore,
@@ -165,7 +165,7 @@ async function $do(
       key: "Result",
     }),
     M.jsonErr(
-      [400, 401, 408, 409, 413, 415, 422, 429],
+      [400, 401, 404, 408, 409, 413, 415, 422, 429],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),

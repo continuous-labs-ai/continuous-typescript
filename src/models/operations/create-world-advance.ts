@@ -6,7 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
-export type AdvanceWorldRequest = {
+export type CreateWorldAdvanceRequest = {
   /**
    * World ID.
    */
@@ -19,16 +19,16 @@ export type AdvanceWorldRequest = {
 };
 
 /** @internal */
-export type AdvanceWorldRequest$Outbound = {
+export type CreateWorldAdvanceRequest$Outbound = {
   id: string;
   "Idempotency-Key": string;
   body: models.AdvanceTimeRequest$Outbound;
 };
 
 /** @internal */
-export const AdvanceWorldRequest$outboundSchema: z.ZodMiniType<
-  AdvanceWorldRequest$Outbound,
-  AdvanceWorldRequest
+export const CreateWorldAdvanceRequest$outboundSchema: z.ZodMiniType<
+  CreateWorldAdvanceRequest$Outbound,
+  CreateWorldAdvanceRequest
 > = z.pipe(
   z.object({
     id: z.string(),
@@ -42,10 +42,10 @@ export const AdvanceWorldRequest$outboundSchema: z.ZodMiniType<
   }),
 );
 
-export function advanceWorldRequestToJSON(
-  advanceWorldRequest: AdvanceWorldRequest,
+export function createWorldAdvanceRequestToJSON(
+  createWorldAdvanceRequest: CreateWorldAdvanceRequest,
 ): string {
   return JSON.stringify(
-    AdvanceWorldRequest$outboundSchema.parse(advanceWorldRequest),
+    CreateWorldAdvanceRequest$outboundSchema.parse(createWorldAdvanceRequest),
   );
 }

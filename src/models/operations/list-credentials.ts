@@ -3,6 +3,11 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
+import * as models from "../index.js";
 
 export type ListCredentialsRequest = {
   /**
@@ -13,6 +18,10 @@ export type ListCredentialsRequest = {
    * Opaque next_cursor value from a previous page.
    */
   cursor?: string | undefined;
+};
+
+export type ListCredentialsResponse = {
+  result: models.ListCredentialsResponse;
 };
 
 /** @internal */
@@ -35,5 +44,30 @@ export function listCredentialsRequestToJSON(
 ): string {
   return JSON.stringify(
     ListCredentialsRequest$outboundSchema.parse(listCredentialsRequest),
+  );
+}
+
+/** @internal */
+export const ListCredentialsResponse$inboundSchema: z.ZodMiniType<
+  ListCredentialsResponse,
+  unknown
+> = z.pipe(
+  z.object({
+    Result: models.ListCredentialsResponse$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
+
+export function listCredentialsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ListCredentialsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListCredentialsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListCredentialsResponse' from JSON`,
   );
 }

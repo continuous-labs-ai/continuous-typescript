@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Create credential
  *
  * @remarks
- * Stores a connection to a real system: either an API base URL, the header that carries the credential, and the header value, or an app login with its sign-in URL, username, and password. Returns the credential without its value.
+ * Stores a connection to a real system: either an API base URL, the header that carries the credential, and the header value, or a Web App login with its sign-in URL, which a person then signs in to by hand in the console. Returns the credential without its value.
  */
 export function credentialsCreateCredential(
   client: ContinuousCore,
