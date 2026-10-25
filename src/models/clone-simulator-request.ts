@@ -7,10 +7,6 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type CloneSimulatorRequest = {
   /**
-   * Stable key for retrying this clone into the target workspace.
-   */
-  idempotencyKey: string;
-  /**
    * Display name for the clone. Defaults to the source Simulator's name.
    */
   name?: string | undefined;
@@ -22,7 +18,6 @@ export type CloneSimulatorRequest = {
 
 /** @internal */
 export type CloneSimulatorRequest$Outbound = {
-  idempotency_key: string;
   name?: string | undefined;
   target_workspace_id: string;
 };
@@ -33,13 +28,11 @@ export const CloneSimulatorRequest$outboundSchema: z.ZodMiniType<
   CloneSimulatorRequest
 > = z.pipe(
   z.object({
-    idempotencyKey: z.string(),
     name: z.optional(z.string()),
     targetWorkspaceId: z.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
-      idempotencyKey: "idempotency_key",
       targetWorkspaceId: "target_workspace_id",
     });
   }),

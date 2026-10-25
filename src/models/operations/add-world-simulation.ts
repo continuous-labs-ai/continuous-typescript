@@ -12,7 +12,7 @@ export type AddWorldSimulationRequest = {
    */
   id: string;
   /**
-   * Stable key for this request. Reuse with the same body returns the same change.
+   * Stable key for this request. Reuse with the same body returns the same change; reuse with a different body returns 409 idempotency_conflict.
    */
   idempotencyKey: string;
   body: models.AddWorldSimulationRequest;

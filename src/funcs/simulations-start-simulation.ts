@@ -23,6 +23,7 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
+import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -31,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Start Simulation
  *
  * @remarks
- * Starts a stopped Simulation from its saved state. The response includes the Simulation's token, which stop and start do not change. An already running Simulation returns its current token and status.
+ * Starts a stopped Simulation from its saved state. The response returns once the start is admitted, with status starting; read the Simulation until it is running. If its runtime cannot start, it returns to stopped. Stop and start do not change its token; read it with GET /v1/simulations/{id}/token. A running or starting Simulation is returned unchanged.
  */
 export function simulationsStartSimulation(
   client: ContinuousCore,
@@ -39,7 +40,7 @@ export function simulationsStartSimulation(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.StartSimulationResponse,
+    models.Simulation,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -65,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      operations.StartSimulationResponse,
+      models.Simulation,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -153,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.StartSimulationResponse,
+    models.Simulation,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -164,14 +165,11 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.StartSimulationResponse$inboundSchema, {
-      hdrs: true,
-      key: "Result",
-    }),
+    M.json(202, models.Simulation$inboundSchema),
     M.jsonErr([401, 403, 404, 409, 429], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
-    M.jsonErr([500, 503, 504], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

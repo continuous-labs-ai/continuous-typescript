@@ -14,6 +14,7 @@ import { simulationsListSimulations } from "../funcs/simulations-list-simulation
 import { simulationsRegenerateSimulationToken } from "../funcs/simulations-regenerate-simulation-token.js";
 import { simulationsStartSimulation } from "../funcs/simulations-start-simulation.js";
 import { simulationsStopSimulation } from "../funcs/simulations-stop-simulation.js";
+import { simulationsUpdateSimulation } from "../funcs/simulations-update-simulation.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
@@ -25,7 +26,7 @@ export class Simulations extends ClientSDK {
    * List Simulations
    *
    * @remarks
-   * Returns all Simulations that the API key can access. Results can be filtered by status, Simulator ID, or pinned Simulator digest.
+   * Returns all Simulations that the API key can access. Results can be filtered by status, Simulator ID, pinned Simulator digest, or the Snapshot they started from.
    */
   async listSimulations(
     request?: operations.ListSimulationsRequest | undefined,
@@ -44,10 +45,10 @@ export class Simulations extends ClientSDK {
    * Create Simulation
    *
    * @remarks
-   * Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response includes the endpoint and the Simulation's token, which does not expire.
+   * Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response returns once the Simulation is admitted, with status starting; read it until it is running. The response includes the endpoint and the Simulation's token, which does not expire. If its runtime cannot start, the Simulation is deleted.
    */
   async createSimulation(
-    request: models.CreateSimulationRequest,
+    request: operations.CreateSimulationRequest,
     options?: RequestOptions,
   ): Promise<operations.CreateSimulationResponse> {
     return unwrapAsync(simulationsCreateSimulation(
@@ -61,7 +62,7 @@ export class Simulations extends ClientSDK {
    * Delete Simulation
    *
    * @remarks
-   * Deletes a Simulation and its saved runtime state. Delete World-owned Simulations through their World.
+   * Deletes a Simulation and its saved runtime state, and cancels an active advance. Delete World-owned Simulations through their World.
    */
   async deleteSimulation(
     request: operations.DeleteSimulationRequest,
@@ -85,6 +86,23 @@ export class Simulations extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.SimulationDetail> {
     return unwrapAsync(simulationsGetSimulation(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Simulation
+   *
+   * @remarks
+   * Renames a Simulation or replaces its metadata. Omitted fields keep their current values. Update World-owned Simulations through their World.
+   */
+  async updateSimulation(
+    request: operations.UpdateSimulationRequest,
+    options?: RequestOptions,
+  ): Promise<models.Simulation> {
+    return unwrapAsync(simulationsUpdateSimulation(
       this,
       request,
       options,
@@ -151,12 +169,12 @@ export class Simulations extends ClientSDK {
    * Start Simulation
    *
    * @remarks
-   * Starts a stopped Simulation from its saved state. The response includes the Simulation's token, which stop and start do not change. An already running Simulation returns its current token and status.
+   * Starts a stopped Simulation from its saved state. The response returns once the start is admitted, with status starting; read the Simulation until it is running. If its runtime cannot start, it returns to stopped. Stop and start do not change its token; read it with GET /v1/simulations/{id}/token. A running or starting Simulation is returned unchanged.
    */
   async startSimulation(
     request: operations.StartSimulationRequest,
     options?: RequestOptions,
-  ): Promise<operations.StartSimulationResponse> {
+  ): Promise<models.Simulation> {
     return unwrapAsync(simulationsStartSimulation(
       this,
       request,
@@ -168,7 +186,7 @@ export class Simulations extends ClientSDK {
    * List Simulation Steps
    *
    * @remarks
-   * Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. Pass a step number as at_step when you save a Snapshot to save the state after that step. A stopped Simulation returns 409 simulation_stopped; start it first.
+   * Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. A stopped Simulation returns 409 simulation_stopped; start it first.
    */
   async listSimulationSteps(
     request: operations.ListSimulationStepsRequest,
@@ -187,7 +205,7 @@ export class Simulations extends ClientSDK {
    * Stop Simulation
    *
    * @remarks
-   * Stops a Simulation and saves its state. Requests to its endpoint return 409 simulation_stopped until you start it again. A stopped Simulation is returned unchanged.
+   * Stops a Simulation and saves its state. The response returns once the stop is accepted, with status stopping; read the Simulation until it is stopped. Requests to its endpoint are refused while it stops, and return 409 simulation_stopped once it is stopped, until you start it again. A stopped or stopping Simulation is returned unchanged.
    */
   async stopSimulation(
     request: operations.StopSimulationRequest,

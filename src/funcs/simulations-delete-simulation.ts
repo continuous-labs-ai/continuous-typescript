@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Delete Simulation
  *
  * @remarks
- * Deletes a Simulation and its saved runtime state. Delete World-owned Simulations through their World.
+ * Deletes a Simulation and its saved runtime state, and cancels an active advance. Delete World-owned Simulations through their World.
  */
 export function simulationsDeleteSimulation(
   client: ContinuousCore,

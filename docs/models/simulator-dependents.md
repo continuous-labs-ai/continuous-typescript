@@ -14,6 +14,7 @@ let value: SimulatorDependents = {
     "<value 1>",
     "<value 2>",
   ],
+  snapshots: [],
   worlds: [],
 };
 ```
@@ -24,4 +25,5 @@ let value: SimulatorDependents = {
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `childSimulators`                                                       | *string*[]                                                              | :heavy_check_mark:                                                      | IDs of Simulators built from the Simulator.                             |
 | `simulations`                                                           | *string*[]                                                              | :heavy_check_mark:                                                      | IDs of Simulations created from the Simulator, including World members. |
+| `snapshots`                                                             | *string*[]                                                              | :heavy_check_mark:                                                      | IDs of Simulation Snapshots of Simulations created from the Simulator.  |
 | `worlds`                                                                | *string*[]                                                              | :heavy_check_mark:                                                      | IDs of Worlds that include the Simulator.                               |

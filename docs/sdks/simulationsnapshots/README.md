@@ -2,7 +2,7 @@
 
 ## Overview
 
-Save a running Simulation's state as a Snapshot, create Simulations from it, and delete it.
+Save a running Simulation's state as a Snapshot, create Simulations from it, and rename and delete it.
 
 ### Available Operations
 
@@ -10,6 +10,7 @@ Save a running Simulation's state as a Snapshot, create Simulations from it, and
 * [createSimulationSnapshot](#createsimulationsnapshot) - Create Simulation Snapshot
 * [deleteSimulationSnapshot](#deletesimulationsnapshot) - Delete Simulation Snapshot
 * [getSimulationSnapshot](#getsimulationsnapshot) - Get Simulation Snapshot
+* [updateSimulationSnapshot](#updatesimulationsnapshot) - Update Simulation Snapshot
 
 ## listSimulationSnapshots
 
@@ -88,7 +89,7 @@ run();
 
 ## createSimulationSnapshot
 
-Saves a running Simulation's current state, or its state after an earlier recorded step when you set at_step, and returns the Snapshot once the state is stored. Saving does not change the Simulation. Create Simulations from the Snapshot with snapshot_id; it outlives its Simulation. A stopped Simulation returns 409 simulation_stopped. Reuse the Idempotency-Key to retry safely.
+Saves a running Simulation's current state and returns the Snapshot once the state is stored. Saving closes the Simulation's open event streams and WebSockets and does not change its state. Create Simulations from the Snapshot with snapshot_id; it outlives its Simulation. A stopped Simulation returns 409 simulation_stopped. Reuse the Idempotency-Key to retry safely.
 
 ### Example Usage
 
@@ -104,7 +105,6 @@ async function run() {
   const result = await continuous.simulationSnapshots.createSimulationSnapshot({
     idempotencyKey: "<value>",
     body: {
-      atStep: 42,
       name: "before-refund",
       simulationId: "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6",
     },
@@ -134,7 +134,6 @@ async function run() {
   const res = await simulationSnapshotsCreateSimulationSnapshot(continuous, {
     idempotencyKey: "<value>",
     body: {
-      atStep: 42,
       name: "before-refund",
       simulationId: "sim_01J8Z5X4K7M2N9P0Q1R2S3T4V6",
     },
@@ -173,7 +172,7 @@ run();
 
 ## deleteSimulationSnapshot
 
-Deletes a Snapshot and its saved state. Simulations created from it keep running, and their snapshot_id becomes null.
+Deletes a Snapshot and its saved state. Simulations created from it keep running, and their snapshot_id becomes null. While it is creating, the response is 409 snapshot_not_ready; while a Simulation is starting from it, 409 snapshot_in_use.
 
 ### Example Usage
 
@@ -320,3 +319,80 @@ run();
 | errors.ErrorT                 | 401, 404                      | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## updateSimulationSnapshot
+
+Renames a Snapshot. Omitted fields keep their current values.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="update-simulation-snapshot" method="patch" path="/v1/simulation-snapshots/{id}" example="bad_request_body" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulationSnapshots.updateSimulationSnapshot({
+    id: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulationSnapshotsUpdateSimulationSnapshot } from "@continuous-labs/sdk/funcs/simulation-snapshots-update-simulation-snapshot.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulationSnapshotsUpdateSimulationSnapshot(continuous, {
+    id: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulationSnapshotsUpdateSimulationSnapshot failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateSimulationSnapshotRequest](../../models/operations/update-simulation-snapshot-request.md)                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.SimulationSnapshot](../../models/simulation-snapshot.md)\>**
+
+### Errors
+
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorT                     | 400, 401, 404, 408, 413, 415, 422 | application/problem+json          |
+| errors.ErrorT                     | 500, 503                          | application/problem+json          |
+| errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |

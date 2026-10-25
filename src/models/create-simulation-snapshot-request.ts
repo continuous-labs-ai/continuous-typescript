@@ -7,10 +7,6 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type CreateSimulationSnapshotRequest = {
   /**
-   * Completed step to save the state after. Omission saves the latest state.
-   */
-  atStep?: number | undefined;
-  /**
    * Snapshot name.
    */
   name: string;
@@ -22,7 +18,6 @@ export type CreateSimulationSnapshotRequest = {
 
 /** @internal */
 export type CreateSimulationSnapshotRequest$Outbound = {
-  at_step?: number | undefined;
   name: string;
   simulation_id: string;
 };
@@ -33,13 +28,11 @@ export const CreateSimulationSnapshotRequest$outboundSchema: z.ZodMiniType<
   CreateSimulationSnapshotRequest
 > = z.pipe(
   z.object({
-    atStep: z.optional(z.int()),
     name: z.string(),
     simulationId: z.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
-      atStep: "at_step",
       simulationId: "simulation_id",
     });
   }),

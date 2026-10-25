@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Cancel Simulator Build
  *
  * @remarks
- * Requests cancellation of an active Simulator build. The build can finish before cancellation takes effect. A Simulator that is not building is returned unchanged.
+ * Requests cancellation of a pending or active Simulator build and returns the Simulator without waiting for the build to stop. Get the Simulator until its status leaves pending or building. The build can finish before cancellation takes effect. A Simulator whose build has settled is returned unchanged.
  */
 export function simulatorsCancelSimulator(
   client: ContinuousCore,
@@ -165,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.Simulator$inboundSchema),
+    M.json(202, models.Simulator$inboundSchema),
     M.jsonErr([401, 403, 404, 422], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

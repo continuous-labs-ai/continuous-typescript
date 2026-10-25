@@ -1,6 +1,6 @@
 # WorldStatus
 
-pending while waiting for capacity; building while the build runs; ready when it can be started; running or stopped once its Simulations exist; failed when building or first start fails; canceled when the build was canceled.
+pending while waiting for capacity; building while the build runs; ready when it can be started; starting while its Simulations start; running or stopped once its Simulations exist; stopping while they stop; failed when building or first start fails; canceled when the build was canceled.
 
 ## Example Usage
 
@@ -15,5 +15,5 @@ let value: WorldStatus = "building";
 ## Values
 
 ```typescript
-"pending" | "building" | "ready" | "running" | "stopped" | "failed" | "canceled" | Unrecognized<string>
+"pending" | "building" | "ready" | "starting" | "running" | "stopping" | "stopped" | "failed" | "canceled" | Unrecognized<string>
 ```

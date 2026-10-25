@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
 export type CloneSimulatorRequest = {
@@ -10,12 +11,17 @@ export type CloneSimulatorRequest = {
    * Source Simulator ID.
    */
   id: string;
+  /**
+   * Optional key for retrying this create safely. A retry with the same key and request returns the original result with its status; the same key with a different request returns 409 idempotency_conflict. Without a key, each request creates a new resource. Keys are scoped to the target workspace.
+   */
+  idempotencyKey?: string | undefined;
   body: models.CloneSimulatorRequest;
 };
 
 /** @internal */
 export type CloneSimulatorRequest$Outbound = {
   id: string;
+  "Idempotency-Key"?: string | undefined;
   body: models.CloneSimulatorRequest$Outbound;
 };
 
@@ -23,10 +29,18 @@ export type CloneSimulatorRequest$Outbound = {
 export const CloneSimulatorRequest$outboundSchema: z.ZodMiniType<
   CloneSimulatorRequest$Outbound,
   CloneSimulatorRequest
-> = z.object({
-  id: z.string(),
-  body: models.CloneSimulatorRequest$outboundSchema,
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    idempotencyKey: z.optional(z.string()),
+    body: models.CloneSimulatorRequest$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
 
 export function cloneSimulatorRequestToJSON(
   cloneSimulatorRequest: CloneSimulatorRequest,

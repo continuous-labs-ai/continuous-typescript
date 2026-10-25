@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Start World
  *
  * @remarks
- * Starts every Simulation in the World. The first start creates the Simulations; later starts restore them from saved state. The World must be ready or stopped, and the workspace must have room for all members under its active-Simulation limit. A running World is returned unchanged.
+ * Starts every Simulation in the World. The first start creates the Simulations; later starts restore them from saved state. The World must be ready or stopped, and the workspace must have room for all members under its active-Simulation limit. The response returns once the start is accepted, with status starting; read the World until it is running. A running or starting World is returned unchanged.
  */
 export function worldsStartWorld(
   client: ContinuousCore,
@@ -166,7 +166,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.World$inboundSchema),
+    M.json(202, models.World$inboundSchema),
     M.jsonErr(
       [400, 401, 403, 404, 408, 409, 413, 415, 429],
       errors.ErrorT$inboundSchema,

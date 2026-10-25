@@ -2,7 +2,7 @@
 
 ## Overview
 
-Build Simulators from OpenAPI, WSDL or GraphQL documents, check or cancel a build, clone Simulators into other workspaces, and delete Simulators.
+Build Simulators from OpenAPI, WSDL or GraphQL documents, check or cancel a build, clone Simulators into other workspaces, and rename and delete Simulators.
 
 ### Available Operations
 
@@ -10,6 +10,7 @@ Build Simulators from OpenAPI, WSDL or GraphQL documents, check or cancel a buil
 * [buildSimulator](#buildsimulator) - Build Simulator
 * [deleteSimulator](#deletesimulator) - Delete Simulator
 * [getSimulator](#getsimulator) - Get Simulator
+* [updateSimulator](#updatesimulator) - Update Simulator
 * [cancelSimulator](#cancelsimulator) - Cancel Simulator Build
 * [cloneSimulator](#clonesimulator) - Clone Simulator
 
@@ -104,12 +105,14 @@ const continuous = new Continuous({
 
 async function run() {
   const result = await continuous.simulators.buildSimulator({
-    request: {
-      filter: [],
-      instructions: "Return stable example data for every operation.",
-      model: "claude-fable-5-1",
-      name: "billing-api",
-      specKind: "openapi",
+    body: {
+      request: {
+        filter: [],
+        instructions: "Return stable example data for every operation.",
+        model: "claude-fable-5-1",
+        name: "billing-api",
+        specKind: "openapi",
+      },
     },
   });
 
@@ -135,12 +138,14 @@ const continuous = new ContinuousCore({
 
 async function run() {
   const res = await simulatorsBuildSimulator(continuous, {
-    request: {
-      filter: [],
-      instructions: "Return stable example data for every operation.",
-      model: "claude-fable-5-1",
-      name: "billing-api",
-      specKind: "openapi",
+    body: {
+      request: {
+        filter: [],
+        instructions: "Return stable example data for every operation.",
+        model: "claude-fable-5-1",
+        name: "billing-api",
+        specKind: "openapi",
+      },
     },
   });
   if (res.ok) {
@@ -165,12 +170,14 @@ const continuous = new Continuous({
 
 async function run() {
   const result = await continuous.simulators.buildSimulator({
-    request: {
-      filter: [],
-      instructions: "Return stable example data for every operation.",
-      model: "claude-fable-5-1",
-      name: "billing-api",
-      specKind: "openapi",
+    body: {
+      request: {
+        filter: [],
+        instructions: "Return stable example data for every operation.",
+        model: "claude-fable-5-1",
+        name: "billing-api",
+        specKind: "openapi",
+      },
     },
   });
 
@@ -196,12 +203,14 @@ const continuous = new ContinuousCore({
 
 async function run() {
   const res = await simulatorsBuildSimulator(continuous, {
-    request: {
-      filter: [],
-      instructions: "Return stable example data for every operation.",
-      model: "claude-fable-5-1",
-      name: "billing-api",
-      specKind: "openapi",
+    body: {
+      request: {
+        filter: [],
+        instructions: "Return stable example data for every operation.",
+        model: "claude-fable-5-1",
+        name: "billing-api",
+        specKind: "openapi",
+      },
     },
   });
   if (res.ok) {
@@ -240,7 +249,7 @@ run();
 
 ## deleteSimulator
 
-Deletes a Simulator that has no dependent Worlds, Simulations, or child Simulators.
+Deletes a Simulator that has no dependent Worlds, Simulations, child Simulators, or Simulation Snapshots.
 
 ### Example Usage
 
@@ -389,9 +398,86 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
+## updateSimulator
+
+Renames a Simulator. Omitted fields keep their current values. Continuous catalog Simulators cannot be changed.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="update-simulator" method="patch" path="/v1/simulators/{id}" example="bad_request_body" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulators.updateSimulator({
+    id: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulatorsUpdateSimulator } from "@continuous-labs/sdk/funcs/simulators-update-simulator.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulatorsUpdateSimulator(continuous, {
+    id: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulatorsUpdateSimulator failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateSimulatorRequest](../../models/operations/update-simulator-request.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.Simulator](../../models/simulator.md)\>**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
+
 ## cancelSimulator
 
-Requests cancellation of an active Simulator build. The build can finish before cancellation takes effect. A Simulator that is not building is returned unchanged.
+Requests cancellation of a pending or active Simulator build and returns the Simulator without waiting for the build to stop. Get the Simulator until its status leaves pending or building. The build can finish before cancellation takes effect. A Simulator whose build has settled is returned unchanged.
 
 ### Example Usage
 
@@ -482,7 +568,6 @@ async function run() {
   const result = await continuous.simulators.cloneSimulator({
     id: "<id>",
     body: {
-      idempotencyKey: "<value>",
       targetWorkspaceId: "<id>",
     },
   });
@@ -511,7 +596,6 @@ async function run() {
   const res = await simulatorsCloneSimulator(continuous, {
     id: "<id>",
     body: {
-      idempotencyKey: "<value>",
       targetWorkspaceId: "<id>",
     },
   });
@@ -539,7 +623,6 @@ async function run() {
   const result = await continuous.simulators.cloneSimulator({
     id: "<id>",
     body: {
-      idempotencyKey: "<value>",
       targetWorkspaceId: "<id>",
     },
   });
@@ -568,7 +651,6 @@ async function run() {
   const res = await simulatorsCloneSimulator(continuous, {
     id: "<id>",
     body: {
-      idempotencyKey: "<value>",
       targetWorkspaceId: "<id>",
     },
   });

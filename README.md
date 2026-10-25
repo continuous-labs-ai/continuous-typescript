@@ -150,6 +150,7 @@ run();
 * [createSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#createsimulationsnapshot) - Create Simulation Snapshot
 * [deleteSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#deletesimulationsnapshot) - Delete Simulation Snapshot
 * [getSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#getsimulationsnapshot) - Get Simulation Snapshot
+* [updateSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#updatesimulationsnapshot) - Update Simulation Snapshot
 
 ### [Simulations](docs/sdks/simulations/README.md)
 
@@ -157,6 +158,7 @@ run();
 * [createSimulation](docs/sdks/simulations/README.md#createsimulation) - Create Simulation
 * [deleteSimulation](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation
 * [getSimulation](docs/sdks/simulations/README.md#getsimulation) - Get Simulation
+* [updateSimulation](docs/sdks/simulations/README.md#updatesimulation) - Update Simulation
 * [createSimulationAdvance](docs/sdks/simulations/README.md#createsimulationadvance) - Advance Simulation Time
 * [getSimulationAdvance](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance
 * [listSimulationAdvanceEvents](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events
@@ -172,6 +174,7 @@ run();
 * [buildSimulator](docs/sdks/simulators/README.md#buildsimulator) - Build Simulator
 * [deleteSimulator](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
 * [getSimulator](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
+* [updateSimulator](docs/sdks/simulators/README.md#updatesimulator) - Update Simulator
 * [cancelSimulator](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build
 * [cloneSimulator](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator
 
@@ -181,6 +184,7 @@ run();
 * [buildWorld](docs/sdks/worlds/README.md#buildworld) - Build World
 * [deleteWorld](docs/sdks/worlds/README.md#deleteworld) - Delete World
 * [getWorld](docs/sdks/worlds/README.md#getworld) - Get World
+* [updateWorld](docs/sdks/worlds/README.md#updateworld) - Update World
 * [createWorldAdvance](docs/sdks/worlds/README.md#createworldadvance) - Advance World Time
 * [getWorldAdvance](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance
 * [cancelWorld](docs/sdks/worlds/README.md#cancelworld) - Cancel World Build
@@ -226,15 +230,18 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`simulationSnapshotsDeleteSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#deletesimulationsnapshot) - Delete Simulation Snapshot
 - [`simulationSnapshotsGetSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#getsimulationsnapshot) - Get Simulation Snapshot
 - [`simulationSnapshotsListSimulationSnapshots`](docs/sdks/simulationsnapshots/README.md#listsimulationsnapshots) - List Simulation Snapshots
+- [`simulationSnapshotsUpdateSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#updatesimulationsnapshot) - Update Simulation Snapshot
 - [`simulationsRegenerateSimulationToken`](docs/sdks/simulations/README.md#regeneratesimulationtoken) - Regenerate Simulation Token
 - [`simulationsStartSimulation`](docs/sdks/simulations/README.md#startsimulation) - Start Simulation
 - [`simulationsStopSimulation`](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation
+- [`simulationsUpdateSimulation`](docs/sdks/simulations/README.md#updatesimulation) - Update Simulation
 - [`simulatorsBuildSimulator`](docs/sdks/simulators/README.md#buildsimulator) - Build Simulator
 - [`simulatorsCancelSimulator`](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build
 - [`simulatorsCloneSimulator`](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator
 - [`simulatorsDeleteSimulator`](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
 - [`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
 - [`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators) - List Simulators
+- [`simulatorsUpdateSimulator`](docs/sdks/simulators/README.md#updatesimulator) - Update Simulator
 - [`worldsAddWorldSimulation`](docs/sdks/worlds/README.md#addworldsimulation) - Add World Simulation
 - [`worldsBuildWorld`](docs/sdks/worlds/README.md#buildworld) - Build World
 - [`worldsCancelWorld`](docs/sdks/worlds/README.md#cancelworld) - Cancel World Build
@@ -247,6 +254,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`worldsRemoveWorldSimulation`](docs/sdks/worlds/README.md#removeworldsimulation) - Remove World Simulation
 - [`worldsStartWorld`](docs/sdks/worlds/README.md#startworld) - Start World
 - [`worldsStopWorld`](docs/sdks/worlds/README.md#stopworld) - Stop World
+- [`worldsUpdateWorld`](docs/sdks/worlds/README.md#updateworld) - Update World
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -306,12 +314,14 @@ const continuous = new Continuous({
 
 async function run() {
   const result = await continuous.simulators.buildSimulator({
-    request: {
-      filter: [],
-      instructions: "Return stable example data for every operation.",
-      model: "claude-fable-5-1",
-      name: "billing-api",
-      specKind: "openapi",
+    body: {
+      request: {
+        filter: [],
+        instructions: "Return stable example data for every operation.",
+        model: "claude-fable-5-1",
+        name: "billing-api",
+        specKind: "openapi",
+      },
     },
   });
 
@@ -460,7 +470,7 @@ run();
 
 
 **Inherit from [`ContinuousError`](./src/models/errors/continuous-error.ts)**:
-* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 39 methods.*
+* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 43 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

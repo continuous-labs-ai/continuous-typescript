@@ -2,7 +2,7 @@
 
 ## Overview
 
-Create Simulations from ready Simulators or Snapshots, then stop, start, and delete them.
+Create Simulations from ready Simulators or Snapshots, then rename, stop, start, and delete them.
 
 ### Available Operations
 
@@ -10,6 +10,7 @@ Create Simulations from ready Simulators or Snapshots, then stop, start, and del
 * [createSimulation](#createsimulation) - Create Simulation
 * [deleteSimulation](#deletesimulation) - Delete Simulation
 * [getSimulation](#getsimulation) - Get Simulation
+* [updateSimulation](#updatesimulation) - Update Simulation
 * [createSimulationAdvance](#createsimulationadvance) - Advance Simulation Time
 * [getSimulationAdvance](#getsimulationadvance) - Get Simulation Clock Advance
 * [listSimulationAdvanceEvents](#listsimulationadvanceevents) - List Clock Advance Events
@@ -21,7 +22,7 @@ Create Simulations from ready Simulators or Snapshots, then stop, start, and del
 
 ## listSimulations
 
-Returns all Simulations that the API key can access. Results can be filtered by status, Simulator ID, or pinned Simulator digest.
+Returns all Simulations that the API key can access. Results can be filtered by status, Simulator ID, pinned Simulator digest, or the Snapshot they started from.
 
 ### Example Usage
 
@@ -96,7 +97,7 @@ run();
 
 ## createSimulation
 
-Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response includes the endpoint and the Simulation's token, which does not expire.
+Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response returns once the Simulation is admitted, with status starting; read it until it is running. The response includes the endpoint and the Simulation's token, which does not expire. If its runtime cannot start, the Simulation is deleted.
 
 ### Example Usage: bad_request_body
 
@@ -110,11 +111,13 @@ const continuous = new Continuous({
 
 async function run() {
   const result = await continuous.simulations.createSimulation({
-    metadata: {
-      "customer_id": "cust_123",
+    body: {
+      metadata: {
+        "customer_id": "cust_123",
+      },
+      name: "billing-sandbox",
+      simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
     },
-    name: "billing-sandbox",
-    simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
   });
 
   console.log(result);
@@ -139,11 +142,13 @@ const continuous = new ContinuousCore({
 
 async function run() {
   const res = await simulationsCreateSimulation(continuous, {
-    metadata: {
-      "customer_id": "cust_123",
+    body: {
+      metadata: {
+        "customer_id": "cust_123",
+      },
+      name: "billing-sandbox",
+      simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
     },
-    name: "billing-sandbox",
-    simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -167,11 +172,13 @@ const continuous = new Continuous({
 
 async function run() {
   const result = await continuous.simulations.createSimulation({
-    metadata: {
-      "customer_id": "cust_123",
+    body: {
+      metadata: {
+        "customer_id": "cust_123",
+      },
+      name: "billing-sandbox",
+      simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
     },
-    name: "billing-sandbox",
-    simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
   });
 
   console.log(result);
@@ -196,11 +203,13 @@ const continuous = new ContinuousCore({
 
 async function run() {
   const res = await simulationsCreateSimulation(continuous, {
-    metadata: {
-      "customer_id": "cust_123",
+    body: {
+      metadata: {
+        "customer_id": "cust_123",
+      },
+      name: "billing-sandbox",
+      simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
     },
-    name: "billing-sandbox",
-    simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -224,11 +233,13 @@ const continuous = new Continuous({
 
 async function run() {
   const result = await continuous.simulations.createSimulation({
-    metadata: {
-      "customer_id": "cust_123",
+    body: {
+      metadata: {
+        "customer_id": "cust_123",
+      },
+      name: "billing-sandbox",
+      simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
     },
-    name: "billing-sandbox",
-    simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
   });
 
   console.log(result);
@@ -253,11 +264,13 @@ const continuous = new ContinuousCore({
 
 async function run() {
   const res = await simulationsCreateSimulation(continuous, {
-    metadata: {
-      "customer_id": "cust_123",
+    body: {
+      metadata: {
+        "customer_id": "cust_123",
+      },
+      name: "billing-sandbox",
+      simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
     },
-    name: "billing-sandbox",
-    simulatorId: "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -274,7 +287,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.CreateSimulationRequest](../../models/create-simulation-request.md)                                                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CreateSimulationRequest](../../models/operations/create-simulation-request.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -288,12 +301,12 @@ run();
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
 | errors.ErrorT                               | 400, 401, 404, 408, 409, 413, 415, 422, 429 | application/problem+json                    |
-| errors.ErrorT                               | 500, 503, 504                               | application/problem+json                    |
+| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
 ## deleteSimulation
 
-Deletes a Simulation and its saved runtime state. Delete World-owned Simulations through their World.
+Deletes a Simulation and its saved runtime state, and cancels an active advance. Delete World-owned Simulations through their World.
 
 ### Example Usage
 
@@ -440,6 +453,83 @@ run();
 | errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## updateSimulation
+
+Renames a Simulation or replaces its metadata. Omitted fields keep their current values. Update World-owned Simulations through their World.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="update-simulation" method="patch" path="/v1/simulations/{id}" example="bad_request_body" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulations.updateSimulation({
+    id: "<id>",
+    body: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulationsUpdateSimulation } from "@continuous-labs/sdk/funcs/simulations-update-simulation.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulationsUpdateSimulation(continuous, {
+    id: "<id>",
+    body: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulationsUpdateSimulation failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateSimulationRequest](../../models/operations/update-simulation-request.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.Simulation](../../models/simulation.md)\>**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
+| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
 ## createSimulationAdvance
 
@@ -684,7 +774,7 @@ run();
 
 ## startSimulation
 
-Starts a stopped Simulation from its saved state. The response includes the Simulation's token, which stop and start do not change. An already running Simulation returns its current token and status.
+Starts a stopped Simulation from its saved state. The response returns once the start is admitted, with status starting; read the Simulation until it is running. If its runtime cannot start, it returns to stopped. Stop and start do not change its token; read it with GET /v1/simulations/{id}/token. A running or starting Simulation is returned unchanged.
 
 ### Example Usage
 
@@ -747,19 +837,19 @@ run();
 
 ### Response
 
-**Promise\<[operations.StartSimulationResponse](../../models/operations/start-simulation-response.md)\>**
+**Promise\<[models.Simulation](../../models/simulation.md)\>**
 
 ### Errors
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ErrorT                 | 401, 403, 404, 409, 429       | application/problem+json      |
-| errors.ErrorT                 | 500, 503, 504                 | application/problem+json      |
+| errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## listSimulationSteps
 
-Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. Pass a step number as at_step when you save a Snapshot to save the state after that step. A stopped Simulation returns 409 simulation_stopped; start it first.
+Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. A stopped Simulation returns 409 simulation_stopped; start it first.
 
 ### Example Usage
 
@@ -838,7 +928,7 @@ run();
 
 ## stopSimulation
 
-Stops a Simulation and saves its state. Requests to its endpoint return 409 simulation_stopped until you start it again. A stopped Simulation is returned unchanged.
+Stops a Simulation and saves its state. The response returns once the stop is accepted, with status stopping; read the Simulation until it is stopped. Requests to its endpoint are refused while it stops, and return 409 simulation_stopped once it is stopped, until you start it again. A stopped or stopping Simulation is returned unchanged.
 
 ### Example Usage
 
@@ -983,7 +1073,7 @@ run();
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
-| errors.ErrorT                 | 500, 502, 503                 | application/problem+json      |
+| errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## regenerateSimulationToken

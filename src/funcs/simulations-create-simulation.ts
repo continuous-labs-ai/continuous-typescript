@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { ContinuousCore } from "../core.js";
-import { encodeJSON } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -23,7 +23,6 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -32,11 +31,11 @@ import { Result } from "../types/fp.js";
  * Create Simulation
  *
  * @remarks
- * Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response includes the endpoint and the Simulation's token, which does not expire.
+ * Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response returns once the Simulation is admitted, with status starting; read it until it is running. The response includes the endpoint and the Simulation's token, which does not expire. If its runtime cannot start, the Simulation is deleted.
  */
 export function simulationsCreateSimulation(
   client: ContinuousCore,
-  request: models.CreateSimulationRequest,
+  request: operations.CreateSimulationRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -61,7 +60,7 @@ export function simulationsCreateSimulation(
 
 async function $do(
   client: ContinuousCore,
-  request: models.CreateSimulationRequest,
+  request: operations.CreateSimulationRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -82,20 +81,26 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(models.CreateSimulationRequest$outboundSchema, value),
+    (value) =>
+      z.parse(operations.CreateSimulationRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload, { explode: true });
+  const body = encodeJSON("body", payload.body, { explode: true });
 
   const path = pathToFunc("/v1/simulations")();
 
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
+    "Idempotency-Key": encodeSimple(
+      "Idempotency-Key",
+      payload["Idempotency-Key"],
+      { explode: false, charEncoding: "none" },
+    ),
   }));
 
   const secConfig = await extractSecurity(client._options.apiKeyAuth);
@@ -160,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, operations.CreateSimulationResponse$inboundSchema, {
+    M.json(202, operations.CreateSimulationResponse$inboundSchema, {
       hdrs: true,
       key: "Result",
     }),
@@ -169,7 +174,7 @@ async function $do(
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),
-    M.jsonErr([500, 503, 504], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

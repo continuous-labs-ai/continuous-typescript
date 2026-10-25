@@ -37,7 +37,7 @@ import {
  * List Simulation Steps
  *
  * @remarks
- * Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. Pass a step number as at_step when you save a Snapshot to save the state after that step. A stopped Simulation returns 409 simulation_stopped; start it first.
+ * Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. A stopped Simulation returns 409 simulation_stopped; start it first.
  */
 export function simulationsListSimulationSteps(
   client: ContinuousCore,

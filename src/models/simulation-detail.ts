@@ -16,14 +16,16 @@ import {
 } from "./simulator-actor.js";
 
 /**
- * Current status. running serves requests; after a period without requests, the first request can take longer while the Simulation resumes. stopped means its state is saved and requests return 409 until you start it.
+ * Current status. starting means its runtime is booting; read the Simulation until it is running. running serves requests; after a period without requests, the first request can take longer while the Simulation resumes. stopping means its state is being saved, and stopped means it is saved; requests return 409 in both until you start it.
  */
 export const SimulationDetailStatus = {
+  Starting: "starting",
   Running: "running",
+  Stopping: "stopping",
   Stopped: "stopped",
 } as const;
 /**
- * Current status. running serves requests; after a period without requests, the first request can take longer while the Simulation resumes. stopped means its state is saved and requests return 409 until you start it.
+ * Current status. starting means its runtime is booting; read the Simulation until it is running. running serves requests; after a period without requests, the first request can take longer while the Simulation resumes. stopping means its state is being saved, and stopped means it is saved; requests return 409 in both until you start it.
  */
 export type SimulationDetailStatus = OpenEnum<typeof SimulationDetailStatus>;
 
@@ -89,7 +91,7 @@ export type SimulationDetail = {
    */
   startTime: Date;
   /**
-   * Current status. running serves requests; after a period without requests, the first request can take longer while the Simulation resumes. stopped means its state is saved and requests return 409 until you start it.
+   * Current status. starting means its runtime is booting; read the Simulation until it is running. running serves requests; after a period without requests, the first request can take longer while the Simulation resumes. stopping means its state is being saved, and stopped means it is saved; requests return 409 in both until you start it.
    */
   status: SimulationDetailStatus;
   /**

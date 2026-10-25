@@ -8,15 +8,15 @@ import * as models from "../index.js";
 
 export type CreateSimulationSnapshotRequest = {
   /**
-   * Stable key for this request. A retry with the same key returns the original Snapshot.
+   * Optional key for retrying this create safely. A retry with the same key and request returns the original result with its status; the same key with a different request returns 409 idempotency_conflict. Without a key, each request creates a new resource.
    */
-  idempotencyKey: string;
+  idempotencyKey?: string | undefined;
   body: models.CreateSimulationSnapshotRequest;
 };
 
 /** @internal */
 export type CreateSimulationSnapshotRequest$Outbound = {
-  "Idempotency-Key": string;
+  "Idempotency-Key"?: string | undefined;
   body: models.CreateSimulationSnapshotRequest$Outbound;
 };
 
@@ -26,7 +26,7 @@ export const CreateSimulationSnapshotRequest$outboundSchema: z.ZodMiniType<
   CreateSimulationSnapshotRequest
 > = z.pipe(
   z.object({
-    idempotencyKey: z.string(),
+    idempotencyKey: z.optional(z.string()),
     body: models.CreateSimulationSnapshotRequest$outboundSchema,
   }),
   z.transform((v) => {

@@ -182,7 +182,7 @@ async function $do(
     M.jsonErr([401, 403, 404], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
-    M.jsonErr([500, 502, 503], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

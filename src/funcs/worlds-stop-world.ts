@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Stop World
  *
  * @remarks
- * Stops a World and saves each Simulation state. You can start the World later from the saved states.
+ * Stops a World and saves each Simulation state. You can start the World later from the saved states. The response returns once the stop is accepted, with status stopping; read the World until it is stopped. A stopped or stopping World is returned unchanged.
  */
 export function worldsStopWorld(
   client: ContinuousCore,
@@ -165,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.World$inboundSchema),
+    M.json(202, models.World$inboundSchema),
     M.jsonErr([401, 403, 404, 409], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
