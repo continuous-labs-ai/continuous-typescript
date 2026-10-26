@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { ContinuousCore } from "../core.js";
-import { encodeFormQuery } from "../lib/encodings.js";
+import { encodeFormQuery, queryJoin } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -108,14 +108,20 @@ async function $do(
 
   const path = pathToFunc("/v1/simulations")();
 
-  const query = encodeFormQuery({
-    "cursor": payload?.cursor,
-    "limit": payload?.limit,
-    "simulator_digest": payload?.simulator_digest,
-    "simulator_id": payload?.simulator_id,
-    "snapshot_id": payload?.snapshot_id,
-    "status": payload?.status,
-  }, { explode: false });
+  const query = queryJoin(
+    encodeFormQuery({
+      "cursor": payload?.cursor,
+      "limit": payload?.limit,
+      "simulator_digest": payload?.simulator_digest,
+      "simulator_id": payload?.simulator_id,
+      "snapshot_id": payload?.snapshot_id,
+      "status": payload?.status,
+      "world_id": payload?.world_id,
+    }, { explode: false }),
+    encodeFormQuery({
+      "id": payload?.id,
+    }),
+  );
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
