@@ -45,7 +45,7 @@ export type SimulatorErrorReason = OpenEnum<typeof SimulatorErrorReason>;
 
 export type SimulatorError = {
   /**
-   * Plain-text explanation from the build agent when it could not continue, or the problems the check of the documents' INDEX.md found. At most 4096 UTF-8 bytes.
+   * Plain-text explanation from the build agent when it could not continue, or the problems the check of the build's index found. At most 4096 UTF-8 bytes.
    */
   agentMessage: string | null;
   /**

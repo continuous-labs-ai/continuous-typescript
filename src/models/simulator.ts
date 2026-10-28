@@ -52,7 +52,7 @@ export const Source = {
 export type Source = OpenEnum<typeof Source>;
 
 /**
- * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the calls its discovery journeys captured.
+ * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the app's origin.
  */
 export const SimulatorSpecKind = {
   Openapi: "openapi",
@@ -61,7 +61,7 @@ export const SimulatorSpecKind = {
   Recorded: "recorded",
 } as const;
 /**
- * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the calls its discovery journeys captured.
+ * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the app's origin.
  */
 export type SimulatorSpecKind = OpenEnum<typeof SimulatorSpecKind>;
 
@@ -127,7 +127,7 @@ export type Simulator = {
    */
   source: Source;
   /**
-   * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the calls its discovery journeys captured.
+   * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the app's origin.
    */
   specKind: SimulatorSpecKind | null;
   /**
