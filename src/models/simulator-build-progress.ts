@@ -49,10 +49,9 @@ export type SimulatorBuildProgressModel = OpenEnum<
 >;
 
 /**
- * Agent phase: discovery while the discovery agent logs in to the vendor's web app and captures it, in a Web App build; research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, finalize for author repair after review or QA. Null when not recorded.
+ * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, finalize for author repair after review or QA. Null when not recorded.
  */
 export const SimulatorBuildProgressPhase = {
-  Discovery: "discovery",
   Research: "research",
   Build: "build",
   Review: "review",
@@ -60,7 +59,7 @@ export const SimulatorBuildProgressPhase = {
   Finalize: "finalize",
 } as const;
 /**
- * Agent phase: discovery while the discovery agent logs in to the vendor's web app and captures it, in a Web App build; research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, finalize for author repair after review or QA. Null when not recorded.
+ * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, finalize for author repair after review or QA. Null when not recorded.
  */
 export type SimulatorBuildProgressPhase = OpenEnum<
   typeof SimulatorBuildProgressPhase
@@ -103,7 +102,7 @@ export type SimulatorBuildProgress = {
    */
   model: SimulatorBuildProgressModel;
   /**
-   * Agent phase: discovery while the discovery agent logs in to the vendor's web app and captures it, in a Web App build; research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, finalize for author repair after review or QA. Null when not recorded.
+   * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, finalize for author repair after review or QA. Null when not recorded.
    */
   phase: SimulatorBuildProgressPhase | null;
   /**
