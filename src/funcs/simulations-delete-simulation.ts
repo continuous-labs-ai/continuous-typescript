@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Delete Simulation
  *
  * @remarks
- * Deletes a Simulation and its saved runtime state, and cancels an active advance. Delete World-owned Simulations through their World.
+ * Deletes a Simulation and its saved runtime state, and cancels an active advance.
  */
 export function simulationsDeleteSimulation(
   client: ContinuousCore,
@@ -166,7 +166,7 @@ async function $do(
     | SDKValidationError
   >(
     M.nil(204, z.void()),
-    M.jsonErr([401, 403, 404, 409], errors.ErrorT$inboundSchema, {
+    M.jsonErr([401, 403, 404], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {

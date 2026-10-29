@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Update Simulation
  *
  * @remarks
- * Renames a Simulation or replaces its metadata. Omitted fields keep their current values. Update World-owned Simulations through their World.
+ * Renames a Simulation or replaces its metadata. Omitted fields keep their current values.
  */
 export function simulationsUpdateSimulation(
   client: ContinuousCore,
@@ -169,7 +169,7 @@ async function $do(
   >(
     M.json(200, models.Simulation$inboundSchema),
     M.jsonErr(
-      [400, 401, 403, 404, 408, 409, 413, 415, 422],
+      [400, 401, 403, 404, 408, 413, 415, 422],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),

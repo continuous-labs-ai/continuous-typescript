@@ -19,16 +19,14 @@ import {
 /**
  * Outcome of the most recent submit attempt, or null.
  */
-export const SimulatorBuildProgressLastSubmission = {
+export const LastSubmission = {
   Accepted: "accepted",
   Rejected: "rejected",
 } as const;
 /**
  * Outcome of the most recent submit attempt, or null.
  */
-export type SimulatorBuildProgressLastSubmission = OpenEnum<
-  typeof SimulatorBuildProgressLastSubmission
->;
+export type LastSubmission = OpenEnum<typeof LastSubmission>;
 
 /**
  * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5. A build recorded before model selection reports its provider's default.
@@ -51,7 +49,7 @@ export type SimulatorBuildProgressModel = OpenEnum<
 /**
  * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, finalize for author repair after review or QA. Null when not recorded.
  */
-export const SimulatorBuildProgressPhase = {
+export const Phase = {
   Research: "research",
   Build: "build",
   Review: "review",
@@ -61,14 +59,12 @@ export const SimulatorBuildProgressPhase = {
 /**
  * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, finalize for author repair after review or QA. Null when not recorded.
  */
-export type SimulatorBuildProgressPhase = OpenEnum<
-  typeof SimulatorBuildProgressPhase
->;
+export type Phase = OpenEnum<typeof Phase>;
 
 /**
  * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
  */
-export const SimulatorBuildProgressStage = {
+export const Stage = {
   Derive: "derive",
   Build: "build",
   Assemble: "assemble",
@@ -76,9 +72,7 @@ export const SimulatorBuildProgressStage = {
 /**
  * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
  */
-export type SimulatorBuildProgressStage = OpenEnum<
-  typeof SimulatorBuildProgressStage
->;
+export type Stage = OpenEnum<typeof Stage>;
 
 export type SimulatorBuildProgress = {
   /**
@@ -88,7 +82,7 @@ export type SimulatorBuildProgress = {
   /**
    * Outcome of the most recent submit attempt, or null.
    */
-  lastSubmission: SimulatorBuildProgressLastSubmission | null;
+  lastSubmission: LastSubmission | null;
   /**
    * Name of the most recent tool call, or null. Tool arguments and output are private.
    */
@@ -104,7 +98,7 @@ export type SimulatorBuildProgress = {
   /**
    * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, finalize for author repair after review or QA. Null when not recorded.
    */
-  phase: SimulatorBuildProgressPhase | null;
+  phase: Phase | null;
   /**
    * Review round that phase review, qa, or finalize belongs to, from 1. In a build with credential_ids, QA and the repair after it are in round review_rounds + 1. 0 before the first review.
    */
@@ -116,7 +110,7 @@ export type SimulatorBuildProgress = {
   /**
    * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
    */
-  stage: SimulatorBuildProgressStage;
+  stage: Stage;
   /**
    * Submit attempts.
    */
@@ -132,10 +126,10 @@ export type SimulatorBuildProgress = {
 };
 
 /** @internal */
-export const SimulatorBuildProgressLastSubmission$inboundSchema: z.ZodMiniType<
-  SimulatorBuildProgressLastSubmission,
+export const LastSubmission$inboundSchema: z.ZodMiniType<
+  LastSubmission,
   unknown
-> = openEnums.inboundSchema(SimulatorBuildProgressLastSubmission);
+> = openEnums.inboundSchema(LastSubmission);
 
 /** @internal */
 export const SimulatorBuildProgressModel$inboundSchema: z.ZodMiniType<
@@ -144,16 +138,12 @@ export const SimulatorBuildProgressModel$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(SimulatorBuildProgressModel);
 
 /** @internal */
-export const SimulatorBuildProgressPhase$inboundSchema: z.ZodMiniType<
-  SimulatorBuildProgressPhase,
-  unknown
-> = openEnums.inboundSchema(SimulatorBuildProgressPhase);
+export const Phase$inboundSchema: z.ZodMiniType<Phase, unknown> = openEnums
+  .inboundSchema(Phase);
 
 /** @internal */
-export const SimulatorBuildProgressStage$inboundSchema: z.ZodMiniType<
-  SimulatorBuildProgressStage,
-  unknown
-> = openEnums.inboundSchema(SimulatorBuildProgressStage);
+export const Stage$inboundSchema: z.ZodMiniType<Stage, unknown> = openEnums
+  .inboundSchema(Stage);
 
 /** @internal */
 export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
@@ -162,16 +152,14 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     hidden_limitations: types.number(),
-    last_submission: types.nullable(
-      SimulatorBuildProgressLastSubmission$inboundSchema,
-    ),
+    last_submission: types.nullable(LastSubmission$inboundSchema),
     last_tool: types.nullable(types.string()),
     limitations: z.array(Limitation$inboundSchema),
     model: SimulatorBuildProgressModel$inboundSchema,
-    phase: types.nullable(SimulatorBuildProgressPhase$inboundSchema),
+    phase: types.nullable(Phase$inboundSchema),
     review_round: types.number(),
     review_rounds: types.number(),
-    stage: SimulatorBuildProgressStage$inboundSchema,
+    stage: Stage$inboundSchema,
     submissions: types.number(),
     tool_calls: types.number(),
     warnings: z.array(SpecificationWarning$inboundSchema),

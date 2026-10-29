@@ -7,7 +7,7 @@ Speakeasy generates this SDK from the public Continuous Simulation API contract.
 <!-- Start Summary [summary] -->
 ## Summary
 
-Continuous Simulation API: Build Simulators from OpenAPI, WSDL or GraphQL documents, create Simulations from them, and build Worlds that run Simulations together. Authenticate every request with an API key sent as a Bearer token.
+Continuous Simulation API: Build Simulators from OpenAPI, WSDL or GraphQL documents and create Simulations from them. Authenticate every request with an API key sent as a Bearer token.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -178,22 +178,6 @@ run();
 * [cancelSimulator](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build
 * [cloneSimulator](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator
 
-### [Worlds](docs/sdks/worlds/README.md)
-
-* [listWorlds](docs/sdks/worlds/README.md#listworlds) - List Worlds
-* [buildWorld](docs/sdks/worlds/README.md#buildworld) - Build World
-* [deleteWorld](docs/sdks/worlds/README.md#deleteworld) - Delete World
-* [getWorld](docs/sdks/worlds/README.md#getworld) - Get World
-* [updateWorld](docs/sdks/worlds/README.md#updateworld) - Update World
-* [createWorldAdvance](docs/sdks/worlds/README.md#createworldadvance) - Advance World Time
-* [getWorldAdvance](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance
-* [cancelWorld](docs/sdks/worlds/README.md#cancelworld) - Cancel World Build
-* [getWorldChange](docs/sdks/worlds/README.md#getworldchange) - Get World Change
-* [addWorldSimulation](docs/sdks/worlds/README.md#addworldsimulation) - Add World Simulation
-* [removeWorldSimulation](docs/sdks/worlds/README.md#removeworldsimulation) - Remove World Simulation
-* [startWorld](docs/sdks/worlds/README.md#startworld) - Start World
-* [stopWorld](docs/sdks/worlds/README.md#stopworld) - Stop World
-
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
@@ -242,19 +226,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
 - [`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators) - List Simulators
 - [`simulatorsUpdateSimulator`](docs/sdks/simulators/README.md#updatesimulator) - Update Simulator
-- [`worldsAddWorldSimulation`](docs/sdks/worlds/README.md#addworldsimulation) - Add World Simulation
-- [`worldsBuildWorld`](docs/sdks/worlds/README.md#buildworld) - Build World
-- [`worldsCancelWorld`](docs/sdks/worlds/README.md#cancelworld) - Cancel World Build
-- [`worldsCreateWorldAdvance`](docs/sdks/worlds/README.md#createworldadvance) - Advance World Time
-- [`worldsDeleteWorld`](docs/sdks/worlds/README.md#deleteworld) - Delete World
-- [`worldsGetWorld`](docs/sdks/worlds/README.md#getworld) - Get World
-- [`worldsGetWorldAdvance`](docs/sdks/worlds/README.md#getworldadvance) - Get World Clock Advance
-- [`worldsGetWorldChange`](docs/sdks/worlds/README.md#getworldchange) - Get World Change
-- [`worldsListWorlds`](docs/sdks/worlds/README.md#listworlds) - List Worlds
-- [`worldsRemoveWorldSimulation`](docs/sdks/worlds/README.md#removeworldsimulation) - Remove World Simulation
-- [`worldsStartWorld`](docs/sdks/worlds/README.md#startworld) - Start World
-- [`worldsStopWorld`](docs/sdks/worlds/README.md#stopworld) - Stop World
-- [`worldsUpdateWorld`](docs/sdks/worlds/README.md#updateworld) - Update World
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -470,7 +441,7 @@ run();
 
 
 **Inherit from [`ContinuousError`](./src/models/errors/continuous-error.ts)**:
-* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 43 methods.*
+* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 30 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

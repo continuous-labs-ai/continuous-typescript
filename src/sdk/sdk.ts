@@ -7,7 +7,6 @@ import { Credentials } from "./credentials.js";
 import { SimulationSnapshots } from "./simulation-snapshots.js";
 import { Simulations } from "./simulations.js";
 import { Simulators } from "./simulators.js";
-import { Worlds } from "./worlds.js";
 
 export class Continuous extends ClientSDK {
   private _credentials?: Credentials;
@@ -30,10 +29,5 @@ export class Continuous extends ClientSDK {
   private _simulators?: Simulators;
   get simulators(): Simulators {
     return (this._simulators ??= new Simulators(this._options));
-  }
-
-  private _worlds?: Worlds;
-  get worlds(): Worlds {
-    return (this._worlds ??= new Worlds(this._options));
   }
 }
