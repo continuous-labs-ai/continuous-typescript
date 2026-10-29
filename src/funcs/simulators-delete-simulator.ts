@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Delete Simulator
  *
  * @remarks
- * Deletes a Simulator that has no dependent Worlds, Simulations, child Simulators, or Simulation Snapshots.
+ * Deletes a Simulator that has no dependent Simulations, child Simulators, or Simulation Snapshots.
  */
 export function simulatorsDeleteSimulator(
   client: ContinuousCore,

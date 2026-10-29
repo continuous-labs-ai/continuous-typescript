@@ -62,7 +62,7 @@ export class Simulations extends ClientSDK {
    * Delete Simulation
    *
    * @remarks
-   * Deletes a Simulation and its saved runtime state, and cancels an active advance. Delete World-owned Simulations through their World.
+   * Deletes a Simulation and its saved runtime state, and cancels an active advance.
    */
   async deleteSimulation(
     request: operations.DeleteSimulationRequest,
@@ -96,7 +96,7 @@ export class Simulations extends ClientSDK {
    * Update Simulation
    *
    * @remarks
-   * Renames a Simulation or replaces its metadata. Omitted fields keep their current values. Update World-owned Simulations through their World.
+   * Renames a Simulation or replaces its metadata. Omitted fields keep their current values.
    */
   async updateSimulation(
     request: operations.UpdateSimulationRequest,
@@ -113,7 +113,7 @@ export class Simulations extends ClientSDK {
    * Advance Simulation Time
    *
    * @remarks
-   * Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. World members advance through their World. Poll the returned operation until it completes.
+   * Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. Poll the returned operation until it completes.
    */
   async createSimulationAdvance(
     request: operations.CreateSimulationAdvanceRequest,

@@ -116,7 +116,6 @@ async function $do(
       "simulator_id": payload?.simulator_id,
       "snapshot_id": payload?.snapshot_id,
       "status": payload?.status,
-      "world_id": payload?.world_id,
     }, { explode: false }),
     encodeFormQuery({
       "id": payload?.id,

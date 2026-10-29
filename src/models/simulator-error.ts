@@ -31,7 +31,7 @@ export type SimulatorErrorCode = OpenEnum<typeof SimulatorErrorCode>;
 /**
  * Bounded failure reason for selecting recovery guidance, or null when unavailable.
  */
-export const SimulatorErrorReason = {
+export const Reason = {
   Canceled: "canceled",
   SpecificationInvalid: "specification_invalid",
   TimeLimit: "time_limit",
@@ -41,7 +41,7 @@ export const SimulatorErrorReason = {
 /**
  * Bounded failure reason for selecting recovery guidance, or null when unavailable.
  */
-export type SimulatorErrorReason = OpenEnum<typeof SimulatorErrorReason>;
+export type Reason = OpenEnum<typeof Reason>;
 
 export type SimulatorError = {
   /**
@@ -59,7 +59,7 @@ export type SimulatorError = {
   /**
    * Bounded failure reason for selecting recovery guidance, or null when unavailable.
    */
-  reason: SimulatorErrorReason | null;
+  reason: Reason | null;
   validation: SpecificationValidation | null;
 };
 
@@ -70,10 +70,8 @@ export const SimulatorErrorCode$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(SimulatorErrorCode);
 
 /** @internal */
-export const SimulatorErrorReason$inboundSchema: z.ZodMiniType<
-  SimulatorErrorReason,
-  unknown
-> = openEnums.inboundSchema(SimulatorErrorReason);
+export const Reason$inboundSchema: z.ZodMiniType<Reason, unknown> = openEnums
+  .inboundSchema(Reason);
 
 /** @internal */
 export const SimulatorError$inboundSchema: z.ZodMiniType<
@@ -84,7 +82,7 @@ export const SimulatorError$inboundSchema: z.ZodMiniType<
     agent_message: types.nullable(types.string()),
     code: SimulatorErrorCode$inboundSchema,
     detail: types.string(),
-    reason: types.nullable(SimulatorErrorReason$inboundSchema),
+    reason: types.nullable(Reason$inboundSchema),
     validation: types.nullable(SpecificationValidation$inboundSchema),
   }),
   z.transform((v) => {

@@ -11,16 +11,17 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
- * Whether the input is invalid, unsupported, incomplete, or has no specific diagnosis.
+ * Whether the input is invalid, unsupported, incomplete, exceeds a build limit, or has no specific diagnosis.
  */
 export const SpecificationIssueKind = {
   Invalid: "invalid",
   Unsupported: "unsupported",
   Incomplete: "incomplete",
+  Limit: "limit",
   Unknown: "unknown",
 } as const;
 /**
- * Whether the input is invalid, unsupported, incomplete, or has no specific diagnosis.
+ * Whether the input is invalid, unsupported, incomplete, exceeds a build limit, or has no specific diagnosis.
  */
 export type SpecificationIssueKind = OpenEnum<typeof SpecificationIssueKind>;
 
@@ -30,7 +31,7 @@ export type SpecificationIssue = {
    */
   code: string;
   /**
-   * Whether the input is invalid, unsupported, incomplete, or has no specific diagnosis.
+   * Whether the input is invalid, unsupported, incomplete, exceeds a build limit, or has no specific diagnosis.
    */
   kind: SpecificationIssueKind;
   /**

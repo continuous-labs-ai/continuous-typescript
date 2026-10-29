@@ -44,10 +44,6 @@ export type ListSimulationsRequest = {
    */
   id?: Array<string> | undefined;
   /**
-   * Optional filter for the Simulations this World owns.
-   */
-  worldId?: string | undefined;
-  /**
    * Page size. Values below 1 use 50. Values above 200 use 200.
    */
   limit?: number | undefined;
@@ -73,7 +69,6 @@ export type ListSimulationsRequest$Outbound = {
   simulator_digest?: string | undefined;
   snapshot_id?: string | undefined;
   id?: Array<string> | undefined;
-  world_id?: string | undefined;
   limit: number;
   cursor?: string | undefined;
 };
@@ -89,7 +84,6 @@ export const ListSimulationsRequest$outboundSchema: z.ZodMiniType<
     simulatorDigest: z.optional(z.string()),
     snapshotId: z.optional(z.string()),
     id: z.optional(z.array(z.string())),
-    worldId: z.optional(z.string()),
     limit: z._default(z.int(), 50),
     cursor: z.optional(z.string()),
   }),
@@ -98,7 +92,6 @@ export const ListSimulationsRequest$outboundSchema: z.ZodMiniType<
       simulatorId: "simulator_id",
       simulatorDigest: "simulator_digest",
       snapshotId: "snapshot_id",
-      worldId: "world_id",
     });
   }),
 );

@@ -306,7 +306,7 @@ run();
 
 ## deleteSimulation
 
-Deletes a Simulation and its saved runtime state, and cancels an active advance. Delete World-owned Simulations through their World.
+Deletes a Simulation and its saved runtime state, and cancels an active advance.
 
 ### Example Usage
 
@@ -375,7 +375,7 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
+| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
@@ -456,7 +456,7 @@ run();
 
 ## updateSimulation
 
-Renames a Simulation or replaces its metadata. Omitted fields keep their current values. Update World-owned Simulations through their World.
+Renames a Simulation or replaces its metadata. Omitted fields keep their current values.
 
 ### Example Usage
 
@@ -525,15 +525,15 @@ run();
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
-| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
-| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
 ## createSimulationAdvance
 
-Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. World members advance through their World. Poll the returned operation until it completes.
+Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. Poll the returned operation until it completes.
 
 ### Example Usage
 

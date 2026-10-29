@@ -56,7 +56,7 @@ export class Simulators extends ClientSDK {
    * Delete Simulator
    *
    * @remarks
-   * Deletes a Simulator that has no dependent Worlds, Simulations, child Simulators, or Simulation Snapshots.
+   * Deletes a Simulator that has no dependent Simulations, child Simulators, or Simulation Snapshots.
    */
   async deleteSimulator(
     request: operations.DeleteSimulatorRequest,

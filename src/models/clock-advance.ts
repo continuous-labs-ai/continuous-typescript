@@ -56,7 +56,7 @@ export type ClockAdvance = {
    */
   status: ClockAdvanceStatus;
   /**
-   * Committed local step, or null for no change or a World operation.
+   * Committed local step, or null for no change.
    */
   step: number | null;
   /**

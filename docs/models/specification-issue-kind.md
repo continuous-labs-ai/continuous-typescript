@@ -1,6 +1,6 @@
 # SpecificationIssueKind
 
-Whether the input is invalid, unsupported, incomplete, or has no specific diagnosis.
+Whether the input is invalid, unsupported, incomplete, exceeds a build limit, or has no specific diagnosis.
 
 ## Example Usage
 
@@ -15,5 +15,5 @@ let value: SpecificationIssueKind = "invalid";
 ## Values
 
 ```typescript
-"invalid" | "unsupported" | "incomplete" | "unknown" | Unrecognized<string>
+"invalid" | "unsupported" | "incomplete" | "limit" | "unknown" | Unrecognized<string>
 ```

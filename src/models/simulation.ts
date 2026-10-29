@@ -86,10 +86,6 @@ export type Simulation = {
    * Current status. starting means its runtime is booting; read the Simulation until it is running. running serves requests; after a period without requests, the first request can take longer while the Simulation resumes. stopping means its state is being saved, and stopped means it is saved; requests return 409 in both until you start it.
    */
   status: SimulationStatus;
-  /**
-   * ID of the World that owns this Simulation, or null.
-   */
-  worldId: string | null;
 };
 
 /** @internal */
@@ -117,7 +113,6 @@ export const Simulation$inboundSchema: z.ZodMiniType<Simulation, unknown> = z
       snapshot_id: types.nullable(types.string()),
       start_time: types.date(),
       status: SimulationStatus$inboundSchema,
-      world_id: types.nullable(types.string()),
     }),
     z.transform((v) => {
       return remap$(v, {
@@ -131,7 +126,6 @@ export const Simulation$inboundSchema: z.ZodMiniType<Simulation, unknown> = z
         "simulator_id": "simulatorId",
         "snapshot_id": "snapshotId",
         "start_time": "startTime",
-        "world_id": "worldId",
       });
     }),
   );

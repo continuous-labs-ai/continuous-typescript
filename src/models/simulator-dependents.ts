@@ -15,17 +15,13 @@ export type SimulatorDependents = {
    */
   childSimulators: Array<string>;
   /**
-   * IDs of Simulations created from the Simulator, including World members.
+   * IDs of Simulations created from the Simulator.
    */
   simulations: Array<string>;
   /**
    * IDs of Simulation Snapshots of Simulations created from the Simulator.
    */
   snapshots: Array<string>;
-  /**
-   * IDs of Worlds that include the Simulator.
-   */
-  worlds: Array<string>;
 };
 
 /** @internal */
@@ -37,7 +33,6 @@ export const SimulatorDependents$inboundSchema: z.ZodMiniType<
     child_simulators: z.array(types.string()),
     simulations: z.array(types.string()),
     snapshots: z.array(types.string()),
-    worlds: z.array(types.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

@@ -1,13 +1,13 @@
-# SimulatorErrorReason
+# Reason
 
 Bounded failure reason for selecting recovery guidance, or null when unavailable.
 
 ## Example Usage
 
 ```typescript
-import { SimulatorErrorReason } from "@continuous-labs/sdk/models";
+import { Reason } from "@continuous-labs/sdk/models";
 
-let value: SimulatorErrorReason = "build_failed";
+let value: Reason = "build_failed";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```
