@@ -177,6 +177,7 @@ run();
 * [updateSimulator](docs/sdks/simulators/README.md#updatesimulator) - Update Simulator
 * [cancelSimulator](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build
 * [cloneSimulator](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator
+* [resumeSimulator](docs/sdks/simulators/README.md#resumesimulator) - Resume Simulator Build
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -225,6 +226,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`simulatorsDeleteSimulator`](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
 - [`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
 - [`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators) - List Simulators
+- [`simulatorsResumeSimulator`](docs/sdks/simulators/README.md#resumesimulator) - Resume Simulator Build
 - [`simulatorsUpdateSimulator`](docs/sdks/simulators/README.md#updatesimulator) - Update Simulator
 
 </details>
@@ -441,7 +443,7 @@ run();
 
 
 **Inherit from [`ContinuousError`](./src/models/errors/continuous-error.ts)**:
-* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 30 methods.*
+* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 31 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

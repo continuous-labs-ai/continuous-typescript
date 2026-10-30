@@ -13,6 +13,7 @@ Build Simulators from OpenAPI, WSDL or GraphQL documents, check or cancel a buil
 * [updateSimulator](#updatesimulator) - Update Simulator
 * [cancelSimulator](#cancelsimulator) - Cancel Simulator Build
 * [cloneSimulator](#clonesimulator) - Clone Simulator
+* [resumeSimulator](#resumesimulator) - Resume Simulator Build
 
 ## listSimulators
 
@@ -685,3 +686,78 @@ run();
 | errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
 | errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
+
+## resumeSimulator
+
+Resumes a build that waits at QA because its live credentials were rejected, as build.waiting reports. Refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. Returns the Simulator, still building. The wait does not count toward the build's time limit: the build resumes with the time it had left when it began waiting. A build that is not waiting returns 409 simulator_not_waiting.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="resume-simulator" method="post" path="/v1/simulators/{id}/resume" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.simulators.resumeSimulator({
+    id: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { simulatorsResumeSimulator } from "@continuous-labs/sdk/funcs/simulators-resume-simulator.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await simulatorsResumeSimulator(continuous, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("simulatorsResumeSimulator failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ResumeSimulatorRequest](../../models/operations/resume-simulator-request.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.Simulator](../../models/simulator.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ErrorT                 | 401, 403, 404, 409, 422       | application/problem+json      |
+| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |

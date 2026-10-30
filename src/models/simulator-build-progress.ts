@@ -12,6 +12,10 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import { Limitation, Limitation$inboundSchema } from "./limitation.js";
 import {
+  SimulatorBuildWaiting,
+  SimulatorBuildWaiting$inboundSchema,
+} from "./simulator-build-waiting.js";
+import {
   SpecificationWarning,
   SpecificationWarning$inboundSchema,
 } from "./specification-warning.js";
@@ -120,6 +124,10 @@ export type SimulatorBuildProgress = {
    */
   toolCalls: number;
   /**
+   * Set while the build waits at QA because the live systems rejected its credentials; refresh them, then resume the build with its resource's resume operation, such as POST /v1/simulators/{id}/resume. Null otherwise.
+   */
+  waiting: SimulatorBuildWaiting | null;
+  /**
    * Specification defects the build tolerated without changing the specification, set when the build prepares its specification. Empty when none.
    */
   warnings: Array<SpecificationWarning>;
@@ -162,6 +170,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
     stage: Stage$inboundSchema,
     submissions: types.number(),
     tool_calls: types.number(),
+    waiting: types.nullable(SimulatorBuildWaiting$inboundSchema),
     warnings: z.array(SpecificationWarning$inboundSchema),
   }),
   z.transform((v) => {

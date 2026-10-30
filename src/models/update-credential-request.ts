@@ -9,6 +9,11 @@ import {
   CredentialLoginUpdate$Outbound,
   CredentialLoginUpdate$outboundSchema,
 } from "./credential-login-update.js";
+import {
+  CredentialOAuthRequest,
+  CredentialOAuthRequest$Outbound,
+  CredentialOAuthRequest$outboundSchema,
+} from "./credential-o-auth-request.js";
 
 export type UpdateCredentialRequest = {
   /**
@@ -24,8 +29,9 @@ export type UpdateCredentialRequest = {
    * New credential name.
    */
   name?: string | undefined;
+  oauth?: CredentialOAuthRequest | undefined;
   /**
-   * New full header value. Required when base_url or header changes; not allowed for a login credential. Builds that start an agent after the change use it. The API never returns it.
+   * New full header value, in place of any OAuth client. Value or oauth is required when base_url or header changes; not allowed for a login credential. Builds that start an agent after the change use it. The API never returns it.
    */
   value?: string | undefined;
 };
@@ -36,6 +42,7 @@ export type UpdateCredentialRequest$Outbound = {
   header?: string | undefined;
   login?: CredentialLoginUpdate$Outbound | undefined;
   name?: string | undefined;
+  oauth?: CredentialOAuthRequest$Outbound | undefined;
   value?: string | undefined;
 };
 
@@ -49,6 +56,7 @@ export const UpdateCredentialRequest$outboundSchema: z.ZodMiniType<
     header: z.optional(z.string()),
     login: z.optional(CredentialLoginUpdate$outboundSchema),
     name: z.optional(z.string()),
+    oauth: z.optional(CredentialOAuthRequest$outboundSchema),
     value: z.optional(z.string()),
   }),
   z.transform((v) => {
