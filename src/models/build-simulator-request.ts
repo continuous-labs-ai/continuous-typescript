@@ -90,7 +90,7 @@ export type BuildSimulatorRequest = {
    */
   specKind?: BuildSimulatorRequestSpecKind | undefined;
   /**
-   * Time limit for generation and validation in seconds, from 1 to 72000. Defaults to 14400 (four hours). Excludes queue wait and finalization. Retries share the same deadline.
+   * Time limit for generation and validation in seconds, from 1 to 72000. Defaults to 28800 (eight hours). Excludes queue wait, finalization, and any wait for live credentials. Retries share the same deadline.
    */
   timeoutSeconds?: number | undefined;
 };
@@ -139,7 +139,7 @@ export const BuildSimulatorRequest$outboundSchema: z.ZodMiniType<
     parentId: z.optional(z.string()),
     reviewRounds: z._default(z.int(), 1),
     specKind: z.optional(BuildSimulatorRequestSpecKind$outboundSchema),
-    timeoutSeconds: z._default(z.int(), 14400),
+    timeoutSeconds: z._default(z.int(), 28800),
   }),
   z.transform((v) => {
     return remap$(v, {

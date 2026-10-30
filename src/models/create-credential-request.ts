@@ -9,6 +9,11 @@ import {
   CredentialLoginRequest$Outbound,
   CredentialLoginRequest$outboundSchema,
 } from "./credential-login-request.js";
+import {
+  CredentialOAuthRequest,
+  CredentialOAuthRequest$Outbound,
+  CredentialOAuthRequest$outboundSchema,
+} from "./credential-o-auth-request.js";
 
 export type CreateCredentialRequest = {
   /**
@@ -24,8 +29,9 @@ export type CreateCredentialRequest = {
    * Credential name.
    */
   name: string;
+  oauth?: CredentialOAuthRequest | undefined;
   /**
-   * The full header value, for example Bearer followed by a token. Required with base_url; not allowed with login, which a person signs in to by hand after the credential exists. The API never returns it.
+   * The full header value, for example Bearer followed by a token. Required with base_url unless oauth is sent; not allowed with login, which a person signs in to by hand after the credential exists. The API never returns it.
    */
   value?: string | undefined;
 };
@@ -36,6 +42,7 @@ export type CreateCredentialRequest$Outbound = {
   header?: string | undefined;
   login?: CredentialLoginRequest$Outbound | undefined;
   name: string;
+  oauth?: CredentialOAuthRequest$Outbound | undefined;
   value?: string | undefined;
 };
 
@@ -49,6 +56,7 @@ export const CreateCredentialRequest$outboundSchema: z.ZodMiniType<
     header: z.optional(z.string()),
     login: z.optional(CredentialLoginRequest$outboundSchema),
     name: z.string(),
+    oauth: z.optional(CredentialOAuthRequest$outboundSchema),
     value: z.optional(z.string()),
   }),
   z.transform((v) => {

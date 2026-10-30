@@ -1,0 +1,23 @@
+# SimulatorBuildWaiting
+
+## Example Usage
+
+```typescript
+import { SimulatorBuildWaiting } from "@continuous-labs/sdk/models";
+
+let value: SimulatorBuildWaiting = {
+  credentialIds: [],
+  deadline: new Date("2024-02-09T03:54:25.334Z"),
+  reason: "<value>",
+  since: new Date("2026-03-23T04:09:14.706Z"),
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                         | Type                                                                                                                                                                          | Required                                                                                                                                                                      | Description                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `credentialIds`                                                                                                                                                               | *string*[]                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                            | The credentials to refresh with PATCH /v1/credentials/{id} before resuming the build.                                                                                         |
+| `deadline`                                                                                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                 | :heavy_check_mark:                                                                                                                                                            | When the wait ends, 7 days after it began: a build not resumed by then fails with error code live_credential_rejected. The wait does not count toward the build's time limit. |
+| `reason`                                                                                                                                                                      | *string*                                                                                                                                                                      | :heavy_check_mark:                                                                                                                                                            | Why the build waits: the status and detail of the live reply that rejected QA's authenticated read.                                                                           |
+| `since`                                                                                                                                                                       | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                 | :heavy_check_mark:                                                                                                                                                            | When the build started waiting.                                                                                                                                               |

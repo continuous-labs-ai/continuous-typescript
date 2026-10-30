@@ -25,6 +25,7 @@ export * from "./list-simulation-steps.js";
 export * from "./list-simulations.js";
 export * from "./list-simulators.js";
 export * from "./regenerate-simulation-token.js";
+export * from "./resume-simulator.js";
 export * from "./start-simulation.js";
 export * from "./stop-simulation.js";
 export * from "./update-credential.js";

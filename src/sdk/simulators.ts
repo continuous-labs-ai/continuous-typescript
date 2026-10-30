@@ -8,6 +8,7 @@ import { simulatorsCloneSimulator } from "../funcs/simulators-clone-simulator.js
 import { simulatorsDeleteSimulator } from "../funcs/simulators-delete-simulator.js";
 import { simulatorsGetSimulator } from "../funcs/simulators-get-simulator.js";
 import { simulatorsListSimulators } from "../funcs/simulators-list-simulators.js";
+import { simulatorsResumeSimulator } from "../funcs/simulators-resume-simulator.js";
 import { simulatorsUpdateSimulator } from "../funcs/simulators-update-simulator.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
@@ -131,6 +132,23 @@ export class Simulators extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.CloneSimulatorResponse> {
     return unwrapAsync(simulatorsCloneSimulator(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Resume Simulator Build
+   *
+   * @remarks
+   * Resumes a build that waits at QA because its live credentials were rejected, as build.waiting reports. Refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. Returns the Simulator, still building. The wait does not count toward the build's time limit: the build resumes with the time it had left when it began waiting. A build that is not waiting returns 409 simulator_not_waiting.
+   */
+  async resumeSimulator(
+    request: operations.ResumeSimulatorRequest,
+    options?: RequestOptions,
+  ): Promise<models.Simulator> {
+    return unwrapAsync(simulatorsResumeSimulator(
       this,
       request,
       options,

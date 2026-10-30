@@ -11,6 +11,10 @@ import {
   CredentialLogin,
   CredentialLogin$inboundSchema,
 } from "./credential-login.js";
+import {
+  CredentialOAuth,
+  CredentialOAuth$inboundSchema,
+} from "./credential-o-auth.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type Credential = {
@@ -35,6 +39,7 @@ export type Credential = {
    * Credential name. Names need not be unique.
    */
   name: string;
+  oauth: CredentialOAuth | null;
 };
 
 /** @internal */
@@ -47,6 +52,7 @@ export const Credential$inboundSchema: z.ZodMiniType<Credential, unknown> = z
       id: types.string(),
       login: types.nullable(CredentialLogin$inboundSchema),
       name: types.string(),
+      oauth: types.nullable(CredentialOAuth$inboundSchema),
     }),
     z.transform((v) => {
       return remap$(v, {
