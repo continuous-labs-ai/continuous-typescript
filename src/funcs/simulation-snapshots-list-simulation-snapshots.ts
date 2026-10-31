@@ -38,6 +38,10 @@ import {
  *
  * @remarks
  * Returns the workspace's Snapshots, newest first. Filter by simulation_id for the Snapshots of one Simulation.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulationSnapshotsListSimulationSnapshots(
   client: ContinuousCore,

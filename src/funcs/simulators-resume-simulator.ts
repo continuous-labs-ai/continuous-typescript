@@ -33,6 +33,10 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Resumes a build that waits at QA because its live credentials were rejected, as build.waiting reports. Refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. Returns the Simulator, still building. The wait does not count toward the build's time limit: the build resumes with the time it had left when it began waiting. A build that is not waiting returns 409 simulator_not_waiting.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulatorsResumeSimulator(
   client: ContinuousCore,

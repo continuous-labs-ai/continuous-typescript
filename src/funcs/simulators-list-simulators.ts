@@ -38,6 +38,10 @@ import {
  *
  * @remarks
  * Returns all Simulators that the API key can access. Results can be filtered by status.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulatorsListSimulators(
   client: ContinuousCore,

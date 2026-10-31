@@ -7,7 +7,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.listCredentials({});
+  const result = await continuous.apibox.listApiboxes({});
 
   for await (const page of result) {
     console.log(page);

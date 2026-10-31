@@ -1,20 +1,27 @@
-# SimulationSnapshots
+# ~~SimulationSnapshots~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
-Save a running Simulation's state as a Snapshot, create Simulations from it, and rename and delete it.
+Deprecated. Use API Box for APIs and Web Box for web apps. Save a running Simulation's state as a Snapshot, create Simulations from it, and rename and delete it.
 
 ### Available Operations
 
-* [listSimulationSnapshots](#listsimulationsnapshots) - List Simulation Snapshots
-* [createSimulationSnapshot](#createsimulationsnapshot) - Create Simulation Snapshot
-* [deleteSimulationSnapshot](#deletesimulationsnapshot) - Delete Simulation Snapshot
-* [getSimulationSnapshot](#getsimulationsnapshot) - Get Simulation Snapshot
-* [updateSimulationSnapshot](#updatesimulationsnapshot) - Update Simulation Snapshot
+* [~~listSimulationSnapshots~~](#listsimulationsnapshots) - List Simulation Snapshots :warning: **Deprecated**
+* [~~createSimulationSnapshot~~](#createsimulationsnapshot) - Create Simulation Snapshot :warning: **Deprecated**
+* [~~deleteSimulationSnapshot~~](#deletesimulationsnapshot) - Delete Simulation Snapshot :warning: **Deprecated**
+* [~~getSimulationSnapshot~~](#getsimulationsnapshot) - Get Simulation Snapshot :warning: **Deprecated**
+* [~~updateSimulationSnapshot~~](#updatesimulationsnapshot) - Update Simulation Snapshot :warning: **Deprecated**
 
-## listSimulationSnapshots
+## ~~listSimulationSnapshots~~
 
 Returns the workspace's Snapshots, newest first. Filter by simulation_id for the Snapshots of one Simulation.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -87,9 +94,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createSimulationSnapshot
+## ~~createSimulationSnapshot~~
 
 Starts saving a running Simulation's current state and returns the Snapshot with status creating. Poll it until it is ready, or failed with an error. Saving closes the Simulation's open event streams and WebSockets and does not change its state; while it saves, an advance returns 409 clock_conflict, and a stop waits for it. Create Simulations from a ready Snapshot with snapshot_id; it outlives its Simulation. A stopped Simulation returns 409 simulation_stopped. Reuse the Idempotency-Key to retry safely.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -170,9 +181,13 @@ run();
 | errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
-## deleteSimulationSnapshot
+## ~~deleteSimulationSnapshot~~
 
 Deletes a Snapshot and its saved state. Simulations created from it keep running, and their snapshot_id becomes null. While it is creating, the response is 409 snapshot_not_ready; while a Simulation is starting from it, 409 snapshot_in_use.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -245,9 +260,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getSimulationSnapshot
+## ~~getSimulationSnapshot~~
 
 Returns a Snapshot.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -320,9 +339,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## updateSimulationSnapshot
+## ~~updateSimulationSnapshot~~
 
 Renames a Snapshot. Omitted fields keep their current values.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 

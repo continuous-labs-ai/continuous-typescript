@@ -3,15 +3,41 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { ApiboxSnapshots } from "./apibox-snapshots.js";
+import { Apibox } from "./apibox.js";
 import { Credentials } from "./credentials.js";
+import { McpboxSnapshots } from "./mcpbox-snapshots.js";
+import { Mcpbox } from "./mcpbox.js";
 import { SimulationSnapshots } from "./simulation-snapshots.js";
 import { Simulations } from "./simulations.js";
 import { Simulators } from "./simulators.js";
+import { WebboxSnapshots } from "./webbox-snapshots.js";
+import { Webbox } from "./webbox.js";
 
 export class Continuous extends ClientSDK {
+  private _apibox?: Apibox;
+  get apibox(): Apibox {
+    return (this._apibox ??= new Apibox(this._options));
+  }
+
+  private _apiboxSnapshots?: ApiboxSnapshots;
+  get apiboxSnapshots(): ApiboxSnapshots {
+    return (this._apiboxSnapshots ??= new ApiboxSnapshots(this._options));
+  }
+
   private _credentials?: Credentials;
   get credentials(): Credentials {
     return (this._credentials ??= new Credentials(this._options));
+  }
+
+  private _mcpbox?: Mcpbox;
+  get mcpbox(): Mcpbox {
+    return (this._mcpbox ??= new Mcpbox(this._options));
+  }
+
+  private _mcpboxSnapshots?: McpboxSnapshots;
+  get mcpboxSnapshots(): McpboxSnapshots {
+    return (this._mcpboxSnapshots ??= new McpboxSnapshots(this._options));
   }
 
   private _simulationSnapshots?: SimulationSnapshots;
@@ -29,5 +55,15 @@ export class Continuous extends ClientSDK {
   private _simulators?: Simulators;
   get simulators(): Simulators {
     return (this._simulators ??= new Simulators(this._options));
+  }
+
+  private _webbox?: Webbox;
+  get webbox(): Webbox {
+    return (this._webbox ??= new Webbox(this._options));
+  }
+
+  private _webboxSnapshots?: WebboxSnapshots;
+  get webboxSnapshots(): WebboxSnapshots {
+    return (this._webboxSnapshots ??= new WebboxSnapshots(this._options));
   }
 }

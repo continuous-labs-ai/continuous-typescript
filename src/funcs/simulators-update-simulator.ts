@@ -33,6 +33,10 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Renames a Simulator. Omitted fields keep their current values. Continuous catalog Simulators cannot be changed.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulatorsUpdateSimulator(
   client: ContinuousCore,

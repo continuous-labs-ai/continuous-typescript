@@ -124,6 +124,10 @@ export type SimulatorBuildProgress = {
    */
   toolCalls: number;
   /**
+   * Total seconds of the build's ended waits for its live credentials, which do not count toward its time limit. 0 when none has ended. The current wait, from waiting.since, is not included.
+   */
+  waitedSeconds: number;
+  /**
    * Set while the build waits at QA because the live systems rejected its credentials; refresh them, then resume the build with its resource's resume operation, such as POST /v1/simulators/{id}/resume. Null otherwise.
    */
   waiting: SimulatorBuildWaiting | null;
@@ -170,6 +174,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
     stage: Stage$inboundSchema,
     submissions: types.number(),
     tool_calls: types.number(),
+    waited_seconds: types.number(),
     waiting: types.nullable(SimulatorBuildWaiting$inboundSchema),
     warnings: z.array(SpecificationWarning$inboundSchema),
   }),
@@ -181,6 +186,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
       "review_round": "reviewRound",
       "review_rounds": "reviewRounds",
       "tool_calls": "toolCalls",
+      "waited_seconds": "waitedSeconds",
     });
   }),
 );

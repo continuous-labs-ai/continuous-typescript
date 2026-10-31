@@ -33,6 +33,10 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. Poll the returned operation until it completes.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulationsCreateSimulationAdvance(
   client: ContinuousCore,

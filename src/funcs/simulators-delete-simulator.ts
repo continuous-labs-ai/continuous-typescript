@@ -32,6 +32,10 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Deletes a Simulator that has no dependent Simulations, child Simulators, or Simulation Snapshots.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulatorsDeleteSimulator(
   client: ContinuousCore,

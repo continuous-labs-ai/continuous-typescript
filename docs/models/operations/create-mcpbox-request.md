@@ -1,0 +1,22 @@
+# CreateMcpboxRequest
+
+## Example Usage
+
+```typescript
+import { CreateMcpboxRequest } from "@continuous-labs/sdk/models/operations";
+
+let value: CreateMcpboxRequest = {
+  body: {
+    apiboxId: "abx_01J8Z5X4K70000000000000001",
+    name: "billing-tools",
+    snapshotId: "mbs_01J8Z5X4K70000000000000007",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                           | Type                                                                                                                                                                                            | Required                                                                                                                                                                                        | Description                                                                                                                                                                                     | Example                                                                                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `idempotencyKey`                                                                                                                                                                                | *string*                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                              | Optional key for retrying this create safely. A retry with the same key and request returns the same MCP Box and token. The same key with a different request returns 409 idempotency_conflict. |                                                                                                                                                                                                 |
+| `body`                                                                                                                                                                                          | [models.CreateMCPBoxRequest](../../models/create-mcp-box-request.md)                                                                                                                            | :heavy_check_mark:                                                                                                                                                                              | N/A                                                                                                                                                                                             | {<br/>"apibox_id": "abx_01J8Z5X4K70000000000000001",<br/>"name": "billing-tools",<br/>"snapshot_id": "mbs_01J8Z5X4K70000000000000007"<br/>}                                                     |

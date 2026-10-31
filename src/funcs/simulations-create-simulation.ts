@@ -32,6 +32,10 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response returns once the Simulation is admitted, with status starting; read it until it is running. The response includes the endpoint and the Simulation's token, which does not expire. If its runtime cannot start, the Simulation is deleted.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulationsCreateSimulation(
   client: ContinuousCore,

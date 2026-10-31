@@ -27,6 +27,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Returns all Simulations that the API key can access. Results can be filtered by status, Simulator ID, pinned Simulator digest, or the Snapshot they started from.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async listSimulations(
     request?: operations.ListSimulationsRequest | undefined,
@@ -46,6 +50,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response returns once the Simulation is admitted, with status starting; read it until it is running. The response includes the endpoint and the Simulation's token, which does not expire. If its runtime cannot start, the Simulation is deleted.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async createSimulation(
     request: operations.CreateSimulationRequest,
@@ -63,6 +71,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Deletes a Simulation and its saved runtime state, and cancels an active advance.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async deleteSimulation(
     request: operations.DeleteSimulationRequest,
@@ -80,6 +92,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Returns a Simulation, its current status, and the actors a request can act as. The response does not include tokens.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async getSimulation(
     request: operations.GetSimulationRequest,
@@ -97,6 +113,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Renames a Simulation or replaces its metadata. Omitted fields keep their current values.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async updateSimulation(
     request: operations.UpdateSimulationRequest,
@@ -114,6 +134,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. Poll the returned operation until it completes.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async createSimulationAdvance(
     request: operations.CreateSimulationAdvanceRequest,
@@ -131,6 +155,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Returns durable clock progress, the event count, and the committed step or failure.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async getSimulationAdvance(
     request: operations.GetSimulationAdvanceRequest,
@@ -148,6 +176,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Returns the ordered event trace for a committed advance. The Simulation must be running. A Simulation created from a Snapshot keeps the traces in the state it started from.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async listSimulationAdvanceEvents(
     request: operations.ListSimulationAdvanceEventsRequest,
@@ -170,6 +202,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Starts a stopped Simulation from its saved state. The response returns once the start is admitted, with status starting; read the Simulation until it is running. If its runtime cannot start, it returns to stopped. Stop and start do not change its token; read it with GET /v1/simulations/{id}/token. A running or starting Simulation is returned unchanged.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async startSimulation(
     request: operations.StartSimulationRequest,
@@ -187,6 +223,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. A stopped Simulation returns 409 simulation_stopped; start it first.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async listSimulationSteps(
     request: operations.ListSimulationStepsRequest,
@@ -206,6 +246,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Stops a Simulation and saves its state. The response returns once the stop is accepted, with status stopping; read the Simulation until it is stopped. Requests to its endpoint are refused while it stops, and return 409 simulation_stopped once it is stopped, until you start it again. A stopped or stopping Simulation is returned unchanged.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async stopSimulation(
     request: operations.StopSimulationRequest,
@@ -223,6 +267,10 @@ export class Simulations extends ClientSDK {
    *
    * @remarks
    * Returns the Simulation's current token without rotating it, including while the Simulation is stopped.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async getSimulationToken(
     request: operations.GetSimulationTokenRequest,
@@ -239,7 +287,11 @@ export class Simulations extends ClientSDK {
    * Regenerate Simulation Token
    *
    * @remarks
-   * Replaces the Simulation's token, including while the Simulation is stopped. When the replacement commits, requests with the previous token return 401 auth_invalid with X-Continuous-Simulation-Token-Rejected: true. Reuse the Idempotency-Key to retry safely.
+   * Replaces the Simulation's token, including while the Simulation is stopped. Within 5 seconds of the replacement committing, requests with the previous token return 401 auth_invalid with X-Continuous-Simulation-Token-Rejected: true. Reuse the Idempotency-Key to retry safely.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async regenerateSimulationToken(
     request: operations.RegenerateSimulationTokenRequest,

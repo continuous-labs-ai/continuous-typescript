@@ -32,6 +32,10 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Deletes a Simulation and its saved runtime state, and cancels an active advance.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulationsDeleteSimulation(
   client: ContinuousCore,

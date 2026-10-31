@@ -10,12 +10,12 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
-export type Document = {
+export type BuildSimulatorDocument = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
-export type Spec = {
+export type BuildSimulatorSpec = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
@@ -24,12 +24,12 @@ export type BuildSimulatorRequestBody = {
   /**
    * Vendor documentation the builder and reviewer read before they start, as repeated file parts: UTF-8 text (.md, .txt, .html, .json, .yaml, .xml, .csv) or PDF (.pdf). The documents share the request body limit with the spec. An incremental build inherits its parent's documents; a document sent with the same name replaces the parent's.
    */
-  document?: Array<Document> | undefined;
+  document?: Array<BuildSimulatorDocument> | undefined;
   request: models.BuildSimulatorRequest;
   /**
    * OpenAPI, WSDL or GraphQL document, UTF-8 encoded, at most 64 MiB. Required unless the request is an incremental build (parent_id and instructions, no spec).
    */
-  spec?: Spec | Blob | undefined;
+  spec?: BuildSimulatorSpec | Blob | undefined;
 };
 
 export type BuildSimulatorRequest = {
@@ -46,15 +46,15 @@ export type BuildSimulatorResponse = {
 };
 
 /** @internal */
-export type Document$Outbound = {
+export type BuildSimulatorDocument$Outbound = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
 /** @internal */
-export const Document$outboundSchema: z.ZodMiniType<
-  Document$Outbound,
-  Document
+export const BuildSimulatorDocument$outboundSchema: z.ZodMiniType<
+  BuildSimulatorDocument$Outbound,
+  BuildSimulatorDocument
 > = z.object({
   fileName: z.string(),
   content: z.union([
@@ -65,38 +65,47 @@ export const Document$outboundSchema: z.ZodMiniType<
   ]),
 });
 
-export function documentToJSON(document: Document): string {
-  return JSON.stringify(Document$outboundSchema.parse(document));
+export function buildSimulatorDocumentToJSON(
+  buildSimulatorDocument: BuildSimulatorDocument,
+): string {
+  return JSON.stringify(
+    BuildSimulatorDocument$outboundSchema.parse(buildSimulatorDocument),
+  );
 }
 
 /** @internal */
-export type Spec$Outbound = {
+export type BuildSimulatorSpec$Outbound = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
 /** @internal */
-export const Spec$outboundSchema: z.ZodMiniType<Spec$Outbound, Spec> = z.object(
-  {
-    fileName: z.string(),
-    content: z.union([
-      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-      z.custom<Blob>(x => x instanceof Blob),
-      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-      z.custom<Uint8Array>(x => x instanceof Uint8Array),
-    ]),
-  },
-);
+export const BuildSimulatorSpec$outboundSchema: z.ZodMiniType<
+  BuildSimulatorSpec$Outbound,
+  BuildSimulatorSpec
+> = z.object({
+  fileName: z.string(),
+  content: z.union([
+    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+    z.custom<Blob>(x => x instanceof Blob),
+    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+    z.custom<Uint8Array>(x => x instanceof Uint8Array),
+  ]),
+});
 
-export function specToJSON(spec: Spec): string {
-  return JSON.stringify(Spec$outboundSchema.parse(spec));
+export function buildSimulatorSpecToJSON(
+  buildSimulatorSpec: BuildSimulatorSpec,
+): string {
+  return JSON.stringify(
+    BuildSimulatorSpec$outboundSchema.parse(buildSimulatorSpec),
+  );
 }
 
 /** @internal */
 export type BuildSimulatorRequestBody$Outbound = {
-  document?: Array<Document$Outbound> | undefined;
+  document?: Array<BuildSimulatorDocument$Outbound> | undefined;
   request: models.BuildSimulatorRequest$Outbound;
-  spec?: Spec$Outbound | Blob | undefined;
+  spec?: BuildSimulatorSpec$Outbound | Blob | undefined;
 };
 
 /** @internal */
@@ -104,10 +113,12 @@ export const BuildSimulatorRequestBody$outboundSchema: z.ZodMiniType<
   BuildSimulatorRequestBody$Outbound,
   BuildSimulatorRequestBody
 > = z.object({
-  document: z.optional(z.array(z.lazy(() => Document$outboundSchema))),
+  document: z.optional(
+    z.array(z.lazy(() => BuildSimulatorDocument$outboundSchema)),
+  ),
   request: models.BuildSimulatorRequest$outboundSchema,
   spec: z.optional(
-    z.union([z.lazy(() => Spec$outboundSchema), blobLikeSchema]),
+    z.union([z.lazy(() => BuildSimulatorSpec$outboundSchema), blobLikeSchema]),
   ),
 });
 

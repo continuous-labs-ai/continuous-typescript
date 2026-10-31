@@ -33,6 +33,10 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Starts saving a running Simulation's current state and returns the Snapshot with status creating. Poll it until it is ready, or failed with an error. Saving closes the Simulation's open event streams and WebSockets and does not change its state; while it saves, an advance returns 409 clock_conflict, and a stop waits for it. Create Simulations from a ready Snapshot with snapshot_id; it outlives its Simulation. A stopped Simulation returns 409 simulation_stopped. Reuse the Idempotency-Key to retry safely.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulationSnapshotsCreateSimulationSnapshot(
   client: ContinuousCore,

@@ -19,6 +19,10 @@ export class SimulationSnapshots extends ClientSDK {
    *
    * @remarks
    * Returns the workspace's Snapshots, newest first. Filter by simulation_id for the Snapshots of one Simulation.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async listSimulationSnapshots(
     request?: operations.ListSimulationSnapshotsRequest | undefined,
@@ -38,6 +42,10 @@ export class SimulationSnapshots extends ClientSDK {
    *
    * @remarks
    * Starts saving a running Simulation's current state and returns the Snapshot with status creating. Poll it until it is ready, or failed with an error. Saving closes the Simulation's open event streams and WebSockets and does not change its state; while it saves, an advance returns 409 clock_conflict, and a stop waits for it. Create Simulations from a ready Snapshot with snapshot_id; it outlives its Simulation. A stopped Simulation returns 409 simulation_stopped. Reuse the Idempotency-Key to retry safely.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async createSimulationSnapshot(
     request: operations.CreateSimulationSnapshotRequest,
@@ -55,6 +63,10 @@ export class SimulationSnapshots extends ClientSDK {
    *
    * @remarks
    * Deletes a Snapshot and its saved state. Simulations created from it keep running, and their snapshot_id becomes null. While it is creating, the response is 409 snapshot_not_ready; while a Simulation is starting from it, 409 snapshot_in_use.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async deleteSimulationSnapshot(
     request: operations.DeleteSimulationSnapshotRequest,
@@ -72,6 +84,10 @@ export class SimulationSnapshots extends ClientSDK {
    *
    * @remarks
    * Returns a Snapshot.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async getSimulationSnapshot(
     request: operations.GetSimulationSnapshotRequest,
@@ -89,6 +105,10 @@ export class SimulationSnapshots extends ClientSDK {
    *
    * @remarks
    * Renames a Snapshot. Omitted fields keep their current values.
+   *
+   * Deprecated. Use API Box for APIs and Web Box for web apps.
+   *
+   * @deprecated method: Use API Box for APIs and Web Box for web apps.
    */
   async updateSimulationSnapshot(
     request: operations.UpdateSimulationSnapshotRequest,

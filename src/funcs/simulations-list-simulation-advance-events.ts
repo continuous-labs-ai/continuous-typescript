@@ -38,6 +38,10 @@ import {
  *
  * @remarks
  * Returns the ordered event trace for a committed advance. The Simulation must be running. A Simulation created from a Snapshot keeps the traces in the state it started from.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulationsListSimulationAdvanceEvents(
   client: ContinuousCore,

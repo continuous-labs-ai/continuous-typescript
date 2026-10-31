@@ -42,14 +42,14 @@ export type SimulatorMode = OpenEnum<typeof SimulatorMode>;
 /**
  * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
  */
-export const Source = {
+export const SimulatorSource = {
   Workspace: "workspace",
   Catalog: "catalog",
 } as const;
 /**
  * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
  */
-export type Source = OpenEnum<typeof Source>;
+export type SimulatorSource = OpenEnum<typeof SimulatorSource>;
 
 /**
  * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the app's origin.
@@ -125,7 +125,7 @@ export type Simulator = {
   /**
    * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
    */
-  source: Source;
+  source: SimulatorSource;
   /**
    * The specification the Simulator was built from, or null until a build has read it. recorded is a Web App Simulator's: the app's origin.
    */
@@ -143,8 +143,10 @@ export const SimulatorMode$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(SimulatorMode);
 
 /** @internal */
-export const Source$inboundSchema: z.ZodMiniType<Source, unknown> = openEnums
-  .inboundSchema(Source);
+export const SimulatorSource$inboundSchema: z.ZodMiniType<
+  SimulatorSource,
+  unknown
+> = openEnums.inboundSchema(SimulatorSource);
 
 /** @internal */
 export const SimulatorSpecKind$inboundSchema: z.ZodMiniType<
@@ -173,7 +175,7 @@ export const Simulator$inboundSchema: z.ZodMiniType<Simulator, unknown> = z
       parent_id: types.nullable(types.string()),
       publication: types.nullable(SimulatorPublication$inboundSchema),
       research: types.nullable(SimulatorResearch$inboundSchema),
-      source: Source$inboundSchema,
+      source: SimulatorSource$inboundSchema,
       spec_kind: types.nullable(SimulatorSpecKind$inboundSchema),
       status: SimulatorStatus$inboundSchema,
     }),
