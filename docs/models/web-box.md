@@ -1,0 +1,41 @@
+# WebBox
+
+## Example Usage
+
+```typescript
+import { WebBox } from "@continuous-labs/sdk/models";
+
+let value: WebBox = {
+  createdAt: new Date("2025-05-03T09:07:43.404Z"),
+  error: {
+    agentMessage: "<value>",
+    code: "specification_validation_failed",
+    detail: "<value>",
+    reason: "specification_invalid",
+    validation: {
+      issues: [],
+    },
+  },
+  id: "<id>",
+  includeSampleData: false,
+  metadata: "<value>",
+  name: "<value>",
+  snapshotId: "<id>",
+  status: "stopping",
+  url: "https://enchanted-knitting.biz/",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                    | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `createdAt`                                                                                                                                                              | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                            | :heavy_check_mark:                                                                                                                                                       | Web Box creation time.                                                                                                                                                   |
+| `error`                                                                                                                                                                  | [models.SimulatorError](../models/simulator-error.md)                                                                                                                    | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | Web Box ID.                                                                                                                                                              |
+| `includeSampleData`                                                                                                                                                      | *boolean*                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                       | Whether the Web Box started with the Snapshot's sample data.                                                                                                             |
+| `metadata`                                                                                                                                                               | *any*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                       | Customer JSON metadata, or null.                                                                                                                                         |
+| `name`                                                                                                                                                                   | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | Web Box name. The ID is its identity, and names need not be unique.                                                                                                      |
+| `snapshotId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The Web Box Snapshot it started from.                                                                                                                                    |
+| `status`                                                                                                                                                                 | [models.WebBoxStatus](../models/web-box-status.md)                                                                                                                       | :heavy_check_mark:                                                                                                                                                       | starting while its runtime boots; running while it serves its app; stopping while it saves its state; stopped when it holds no runtime. A start resumes the saved state. |
+| `url`                                                                                                                                                                    | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | URL that opens the Web Box's app, at a host of its own.                                                                                                                  |

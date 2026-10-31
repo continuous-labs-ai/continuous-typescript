@@ -1,23 +1,30 @@
-# Simulators
+# ~~Simulators~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
-Build Simulators from OpenAPI, WSDL or GraphQL documents, check or cancel a build, clone Simulators into other workspaces, and rename and delete Simulators.
+Deprecated. Use API Box for APIs and Web Box for web apps. Build Simulators from OpenAPI, WSDL or GraphQL documents, check or cancel a build, clone Simulators into other workspaces, and rename and delete Simulators.
 
 ### Available Operations
 
-* [listSimulators](#listsimulators) - List Simulators
-* [buildSimulator](#buildsimulator) - Build Simulator
-* [deleteSimulator](#deletesimulator) - Delete Simulator
-* [getSimulator](#getsimulator) - Get Simulator
-* [updateSimulator](#updatesimulator) - Update Simulator
-* [cancelSimulator](#cancelsimulator) - Cancel Simulator Build
-* [cloneSimulator](#clonesimulator) - Clone Simulator
-* [resumeSimulator](#resumesimulator) - Resume Simulator Build
+* [~~listSimulators~~](#listsimulators) - List Simulators :warning: **Deprecated**
+* [~~buildSimulator~~](#buildsimulator) - Build Simulator :warning: **Deprecated**
+* [~~deleteSimulator~~](#deletesimulator) - Delete Simulator :warning: **Deprecated**
+* [~~getSimulator~~](#getsimulator) - Get Simulator :warning: **Deprecated**
+* [~~updateSimulator~~](#updatesimulator) - Update Simulator :warning: **Deprecated**
+* [~~cancelSimulator~~](#cancelsimulator) - Cancel Simulator Build :warning: **Deprecated**
+* [~~cloneSimulator~~](#clonesimulator) - Clone Simulator :warning: **Deprecated**
+* [~~resumeSimulator~~](#resumesimulator) - Resume Simulator Build :warning: **Deprecated**
 
-## listSimulators
+## ~~listSimulators~~
 
 Returns all Simulators that the API key can access. Results can be filtered by status.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -90,9 +97,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## buildSimulator
+## ~~buildSimulator~~
 
 Starts an asynchronous Simulator build and returns the Simulator with status pending. Builds start in queue order when workspace capacity is available. Send multipart/form-data with a JSON part named request. To build from a document, add a file part named spec with the OpenAPI, WSDL or GraphQL document. For an incremental build, omit spec and set parent_id and instructions. Add file parts named document to give the builder and reviewer vendor documentation.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage: bad_request_body
 
@@ -248,9 +259,13 @@ run();
 | errors.ErrorT                     | 503                               | application/problem+json          |
 | errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
 
-## deleteSimulator
+## ~~deleteSimulator~~
 
 Deletes a Simulator that has no dependent Simulations, child Simulators, or Simulation Snapshots.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -324,9 +339,13 @@ run();
 | errors.ErrorT                       | 500, 503                            | application/problem+json            |
 | errors.ContinuousDefaultError       | 4XX, 5XX                            | \*/\*                               |
 
-## getSimulator
+## ~~getSimulator~~
 
 Returns a Simulator and its current build status.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -399,9 +418,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## updateSimulator
+## ~~updateSimulator~~
 
 Renames a Simulator. Omitted fields keep their current values. Continuous catalog Simulators cannot be changed.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -476,9 +499,13 @@ run();
 | errors.ErrorT                          | 500, 503                               | application/problem+json               |
 | errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
-## cancelSimulator
+## ~~cancelSimulator~~
 
 Requests cancellation of a pending or active Simulator build and returns the Simulator without waiting for the build to stop. Get the Simulator until its status leaves pending or building. The build can finish before cancellation takes effect. A Simulator whose build has settled is returned unchanged.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -551,9 +578,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## cloneSimulator
+## ~~cloneSimulator~~
 
 Creates a ready copy of a ready Simulator in another workspace. The clone has a new ID and the source's image digest; the source is unchanged. The source is the caller's workspace: an API key's own workspace, or X-Workspace-Id for a session. An API key may clone into any other workspace of its organization.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage: bad_request_body
 
@@ -687,9 +718,13 @@ run();
 | errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
-## resumeSimulator
+## ~~resumeSimulator~~
 
 Resumes a build that waits at QA because its live credentials were rejected, as build.waiting reports. Refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. Returns the Simulator, still building. The wait does not count toward the build's time limit: the build resumes with the time it had left when it began waiting. A build that is not waiting returns 409 simulator_not_waiting.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 

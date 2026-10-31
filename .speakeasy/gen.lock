@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: 3c1fb4a6218b1ef817f8859aeca19198
+  docChecksum: 7ad90d11aa60907d12a50dfee16c12c0
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.3.4
-  configChecksum: 9491de5c49895ec61a618d7516fefa89
+  releaseVersion: 0.3.5
+  configChecksum: 80e4e72e72095021d23af057599e0ac5
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 85a3fabc-a40d-43b9-a326-f21b72bf369e
-  pristine_commit_hash: b28384dc91863cbbec167fd55c801cc5a4d22a1c
-  pristine_tree_hash: 650a51bd6ac298b96bcf10d00a4c4a005148cc2a
+  generation_id: 379693ed-82be-4000-84b5-80d651758ab6
+  pristine_commit_hash: b9f8790b7c0f5e653ca1e40e17089b32a233730f
+  pristine_tree_hash: 0c4530d271347e546d24115ab509c415dc08a8f2
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -59,16 +59,16 @@ trackedFiles:
     pristine_git_object: 6ee2921010070a544e252596defc55d501e1c1ae
   FUNCTIONS.md:
     id: 21b9df02aaeb
-    last_write_checksum: sha1:0792dcbb4e4186ab50f173e696242b58e72d4145
-    pristine_git_object: 2c60138bfedc47c2929b30e38f52bef2c56c0a98
+    last_write_checksum: sha1:d4ce880b5899dbbd963ae40d99b72d66dbc19b2d
+    pristine_git_object: 5b6be06d25a81470aa8b5a96686220aee62e0331
   RUNTIMES.md:
     id: 620c490847b6
     last_write_checksum: sha1:e45b854f02c357cbcfdb8c3663000e8339e16505
     pristine_git_object: 27731c3b5ace66bedc454ed5acbe15075aacd3dc
   USAGE.md:
     id: 3aed33ce6e6f
-    last_write_checksum: sha1:ea021ef9e609b6a4c8eac71fa1eb751705fdf434
-    pristine_git_object: 97a96a710dc25ee851fe60871509836ed12d41a6
+    last_write_checksum: sha1:64290f6b00fd2b8ae2579658f9509f91753e90c8
+    pristine_git_object: a04acd225cab08919674e56ff7a7bc971bd7fe4f
   docs/lib/utils/retryconfig.md:
     id: 0ce9707cb848
     last_write_checksum: sha1:bc4454e196fcd219f5a78da690375a884f5ed07b
@@ -77,10 +77,58 @@ trackedFiles:
     id: ebaa1896eca7
     last_write_checksum: sha1:afab6214ee3fe91a4a4e29a0b2daad2c22019661
     pristine_git_object: 17a27b3d6b494dd488ab531332af817b308f2c9e
+  docs/models/api-box-snapshot-source.md:
+    id: b8ba1faf1bc0
+    last_write_checksum: sha1:0f54e02d14e7d6bd5606aff415dde647aab0e981
+    pristine_git_object: 9c3b2403970757162815c07fd16854b21c449ca2
+  docs/models/api-box-snapshot-spec-kind.md:
+    id: d92c6c17a4f9
+    last_write_checksum: sha1:57e85125ae2282d8698e8f4470932eebbffcf75b
+    pristine_git_object: aa0d09672d7c0ca8df0cb7f7d2d9552205283ea2
+  docs/models/api-box-snapshot-status.md:
+    id: f66645d69720
+    last_write_checksum: sha1:79a79147ed38451e84f2258cba66348445cf2d29
+    pristine_git_object: 6f33a9cea4f15e0f97750eb12a50a9cd110c76a9
+  docs/models/api-box-snapshot.md:
+    id: eb1dc2e7c36a
+    last_write_checksum: sha1:57bc5c7fcfd8a5fdb6d1339d7a7fce673f484bc4
+    pristine_git_object: 0cbfd1bf3593d0bb2e57e02cc8c9f3ee6ef0dc91
+  docs/models/api-box-status.md:
+    id: 7d1b5fa9639f
+    last_write_checksum: sha1:454972b06b14cb966ebd26650da60246dc06d02a
+    pristine_git_object: 860d4ab767f7c93109c2bd4a6ee5fd0e170914a7
+  docs/models/api-box.md:
+    id: 4fb79dc85a7c
+    last_write_checksum: sha1:3c0b738ce69ed4261dbe6f94b94456c9de9a9d61
+    pristine_git_object: 9f74b04b134508fbb8322637c5d5994a9d78bb83
+  docs/models/apibox-connection.md:
+    id: cd5f070a6316
+    last_write_checksum: sha1:1409fa35edea07c5395c98d8e3d4cb9b8b0d1603
+    pristine_git_object: fab561920f66a498315d48d87fd3ba7f34813824
+  docs/models/apibox-step.md:
+    id: ac690bf91f14
+    last_write_checksum: sha1:6a6daae9e631036e06d272abcce355ddd1d497b3
+    pristine_git_object: 8b353a56edf26288c0789d52174a1b4ee386926c
+  docs/models/apibox-token-response.md:
+    id: ec7e7da64eb9
+    last_write_checksum: sha1:50c17dc3ad1205fd605bcf27c84e65c554756edc
+    pristine_git_object: b97f543e9b97c94ce025a2ad60e154b61cd485f3
   docs/models/auth-method.md:
     id: c5596e1192c5
     last_write_checksum: sha1:40842692555ba05d039026c11c757367d950401f
     pristine_git_object: 03938f3ba749258906cf305089a1ed4630c7451f
+  docs/models/build-api-box-snapshot-request-spec-kind.md:
+    id: 66edc54503cb
+    last_write_checksum: sha1:b3a356dc0f05a57c11f37ace85131b169062b1a4
+    pristine_git_object: e18846752e303837deef575a6b09b918e8d2eebc
+  docs/models/build-api-box-snapshot-request.md:
+    id: 64b6b96364bf
+    last_write_checksum: sha1:1cbc9ea42a738d7454635ca7d70ad4b3fa889ff6
+    pristine_git_object: 5507e9977323914a8f6f27b4ff9a3a209d2575aa
+  docs/models/build-mcp-box-snapshot-request.md:
+    id: a1d914da9dcf
+    last_write_checksum: sha1:e804dc6ef8b9739bdb947be3d7e30642b5127f77
+    pristine_git_object: 9166d2f9a3c1df2cbc3953947579cd161fa3f719
   docs/models/build-simulator-request-mode.md:
     id: 02425fad8566
     last_write_checksum: sha1:9be3e48037220e4405c7016fb1a104bd9833a948
@@ -97,6 +145,10 @@ trackedFiles:
     id: b6246c28546a
     last_write_checksum: sha1:1ae8d8d5561394c38de761a07f23bc289c0cedb8
     pristine_git_object: a11d792617ec27144493008e76aa40a0687d9969
+  docs/models/build-web-box-snapshot-request.md:
+    id: 3dbff6577818
+    last_write_checksum: sha1:bd3246088c48e88986375f117243cf4daeb9d919
+    pristine_git_object: c5ebb1edbba5e9e9876253a156739a33b0c44519
   docs/models/clock-advance-member-status.md:
     id: 68bade113394
     last_write_checksum: sha1:8f7e929d0a831ae05740a257bf1ae25223d83c9f
@@ -125,10 +177,18 @@ trackedFiles:
     id: 5e0c6d57fe9a
     last_write_checksum: sha1:4c37ef70731bb28d6e9870096a91a16a9c121280
     pristine_git_object: 4375eb8d974b87909abcf5e8c5020dd4f5a408c3
+  docs/models/create-api-box-request.md:
+    id: 051ab627d4bc
+    last_write_checksum: sha1:92251094487dfde52c99f163fdef45df8b4a2d4b
+    pristine_git_object: 9f3a2ea19c30df8b218c13f5e7c16738f1f9789e
   docs/models/create-credential-request.md:
     id: 143c458c0b5a
     last_write_checksum: sha1:c0e3ba3600eda695e8cf689c99f79a1cf1fd9d32
     pristine_git_object: 1eb42da2a4f708636765f09a4a5cacd71efb87f9
+  docs/models/create-mcp-box-request.md:
+    id: 9d21d57f3a38
+    last_write_checksum: sha1:01fb33b7208b5fbdc07bad467f648cf900ce242b
+    pristine_git_object: 6fd1942399e2070a7a51d0572d625c2bc56c7a1f
   docs/models/create-simulation-request.md:
     id: 16b46262ec4f
     last_write_checksum: sha1:5ecf34787b7e29bac0bc506e1ba6c797add31186
@@ -137,6 +197,10 @@ trackedFiles:
     id: 6b505e46819b
     last_write_checksum: sha1:9374e5c01051c79aa3f292b09453a0063aeb3405
     pristine_git_object: f88f0d016b76636d3d92ecdebae6a9bc61e8b649
+  docs/models/create-web-box-request.md:
+    id: 3fc4cf8ac739
+    last_write_checksum: sha1:b214899313e2b5d7676e9fb6058a63829ba91eb4
+    pristine_git_object: e446fd174d5dd2e51a7e5d5d38ffd123db8bdc56
   docs/models/created-simulation-status.md:
     id: ed822d4f9941
     last_write_checksum: sha1:cdad15efcb8e496528c1b37029bf4f9a9b52c42e
@@ -189,6 +253,18 @@ trackedFiles:
     id: 9dc9889267c6
     last_write_checksum: sha1:aace5d4dd1f9b1fd1f7730c9d26b1dbd9edeb703
     pristine_git_object: 2f8881bf0b6b0b84153fe6c02730b582623baced
+  docs/models/list-api-box-snapshots-response.md:
+    id: 5777f19b6c03
+    last_write_checksum: sha1:aa8e24af14b035914c8abf1e4d7422177969669a
+    pristine_git_object: daf82a3780392baf1095f978e7ba88d99b63087b
+  docs/models/list-api-box-steps-response.md:
+    id: e4a0fcf15f15
+    last_write_checksum: sha1:914f78bb25e1b6daba8912cae5ef2d0fe5a94412
+    pristine_git_object: 78101b1137bdd3f755e46694c932007f920fbc12
+  docs/models/list-api-boxes-response.md:
+    id: cc9469128cf8
+    last_write_checksum: sha1:65833719721b6270bb7fd6052f63a4170d1e9d45
+    pristine_git_object: 3bdf897d6233c69bffde6cacd945b67130a8149e
   docs/models/list-clock-advance-events-response.md:
     id: e721fa1ee71d
     last_write_checksum: sha1:94dbc3039e11942d9f9e80202a8283c4f0f9d98d
@@ -197,6 +273,14 @@ trackedFiles:
     id: 3e322b96e754
     last_write_checksum: sha1:16e64c98a27749fcebbe26191470d86caffb26cb
     pristine_git_object: 1640b9b9eb8257663cb5531452910dc2125dabc8
+  docs/models/list-mcp-box-snapshots-response.md:
+    id: fd2d92e21f1c
+    last_write_checksum: sha1:31493040ed1969c2230618b6c7cf1909cb571256
+    pristine_git_object: 0012efec44f8a183b3fc02c9d3fc01ee4ef04e8c
+  docs/models/list-mcp-boxes-response.md:
+    id: d047f151bdee
+    last_write_checksum: sha1:8056310cd29e7083a7dd4dd6e9a22345ac758c07
+    pristine_git_object: 2fddf467374d7e553bb9d96a341a749e3fc73aa3
   docs/models/list-simulation-snapshots-response.md:
     id: 95a32c24838b
     last_write_checksum: sha1:8edb9136964f8d14c73409c31c591f82bb4afa30
@@ -211,28 +295,124 @@ trackedFiles:
     pristine_git_object: e2cc147e85b15b2ccedf48128fb65725701f1fae
   docs/models/list-simulators-response.md:
     id: 90b92f75161b
-    last_write_checksum: sha1:213a99d1dc25c40e0e5b4002ab3a0a7f59790097
-    pristine_git_object: 98a06090eb6db91558629d7ea9cf8e2575658389
+    last_write_checksum: sha1:81ffb5a3d0ad1080ca5eb40b7af077c97a3b21ce
+    pristine_git_object: 7168749b7f1d90fdd19e573dea834730ac78878a
+  docs/models/list-web-box-snapshots-response.md:
+    id: 58d1e529ac13
+    last_write_checksum: sha1:89b9fceb9eb05677a3ccc9ae180e83f69808adf9
+    pristine_git_object: 5edb1733ace16ae037f1bc8a7b66af362034a13e
+  docs/models/list-web-boxes-response.md:
+    id: fa193336f381
+    last_write_checksum: sha1:1766547fbb124be3e710f2ed5bb14ac33a6ac65b
+    pristine_git_object: b189403212f8f2b3dc1e8c2eeb4c629a63e8f2ea
+  docs/models/mcp-box-snapshot-status.md:
+    id: 5dabf2130468
+    last_write_checksum: sha1:e33d5fc9fb088a29e8aca65f9f66b634d2aec25e
+    pristine_git_object: ca96a1c6981c3e55972acc7a1fed2e6cb2eea96b
+  docs/models/mcp-box-snapshot.md:
+    id: 92ec36ec149f
+    last_write_checksum: sha1:66630705c1b65a3de7d90aec1f8c9551b36dc3b8
+    pristine_git_object: 11cb2f13e1f19e111677e977bfbb62ef0f6fd13d
+  docs/models/mcp-box-status.md:
+    id: f808632fd4e6
+    last_write_checksum: sha1:1dfd00617732c2fde7faa39de3116890ee507474
+    pristine_git_object: a700784bef63680bb21150d2cdb3402a4b47684f
+  docs/models/mcp-box.md:
+    id: 030d2e1d70bf
+    last_write_checksum: sha1:b8c3e620ef2ba75fa192c281b3e087e2be396531
+    pristine_git_object: 219b5eada45d810aeb0edba2eae9ce7e6b9e4b8d
+  docs/models/mcpbox-connection.md:
+    id: dd9006342b8f
+    last_write_checksum: sha1:b607ceec0531ba9b05bcaec8cd3ea6518f06c2ba
+    pristine_git_object: cf4c72416ac0214da67d7a86efefc4e5c0af0e72
+  docs/models/mcpbox-token-response.md:
+    id: 07b9d0a50cdc
+    last_write_checksum: sha1:bb23c116412215bf09b1c7a810ec4eafe8546650
+    pristine_git_object: ae1ae012e42e236db321ace3373bd4b9df51380b
+  docs/models/operations/build-simulator-document.md:
+    id: da2fd7ac92b8
+    last_write_checksum: sha1:050001af0eb5332e3c10e2a14fb1694c27c56273
+    pristine_git_object: b1b3131f471a9e0da37392c88486391d115e2eb5
   docs/models/operations/build-simulator-request-body.md:
     id: cce81cc86a08
-    last_write_checksum: sha1:d8e525a4feedc7feeba2e869a3e409a29cd8e350
-    pristine_git_object: 8910908c6b36e980820a5c31b2c33ef28c711415
+    last_write_checksum: sha1:25894bace6876aa3a0f6330e94d1310298aabe51
+    pristine_git_object: 2a27c6ac56260fcf3476a02740e4600ad4a09d7f
   docs/models/operations/build-simulator-request.md:
     id: 19c18e9715ed
     last_write_checksum: sha1:b3472a0485b7863c6dfaa9c5b763716b3f504c96
     pristine_git_object: e4eb37128b344c1b9417d6e7c6ce4493f352cfe1
   docs/models/operations/build-simulator-response.md:
     id: 6c3c62dddab1
-    last_write_checksum: sha1:9aca02de4711e17c912865a839160afe56c94b5f
-    pristine_git_object: 1f102326f925cc52f2dfb726c600e2a204202190
+    last_write_checksum: sha1:1a0fa6e859deeab35dd9cf46d0f286d40494e0aa
+    pristine_git_object: 08c6808a7506a85124ab3adefcec52600eb0c559
+  docs/models/operations/build-simulator-spec.md:
+    id: 4435cfdbd0b2
+    last_write_checksum: sha1:9c6e3e2d609a9fdda1e153d7627e47aa0d1714ae
+    pristine_git_object: 93173c9b5b3c7a34ecaa2fbbc321ec0b1f0925b7
+  docs/models/operations/cancel-apibox-snapshot-request.md:
+    id: 78c583dbc443
+    last_write_checksum: sha1:c620c3f493c8f108fcf31804c0a0abf3195975e2
+    pristine_git_object: 57b4c581c468199679c3926e8ff2bc0304ed4f87
+  docs/models/operations/cancel-mcpbox-snapshot-request.md:
+    id: 3a28504af601
+    last_write_checksum: sha1:ef51e20eaa5061f087903a11fcb41a3d22ed45ec
+    pristine_git_object: dfbb033f57691dcea1a417d75ee42d9f67429f0f
   docs/models/operations/cancel-simulator-request.md:
     id: 174e58b1dd34
     last_write_checksum: sha1:46f0f1618ea7d435a4ee9074b6e740ab7179cc8a
     pristine_git_object: 21772516640296318a1d7f74146a45290fb322a2
+  docs/models/operations/cancel-webbox-snapshot-request.md:
+    id: c3c2f7f47cab
+    last_write_checksum: sha1:9f951c5c246cb3de95854cbe8a5ff61644b0e246
+    pristine_git_object: f4b1a7a50eb9128b7aff55355aec1a3c57132120
   docs/models/operations/clone-simulator-request.md:
     id: 8f2a2077b22a
     last_write_checksum: sha1:f2eab4320f8a4eff5b7a3946068d65debedc47f2
     pristine_git_object: e0d7196d324788d472bc43feec2deed8bc6c38fd
+  docs/models/operations/create-apibox-request.md:
+    id: ab504b092097
+    last_write_checksum: sha1:f3212fe966e8190000bcd361c272c08ea20e74e8
+    pristine_git_object: 53f62ecf392e10884848e0f1c4c7ce8de2e4cf1d
+  docs/models/operations/create-apibox-snapshot-document.md:
+    id: 16ebf239c23b
+    last_write_checksum: sha1:a24dcfd31c18ffadc3969f3b0666a6c328186276
+    pristine_git_object: f04a00b12122503bd6900e35af07c5118b4e366a
+  docs/models/operations/create-apibox-snapshot-request-body.md:
+    id: 794f444e0d45
+    last_write_checksum: sha1:a4aa8714df94843b7e1314ee81cf38960a5f94a5
+    pristine_git_object: 3dcd05eb9e0d8bfb426cf6bc30b60f7702da1bf1
+  docs/models/operations/create-apibox-snapshot-request.md:
+    id: fe61d10e1cc7
+    last_write_checksum: sha1:9966c87839cd9f732f2a6cf90d972b380740073c
+    pristine_git_object: 0067cde245339b0aadedc3ec528a8f43c7fc564f
+  docs/models/operations/create-apibox-snapshot-response.md:
+    id: 3b1fb44b13f9
+    last_write_checksum: sha1:e492d91681a8e9b23c2095d9ddd2a3a1d8702af1
+    pristine_git_object: 257ec6a668d83f331eb69be14e2d4909105ce7a4
+  docs/models/operations/create-apibox-snapshot-spec.md:
+    id: 264e037b9452
+    last_write_checksum: sha1:b42d58453913d067b4abd0d7d2c59585a32b2d41
+    pristine_git_object: d63662fa844e25d451914e3cb61a21e88ff7848a
+  docs/models/operations/create-mcpbox-request.md:
+    id: 07c457ace9fc
+    last_write_checksum: sha1:ff4df66b476a7dfbdfa37c7246a1279641e5a46e
+    pristine_git_object: 31c7bc06f82021f38f3a7e25b7d763c6721e6dbf
+  docs/models/operations/create-mcpbox-snapshot-document.md:
+    id: 0dd8da04e1bf
+    last_write_checksum: sha1:8f942e84fbba4ca514b92f9f91804c9a633c9e3b
+    pristine_git_object: aa36cb7904ba8aeb63b597d4cd171daa676163e4
+  docs/models/operations/create-mcpbox-snapshot-request-body.md:
+    id: b5c259c37c54
+    last_write_checksum: sha1:ead0814dab4618736f91da68de7f1b8eff71ef9a
+    pristine_git_object: a15e9ff6505345bbd891e620b579e443040dd307
+  docs/models/operations/create-mcpbox-snapshot-request.md:
+    id: 598b19698ba5
+    last_write_checksum: sha1:ae8b7b1cd1aaf8b1df89be5dc52962037fd9abdb
+    pristine_git_object: 10c7d61122cf3fb5c20da854ad0b68a452829877
+  docs/models/operations/create-mcpbox-snapshot-response.md:
+    id: 80e7e11d0a3f
+    last_write_checksum: sha1:0caaf8ef11d9f97bf9cf1efc77873f4221789862
+    pristine_git_object: ac73e85a704c5299d502be7abf50c6eb277db7a6
   docs/models/operations/create-simulation-advance-request.md:
     id: 2f5f0ec52464
     last_write_checksum: sha1:c793d9e4527c87c176107730c37518161538d0b7
@@ -249,10 +429,46 @@ trackedFiles:
     id: 1e2414438495
     last_write_checksum: sha1:8c1af4aaee52ce087ba702564ac90ba46ef082fa
     pristine_git_object: 2addc4aa7852b466e752e52488c9efe2648a7417
+  docs/models/operations/create-webbox-request.md:
+    id: d89ffcc9c42e
+    last_write_checksum: sha1:46a5e211eb62771780910ca9064b45861cd5cdce
+    pristine_git_object: bea2197681cd2710882465d8f6a371a14f402e78
+  docs/models/operations/create-webbox-snapshot-document.md:
+    id: 7d1cadc09e28
+    last_write_checksum: sha1:772ae9a7c54fc3006edc048aa106aab689449758
+    pristine_git_object: bd7c3541ba65b86bd85cb4dd05ef000cb1f961a7
+  docs/models/operations/create-webbox-snapshot-request-body.md:
+    id: 406e836bd2aa
+    last_write_checksum: sha1:15cfb7da1c84089e9fc5b7588ada773a7dcb5250
+    pristine_git_object: 018ceb58c657ec01eae27c788156024e4b58fc8f
+  docs/models/operations/create-webbox-snapshot-request.md:
+    id: 7acef2ea453c
+    last_write_checksum: sha1:94bc651d8b4ed9be54a2a7354cee8bbcaf3f2596
+    pristine_git_object: a80adeaa8fc968098382445ee150ee0a157ae9d9
+  docs/models/operations/create-webbox-snapshot-response.md:
+    id: cf07fb153b1c
+    last_write_checksum: sha1:a490b50b35ff5887e79aa96a6256c596dbbe5db5
+    pristine_git_object: e2f6d46bdb6aafab4bdc82c85eade4bd3bc303ed
+  docs/models/operations/delete-apibox-request.md:
+    id: f5449e7b6546
+    last_write_checksum: sha1:49a55364c01b75881c4d048b15d903a57a7fb96c
+    pristine_git_object: cb98e436a6585b8007373ca227695e0cf64a20b1
+  docs/models/operations/delete-apibox-snapshot-request.md:
+    id: 2be9d0451d8f
+    last_write_checksum: sha1:d992a472f5224e494f8c0d40e8e2fe19ed550c6a
+    pristine_git_object: 41d9ec36e8cf1d927c53b10ec6ede2b07e65baf2
   docs/models/operations/delete-credential-request.md:
     id: 5a4342144e27
     last_write_checksum: sha1:4a9904b15a58fee0685117ee6511533f61387722
     pristine_git_object: 96657de9e5c715482af6ab9f2f2c04a0cdb6bd98
+  docs/models/operations/delete-mcpbox-request.md:
+    id: e6ab5280dfb5
+    last_write_checksum: sha1:a4bd2378f5dfa341ccf1d521abfa5fc38efc86d8
+    pristine_git_object: 20fab09f1be28b9212ca5be060b062a7023e1fde
+  docs/models/operations/delete-mcpbox-snapshot-request.md:
+    id: e9831655b4e7
+    last_write_checksum: sha1:3118b66a6b02a8b58f56553d2cde8fa214e1725c
+    pristine_git_object: b7a8b9c37ac84ca5efe4973c1821ecca57598d8b
   docs/models/operations/delete-simulation-request.md:
     id: 474dbcf472ad
     last_write_checksum: sha1:ecb3efd6446119405b0e9abc2f9a407105ea33bd
@@ -265,14 +481,42 @@ trackedFiles:
     id: bd8198d73f04
     last_write_checksum: sha1:e7a611bf53022ff696010cb0d3ccd3dc595d9e0d
     pristine_git_object: 201d1f0a106f0d8d59938f34a6a3d011c73f8534
-  docs/models/operations/document.md:
-    id: 20633c7fa04e
-    last_write_checksum: sha1:31c27dd65b8b1b46d80bcc17d7796c3a595674f2
-    pristine_git_object: 6f18d389c58deeb70f977a500417d73456f7141f
+  docs/models/operations/delete-webbox-request.md:
+    id: 506ebabc3e1a
+    last_write_checksum: sha1:e32e80500517ccd675fb014d2ca869417414d8f4
+    pristine_git_object: c6d185b43ed6eaccaf9f235f696eea58596da407
+  docs/models/operations/delete-webbox-snapshot-request.md:
+    id: 8a239341fb0c
+    last_write_checksum: sha1:e952adacb6ad60e02794971dd8219eeebc957470
+    pristine_git_object: 19348b104e79efc99766c65941c60385b8714990
+  docs/models/operations/get-apibox-connection-request.md:
+    id: ea52dfaddc86
+    last_write_checksum: sha1:966bc6714cb842e81394c4293e619ee223107748
+    pristine_git_object: c7c4ba23d755f36ab98c514b8d1fcf36f92366bb
+  docs/models/operations/get-apibox-request.md:
+    id: 317f88a7030b
+    last_write_checksum: sha1:b7c8b12b9ce8acd0e4fa4de6eb1ac79cc04e38c1
+    pristine_git_object: c56afd8eada3146e7d0afbbb42a22dc41c85faf8
+  docs/models/operations/get-apibox-snapshot-request.md:
+    id: c563cf3de5c9
+    last_write_checksum: sha1:1257f7174180c02a1d636cb790cb89249badd593
+    pristine_git_object: 993ae5ee35ff1a2c9f8cc3e0914b96433ecc02e5
   docs/models/operations/get-credential-request.md:
     id: 037d1892c973
     last_write_checksum: sha1:8b5f87f066b7968760016e662da019fa80e98604
     pristine_git_object: e0a363e0bd3aa6d4af505cfa11efad8165343964
+  docs/models/operations/get-mcpbox-connection-request.md:
+    id: 8d94027309c6
+    last_write_checksum: sha1:1fa94fa3d2de2e1bb519f7841b35958f8d24185a
+    pristine_git_object: fc36bbddf05396acb2b994bea8a83c9b3bab461b
+  docs/models/operations/get-mcpbox-request.md:
+    id: bf41c65f5d8e
+    last_write_checksum: sha1:78b10e94d90591e9a2f81032336a925119d39b2c
+    pristine_git_object: 5ef5c0f47ce1f883da368b14f54427551aa7d40d
+  docs/models/operations/get-mcpbox-snapshot-request.md:
+    id: 450e779759a2
+    last_write_checksum: sha1:ea9ce8153175375a5bad7226ee26e74d33d7d8d5
+    pristine_git_object: ba802fd0a9ae91479df5e261ed54f40216c92694
   docs/models/operations/get-simulation-advance-request.md:
     id: 7bfc13120922
     last_write_checksum: sha1:47b9b94ac44106c35a73af07d358ee117ae7790a
@@ -297,6 +541,54 @@ trackedFiles:
     id: 55343e052094
     last_write_checksum: sha1:d18655a86685411cda2f18557a4d417b4e63d053
     pristine_git_object: d065c39e2fc3ef8ee3dbc8f8afe426d607352b89
+  docs/models/operations/get-webbox-connection-request.md:
+    id: ed84e37bd6c3
+    last_write_checksum: sha1:3a7c1ebdde7222534530d71ae2016801ae6dbf41
+    pristine_git_object: ff9c8e972561dfc09ea5aee90b75c27e20f41d9d
+  docs/models/operations/get-webbox-request.md:
+    id: d8c125429cea
+    last_write_checksum: sha1:34dbf9da6c66b27486505527208ab8d54534898a
+    pristine_git_object: 68c1e3008275400f2909b7ba3626a37677a3d1e4
+  docs/models/operations/get-webbox-snapshot-request.md:
+    id: 64d62e9ba632
+    last_write_checksum: sha1:d0fd8cfd21501e88ce9b443581a7f6886359e835
+    pristine_git_object: e8fe321311a38dd4a0c61b07de0d213b34445232
+  docs/models/operations/list-apibox-snapshots-request.md:
+    id: a3a1371d8876
+    last_write_checksum: sha1:3c111313a9052c0a874c03164f271ca35cb444ee
+    pristine_git_object: e4e921c1004521ac77286b13df28a3f281e2521e
+  docs/models/operations/list-apibox-snapshots-response.md:
+    id: 6dced5b0897b
+    last_write_checksum: sha1:d56e7e9ea5231390a4cadf446f5c5252e0a6e7d4
+    pristine_git_object: 647b4293360039828f1b5ef4eeb3ba7699cee4d5
+  docs/models/operations/list-apibox-snapshots-source.md:
+    id: f6e6bff7f6bb
+    last_write_checksum: sha1:7c5cdc80b84e63560aff9918eb119cecb928a2d2
+    pristine_git_object: 08dd97265a8e6064d2703858777d45e6691e91a7
+  docs/models/operations/list-apibox-snapshots-status.md:
+    id: dcb0ec95e6ce
+    last_write_checksum: sha1:facab9ad3572e2c5cdc213a2397228a907ed4ea9
+    pristine_git_object: d5d892a79dad6b77fc87804e84481a3d61913100
+  docs/models/operations/list-apibox-steps-request.md:
+    id: 1fca5fa9705b
+    last_write_checksum: sha1:3270eb522c3c20b6d88ea98ef3df6f76ff162350
+    pristine_git_object: 53ba1c367d5cd2d065bf4a3142647f7e3ae5e7fd
+  docs/models/operations/list-apibox-steps-response.md:
+    id: 8669576b26b5
+    last_write_checksum: sha1:6e052cefca783be1ecc09cb6a72dba333271fa4a
+    pristine_git_object: d581e915f27c04bc20a37fdd7becc96a59c17c24
+  docs/models/operations/list-apiboxes-request.md:
+    id: e835623fb811
+    last_write_checksum: sha1:bd0655998e9835001ff5ee5896b60c713c293f66
+    pristine_git_object: 320c025bed2abed41af197e2afadc804e10f126b
+  docs/models/operations/list-apiboxes-response.md:
+    id: db5e483c4ed8
+    last_write_checksum: sha1:524cfd598970fc1b829efcbb815a349d371451a9
+    pristine_git_object: 797c1a4913853ef22201a496248101e677e41cfc
+  docs/models/operations/list-apiboxes-status.md:
+    id: f88e98b050df
+    last_write_checksum: sha1:9e96b70f2dd97baa2a21702d4f93b293f85ba000
+    pristine_git_object: 563ac036ded5245a52f27c2d2d1581b0d0989e87
   docs/models/operations/list-credentials-request.md:
     id: f1c5f22f1b62
     last_write_checksum: sha1:472ab0cf77c28b9a82974346e52aa9a0772c9814
@@ -305,6 +597,26 @@ trackedFiles:
     id: a61a8894258f
     last_write_checksum: sha1:1566048cc4483023b05a4e47c4c7e159953b051e
     pristine_git_object: 396c2842459c03f69faeb106a76177ca266471d7
+  docs/models/operations/list-mcpbox-snapshots-request.md:
+    id: 43d24b222cd2
+    last_write_checksum: sha1:e00c01ed1f02fb466ec143e7f7e688ec6a3296d3
+    pristine_git_object: 89b7a981fcd5366f7046870187f3b6e5c9cb413c
+  docs/models/operations/list-mcpbox-snapshots-response.md:
+    id: 949a52658001
+    last_write_checksum: sha1:0b310ed3dafba322c18e29a583bcf4df54296b0b
+    pristine_git_object: 011cc282f9734c26953985595c8d69a5ea025940
+  docs/models/operations/list-mcpboxes-request.md:
+    id: 272ef7a8615c
+    last_write_checksum: sha1:55ec2cb356588717e7d085e8388256ed13e814d9
+    pristine_git_object: 572d53e3559324559619d796b8742074100fd8dc
+  docs/models/operations/list-mcpboxes-response.md:
+    id: 0992e7e58676
+    last_write_checksum: sha1:2310dbdc0acde4fb0be7f3e04b59bcd788bfd787
+    pristine_git_object: ed506673e2620afedebb31c88edfbadb4e54d4a7
+  docs/models/operations/list-mcpboxes-status.md:
+    id: db6e1eeddf86
+    last_write_checksum: sha1:13a9e0dba1a218b6bc965934e960fad60709eb1f
+    pristine_git_object: 94c1720231efbe5133a417ba2ece58e423e676ef
   docs/models/operations/list-simulation-advance-events-request.md:
     id: 45eb5d69c668
     last_write_checksum: sha1:a795057951b3acbbcaba986268f0a78740a6c06d
@@ -347,12 +659,48 @@ trackedFiles:
     pristine_git_object: 3b941c170858df213e72249379ecd9d6a7551bb0
   docs/models/operations/list-simulators-response.md:
     id: "079048768552"
-    last_write_checksum: sha1:97fe8732f31329e8348b51e327cbf82d5d441a16
-    pristine_git_object: a9b07d6072227d41fdb019b3e2593326976995b3
+    last_write_checksum: sha1:d243a8bf038256a04074b66814d9163518ea5afa
+    pristine_git_object: 23abd71375d85b45da2f021523228b975b8859e3
   docs/models/operations/list-simulators-status.md:
     id: 0de71d56a153
     last_write_checksum: sha1:a7a9d5ce0e98b4135e47c40dfecbcd2c6e28bf80
     pristine_git_object: 4fe550b586b9041da6c884461577f251df99331c
+  docs/models/operations/list-webbox-snapshots-request.md:
+    id: 278565f0b441
+    last_write_checksum: sha1:79de9ef68b37e1f64470ef6384f9860829abbd0b
+    pristine_git_object: dc03560465c6ba5abb46e56c09d6ac8a306030f9
+  docs/models/operations/list-webbox-snapshots-response.md:
+    id: 3501c04cf767
+    last_write_checksum: sha1:7b0a8860023effe4d35463a4e0b4874e9a088db7
+    pristine_git_object: 2d414d9ddcf8a558a1ec3c21074d6e7a02ccec29
+  docs/models/operations/list-webbox-snapshots-source.md:
+    id: 484b7b3c0972
+    last_write_checksum: sha1:d1fc6553be69fc23c476de5e6e3f23c287f2b823
+    pristine_git_object: 312e893c79a5190721876bf2583ff8dd3123a2ac
+  docs/models/operations/list-webbox-snapshots-status.md:
+    id: 829fed133f68
+    last_write_checksum: sha1:0679f0a6848df734810ab5066acd2c9eaf270cce
+    pristine_git_object: cc4671863dd57cd61f2db40ce1f60b91a94117f2
+  docs/models/operations/list-webbox-steps-request.md:
+    id: 248e647ecc08
+    last_write_checksum: sha1:f4022ee213eda2c65b44413d06e2a38943d4511b
+    pristine_git_object: 9834d750668ec491f99eef11125ccca171cd8e21
+  docs/models/operations/list-webbox-steps-response.md:
+    id: 5e43f7daa759
+    last_write_checksum: sha1:53cd2d996ca3f9847b658fd596372e6473d7542d
+    pristine_git_object: fce966dc5587ca3e7ca316ea0dd9855a7be43d69
+  docs/models/operations/list-webboxes-request.md:
+    id: 67fda416080d
+    last_write_checksum: sha1:a7228d5df8cb532fd4a88bfbf1a11c5d9291337e
+    pristine_git_object: 1ff6b587de3421e365a32f1c7bb303c3471b6b5b
+  docs/models/operations/list-webboxes-response.md:
+    id: 55eb5e8d6842
+    last_write_checksum: sha1:61d15c5f0b6b61a35461da4f51142623b9c1d9a9
+    pristine_git_object: ae8ac8047eacb7743e034e4f137aa023da5f4e72
+  docs/models/operations/list-webboxes-status.md:
+    id: b88a50879e1e
+    last_write_checksum: sha1:ec389bd2f8bbf32e198724b602121ffaf26e704d
+    pristine_git_object: 63febd7df91c630e9b974bca8803ded08f9a8196
   docs/models/operations/regenerate-simulation-token-request.md:
     id: 750d4f898732
     last_write_checksum: sha1:e9d3a3452fb0612e019aeff629c2a29c99cd5c91
@@ -361,26 +709,74 @@ trackedFiles:
     id: 831ed6fd0404
     last_write_checksum: sha1:4e7d50ea6e0c038e322f06f81561d824c3031fd5
     pristine_git_object: 8404c70e761aec5e146cbd9f984d06f30ff08287
+  docs/models/operations/resume-apibox-snapshot-request.md:
+    id: c43a7068ed63
+    last_write_checksum: sha1:c1cb50dd1bf2773c87310cce01974cc1f311a0d8
+    pristine_git_object: eb66c8c9290e10261600f202a62019c4ad364be3
+  docs/models/operations/resume-mcpbox-snapshot-request.md:
+    id: 34695655970a
+    last_write_checksum: sha1:65b00507df7bb1f5430345a7df57355ac5952cf0
+    pristine_git_object: bd8427c4ba56dace0d03c9844427c5dab817a381
   docs/models/operations/resume-simulator-request.md:
     id: 95d6a96a3770
     last_write_checksum: sha1:77f00c585971ae43831fbdbd194756362e26b9b8
     pristine_git_object: 4e3816edd5e9e11e5aaf6cbe35302254051faede
-  docs/models/operations/spec.md:
-    id: f2a46b280c13
-    last_write_checksum: sha1:09f9522fabe7dc7f8de7b07f7999620ef5b5f5d3
-    pristine_git_object: 1976e62d61daf4111fb79c4fcdc3e7824cbfb1d0
+  docs/models/operations/resume-webbox-snapshot-request.md:
+    id: 956e84b91978
+    last_write_checksum: sha1:c1bab01c32ec5cecad3341f234aa634c987522fe
+    pristine_git_object: 0089a4d4eca23be3922032e562ec4fd2be409cf4
+  docs/models/operations/start-apibox-request.md:
+    id: e7ba2ae0cc6a
+    last_write_checksum: sha1:ee36f257dec83b5c25be314ae12c9bbfb59934b9
+    pristine_git_object: d2c80e0fc2fff1875eb90a0c01877e75cf4172e7
+  docs/models/operations/start-mcpbox-request.md:
+    id: 7edf4d87088b
+    last_write_checksum: sha1:d39396af1358f85b23dff56572628f73b2b21646
+    pristine_git_object: 9f30363a6ad78a406ee264f7ee4aa31090f783ac
   docs/models/operations/start-simulation-request.md:
     id: 028927ef7fad
     last_write_checksum: sha1:3c26d41e283b846804d861561bda0b94eedfb7b3
     pristine_git_object: 7dcf2d4bada057b00792884619e2f86a5aa942e2
+  docs/models/operations/start-webbox-request.md:
+    id: fe411126ea23
+    last_write_checksum: sha1:efbe929d75d3422c986b6364831fdfecf330508a
+    pristine_git_object: 124a47f5ae3f639db4100f5d160e13fb56b3c6cc
+  docs/models/operations/stop-apibox-request.md:
+    id: a79bd0193627
+    last_write_checksum: sha1:9e1b3a5521c82e20989f2a3a801942445c2f377f
+    pristine_git_object: 233d85752ece178c473556a80ba1348176b57406
+  docs/models/operations/stop-mcpbox-request.md:
+    id: 89ae3734dd26
+    last_write_checksum: sha1:e5ba3e27d1cd231952d482d825470edef59f0585
+    pristine_git_object: 8813cdb5189dbde7a3a07be35f849bbb8417a394
   docs/models/operations/stop-simulation-request.md:
     id: 65e231fced05
     last_write_checksum: sha1:0ebadbb9dbb045d4c6c0944b1eba7a640bf91de4
     pristine_git_object: 81b0505217ee12f03173497ab72ba15a0bfbb51b
+  docs/models/operations/stop-webbox-request.md:
+    id: 97097df1758a
+    last_write_checksum: sha1:b570d812d60850638f3e940685bcc0d936c587a2
+    pristine_git_object: 0c893cf19a067fdefa4c33cc0a98d8e998ae027c
+  docs/models/operations/update-apibox-request.md:
+    id: ae5b2cc204a8
+    last_write_checksum: sha1:6c74e2ca29fa15e10c483f85e07c3ff19fcd3b7d
+    pristine_git_object: b512e646ece13719bb6fede21d5dd8725821d88e
+  docs/models/operations/update-apibox-snapshot-request.md:
+    id: a6c9d8b20644
+    last_write_checksum: sha1:72d05c1cb9141e688024c5f59e0596c7f5ce72d9
+    pristine_git_object: 0ca665f2c141516c04eea4f9d372c616499de181
   docs/models/operations/update-credential-request.md:
     id: 2e4ad02cad30
     last_write_checksum: sha1:9fe30706759bb7391e71717b9a17806f26d7a929
     pristine_git_object: eb1d6fa4f4825289ce07b0aa144dcc0439bf0068
+  docs/models/operations/update-mcpbox-request.md:
+    id: 71e5e50988c5
+    last_write_checksum: sha1:f47545dfd7bf18d3f022f94207f92e954a5000d0
+    pristine_git_object: 8de511b43e54a2e90d4a186484ff81b4ab97da10
+  docs/models/operations/update-mcpbox-snapshot-request.md:
+    id: 2885fee22f74
+    last_write_checksum: sha1:a786819337c66a1b0d78b6d0671becd866f61c4c
+    pristine_git_object: 1911dde778f841c448a648a73b5cb28f1916ffd4
   docs/models/operations/update-simulation-request.md:
     id: 8c56694b8437
     last_write_checksum: sha1:7d3158f442532e6d477a7b9523237126875e8a30
@@ -393,6 +789,14 @@ trackedFiles:
     id: 6462cfabd572
     last_write_checksum: sha1:16f1e36076213456a2fabe60ecd0cec289288888
     pristine_git_object: 422e1062741e81b73f4bf6152849fe47ee66ccb9
+  docs/models/operations/update-webbox-request.md:
+    id: 40d19622cf36
+    last_write_checksum: sha1:d1a110dd4cd8000c7b3f86e24502fd3a6e73f3a6
+    pristine_git_object: e68bd0b8adf55ef7e55daa5c1655db60273be9e4
+  docs/models/operations/update-webbox-snapshot-request.md:
+    id: d191e8db6187
+    last_write_checksum: sha1:b63b3465f567aa19d8784557b6bc1e35ca162f21
+    pristine_git_object: dcff0812a20c1e1258e2d143c3ab8a7877da8360
   docs/models/phase.md:
     id: a2d01dc13e35
     last_write_checksum: sha1:894cbd977fe5a3f54b993e6386116bd50ae24ffb
@@ -443,12 +847,16 @@ trackedFiles:
     pristine_git_object: 09437cf63b9224fad1b8765ac7b5cce006e57d09
   docs/models/simulator-build-progress.md:
     id: 64c4c681ac0e
-    last_write_checksum: sha1:39b8733a0a14d5299dd92de4ca4ccb492a537a49
-    pristine_git_object: c24db93e35a11432491fefcddd337eff7ee5a5da
+    last_write_checksum: sha1:776d6b2ad6a663853838d505bdac971b16c807f6
+    pristine_git_object: 1cf03c81d957a84fa34aa050796769cb96d5c5eb
   docs/models/simulator-build-waiting.md:
     id: 2193d853b0ab
     last_write_checksum: sha1:dbeb48acbfe2fc2288c422ab989e458694f9a8ff
     pristine_git_object: 9e316092b5b3af16e53b0167b447f4f1fef44b00
+  docs/models/simulator-composition.md:
+    id: 1837a71c9f62
+    last_write_checksum: sha1:720938aa2b3023f19dff6168b0b9d2af8f77f6e1
+    pristine_git_object: d95cc714fbea83eed1283588e5a8bdb185b48f79
   docs/models/simulator-dependents.md:
     id: 4304e4faca8f
     last_write_checksum: sha1:a310aff4582c23445cd1f5ac8003ffd378ba136d
@@ -481,6 +889,10 @@ trackedFiles:
     id: f546fa879d03
     last_write_checksum: sha1:f11fa799006dca6b540faa6d325573e7f708416f
     pristine_git_object: db37f2162b98ec1b7fadcb77b513b6d76322bdf2
+  docs/models/simulator-source.md:
+    id: 113c5f082e06
+    last_write_checksum: sha1:5e9a31a1354654bad02f1f8777bcadb5a3296f21
+    pristine_git_object: 7e836b813eb28a76ffc88f1a077619daddb5753d
   docs/models/simulator-spec-kind.md:
     id: 0f5c82482c32
     last_write_checksum: sha1:fa3b9c988a6eae246871d334b09d65a7b4da3716
@@ -491,12 +903,8 @@ trackedFiles:
     pristine_git_object: fdd87552ac9cfa84730c790483bcb35b44f12b49
   docs/models/simulator.md:
     id: ee400a6c5eda
-    last_write_checksum: sha1:bd36f48ed740695b08a84112b0c04729de3d71e2
-    pristine_git_object: 53db1fbcb6c87d983366c56e51793ce270b0fb05
-  docs/models/source.md:
-    id: 6541ef7b41e7
-    last_write_checksum: sha1:52e9cfaaab43cec1fa8f128d50ae59853b343108
-    pristine_git_object: bef872bb477b6a4d41af548da9c60450a44c01ce
+    last_write_checksum: sha1:ab56ec93cd1326110f664ff05112275034b7b87a
+    pristine_git_object: 7f7e82775dd77abf122b6b5a76657a1571fc3069
   docs/models/specification-issue-kind.md:
     id: 29ac58ba19a7
     last_write_checksum: sha1:13c609ac752ad5c891c911c6e8d1563f233d1ccd
@@ -529,10 +937,26 @@ trackedFiles:
     id: 5550ae854e09
     last_write_checksum: sha1:dcf73dfec1620056c9ef4069b75a5a2b4bd28029
     pristine_git_object: bfc5f9e9d0ed024d01b3cf02aa25eb5f91dfa681
+  docs/models/update-api-box-request.md:
+    id: b4ba0f1d51a1
+    last_write_checksum: sha1:55a3d0af4c0e5efa92a3d36fe58b37b3bc8ee9c3
+    pristine_git_object: 00cbfea6f6b60ff2b865f545f1a4d24bcfd4011f
+  docs/models/update-api-box-snapshot-request.md:
+    id: a8745439b31b
+    last_write_checksum: sha1:819bc63e3df4bb6ef7129e0b34663df2ce362d02
+    pristine_git_object: 39549ce8a34d5314f8556144c42c1ea12bf735b6
   docs/models/update-credential-request.md:
     id: c9218f44789c
     last_write_checksum: sha1:ea9e9f05d5d6f27c5353e7587eed4d546ad4bbb4
     pristine_git_object: 586f5108be45a409ed35e60b611e0dee7f057560
+  docs/models/update-mcp-box-request.md:
+    id: b6bf50efd2b8
+    last_write_checksum: sha1:1888ba4900ebc2b0405a92d2afe2dfff1625b767
+    pristine_git_object: 099a92350b4cbf1e1665bf59076cc19bbe09de59
+  docs/models/update-mcp-box-snapshot-request.md:
+    id: 9dc58bc56c28
+    last_write_checksum: sha1:3fba4f28c0acc1886758bab972b4c8630d7ef55d
+    pristine_git_object: 79c64db4d8ddf97e73e678dbe1946c4437484275
   docs/models/update-simulation-request.md:
     id: fc367dd3d13e
     last_write_checksum: sha1:9d45fb9064f33950082b7189dd0e83185e631ba1
@@ -545,22 +969,78 @@ trackedFiles:
     id: f568f1a3bae4
     last_write_checksum: sha1:04e8a71bbf555e0a59dd676cb856242c8a008407
     pristine_git_object: fdf2b134ce7c7225b21f113680b14eb6c529d172
+  docs/models/update-web-box-request.md:
+    id: f849386fe670
+    last_write_checksum: sha1:070ce64579ba8e80b1d8316456a6360268a4491d
+    pristine_git_object: 8763dab532405933930dbfc9099d26b28bf53f1f
+  docs/models/update-web-box-snapshot-request.md:
+    id: d14a11d55eab
+    last_write_checksum: sha1:a017a79f45da4cdff9106ab34be9bfc1f46f5f9a
+    pristine_git_object: 64e25413943e4d8f1246335377bec8d98a217e46
+  docs/models/web-box-snapshot-source.md:
+    id: 55a6e82fea26
+    last_write_checksum: sha1:4c7affa9f8099c11885587016256dec31f287f18
+    pristine_git_object: b58c303b73f41ffe759ad37c4bbd4fbc6a04d2f2
+  docs/models/web-box-snapshot-status.md:
+    id: 211a8098baa1
+    last_write_checksum: sha1:9d2a06c164413aa44a38b47cbfe26e28fb23e026
+    pristine_git_object: 9f936c5e4390edb6ffdc7db4aeef1ab9ea5a7340
+  docs/models/web-box-snapshot.md:
+    id: 865f4b289590
+    last_write_checksum: sha1:2b1eb8a4937cfd9c9a80d03d47c28ac2cdfd15fa
+    pristine_git_object: 85027ef07e18569134c4e45634ad9861cd750f53
+  docs/models/web-box-status.md:
+    id: 5cf9b97fb557
+    last_write_checksum: sha1:fa171c6ab683179f49c65509ff5b173ec090e925
+    pristine_git_object: 5d7fd35e95889808f24010b064c0833a0e2c7711
+  docs/models/web-box.md:
+    id: e91e50ca9e3e
+    last_write_checksum: sha1:62134e5a3951b6f2703dbb75e22305e1a30783b7
+    pristine_git_object: b0f5bda0f4608cdeaff44ef9a26196fa1f5768c4
+  docs/models/webbox-connection.md:
+    id: bdba8973dbc4
+    last_write_checksum: sha1:3225958e0a65cc04fffbff9be02118ebf3792d24
+    pristine_git_object: 06366f88e4b6d351aded9038eb48e0a4bfa984ae
+  docs/sdks/apibox/README.md:
+    id: abd4680ecea9
+    last_write_checksum: sha1:08d0f1101e859e787a3aa94a86996754ed485835
+    pristine_git_object: 2079d710bbd2eddb61039dff0264eff47a52c305
+  docs/sdks/apiboxsnapshots/README.md:
+    id: 1cdd53e655f6
+    last_write_checksum: sha1:c7936f5a90a3e1939bc4ebb8c82e5f2e1c619a5b
+    pristine_git_object: a6056455fd0582efdd9aabafd1e0decfeed13fe2
   docs/sdks/credentials/README.md:
     id: fb7e49751327
     last_write_checksum: sha1:fa239427ff4b1cabd9fd5ad29d28f45719c16105
     pristine_git_object: cd3cb69d29eb7650d783bfa381918d38db9988f8
+  docs/sdks/mcpbox/README.md:
+    id: 46a53102c5b8
+    last_write_checksum: sha1:05a8932cbdda76d5bd5cd7980c8d7551aa605489
+    pristine_git_object: 5b7b19ff8173775a5b363c58a223d89054480f03
+  docs/sdks/mcpboxsnapshots/README.md:
+    id: 8dfd04ebf73d
+    last_write_checksum: sha1:8253cf8679a67fac5c3266c2a85c0d6b712991dd
+    pristine_git_object: 892bea7bbc5d634151423ade77a0409cd29d96bf
   docs/sdks/simulations/README.md:
     id: a9e027fcb2b0
-    last_write_checksum: sha1:68763129f86e9f206d1e497f3c42f28f24675687
-    pristine_git_object: 33beeb12629eb67a346209b3ff82c525d6534dc8
+    last_write_checksum: sha1:922b1d54d17d2f890ec010cd1a973a564ce5fd46
+    pristine_git_object: 934c97176adf1ffd09d34b04474debd1f6c071cd
   docs/sdks/simulationsnapshots/README.md:
     id: 2dfce73279a1
-    last_write_checksum: sha1:f0d3692a212e7ed3dc3a3943a37742dba6025b15
-    pristine_git_object: 8e47963877513c7bba115f4d5ce9fdde04f64182
+    last_write_checksum: sha1:9d65d4c5d9c88cbdf1bdcd65c31342f5b21e6139
+    pristine_git_object: df7578aed274ed9716a040f45009073ae8e568da
   docs/sdks/simulators/README.md:
     id: 55eacdd8fa62
-    last_write_checksum: sha1:54b23b2652db640e33ba1d33cd925bda94986982
-    pristine_git_object: 00ceddb5395b201dcae2d424a52ebf6377c366ee
+    last_write_checksum: sha1:54009acb119ace9a7e7d53a9f697a39d2b38747b
+    pristine_git_object: 85fd124df9ca495c8c56492c89e63ff8a9119b20
+  docs/sdks/webbox/README.md:
+    id: 3f7448a0ee7a
+    last_write_checksum: sha1:99b76ebd68ad132b04c480e29f083f964ccfb3bf
+    pristine_git_object: 951c1928fc676ef1f2a3fef1bf5e5f077418c219
+  docs/sdks/webboxsnapshots/README.md:
+    id: fcfe151b7749
+    last_write_checksum: sha1:90cc3299ee3b4c920b2197d867b40fd48694241d
+    pristine_git_object: dabea7d406fe64c3669059019cc332fafb5802a4
   examples/.env.template:
     id: 52cbe5afed92
     last_write_checksum: sha1:5efb9f04268a512dea693dbdefdd798fbd924d40
@@ -569,26 +1049,90 @@ trackedFiles:
     id: 9d0f69d6e677
     last_write_checksum: sha1:b572e98ea9a02fc5e82c03951a3e019516524245
     pristine_git_object: 577ea033203a89f89e1a721722a13bd59792c43e
-  examples/credentialsListCredentials.example.ts:
-    id: c5480c5bd5db
-    last_write_checksum: sha1:9c7b79574fbe6a3527e335dcceb864930cefec25
-    pristine_git_object: 86a1cdf1e640176a253e6e46a0c6510893c60bcc
+  examples/apiboxListApiboxes.example.ts:
+    id: 697f0ae68cc9
+    last_write_checksum: sha1:3e9341a390afb2c60c5e74f2a43e90c7a3a7fa42
+    pristine_git_object: dc9b4ca625de4c37318e3e71489ad0b1fd2febb5
   examples/package.json:
     id: c1d7b0ec8e7e
     last_write_checksum: sha1:b9f1a7dc4e20c7dcccff0df575b8ae8d77aeef26
     pristine_git_object: a8174ac1b126a1796e076b9f3122a0ede68d2d7d
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:0b5a7942f06c58f50fcdc1c9133621fe9464cc9e
-    pristine_git_object: 1818345f3aa66d2bebb75e6cbc886bc7c4b14af0
+    last_write_checksum: sha1:92f352a5eee2a9dcf0059aa5f70a9d51f232cd07
+    pristine_git_object: 0110399395c2bfaa8e1b66aae3ec0570f8f9a392
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:e75c15dd1abf2762d604eff4d83a6fda1fc6a141
-    pristine_git_object: 72ce1b0dcd061dbb144817f498d8420d815a1699
+    last_write_checksum: sha1:8575b60ff7ccbfd57445187141707603143b1f61
+    pristine_git_object: 6172ca2c901a7c52d824cdc3793e23644be78a24
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
     pristine_git_object: a3286224e4782a009f98bb224c9c5d5ba36bb23f
+  src/funcs/apibox-create-apibox.ts:
+    id: cc1671bfc271
+    last_write_checksum: sha1:208edb25d98976bc722f5b9777f360e5a7fea017
+    pristine_git_object: ce8df19608dc67647af7a80f0e62b3199d743398
+  src/funcs/apibox-delete-apibox.ts:
+    id: b5f54699a18c
+    last_write_checksum: sha1:3ef5a250d0badb775d20dd3f3aacacdb8616d076
+    pristine_git_object: 929a2999d31121751596048b76ab83b997b043fd
+  src/funcs/apibox-get-apibox-connection.ts:
+    id: b523c4d56ac7
+    last_write_checksum: sha1:7cf829b55d9e0172aa2ed36e5a8a679148dcf256
+    pristine_git_object: ce79daaee2a2d4901560535de9478e163f1095bf
+  src/funcs/apibox-get-apibox.ts:
+    id: a7d1444ade2f
+    last_write_checksum: sha1:223146c2966fc9e51af48e20348ac6ef2f281879
+    pristine_git_object: 285e38e6e5dc3c7d0dd370cdee80f0675a65902f
+  src/funcs/apibox-list-apibox-steps.ts:
+    id: 7e36e6c02445
+    last_write_checksum: sha1:3d543af92c2e8d2a75e3998c7be0453c2a1c05e1
+    pristine_git_object: d5f0d1ad5839d4c02a6e5ff78a0c32c3c0614dc6
+  src/funcs/apibox-list-apiboxes.ts:
+    id: 30ce99e02380
+    last_write_checksum: sha1:ee519a6e0f82a61249d43d556980851ea46dcef5
+    pristine_git_object: 49757acd8a4f4e6bb5a2ee42bc4d39808439e891
+  src/funcs/apibox-snapshots-cancel-apibox-snapshot.ts:
+    id: 8baa8cdbf24a
+    last_write_checksum: sha1:6ebaeb21580741c2a61e75400a4e451d8182a96e
+    pristine_git_object: d7cb37972f7e9083665c1ff16d04f822ebfa6089
+  src/funcs/apibox-snapshots-create-apibox-snapshot.ts:
+    id: 5f0e01638dfc
+    last_write_checksum: sha1:e024005ad35a072f77008c5fb5554ab63430dec1
+    pristine_git_object: e16483047ddf9bae137713a90d1b7d56d550eb39
+  src/funcs/apibox-snapshots-delete-apibox-snapshot.ts:
+    id: c2bb2a7f748f
+    last_write_checksum: sha1:6fddab46bc46a6e4cfb4f277b51f1c99e12b93c1
+    pristine_git_object: 8a6b83dd5afe5d507ec79193c872e589f566a1a2
+  src/funcs/apibox-snapshots-get-apibox-snapshot.ts:
+    id: bb79bdb45b2d
+    last_write_checksum: sha1:66769f157bec90553e3b17faa57e228a3ec08924
+    pristine_git_object: d1273a0f65c163eed735e78128fdf2f0cb8dbfc4
+  src/funcs/apibox-snapshots-list-apibox-snapshots.ts:
+    id: cf4ec987793d
+    last_write_checksum: sha1:599fb7cc6bdd65cb5304278770ecc2a556a1bded
+    pristine_git_object: e7004a445b8e8f933e0e4bbbe92865a223217fd3
+  src/funcs/apibox-snapshots-resume-apibox-snapshot.ts:
+    id: e8cadf058a24
+    last_write_checksum: sha1:ec9ff426322aa98fb501aebba406691a61099e0a
+    pristine_git_object: 04304354ef38d06e2baaf99cce6892ccdc16035d
+  src/funcs/apibox-snapshots-update-apibox-snapshot.ts:
+    id: a51e70d61d7a
+    last_write_checksum: sha1:da819f9d55b5823ea0406451c76cdf0d234699b8
+    pristine_git_object: bebec0d5bb60b19138bd28e0a85b9d575456c8c6
+  src/funcs/apibox-start-apibox.ts:
+    id: 56069ab27a98
+    last_write_checksum: sha1:f05f5d3b86a8c2ebdd98739d52f37601c8849342
+    pristine_git_object: 726c25c6f3862a5b9a420e4da428a4eb69a08463
+  src/funcs/apibox-stop-apibox.ts:
+    id: 1478fec1546e
+    last_write_checksum: sha1:ae943155420ea8700726cacc337f02d2987f1791
+    pristine_git_object: 27a40475f897b90b8a9fecae16a3effdff118acb
+  src/funcs/apibox-update-apibox.ts:
+    id: c09fd613b55a
+    last_write_checksum: sha1:1e445a3650f0c373b55fb53079db0c19ea818d45
+    pristine_git_object: 0eea737eea7604fe02f8a3c9a60c5d75cb4d33a7
   src/funcs/credentials-create-credential.ts:
     id: 463de41adc31
     last_write_checksum: sha1:471d8470aaa56327778100247bc2052c2f7bef77
@@ -609,110 +1153,234 @@ trackedFiles:
     id: aa7397e0a59c
     last_write_checksum: sha1:4b4f4ec42b0743e72e096adcd660f3eba878555e
     pristine_git_object: d9648ec53e9aa577d9530a9c4addd3b9933ce7c0
+  src/funcs/mcpbox-create-mcpbox.ts:
+    id: 3cbb342e21e0
+    last_write_checksum: sha1:ebeb3450d6052348cecaaba89c22a1257e69e07a
+    pristine_git_object: a72af3e42b7b25043c058123e25f64a9ecb961dd
+  src/funcs/mcpbox-delete-mcpbox.ts:
+    id: 41fc389dd414
+    last_write_checksum: sha1:844d66d1258382488bdcdd15a75989fabe7c02cb
+    pristine_git_object: 866b0481a17eaf1902d679c5df1f9543339b6836
+  src/funcs/mcpbox-get-mcpbox-connection.ts:
+    id: 8324035914d4
+    last_write_checksum: sha1:8e4234a760479f8839bac2d3b4a86e2b5c30feb6
+    pristine_git_object: 261170b53bfd7bd0b48f6c0839017c127d6a5951
+  src/funcs/mcpbox-get-mcpbox.ts:
+    id: e72847f4e77d
+    last_write_checksum: sha1:877174aff0cdc1969f897a0cdc46b45744931e6d
+    pristine_git_object: 2f040e1ebf48a80d029c44acfa91c7f4b16a9f5e
+  src/funcs/mcpbox-list-mcpboxes.ts:
+    id: ee3e26702ab3
+    last_write_checksum: sha1:93e940ed60db4eef0d17a7f266ccdebd037d25e9
+    pristine_git_object: e31e27802d4e468a58b509eecbf53d37b70741e2
+  src/funcs/mcpbox-snapshots-cancel-mcpbox-snapshot.ts:
+    id: f17e81431afb
+    last_write_checksum: sha1:58ff0bb895d8b03ebdcba4213d41cda7ac4073be
+    pristine_git_object: 3d6ad6561c39f4ab3e830877a56201ceb4d4224b
+  src/funcs/mcpbox-snapshots-create-mcpbox-snapshot.ts:
+    id: 1c340b5b924d
+    last_write_checksum: sha1:1be28f9853cc632ccfa228da4b9143f311e0ce4e
+    pristine_git_object: 1b1de65a31b3ed8d66dbd8c1295f17e6b8dfa1c3
+  src/funcs/mcpbox-snapshots-delete-mcpbox-snapshot.ts:
+    id: 1dab73a0ea99
+    last_write_checksum: sha1:88cfda46aa6be5cea6c69c4f9324c6af25573b9f
+    pristine_git_object: 1e19795b652783eca528c085d073ddff4766423a
+  src/funcs/mcpbox-snapshots-get-mcpbox-snapshot.ts:
+    id: 6a0414f437fb
+    last_write_checksum: sha1:68756edac89bba0c5c4857443957ead687c71a85
+    pristine_git_object: 0b654a599290b37f70c30582fa199187b9f5c3cb
+  src/funcs/mcpbox-snapshots-list-mcpbox-snapshots.ts:
+    id: 454f58afa407
+    last_write_checksum: sha1:56fefb6af39209aadc0c48f65a0ba8ef039c8a87
+    pristine_git_object: d503d9128844a9dac843a9a1399fb9d3942ca1da
+  src/funcs/mcpbox-snapshots-resume-mcpbox-snapshot.ts:
+    id: 3b2b9be82aea
+    last_write_checksum: sha1:41c449cfe847c95d4fd141785411e0a26d8a9b7a
+    pristine_git_object: 092ada97fac7790ee732ea6c9a427d51b728b76f
+  src/funcs/mcpbox-snapshots-update-mcpbox-snapshot.ts:
+    id: c96154cf8df6
+    last_write_checksum: sha1:2b1a4875b46a9f0b2c289d7190daa4af16e6a902
+    pristine_git_object: fd23a2157af82410ab11d73d63a02ac770ec3230
+  src/funcs/mcpbox-start-mcpbox.ts:
+    id: 7e1150b5f4cc
+    last_write_checksum: sha1:7c44367a6568ca40d006eb1038b686b8699cca63
+    pristine_git_object: 4a2dddb8afeafedfbfa6a30acbb6867054f73767
+  src/funcs/mcpbox-stop-mcpbox.ts:
+    id: d7acb724939c
+    last_write_checksum: sha1:2c30109de63c62ce2a33543fcd38db747eb26d50
+    pristine_git_object: dc0ac81cd6412fc63e4fbb706b7e466c6326431c
+  src/funcs/mcpbox-update-mcpbox.ts:
+    id: d527a561e17c
+    last_write_checksum: sha1:3b1754311ed2a3f078eaee976ed39be2a17df8a0
+    pristine_git_object: 3e164f9fe760159e27a23a1d09e2d8fd1b41f38b
   src/funcs/simulation-snapshots-create-simulation-snapshot.ts:
     id: fbaceba920fc
-    last_write_checksum: sha1:ced7ea0b873914da0f9f31d59b4ef316a93f3ffe
-    pristine_git_object: 1bb7f891485135c16207163a0b05723fd10e673a
+    last_write_checksum: sha1:f9bbadac22067963f8cd0ee9e6ec65b81a71a674
+    pristine_git_object: afa1d9d30e28fb6656d58a4053e719edd8054cfa
   src/funcs/simulation-snapshots-delete-simulation-snapshot.ts:
     id: 19cc0792b6c6
-    last_write_checksum: sha1:c8c3ebc1df7b4374f5f934e911aea1b7a79c072d
-    pristine_git_object: f3c2e5a62dc390efc19ead4c1f0b5b2609ddca91
+    last_write_checksum: sha1:a7be2d4c511ffc176a4dff3604b2a0180e04b255
+    pristine_git_object: de8f00655e39e1158da35458f3fe383f0e5047e6
   src/funcs/simulation-snapshots-get-simulation-snapshot.ts:
     id: d2b0804266ee
-    last_write_checksum: sha1:8830897063522bced22fdaec64c9c7263276895d
-    pristine_git_object: 0b9741e7cbe1710fb1e2cae11c73781f9c61f5e7
+    last_write_checksum: sha1:3958908e11fad5e053ff60f7e6e5925fb0f70386
+    pristine_git_object: e59a2637620d86ccd188d84d3a17ef1cc0f79d6b
   src/funcs/simulation-snapshots-list-simulation-snapshots.ts:
     id: b060614010b6
-    last_write_checksum: sha1:40aecdf7596b02c39a14a7f659341d7ed8c14ea8
-    pristine_git_object: 5384a1e2c5626a70a6493fa9801f4dc44e0f747e
+    last_write_checksum: sha1:91fa193a07f0427eedcd6dc43d96328e94ab328e
+    pristine_git_object: ff2a38c357be7ce3c3556eaf4e843669f03d3835
   src/funcs/simulation-snapshots-update-simulation-snapshot.ts:
     id: 71a493eae5a6
-    last_write_checksum: sha1:c1e0760778d4d2e345db7209e43e3721484012e5
-    pristine_git_object: 64ce41172c9b60b050b731054a69a90ec8a9e2be
+    last_write_checksum: sha1:3d0de0dcba30356000338606a158bb42093cbf23
+    pristine_git_object: c48df84f7449c111a3748acc87f11e92cf7f78e8
   src/funcs/simulations-create-simulation-advance.ts:
     id: 73f97ac79a25
-    last_write_checksum: sha1:7f6491e54efab7f7421d369ada61cd9ab0a58854
-    pristine_git_object: c5a7da8def289490f51fc33074ff0c0b6ca6d79a
+    last_write_checksum: sha1:e84b5f9971a2a7cf58420cf7fa5e2d3a5d0fb466
+    pristine_git_object: 17f9a2580bcc0a57118ad4ef535c61e9174e72c1
   src/funcs/simulations-create-simulation.ts:
     id: b408688d170e
-    last_write_checksum: sha1:179e5687a83f51fd116bde6bdfbf093efa2925fd
-    pristine_git_object: d580acb0ce723cccf0f5719b8c8d5780e773e978
+    last_write_checksum: sha1:d0289a7583a2b9510de1c1c1f6a33588e650c9fa
+    pristine_git_object: 45076914d6bbe485c5f40e886cfe688f703e9539
   src/funcs/simulations-delete-simulation.ts:
     id: dbd6f532a0a1
-    last_write_checksum: sha1:e7d5f7b789118b551677e4246618887ac3d15a5e
-    pristine_git_object: de1f7998e76462a1f7d6bf63d57a7d89dccce48a
+    last_write_checksum: sha1:6defca69cd9d56936d645c3e281109e1b6312823
+    pristine_git_object: 06bc80b89485e2b1d4c2d62b07462d0b1356e395
   src/funcs/simulations-get-simulation-advance.ts:
     id: 36643df9cf30
-    last_write_checksum: sha1:201ee8cb2d07d0e1ed23003384e7db7ce553e435
-    pristine_git_object: 641f310d8cd4b852819ddabef1346346fcbde4d2
+    last_write_checksum: sha1:9bc3966c66f420195187ad3ba0c63dc6da559303
+    pristine_git_object: 799fbcaab22b661e083a4f54820e28cf5271ba58
   src/funcs/simulations-get-simulation-token.ts:
     id: 3f8f87db5206
-    last_write_checksum: sha1:cffeaa366a49fd679ef25745956a06318e516886
-    pristine_git_object: f21ec6e0b67f1a472a844c495abc73f5a51eada3
+    last_write_checksum: sha1:4e5441e19f414226b36439d0cd98a6a88d237677
+    pristine_git_object: a676f2c28c2a27e59fb5be03fb071ae82cbc2abe
   src/funcs/simulations-get-simulation.ts:
     id: 4d69a4677dba
-    last_write_checksum: sha1:0958db6fe34382eb03d78276e497e2138947b648
-    pristine_git_object: 3c68b0cc63193fbcb39f32c0a7795acca8077e5e
+    last_write_checksum: sha1:b1b46a5a9b25ed0c43834b5cc9d8e06fad6ace83
+    pristine_git_object: 95c9cfd5761286ac49a36bff9826c164c8e848e1
   src/funcs/simulations-list-simulation-advance-events.ts:
     id: b5ae40349202
-    last_write_checksum: sha1:0136b9915688ace2f93e50c5adbbab7ef57615fc
-    pristine_git_object: a3892f982f675bef3145b0826ddcce772b867506
+    last_write_checksum: sha1:ce5a266b87ff818590af3b2eb5f05be4da3d322b
+    pristine_git_object: 4e7c7b78f654d4d24321bc0e32687e5dc33d668e
   src/funcs/simulations-list-simulation-steps.ts:
     id: 9e8abb323909
-    last_write_checksum: sha1:4cf5df5e0eeeabaf71b3bde4d52d1a2e2dcc84b0
-    pristine_git_object: 67326c4197ff48bbf2fecf5730885133bf11df39
+    last_write_checksum: sha1:ae1896debb9f8a4ebdfb4a1007b40846c001f864
+    pristine_git_object: e86fea432e04b887ec9fc250b21b045c01850425
   src/funcs/simulations-list-simulations.ts:
     id: 362b9f37a1d1
-    last_write_checksum: sha1:2f28b5e01aa110e0d060e8549ce4a016ea36aeeb
-    pristine_git_object: b54e80462897c919dc84691041bf69edc2518588
+    last_write_checksum: sha1:1138a9fc8d075a7a259e54da7eac94348d77ee53
+    pristine_git_object: 1fd1861eb11147168a8732442c00e92bdd748a9a
   src/funcs/simulations-regenerate-simulation-token.ts:
     id: de35ea1ec34d
-    last_write_checksum: sha1:90b458ae1c962f5ac56e5da0e9fdafa174cd4625
-    pristine_git_object: db31085b9f913643940cd0e7e102224f88595e7f
+    last_write_checksum: sha1:aba81193dc18f0b4011bc9487d4ca1660eaa671a
+    pristine_git_object: 85d3bc70057fa2100e19a58c5620549fc70a0246
   src/funcs/simulations-start-simulation.ts:
     id: 90465bf5435b
-    last_write_checksum: sha1:4e4f62754f632783fad6984bf8da5750c0e8db7a
-    pristine_git_object: ac40a21c2f16f7b3d6b635e77f236d29d266c518
+    last_write_checksum: sha1:0329ec3de1f7a60bf832301071bcf0a324adecf2
+    pristine_git_object: 6384e5d5f1d9701302f733f52c1c5527df24bca0
   src/funcs/simulations-stop-simulation.ts:
     id: ae99828fbcd8
-    last_write_checksum: sha1:2adead7231c47f304acf133a0296256470f67ad3
-    pristine_git_object: 899d9ca48479f7a3780fca55292e80da3a2af2ae
+    last_write_checksum: sha1:fd2fe5f58afd018f2276b1c5f556326b95314a77
+    pristine_git_object: 89a2a0edb45ad17418db1f465629c0f2d327c905
   src/funcs/simulations-update-simulation.ts:
     id: 4fa6d5654fd0
-    last_write_checksum: sha1:6501465afb69b6e9cd5120558c66a3e0cf1bb86b
-    pristine_git_object: 3ae6bbbb154f2d40b63ec2d4f9467c325430360d
+    last_write_checksum: sha1:f71b2b208a5c420e8d736dd7049b3847638a2d93
+    pristine_git_object: ef4b506c7ed10b7383d8c5817ebfb3ceefe623a3
   src/funcs/simulators-build-simulator.ts:
     id: 78fe7e51307a
-    last_write_checksum: sha1:79859623fa98c73118eb001d2857172b7e2274ac
-    pristine_git_object: 20929a661ff25dea88e35f1f425d19c221d8d13f
+    last_write_checksum: sha1:f47ddc4d08e4163c0c8cca57a4f26f7adc76b69c
+    pristine_git_object: 661f2ba28b226bff88c3f1e325b6beebfcc2dfc9
   src/funcs/simulators-cancel-simulator.ts:
     id: 78529d3bd4a4
-    last_write_checksum: sha1:ea3fc6690926424e9971ad75f5ac0ccbedc1f586
-    pristine_git_object: 198f6463fa160e1532f9c8c7c83861891546b9bd
+    last_write_checksum: sha1:6ad1b918bca6780c2319ecbbd95ca143786dc8a7
+    pristine_git_object: 4b6aa06032e70174276322900fe9132a49dcdc97
   src/funcs/simulators-clone-simulator.ts:
     id: 032934ef1a02
-    last_write_checksum: sha1:7c93de45236e1eadb19ff6731f653a325d2e9ae3
-    pristine_git_object: a931739d1f0fa4736dcd69100cbe8751d6f3eadf
+    last_write_checksum: sha1:52f85323143e3487be4d19134e78f1a3931afaac
+    pristine_git_object: d29a9d409251de0fa7745fc2609bc500ef9a635d
   src/funcs/simulators-delete-simulator.ts:
     id: 39ae64564776
-    last_write_checksum: sha1:a83d917abef8f14a8b30eb436b486963a1f022a9
-    pristine_git_object: dc636cd496b017caa869458ef49a7d35d0a052fd
+    last_write_checksum: sha1:148b1e40ad3f0773e3b00c595d0318af96b39149
+    pristine_git_object: cc27146fb1f720a9d448c99ef96839456f39602a
   src/funcs/simulators-get-simulator.ts:
     id: 9e6edbf771c2
-    last_write_checksum: sha1:63d76290ea1ca0c7e9f5270ba0b0c4a0d0674328
-    pristine_git_object: c6fd7e93ff9905db9f9fb967b3cf88f2639b616c
+    last_write_checksum: sha1:4a1055c3019e71fe244e85b888e8ed750a8f6e36
+    pristine_git_object: a1884207cb3db8ca7646e926b5aba55fbce36e45
   src/funcs/simulators-list-simulators.ts:
     id: b43cc23c2ead
-    last_write_checksum: sha1:78662a112f4d0ebb5a387c50e2fd9b015e99c226
-    pristine_git_object: 9e03d1f6d524fccf990769c63e34ee059cd1e00d
+    last_write_checksum: sha1:ad247afb6129ec78fc90cdc4df8492423a055086
+    pristine_git_object: d23105ce28416223b155e0ae2076a8877a3fea16
   src/funcs/simulators-resume-simulator.ts:
     id: 6551a54eedc3
-    last_write_checksum: sha1:1cfd98a79ffa25d596022a23cebfd3a77cdf7113
-    pristine_git_object: 8b1dba866137c921f80991a3e5f153f956db6ebb
+    last_write_checksum: sha1:545b61ff340325e56db95dd0ebae2dbdc319f4a8
+    pristine_git_object: a843eb3d91b414e64b4791decde1e059539e5e95
   src/funcs/simulators-update-simulator.ts:
     id: 3647da4877f0
-    last_write_checksum: sha1:11e96dad096c330d116c90a86c69551f28c3578a
-    pristine_git_object: d04ca73047adc31700a2ca88ea2014df320e7c19
+    last_write_checksum: sha1:86dcede226adb7056aca3bdec678501ad1d32357
+    pristine_git_object: f0c76cf658a5ef78f2b291922ec5a3ed07e55168
+  src/funcs/webbox-create-webbox.ts:
+    id: e481183232b8
+    last_write_checksum: sha1:8013c3dc7b04ce085d131ef881d8cd75c4add6ee
+    pristine_git_object: ec0b802207f0cf7bc8936994348c89d327d12a7d
+  src/funcs/webbox-delete-webbox.ts:
+    id: 8a12b15ec9b2
+    last_write_checksum: sha1:a892d1490e8dea1139db9fdbfc40b521d67084db
+    pristine_git_object: 3a8bbbd7da17d43ddb6b20eadc7c94ed827258c0
+  src/funcs/webbox-get-webbox-connection.ts:
+    id: 1ead53260998
+    last_write_checksum: sha1:829d8c34880c5db7b5996e6a7fa93edb71fdc041
+    pristine_git_object: 254c6e9de09782b768c4a247ab893c9e9bfc8ba7
+  src/funcs/webbox-get-webbox.ts:
+    id: cb38a04171c9
+    last_write_checksum: sha1:48f36fc53f25acc61a8998b689f6e650d678d850
+    pristine_git_object: 51842d8deec562a185dfa104d2ab858c90e13a4f
+  src/funcs/webbox-list-webbox-steps.ts:
+    id: 201461687bb5
+    last_write_checksum: sha1:7629e44cfd179676f238c434d41d3cac87171837
+    pristine_git_object: 530ae58b9a0524fd0e4940e0fa765a0eee9e4527
+  src/funcs/webbox-list-webboxes.ts:
+    id: 124bd78882c7
+    last_write_checksum: sha1:9257b23d7e444dd08cdb605d8f4503b81ef25dff
+    pristine_git_object: 546d5fd4eecfe60f78de4eb06f7573a7fbbf12a2
+  src/funcs/webbox-snapshots-cancel-webbox-snapshot.ts:
+    id: 534d19971972
+    last_write_checksum: sha1:e67557a553b479d07a5ac889e656ab368015311e
+    pristine_git_object: 81f9e5d139e0b9c0570886e309316c0fb4439329
+  src/funcs/webbox-snapshots-create-webbox-snapshot.ts:
+    id: 3425354030ae
+    last_write_checksum: sha1:d4b3a912196a0f7d1297b408259eabbe10a1d70d
+    pristine_git_object: 29cb777699aaad66ce0d1c5b1a014a1b747e1812
+  src/funcs/webbox-snapshots-delete-webbox-snapshot.ts:
+    id: 3b02fc1922a0
+    last_write_checksum: sha1:4971d8c270f2f0f1aa4be09e2bd71fd52baadb17
+    pristine_git_object: 839025362991768d6b1c809230b565d95467736c
+  src/funcs/webbox-snapshots-get-webbox-snapshot.ts:
+    id: ce25d15bec01
+    last_write_checksum: sha1:fe8300ede372b07bf9ef58c05136732f843f3678
+    pristine_git_object: 9c9e1594c6d6ee9c54ae2cb27e3f75079dfa0b3b
+  src/funcs/webbox-snapshots-list-webbox-snapshots.ts:
+    id: 941fc5e7e7c3
+    last_write_checksum: sha1:4b236a4cd8917258deb673b115122d6b527eef5b
+    pristine_git_object: 19bd9b17168375218f550bb836e1bb2a3923c67d
+  src/funcs/webbox-snapshots-resume-webbox-snapshot.ts:
+    id: 07721b9320c8
+    last_write_checksum: sha1:dd1fcb1c0c47f368e9249485a746e910a054d556
+    pristine_git_object: 9507c6265eaec81c1c38a924a72d9bf8ef9ab139
+  src/funcs/webbox-snapshots-update-webbox-snapshot.ts:
+    id: a8b43c8beb7c
+    last_write_checksum: sha1:d46205a7c908657233e11117bde746dfb41e8809
+    pristine_git_object: 34e9b761bb42615410dd908a6dd906efd726575b
+  src/funcs/webbox-start-webbox.ts:
+    id: d88230947c49
+    last_write_checksum: sha1:f3d5daac47a922d5b55791d6d6af3b5723ead58a
+    pristine_git_object: 534a755ac249ebe10a52904914ba154920a9e5a1
+  src/funcs/webbox-stop-webbox.ts:
+    id: eca45670b88f
+    last_write_checksum: sha1:c3e3121a83b07063da871a609dbccad1b14efba9
+    pristine_git_object: 546669f6b33ce1c33c4412b0dd0f87ec11191785
+  src/funcs/webbox-update-webbox.ts:
+    id: 4b7c73bc4b33
+    last_write_checksum: sha1:765c1fe4b6f3a6e31a0731c8f3ea399ad6ae30c9
+    pristine_git_object: 395e9fdfd1db7a87432f17bda66c3f5373d2e342
   src/hooks/hooks.ts:
     id: a2463fc6f69b
     last_write_checksum: sha1:7dd975bbcc46a32dd394f86a4652b74ecc70d874
@@ -735,8 +1403,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:ecfbf76538b578c0de9f7a80ea9216043865a668
-    pristine_git_object: adcabda99f942ef8066dfe3fdb1cc62343858f0d
+    last_write_checksum: sha1:8947c31bbedaef4b4389a31cf554ce11838d1b39
+    pristine_git_object: 67f64d136e372b46d4943632e0efb72ab10d33f2
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -789,10 +1457,42 @@ trackedFiles:
     id: 4e5d75c39c8a
     last_write_checksum: sha1:f75a8816cec3f055c001f51fafdd8b5abb1d5525
     pristine_git_object: db9ca467797e4bd57e2353cf8eb50674156da86f
+  src/models/api-box-snapshot.ts:
+    id: 49edbbe45787
+    last_write_checksum: sha1:803dcb28de7e6298a5a07daa9de0af74dc3b7c47
+    pristine_git_object: 821b2ba5ab6a24d9da9658c8af861bc73dc5e462
+  src/models/api-box.ts:
+    id: 1b04a8252a4f
+    last_write_checksum: sha1:c80107163ed08e84a26bb645b30391bb5ad17cab
+    pristine_git_object: 0e2951e2a0313eff89ae87ddee34618a52bb3143
+  src/models/apibox-connection.ts:
+    id: 4c4ac19f4d73
+    last_write_checksum: sha1:312abdf1d10af8de6a789e73bafc152930c8563f
+    pristine_git_object: a8fe52203fd676de385a300c1a0d7763c162bdc1
+  src/models/apibox-step.ts:
+    id: 9c8fcca0120c
+    last_write_checksum: sha1:6ce1fb7bf201c44f2fc5b04ff77455fdcc479a5d
+    pristine_git_object: dbd7690381cf32010b973059332a45bf40aaa0f1
+  src/models/apibox-token-response.ts:
+    id: 5f5d29fb4c3c
+    last_write_checksum: sha1:22f6095bf1c2156d3c5b851df7bb31ba99ba9c45
+    pristine_git_object: 58c6578710f11e07d97d71094987fd2cd0cb9244
+  src/models/build-api-box-snapshot-request.ts:
+    id: 9ef8137bb1f5
+    last_write_checksum: sha1:2c437521beb1432a7f441173bcf416a6ffcdbe85
+    pristine_git_object: a112d422c7c41d8ffbcfe28251622ab5f288fc16
+  src/models/build-mcp-box-snapshot-request.ts:
+    id: 51292d8f655d
+    last_write_checksum: sha1:ba3a4fa61fd283723b959b9680f8ace36a9f6230
+    pristine_git_object: 1e55e6ff0a54896424a76be9b9984c67daf0ae1f
   src/models/build-simulator-request.ts:
     id: 3a8cd2fe64c6
     last_write_checksum: sha1:cc0c5432c13f62fe66b3952b1813d5aee6db0b93
     pristine_git_object: 8b8b72f4d7c3d74a7eb7b22ce5518943d771de39
+  src/models/build-web-box-snapshot-request.ts:
+    id: 1205c566815d
+    last_write_checksum: sha1:ced42c685644c5ad56bf356c3e76b8578a14814c
+    pristine_git_object: 9f2695b71114011d39a9847a26da4dcf6d0350a4
   src/models/clock-advance-member.ts:
     id: "963694071905"
     last_write_checksum: sha1:edb0e7a38c72b6672fd9a0612a844eb214f06a1c
@@ -813,10 +1513,18 @@ trackedFiles:
     id: a2499e2ecd62
     last_write_checksum: sha1:b62eb024bb65be89ef7d733e0a3624d2f449535a
     pristine_git_object: 8334bd0dfc59b2bda9c4d92428a846886904dcc9
+  src/models/create-api-box-request.ts:
+    id: 93589df7a021
+    last_write_checksum: sha1:603874fccf7c4ad4db13205297a0bf100316939f
+    pristine_git_object: 60098011ecdf122c53ccfc342117b6a4410839f1
   src/models/create-credential-request.ts:
     id: bfedbfeee8e4
     last_write_checksum: sha1:444c517c6305e16030f303d1d4049f93bceec55e
     pristine_git_object: 4d62b3728cd93bdde8630fcb156c1fe31add3d3a
+  src/models/create-mcp-box-request.ts:
+    id: 6d76e3e67798
+    last_write_checksum: sha1:27924f39912a97963eb26af5987db8e5add1372d
+    pristine_git_object: 1a7843cc5c74fa634b50ce3f5ae42a18db1d13d5
   src/models/create-simulation-request.ts:
     id: 0cf20400e5a9
     last_write_checksum: sha1:5ee50f2d5bde40ed76caa8410ad3a336b058162f
@@ -825,6 +1533,10 @@ trackedFiles:
     id: 92da8bc90491
     last_write_checksum: sha1:55e124430f1b226d093b72b5eaef1e9f33c63434
     pristine_git_object: b249bd6e2999f7a3268a1fa0ad7c724f917fbd12
+  src/models/create-web-box-request.ts:
+    id: 685b3aa8ee83
+    last_write_checksum: sha1:6c4ce03bb1fc9cb7d0b2fe8228a5ade88f214c6e
+    pristine_git_object: 5199f50c22a1da398276267d67ba739023d6f94e
   src/models/created-simulation.ts:
     id: 92ec8d7019b5
     last_write_checksum: sha1:31d36fcdc35ffcc7fc3ecfa2e796339cf20c711e
@@ -891,12 +1603,24 @@ trackedFiles:
     pristine_git_object: a510536f4e08dafed3fe013c32ebcac7788abc68
   src/models/index.ts:
     id: f93644b0f37e
-    last_write_checksum: sha1:2a72f8e12c84f8b17a61f2800a4a6701b75f040b
-    pristine_git_object: 5b6eae017b7ff6e763ef4da68b4eedea9c9df5e0
+    last_write_checksum: sha1:190e5281a0c2b2ed2691a873d5befc489ac1f5e8
+    pristine_git_object: 7f340f34a40aeeb5f5c9e0d6f36d019338beeffb
   src/models/limitation.ts:
     id: f246fad7e459
     last_write_checksum: sha1:b0f0803d0c81e656d0a385bb2e28f2920d8bf86a
     pristine_git_object: 7b85f4e398c0a34cc4e4b135f3f96c79607c13dd
+  src/models/list-api-box-snapshots-response.ts:
+    id: 009d6a80b6af
+    last_write_checksum: sha1:31c6eaa746224a7554a3e379f8917a001223fe45
+    pristine_git_object: f3aee4b219cf46dd6905052da97dfb9702ccb3b0
+  src/models/list-api-box-steps-response.ts:
+    id: 9a72b71ae31b
+    last_write_checksum: sha1:57908fa069378533fcf1eec9c5f0f90149d3b723
+    pristine_git_object: 2401c7790e112f5979aa4927775da059ae5c0cf5
+  src/models/list-api-boxes-response.ts:
+    id: fc64de6e29c9
+    last_write_checksum: sha1:afb117b9fda229929d04b08c1565ce2504b421f9
+    pristine_git_object: 7237a52dccd86491bdadbe31f3140af1c87ea913
   src/models/list-clock-advance-events-response.ts:
     id: eca096d66b85
     last_write_checksum: sha1:9ca5d24871e3095e100b586ce1a7f5c4b12fc793
@@ -905,6 +1629,14 @@ trackedFiles:
     id: 5b8d879ff3c6
     last_write_checksum: sha1:75d8b11d6c4f7ec9bdcc74488cfd449e6e9c7db2
     pristine_git_object: 3f59efc1765039690a889337f6a908e1262a4542
+  src/models/list-mcp-box-snapshots-response.ts:
+    id: 005edcfcc9ce
+    last_write_checksum: sha1:a49d592c7fe29843cd4a9ce08e737f50f32cc149
+    pristine_git_object: 6ef341430a0699b940fef62f1329aa205a6eb594
+  src/models/list-mcp-boxes-response.ts:
+    id: 289864f21307
+    last_write_checksum: sha1:6abf8436fdefd8c357099fb5bc5840d16cb9acdd
+    pristine_git_object: a998d86c02acddf9d3edd61f77204857a4d0ddf4
   src/models/list-simulation-snapshots-response.ts:
     id: be66b8743ba5
     last_write_checksum: sha1:5fd9960ccfcf226bc238ce1d71c04fd8455e7117
@@ -921,18 +1653,70 @@ trackedFiles:
     id: 88001adc3bfc
     last_write_checksum: sha1:ad955e54245f0087eae527a7f42ee9c204d9a042
     pristine_git_object: 4cf966c3b99f8b43e9a908127653c539702d57b4
+  src/models/list-web-box-snapshots-response.ts:
+    id: 51df0dd6040a
+    last_write_checksum: sha1:4e4c4d38497552e931733d80aef95dae9bc87d03
+    pristine_git_object: d39ca7687376f24e8d20ebe8cad9738ced402141
+  src/models/list-web-boxes-response.ts:
+    id: 870ed359f67d
+    last_write_checksum: sha1:04f757839d06be4c1a01d1814b5fa2d2acd0d776
+    pristine_git_object: 6ba780ac19af414508108ebad130473b5a765a9b
+  src/models/mcp-box-snapshot.ts:
+    id: ecd0c0a85625
+    last_write_checksum: sha1:c9211965077573e9858c7a6acdff9abd78fdf803
+    pristine_git_object: e03277f0ec3e63331ffcd53072f9035a17c04277
+  src/models/mcp-box.ts:
+    id: ec9ec671833f
+    last_write_checksum: sha1:22fd031b5556cfc0972351636c24df5cde53ddab
+    pristine_git_object: ab6f9dd3f2369e5c65c57a9bc444af8d21bd0b9f
+  src/models/mcpbox-connection.ts:
+    id: 6ab5830fdea1
+    last_write_checksum: sha1:cf9763cda1ff7b2184a7daa18d7c6304f8feb344
+    pristine_git_object: 2f0113e6de10725b1bb05102a1f356a19f8bf976
+  src/models/mcpbox-token-response.ts:
+    id: 370e4276881b
+    last_write_checksum: sha1:1bab8d0a233c731f2d8cbafae4c1f9f994691e1c
+    pristine_git_object: 7f7a1450e1ec8c32b3a42d7e6c5ba9463860ebf4
   src/models/operations/build-simulator.ts:
     id: 76aaa64eeb10
-    last_write_checksum: sha1:f8528f89c1e084c1029858f501f8c6a6325a6177
-    pristine_git_object: e7936d4f8ee058dd405a18675371506ca83a85fe
+    last_write_checksum: sha1:913fee49937a83eb47716ca53315551295adf7f9
+    pristine_git_object: 52c0ff4e5a02ef65fa928619794034af118422cf
+  src/models/operations/cancel-apibox-snapshot.ts:
+    id: 7001fa9bc984
+    last_write_checksum: sha1:f35c62cb8714d8d1ea6bcfed868aec0ddc2678ed
+    pristine_git_object: df1189f9e8090dbef698f51584d7cc41e7c0022b
+  src/models/operations/cancel-mcpbox-snapshot.ts:
+    id: b41ca69c838a
+    last_write_checksum: sha1:40a6386a8e5f39d4bd011bebfbfe73e28bff2b81
+    pristine_git_object: f7282687066cb5025afda33b190e9ca9da90b52a
   src/models/operations/cancel-simulator.ts:
     id: 9a54d8509ceb
     last_write_checksum: sha1:040890aabb1cdde747b9a251c425a07915ce9075
     pristine_git_object: 85e06f0049a7246f12b609b2fb619f44bf34ff7b
+  src/models/operations/cancel-webbox-snapshot.ts:
+    id: faa6fcc8aaf0
+    last_write_checksum: sha1:abdf9d23ecc507a0da8bc796faf91a8ece622a9e
+    pristine_git_object: c77996b2b75fd6eefd1caf8ca7be0d0c39a0fa8c
   src/models/operations/clone-simulator.ts:
     id: 138fd46f1f22
     last_write_checksum: sha1:738accd9c26de6efde3441a26c705fc33a1e747f
     pristine_git_object: e04ead7a63cf41493b62b0bae0d47ddc1c7e4e54
+  src/models/operations/create-apibox-snapshot.ts:
+    id: c46563447b67
+    last_write_checksum: sha1:819d172c18d9bf75da97eba578be3baa00da4e8e
+    pristine_git_object: fafd68d20436901763c419706252a7582525fbab
+  src/models/operations/create-apibox.ts:
+    id: f033dc305a1d
+    last_write_checksum: sha1:c2e8c603ca8dfaa610311d433cac8b0d68de3663
+    pristine_git_object: 3d38f9950921275582c10b0c4d33eb1a73fc185b
+  src/models/operations/create-mcpbox-snapshot.ts:
+    id: 21d8f6272e04
+    last_write_checksum: sha1:bbe9603db66063416fe3cd13b757264529ea500a
+    pristine_git_object: 6d7aafe32a8aee5d2f72c7303e9debdbeb322642
+  src/models/operations/create-mcpbox.ts:
+    id: 99ce4d6d7030
+    last_write_checksum: sha1:a605f770c14c441c7402d4fdf8ae38347f18363b
+    pristine_git_object: b928a4b9f5b85b26082fd6a5b52a1cc13ba2aeb5
   src/models/operations/create-simulation-advance.ts:
     id: cab3d8c3c13d
     last_write_checksum: sha1:fd54efd1f0bbe9be0faeccd19402e37789468560
@@ -945,10 +1729,34 @@ trackedFiles:
     id: 2308ec8505b7
     last_write_checksum: sha1:54999b1a1b1ac2e829a232a0d00e79ce0560fa18
     pristine_git_object: e2712299d9369ea3431eb44863b38b0989197e7c
+  src/models/operations/create-webbox-snapshot.ts:
+    id: 866c8198e097
+    last_write_checksum: sha1:335af566ec756810f8f94149b010c219e292da2e
+    pristine_git_object: cfcdd046c49cf605eabeadd9b850d75c6b2a930f
+  src/models/operations/create-webbox.ts:
+    id: b28446ba5dda
+    last_write_checksum: sha1:58e53afb5faf823107f7430ead829f77abcba56b
+    pristine_git_object: 5a465b70f9764fba5be533f322f85c75ebd02d32
+  src/models/operations/delete-apibox-snapshot.ts:
+    id: fcedc179a779
+    last_write_checksum: sha1:f62f704402a4bdb0a805a3362da75f64588f4dda
+    pristine_git_object: 027e0223e34ca3ac29d3d979913a742b8e720793
+  src/models/operations/delete-apibox.ts:
+    id: 2293cac622a7
+    last_write_checksum: sha1:710886acdc7ff7919a2904801e21be576aa90587
+    pristine_git_object: 6c415f51f3b4f26d58c332e576b814ffe6a439f8
   src/models/operations/delete-credential.ts:
     id: 5069f3b1959f
     last_write_checksum: sha1:f8af85edfac4a988334c649a3a42dffb9ebfefaf
     pristine_git_object: 9ffad1fc5469a132622708ffd847034c0c07a5a9
+  src/models/operations/delete-mcpbox-snapshot.ts:
+    id: f60eca140173
+    last_write_checksum: sha1:3b1d12b5cc6ed9f678243c9b21ff6c1f5ba8d580
+    pristine_git_object: 7574fecde01564776f638edefdced60f256550dc
+  src/models/operations/delete-mcpbox.ts:
+    id: b45d19eb4b80
+    last_write_checksum: sha1:ec8599317d578197102c01c4fc92bbda61bc4a49
+    pristine_git_object: 1230a0877b59b6ffd1826e68e7b280ec14d1255a
   src/models/operations/delete-simulation-snapshot.ts:
     id: 9a4844e8a17f
     last_write_checksum: sha1:3637ff52d37ebcbf1efe7b44d5250ed9a4757179
@@ -961,10 +1769,42 @@ trackedFiles:
     id: 64d537d689b3
     last_write_checksum: sha1:d44e068840d76ff5b742655833192e31df6d4425
     pristine_git_object: 24957e1dc199c912ce7a8889ddde1bd74c4dc164
+  src/models/operations/delete-webbox-snapshot.ts:
+    id: b70640688f6f
+    last_write_checksum: sha1:a2258e5e5c4a532a3e4d97d47e22138dd523ee00
+    pristine_git_object: f953c0fd15c6d666ef05c803cc6281b4f3843fc1
+  src/models/operations/delete-webbox.ts:
+    id: 99a2f0ca7884
+    last_write_checksum: sha1:48c71892e9f0f4e06e1e2febd89f3f02036840c5
+    pristine_git_object: 83780941d7a39a4343874bdc39f5b8ed1b9d5363
+  src/models/operations/get-apibox-connection.ts:
+    id: 3550ebe62ff6
+    last_write_checksum: sha1:fb2dfcc737d926718304b341b9145a067be8bfbb
+    pristine_git_object: ea0262834eb6bc645b5d9bad4d98cb9d122732d2
+  src/models/operations/get-apibox-snapshot.ts:
+    id: bcf57e3bb0ff
+    last_write_checksum: sha1:9d30fc14a7010d06f3113e6a989f644a447f779a
+    pristine_git_object: c4cbea0d208aaf30b6d441fe3de7358cbc7da306
+  src/models/operations/get-apibox.ts:
+    id: 7a8642807141
+    last_write_checksum: sha1:ad3ec6fb8cc26af690105a98f1ff5e9be0f74cad
+    pristine_git_object: f6d2f53e1824dee05be3df99c315eb5e01bc1e08
   src/models/operations/get-credential.ts:
     id: 277d31f9d13f
     last_write_checksum: sha1:0393ab694f6beff71f68061c352d407745b08cbe
     pristine_git_object: b87071fadb317f43f22315faaef6d9cc65d74ef2
+  src/models/operations/get-mcpbox-connection.ts:
+    id: f19f14e62f3e
+    last_write_checksum: sha1:e9702978d356027376e3f346d593e4ebb9bef392
+    pristine_git_object: cc248353beb7b58e25fab8e045792c08e87dbb26
+  src/models/operations/get-mcpbox-snapshot.ts:
+    id: 4ae8883dc883
+    last_write_checksum: sha1:b91d158d91a5e3d5aab8578b99eb2b5ccee703b6
+    pristine_git_object: ce58d0ee7338d1c12f19b880c7ba81f97d535bf3
+  src/models/operations/get-mcpbox.ts:
+    id: 97e46e1ac719
+    last_write_checksum: sha1:d5c45e6809ff4f064ef68ebe703d043d78b96e8d
+    pristine_git_object: 606c793b191bb411655ebab14ab83dda08e934ec
   src/models/operations/get-simulation-advance.ts:
     id: 392c05b6ef2b
     last_write_checksum: sha1:a1d441a0f8f09403c90171be6cb2daebf99cca33
@@ -985,14 +1825,46 @@ trackedFiles:
     id: 8a433f591db2
     last_write_checksum: sha1:c90751df59f000aad84e084a9fb0677305cb2653
     pristine_git_object: b214a40adda41e20c821874970640620dcd450b9
+  src/models/operations/get-webbox-connection.ts:
+    id: 1ac61840d32f
+    last_write_checksum: sha1:bd83209db369cf964d571c4f0aef433ec780b49c
+    pristine_git_object: 9b279258bbe25d062bc37bbd9b72d2a88cccac8a
+  src/models/operations/get-webbox-snapshot.ts:
+    id: 422e443f44a8
+    last_write_checksum: sha1:9bb5e8956a6846161d47be4c31be1435869257ad
+    pristine_git_object: 0e5a0775dba2b408763649a747b7bb6f6d6d1f9a
+  src/models/operations/get-webbox.ts:
+    id: 190838543bdb
+    last_write_checksum: sha1:e710ebab6f47e2b88286d635fb29e3d39ced9e90
+    pristine_git_object: 44192ae11eced68860b948bf5e8639bd7a19ebf7
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:dd94788e38020c4e74abb2a46c47e2ad7e467d96
-    pristine_git_object: 99cf310ca943ccc1fd591d2ddc818c612e7b233d
+    last_write_checksum: sha1:7a33484b2598f2f23bcbd1cb78b058704dde4c7f
+    pristine_git_object: d60d4e0066e3687cca2e5aa6f6de0b6c73ea6581
+  src/models/operations/list-apibox-snapshots.ts:
+    id: 9b6d574ed40b
+    last_write_checksum: sha1:aef40017fe3dc19a4368d3f93ad9140ded400f92
+    pristine_git_object: 6d21962e953594b0d95c2c11213b24710a9ef417
+  src/models/operations/list-apibox-steps.ts:
+    id: 0878681fbeaa
+    last_write_checksum: sha1:59323dec1a2b505415760630f8b31f315413109a
+    pristine_git_object: 2c0e32b0ebf74b6a9e8b2e3cdd0fef66bfc2da81
+  src/models/operations/list-apiboxes.ts:
+    id: 30d0936bfa61
+    last_write_checksum: sha1:82274c444a65255a88bdbe4efbc509e0ed41071f
+    pristine_git_object: 555c4b7618de3d19f637597f39aeff7b115c6c4b
   src/models/operations/list-credentials.ts:
     id: 798cab71ecc1
     last_write_checksum: sha1:6d92268a9eefc20be59398c9125d8e429b4d366d
     pristine_git_object: f9c3b3d9a4e6dc391f48f68fe45a8e451ccfea56
+  src/models/operations/list-mcpbox-snapshots.ts:
+    id: 2fd7239324ea
+    last_write_checksum: sha1:9166b94d36b021fac750fb7eec7535468bc8dda3
+    pristine_git_object: 17b41655cef912e24ecdcfb2bdd853c5398d3983
+  src/models/operations/list-mcpboxes.ts:
+    id: cc0f864f7fca
+    last_write_checksum: sha1:b5899bd9225f12c8472b17beeccff4058c2c5179
+    pristine_git_object: dd15ba0de514011bf2bddba1068b63941699a6a4
   src/models/operations/list-simulation-advance-events.ts:
     id: bae6e4f49d5f
     last_write_checksum: sha1:67dfc2aa0915ba4534ade1cb42524f3f05f5f373
@@ -1013,26 +1885,90 @@ trackedFiles:
     id: f546f1c7ffbe
     last_write_checksum: sha1:064f45a8f2e3b9a7771725f3ea7bc7b4c393298a
     pristine_git_object: fc764dc8cc514a9cd8165ebb604a9be40c5cbb9c
+  src/models/operations/list-webbox-snapshots.ts:
+    id: 46c4409f5c78
+    last_write_checksum: sha1:23cdfbd6d38313ae313ab5817a94bb5df69044d5
+    pristine_git_object: 3cff2491d0a4945ce9fa9c08408603173094dab1
+  src/models/operations/list-webbox-steps.ts:
+    id: 9a24ecc31141
+    last_write_checksum: sha1:246de78b8071d1025090214c2785cc72fbd88bd7
+    pristine_git_object: 3a5e3598b6583ddf22c0f915d027b835b86f43cf
+  src/models/operations/list-webboxes.ts:
+    id: 2c332be3264d
+    last_write_checksum: sha1:45f10ef202627fd8b973137b7118639669700ebb
+    pristine_git_object: 887d1d8e296000d06cd876d2b6ca680a50b58353
   src/models/operations/regenerate-simulation-token.ts:
     id: e3bae28ad1cf
     last_write_checksum: sha1:580d42cc92f9d330870fc6af6e782080c3addf64
     pristine_git_object: 796341d9ce1f76d9689727dc8ac1655884dc6de8
+  src/models/operations/resume-apibox-snapshot.ts:
+    id: be4fe05bb2da
+    last_write_checksum: sha1:d9a390cff4ccd5a8bc889db475e233cc32f0ddb5
+    pristine_git_object: 7fc8c5ff47995fc66447ed09b5d5a1f9b6efe5ac
+  src/models/operations/resume-mcpbox-snapshot.ts:
+    id: b59ac9cedce3
+    last_write_checksum: sha1:6819ca37f6e759da1f0e2dcf91f9ed21a0bd1bef
+    pristine_git_object: 2a1141281220e658fafd16053bf3a00dfd7dd509
   src/models/operations/resume-simulator.ts:
     id: 2473b5666482
     last_write_checksum: sha1:976365ddb9f324f57c1f4b70fcea4967406a9ca8
     pristine_git_object: cf74e8f826082251e9d29df177ae16ccc0a663e4
+  src/models/operations/resume-webbox-snapshot.ts:
+    id: e3f356896ae2
+    last_write_checksum: sha1:89d9c4f1e31799f92adcff2d5782dd2ea6739ce5
+    pristine_git_object: efcd0c31aa039834c98f627f8ef4d73614ec53a0
+  src/models/operations/start-apibox.ts:
+    id: b81422c3f54b
+    last_write_checksum: sha1:3ca2ee8420a220ee1f7868b7798881f903ae64d8
+    pristine_git_object: 32306c2bc49e5fd5a1ca914ca63225e7111d3351
+  src/models/operations/start-mcpbox.ts:
+    id: 8eebd8503480
+    last_write_checksum: sha1:de4660bbae3610c43620d78f8f8433fd541e9f29
+    pristine_git_object: f2ec86aef77baa1001db79e2883dc2709ab76323
   src/models/operations/start-simulation.ts:
     id: 9a908fb42f9f
     last_write_checksum: sha1:e7217b4f73229533488622a3bd0a6bf0396d78ff
     pristine_git_object: 432269355f26807bb655c2e09f9a8b3f610877aa
+  src/models/operations/start-webbox.ts:
+    id: a5819e93c3ba
+    last_write_checksum: sha1:5a143260b97cb17636aebf151ae0f09e6f0c6ad2
+    pristine_git_object: 61edf7987cc0c83dbac4b5a92748bd5177129d0d
+  src/models/operations/stop-apibox.ts:
+    id: bfe8a5b6d024
+    last_write_checksum: sha1:2607c587612d438ab55e1ffba7c503dc7b94b588
+    pristine_git_object: fe976993c92c5d7c21ef6233dc1900eb87a58389
+  src/models/operations/stop-mcpbox.ts:
+    id: bc501ed38203
+    last_write_checksum: sha1:9216016ffd1bc5fbd589acdbd22f6fb552f7b802
+    pristine_git_object: c39c4e20ee635787b220511b42464b58bb357ac0
   src/models/operations/stop-simulation.ts:
     id: 459ac3805ee4
     last_write_checksum: sha1:c476521d6ef43c60c88f468ac311eb1e0a249e26
     pristine_git_object: b1d7e17c63fc2bdfb767945901dd7009ad219dba
+  src/models/operations/stop-webbox.ts:
+    id: 7ecf9c765a74
+    last_write_checksum: sha1:684131c9daffec9aea84ce27655f090338727d56
+    pristine_git_object: 76bf8727d0a46c146911de848c03a3b6b56d6b3c
+  src/models/operations/update-apibox-snapshot.ts:
+    id: 7a60c9ed7554
+    last_write_checksum: sha1:a88fad9b81cede6177b194d97031436656c5f932
+    pristine_git_object: 895bc3bfc7083dc69d26c589f672615a3df9a3cb
+  src/models/operations/update-apibox.ts:
+    id: beeda41726aa
+    last_write_checksum: sha1:f275a756146e6f15fc9869d9ccb37a2429e6ade0
+    pristine_git_object: a1e74d08a45a4a2a64c203d1bfd6760e5b59a10b
   src/models/operations/update-credential.ts:
     id: 553f090807af
     last_write_checksum: sha1:30d773a0f72d3a66dc0888690408a8721f5f86d9
     pristine_git_object: 26a8ae701e0fdea3cfee4860befe732cabf0d175
+  src/models/operations/update-mcpbox-snapshot.ts:
+    id: 969f364b4334
+    last_write_checksum: sha1:fef0720e7112de30482125bdf3798b95a044d50f
+    pristine_git_object: e996626bafd81c328523f88023635d344bd9b720
+  src/models/operations/update-mcpbox.ts:
+    id: 79e09ed79b0f
+    last_write_checksum: sha1:35f82f699e2fb55bd4b75eebb82d585e031b4a86
+    pristine_git_object: 0617a74113c93f19041982418de45a4249937003
   src/models/operations/update-simulation-snapshot.ts:
     id: 1e3ae4430357
     last_write_checksum: sha1:9181326f6edf18ff5aa0eff4f777bf7c1fdf3c84
@@ -1045,6 +1981,14 @@ trackedFiles:
     id: b637f9bd67a1
     last_write_checksum: sha1:5deabb3394f7acabcc8ea75ad500545d04227b27
     pristine_git_object: ceda087991390a52d8ff5b0ca6862be1e1eea4c3
+  src/models/operations/update-webbox-snapshot.ts:
+    id: c45b255aff5f
+    last_write_checksum: sha1:272afd257c293758165def759118167184ff1178
+    pristine_git_object: 7d44646d9bb4a009c10a81156d2fdc7bf8096d80
+  src/models/operations/update-webbox.ts:
+    id: 91ccdd2c8a7a
+    last_write_checksum: sha1:77cd4a1f963a91a8b4ea251b720cde5607f0dc47
+    pristine_git_object: f23bce695bbf6235bf6e183180e28583fd9fa478
   src/models/resource-error.ts:
     id: 831ee272acf9
     last_write_checksum: sha1:f1066e2d3e2cc56424be740c2d5002f77c4b0879
@@ -1071,12 +2015,16 @@ trackedFiles:
     pristine_git_object: 30e43e2f9c28237a511ce1f3004c22a90642715e
   src/models/simulator-build-progress.ts:
     id: 86f1ba299bcb
-    last_write_checksum: sha1:fecd28720b1c44c13c3f524dab5bd685f852d8d6
-    pristine_git_object: f39fc259fbd154d8f82428e46a1aee2a8f7114a1
+    last_write_checksum: sha1:d1a2c2e02fbbae0c39b1aaf12920051a129aa591
+    pristine_git_object: 02a43ff5f3ac6498d35f9ee6e40543d162580dbd
   src/models/simulator-build-waiting.ts:
     id: ae4bea4900d4
     last_write_checksum: sha1:7507e1f3d25304a86d0da21c1c2308a21902cf49
     pristine_git_object: 2a2d9171963fce98a975fcb0834bc3a6ce63dbb0
+  src/models/simulator-composition.ts:
+    id: 850260bf4c49
+    last_write_checksum: sha1:fd1e134f26eb9b3271c1347d7fef4d4bbee87f16
+    pristine_git_object: e014905a29701920da5fe68b6c1889115099be8c
   src/models/simulator-dependents.ts:
     id: a09f72a2bb29
     last_write_checksum: sha1:c59abef0e87f5f76c9f182c0436728b5e5af5879
@@ -1095,8 +2043,8 @@ trackedFiles:
     pristine_git_object: 3f724ef4ba6f02cc87538c173e7d5acf88413067
   src/models/simulator.ts:
     id: d1fea4014fcd
-    last_write_checksum: sha1:1e2055c7b1f2dec30d044bee0b17e7687a85b460
-    pristine_git_object: bea2e6b5ef59b25ba8eb67e62ed8f94dc00c8614
+    last_write_checksum: sha1:3dc164ec0417b5fbb40212587633d00835ecb0d5
+    pristine_git_object: 28ff68c9735ec8fe722364b3ee086827ed158397
   src/models/specification-issue.ts:
     id: cfb2502ec2db
     last_write_checksum: sha1:f8aa7917e4989ec8fc554716b03586d16c9333dd
@@ -1113,10 +2061,26 @@ trackedFiles:
     id: 8c275e106921
     last_write_checksum: sha1:1d5171742e08aa64bcddacdaa596fdb2960f8c06
     pristine_git_object: 48b9bdd4e39e1dd086fc15601498c6294e1c16c9
+  src/models/update-api-box-request.ts:
+    id: 54dded086d25
+    last_write_checksum: sha1:9abc3f7f1e6a8ba0521dcc8634f1ec314e0952ad
+    pristine_git_object: ddd3196d85cac337608eddc807696dc92decdb60
+  src/models/update-api-box-snapshot-request.ts:
+    id: fbe877a30afd
+    last_write_checksum: sha1:2d24f45e695b1aa8f6cf25ea07b2d8bb480a27a8
+    pristine_git_object: a3a4f1f66075ef40997d330551db29c2e622d60f
   src/models/update-credential-request.ts:
     id: 5febe1047b9c
     last_write_checksum: sha1:fea87f8e672575e05e1a4de15473a23062dba8ab
     pristine_git_object: f6db693f4efc8f3b2bdff7a7d3486f3e77862bd9
+  src/models/update-mcp-box-request.ts:
+    id: ecb3da06ef0a
+    last_write_checksum: sha1:ec2aae5b1eea0fa1b66388d70f91855009110d1d
+    pristine_git_object: 561ab428b0255787e3d493b93e7cb9b666df45ed
+  src/models/update-mcp-box-snapshot-request.ts:
+    id: 4779c5faba0e
+    last_write_checksum: sha1:8b1dcab35a32d65779c23ebd7f869e3764e87325
+    pristine_git_object: 7647fd8b0e5768e9541a76868bd145d2cec802eb
   src/models/update-simulation-request.ts:
     id: 13b7c1d83d02
     last_write_checksum: sha1:52648f381875757b3f6a4761a27d9dc938c6948d
@@ -1129,6 +2093,34 @@ trackedFiles:
     id: a5df0a357aba
     last_write_checksum: sha1:906d607ca643d36357c8fe222c1643fddcbdb8a0
     pristine_git_object: 165fd295fb26e683f8169ecde346a309c5704399
+  src/models/update-web-box-request.ts:
+    id: 0e0ee54c51ac
+    last_write_checksum: sha1:94f72c9bf9fd02c521b965c8465af8140309850f
+    pristine_git_object: dd8d17b6158822d6c94be9fe6bedb0bebe3448f4
+  src/models/update-web-box-snapshot-request.ts:
+    id: 73bbbfc55ef5
+    last_write_checksum: sha1:97006c01c8185748b972ae53fc4a0483bfde0edd
+    pristine_git_object: fe9241e2c878a0a89d9a5a0715238a07322c4977
+  src/models/web-box-snapshot.ts:
+    id: 43cc375ad136
+    last_write_checksum: sha1:9830bee059fb58845074f618c939e36433227ffd
+    pristine_git_object: fd4fa9ae924634a38a2f0ea996219abbc5440246
+  src/models/web-box.ts:
+    id: d4a11d17a9b8
+    last_write_checksum: sha1:fa03bb56d57354e5a4af420453b382f38ee9782a
+    pristine_git_object: f217511e63dda6bab6352f71d5b041be8665c12f
+  src/models/webbox-connection.ts:
+    id: 71b9bc148cf8
+    last_write_checksum: sha1:884bbeedf2ea48c8f72a8911d73530275579bd04
+    pristine_git_object: c039942e57ada9cb9ca74d64908eac8b4b1aca33
+  src/sdk/apibox-snapshots.ts:
+    id: 9780fd3c7888
+    last_write_checksum: sha1:8ad0bfa22ab6fad6b619c44c5a2774d5e368198c
+    pristine_git_object: f1630767097fc91da9aee87c395c8b28a9417211
+  src/sdk/apibox.ts:
+    id: d12dfb3e81c0
+    last_write_checksum: sha1:2c6db9dfe4fdd7e929151150a3ac58056b824001
+    pristine_git_object: 6e43b3483078ad05935cad7318fad09e764a6f46
   src/sdk/credentials.ts:
     id: 4808925acf5a
     last_write_checksum: sha1:60c9b3b3a1d66eb70e71cea4cf0cdd82522f4132
@@ -1137,22 +2129,38 @@ trackedFiles:
     id: a857902a703f
     last_write_checksum: sha1:ed6d64f2a6135349aa8498b8d8cff9ba85c7fb8f
     pristine_git_object: ecac2264817bb369ff2dbf0f0e9029807e67ff77
+  src/sdk/mcpbox-snapshots.ts:
+    id: 9376c6955b39
+    last_write_checksum: sha1:9ba1bbcdf48c33d9e2882b8c393f024c80e58622
+    pristine_git_object: 35c3a04d105f3d5b6e02e06eea75ae6d16c96147
+  src/sdk/mcpbox.ts:
+    id: 27e0beda18d1
+    last_write_checksum: sha1:61779ba28ea2804a92785e912b8ce062c917f2b1
+    pristine_git_object: 03155d2d7a6659c0cf147e6d4dabbff707e69fa9
   src/sdk/sdk.ts:
     id: 784571af2f69
-    last_write_checksum: sha1:0aeb18fb831e2e37fe6af698e721567e2be2bb53
-    pristine_git_object: 6b112227ec9da4845e68a1892c55ebfffd4dee8e
+    last_write_checksum: sha1:6106661395ef0e0a97310d9a656734890774228a
+    pristine_git_object: 234d3c2bde8fbd9bbd3c2eeeb17fbbc4b2da094c
   src/sdk/simulation-snapshots.ts:
     id: b62e6f873d62
-    last_write_checksum: sha1:8167394a0014bab577f91a7bd7d287f4850baba3
-    pristine_git_object: 810d1e81d9386e7cb66f6fe4033200a104d451ec
+    last_write_checksum: sha1:bef9dcf287104ba474756195eee4c5dfeae25440
+    pristine_git_object: 150532b6d81ceccc3b5cd2fc13a8f2745d561e23
   src/sdk/simulations.ts:
     id: 421f75d29a2b
-    last_write_checksum: sha1:495bb861221bc0efa1a2be002e7f4b8465e5cda4
-    pristine_git_object: 73cad4ff7d6b1945231eccf736d8ab855ca89506
+    last_write_checksum: sha1:c9d94c65bc50e7eb42e69b5cfd43a2b5837e12e8
+    pristine_git_object: b7b75262b35d706bab8c7cee47239071df2af214
   src/sdk/simulators.ts:
     id: 96ce4e0e3f1a
-    last_write_checksum: sha1:2bb0ebb5f8c2063b529341122eab98cdfcf0a176
-    pristine_git_object: b2727014e791c7847a75a7f965c6fd6fa270c774
+    last_write_checksum: sha1:aa011b89b3128957986ddb831c62d48c62f6193b
+    pristine_git_object: cc326a7fce8284dbfb2eb55873be9efc8f5d25a1
+  src/sdk/webbox-snapshots.ts:
+    id: eef51c1621f4
+    last_write_checksum: sha1:14c6137185a04c71212a22377bf2d6d6c9da8b04
+    pristine_git_object: 22e00eebf209deaf85d796689bdf550abc3255c7
+  src/sdk/webbox.ts:
+    id: ce3e66fe7d2e
+    last_write_checksum: sha1:ad62438ed623858dc8da9bda72af13adad3dacf7
+    pristine_git_object: 7b8a380330503a6eff8b69e9a8b31b1ad62f3db0
   src/types/async.ts:
     id: fac8da972f86
     last_write_checksum: sha1:675d04bb4b4081dc3482f18de98674f9b446e7b4
@@ -1498,7 +2506,7 @@ examples:
           limit: 50
       responses:
         "200":
-          application/json: {"next_cursor": "<value>", "simulators": [{"build": {"hidden_limitations": 353850, "last_submission": "rejected", "last_tool": "<value>", "limitations": [], "model": "gpt-6-sol", "phase": "build", "review_round": 353850, "review_rounds": 146714, "stage": "assemble", "submissions": 113509, "tool_calls": 913897, "waiting": {"credential_ids": [], "deadline": "2026-08-03T18:01:58.800Z", "reason": "<value>", "since": "2026-11-28T18:14:45.446Z"}, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": ["<value 1>"], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "<value>", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": {"environment_id": "<id>", "error": "<value>", "published_at": "2026-11-28T18:14:45.446Z", "status": "failed"}, "research": {"bytes": 146714, "pages": 862912, "status": "provided"}, "source": "workspace", "spec_kind": "wsdl", "status": "building"}]}
+          application/json: {"next_cursor": "<value>", "simulators": [{"build": {"hidden_limitations": 353850, "last_submission": "rejected", "last_tool": "<value>", "limitations": [], "model": "gpt-6-sol", "phase": "build", "review_round": 353850, "review_rounds": 146714, "stage": "assemble", "submissions": 113509, "tool_calls": 913897, "waited_seconds": 353850, "waiting": {"credential_ids": [], "deadline": "2026-08-03T18:01:58.800Z", "reason": "<value>", "since": "2026-11-28T18:14:45.446Z"}, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": ["<value 1>"], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "<value>", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": {"environment_id": "<id>", "error": "<value>", "published_at": "2026-11-28T18:14:45.446Z", "status": "failed"}, "research": {"bytes": 146714, "pages": 862912, "status": "provided"}, "source": "workspace", "spec_kind": "wsdl", "status": "building"}]}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1521,7 +2529,7 @@ examples:
         multipart/form-data: {"request": {"filter": [], "instructions": "Return stable example data for every operation.", "mode": "api", "model": "claude-fable-5-1", "name": "billing-api", "review_rounds": 1, "spec_kind": "openapi", "timeout_seconds": 28800}}
       responses:
         "202":
-          application/json: {"build": {"hidden_limitations": 0, "last_submission": "rejected", "last_tool": "test", "limitations": [], "model": "claude-fable-5-1", "phase": "build", "review_round": 0, "review_rounds": 1, "stage": "build", "submissions": 1, "tool_calls": 7, "waiting": null, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": [], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": null, "research": null, "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"hidden_limitations": 0, "last_submission": "rejected", "last_tool": "test", "limitations": [], "model": "claude-fable-5-1", "phase": "build", "review_round": 0, "review_rounds": 1, "stage": "build", "submissions": 1, "tool_calls": 7, "waited_seconds": 0, "waiting": null, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": [], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": null, "research": null, "source": "workspace", "spec_kind": "openapi", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
@@ -1588,7 +2596,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"build": {"hidden_limitations": 0, "last_submission": "rejected", "last_tool": "test", "limitations": [], "model": "claude-fable-5-1", "phase": "build", "review_round": 0, "review_rounds": 1, "stage": "build", "submissions": 1, "tool_calls": 7, "waiting": null, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": [], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": null, "research": null, "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"hidden_limitations": 0, "last_submission": "rejected", "last_tool": "test", "limitations": [], "model": "claude-fable-5-1", "phase": "build", "review_round": 0, "review_rounds": 1, "stage": "build", "submissions": 1, "tool_calls": 7, "waited_seconds": 0, "waiting": null, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": [], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": null, "research": null, "source": "workspace", "spec_kind": "openapi", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>"}
         "500":
@@ -2075,7 +3083,7 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
         "202":
-          application/json: {"build": {"hidden_limitations": 0, "last_submission": "rejected", "last_tool": "test", "limitations": [], "model": "claude-fable-5-1", "phase": "build", "review_round": 0, "review_rounds": 1, "stage": "build", "submissions": 1, "tool_calls": 7, "waiting": null, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": [], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": null, "research": null, "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"hidden_limitations": 0, "last_submission": "rejected", "last_tool": "test", "limitations": [], "model": "claude-fable-5-1", "phase": "build", "review_round": 0, "review_rounds": 1, "stage": "build", "submissions": 1, "tool_calls": 7, "waited_seconds": 0, "waiting": null, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": [], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": null, "research": null, "source": "workspace", "spec_kind": "openapi", "status": "building"}
   advance-world:
     bad_request_body:
       parameters:
@@ -2724,7 +3732,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"build": {"hidden_limitations": 0, "last_submission": "rejected", "last_tool": "test", "limitations": [], "model": "claude-fable-5-1", "phase": "build", "review_round": 0, "review_rounds": 1, "stage": "build", "submissions": 1, "tool_calls": 7, "waiting": null, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": [], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": null, "research": null, "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"hidden_limitations": 0, "last_submission": "rejected", "last_tool": "test", "limitations": [], "model": "claude-fable-5-1", "phase": "build", "review_round": 0, "review_rounds": 1, "stage": "build", "submissions": 1, "tool_calls": 7, "waited_seconds": 0, "waiting": null, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": [], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": null, "research": null, "source": "workspace", "spec_kind": "openapi", "status": "building"}
         "400":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
         "500":
@@ -2779,10 +3787,1352 @@ examples:
           id: "<id>"
       responses:
         "202":
-          application/json: {"build": {"hidden_limitations": 0, "last_submission": "rejected", "last_tool": "test", "limitations": [], "model": "claude-fable-5-1", "phase": "build", "review_round": 0, "review_rounds": 1, "stage": "build", "submissions": 1, "tool_calls": 7, "waiting": null, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": [], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": null, "research": null, "source": "workspace", "spec_kind": "openapi", "status": "building"}
+          application/json: {"build": {"hidden_limitations": 0, "last_submission": "rejected", "last_tool": "test", "limitations": [], "model": "claude-fable-5-1", "phase": "build", "review_round": 0, "review_rounds": 1, "stage": "build", "submissions": 1, "tool_calls": 7, "waited_seconds": 0, "waiting": null, "warnings": []}, "created_at": "2026-01-15T12:00:00Z", "credential_ids": [], "error": null, "id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V5", "instructions": "Return stable example data for every operation.", "mode": "api", "name": "billing-api", "parent_id": "smr_01J8Z5X4K7M2N9P0Q1R2S3T4V9", "publication": null, "research": null, "source": "workspace", "spec_kind": "openapi", "status": "building"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  list-apiboxes:
+    bad_request:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+    speakeasy-default-list-apiboxes:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "200":
+          application/json: {"apiboxes": [{"created_at": "2024-07-05T21:08:06.089Z", "endpoint": "<value>", "error": {"agent_message": "<value>", "code": "build_failed", "detail": "<value>", "reason": "service_unavailable", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "id": "<id>", "include_sample_data": true, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "stopped"}], "next_cursor": "<value>"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  create-apibox:
+    bad_request_body:
+      requestBody:
+        application/json: {"metadata": {"customer_id": "cust_123"}, "name": "billing-sandbox", "snapshot_id": "abs_01J8Z5X4K70000000000000002"}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-create-apibox:
+      requestBody:
+        application/json: {"metadata": {"customer_id": "cust_123"}, "name": "billing-sandbox", "snapshot_id": "abs_01J8Z5X4K70000000000000002"}
+      responses:
+        "202":
+          application/json: {"apibox": {"created_at": "2026-01-12T17:07:11.060Z", "endpoint": "<value>", "error": null, "id": "<id>", "include_sample_data": false, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "stopping"}, "token": "<value>"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  delete-apibox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-delete-apibox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  get-apibox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-get-apibox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"created_at": "2025-10-19T04:21:06.269Z", "endpoint": "<value>", "error": {"agent_message": "<value>", "code": "live_credential_rejected", "detail": "<value>", "reason": "specification_invalid", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "id": "<id>", "include_sample_data": true, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "running"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+  update-apibox:
+    bad_request_body:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-update-apibox:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"created_at": "2024-10-17T23:01:29.557Z", "endpoint": "<value>", "error": null, "id": "<id>", "include_sample_data": false, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "running"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  get-apibox-connection:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-get-apibox-connection:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"endpoint": "<value>", "token": "<value>"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  start-apibox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-start-apibox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"apibox": {"created_at": "2025-05-02T08:41:53.286Z", "endpoint": "<value>", "error": {"agent_message": null, "code": "live_credential_rejected", "detail": "<value>", "reason": "time_limit", "validation": {"issues": []}}, "id": "<id>", "include_sample_data": false, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "starting"}, "token": "<value>"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  list-apibox-steps:
+    bad_request:
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          limit: 50
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+    speakeasy-default-list-apibox-steps:
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          limit: 50
+      responses:
+        "200":
+          application/json: {"next_cursor": "<value>", "steps": []}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  stop-apibox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-stop-apibox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"created_at": "2026-02-08T10:27:40.078Z", "endpoint": "<value>", "error": {"agent_message": "<value>", "code": "build_canceled", "detail": "<value>", "reason": "specification_invalid", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "id": "<id>", "include_sample_data": true, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "stopped"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  list-apibox-snapshots:
+    bad_request:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+    speakeasy-default-list-apibox-snapshots:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "200":
+          application/json: {"next_cursor": null, "snapshots": []}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  create-apibox-snapshot:
+    bad_request_body:
+      requestBody:
+        multipart/form-data: {"request": {"review_rounds": 1, "timeout_seconds": 28800}}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "429":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "503":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-create-apibox-snapshot:
+      requestBody:
+        multipart/form-data: {"request": {"review_rounds": 1, "timeout_seconds": 28800}}
+      responses:
+        "202":
+          application/json: {"build": {"hidden_limitations": 848274, "last_submission": null, "last_tool": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>"], "reviewed": false}], "model": "claude-opus-5-5", "phase": "review", "review_round": 132479, "review_rounds": 275550, "stage": "derive", "submissions": 995961, "tool_calls": 180750, "waited_seconds": 121407, "waiting": {"credential_ids": ["<value 1>", "<value 2>"], "deadline": "2025-03-13T17:04:42.031Z", "reason": "<value>", "since": "2024-11-13T22:02:31.552Z"}, "warnings": []}, "composition": {"entities": 26097, "operations": 27093, "sample": false}, "created_at": "2026-01-02T09:15:33.916Z", "credential_ids": ["<value 1>"], "error": {"agent_message": "<value>", "code": "build_failed", "detail": "<value>", "reason": "time_limit", "validation": {"issues": []}}, "hidden_limitations": 67986, "id": "<id>", "instructions": "<value>", "limitations": [], "metadata": "<value>", "name": "<value>", "research": {"bytes": 504376, "pages": 407090, "status": "running"}, "source": "catalog", "spec_kind": "graphql", "status": "pending"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "429":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "503":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  delete-apibox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-delete-apibox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  get-apibox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-get-apibox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"build": {"hidden_limitations": 572730, "last_submission": "rejected", "last_tool": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>", "<value 3>"], "reviewed": false}], "model": "claude-fable-5-1", "phase": "qa", "review_round": 958108, "review_rounds": 954301, "stage": "derive", "submissions": 787879, "tool_calls": 313673, "waited_seconds": 24106, "waiting": {"credential_ids": ["<value 1>", "<value 2>"], "deadline": "2024-10-26T11:15:18.060Z", "reason": "<value>", "since": "2024-06-15T00:46:52.554Z"}, "warnings": [{"code": "spec.response_untyped", "location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>", "<value 3>"]}]}, "composition": {"entities": 378974, "operations": 318763, "sample": true}, "created_at": "2026-05-14T17:48:17.691Z", "credential_ids": ["<value 1>"], "error": {"agent_message": "<value>", "code": "build_canceled", "detail": "<value>", "reason": "service_unavailable", "validation": {"issues": []}}, "hidden_limitations": 386771, "id": "<id>", "instructions": "<value>", "limitations": [], "metadata": "<value>", "name": "<value>", "research": {"bytes": 76014, "pages": 58309, "status": "provided"}, "source": "build", "spec_kind": "wsdl", "status": "pending"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  update-apibox-snapshot:
+    bad_request_body:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-update-apibox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"build": {"hidden_limitations": 905406, "last_submission": "accepted", "last_tool": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>", "<value 3>"], "reviewed": true}], "model": "combined", "phase": "review", "review_round": 999719, "review_rounds": 991039, "stage": "derive", "submissions": 189402, "tool_calls": 430488, "waited_seconds": 68581, "waiting": {"credential_ids": ["<value 1>", "<value 2>"], "deadline": "2026-12-05T16:36:01.484Z", "reason": "<value>", "since": "2024-05-15T02:51:42.790Z"}, "warnings": [{"code": "spec.response_untyped", "location": "<value>", "message": "<value>", "operations": ["<value 1>"]}]}, "composition": {"entities": 376304, "operations": 26866, "sample": true}, "created_at": "2026-09-05T07:30:26.413Z", "credential_ids": [], "error": {"agent_message": "<value>", "code": "build_canceled", "detail": "<value>", "reason": "build_failed", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "hidden_limitations": 308705, "id": "<id>", "instructions": "<value>", "limitations": [], "metadata": "<value>", "name": "<value>", "research": null, "source": "catalog", "spec_kind": "openapi", "status": "canceled"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  cancel-apibox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-cancel-apibox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"build": {"hidden_limitations": 824912, "last_submission": "accepted", "last_tool": "<value>", "limitations": [], "model": "claude-opus-5-5", "phase": "finalize", "review_round": 772058, "review_rounds": 502781, "stage": "build", "submissions": 809825, "tool_calls": 672398, "waited_seconds": 866645, "waiting": {"credential_ids": ["<value 1>"], "deadline": "2024-12-27T22:26:00.508Z", "reason": "<value>", "since": "2025-08-01T18:15:03.714Z"}, "warnings": []}, "composition": {"entities": 464177, "operations": 923035, "sample": false}, "created_at": "2024-10-31T11:17:28.722Z", "credential_ids": ["<value 1>", "<value 2>"], "error": {"agent_message": "<value>", "code": "live_credential_rejected", "detail": "<value>", "reason": "canceled", "validation": {"issues": []}}, "hidden_limitations": 83866, "id": "<id>", "instructions": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>", "<value 3>"], "reviewed": false}], "metadata": "<value>", "name": "<value>", "research": {"bytes": 931596, "pages": 370110, "status": "pending"}, "source": "catalog", "spec_kind": "openapi", "status": "failed"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  resume-apibox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-resume-apibox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"build": {"hidden_limitations": 113889, "last_submission": "accepted", "last_tool": "<value>", "limitations": [], "model": "combined", "phase": "review", "review_round": 426502, "review_rounds": 411846, "stage": "assemble", "submissions": 446666, "tool_calls": 736934, "waited_seconds": 792328, "waiting": {"credential_ids": ["<value 1>"], "deadline": "2024-05-07T10:25:12.502Z", "reason": "<value>", "since": "2024-02-01T02:02:24.052Z"}, "warnings": []}, "composition": {"entities": 168714, "operations": 831426, "sample": true}, "created_at": "2025-06-10T15:19:06.250Z", "credential_ids": ["<value 1>", "<value 2>"], "error": {"agent_message": "<value>", "code": "live_credential_rejected", "detail": "<value>", "reason": null, "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "hidden_limitations": 442518, "id": "<id>", "instructions": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>"], "reviewed": false}], "metadata": "<value>", "name": "<value>", "research": {"bytes": 119915, "pages": 887729, "status": "provided"}, "source": "build", "spec_kind": "openapi", "status": "canceled"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+  list-mcpboxes:
+    bad_request:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+    speakeasy-default-list-mcpboxes:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "200":
+          application/json: {"mcpboxes": [], "next_cursor": "<value>"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  create-mcpbox:
+    bad_request_body:
+      requestBody:
+        application/json: {"apibox_id": "abx_01J8Z5X4K70000000000000001", "name": "billing-tools", "snapshot_id": "mbs_01J8Z5X4K70000000000000007"}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-create-mcpbox:
+      requestBody:
+        application/json: {"apibox_id": "abx_01J8Z5X4K70000000000000001", "name": "billing-tools", "snapshot_id": "mbs_01J8Z5X4K70000000000000007"}
+      responses:
+        "202":
+          application/json: {"mcpbox": {"apibox_id": "<id>", "created_at": "2024-12-30T16:29:38.237Z", "endpoint": "<value>", "error": {"agent_message": "<value>", "code": "build_canceled", "detail": "<value>", "reason": "specification_invalid", "validation": null}, "id": "<id>", "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "running"}, "token": "<value>"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  delete-mcpbox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-delete-mcpbox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  get-mcpbox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-get-mcpbox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"apibox_id": "<id>", "created_at": "2025-11-22T11:20:36.012Z", "endpoint": "<value>", "error": {"agent_message": "<value>", "code": "specification_validation_failed", "detail": "<value>", "reason": "canceled", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "id": "<id>", "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "stopping"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  update-mcpbox:
+    bad_request_body:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-update-mcpbox:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"apibox_id": "<id>", "created_at": "2024-06-24T11:15:12.351Z", "endpoint": "<value>", "error": {"agent_message": "<value>", "code": "specification_validation_failed", "detail": "<value>", "reason": "specification_invalid", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "id": "<id>", "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "starting"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  get-mcpbox-connection:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-get-mcpbox-connection:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"endpoint": "<value>", "token": "<value>"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  start-mcpbox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-start-mcpbox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"mcpbox": {"apibox_id": "<id>", "created_at": "2026-04-15T16:34:11.301Z", "endpoint": "<value>", "error": null, "id": "<id>", "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "starting"}, "token": "<value>"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  stop-mcpbox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-stop-mcpbox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"apibox_id": "<id>", "created_at": "2026-11-02T10:02:39.001Z", "endpoint": "<value>", "error": {"agent_message": "<value>", "code": "build_canceled", "detail": "<value>", "reason": "time_limit", "validation": null}, "id": "<id>", "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "running"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  list-mcpbox-snapshots:
+    bad_request:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+    speakeasy-default-list-mcpbox-snapshots:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "200":
+          application/json: {"next_cursor": "<value>", "snapshots": []}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+  create-mcpbox-snapshot:
+    bad_request_body:
+      requestBody:
+        multipart/form-data: {"request": {"apibox_snapshot_id": "<id>", "review_rounds": 1, "timeout_seconds": 28800}}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "429":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "503":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-create-mcpbox-snapshot:
+      requestBody:
+        multipart/form-data: {"request": {"apibox_snapshot_id": "<id>", "review_rounds": 1, "timeout_seconds": 28800}}
+      responses:
+        "202":
+          application/json: {"apibox_snapshot_id": "<id>", "build": {"hidden_limitations": 741990, "last_submission": "accepted", "last_tool": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>"], "reviewed": true}], "model": "combined", "phase": "review", "review_round": 392293, "review_rounds": 958047, "stage": "build", "submissions": 475968, "tool_calls": 953993, "waited_seconds": 949523, "waiting": {"credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "deadline": "2024-11-29T07:13:28.056Z", "reason": "<value>", "since": "2026-06-22T11:38:11.258Z"}, "warnings": [{"code": "spec.default_invalid", "location": "<value>", "message": "<value>", "operations": ["<value 1>"]}]}, "created_at": "2024-06-10T12:49:50.134Z", "credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "error": {"agent_message": "<value>", "code": "specification_validation_failed", "detail": "<value>", "reason": "canceled", "validation": null}, "id": "<id>", "instructions": "<value>", "metadata": "<value>", "name": "<value>", "research": {"bytes": 353810, "pages": 538370, "status": "running"}, "source_url": "https://sticky-harp.name/", "status": "ready"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "429":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "503":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  delete-mcpbox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-delete-mcpbox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unsupported", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unsupported", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  get-mcpbox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-get-mcpbox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"apibox_snapshot_id": "<id>", "build": {"hidden_limitations": 655164, "last_submission": "accepted", "last_tool": null, "limitations": [], "model": "gpt-6-sol", "phase": null, "review_round": 659172, "review_rounds": 330766, "stage": "build", "submissions": 501097, "tool_calls": 104558, "waited_seconds": 671426, "waiting": {"credential_ids": ["<value 1>", "<value 2>"], "deadline": "2024-10-25T06:16:06.956Z", "reason": "<value>", "since": "2024-11-25T02:00:36.387Z"}, "warnings": [{"code": "spec.example_null", "location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>", "<value 3>"]}]}, "created_at": "2024-07-12T17:21:14.400Z", "credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "error": {"agent_message": "<value>", "code": "live_credential_rejected", "detail": "<value>", "reason": "specification_invalid", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "id": "<id>", "instructions": "<value>", "metadata": "<value>", "name": "<value>", "research": {"bytes": 427258, "pages": 809391, "status": "running"}, "source_url": "https://cultivated-humor.com/", "status": "building"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  update-mcpbox-snapshot:
+    bad_request_body:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-update-mcpbox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"apibox_snapshot_id": "<id>", "build": {"hidden_limitations": 46013, "last_submission": "accepted", "last_tool": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>"], "reviewed": false}], "model": "gpt-6-sol", "phase": null, "review_round": 633758, "review_rounds": 949957, "stage": "build", "submissions": 265086, "tool_calls": 429360, "waited_seconds": 490838, "waiting": {"credential_ids": [], "deadline": "2024-10-22T09:26:10.632Z", "reason": "<value>", "since": "2024-05-26T21:00:30.855Z"}, "warnings": [{"code": "spec.response_untyped", "location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>", "<value 3>"]}]}, "created_at": "2026-06-18T11:02:14.504Z", "credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "error": {"agent_message": "<value>", "code": "specification_validation_failed", "detail": "<value>", "reason": "specification_invalid", "validation": {"issues": []}}, "id": "<id>", "instructions": "<value>", "metadata": "<value>", "name": "<value>", "research": null, "source_url": "https://interesting-ceramic.info/", "status": "building"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  cancel-mcpbox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-cancel-mcpbox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"apibox_snapshot_id": "<id>", "build": {"hidden_limitations": 754708, "last_submission": "rejected", "last_tool": "<value>", "limitations": [], "model": "combined", "phase": null, "review_round": 556321, "review_rounds": 153929, "stage": "assemble", "submissions": 687062, "tool_calls": 820610, "waited_seconds": 255190, "waiting": null, "warnings": []}, "created_at": "2024-04-09T02:05:02.182Z", "credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "error": {"agent_message": "<value>", "code": "build_canceled", "detail": "<value>", "reason": "specification_invalid", "validation": null}, "id": "<id>", "instructions": "<value>", "metadata": "<value>", "name": "<value>", "research": {"bytes": 747569, "pages": 959600, "status": "pending"}, "source_url": "https://lively-role.net/", "status": "canceled"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  resume-mcpbox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-resume-mcpbox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"apibox_snapshot_id": "<id>", "build": {"hidden_limitations": 219389, "last_submission": "accepted", "last_tool": "<value>", "limitations": [], "model": "gpt-6-astra", "phase": "research", "review_round": 952336, "review_rounds": 49085, "stage": "assemble", "submissions": 807477, "tool_calls": 609485, "waited_seconds": 465729, "waiting": {"credential_ids": ["<value 1>"], "deadline": "2026-07-05T07:38:47.865Z", "reason": "<value>", "since": "2024-10-13T18:06:47.139Z"}, "warnings": [{"code": "spec.example_null", "location": "<value>", "message": "<value>", "operations": []}]}, "created_at": "2026-09-18T01:54:06.227Z", "credential_ids": ["<value 1>", "<value 2>"], "error": {"agent_message": "<value>", "code": "specification_validation_failed", "detail": "<value>", "reason": "service_unavailable", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "id": "<id>", "instructions": "<value>", "metadata": "<value>", "name": "<value>", "research": null, "source_url": "https://authorized-shoulder.info/", "status": "pending"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  list-webboxes:
+    bad_request:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+    speakeasy-default-list-webboxes:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "200":
+          application/json: {"next_cursor": "<value>", "webboxes": []}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  create-webbox:
+    bad_request_body:
+      requestBody:
+        application/json: {"name": "crm-sandbox", "snapshot_id": "wbs_01J8Z5X4K70000000000000005"}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-create-webbox:
+      requestBody:
+        application/json: {"name": "crm-sandbox", "snapshot_id": "wbs_01J8Z5X4K70000000000000005"}
+      responses:
+        "202":
+          application/json: {"created_at": "2026-10-15T23:31:46.171Z", "error": {"agent_message": "<value>", "code": "build_canceled", "detail": "<value>", "reason": "build_failed", "validation": {"issues": []}}, "id": "<id>", "include_sample_data": true, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "stopped", "url": "https://messy-pigpen.net/"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+  delete-webbox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-delete-webbox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unsupported", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unsupported", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  get-webbox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-get-webbox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"created_at": "2025-01-12T10:31:00.189Z", "error": {"agent_message": "<value>", "code": "build_canceled", "detail": "<value>", "reason": "service_unavailable", "validation": {"issues": []}}, "id": "<id>", "include_sample_data": true, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "stopped", "url": "https://lighthearted-cannon.com"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  update-webbox:
+    bad_request_body:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-update-webbox:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"created_at": "2026-02-07T02:19:31.223Z", "error": {"agent_message": null, "code": "build_failed", "detail": "<value>", "reason": "service_unavailable", "validation": null}, "id": "<id>", "include_sample_data": false, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "stopped", "url": "https://quiet-epic.info/"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  get-webbox-connection:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-get-webbox-connection:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"url": "https://colorless-fork.info/"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "unknown", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  start-webbox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-start-webbox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"created_at": "2024-07-08T12:50:27.883Z", "error": {"agent_message": "<value>", "code": "build_canceled", "detail": "<value>", "reason": "build_failed", "validation": {"issues": []}}, "id": "<id>", "include_sample_data": false, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "stopped", "url": "https://soft-freezing.net"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  list-webbox-steps:
+    bad_request:
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          limit: 50
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+    speakeasy-default-list-webbox-steps:
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          limit: 50
+      responses:
+        "200":
+          application/json: {"next_cursor": "<value>", "steps": [{"label": "<value>", "step": 598348, "time": null}]}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+  stop-webbox:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-stop-webbox:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"created_at": "2024-06-28T15:37:50.275Z", "error": {"agent_message": "<value>", "code": "build_failed", "detail": "<value>", "reason": "time_limit", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "id": "<id>", "include_sample_data": false, "metadata": "<value>", "name": "<value>", "snapshot_id": "<id>", "status": "stopping", "url": "https://direct-pop.biz/"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  list-webbox-snapshots:
+    bad_request:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "The cursor is invalid.", "validation": null}
+    speakeasy-default-list-webbox-snapshots:
+      parameters:
+        query:
+          limit: 50
+      responses:
+        "200":
+          application/json: {"next_cursor": "<value>", "snapshots": []}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  create-webbox-snapshot:
+    bad_request_body:
+      requestBody:
+        multipart/form-data: {"request": {"credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "review_rounds": 1, "timeout_seconds": 28800}}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "429":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "503":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-create-webbox-snapshot:
+      requestBody:
+        multipart/form-data: {"request": {"credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "review_rounds": 1, "timeout_seconds": 28800}}
+      responses:
+        "202":
+          application/json: {"build": null, "composition": {"entities": 612094, "operations": 173088, "sample": true}, "created_at": "2025-07-20T04:18:20.874Z", "credential_ids": [], "error": {"agent_message": "<value>", "code": "specification_validation_failed", "detail": "<value>", "reason": "time_limit", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "hidden_limitations": 187300, "id": "<id>", "instructions": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>"], "reviewed": false}], "metadata": "<value>", "name": "<value>", "research": {"bytes": 859524, "pages": 193083, "status": "failed"}, "source": "catalog", "status": "failed"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "429":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "503":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  delete-webbox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-delete-webbox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
+  get-webbox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-get-webbox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"build": {"hidden_limitations": 274990, "last_submission": "accepted", "last_tool": "<value>", "limitations": [], "model": "claude-fable-5-1", "phase": "finalize", "review_round": 201325, "review_rounds": 376128, "stage": "build", "submissions": 555331, "tool_calls": 216313, "waited_seconds": 931441, "waiting": {"credential_ids": ["<value 1>", "<value 2>"], "deadline": "2024-01-24T06:18:51.778Z", "reason": "<value>", "since": "2026-10-12T23:14:16.042Z"}, "warnings": []}, "composition": {"entities": 913012, "operations": 905337, "sample": true}, "created_at": "2026-01-11T01:58:04.589Z", "credential_ids": ["<value 1>"], "error": {"agent_message": "<value>", "code": "build_canceled", "detail": "<value>", "reason": "service_unavailable", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "hidden_limitations": 43874, "id": "<id>", "instructions": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>"], "reviewed": false}], "metadata": "<value>", "name": "<value>", "research": {"bytes": 944345, "pages": 855128, "status": "provided"}, "source": "build", "status": "building"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  update-webbox-snapshot:
+    bad_request_body:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+        "500":
+          application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
+    speakeasy-default-update-webbox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"build": {"hidden_limitations": 505615, "last_submission": "accepted", "last_tool": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>"], "reviewed": true}], "model": "gpt-6-astra", "phase": "review", "review_round": 528940, "review_rounds": 892022, "stage": "derive", "submissions": 630384, "tool_calls": 529798, "waited_seconds": 729072, "waiting": null, "warnings": [{"code": "spec.default_invalid", "location": "<value>", "message": "<value>", "operations": ["<value 1>"]}]}, "composition": {"entities": 782736, "operations": 205545, "sample": false}, "created_at": "2025-10-06T09:27:11.733Z", "credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "error": {"agent_message": "<value>", "code": "build_failed", "detail": "<value>", "reason": "time_limit", "validation": {"issues": [{"code": "<value>", "kind": "incomplete", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "hidden_limitations": 582869, "id": "<id>", "instructions": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>"], "reviewed": true}], "metadata": "<value>", "name": "<value>", "research": {"bytes": 573766, "pages": 554828, "status": "complete"}, "source": "catalog", "status": "canceled"}
+        "400":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
+  cancel-webbox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-cancel-webbox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"build": {"hidden_limitations": 701435, "last_submission": null, "last_tool": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>", "<value 3>"], "reviewed": true}], "model": "claude-opus-5-5", "phase": "review", "review_round": 783619, "review_rounds": 115693, "stage": "assemble", "submissions": 976451, "tool_calls": 192244, "waited_seconds": 878838, "waiting": null, "warnings": [{"code": "spec.enum_duplicate", "location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>"]}]}, "composition": {"entities": 134882, "operations": 665100, "sample": false}, "created_at": "2024-07-27T05:47:37.047Z", "credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "error": {"agent_message": null, "code": "specification_validation_failed", "detail": "<value>", "reason": "time_limit", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "hidden_limitations": 816904, "id": "<id>", "instructions": "<value>", "limitations": [], "metadata": "<value>", "name": "<value>", "research": {"bytes": 487724, "pages": 384341, "status": "pending"}, "source": "build", "status": "pending"}
+        "401":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+        "500":
+          application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
+  resume-webbox-snapshot:
+    auth_invalid:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "The authentication credential is invalid.", "validation": null}
+    auth_missing:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "401":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+        "500":
+          application/problem+json: {"code": "auth_invalid", "detail": "Authentication credentials are required.", "validation": null}
+    speakeasy-default-resume-webbox-snapshot:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/json: {"build": {"hidden_limitations": 752500, "last_submission": "rejected", "last_tool": "<value>", "limitations": [], "model": "gpt-6.1-sol", "phase": "research", "review_round": 557212, "review_rounds": 90708, "stage": "derive", "submissions": 336555, "tool_calls": 304990, "waited_seconds": 674324, "waiting": {"credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "deadline": "2025-10-10T20:01:24.830Z", "reason": "<value>", "since": "2026-02-18T14:46:45.311Z"}, "warnings": [{"code": "spec.schema_limit", "location": "<value>", "message": "<value>", "operations": ["<value 1>"]}]}, "composition": {"entities": 332625, "operations": 931837, "sample": false}, "created_at": "2024-01-25T05:52:01.646Z", "credential_ids": ["<value 1>"], "error": {"agent_message": "<value>", "code": "live_credential_rejected", "detail": "<value>", "reason": "time_limit", "validation": {"issues": []}}, "hidden_limitations": 688621, "id": "<id>", "instructions": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": [], "reviewed": true}], "metadata": "<value>", "name": "<value>", "research": {"bytes": 790931, "pages": 410596, "status": "complete"}, "source": "catalog", "status": "building"}
         "401":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": []}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.simulators.resumeSimulator()`: **Added**\n* `continuous.credentials.listCredentials()`:  `response.credentials[].oauth` **Added**\n* `continuous.credentials.createCredential()`: \n  *  `request.oauth` **Added**\n  *  `response.oauth` **Added**\n* `continuous.credentials.getCredential()`:  `response.oauth` **Added**\n* `continuous.credentials.updateCredential()`: \n  *  `request.body.oauth` **Added**\n  *  `response.oauth` **Added**\n* `continuous.simulators.listSimulators()`:  `response.simulators[]` **Changed**\n* `continuous.simulators.buildSimulator()`:  `response` **Changed**\n* `continuous.simulators.getSimulator()`:  `response` **Changed**\n* `continuous.simulators.updateSimulator()`:  `response` **Changed**\n* `continuous.simulators.cancelSimulator()`:  `response` **Changed**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `continuous.apibox.listApiboxes()`: **Added**
+  * `continuous.apibox.createApibox()`: **Added**
+  * `continuous.apibox.deleteApibox()`: **Added**
+  * `continuous.apibox.getApibox()`: **Added**
+  * `continuous.apibox.updateApibox()`: **Added**
+  * `continuous.apibox.getApiboxConnection()`: **Added**
+  * `continuous.apibox.startApibox()`: **Added**
+  * `continuous.apibox.listApiboxSteps()`: **Added**
+  * `continuous.apibox.stopApibox()`: **Added**
+  * `continuous.apiboxSnapshots.listApiboxSnapshots()`: **Added**
+  * `continuous.apiboxSnapshots.createApiboxSnapshot()`: **Added**
+  * `continuous.apiboxSnapshots.deleteApiboxSnapshot()`: **Added**
+  * `continuous.apiboxSnapshots.getApiboxSnapshot()`: **Added**
+  * `continuous.apiboxSnapshots.updateApiboxSnapshot()`: **Added**
+  * `continuous.apiboxSnapshots.cancelApiboxSnapshot()`: **Added**
+  * `continuous.apiboxSnapshots.resumeApiboxSnapshot()`: **Added**
+  * `continuous.mcpbox.listMcpboxes()`: **Added**
+  * `continuous.mcpbox.createMcpbox()`: **Added**
+  * `continuous.mcpbox.deleteMcpbox()`: **Added**
+  * `continuous.mcpbox.getMcpbox()`: **Added**
+  * `continuous.mcpbox.updateMcpbox()`: **Added**
+  * `continuous.mcpbox.getMcpboxConnection()`: **Added**
+  * `continuous.mcpbox.startMcpbox()`: **Added**
+  * `continuous.mcpbox.stopMcpbox()`: **Added**
+  * `continuous.mcpboxSnapshots.listMcpboxSnapshots()`: **Added**
+  * `continuous.mcpboxSnapshots.createMcpboxSnapshot()`: **Added**
+  * `continuous.mcpboxSnapshots.deleteMcpboxSnapshot()`: **Added**
+  * `continuous.mcpboxSnapshots.getMcpboxSnapshot()`: **Added**
+  * `continuous.mcpboxSnapshots.updateMcpboxSnapshot()`: **Added**
+  * `continuous.mcpboxSnapshots.cancelMcpboxSnapshot()`: **Added**
+  * `continuous.mcpboxSnapshots.resumeMcpboxSnapshot()`: **Added**
+  * `continuous.webbox.listWebboxes()`: **Added**
+  * `continuous.webbox.createWebbox()`: **Added**
+  * `continuous.webbox.deleteWebbox()`: **Added**
+  * `continuous.webbox.getWebbox()`: **Added**
+  * `continuous.webbox.updateWebbox()`: **Added**
+  * `continuous.webbox.getWebboxConnection()`: **Added**
+  * `continuous.webbox.startWebbox()`: **Added**
+  * `continuous.webbox.listWebboxSteps()`: **Added**
+  * `continuous.webbox.stopWebbox()`: **Added**
+  * `continuous.webboxSnapshots.listWebboxSnapshots()`: **Added**
+  * `continuous.webboxSnapshots.createWebboxSnapshot()`: **Added**
+  * `continuous.webboxSnapshots.deleteWebboxSnapshot()`: **Added**
+  * `continuous.webboxSnapshots.getWebboxSnapshot()`: **Added**
+  * `continuous.webboxSnapshots.updateWebboxSnapshot()`: **Added**
+  * `continuous.webboxSnapshots.cancelWebboxSnapshot()`: **Added**
+  * `continuous.webboxSnapshots.resumeWebboxSnapshot()`: **Added**
+  * `continuous.simulationSnapshots.listSimulationSnapshots()`: **Deprecated**
+  * `continuous.simulationSnapshots.createSimulationSnapshot()`: **Deprecated**
+  * `continuous.simulationSnapshots.deleteSimulationSnapshot()`: **Deprecated**
+  * `continuous.simulationSnapshots.getSimulationSnapshot()`: **Deprecated**
+  * `continuous.simulationSnapshots.updateSimulationSnapshot()`: **Deprecated**
+  * `continuous.simulations.listSimulations()`: **Deprecated**
+  * `continuous.simulations.createSimulation()`: **Deprecated**
+  * `continuous.simulations.deleteSimulation()`: **Deprecated**
+  * `continuous.simulations.getSimulation()`: **Deprecated**
+  * `continuous.simulations.updateSimulation()`: **Deprecated**
+  * `continuous.simulations.createSimulationAdvance()`: **Deprecated**
+  * `continuous.simulations.getSimulationAdvance()`: **Deprecated**
+  * `continuous.simulations.listSimulationAdvanceEvents()`: **Deprecated**
+  * `continuous.simulations.startSimulation()`: **Deprecated**
+  * `continuous.simulations.listSimulationSteps()`: **Deprecated**
+  * `continuous.simulations.stopSimulation()`: **Deprecated**
+  * `continuous.simulations.getSimulationToken()`: **Deprecated**
+  * `continuous.simulations.regenerateSimulationToken()`: **Deprecated**
+  * `continuous.simulators.listSimulators()`: **Deprecated**
+  * `continuous.simulators.listSimulators()`:  `response.simulators[].build.waitedSeconds` **Added**
+  * `continuous.simulators.buildSimulator()`: **Deprecated**
+  * `continuous.simulators.buildSimulator()`:  `response.build.waitedSeconds` **Added**
+  * `continuous.simulators.deleteSimulator()`: **Deprecated**
+  * `continuous.simulators.getSimulator()`: **Deprecated**
+  * `continuous.simulators.getSimulator()`:  `response.build.waitedSeconds` **Added**
+  * `continuous.simulators.updateSimulator()`: **Deprecated**
+  * `continuous.simulators.updateSimulator()`:  `response.build.waitedSeconds` **Added**
+  * `continuous.simulators.cancelSimulator()`: **Deprecated**
+  * `continuous.simulators.cancelSimulator()`:  `response.build.waitedSeconds` **Added**
+  * `continuous.simulators.cloneSimulator()`: **Deprecated**
+  * `continuous.simulators.resumeSimulator()`: **Deprecated**
+  * `continuous.simulators.resumeSimulator()`:  `response.build.waitedSeconds` **Added**

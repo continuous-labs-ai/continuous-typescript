@@ -7,7 +7,7 @@ Speakeasy generates this SDK from the public Continuous Simulation API contract.
 <!-- Start Summary [summary] -->
 ## Summary
 
-Continuous Simulation API: Build Simulators from OpenAPI, WSDL or GraphQL documents and create Simulations from them. Authenticate every request with an API key sent as a Bearer token.
+Continuous API: Start API Boxes, Web Boxes and MCP Boxes from Snapshots. Authenticate every request with an API key sent as a Bearer token.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -86,7 +86,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.listCredentials({});
+  const result = await continuous.apibox.listApiboxes({});
 
   for await (const page of result) {
     console.log(page);
@@ -118,7 +118,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.listCredentials({});
+  const result = await continuous.apibox.listApiboxes({});
 
   for await (const page of result) {
     console.log(page);
@@ -136,6 +136,28 @@ run();
 <details open>
 <summary>Available methods</summary>
 
+### [Apibox](docs/sdks/apibox/README.md)
+
+* [listApiboxes](docs/sdks/apibox/README.md#listapiboxes) - List API Boxes
+* [createApibox](docs/sdks/apibox/README.md#createapibox) - Create API Box
+* [deleteApibox](docs/sdks/apibox/README.md#deleteapibox) - Delete API Box
+* [getApibox](docs/sdks/apibox/README.md#getapibox) - Get API Box
+* [updateApibox](docs/sdks/apibox/README.md#updateapibox) - Update API Box
+* [getApiboxConnection](docs/sdks/apibox/README.md#getapiboxconnection) - Get API Box connection
+* [startApibox](docs/sdks/apibox/README.md#startapibox) - Start API Box
+* [listApiboxSteps](docs/sdks/apibox/README.md#listapiboxsteps) - List API Box Steps
+* [stopApibox](docs/sdks/apibox/README.md#stopapibox) - Stop API Box
+
+### [ApiboxSnapshots](docs/sdks/apiboxsnapshots/README.md)
+
+* [listApiboxSnapshots](docs/sdks/apiboxsnapshots/README.md#listapiboxsnapshots) - List API Box Snapshots
+* [createApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#createapiboxsnapshot) - Create API Box Snapshot
+* [deleteApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#deleteapiboxsnapshot) - Delete API Box Snapshot
+* [getApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#getapiboxsnapshot) - Get API Box Snapshot
+* [updateApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#updateapiboxsnapshot) - Update API Box Snapshot
+* [cancelApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#cancelapiboxsnapshot) - Cancel Snapshot build
+* [resumeApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#resumeapiboxsnapshot) - Resume Snapshot build
+
 ### [Credentials](docs/sdks/credentials/README.md)
 
 * [listCredentials](docs/sdks/credentials/README.md#listcredentials) - List credentials
@@ -144,40 +166,83 @@ run();
 * [getCredential](docs/sdks/credentials/README.md#getcredential) - Get credential
 * [updateCredential](docs/sdks/credentials/README.md#updatecredential) - Update credential
 
-### [SimulationSnapshots](docs/sdks/simulationsnapshots/README.md)
+### [Mcpbox](docs/sdks/mcpbox/README.md)
 
-* [listSimulationSnapshots](docs/sdks/simulationsnapshots/README.md#listsimulationsnapshots) - List Simulation Snapshots
-* [createSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#createsimulationsnapshot) - Create Simulation Snapshot
-* [deleteSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#deletesimulationsnapshot) - Delete Simulation Snapshot
-* [getSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#getsimulationsnapshot) - Get Simulation Snapshot
-* [updateSimulationSnapshot](docs/sdks/simulationsnapshots/README.md#updatesimulationsnapshot) - Update Simulation Snapshot
+* [listMcpboxes](docs/sdks/mcpbox/README.md#listmcpboxes) - List MCP Boxes
+* [createMcpbox](docs/sdks/mcpbox/README.md#createmcpbox) - Create MCP Box
+* [deleteMcpbox](docs/sdks/mcpbox/README.md#deletemcpbox) - Delete MCP Box
+* [getMcpbox](docs/sdks/mcpbox/README.md#getmcpbox) - Get MCP Box
+* [updateMcpbox](docs/sdks/mcpbox/README.md#updatemcpbox) - Update MCP Box
+* [getMcpboxConnection](docs/sdks/mcpbox/README.md#getmcpboxconnection) - Get MCP Box connection
+* [startMcpbox](docs/sdks/mcpbox/README.md#startmcpbox) - Start MCP Box
+* [stopMcpbox](docs/sdks/mcpbox/README.md#stopmcpbox) - Stop MCP Box
 
-### [Simulations](docs/sdks/simulations/README.md)
+### [McpboxSnapshots](docs/sdks/mcpboxsnapshots/README.md)
 
-* [listSimulations](docs/sdks/simulations/README.md#listsimulations) - List Simulations
-* [createSimulation](docs/sdks/simulations/README.md#createsimulation) - Create Simulation
-* [deleteSimulation](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation
-* [getSimulation](docs/sdks/simulations/README.md#getsimulation) - Get Simulation
-* [updateSimulation](docs/sdks/simulations/README.md#updatesimulation) - Update Simulation
-* [createSimulationAdvance](docs/sdks/simulations/README.md#createsimulationadvance) - Advance Simulation Time
-* [getSimulationAdvance](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance
-* [listSimulationAdvanceEvents](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events
-* [startSimulation](docs/sdks/simulations/README.md#startsimulation) - Start Simulation
-* [listSimulationSteps](docs/sdks/simulations/README.md#listsimulationsteps) - List Simulation Steps
-* [stopSimulation](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation
-* [getSimulationToken](docs/sdks/simulations/README.md#getsimulationtoken) - Get Current Simulation Token
-* [regenerateSimulationToken](docs/sdks/simulations/README.md#regeneratesimulationtoken) - Regenerate Simulation Token
+* [listMcpboxSnapshots](docs/sdks/mcpboxsnapshots/README.md#listmcpboxsnapshots) - List MCP Box Snapshots
+* [createMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#createmcpboxsnapshot) - Create MCP Box Snapshot
+* [deleteMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#deletemcpboxsnapshot) - Delete MCP Box Snapshot
+* [getMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#getmcpboxsnapshot) - Get MCP Box Snapshot
+* [updateMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#updatemcpboxsnapshot) - Update MCP Box Snapshot
+* [cancelMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#cancelmcpboxsnapshot) - Cancel Snapshot build
+* [resumeMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#resumemcpboxsnapshot) - Resume Snapshot build
 
-### [Simulators](docs/sdks/simulators/README.md)
+### [~~SimulationSnapshots~~](docs/sdks/simulationsnapshots/README.md)
 
-* [listSimulators](docs/sdks/simulators/README.md#listsimulators) - List Simulators
-* [buildSimulator](docs/sdks/simulators/README.md#buildsimulator) - Build Simulator
-* [deleteSimulator](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
-* [getSimulator](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
-* [updateSimulator](docs/sdks/simulators/README.md#updatesimulator) - Update Simulator
-* [cancelSimulator](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build
-* [cloneSimulator](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator
-* [resumeSimulator](docs/sdks/simulators/README.md#resumesimulator) - Resume Simulator Build
+* [~~listSimulationSnapshots~~](docs/sdks/simulationsnapshots/README.md#listsimulationsnapshots) - List Simulation Snapshots :warning: **Deprecated**
+* [~~createSimulationSnapshot~~](docs/sdks/simulationsnapshots/README.md#createsimulationsnapshot) - Create Simulation Snapshot :warning: **Deprecated**
+* [~~deleteSimulationSnapshot~~](docs/sdks/simulationsnapshots/README.md#deletesimulationsnapshot) - Delete Simulation Snapshot :warning: **Deprecated**
+* [~~getSimulationSnapshot~~](docs/sdks/simulationsnapshots/README.md#getsimulationsnapshot) - Get Simulation Snapshot :warning: **Deprecated**
+* [~~updateSimulationSnapshot~~](docs/sdks/simulationsnapshots/README.md#updatesimulationsnapshot) - Update Simulation Snapshot :warning: **Deprecated**
+
+### [~~Simulations~~](docs/sdks/simulations/README.md)
+
+* [~~listSimulations~~](docs/sdks/simulations/README.md#listsimulations) - List Simulations :warning: **Deprecated**
+* [~~createSimulation~~](docs/sdks/simulations/README.md#createsimulation) - Create Simulation :warning: **Deprecated**
+* [~~deleteSimulation~~](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation :warning: **Deprecated**
+* [~~getSimulation~~](docs/sdks/simulations/README.md#getsimulation) - Get Simulation :warning: **Deprecated**
+* [~~updateSimulation~~](docs/sdks/simulations/README.md#updatesimulation) - Update Simulation :warning: **Deprecated**
+* [~~createSimulationAdvance~~](docs/sdks/simulations/README.md#createsimulationadvance) - Advance Simulation Time :warning: **Deprecated**
+* [~~getSimulationAdvance~~](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance :warning: **Deprecated**
+* [~~listSimulationAdvanceEvents~~](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events :warning: **Deprecated**
+* [~~startSimulation~~](docs/sdks/simulations/README.md#startsimulation) - Start Simulation :warning: **Deprecated**
+* [~~listSimulationSteps~~](docs/sdks/simulations/README.md#listsimulationsteps) - List Simulation Steps :warning: **Deprecated**
+* [~~stopSimulation~~](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation :warning: **Deprecated**
+* [~~getSimulationToken~~](docs/sdks/simulations/README.md#getsimulationtoken) - Get Current Simulation Token :warning: **Deprecated**
+* [~~regenerateSimulationToken~~](docs/sdks/simulations/README.md#regeneratesimulationtoken) - Regenerate Simulation Token :warning: **Deprecated**
+
+### [~~Simulators~~](docs/sdks/simulators/README.md)
+
+* [~~listSimulators~~](docs/sdks/simulators/README.md#listsimulators) - List Simulators :warning: **Deprecated**
+* [~~buildSimulator~~](docs/sdks/simulators/README.md#buildsimulator) - Build Simulator :warning: **Deprecated**
+* [~~deleteSimulator~~](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator :warning: **Deprecated**
+* [~~getSimulator~~](docs/sdks/simulators/README.md#getsimulator) - Get Simulator :warning: **Deprecated**
+* [~~updateSimulator~~](docs/sdks/simulators/README.md#updatesimulator) - Update Simulator :warning: **Deprecated**
+* [~~cancelSimulator~~](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build :warning: **Deprecated**
+* [~~cloneSimulator~~](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator :warning: **Deprecated**
+* [~~resumeSimulator~~](docs/sdks/simulators/README.md#resumesimulator) - Resume Simulator Build :warning: **Deprecated**
+
+### [Webbox](docs/sdks/webbox/README.md)
+
+* [listWebboxes](docs/sdks/webbox/README.md#listwebboxes) - List Web Boxes
+* [createWebbox](docs/sdks/webbox/README.md#createwebbox) - Create Web Box
+* [deleteWebbox](docs/sdks/webbox/README.md#deletewebbox) - Delete Web Box
+* [getWebbox](docs/sdks/webbox/README.md#getwebbox) - Get Web Box
+* [updateWebbox](docs/sdks/webbox/README.md#updatewebbox) - Update Web Box
+* [getWebboxConnection](docs/sdks/webbox/README.md#getwebboxconnection) - Get Web Box connection
+* [startWebbox](docs/sdks/webbox/README.md#startwebbox) - Start Web Box
+* [listWebboxSteps](docs/sdks/webbox/README.md#listwebboxsteps) - List Web Box Steps
+* [stopWebbox](docs/sdks/webbox/README.md#stopwebbox) - Stop Web Box
+
+### [WebboxSnapshots](docs/sdks/webboxsnapshots/README.md)
+
+* [listWebboxSnapshots](docs/sdks/webboxsnapshots/README.md#listwebboxsnapshots) - List Web Box Snapshots
+* [createWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#createwebboxsnapshot) - Create Web Box Snapshot
+* [deleteWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#deletewebboxsnapshot) - Delete Web Box Snapshot
+* [getWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#getwebboxsnapshot) - Get Web Box Snapshot
+* [updateWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#updatewebboxsnapshot) - Update Web Box Snapshot
+* [cancelWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#cancelwebboxsnapshot) - Cancel Snapshot build
+* [resumeWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#resumewebboxsnapshot) - Resume Snapshot build
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -197,37 +262,84 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
+- [`apiboxCreateApibox`](docs/sdks/apibox/README.md#createapibox) - Create API Box
+- [`apiboxDeleteApibox`](docs/sdks/apibox/README.md#deleteapibox) - Delete API Box
+- [`apiboxGetApibox`](docs/sdks/apibox/README.md#getapibox) - Get API Box
+- [`apiboxGetApiboxConnection`](docs/sdks/apibox/README.md#getapiboxconnection) - Get API Box connection
+- [`apiboxListApiboxes`](docs/sdks/apibox/README.md#listapiboxes) - List API Boxes
+- [`apiboxListApiboxSteps`](docs/sdks/apibox/README.md#listapiboxsteps) - List API Box Steps
+- [`apiboxSnapshotsCancelApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#cancelapiboxsnapshot) - Cancel Snapshot build
+- [`apiboxSnapshotsCreateApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#createapiboxsnapshot) - Create API Box Snapshot
+- [`apiboxSnapshotsDeleteApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#deleteapiboxsnapshot) - Delete API Box Snapshot
+- [`apiboxSnapshotsGetApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#getapiboxsnapshot) - Get API Box Snapshot
+- [`apiboxSnapshotsListApiboxSnapshots`](docs/sdks/apiboxsnapshots/README.md#listapiboxsnapshots) - List API Box Snapshots
+- [`apiboxSnapshotsResumeApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#resumeapiboxsnapshot) - Resume Snapshot build
+- [`apiboxSnapshotsUpdateApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#updateapiboxsnapshot) - Update API Box Snapshot
+- [`apiboxStartApibox`](docs/sdks/apibox/README.md#startapibox) - Start API Box
+- [`apiboxStopApibox`](docs/sdks/apibox/README.md#stopapibox) - Stop API Box
+- [`apiboxUpdateApibox`](docs/sdks/apibox/README.md#updateapibox) - Update API Box
 - [`credentialsCreateCredential`](docs/sdks/credentials/README.md#createcredential) - Create credential
 - [`credentialsDeleteCredential`](docs/sdks/credentials/README.md#deletecredential) - Delete credential
 - [`credentialsGetCredential`](docs/sdks/credentials/README.md#getcredential) - Get credential
 - [`credentialsListCredentials`](docs/sdks/credentials/README.md#listcredentials) - List credentials
 - [`credentialsUpdateCredential`](docs/sdks/credentials/README.md#updatecredential) - Update credential
-- [`simulationsCreateSimulation`](docs/sdks/simulations/README.md#createsimulation) - Create Simulation
-- [`simulationsCreateSimulationAdvance`](docs/sdks/simulations/README.md#createsimulationadvance) - Advance Simulation Time
-- [`simulationsDeleteSimulation`](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation
-- [`simulationsGetSimulation`](docs/sdks/simulations/README.md#getsimulation) - Get Simulation
-- [`simulationsGetSimulationAdvance`](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance
-- [`simulationsGetSimulationToken`](docs/sdks/simulations/README.md#getsimulationtoken) - Get Current Simulation Token
-- [`simulationsListSimulationAdvanceEvents`](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events
-- [`simulationsListSimulations`](docs/sdks/simulations/README.md#listsimulations) - List Simulations
-- [`simulationsListSimulationSteps`](docs/sdks/simulations/README.md#listsimulationsteps) - List Simulation Steps
-- [`simulationSnapshotsCreateSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#createsimulationsnapshot) - Create Simulation Snapshot
-- [`simulationSnapshotsDeleteSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#deletesimulationsnapshot) - Delete Simulation Snapshot
-- [`simulationSnapshotsGetSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#getsimulationsnapshot) - Get Simulation Snapshot
-- [`simulationSnapshotsListSimulationSnapshots`](docs/sdks/simulationsnapshots/README.md#listsimulationsnapshots) - List Simulation Snapshots
-- [`simulationSnapshotsUpdateSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#updatesimulationsnapshot) - Update Simulation Snapshot
-- [`simulationsRegenerateSimulationToken`](docs/sdks/simulations/README.md#regeneratesimulationtoken) - Regenerate Simulation Token
-- [`simulationsStartSimulation`](docs/sdks/simulations/README.md#startsimulation) - Start Simulation
-- [`simulationsStopSimulation`](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation
-- [`simulationsUpdateSimulation`](docs/sdks/simulations/README.md#updatesimulation) - Update Simulation
-- [`simulatorsBuildSimulator`](docs/sdks/simulators/README.md#buildsimulator) - Build Simulator
-- [`simulatorsCancelSimulator`](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build
-- [`simulatorsCloneSimulator`](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator
-- [`simulatorsDeleteSimulator`](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator
-- [`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator) - Get Simulator
-- [`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators) - List Simulators
-- [`simulatorsResumeSimulator`](docs/sdks/simulators/README.md#resumesimulator) - Resume Simulator Build
-- [`simulatorsUpdateSimulator`](docs/sdks/simulators/README.md#updatesimulator) - Update Simulator
+- [`mcpboxCreateMcpbox`](docs/sdks/mcpbox/README.md#createmcpbox) - Create MCP Box
+- [`mcpboxDeleteMcpbox`](docs/sdks/mcpbox/README.md#deletemcpbox) - Delete MCP Box
+- [`mcpboxGetMcpbox`](docs/sdks/mcpbox/README.md#getmcpbox) - Get MCP Box
+- [`mcpboxGetMcpboxConnection`](docs/sdks/mcpbox/README.md#getmcpboxconnection) - Get MCP Box connection
+- [`mcpboxListMcpboxes`](docs/sdks/mcpbox/README.md#listmcpboxes) - List MCP Boxes
+- [`mcpboxSnapshotsCancelMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#cancelmcpboxsnapshot) - Cancel Snapshot build
+- [`mcpboxSnapshotsCreateMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#createmcpboxsnapshot) - Create MCP Box Snapshot
+- [`mcpboxSnapshotsDeleteMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#deletemcpboxsnapshot) - Delete MCP Box Snapshot
+- [`mcpboxSnapshotsGetMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#getmcpboxsnapshot) - Get MCP Box Snapshot
+- [`mcpboxSnapshotsListMcpboxSnapshots`](docs/sdks/mcpboxsnapshots/README.md#listmcpboxsnapshots) - List MCP Box Snapshots
+- [`mcpboxSnapshotsResumeMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#resumemcpboxsnapshot) - Resume Snapshot build
+- [`mcpboxSnapshotsUpdateMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#updatemcpboxsnapshot) - Update MCP Box Snapshot
+- [`mcpboxStartMcpbox`](docs/sdks/mcpbox/README.md#startmcpbox) - Start MCP Box
+- [`mcpboxStopMcpbox`](docs/sdks/mcpbox/README.md#stopmcpbox) - Stop MCP Box
+- [`mcpboxUpdateMcpbox`](docs/sdks/mcpbox/README.md#updatemcpbox) - Update MCP Box
+- [`webboxCreateWebbox`](docs/sdks/webbox/README.md#createwebbox) - Create Web Box
+- [`webboxDeleteWebbox`](docs/sdks/webbox/README.md#deletewebbox) - Delete Web Box
+- [`webboxGetWebbox`](docs/sdks/webbox/README.md#getwebbox) - Get Web Box
+- [`webboxGetWebboxConnection`](docs/sdks/webbox/README.md#getwebboxconnection) - Get Web Box connection
+- [`webboxListWebboxes`](docs/sdks/webbox/README.md#listwebboxes) - List Web Boxes
+- [`webboxListWebboxSteps`](docs/sdks/webbox/README.md#listwebboxsteps) - List Web Box Steps
+- [`webboxSnapshotsCancelWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#cancelwebboxsnapshot) - Cancel Snapshot build
+- [`webboxSnapshotsCreateWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#createwebboxsnapshot) - Create Web Box Snapshot
+- [`webboxSnapshotsDeleteWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#deletewebboxsnapshot) - Delete Web Box Snapshot
+- [`webboxSnapshotsGetWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#getwebboxsnapshot) - Get Web Box Snapshot
+- [`webboxSnapshotsListWebboxSnapshots`](docs/sdks/webboxsnapshots/README.md#listwebboxsnapshots) - List Web Box Snapshots
+- [`webboxSnapshotsResumeWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#resumewebboxsnapshot) - Resume Snapshot build
+- [`webboxSnapshotsUpdateWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#updatewebboxsnapshot) - Update Web Box Snapshot
+- [`webboxStartWebbox`](docs/sdks/webbox/README.md#startwebbox) - Start Web Box
+- [`webboxStopWebbox`](docs/sdks/webbox/README.md#stopwebbox) - Stop Web Box
+- [`webboxUpdateWebbox`](docs/sdks/webbox/README.md#updatewebbox) - Update Web Box
+- ~~[`simulationsCreateSimulation`](docs/sdks/simulations/README.md#createsimulation)~~ - Create Simulation :warning: **Deprecated**
+- ~~[`simulationsCreateSimulationAdvance`](docs/sdks/simulations/README.md#createsimulationadvance)~~ - Advance Simulation Time :warning: **Deprecated**
+- ~~[`simulationsDeleteSimulation`](docs/sdks/simulations/README.md#deletesimulation)~~ - Delete Simulation :warning: **Deprecated**
+- ~~[`simulationsGetSimulation`](docs/sdks/simulations/README.md#getsimulation)~~ - Get Simulation :warning: **Deprecated**
+- ~~[`simulationsGetSimulationAdvance`](docs/sdks/simulations/README.md#getsimulationadvance)~~ - Get Simulation Clock Advance :warning: **Deprecated**
+- ~~[`simulationsGetSimulationToken`](docs/sdks/simulations/README.md#getsimulationtoken)~~ - Get Current Simulation Token :warning: **Deprecated**
+- ~~[`simulationsListSimulationAdvanceEvents`](docs/sdks/simulations/README.md#listsimulationadvanceevents)~~ - List Clock Advance Events :warning: **Deprecated**
+- ~~[`simulationsListSimulations`](docs/sdks/simulations/README.md#listsimulations)~~ - List Simulations :warning: **Deprecated**
+- ~~[`simulationsListSimulationSteps`](docs/sdks/simulations/README.md#listsimulationsteps)~~ - List Simulation Steps :warning: **Deprecated**
+- ~~[`simulationSnapshotsCreateSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#createsimulationsnapshot)~~ - Create Simulation Snapshot :warning: **Deprecated**
+- ~~[`simulationSnapshotsDeleteSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#deletesimulationsnapshot)~~ - Delete Simulation Snapshot :warning: **Deprecated**
+- ~~[`simulationSnapshotsGetSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#getsimulationsnapshot)~~ - Get Simulation Snapshot :warning: **Deprecated**
+- ~~[`simulationSnapshotsListSimulationSnapshots`](docs/sdks/simulationsnapshots/README.md#listsimulationsnapshots)~~ - List Simulation Snapshots :warning: **Deprecated**
+- ~~[`simulationSnapshotsUpdateSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#updatesimulationsnapshot)~~ - Update Simulation Snapshot :warning: **Deprecated**
+- ~~[`simulationsRegenerateSimulationToken`](docs/sdks/simulations/README.md#regeneratesimulationtoken)~~ - Regenerate Simulation Token :warning: **Deprecated**
+- ~~[`simulationsStartSimulation`](docs/sdks/simulations/README.md#startsimulation)~~ - Start Simulation :warning: **Deprecated**
+- ~~[`simulationsStopSimulation`](docs/sdks/simulations/README.md#stopsimulation)~~ - Stop Simulation :warning: **Deprecated**
+- ~~[`simulationsUpdateSimulation`](docs/sdks/simulations/README.md#updatesimulation)~~ - Update Simulation :warning: **Deprecated**
+- ~~[`simulatorsBuildSimulator`](docs/sdks/simulators/README.md#buildsimulator)~~ - Build Simulator :warning: **Deprecated**
+- ~~[`simulatorsCancelSimulator`](docs/sdks/simulators/README.md#cancelsimulator)~~ - Cancel Simulator Build :warning: **Deprecated**
+- ~~[`simulatorsCloneSimulator`](docs/sdks/simulators/README.md#clonesimulator)~~ - Clone Simulator :warning: **Deprecated**
+- ~~[`simulatorsDeleteSimulator`](docs/sdks/simulators/README.md#deletesimulator)~~ - Delete Simulator :warning: **Deprecated**
+- ~~[`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator)~~ - Get Simulator :warning: **Deprecated**
+- ~~[`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators)~~ - List Simulators :warning: **Deprecated**
+- ~~[`simulatorsResumeSimulator`](docs/sdks/simulators/README.md#resumesimulator)~~ - Resume Simulator Build :warning: **Deprecated**
+- ~~[`simulatorsUpdateSimulator`](docs/sdks/simulators/README.md#updatesimulator)~~ - Update Simulator :warning: **Deprecated**
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -252,7 +364,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.listCredentials({});
+  const result = await continuous.apibox.listApiboxes({});
 
   for await (const page of result) {
     console.log(page);
@@ -286,15 +398,9 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.simulators.buildSimulator({
+  const result = await continuous.apiboxSnapshots.createApiboxSnapshot({
     body: {
-      request: {
-        filter: [],
-        instructions: "Return stable example data for every operation.",
-        model: "claude-fable-5-1",
-        name: "billing-api",
-        specKind: "openapi",
-      },
+      request: {},
     },
   });
 
@@ -320,7 +426,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.listCredentials({}, {
+  const result = await continuous.apibox.listApiboxes({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -361,7 +467,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.listCredentials({});
+  const result = await continuous.apibox.listApiboxes({});
 
   for await (const page of result) {
     console.log(page);
@@ -398,7 +504,7 @@ const continuous = new Continuous({
 
 async function run() {
   try {
-    const result = await continuous.credentials.listCredentials({});
+    const result = await continuous.apibox.listApiboxes({});
 
     for await (const page of result) {
       console.log(page);
@@ -443,7 +549,7 @@ run();
 
 
 **Inherit from [`ContinuousError`](./src/models/errors/continuous-error.ts)**:
-* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 31 methods.*
+* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 78 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -466,7 +572,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.listCredentials({});
+  const result = await continuous.apibox.listApiboxes({});
 
   for await (const page of result) {
     console.log(page);

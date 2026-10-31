@@ -21,6 +21,7 @@ let value: ListSimulatorsResponse = {
         stage: "build",
         submissions: 1,
         toolCalls: 7,
+        waitedSeconds: 0,
         waiting: null,
         warnings: [],
       },

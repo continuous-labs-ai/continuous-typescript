@@ -1,0 +1,41 @@
+# APIBox
+
+## Example Usage
+
+```typescript
+import { APIBox } from "@continuous-labs/sdk/models";
+
+let value: APIBox = {
+  createdAt: new Date("2024-05-09T04:33:55.499Z"),
+  endpoint: "<value>",
+  error: {
+    agentMessage: "<value>",
+    code: "specification_validation_failed",
+    detail: "<value>",
+    reason: "specification_invalid",
+    validation: {
+      issues: [],
+    },
+  },
+  id: "<id>",
+  includeSampleData: false,
+  metadata: "<value>",
+  name: "<value>",
+  snapshotId: "<id>",
+  status: "running",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                     | Type                                                                                                                                                                      | Required                                                                                                                                                                  | Description                                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `createdAt`                                                                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                             | :heavy_check_mark:                                                                                                                                                        | API Box creation time.                                                                                                                                                    |
+| `endpoint`                                                                                                                                                                | *string*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                        | Base URL of the API Box's API. Send the API Box's token in X-Continuous-Token.                                                                                            |
+| `error`                                                                                                                                                                   | [models.SimulatorError](../models/simulator-error.md)                                                                                                                     | :heavy_check_mark:                                                                                                                                                        | N/A                                                                                                                                                                       |
+| `id`                                                                                                                                                                      | *string*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                        | API Box ID.                                                                                                                                                               |
+| `includeSampleData`                                                                                                                                                       | *boolean*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                        | Whether the API Box started with the Snapshot's sample data.                                                                                                              |
+| `metadata`                                                                                                                                                                | *any*                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                        | Customer JSON metadata, or null.                                                                                                                                          |
+| `name`                                                                                                                                                                    | *string*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                        | API Box name. The ID is its identity, and names need not be unique.                                                                                                       |
+| `snapshotId`                                                                                                                                                              | *string*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                        | The API Box Snapshot it started from.                                                                                                                                     |
+| `status`                                                                                                                                                                  | [models.APIBoxStatus](../models/api-box-status.md)                                                                                                                        | :heavy_check_mark:                                                                                                                                                        | starting while its runtime boots; running while it serves requests; stopping while it saves its state; stopped when it holds no runtime. A start resumes the saved state. |

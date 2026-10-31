@@ -31,7 +31,11 @@ import { Result } from "../types/fp.js";
  * Regenerate Simulation Token
  *
  * @remarks
- * Replaces the Simulation's token, including while the Simulation is stopped. When the replacement commits, requests with the previous token return 401 auth_invalid with X-Continuous-Simulation-Token-Rejected: true. Reuse the Idempotency-Key to retry safely.
+ * Replaces the Simulation's token, including while the Simulation is stopped. Within 5 seconds of the replacement committing, requests with the previous token return 401 auth_invalid with X-Continuous-Simulation-Token-Rejected: true. Reuse the Idempotency-Key to retry safely.
+ *
+ * Deprecated. Use API Box for APIs and Web Box for web apps.
+ *
+ * @deprecated method: Use API Box for APIs and Web Box for web apps.
  */
 export function simulationsRegenerateSimulationToken(
   client: ContinuousCore,

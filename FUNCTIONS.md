@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { credentialsListCredentials } from "@continuous-labs/sdk/funcs/credentials-list-credentials.js";
+import { apiboxListApiboxes } from "@continuous-labs/sdk/funcs/apibox-list-apiboxes.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -29,14 +29,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await credentialsListCredentials(continuous, {});
+  const res = await apiboxListApiboxes(continuous, {});
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
     console.log(page);
   }
   } else {
-    console.log("credentialsListCredentials failed:", res.error);
+    console.log("apiboxListApiboxes failed:", res.error);
   }
 }
 

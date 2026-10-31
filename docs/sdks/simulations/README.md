@@ -1,28 +1,35 @@
-# Simulations
+# ~~Simulations~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
-Create Simulations from ready Simulators or Snapshots, then rename, stop, start, and delete them.
+Deprecated. Use API Box for APIs and Web Box for web apps. Create Simulations from ready Simulators or Snapshots, then rename, stop, start, and delete them.
 
 ### Available Operations
 
-* [listSimulations](#listsimulations) - List Simulations
-* [createSimulation](#createsimulation) - Create Simulation
-* [deleteSimulation](#deletesimulation) - Delete Simulation
-* [getSimulation](#getsimulation) - Get Simulation
-* [updateSimulation](#updatesimulation) - Update Simulation
-* [createSimulationAdvance](#createsimulationadvance) - Advance Simulation Time
-* [getSimulationAdvance](#getsimulationadvance) - Get Simulation Clock Advance
-* [listSimulationAdvanceEvents](#listsimulationadvanceevents) - List Clock Advance Events
-* [startSimulation](#startsimulation) - Start Simulation
-* [listSimulationSteps](#listsimulationsteps) - List Simulation Steps
-* [stopSimulation](#stopsimulation) - Stop Simulation
-* [getSimulationToken](#getsimulationtoken) - Get Current Simulation Token
-* [regenerateSimulationToken](#regeneratesimulationtoken) - Regenerate Simulation Token
+* [~~listSimulations~~](#listsimulations) - List Simulations :warning: **Deprecated**
+* [~~createSimulation~~](#createsimulation) - Create Simulation :warning: **Deprecated**
+* [~~deleteSimulation~~](#deletesimulation) - Delete Simulation :warning: **Deprecated**
+* [~~getSimulation~~](#getsimulation) - Get Simulation :warning: **Deprecated**
+* [~~updateSimulation~~](#updatesimulation) - Update Simulation :warning: **Deprecated**
+* [~~createSimulationAdvance~~](#createsimulationadvance) - Advance Simulation Time :warning: **Deprecated**
+* [~~getSimulationAdvance~~](#getsimulationadvance) - Get Simulation Clock Advance :warning: **Deprecated**
+* [~~listSimulationAdvanceEvents~~](#listsimulationadvanceevents) - List Clock Advance Events :warning: **Deprecated**
+* [~~startSimulation~~](#startsimulation) - Start Simulation :warning: **Deprecated**
+* [~~listSimulationSteps~~](#listsimulationsteps) - List Simulation Steps :warning: **Deprecated**
+* [~~stopSimulation~~](#stopsimulation) - Stop Simulation :warning: **Deprecated**
+* [~~getSimulationToken~~](#getsimulationtoken) - Get Current Simulation Token :warning: **Deprecated**
+* [~~regenerateSimulationToken~~](#regeneratesimulationtoken) - Regenerate Simulation Token :warning: **Deprecated**
 
-## listSimulations
+## ~~listSimulations~~
 
 Returns all Simulations that the API key can access. Results can be filtered by status, Simulator ID, pinned Simulator digest, or the Snapshot they started from.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -95,9 +102,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createSimulation
+## ~~createSimulation~~
 
 Creates a Simulation from a ready Simulator, or from a Snapshot with its saved state, and starts it. The response returns once the Simulation is admitted, with status starting; read it until it is running. The response includes the endpoint and the Simulation's token, which does not expire. If its runtime cannot start, the Simulation is deleted.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage: bad_request_body
 
@@ -304,9 +315,13 @@ run();
 | errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
-## deleteSimulation
+## ~~deleteSimulation~~
 
 Deletes a Simulation and its saved runtime state, and cancels an active advance.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -379,9 +394,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getSimulation
+## ~~getSimulation~~
 
 Returns a Simulation, its current status, and the actors a request can act as. The response does not include tokens.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -454,9 +473,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## updateSimulation
+## ~~updateSimulation~~
 
 Renames a Simulation or replaces its metadata. Omitted fields keep their current values.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -531,9 +554,13 @@ run();
 | errors.ErrorT                          | 500, 503                               | application/problem+json               |
 | errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
-## createSimulationAdvance
+## ~~createSimulationAdvance~~
 
 Schedules an absolute clock advance. An advance commits due local events in ordered batches, one step each; a failure keeps the batches already committed. Poll the returned operation until it completes.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -614,9 +641,13 @@ run();
 | errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
-## getSimulationAdvance
+## ~~getSimulationAdvance~~
 
 Returns durable clock progress, the event count, and the committed step or failure.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -691,9 +722,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## listSimulationAdvanceEvents
+## ~~listSimulationAdvanceEvents~~
 
 Returns the ordered event trace for a committed advance. The Simulation must be running. A Simulation created from a Snapshot keeps the traces in the state it started from.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -772,9 +807,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## startSimulation
+## ~~startSimulation~~
 
 Starts a stopped Simulation from its saved state. The response returns once the start is admitted, with status starting; read the Simulation until it is running. If its runtime cannot start, it returns to stopped. Stop and start do not change its token; read it with GET /v1/simulations/{id}/token. A running or starting Simulation is returned unchanged.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -847,9 +886,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## listSimulationSteps
+## ~~listSimulationSteps~~
 
 Lists the Simulation's steps in order. Each request that changed state is one step; a request that only reads registers none. A stopped Simulation returns 409 simulation_stopped; start it first.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -926,9 +969,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## stopSimulation
+## ~~stopSimulation~~
 
 Stops a Simulation and saves its state. The response returns once the stop is accepted, with status stopping; read the Simulation until it is stopped. Requests to its endpoint are refused while it stops, and return 409 simulation_stopped once it is stopped, until you start it again. A stopped or stopping Simulation is returned unchanged.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -1001,9 +1048,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getSimulationToken
+## ~~getSimulationToken~~
 
 Returns the Simulation's current token without rotating it, including while the Simulation is stopped.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
@@ -1076,9 +1127,13 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## regenerateSimulationToken
+## ~~regenerateSimulationToken~~
 
-Replaces the Simulation's token, including while the Simulation is stopped. When the replacement commits, requests with the previous token return 401 auth_invalid with X-Continuous-Simulation-Token-Rejected: true. Reuse the Idempotency-Key to retry safely.
+Replaces the Simulation's token, including while the Simulation is stopped. Within 5 seconds of the replacement committing, requests with the previous token return 401 auth_invalid with X-Continuous-Simulation-Token-Rejected: true. Reuse the Idempotency-Key to retry safely.
+
+Deprecated. Use API Box for APIs and Web Box for web apps.
+
+> :warning: **DEPRECATED**: Use API Box for APIs and Web Box for web apps.
 
 ### Example Usage
 
