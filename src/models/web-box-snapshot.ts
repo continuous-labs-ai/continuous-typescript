@@ -29,19 +29,20 @@ import {
 } from "./simulator-research.js";
 
 /**
- * catalog for a Snapshot Continuous publishes, build for one built into the workspace.
+ * catalog for a Snapshot Continuous publishes, build for one built into the workspace, box for one saved from a Web Box.
  */
 export const WebBoxSnapshotSource = {
   Catalog: "catalog",
   Build: "build",
+  Box: "box",
 } as const;
 /**
- * catalog for a Snapshot Continuous publishes, build for one built into the workspace.
+ * catalog for a Snapshot Continuous publishes, build for one built into the workspace, box for one saved from a Web Box.
  */
 export type WebBoxSnapshotSource = OpenEnum<typeof WebBoxSnapshotSource>;
 
 /**
- * pending while waiting for capacity; building while the build runs; ready when Web Boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
+ * pending while waiting for capacity; building while the build runs; ready when boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
  */
 export const WebBoxSnapshotStatus = {
   Pending: "pending",
@@ -51,13 +52,13 @@ export const WebBoxSnapshotStatus = {
   Canceled: "canceled",
 } as const;
 /**
- * pending while waiting for capacity; building while the build runs; ready when Web Boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
+ * pending while waiting for capacity; building while the build runs; ready when boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
  */
 export type WebBoxSnapshotStatus = OpenEnum<typeof WebBoxSnapshotStatus>;
 
 export type WebBoxSnapshot = {
   /**
-   * The build's latest progress report, or null before the first report. A settled Snapshot keeps its last report. A build waiting for its live credentials resumes with POST /v1/webbox-snapshots/{id}/resume.
+   * The build's latest progress report, or null before the first report. A settled Snapshot keeps its last report. A build waiting for its live credentials resumes when the Snapshot's resume is requested.
    */
   build: SimulatorBuildProgress | null;
   /**
@@ -69,7 +70,7 @@ export type WebBoxSnapshot = {
    */
   createdAt: Date;
   /**
-   * Workspace credentials the build used: the Web App login, and any credentials it was allowed to call real systems with.
+   * Workspace credentials the build used, such as a web app login or credentials it was allowed to call real systems with. Empty when none.
    */
   credentialIds: Array<string>;
   error: SimulatorError | null;
@@ -86,7 +87,7 @@ export type WebBoxSnapshot = {
    */
   instructions: string;
   /**
-   * Behavior the Snapshot does not serve like the real system, most important first, whether it was built or published. Empty when none.
+   * Behavior the Snapshot does not serve like the real system, most important first. Empty when none.
    */
   limitations: Array<Limitation>;
   /**
@@ -102,11 +103,11 @@ export type WebBoxSnapshot = {
    */
   research: SimulatorResearch | null;
   /**
-   * catalog for a Snapshot Continuous publishes, build for one built into the workspace.
+   * catalog for a Snapshot Continuous publishes, build for one built into the workspace, box for one saved from a Web Box.
    */
   source: WebBoxSnapshotSource;
   /**
-   * pending while waiting for capacity; building while the build runs; ready when Web Boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
+   * pending while waiting for capacity; building while the build runs; ready when boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
    */
   status: WebBoxSnapshotStatus;
 };

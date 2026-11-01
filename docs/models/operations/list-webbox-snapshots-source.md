@@ -7,11 +7,11 @@ Optional source filter.
 ```typescript
 import { ListWebboxSnapshotsSource } from "@continuous-labs/sdk/models/operations";
 
-let value: ListWebboxSnapshotsSource = "catalog";
+let value: ListWebboxSnapshotsSource = "build";
 ```
 
 ## Values
 
 ```typescript
-"catalog" | "build"
+"catalog" | "build" | "box"
 ```

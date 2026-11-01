@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type WebboxConnection = {
+export type WebBoxConnection = {
   /**
    * URL that opens the Web Box's app.
    */
@@ -16,19 +16,19 @@ export type WebboxConnection = {
 };
 
 /** @internal */
-export const WebboxConnection$inboundSchema: z.ZodMiniType<
-  WebboxConnection,
+export const WebBoxConnection$inboundSchema: z.ZodMiniType<
+  WebBoxConnection,
   unknown
 > = z.object({
   url: types.string(),
 });
 
-export function webboxConnectionFromJSON(
+export function webBoxConnectionFromJSON(
   jsonString: string,
-): SafeParseResult<WebboxConnection, SDKValidationError> {
+): SafeParseResult<WebBoxConnection, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => WebboxConnection$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WebboxConnection' from JSON`,
+    (x) => WebBoxConnection$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'WebBoxConnection' from JSON`,
   );
 }

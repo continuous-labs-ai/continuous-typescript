@@ -8,6 +8,7 @@ import { webboxGetWebboxConnection } from "../funcs/webbox-get-webbox-connection
 import { webboxGetWebbox } from "../funcs/webbox-get-webbox.js";
 import { webboxListWebboxSteps } from "../funcs/webbox-list-webbox-steps.js";
 import { webboxListWebboxes } from "../funcs/webbox-list-webboxes.js";
+import { webboxSaveWebboxSnapshot } from "../funcs/webbox-save-webbox-snapshot.js";
 import { webboxStartWebbox } from "../funcs/webbox-start-webbox.js";
 import { webboxStopWebbox } from "../funcs/webbox-stop-webbox.js";
 import { webboxUpdateWebbox } from "../funcs/webbox-update-webbox.js";
@@ -46,7 +47,7 @@ export class Webbox extends ClientSDK {
   async createWebbox(
     request: operations.CreateWebboxRequest,
     options?: RequestOptions,
-  ): Promise<models.WebBox> {
+  ): Promise<models.CreateWebBoxResponse> {
     return unwrapAsync(webboxCreateWebbox(
       this,
       request,
@@ -75,12 +76,12 @@ export class Webbox extends ClientSDK {
    * Get Web Box
    *
    * @remarks
-   * Returns a Web Box and its status.
+   * Returns a Web Box, its status and its connection: the URL that opens its app, whether it is running or stopped. The app answers only while the Web Box is running.
    */
   async getWebbox(
     request: operations.GetWebboxRequest,
     options?: RequestOptions,
-  ): Promise<models.WebBox> {
+  ): Promise<models.GetWebBoxResponse> {
     return unwrapAsync(webboxGetWebbox(
       this,
       request,
@@ -109,13 +110,32 @@ export class Webbox extends ClientSDK {
    * Get Web Box connection
    *
    * @remarks
-   * Returns the URL that opens the Web Box's app, whether it is running or stopped. The app answers only while the Web Box is running.
+   * Deprecated: get the Web Box, whose connection this returns. Returns the URL that opens the Web Box's app, whether it is running or stopped.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async getWebboxConnection(
     request: operations.GetWebboxConnectionRequest,
     options?: RequestOptions,
-  ): Promise<models.WebboxConnection> {
+  ): Promise<models.WebBoxConnection> {
     return unwrapAsync(webboxGetWebboxConnection(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Save Web Box as Snapshot
+   *
+   * @remarks
+   * Saves a running Web Box's app and current state as a Web Box Snapshot, ready when the response returns. The Web Box keeps running, and a paused one is woken. Web Boxes created from the Snapshot start with the saved state instead of a new workspace, so they refuse include_sample_data. The Snapshot outlives the Web Box. A starting Web Box returns 409 webbox_starting; a stopping or stopped one returns 409 webbox_stopped; one whose runtime cannot save its state returns 409 webbox_rebuild_required.
+   */
+  async saveWebboxSnapshot(
+    request: operations.SaveWebboxSnapshotRequest,
+    options?: RequestOptions,
+  ): Promise<models.WebBoxSnapshot> {
+    return unwrapAsync(webboxSaveWebboxSnapshot(
       this,
       request,
       options,
@@ -140,7 +160,7 @@ export class Webbox extends ClientSDK {
   }
 
   /**
-   * List Web Box Steps
+   * List Web Box steps
    *
    * @remarks
    * Lists the Web Box's steps in order. Each request that changed state is one step; a request that only reads registers none. A Web Box that is not running returns 409 webbox_stopped.

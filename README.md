@@ -143,9 +143,10 @@ run();
 * [deleteApibox](docs/sdks/apibox/README.md#deleteapibox) - Delete API Box
 * [getApibox](docs/sdks/apibox/README.md#getapibox) - Get API Box
 * [updateApibox](docs/sdks/apibox/README.md#updateapibox) - Update API Box
-* [getApiboxConnection](docs/sdks/apibox/README.md#getapiboxconnection) - Get API Box connection
+* [~~getApiboxConnection~~](docs/sdks/apibox/README.md#getapiboxconnection) - Get API Box connection :warning: **Deprecated**
+* [saveApiboxSnapshot](docs/sdks/apibox/README.md#saveapiboxsnapshot) - Save API Box as Snapshot
 * [startApibox](docs/sdks/apibox/README.md#startapibox) - Start API Box
-* [listApiboxSteps](docs/sdks/apibox/README.md#listapiboxsteps) - List API Box Steps
+* [listApiboxSteps](docs/sdks/apibox/README.md#listapiboxsteps) - List API Box steps
 * [stopApibox](docs/sdks/apibox/README.md#stopapibox) - Stop API Box
 
 ### [ApiboxSnapshots](docs/sdks/apiboxsnapshots/README.md)
@@ -155,8 +156,8 @@ run();
 * [deleteApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#deleteapiboxsnapshot) - Delete API Box Snapshot
 * [getApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#getapiboxsnapshot) - Get API Box Snapshot
 * [updateApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#updateapiboxsnapshot) - Update API Box Snapshot
-* [cancelApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#cancelapiboxsnapshot) - Cancel Snapshot build
-* [resumeApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#resumeapiboxsnapshot) - Resume Snapshot build
+* [cancelApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#cancelapiboxsnapshot) - Cancel API Box Snapshot build
+* [resumeApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#resumeapiboxsnapshot) - Resume API Box Snapshot build
 
 ### [Credentials](docs/sdks/credentials/README.md)
 
@@ -173,7 +174,8 @@ run();
 * [deleteMcpbox](docs/sdks/mcpbox/README.md#deletemcpbox) - Delete MCP Box
 * [getMcpbox](docs/sdks/mcpbox/README.md#getmcpbox) - Get MCP Box
 * [updateMcpbox](docs/sdks/mcpbox/README.md#updatemcpbox) - Update MCP Box
-* [getMcpboxConnection](docs/sdks/mcpbox/README.md#getmcpboxconnection) - Get MCP Box connection
+* [~~getMcpboxConnection~~](docs/sdks/mcpbox/README.md#getmcpboxconnection) - Get MCP Box connection :warning: **Deprecated**
+* [saveMcpboxSnapshot](docs/sdks/mcpbox/README.md#savemcpboxsnapshot) - Save MCP Box as Snapshot
 * [startMcpbox](docs/sdks/mcpbox/README.md#startmcpbox) - Start MCP Box
 * [stopMcpbox](docs/sdks/mcpbox/README.md#stopmcpbox) - Stop MCP Box
 
@@ -184,8 +186,8 @@ run();
 * [deleteMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#deletemcpboxsnapshot) - Delete MCP Box Snapshot
 * [getMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#getmcpboxsnapshot) - Get MCP Box Snapshot
 * [updateMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#updatemcpboxsnapshot) - Update MCP Box Snapshot
-* [cancelMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#cancelmcpboxsnapshot) - Cancel Snapshot build
-* [resumeMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#resumemcpboxsnapshot) - Resume Snapshot build
+* [cancelMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#cancelmcpboxsnapshot) - Cancel MCP Box Snapshot build
+* [resumeMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#resumemcpboxsnapshot) - Resume MCP Box Snapshot build
 
 ### [~~SimulationSnapshots~~](docs/sdks/simulationsnapshots/README.md)
 
@@ -229,9 +231,10 @@ run();
 * [deleteWebbox](docs/sdks/webbox/README.md#deletewebbox) - Delete Web Box
 * [getWebbox](docs/sdks/webbox/README.md#getwebbox) - Get Web Box
 * [updateWebbox](docs/sdks/webbox/README.md#updatewebbox) - Update Web Box
-* [getWebboxConnection](docs/sdks/webbox/README.md#getwebboxconnection) - Get Web Box connection
+* [~~getWebboxConnection~~](docs/sdks/webbox/README.md#getwebboxconnection) - Get Web Box connection :warning: **Deprecated**
+* [saveWebboxSnapshot](docs/sdks/webbox/README.md#savewebboxsnapshot) - Save Web Box as Snapshot
 * [startWebbox](docs/sdks/webbox/README.md#startwebbox) - Start Web Box
-* [listWebboxSteps](docs/sdks/webbox/README.md#listwebboxsteps) - List Web Box Steps
+* [listWebboxSteps](docs/sdks/webbox/README.md#listwebboxsteps) - List Web Box steps
 * [stopWebbox](docs/sdks/webbox/README.md#stopwebbox) - Stop Web Box
 
 ### [WebboxSnapshots](docs/sdks/webboxsnapshots/README.md)
@@ -241,8 +244,8 @@ run();
 * [deleteWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#deletewebboxsnapshot) - Delete Web Box Snapshot
 * [getWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#getwebboxsnapshot) - Get Web Box Snapshot
 * [updateWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#updatewebboxsnapshot) - Update Web Box Snapshot
-* [cancelWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#cancelwebboxsnapshot) - Cancel Snapshot build
-* [resumeWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#resumewebboxsnapshot) - Resume Snapshot build
+* [cancelWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#cancelwebboxsnapshot) - Cancel Web Box Snapshot build
+* [resumeWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#resumewebboxsnapshot) - Resume Web Box Snapshot build
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -265,15 +268,15 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`apiboxCreateApibox`](docs/sdks/apibox/README.md#createapibox) - Create API Box
 - [`apiboxDeleteApibox`](docs/sdks/apibox/README.md#deleteapibox) - Delete API Box
 - [`apiboxGetApibox`](docs/sdks/apibox/README.md#getapibox) - Get API Box
-- [`apiboxGetApiboxConnection`](docs/sdks/apibox/README.md#getapiboxconnection) - Get API Box connection
 - [`apiboxListApiboxes`](docs/sdks/apibox/README.md#listapiboxes) - List API Boxes
-- [`apiboxListApiboxSteps`](docs/sdks/apibox/README.md#listapiboxsteps) - List API Box Steps
-- [`apiboxSnapshotsCancelApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#cancelapiboxsnapshot) - Cancel Snapshot build
+- [`apiboxListApiboxSteps`](docs/sdks/apibox/README.md#listapiboxsteps) - List API Box steps
+- [`apiboxSaveApiboxSnapshot`](docs/sdks/apibox/README.md#saveapiboxsnapshot) - Save API Box as Snapshot
+- [`apiboxSnapshotsCancelApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#cancelapiboxsnapshot) - Cancel API Box Snapshot build
 - [`apiboxSnapshotsCreateApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#createapiboxsnapshot) - Create API Box Snapshot
 - [`apiboxSnapshotsDeleteApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#deleteapiboxsnapshot) - Delete API Box Snapshot
 - [`apiboxSnapshotsGetApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#getapiboxsnapshot) - Get API Box Snapshot
 - [`apiboxSnapshotsListApiboxSnapshots`](docs/sdks/apiboxsnapshots/README.md#listapiboxsnapshots) - List API Box Snapshots
-- [`apiboxSnapshotsResumeApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#resumeapiboxsnapshot) - Resume Snapshot build
+- [`apiboxSnapshotsResumeApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#resumeapiboxsnapshot) - Resume API Box Snapshot build
 - [`apiboxSnapshotsUpdateApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#updateapiboxsnapshot) - Update API Box Snapshot
 - [`apiboxStartApibox`](docs/sdks/apibox/README.md#startapibox) - Start API Box
 - [`apiboxStopApibox`](docs/sdks/apibox/README.md#stopapibox) - Stop API Box
@@ -286,14 +289,14 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`mcpboxCreateMcpbox`](docs/sdks/mcpbox/README.md#createmcpbox) - Create MCP Box
 - [`mcpboxDeleteMcpbox`](docs/sdks/mcpbox/README.md#deletemcpbox) - Delete MCP Box
 - [`mcpboxGetMcpbox`](docs/sdks/mcpbox/README.md#getmcpbox) - Get MCP Box
-- [`mcpboxGetMcpboxConnection`](docs/sdks/mcpbox/README.md#getmcpboxconnection) - Get MCP Box connection
 - [`mcpboxListMcpboxes`](docs/sdks/mcpbox/README.md#listmcpboxes) - List MCP Boxes
-- [`mcpboxSnapshotsCancelMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#cancelmcpboxsnapshot) - Cancel Snapshot build
+- [`mcpboxSaveMcpboxSnapshot`](docs/sdks/mcpbox/README.md#savemcpboxsnapshot) - Save MCP Box as Snapshot
+- [`mcpboxSnapshotsCancelMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#cancelmcpboxsnapshot) - Cancel MCP Box Snapshot build
 - [`mcpboxSnapshotsCreateMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#createmcpboxsnapshot) - Create MCP Box Snapshot
 - [`mcpboxSnapshotsDeleteMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#deletemcpboxsnapshot) - Delete MCP Box Snapshot
 - [`mcpboxSnapshotsGetMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#getmcpboxsnapshot) - Get MCP Box Snapshot
 - [`mcpboxSnapshotsListMcpboxSnapshots`](docs/sdks/mcpboxsnapshots/README.md#listmcpboxsnapshots) - List MCP Box Snapshots
-- [`mcpboxSnapshotsResumeMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#resumemcpboxsnapshot) - Resume Snapshot build
+- [`mcpboxSnapshotsResumeMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#resumemcpboxsnapshot) - Resume MCP Box Snapshot build
 - [`mcpboxSnapshotsUpdateMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#updatemcpboxsnapshot) - Update MCP Box Snapshot
 - [`mcpboxStartMcpbox`](docs/sdks/mcpbox/README.md#startmcpbox) - Start MCP Box
 - [`mcpboxStopMcpbox`](docs/sdks/mcpbox/README.md#stopmcpbox) - Stop MCP Box
@@ -301,19 +304,21 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`webboxCreateWebbox`](docs/sdks/webbox/README.md#createwebbox) - Create Web Box
 - [`webboxDeleteWebbox`](docs/sdks/webbox/README.md#deletewebbox) - Delete Web Box
 - [`webboxGetWebbox`](docs/sdks/webbox/README.md#getwebbox) - Get Web Box
-- [`webboxGetWebboxConnection`](docs/sdks/webbox/README.md#getwebboxconnection) - Get Web Box connection
 - [`webboxListWebboxes`](docs/sdks/webbox/README.md#listwebboxes) - List Web Boxes
-- [`webboxListWebboxSteps`](docs/sdks/webbox/README.md#listwebboxsteps) - List Web Box Steps
-- [`webboxSnapshotsCancelWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#cancelwebboxsnapshot) - Cancel Snapshot build
+- [`webboxListWebboxSteps`](docs/sdks/webbox/README.md#listwebboxsteps) - List Web Box steps
+- [`webboxSaveWebboxSnapshot`](docs/sdks/webbox/README.md#savewebboxsnapshot) - Save Web Box as Snapshot
+- [`webboxSnapshotsCancelWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#cancelwebboxsnapshot) - Cancel Web Box Snapshot build
 - [`webboxSnapshotsCreateWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#createwebboxsnapshot) - Create Web Box Snapshot
 - [`webboxSnapshotsDeleteWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#deletewebboxsnapshot) - Delete Web Box Snapshot
 - [`webboxSnapshotsGetWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#getwebboxsnapshot) - Get Web Box Snapshot
 - [`webboxSnapshotsListWebboxSnapshots`](docs/sdks/webboxsnapshots/README.md#listwebboxsnapshots) - List Web Box Snapshots
-- [`webboxSnapshotsResumeWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#resumewebboxsnapshot) - Resume Snapshot build
+- [`webboxSnapshotsResumeWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#resumewebboxsnapshot) - Resume Web Box Snapshot build
 - [`webboxSnapshotsUpdateWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#updatewebboxsnapshot) - Update Web Box Snapshot
 - [`webboxStartWebbox`](docs/sdks/webbox/README.md#startwebbox) - Start Web Box
 - [`webboxStopWebbox`](docs/sdks/webbox/README.md#stopwebbox) - Stop Web Box
 - [`webboxUpdateWebbox`](docs/sdks/webbox/README.md#updatewebbox) - Update Web Box
+- ~~[`apiboxGetApiboxConnection`](docs/sdks/apibox/README.md#getapiboxconnection)~~ - Get API Box connection :warning: **Deprecated**
+- ~~[`mcpboxGetMcpboxConnection`](docs/sdks/mcpbox/README.md#getmcpboxconnection)~~ - Get MCP Box connection :warning: **Deprecated**
 - ~~[`simulationsCreateSimulation`](docs/sdks/simulations/README.md#createsimulation)~~ - Create Simulation :warning: **Deprecated**
 - ~~[`simulationsCreateSimulationAdvance`](docs/sdks/simulations/README.md#createsimulationadvance)~~ - Advance Simulation Time :warning: **Deprecated**
 - ~~[`simulationsDeleteSimulation`](docs/sdks/simulations/README.md#deletesimulation)~~ - Delete Simulation :warning: **Deprecated**
@@ -340,6 +345,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - ~~[`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators)~~ - List Simulators :warning: **Deprecated**
 - ~~[`simulatorsResumeSimulator`](docs/sdks/simulators/README.md#resumesimulator)~~ - Resume Simulator Build :warning: **Deprecated**
 - ~~[`simulatorsUpdateSimulator`](docs/sdks/simulators/README.md#updatesimulator)~~ - Update Simulator :warning: **Deprecated**
+- ~~[`webboxGetWebboxConnection`](docs/sdks/webbox/README.md#getwebboxconnection)~~ - Get Web Box connection :warning: **Deprecated**
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -549,7 +555,7 @@ run();
 
 
 **Inherit from [`ContinuousError`](./src/models/errors/continuous-error.ts)**:
-* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 78 methods.*
+* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 81 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Get Web Box
  *
  * @remarks
- * Returns a Web Box and its status.
+ * Returns a Web Box, its status and its connection: the URL that opens its app, whether it is running or stopped. The app answers only while the Web Box is running.
  */
 export function webboxGetWebbox(
   client: ContinuousCore,
@@ -40,7 +40,7 @@ export function webboxGetWebbox(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.WebBox,
+    models.GetWebBoxResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.WebBox,
+      models.GetWebBoxResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -164,7 +164,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.WebBox,
+    models.GetWebBoxResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -175,7 +175,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.WebBox$inboundSchema),
+    M.json(200, models.GetWebBoxResponse$inboundSchema),
     M.jsonErr([401, 404], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

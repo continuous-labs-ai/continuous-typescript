@@ -10,22 +10,19 @@ let value: ListApiboxesResponse = {
     apiboxes: [
       {
         createdAt: new Date("2024-03-17T19:39:51.908Z"),
-        endpoint: "<value>",
+        endpoint: "https://squeaky-onset.biz/",
         error: {
-          agentMessage: "<value>",
-          code: "specification_validation_failed",
+          code: "mcpbox_runtime_lost",
           detail: "<value>",
-          reason: "specification_invalid",
-          validation: {
-            issues: [],
-          },
         },
         id: "<id>",
-        includeSampleData: false,
+        includeSampleData: true,
+        lastActiveAt: new Date("2026-09-01T00:10:59.574Z"),
         metadata: "<value>",
         name: "<value>",
         snapshotId: "<id>",
         status: "stopped",
+        statusChangedAt: new Date("2024-11-18T03:55:14.254Z"),
       },
     ],
     nextCursor: "<value>",

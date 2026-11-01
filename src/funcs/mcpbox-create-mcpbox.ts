@@ -40,7 +40,7 @@ export function mcpboxCreateMcpbox(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.McpboxTokenResponse,
+    models.MCPBoxTokenResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.McpboxTokenResponse,
+      models.MCPBoxTokenResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -154,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.McpboxTokenResponse,
+    models.MCPBoxTokenResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -165,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(202, models.McpboxTokenResponse$inboundSchema),
+    M.json(202, models.MCPBoxTokenResponse$inboundSchema),
     M.jsonErr(
       [400, 401, 404, 408, 409, 413, 415, 422, 429],
       errors.ErrorT$inboundSchema,

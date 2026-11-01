@@ -36,23 +36,13 @@ let value: CreateWebboxSnapshotResponse = {
         deadline: new Date("2024-06-11T02:34:42.777Z"),
         reason: "<value>",
         since: new Date("2026-12-17T12:44:55.990Z"),
+        type: "time_limit",
       },
-      warnings: [
-        {
-          code: "spec.default_invalid",
-          location: "<value>",
-          message: "<value>",
-          operations: [
-            "<value 1>",
-            "<value 2>",
-            "<value 3>",
-          ],
-        },
-      ],
+      warnings: [],
     },
     composition: {
-      entities: 748332,
-      operations: 191531,
+      entities: 586913,
+      operations: 748332,
       sample: true,
     },
     createdAt: new Date("2024-05-23T10:33:28.520Z"),
@@ -65,7 +55,16 @@ let value: CreateWebboxSnapshotResponse = {
       detail: "<value>",
       reason: "specification_invalid",
       validation: {
-        issues: [],
+        issues: [
+          {
+            code: "<value>",
+            kind: "unsupported",
+            location: "<value>",
+            message: "<value>",
+            operation: "<value>",
+            suggestion: "<value>",
+          },
+        ],
       },
     },
     hiddenLimitations: 681711,
@@ -75,11 +74,11 @@ let value: CreateWebboxSnapshotResponse = {
     metadata: "<value>",
     name: "<value>",
     research: {
-      bytes: 654632,
-      pages: 640740,
-      status: "running",
+      bytes: 359196,
+      pages: 317014,
+      status: "pending",
     },
-    source: "build",
+    source: "box",
     status: "pending",
   },
 };

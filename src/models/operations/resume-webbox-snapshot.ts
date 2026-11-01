@@ -3,17 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import * as models from "../index.js";
 
 export type ResumeWebboxSnapshotRequest = {
   /**
-   * Web Box Snapshot ID.
+   * Snapshot ID.
    */
   id: string;
+  body?: models.ResumeBuildRequest | undefined;
 };
 
 /** @internal */
 export type ResumeWebboxSnapshotRequest$Outbound = {
   id: string;
+  body?: models.ResumeBuildRequest$Outbound | undefined;
 };
 
 /** @internal */
@@ -22,6 +25,7 @@ export const ResumeWebboxSnapshotRequest$outboundSchema: z.ZodMiniType<
   ResumeWebboxSnapshotRequest
 > = z.object({
   id: z.string(),
+  body: z.optional(models.ResumeBuildRequest$outboundSchema),
 });
 
 export function resumeWebboxSnapshotRequestToJSON(

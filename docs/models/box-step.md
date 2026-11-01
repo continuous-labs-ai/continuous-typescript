@@ -1,14 +1,14 @@
-# ApiboxStep
+# BoxStep
 
 ## Example Usage
 
 ```typescript
-import { ApiboxStep } from "@continuous-labs/sdk/models";
+import { BoxStep } from "@continuous-labs/sdk/models";
 
-let value: ApiboxStep = {
+let value: BoxStep = {
   label: "<value>",
-  step: 7551,
-  time: null,
+  step: 676131,
+  time: new Date("2024-03-01T07:40:05.260Z"),
 };
 ```
 

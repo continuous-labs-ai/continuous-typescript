@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Delete API Box
  *
  * @remarks
- * Deletes an API Box, running or stopped, with its state. Its runtime is released after the response.
+ * Deletes an API Box, running or stopped, with its state. Its runtime is released after the response. An API Box that MCP Boxes front returns 409 apibox_in_use; delete them first.
  */
 export function apiboxDeleteApibox(
   client: ContinuousCore,
@@ -165,7 +165,7 @@ async function $do(
     | SDKValidationError
   >(
     M.nil(204, z.void()),
-    M.jsonErr([401, 404], errors.ErrorT$inboundSchema, {
+    M.jsonErr([401, 404, 409], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {

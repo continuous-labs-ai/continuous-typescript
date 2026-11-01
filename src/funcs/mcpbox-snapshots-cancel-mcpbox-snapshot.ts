@@ -29,7 +29,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Cancel Snapshot build
+ * Cancel MCP Box Snapshot build
  *
  * @remarks
  * Requests cancellation of a pending or active build and returns the Snapshot without waiting for the build to stop. Get the Snapshot until its status leaves pending or building. The build can finish before cancellation takes effect. A Snapshot whose build has settled is returned unchanged.
@@ -167,7 +167,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(202, models.MCPBoxSnapshot$inboundSchema),
-    M.jsonErr([401, 404], errors.ErrorT$inboundSchema, {
+    M.jsonErr([401, 403, 404], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {

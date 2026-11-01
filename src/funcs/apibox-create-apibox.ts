@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Create API Box
  *
  * @remarks
- * Creates an API Box from a ready API Box Snapshot and starts it. It returns at once with status starting and the API Box's token; get the API Box until it is running. Send the token in X-Continuous-Token on each request to the API Box's endpoint. The token lasts as long as the API Box, and its connection returns it again. Each API Box has its own state, and runs in real time.
+ * Creates an API Box from a ready API Box Snapshot and starts it. It returns at once with status starting and the API Box's token; get the API Box until it is running. Send the token in X-Continuous-Token on each request to the API Box's endpoint. The token lasts as long as the API Box, and its get returns it again. Each API Box has its own state, and runs in real time.
  */
 export function apiboxCreateApibox(
   client: ContinuousCore,
@@ -40,7 +40,7 @@ export function apiboxCreateApibox(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.ApiboxTokenResponse,
+    models.APIBoxTokenResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.ApiboxTokenResponse,
+      models.APIBoxTokenResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -154,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.ApiboxTokenResponse,
+    models.APIBoxTokenResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -165,9 +165,9 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(202, models.ApiboxTokenResponse$inboundSchema),
+    M.json(202, models.APIBoxTokenResponse$inboundSchema),
     M.jsonErr(
-      [400, 401, 404, 408, 409, 413, 415, 429],
+      [400, 401, 404, 408, 409, 413, 415, 422, 429],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),

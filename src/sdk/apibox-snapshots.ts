@@ -104,7 +104,7 @@ export class ApiboxSnapshots extends ClientSDK {
   }
 
   /**
-   * Cancel Snapshot build
+   * Cancel API Box Snapshot build
    *
    * @remarks
    * Requests cancellation of a pending or active build and returns the Snapshot without waiting for the build to stop. Get the Snapshot until its status leaves pending or building. The build can finish before cancellation takes effect. A Snapshot whose build has settled is returned unchanged.
@@ -121,10 +121,10 @@ export class ApiboxSnapshots extends ClientSDK {
   }
 
   /**
-   * Resume Snapshot build
+   * Resume API Box Snapshot build
    *
    * @remarks
-   * Resumes a build that waits at QA because its live credentials were rejected, as build.waiting reports. Refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. Returns the Snapshot, still building. The wait does not count toward the build's time limit: the build resumes with the time it had left when it began waiting. A build that is not waiting returns 409 simulator_not_waiting.
+   * Resumes a build that waits, as build.waiting reports: at QA because its live credentials were rejected, or for more time after it used its time limit. For a credential wait, refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a credential wait has the time it had left when it began waiting. A build that is not waiting returns 409 apibox_snapshot_not_waiting.
    */
   async resumeApiboxSnapshot(
     request: operations.ResumeApiboxSnapshotRequest,

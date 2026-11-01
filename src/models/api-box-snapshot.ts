@@ -29,14 +29,15 @@ import {
 } from "./simulator-research.js";
 
 /**
- * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace.
+ * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an API Box.
  */
 export const APIBoxSnapshotSource = {
   Catalog: "catalog",
   Build: "build",
+  Box: "box",
 } as const;
 /**
- * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace.
+ * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an API Box.
  */
 export type APIBoxSnapshotSource = OpenEnum<typeof APIBoxSnapshotSource>;
 
@@ -54,7 +55,7 @@ export const APIBoxSnapshotSpecKind = {
 export type APIBoxSnapshotSpecKind = OpenEnum<typeof APIBoxSnapshotSpecKind>;
 
 /**
- * pending while waiting for capacity; building while the build runs; ready when API Boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
+ * pending while waiting for capacity; building while the build runs; ready when boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
  */
 export const APIBoxSnapshotStatus = {
   Pending: "pending",
@@ -64,13 +65,13 @@ export const APIBoxSnapshotStatus = {
   Canceled: "canceled",
 } as const;
 /**
- * pending while waiting for capacity; building while the build runs; ready when API Boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
+ * pending while waiting for capacity; building while the build runs; ready when boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
  */
 export type APIBoxSnapshotStatus = OpenEnum<typeof APIBoxSnapshotStatus>;
 
 export type APIBoxSnapshot = {
   /**
-   * The build's latest progress report, or null before the first report. A settled Snapshot keeps its last report. A build waiting for its live credentials resumes with POST /v1/apibox-snapshots/{id}/resume.
+   * The build's latest progress report, or null before the first report. A settled Snapshot keeps its last report. A build waiting for its live credentials resumes when the Snapshot's resume is requested.
    */
   build: SimulatorBuildProgress | null;
   /**
@@ -82,7 +83,7 @@ export type APIBoxSnapshot = {
    */
   createdAt: Date;
   /**
-   * Workspace credentials the build was allowed to call real systems with. Empty when none.
+   * Workspace credentials the build used, such as a web app login or credentials it was allowed to call real systems with. Empty when none.
    */
   credentialIds: Array<string>;
   error: SimulatorError | null;
@@ -99,7 +100,7 @@ export type APIBoxSnapshot = {
    */
   instructions: string;
   /**
-   * Behavior the Snapshot does not serve like the real system, most important first, whether it was built or published. Empty when none.
+   * Behavior the Snapshot does not serve like the real system, most important first. Empty when none.
    */
   limitations: Array<Limitation>;
   /**
@@ -115,7 +116,7 @@ export type APIBoxSnapshot = {
    */
   research: SimulatorResearch | null;
   /**
-   * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace.
+   * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an API Box.
    */
   source: APIBoxSnapshotSource;
   /**
@@ -123,7 +124,7 @@ export type APIBoxSnapshot = {
    */
   specKind: APIBoxSnapshotSpecKind | null;
   /**
-   * pending while waiting for capacity; building while the build runs; ready when API Boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
+   * pending while waiting for capacity; building while the build runs; ready when boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
    */
   status: APIBoxSnapshotStatus;
 };

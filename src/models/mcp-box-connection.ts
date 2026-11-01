@@ -8,32 +8,32 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type ApiboxConnection = {
+export type MCPBoxConnection = {
   /**
-   * Base URL of the API Box's API.
+   * Base URL of the MCP Box; its MCP endpoint is this URL followed by /mcp.
    */
   endpoint: string;
   /**
-   * The API Box's token. Send it in X-Continuous-Token on each request to the endpoint.
+   * The MCP Box's token. Send it in X-Continuous-Token on each request.
    */
   token: string;
 };
 
 /** @internal */
-export const ApiboxConnection$inboundSchema: z.ZodMiniType<
-  ApiboxConnection,
+export const MCPBoxConnection$inboundSchema: z.ZodMiniType<
+  MCPBoxConnection,
   unknown
 > = z.object({
   endpoint: types.string(),
   token: types.string(),
 });
 
-export function apiboxConnectionFromJSON(
+export function mcpBoxConnectionFromJSON(
   jsonString: string,
-): SafeParseResult<ApiboxConnection, SDKValidationError> {
+): SafeParseResult<MCPBoxConnection, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ApiboxConnection$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ApiboxConnection' from JSON`,
+    (x) => MCPBoxConnection$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MCPBoxConnection' from JSON`,
   );
 }

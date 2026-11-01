@@ -11,9 +11,10 @@ Start Web Boxes from Web Box Snapshots. Each Web Box serves its Snapshot's web a
 * [deleteWebbox](#deletewebbox) - Delete Web Box
 * [getWebbox](#getwebbox) - Get Web Box
 * [updateWebbox](#updatewebbox) - Update Web Box
-* [getWebboxConnection](#getwebboxconnection) - Get Web Box connection
+* [~~getWebboxConnection~~](#getwebboxconnection) - Get Web Box connection :warning: **Deprecated**
+* [saveWebboxSnapshot](#savewebboxsnapshot) - Save Web Box as Snapshot
 * [startWebbox](#startwebbox) - Start Web Box
-* [listWebboxSteps](#listwebboxsteps) - List Web Box Steps
+* [listWebboxSteps](#listwebboxsteps) - List Web Box steps
 * [stopWebbox](#stopwebbox) - Stop Web Box
 
 ## listWebboxes
@@ -162,15 +163,15 @@ run();
 
 ### Response
 
-**Promise\<[models.WebBox](../../models/web-box.md)\>**
+**Promise\<[models.CreateWebBoxResponse](../../models/create-web-box-response.md)\>**
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 404, 408, 409, 413, 415, 429 | application/problem+json               |
-| errors.ErrorT                          | 500, 503                               | application/problem+json               |
-| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.ErrorT                               | 400, 401, 404, 408, 409, 413, 415, 422, 429 | application/problem+json                    |
+| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
 ## deleteWebbox
 
@@ -249,7 +250,7 @@ run();
 
 ## getWebbox
 
-Returns a Web Box and its status.
+Returns a Web Box, its status and its connection: the URL that opens its app, whether it is running or stopped. The app answers only while the Web Box is running.
 
 ### Example Usage
 
@@ -312,7 +313,7 @@ run();
 
 ### Response
 
-**Promise\<[models.WebBox](../../models/web-box.md)\>**
+**Promise\<[models.GetWebBoxResponse](../../models/get-web-box-response.md)\>**
 
 ### Errors
 
@@ -393,15 +394,17 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 404, 408, 413, 415  | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorT                     | 400, 401, 404, 408, 413, 415, 422 | application/problem+json          |
+| errors.ErrorT                     | 500, 503                          | application/problem+json          |
+| errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
 
-## getWebboxConnection
+## ~~getWebboxConnection~~
 
-Returns the URL that opens the Web Box's app, whether it is running or stopped. The app answers only while the Web Box is running.
+Deprecated: get the Web Box, whose connection this returns. Returns the URL that opens the Web Box's app, whether it is running or stopped.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -464,7 +467,7 @@ run();
 
 ### Response
 
-**Promise\<[models.WebboxConnection](../../models/webbox-connection.md)\>**
+**Promise\<[models.WebBoxConnection](../../models/web-box-connection.md)\>**
 
 ### Errors
 
@@ -473,6 +476,81 @@ run();
 | errors.ErrorT                 | 401, 404                      | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## saveWebboxSnapshot
+
+Saves a running Web Box's app and current state as a Web Box Snapshot, ready when the response returns. The Web Box keeps running, and a paused one is woken. Web Boxes created from the Snapshot start with the saved state instead of a new workspace, so they refuse include_sample_data. The Snapshot outlives the Web Box. A starting Web Box returns 409 webbox_starting; a stopping or stopped one returns 409 webbox_stopped; one whose runtime cannot save its state returns 409 webbox_rebuild_required.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="save-webbox-snapshot" method="post" path="/v1/webbox/{id}/snapshot" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.webbox.saveWebboxSnapshot({
+    id: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { webboxSaveWebboxSnapshot } from "@continuous-labs/sdk/funcs/webbox-save-webbox-snapshot.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await webboxSaveWebboxSnapshot(continuous, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("webboxSaveWebboxSnapshot failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.SaveWebboxSnapshotRequest](../../models/operations/save-webbox-snapshot-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.WebBoxSnapshot](../../models/web-box-snapshot.md)\>**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 404, 408, 409, 413, 415, 422 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
 ## startWebbox
 

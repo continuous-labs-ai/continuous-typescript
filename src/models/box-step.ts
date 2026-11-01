@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type ApiboxStep = {
+export type BoxStep = {
   /**
    * The request that made the step.
    */
@@ -24,19 +24,18 @@ export type ApiboxStep = {
 };
 
 /** @internal */
-export const ApiboxStep$inboundSchema: z.ZodMiniType<ApiboxStep, unknown> = z
-  .object({
-    label: types.string(),
-    step: types.number(),
-    time: types.nullable(types.date()),
-  });
+export const BoxStep$inboundSchema: z.ZodMiniType<BoxStep, unknown> = z.object({
+  label: types.string(),
+  step: types.number(),
+  time: types.nullable(types.date()),
+});
 
-export function apiboxStepFromJSON(
+export function boxStepFromJSON(
   jsonString: string,
-): SafeParseResult<ApiboxStep, SDKValidationError> {
+): SafeParseResult<BoxStep, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ApiboxStep$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ApiboxStep' from JSON`,
+    (x) => BoxStep$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BoxStep' from JSON`,
   );
 }

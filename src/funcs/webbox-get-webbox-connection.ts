@@ -32,7 +32,9 @@ import { Result } from "../types/fp.js";
  * Get Web Box connection
  *
  * @remarks
- * Returns the URL that opens the Web Box's app, whether it is running or stopped. The app answers only while the Web Box is running.
+ * Deprecated: get the Web Box, whose connection this returns. Returns the URL that opens the Web Box's app, whether it is running or stopped.
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function webboxGetWebboxConnection(
   client: ContinuousCore,
@@ -40,7 +42,7 @@ export function webboxGetWebboxConnection(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.WebboxConnection,
+    models.WebBoxConnection,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +68,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.WebboxConnection,
+      models.WebBoxConnection,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -165,7 +167,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.WebboxConnection,
+    models.WebBoxConnection,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -176,7 +178,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.WebboxConnection$inboundSchema),
+    M.json(200, models.WebBoxConnection$inboundSchema),
     M.jsonErr([401, 404], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

@@ -3,17 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import * as models from "../index.js";
 
 export type ResumeSimulatorRequest = {
   /**
    * Simulator ID.
    */
   id: string;
+  body?: models.ResumeBuildRequest | undefined;
 };
 
 /** @internal */
 export type ResumeSimulatorRequest$Outbound = {
   id: string;
+  body?: models.ResumeBuildRequest$Outbound | undefined;
 };
 
 /** @internal */
@@ -22,6 +25,7 @@ export const ResumeSimulatorRequest$outboundSchema: z.ZodMiniType<
   ResumeSimulatorRequest
 > = z.object({
   id: z.string(),
+  body: z.optional(models.ResumeBuildRequest$outboundSchema),
 });
 
 export function resumeSimulatorRequestToJSON(

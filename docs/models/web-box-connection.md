@@ -1,12 +1,12 @@
-# WebboxConnection
+# WebBoxConnection
 
 ## Example Usage
 
 ```typescript
-import { WebboxConnection } from "@continuous-labs/sdk/models";
+import { WebBoxConnection } from "@continuous-labs/sdk/models";
 
-let value: WebboxConnection = {
-  url: "https://impure-sanity.info",
+let value: WebBoxConnection = {
+  url: "https://scary-academics.net/",
 };
 ```
 

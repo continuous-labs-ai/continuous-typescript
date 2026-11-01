@@ -9,29 +9,29 @@ import * as types from "../types/primitives.js";
 import { APIBox, APIBox$inboundSchema } from "./api-box.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type ApiboxTokenResponse = {
+export type APIBoxTokenResponse = {
   apibox: APIBox;
   /**
-   * The API Box's token, which lasts until the API Box is deleted. It is null only on a retried create whose first attempt stored no token; a start then issues one.
+   * The API Box's token, which lasts until the API Box is deleted. It is null only on a retried create whose first attempt stored no token; a start then issues one, which the API Box's get returns.
    */
   token: string | null;
 };
 
 /** @internal */
-export const ApiboxTokenResponse$inboundSchema: z.ZodMiniType<
-  ApiboxTokenResponse,
+export const APIBoxTokenResponse$inboundSchema: z.ZodMiniType<
+  APIBoxTokenResponse,
   unknown
 > = z.object({
   apibox: APIBox$inboundSchema,
   token: types.nullable(types.string()),
 });
 
-export function apiboxTokenResponseFromJSON(
+export function apiBoxTokenResponseFromJSON(
   jsonString: string,
-): SafeParseResult<ApiboxTokenResponse, SDKValidationError> {
+): SafeParseResult<APIBoxTokenResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ApiboxTokenResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ApiboxTokenResponse' from JSON`,
+    (x) => APIBoxTokenResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'APIBoxTokenResponse' from JSON`,
   );
 }

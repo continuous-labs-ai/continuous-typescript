@@ -10,10 +10,15 @@ import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import { Limitation, Limitation$inboundSchema } from "./limitation.js";
 import {
   SimulatorBuildProgress,
   SimulatorBuildProgress$inboundSchema,
 } from "./simulator-build-progress.js";
+import {
+  SimulatorComposition,
+  SimulatorComposition$inboundSchema,
+} from "./simulator-composition.js";
 import {
   SimulatorError,
   SimulatorError$inboundSchema,
@@ -24,7 +29,20 @@ import {
 } from "./simulator-research.js";
 
 /**
- * pending while waiting for capacity; building while the build runs; ready when MCP Boxes can serve it; failed when the build failed; canceled when a cancel request took effect.
+ * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an MCP Box.
+ */
+export const MCPBoxSnapshotSource = {
+  Catalog: "catalog",
+  Build: "build",
+  Box: "box",
+} as const;
+/**
+ * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an MCP Box.
+ */
+export type MCPBoxSnapshotSource = OpenEnum<typeof MCPBoxSnapshotSource>;
+
+/**
+ * pending while waiting for capacity; building while the build runs; ready when boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
  */
 export const MCPBoxSnapshotStatus = {
   Pending: "pending",
@@ -34,7 +52,7 @@ export const MCPBoxSnapshotStatus = {
   Canceled: "canceled",
 } as const;
 /**
- * pending while waiting for capacity; building while the build runs; ready when MCP Boxes can serve it; failed when the build failed; canceled when a cancel request took effect.
+ * pending while waiting for capacity; building while the build runs; ready when boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
  */
 export type MCPBoxSnapshotStatus = OpenEnum<typeof MCPBoxSnapshotStatus>;
 
@@ -44,18 +62,26 @@ export type MCPBoxSnapshot = {
    */
   apiboxSnapshotId: string;
   /**
-   * The build's latest progress report, or null before the first report. A settled Snapshot keeps its last report. A build waiting for its live credentials resumes with POST /v1/mcpbox-snapshots/{id}/resume.
+   * The build's latest progress report, or null before the first report. A settled Snapshot keeps its last report. A build waiting for its live credentials resumes when the Snapshot's resume is requested.
    */
   build: SimulatorBuildProgress | null;
+  /**
+   * What a ready Snapshot serves, or null.
+   */
+  composition: SimulatorComposition | null;
   /**
    * Snapshot creation time.
    */
   createdAt: Date;
   /**
-   * Workspace credentials the build was allowed to call real systems with. Empty when none.
+   * Workspace credentials the build used, such as a web app login or credentials it was allowed to call real systems with. Empty when none.
    */
   credentialIds: Array<string>;
   error: SimulatorError | null;
+  /**
+   * Limitations the Snapshot records beyond those listed in limitations.
+   */
+  hiddenLimitations: number;
   /**
    * MCP Box Snapshot ID.
    */
@@ -64,6 +90,10 @@ export type MCPBoxSnapshot = {
    * The instructions the build followed, or empty when none were given.
    */
   instructions: string;
+  /**
+   * Behavior the Snapshot does not serve like the real system, most important first. Empty when none.
+   */
+  limitations: Array<Limitation>;
   /**
    * Customer JSON metadata, or null.
    */
@@ -77,14 +107,24 @@ export type MCPBoxSnapshot = {
    */
   research: SimulatorResearch | null;
   /**
+   * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an MCP Box.
+   */
+  source: MCPBoxSnapshotSource;
+  /**
    * The source MCP server whose tools the MCP Box serves, or empty when the build called no live source.
    */
   sourceUrl: string;
   /**
-   * pending while waiting for capacity; building while the build runs; ready when MCP Boxes can serve it; failed when the build failed; canceled when a cancel request took effect.
+   * pending while waiting for capacity; building while the build runs; ready when boxes can start from it; failed when the build failed; canceled when a cancel request took effect.
    */
   status: MCPBoxSnapshotStatus;
 };
+
+/** @internal */
+export const MCPBoxSnapshotSource$inboundSchema: z.ZodMiniType<
+  MCPBoxSnapshotSource,
+  unknown
+> = openEnums.inboundSchema(MCPBoxSnapshotSource);
 
 /** @internal */
 export const MCPBoxSnapshotStatus$inboundSchema: z.ZodMiniType<
@@ -100,14 +140,18 @@ export const MCPBoxSnapshot$inboundSchema: z.ZodMiniType<
   z.object({
     apibox_snapshot_id: types.string(),
     build: types.nullable(SimulatorBuildProgress$inboundSchema),
+    composition: types.nullable(SimulatorComposition$inboundSchema),
     created_at: types.date(),
     credential_ids: z.array(types.string()),
     error: types.nullable(SimulatorError$inboundSchema),
+    hidden_limitations: types.number(),
     id: types.string(),
     instructions: types.string(),
+    limitations: z.array(Limitation$inboundSchema),
     metadata: z.any(),
     name: types.string(),
     research: types.nullable(SimulatorResearch$inboundSchema),
+    source: MCPBoxSnapshotSource$inboundSchema,
     source_url: types.string(),
     status: MCPBoxSnapshotStatus$inboundSchema,
   }),
@@ -116,6 +160,7 @@ export const MCPBoxSnapshot$inboundSchema: z.ZodMiniType<
       "apibox_snapshot_id": "apiboxSnapshotId",
       "created_at": "createdAt",
       "credential_ids": "credentialIds",
+      "hidden_limitations": "hiddenLimitations",
       "source_url": "sourceUrl",
     });
   }),

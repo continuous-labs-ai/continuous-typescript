@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Start MCP Box
  *
  * @remarks
- * Starts a stopped MCP Box in front of its API Box, and returns at once with status starting and the MCP Box's token, the same one each start. A running, starting or stopping MCP Box returns 409 mcpbox_not_stopped.
+ * Starts a stopped MCP Box in front of its API Box, and returns at once with status starting; get the MCP Box until it is running. Its token stays the same; its get returns it. A running, starting or stopping MCP Box returns 409 mcpbox_not_stopped, and one whose API Box was deleted 409 mcpbox_apibox_gone.
  */
 export function mcpboxStartMcpbox(
   client: ContinuousCore,
@@ -40,7 +40,7 @@ export function mcpboxStartMcpbox(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.McpboxTokenResponse,
+    models.MCPBox,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.McpboxTokenResponse,
+      models.MCPBox,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -154,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.McpboxTokenResponse,
+    models.MCPBox,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -165,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(202, models.McpboxTokenResponse$inboundSchema),
+    M.json(202, models.MCPBox$inboundSchema),
     M.jsonErr([401, 404, 409, 429], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

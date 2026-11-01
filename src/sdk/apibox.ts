@@ -8,6 +8,7 @@ import { apiboxGetApiboxConnection } from "../funcs/apibox-get-apibox-connection
 import { apiboxGetApibox } from "../funcs/apibox-get-apibox.js";
 import { apiboxListApiboxSteps } from "../funcs/apibox-list-apibox-steps.js";
 import { apiboxListApiboxes } from "../funcs/apibox-list-apiboxes.js";
+import { apiboxSaveApiboxSnapshot } from "../funcs/apibox-save-apibox-snapshot.js";
 import { apiboxStartApibox } from "../funcs/apibox-start-apibox.js";
 import { apiboxStopApibox } from "../funcs/apibox-stop-apibox.js";
 import { apiboxUpdateApibox } from "../funcs/apibox-update-apibox.js";
@@ -41,12 +42,12 @@ export class Apibox extends ClientSDK {
    * Create API Box
    *
    * @remarks
-   * Creates an API Box from a ready API Box Snapshot and starts it. It returns at once with status starting and the API Box's token; get the API Box until it is running. Send the token in X-Continuous-Token on each request to the API Box's endpoint. The token lasts as long as the API Box, and its connection returns it again. Each API Box has its own state, and runs in real time.
+   * Creates an API Box from a ready API Box Snapshot and starts it. It returns at once with status starting and the API Box's token; get the API Box until it is running. Send the token in X-Continuous-Token on each request to the API Box's endpoint. The token lasts as long as the API Box, and its get returns it again. Each API Box has its own state, and runs in real time.
    */
   async createApibox(
     request: operations.CreateApiboxRequest,
     options?: RequestOptions,
-  ): Promise<models.ApiboxTokenResponse> {
+  ): Promise<models.APIBoxTokenResponse> {
     return unwrapAsync(apiboxCreateApibox(
       this,
       request,
@@ -58,7 +59,7 @@ export class Apibox extends ClientSDK {
    * Delete API Box
    *
    * @remarks
-   * Deletes an API Box, running or stopped, with its state. Its runtime is released after the response.
+   * Deletes an API Box, running or stopped, with its state. Its runtime is released after the response. An API Box that MCP Boxes front returns 409 apibox_in_use; delete them first.
    */
   async deleteApibox(
     request: operations.DeleteApiboxRequest,
@@ -75,12 +76,12 @@ export class Apibox extends ClientSDK {
    * Get API Box
    *
    * @remarks
-   * Returns an API Box and its status.
+   * Returns an API Box, its status and its connection: its endpoint and token, whether it is running or stopped. Requests reach it only while it is running.
    */
   async getApibox(
     request: operations.GetApiboxRequest,
     options?: RequestOptions,
-  ): Promise<models.APIBox> {
+  ): Promise<models.GetAPIBoxResponse> {
     return unwrapAsync(apiboxGetApibox(
       this,
       request,
@@ -109,13 +110,32 @@ export class Apibox extends ClientSDK {
    * Get API Box connection
    *
    * @remarks
-   * Returns the API Box's endpoint and token, whether it is running or stopped. Requests reach it only while it is running. An API Box with no stored token returns 409 apibox_token_unavailable; its next start issues one.
+   * Deprecated: get the API Box, whose connection this returns. Returns the API Box's endpoint and token, whether it is running or stopped. An API Box with no stored token returns 409 apibox_token_unavailable; its next start issues one.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async getApiboxConnection(
     request: operations.GetApiboxConnectionRequest,
     options?: RequestOptions,
-  ): Promise<models.ApiboxConnection> {
+  ): Promise<models.APIBoxConnection> {
     return unwrapAsync(apiboxGetApiboxConnection(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Save API Box as Snapshot
+   *
+   * @remarks
+   * Saves a running API Box's service and current state as an API Box Snapshot, ready when the response returns. The API Box keeps running, and a paused one is woken. API Boxes created from the Snapshot start with the saved state instead of a new workspace, so they refuse include_sample_data. The Snapshot outlives the API Box. A starting API Box returns 409 apibox_starting; a stopping or stopped one returns 409 apibox_stopped; one whose runtime cannot save its state returns 409 apibox_rebuild_required.
+   */
+  async saveApiboxSnapshot(
+    request: operations.SaveApiboxSnapshotRequest,
+    options?: RequestOptions,
+  ): Promise<models.APIBoxSnapshot> {
+    return unwrapAsync(apiboxSaveApiboxSnapshot(
       this,
       request,
       options,
@@ -126,12 +146,12 @@ export class Apibox extends ClientSDK {
    * Start API Box
    *
    * @remarks
-   * Starts a stopped API Box from the state its stop saved, and returns at once with status starting and the API Box's token, the same one each start. A running, starting or stopping API Box returns 409 apibox_not_stopped.
+   * Starts a stopped API Box from the state its stop saved, and returns at once with status starting; get the API Box until it is running. Its token stays the same; its get returns it. A running, starting or stopping API Box returns 409 apibox_not_stopped.
    */
   async startApibox(
     request: operations.StartApiboxRequest,
     options?: RequestOptions,
-  ): Promise<models.ApiboxTokenResponse> {
+  ): Promise<models.APIBox> {
     return unwrapAsync(apiboxStartApibox(
       this,
       request,
@@ -140,7 +160,7 @@ export class Apibox extends ClientSDK {
   }
 
   /**
-   * List API Box Steps
+   * List API Box steps
    *
    * @remarks
    * Lists the API Box's steps in order. Each request that changed state is one step; a request that only reads registers none. An API Box that is not running returns 409 apibox_stopped.

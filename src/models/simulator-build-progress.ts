@@ -124,11 +124,11 @@ export type SimulatorBuildProgress = {
    */
   toolCalls: number;
   /**
-   * Total seconds of the build's ended waits for its live credentials, which do not count toward its time limit. 0 when none has ended. The current wait, from waiting.since, is not included.
+   * Total seconds of the build's ended waits, which do not count toward its time limit. 0 when none has ended. The current wait, from waiting.since, is not included.
    */
   waitedSeconds: number;
   /**
-   * Set while the build waits at QA because the live systems rejected its credentials; refresh them, then resume the build with its resource's resume operation, such as POST /v1/simulators/{id}/resume. Null otherwise.
+   * Set while the build waits for the requester: at QA because the live systems rejected its credentials, or for more time after it used its time limit. Resume it with its resource's resume operation, such as POST /v1/simulators/{id}/resume. Null otherwise.
    */
   waiting: SimulatorBuildWaiting | null;
   /**

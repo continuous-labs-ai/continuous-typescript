@@ -12,6 +12,7 @@ let value: ResumeMcpboxSnapshotRequest = {
 
 ## Fields
 
-| Field                | Type                 | Required             | Description          |
-| -------------------- | -------------------- | -------------------- | -------------------- |
-| `id`                 | *string*             | :heavy_check_mark:   | MCP Box Snapshot ID. |
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `id`                                                              | *string*                                                          | :heavy_check_mark:                                                | Snapshot ID.                                                      |
+| `body`                                                            | [models.ResumeBuildRequest](../../models/resume-build-request.md) | :heavy_minus_sign:                                                | N/A                                                               |

@@ -33,6 +33,7 @@ export type ListWebboxSnapshotsStatus = ClosedEnum<
 export const ListWebboxSnapshotsSource = {
   Catalog: "catalog",
   Build: "build",
+  Box: "box",
 } as const;
 /**
  * Optional source filter.

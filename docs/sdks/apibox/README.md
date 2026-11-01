@@ -11,9 +11,10 @@ Start API Boxes from API Box Snapshots. Each API Box serves its Snapshot's API a
 * [deleteApibox](#deleteapibox) - Delete API Box
 * [getApibox](#getapibox) - Get API Box
 * [updateApibox](#updateapibox) - Update API Box
-* [getApiboxConnection](#getapiboxconnection) - Get API Box connection
+* [~~getApiboxConnection~~](#getapiboxconnection) - Get API Box connection :warning: **Deprecated**
+* [saveApiboxSnapshot](#saveapiboxsnapshot) - Save API Box as Snapshot
 * [startApibox](#startapibox) - Start API Box
-* [listApiboxSteps](#listapiboxsteps) - List API Box Steps
+* [listApiboxSteps](#listapiboxsteps) - List API Box steps
 * [stopApibox](#stopapibox) - Stop API Box
 
 ## listApiboxes
@@ -93,7 +94,7 @@ run();
 
 ## createApibox
 
-Creates an API Box from a ready API Box Snapshot and starts it. It returns at once with status starting and the API Box's token; get the API Box until it is running. Send the token in X-Continuous-Token on each request to the API Box's endpoint. The token lasts as long as the API Box, and its connection returns it again. Each API Box has its own state, and runs in real time.
+Creates an API Box from a ready API Box Snapshot and starts it. It returns at once with status starting and the API Box's token; get the API Box until it is running. Send the token in X-Continuous-Token on each request to the API Box's endpoint. The token lasts as long as the API Box, and its get returns it again. Each API Box has its own state, and runs in real time.
 
 ### Example Usage
 
@@ -168,19 +169,19 @@ run();
 
 ### Response
 
-**Promise\<[models.ApiboxTokenResponse](../../models/apibox-token-response.md)\>**
+**Promise\<[models.APIBoxTokenResponse](../../models/api-box-token-response.md)\>**
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 404, 408, 409, 413, 415, 429 | application/problem+json               |
-| errors.ErrorT                          | 500, 503                               | application/problem+json               |
-| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.ErrorT                               | 400, 401, 404, 408, 409, 413, 415, 422, 429 | application/problem+json                    |
+| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
 ## deleteApibox
 
-Deletes an API Box, running or stopped, with its state. Its runtime is released after the response.
+Deletes an API Box, running or stopped, with its state. Its runtime is released after the response. An API Box that MCP Boxes front returns 409 apibox_in_use; delete them first.
 
 ### Example Usage
 
@@ -249,13 +250,13 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 404                      | application/problem+json      |
+| errors.ErrorT                 | 401, 404, 409                 | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## getApibox
 
-Returns an API Box and its status.
+Returns an API Box, its status and its connection: its endpoint and token, whether it is running or stopped. Requests reach it only while it is running.
 
 ### Example Usage
 
@@ -318,7 +319,7 @@ run();
 
 ### Response
 
-**Promise\<[models.APIBox](../../models/api-box.md)\>**
+**Promise\<[models.GetAPIBoxResponse](../../models/get-api-box-response.md)\>**
 
 ### Errors
 
@@ -399,15 +400,17 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 404, 408, 413, 415  | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorT                     | 400, 401, 404, 408, 413, 415, 422 | application/problem+json          |
+| errors.ErrorT                     | 500, 503                          | application/problem+json          |
+| errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
 
-## getApiboxConnection
+## ~~getApiboxConnection~~
 
-Returns the API Box's endpoint and token, whether it is running or stopped. Requests reach it only while it is running. An API Box with no stored token returns 409 apibox_token_unavailable; its next start issues one.
+Deprecated: get the API Box, whose connection this returns. Returns the API Box's endpoint and token, whether it is running or stopped. An API Box with no stored token returns 409 apibox_token_unavailable; its next start issues one.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -470,7 +473,7 @@ run();
 
 ### Response
 
-**Promise\<[models.ApiboxConnection](../../models/apibox-connection.md)\>**
+**Promise\<[models.APIBoxConnection](../../models/api-box-connection.md)\>**
 
 ### Errors
 
@@ -480,9 +483,84 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
+## saveApiboxSnapshot
+
+Saves a running API Box's service and current state as an API Box Snapshot, ready when the response returns. The API Box keeps running, and a paused one is woken. API Boxes created from the Snapshot start with the saved state instead of a new workspace, so they refuse include_sample_data. The Snapshot outlives the API Box. A starting API Box returns 409 apibox_starting; a stopping or stopped one returns 409 apibox_stopped; one whose runtime cannot save its state returns 409 apibox_rebuild_required.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="save-apibox-snapshot" method="post" path="/v1/apibox/{id}/snapshot" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.apibox.saveApiboxSnapshot({
+    id: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { apiboxSaveApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-save-apibox-snapshot.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await apiboxSaveApiboxSnapshot(continuous, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("apiboxSaveApiboxSnapshot failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.SaveApiboxSnapshotRequest](../../models/operations/save-apibox-snapshot-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.APIBoxSnapshot](../../models/api-box-snapshot.md)\>**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 404, 408, 409, 413, 415, 422 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
+
 ## startApibox
 
-Starts a stopped API Box from the state its stop saved, and returns at once with status starting and the API Box's token, the same one each start. A running, starting or stopping API Box returns 409 apibox_not_stopped.
+Starts a stopped API Box from the state its stop saved, and returns at once with status starting; get the API Box until it is running. Its token stays the same; its get returns it. A running, starting or stopping API Box returns 409 apibox_not_stopped.
 
 ### Example Usage
 
@@ -545,7 +623,7 @@ run();
 
 ### Response
 
-**Promise\<[models.ApiboxTokenResponse](../../models/apibox-token-response.md)\>**
+**Promise\<[models.APIBox](../../models/api-box.md)\>**
 
 ### Errors
 

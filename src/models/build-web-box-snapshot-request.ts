@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type BuildWebBoxSnapshotRequest = {
   /**
-   * Workspace credentials: exactly one Web App login, whose saved sign-in the builder and QA use on the live app, and up to four others with a base_url that they can call real systems with. Each must belong to the workspace. QA may create test objects in the live app; use a sandbox or test account.
+   * Workspace credentials: exactly one login for the vendor's web app, whose saved sign-in the builder and QA use on the live app, and up to four others with a base_url that they can call real systems with. Each must belong to the workspace. QA may create test objects in the live app; use a sandbox or test account.
    */
   credentialIds: Array<string>;
   /**
@@ -27,7 +27,7 @@ export type BuildWebBoxSnapshotRequest = {
    */
   reviewRounds?: number | undefined;
   /**
-   * Time limit for generation and validation in seconds, from 1 to 72000. Defaults to 28800 (eight hours). Excludes queue wait, finalization, and any wait for live credentials. Retries share the same deadline.
+   * Time limit for generation and validation in seconds, from 1 to 172800. Defaults to 28800 (eight hours). Excludes queue wait, finalization, and any wait for live credentials. Retries share the same deadline.
    */
   timeoutSeconds?: number | undefined;
 };

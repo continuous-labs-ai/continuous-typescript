@@ -1,12 +1,12 @@
-# McpboxConnection
+# MCPBoxConnection
 
 ## Example Usage
 
 ```typescript
-import { McpboxConnection } from "@continuous-labs/sdk/models";
+import { MCPBoxConnection } from "@continuous-labs/sdk/models";
 
-let value: McpboxConnection = {
-  endpoint: "<value>",
+let value: MCPBoxConnection = {
+  endpoint: "https://unselfish-fowl.com",
   token: "<value>",
 };
 ```

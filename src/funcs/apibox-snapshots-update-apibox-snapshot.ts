@@ -169,7 +169,7 @@ async function $do(
   >(
     M.json(200, models.APIBoxSnapshot$inboundSchema),
     M.jsonErr(
-      [400, 401, 403, 404, 408, 413, 415],
+      [400, 401, 403, 404, 408, 413, 415, 422],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),

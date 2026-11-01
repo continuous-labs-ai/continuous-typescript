@@ -5,11 +5,48 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
+/**
+ * Optional build status filter.
+ */
+export const ListMcpboxSnapshotsStatus = {
+  Pending: "pending",
+  Building: "building",
+  Ready: "ready",
+  Failed: "failed",
+  Canceled: "canceled",
+} as const;
+/**
+ * Optional build status filter.
+ */
+export type ListMcpboxSnapshotsStatus = ClosedEnum<
+  typeof ListMcpboxSnapshotsStatus
+>;
+
+/**
+ * Optional source filter.
+ */
+export const ListMcpboxSnapshotsSource = {
+  Catalog: "catalog",
+  Build: "build",
+  Box: "box",
+} as const;
+/**
+ * Optional source filter.
+ */
+export type ListMcpboxSnapshotsSource = ClosedEnum<
+  typeof ListMcpboxSnapshotsSource
+>;
+
 export type ListMcpboxSnapshotsRequest = {
+  /**
+   * Optional build status filter.
+   */
+  status?: ListMcpboxSnapshotsStatus | undefined;
   /**
    * Page size. Values below 1 use 50. Values above 200 use 200.
    */
@@ -18,6 +55,10 @@ export type ListMcpboxSnapshotsRequest = {
    * Opaque next_cursor value from a previous page.
    */
   cursor?: string | undefined;
+  /**
+   * Optional source filter.
+   */
+  source?: ListMcpboxSnapshotsSource | undefined;
 };
 
 export type ListMcpboxSnapshotsResponse = {
@@ -25,9 +66,21 @@ export type ListMcpboxSnapshotsResponse = {
 };
 
 /** @internal */
+export const ListMcpboxSnapshotsStatus$outboundSchema: z.ZodMiniEnum<
+  typeof ListMcpboxSnapshotsStatus
+> = z.enum(ListMcpboxSnapshotsStatus);
+
+/** @internal */
+export const ListMcpboxSnapshotsSource$outboundSchema: z.ZodMiniEnum<
+  typeof ListMcpboxSnapshotsSource
+> = z.enum(ListMcpboxSnapshotsSource);
+
+/** @internal */
 export type ListMcpboxSnapshotsRequest$Outbound = {
+  status?: string | undefined;
   limit: number;
   cursor?: string | undefined;
+  source?: string | undefined;
 };
 
 /** @internal */
@@ -35,8 +88,10 @@ export const ListMcpboxSnapshotsRequest$outboundSchema: z.ZodMiniType<
   ListMcpboxSnapshotsRequest$Outbound,
   ListMcpboxSnapshotsRequest
 > = z.object({
+  status: z.optional(ListMcpboxSnapshotsStatus$outboundSchema),
   limit: z._default(z.int(), 50),
   cursor: z.optional(z.string()),
+  source: z.optional(ListMcpboxSnapshotsSource$outboundSchema),
 });
 
 export function listMcpboxSnapshotsRequestToJSON(

@@ -5,28 +5,50 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
+import * as openEnums from "../types/enums.js";
+import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
+/**
+ * live_credentials while QA waits for the credentials it names to be refreshed; time_limit while the build waits for a resume that adds time with add_seconds.
+ */
+export const Type = {
+  LiveCredentials: "live_credentials",
+  TimeLimit: "time_limit",
+} as const;
+/**
+ * live_credentials while QA waits for the credentials it names to be refreshed; time_limit while the build waits for a resume that adds time with add_seconds.
+ */
+export type Type = OpenEnum<typeof Type>;
+
 export type SimulatorBuildWaiting = {
   /**
-   * The credentials to refresh with PATCH /v1/credentials/{id} before resuming the build.
+   * The credentials to refresh with PATCH /v1/credentials/{id} before resuming the build. Empty for time_limit.
    */
   credentialIds: Array<string>;
   /**
-   * When the wait ends, 7 days after it began: a build not resumed by then fails with error code live_credential_rejected. The wait does not count toward the build's time limit.
+   * When the wait ends, 7 days after it began: a build not resumed by then fails, with error code live_credential_rejected for live_credentials and for its time limit for time_limit. The wait does not count toward the build's time limit.
    */
   deadline: Date;
   /**
-   * Why the build waits: the status and detail of the live reply that rejected QA's authenticated read.
+   * Why the build waits: for live_credentials, the status and detail of the live reply that rejected QA's authenticated read.
    */
   reason: string;
   /**
    * When the build started waiting.
    */
   since: Date;
+  /**
+   * live_credentials while QA waits for the credentials it names to be refreshed; time_limit while the build waits for a resume that adds time with add_seconds.
+   */
+  type: Type;
 };
+
+/** @internal */
+export const Type$inboundSchema: z.ZodMiniType<Type, unknown> = openEnums
+  .inboundSchema(Type);
 
 /** @internal */
 export const SimulatorBuildWaiting$inboundSchema: z.ZodMiniType<
@@ -38,6 +60,7 @@ export const SimulatorBuildWaiting$inboundSchema: z.ZodMiniType<
     deadline: types.date(),
     reason: types.string(),
     since: types.date(),
+    type: Type$inboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {

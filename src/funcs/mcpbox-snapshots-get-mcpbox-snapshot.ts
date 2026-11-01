@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Get MCP Box Snapshot
  *
  * @remarks
- * Returns an MCP Box Snapshot of the workspace.
+ * Returns an MCP Box Snapshot of the workspace or the catalog, and its build status.
  */
 export function mcpboxSnapshotsGetMcpboxSnapshot(
   client: ContinuousCore,

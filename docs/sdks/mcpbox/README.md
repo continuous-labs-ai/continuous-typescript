@@ -11,7 +11,8 @@ Start MCP Boxes from MCP Box Snapshots. Each MCP Box serves its Snapshot's tools
 * [deleteMcpbox](#deletemcpbox) - Delete MCP Box
 * [getMcpbox](#getmcpbox) - Get MCP Box
 * [updateMcpbox](#updatemcpbox) - Update MCP Box
-* [getMcpboxConnection](#getmcpboxconnection) - Get MCP Box connection
+* [~~getMcpboxConnection~~](#getmcpboxconnection) - Get MCP Box connection :warning: **Deprecated**
+* [saveMcpboxSnapshot](#savemcpboxsnapshot) - Save MCP Box as Snapshot
 * [startMcpbox](#startmcpbox) - Start MCP Box
 * [stopMcpbox](#stopmcpbox) - Stop MCP Box
 
@@ -163,7 +164,7 @@ run();
 
 ### Response
 
-**Promise\<[models.McpboxTokenResponse](../../models/mcpbox-token-response.md)\>**
+**Promise\<[models.MCPBoxTokenResponse](../../models/mcp-box-token-response.md)\>**
 
 ### Errors
 
@@ -250,7 +251,7 @@ run();
 
 ## getMcpbox
 
-Returns an MCP Box and its status.
+Returns an MCP Box, its status and its connection: its endpoint and token, whether it is running or stopped. Requests reach it only while it is running.
 
 ### Example Usage
 
@@ -313,7 +314,7 @@ run();
 
 ### Response
 
-**Promise\<[models.MCPBox](../../models/mcp-box.md)\>**
+**Promise\<[models.GetMCPBoxResponse](../../models/get-mcp-box-response.md)\>**
 
 ### Errors
 
@@ -394,15 +395,17 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 404, 408, 413, 415  | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorT                     | 400, 401, 404, 408, 413, 415, 422 | application/problem+json          |
+| errors.ErrorT                     | 500, 503                          | application/problem+json          |
+| errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
 
-## getMcpboxConnection
+## ~~getMcpboxConnection~~
 
-Returns the MCP Box's endpoint and token, whether it is running or stopped. Requests reach it only while it is running. An MCP Box with no stored token returns 409 mcpbox_token_unavailable; its next start issues one.
+Deprecated: get the MCP Box, whose connection this returns. Returns the MCP Box's endpoint and token, whether it is running or stopped. An MCP Box with no stored token returns 409 mcpbox_token_unavailable; its next start issues one.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -465,7 +468,7 @@ run();
 
 ### Response
 
-**Promise\<[models.McpboxConnection](../../models/mcpbox-connection.md)\>**
+**Promise\<[models.MCPBoxConnection](../../models/mcp-box-connection.md)\>**
 
 ### Errors
 
@@ -475,9 +478,84 @@ run();
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
+## saveMcpboxSnapshot
+
+Saves an MCP Box and the API Box it fronts as a new MCP Box Snapshot and a new API Box Snapshot, both ready when the response returns, or neither. The API Box must be running; a paused one is woken, and it keeps running. The MCP Box Snapshot serves the MCP Box's tools and is built against the API Box Snapshot, which holds the API Box's service and current state. Create an API Box from apibox_snapshot_id, then an MCP Box from the MCP Box Snapshot in front of it. Both Snapshots outlive the Boxes. An MCP Box whose API Box was deleted returns 409 mcpbox_apibox_gone; a starting API Box returns 409 apibox_starting; a stopping or stopped one returns 409 apibox_stopped; one whose runtime cannot save its state returns 409 mcpbox_rebuild_required.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="save-mcpbox-snapshot" method="post" path="/v1/mcpbox/{id}/snapshot" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.mcpbox.saveMcpboxSnapshot({
+    id: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { mcpboxSaveMcpboxSnapshot } from "@continuous-labs/sdk/funcs/mcpbox-save-mcpbox-snapshot.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await mcpboxSaveMcpboxSnapshot(continuous, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("mcpboxSaveMcpboxSnapshot failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.SaveMcpboxSnapshotRequest](../../models/operations/save-mcpbox-snapshot-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.MCPBoxSnapshot](../../models/mcp-box-snapshot.md)\>**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 404, 408, 409, 413, 415, 422 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
+
 ## startMcpbox
 
-Starts a stopped MCP Box in front of its API Box, and returns at once with status starting and the MCP Box's token, the same one each start. A running, starting or stopping MCP Box returns 409 mcpbox_not_stopped.
+Starts a stopped MCP Box in front of its API Box, and returns at once with status starting; get the MCP Box until it is running. Its token stays the same; its get returns it. A running, starting or stopping MCP Box returns 409 mcpbox_not_stopped, and one whose API Box was deleted 409 mcpbox_apibox_gone.
 
 ### Example Usage
 
@@ -540,7 +618,7 @@ run();
 
 ### Response
 
-**Promise\<[models.McpboxTokenResponse](../../models/mcpbox-token-response.md)\>**
+**Promise\<[models.MCPBox](../../models/mcp-box.md)\>**
 
 ### Errors
 
