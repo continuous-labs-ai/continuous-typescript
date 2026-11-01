@@ -40,7 +40,7 @@ export function webboxCreateWebbox(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.WebBox,
+    models.CreateWebBoxResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.WebBox,
+      models.CreateWebBoxResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -154,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.WebBox,
+    models.CreateWebBoxResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -165,9 +165,9 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(202, models.WebBox$inboundSchema),
+    M.json(202, models.CreateWebBoxResponse$inboundSchema),
     M.jsonErr(
-      [400, 401, 404, 408, 409, 413, 415, 429],
+      [400, 401, 404, 408, 409, 413, 415, 422, 429],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),

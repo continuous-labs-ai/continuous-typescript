@@ -167,9 +167,11 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, models.MCPBox$inboundSchema),
-    M.jsonErr([400, 401, 404, 408, 413, 415], errors.ErrorT$inboundSchema, {
-      ctype: "application/problem+json",
-    }),
+    M.jsonErr(
+      [400, 401, 404, 408, 413, 415, 422],
+      errors.ErrorT$inboundSchema,
+      { ctype: "application/problem+json" },
+    ),
     M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

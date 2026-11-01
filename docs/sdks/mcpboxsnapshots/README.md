@@ -2,7 +2,7 @@
 
 ## Overview
 
-List, rename and delete the MCP Box Snapshots that Continuous publishes into your workspace. Each holds an MCP server's tools, built against an API Box Snapshot.
+Build MCP Box Snapshots of an MCP server's tools against a ready API Box Snapshot. MCP Boxes serve a ready Snapshot.
 
 ### Available Operations
 
@@ -11,12 +11,12 @@ List, rename and delete the MCP Box Snapshots that Continuous publishes into you
 * [deleteMcpboxSnapshot](#deletemcpboxsnapshot) - Delete MCP Box Snapshot
 * [getMcpboxSnapshot](#getmcpboxsnapshot) - Get MCP Box Snapshot
 * [updateMcpboxSnapshot](#updatemcpboxsnapshot) - Update MCP Box Snapshot
-* [cancelMcpboxSnapshot](#cancelmcpboxsnapshot) - Cancel Snapshot build
-* [resumeMcpboxSnapshot](#resumemcpboxsnapshot) - Resume Snapshot build
+* [cancelMcpboxSnapshot](#cancelmcpboxsnapshot) - Cancel MCP Box Snapshot build
+* [resumeMcpboxSnapshot](#resumemcpboxsnapshot) - Resume MCP Box Snapshot build
 
 ## listMcpboxSnapshots
 
-Returns the workspace's MCP Box Snapshots, newest first.
+Returns the workspace's MCP Box Snapshots and the catalog's, newest first. Results can be filtered by status and source.
 
 ### Example Usage
 
@@ -245,13 +245,13 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 404, 409                 | application/problem+json      |
+| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## getMcpboxSnapshot
 
-Returns an MCP Box Snapshot of the workspace.
+Returns an MCP Box Snapshot of the workspace or the catalog, and its build status.
 
 ### Example Usage
 
@@ -395,11 +395,11 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 404, 408, 413, 415  | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
 ## cancelMcpboxSnapshot
 
@@ -472,13 +472,13 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 404                      | application/problem+json      |
+| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## resumeMcpboxSnapshot
 
-Resumes a build that waits at QA because its live credential was rejected, as build.waiting reports. Refresh the credential it names with PATCH /v1/credentials/{id} first: QA then runs again with its current value, and the build goes on to finalize. Returns the Snapshot, still building. The wait does not count toward the build's time limit: the build resumes with the time it had left when it began waiting. A build that is not waiting returns 409 simulator_not_waiting.
+Resumes a build that waits, as build.waiting reports: at QA because its live credential was rejected, or for more time after it used its time limit. For a credential wait, refresh the credential it names with PATCH /v1/credentials/{id} first: QA then runs again with its current value, and the build goes on to finalize. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a credential wait has the time it had left when it began waiting. A build that is not waiting returns 409 mcpbox_snapshot_not_waiting.
 
 ### Example Usage
 
@@ -545,8 +545,8 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 404, 409                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 403, 404, 408, 409, 413, 415 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |

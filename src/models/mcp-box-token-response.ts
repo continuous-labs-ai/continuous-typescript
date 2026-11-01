@@ -9,29 +9,29 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import { MCPBox, MCPBox$inboundSchema } from "./mcp-box.js";
 
-export type McpboxTokenResponse = {
+export type MCPBoxTokenResponse = {
   mcpbox: MCPBox;
   /**
-   * The MCP Box's token, which lasts until the MCP Box is deleted. It is null only on a retried create whose first attempt stored no token; a start then issues one.
+   * The MCP Box's token, which lasts until the MCP Box is deleted. It is null only on a retried create whose first attempt stored no token; a start then issues one, which the MCP Box's get returns.
    */
   token: string | null;
 };
 
 /** @internal */
-export const McpboxTokenResponse$inboundSchema: z.ZodMiniType<
-  McpboxTokenResponse,
+export const MCPBoxTokenResponse$inboundSchema: z.ZodMiniType<
+  MCPBoxTokenResponse,
   unknown
 > = z.object({
   mcpbox: MCPBox$inboundSchema,
   token: types.nullable(types.string()),
 });
 
-export function mcpboxTokenResponseFromJSON(
+export function mcpBoxTokenResponseFromJSON(
   jsonString: string,
-): SafeParseResult<McpboxTokenResponse, SDKValidationError> {
+): SafeParseResult<MCPBoxTokenResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => McpboxTokenResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'McpboxTokenResponse' from JSON`,
+    (x) => MCPBoxTokenResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MCPBoxTokenResponse' from JSON`,
   );
 }

@@ -7,11 +7,11 @@ Optional source filter.
 ```typescript
 import { ListApiboxSnapshotsSource } from "@continuous-labs/sdk/models/operations";
 
-let value: ListApiboxSnapshotsSource = "build";
+let value: ListApiboxSnapshotsSource = "box";
 ```
 
 ## Values
 
 ```typescript
-"catalog" | "build"
+"catalog" | "build" | "box"
 ```

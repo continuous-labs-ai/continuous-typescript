@@ -43,7 +43,7 @@ import { isReadableStream } from "../types/streams.js";
  * Create Web Box Snapshot
  *
  * @remarks
- * Starts an asynchronous build and returns the Web Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; Web Boxes start from a ready one. The build is a Web App build, run in real time: the builder and QA use the vendor's live web app through the Web App login credential, and the built app has no simulated clock. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request and optional file parts named document with vendor documentation.
+ * Starts an asynchronous build and returns the Web Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; Web Boxes start from a ready one. The build runs in real time: the builder and QA use the vendor's live web app through its login credential, and the built app has no simulated clock. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request and optional file parts named document with vendor documentation.
  */
 export function webboxSnapshotsCreateWebboxSnapshot(
   client: ContinuousCore,

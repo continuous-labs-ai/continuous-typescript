@@ -9,11 +9,8 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import { BoxError, BoxError$inboundSchema } from "./box-error.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import {
-  SimulatorError,
-  SimulatorError$inboundSchema,
-} from "./simulator-error.js";
 
 /**
  * starting while its runtime boots; running while it serves MCP; stopping while it releases its runtime; stopped when it holds no runtime.
@@ -42,11 +39,15 @@ export type MCPBox = {
    * Base URL of the MCP Box. Send MCP Streamable HTTP requests to it followed by /mcp, with the MCP Box's token in X-Continuous-Token.
    */
   endpoint: string;
-  error: SimulatorError | null;
+  error: BoxError | null;
   /**
    * MCP Box ID.
    */
   id: string;
+  /**
+   * Time of the Box's last data-plane activity.
+   */
+  lastActiveAt: Date;
   /**
    * Customer JSON metadata, or null.
    */
@@ -63,6 +64,10 @@ export type MCPBox = {
    * starting while its runtime boots; running while it serves MCP; stopping while it releases its runtime; stopped when it holds no runtime.
    */
   status: MCPBoxStatus;
+  /**
+   * When the Box entered its current status, such as how long it has been starting.
+   */
+  statusChangedAt: Date;
 };
 
 /** @internal */
@@ -75,18 +80,22 @@ export const MCPBox$inboundSchema: z.ZodMiniType<MCPBox, unknown> = z.pipe(
     apibox_id: types.string(),
     created_at: types.date(),
     endpoint: types.string(),
-    error: types.nullable(SimulatorError$inboundSchema),
+    error: types.nullable(BoxError$inboundSchema),
     id: types.string(),
+    last_active_at: types.date(),
     metadata: z.any(),
     name: types.string(),
     snapshot_id: types.string(),
     status: MCPBoxStatus$inboundSchema,
+    status_changed_at: types.date(),
   }),
   z.transform((v) => {
     return remap$(v, {
       "apibox_id": "apiboxId",
       "created_at": "createdAt",
+      "last_active_at": "lastActiveAt",
       "snapshot_id": "snapshotId",
+      "status_changed_at": "statusChangedAt",
     });
   }),
 );

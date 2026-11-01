@@ -34,7 +34,7 @@ import {
 } from "../types/operations.js";
 
 /**
- * List API Box Steps
+ * List API Box steps
  *
  * @remarks
  * Lists the API Box's steps in order. Each request that changed state is one step; a request that only reads registers none. An API Box that is not running returns 409 apibox_stopped.

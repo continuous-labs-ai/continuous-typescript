@@ -12,6 +12,7 @@ let value: ResumeSimulatorRequest = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *string*           | :heavy_check_mark: | Simulator ID.      |
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `id`                                                              | *string*                                                          | :heavy_check_mark:                                                | Simulator ID.                                                     |
+| `body`                                                            | [models.ResumeBuildRequest](../../models/resume-build-request.md) | :heavy_minus_sign:                                                | N/A                                                               |

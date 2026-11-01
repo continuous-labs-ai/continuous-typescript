@@ -33,6 +33,7 @@ export type ListApiboxSnapshotsStatus = ClosedEnum<
 export const ListApiboxSnapshotsSource = {
   Catalog: "catalog",
   Build: "build",
+  Box: "box",
 } as const;
 /**
  * Optional source filter.

@@ -10,7 +10,7 @@ export type UpdateMCPBoxRequest = {
    */
   metadata?: any | undefined;
   /**
-   * New API Box name.
+   * New name.
    */
   name?: string | undefined;
 };

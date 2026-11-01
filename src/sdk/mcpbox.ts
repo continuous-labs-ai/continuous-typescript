@@ -7,6 +7,7 @@ import { mcpboxDeleteMcpbox } from "../funcs/mcpbox-delete-mcpbox.js";
 import { mcpboxGetMcpboxConnection } from "../funcs/mcpbox-get-mcpbox-connection.js";
 import { mcpboxGetMcpbox } from "../funcs/mcpbox-get-mcpbox.js";
 import { mcpboxListMcpboxes } from "../funcs/mcpbox-list-mcpboxes.js";
+import { mcpboxSaveMcpboxSnapshot } from "../funcs/mcpbox-save-mcpbox-snapshot.js";
 import { mcpboxStartMcpbox } from "../funcs/mcpbox-start-mcpbox.js";
 import { mcpboxStopMcpbox } from "../funcs/mcpbox-stop-mcpbox.js";
 import { mcpboxUpdateMcpbox } from "../funcs/mcpbox-update-mcpbox.js";
@@ -45,7 +46,7 @@ export class Mcpbox extends ClientSDK {
   async createMcpbox(
     request: operations.CreateMcpboxRequest,
     options?: RequestOptions,
-  ): Promise<models.McpboxTokenResponse> {
+  ): Promise<models.MCPBoxTokenResponse> {
     return unwrapAsync(mcpboxCreateMcpbox(
       this,
       request,
@@ -74,12 +75,12 @@ export class Mcpbox extends ClientSDK {
    * Get MCP Box
    *
    * @remarks
-   * Returns an MCP Box and its status.
+   * Returns an MCP Box, its status and its connection: its endpoint and token, whether it is running or stopped. Requests reach it only while it is running.
    */
   async getMcpbox(
     request: operations.GetMcpboxRequest,
     options?: RequestOptions,
-  ): Promise<models.MCPBox> {
+  ): Promise<models.GetMCPBoxResponse> {
     return unwrapAsync(mcpboxGetMcpbox(
       this,
       request,
@@ -108,13 +109,32 @@ export class Mcpbox extends ClientSDK {
    * Get MCP Box connection
    *
    * @remarks
-   * Returns the MCP Box's endpoint and token, whether it is running or stopped. Requests reach it only while it is running. An MCP Box with no stored token returns 409 mcpbox_token_unavailable; its next start issues one.
+   * Deprecated: get the MCP Box, whose connection this returns. Returns the MCP Box's endpoint and token, whether it is running or stopped. An MCP Box with no stored token returns 409 mcpbox_token_unavailable; its next start issues one.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async getMcpboxConnection(
     request: operations.GetMcpboxConnectionRequest,
     options?: RequestOptions,
-  ): Promise<models.McpboxConnection> {
+  ): Promise<models.MCPBoxConnection> {
     return unwrapAsync(mcpboxGetMcpboxConnection(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Save MCP Box as Snapshot
+   *
+   * @remarks
+   * Saves an MCP Box and the API Box it fronts as a new MCP Box Snapshot and a new API Box Snapshot, both ready when the response returns, or neither. The API Box must be running; a paused one is woken, and it keeps running. The MCP Box Snapshot serves the MCP Box's tools and is built against the API Box Snapshot, which holds the API Box's service and current state. Create an API Box from apibox_snapshot_id, then an MCP Box from the MCP Box Snapshot in front of it. Both Snapshots outlive the Boxes. An MCP Box whose API Box was deleted returns 409 mcpbox_apibox_gone; a starting API Box returns 409 apibox_starting; a stopping or stopped one returns 409 apibox_stopped; one whose runtime cannot save its state returns 409 mcpbox_rebuild_required.
+   */
+  async saveMcpboxSnapshot(
+    request: operations.SaveMcpboxSnapshotRequest,
+    options?: RequestOptions,
+  ): Promise<models.MCPBoxSnapshot> {
+    return unwrapAsync(mcpboxSaveMcpboxSnapshot(
       this,
       request,
       options,
@@ -125,12 +145,12 @@ export class Mcpbox extends ClientSDK {
    * Start MCP Box
    *
    * @remarks
-   * Starts a stopped MCP Box in front of its API Box, and returns at once with status starting and the MCP Box's token, the same one each start. A running, starting or stopping MCP Box returns 409 mcpbox_not_stopped.
+   * Starts a stopped MCP Box in front of its API Box, and returns at once with status starting; get the MCP Box until it is running. Its token stays the same; its get returns it. A running, starting or stopping MCP Box returns 409 mcpbox_not_stopped, and one whose API Box was deleted 409 mcpbox_apibox_gone.
    */
   async startMcpbox(
     request: operations.StartMcpboxRequest,
     options?: RequestOptions,
-  ): Promise<models.McpboxTokenResponse> {
+  ): Promise<models.MCPBox> {
     return unwrapAsync(mcpboxStartMcpbox(
       this,
       request,

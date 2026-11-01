@@ -11,8 +11,10 @@ let value: CreateMcpboxSnapshotResponse = {
       "<value 1>",
       "<value 2>",
     ],
-    "key1": [],
-    "key2": [],
+    "key1": [
+      "<value 1>",
+      "<value 2>",
+    ],
   },
   result: {
     apiboxSnapshotId: "<id>",
@@ -44,23 +46,20 @@ let value: CreateMcpboxSnapshotResponse = {
         deadline: new Date("2024-06-11T02:34:42.777Z"),
         reason: "<value>",
         since: new Date("2026-12-17T12:44:55.990Z"),
+        type: "time_limit",
       },
-      warnings: [
-        {
-          code: "spec.default_invalid",
-          location: "<value>",
-          message: "<value>",
-          operations: [
-            "<value 1>",
-            "<value 2>",
-            "<value 3>",
-          ],
-        },
-      ],
+      warnings: [],
     },
-    createdAt: new Date("2024-09-11T19:59:47.135Z"),
+    composition: {
+      entities: 586913,
+      operations: 748332,
+      sample: true,
+    },
+    createdAt: new Date("2025-05-03T08:05:26.677Z"),
     credentialIds: [
       "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
     error: {
       agentMessage: "<value>",
@@ -68,20 +67,42 @@ let value: CreateMcpboxSnapshotResponse = {
       detail: "<value>",
       reason: "specification_invalid",
       validation: {
-        issues: [],
+        issues: [
+          {
+            code: "<value>",
+            kind: "unsupported",
+            location: "<value>",
+            message: "<value>",
+            operation: "<value>",
+            suggestion: "<value>",
+          },
+        ],
       },
     },
+    hiddenLimitations: 775099,
     id: "<id>",
     instructions: "<value>",
+    limitations: [
+      {
+        location: "<value>",
+        message: "<value>",
+        operations: [
+          "<value 1>",
+          "<value 2>",
+        ],
+        reviewed: false,
+      },
+    ],
     metadata: "<value>",
     name: "<value>",
     research: {
-      bytes: 654632,
-      pages: 640740,
-      status: "running",
+      bytes: 359196,
+      pages: 317014,
+      status: "pending",
     },
-    sourceUrl: "https://stale-kick.net",
-    status: "canceled",
+    source: "box",
+    sourceUrl: "https://unripe-march.biz",
+    status: "pending",
   },
 };
 ```

@@ -9,11 +9,8 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import { BoxError, BoxError$inboundSchema } from "./box-error.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import {
-  SimulatorError,
-  SimulatorError$inboundSchema,
-} from "./simulator-error.js";
 
 /**
  * starting while its runtime boots; running while it serves its app; stopping while it saves its state; stopped when it holds no runtime. A start resumes the saved state.
@@ -34,7 +31,7 @@ export type WebBox = {
    * Web Box creation time.
    */
   createdAt: Date;
-  error: SimulatorError | null;
+  error: BoxError | null;
   /**
    * Web Box ID.
    */
@@ -43,6 +40,10 @@ export type WebBox = {
    * Whether the Web Box started with the Snapshot's sample data.
    */
   includeSampleData: boolean;
+  /**
+   * Time of the Box's last data-plane activity.
+   */
+  lastActiveAt: Date;
   /**
    * Customer JSON metadata, or null.
    */
@@ -60,6 +61,10 @@ export type WebBox = {
    */
   status: WebBoxStatus;
   /**
+   * When the Box entered its current status, such as how long it has been starting.
+   */
+  statusChangedAt: Date;
+  /**
    * URL that opens the Web Box's app, at a host of its own.
    */
   url: string;
@@ -73,20 +78,24 @@ export const WebBoxStatus$inboundSchema: z.ZodMiniType<WebBoxStatus, unknown> =
 export const WebBox$inboundSchema: z.ZodMiniType<WebBox, unknown> = z.pipe(
   z.object({
     created_at: types.date(),
-    error: types.nullable(SimulatorError$inboundSchema),
+    error: types.nullable(BoxError$inboundSchema),
     id: types.string(),
     include_sample_data: types.boolean(),
+    last_active_at: types.date(),
     metadata: z.any(),
     name: types.string(),
     snapshot_id: types.string(),
     status: WebBoxStatus$inboundSchema,
+    status_changed_at: types.date(),
     url: types.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
       "include_sample_data": "includeSampleData",
+      "last_active_at": "lastActiveAt",
       "snapshot_id": "snapshotId",
+      "status_changed_at": "statusChangedAt",
     });
   }),
 );

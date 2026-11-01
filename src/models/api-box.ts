@@ -9,11 +9,8 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import { BoxError, BoxError$inboundSchema } from "./box-error.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import {
-  SimulatorError,
-  SimulatorError$inboundSchema,
-} from "./simulator-error.js";
 
 /**
  * starting while its runtime boots; running while it serves requests; stopping while it saves its state; stopped when it holds no runtime. A start resumes the saved state.
@@ -38,7 +35,7 @@ export type APIBox = {
    * Base URL of the API Box's API. Send the API Box's token in X-Continuous-Token.
    */
   endpoint: string;
-  error: SimulatorError | null;
+  error: BoxError | null;
   /**
    * API Box ID.
    */
@@ -47,6 +44,10 @@ export type APIBox = {
    * Whether the API Box started with the Snapshot's sample data.
    */
   includeSampleData: boolean;
+  /**
+   * Time of the Box's last data-plane activity.
+   */
+  lastActiveAt: Date;
   /**
    * Customer JSON metadata, or null.
    */
@@ -63,6 +64,10 @@ export type APIBox = {
    * starting while its runtime boots; running while it serves requests; stopping while it saves its state; stopped when it holds no runtime. A start resumes the saved state.
    */
   status: APIBoxStatus;
+  /**
+   * When the Box entered its current status, such as how long it has been starting.
+   */
+  statusChangedAt: Date;
 };
 
 /** @internal */
@@ -74,19 +79,23 @@ export const APIBox$inboundSchema: z.ZodMiniType<APIBox, unknown> = z.pipe(
   z.object({
     created_at: types.date(),
     endpoint: types.string(),
-    error: types.nullable(SimulatorError$inboundSchema),
+    error: types.nullable(BoxError$inboundSchema),
     id: types.string(),
     include_sample_data: types.boolean(),
+    last_active_at: types.date(),
     metadata: z.any(),
     name: types.string(),
     snapshot_id: types.string(),
     status: APIBoxStatus$inboundSchema,
+    status_changed_at: types.date(),
   }),
   z.transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
       "include_sample_data": "includeSampleData",
+      "last_active_at": "lastActiveAt",
       "snapshot_id": "snapshotId",
+      "status_changed_at": "statusChangedAt",
     });
   }),
 );

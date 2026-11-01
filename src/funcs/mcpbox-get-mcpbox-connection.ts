@@ -32,7 +32,9 @@ import { Result } from "../types/fp.js";
  * Get MCP Box connection
  *
  * @remarks
- * Returns the MCP Box's endpoint and token, whether it is running or stopped. Requests reach it only while it is running. An MCP Box with no stored token returns 409 mcpbox_token_unavailable; its next start issues one.
+ * Deprecated: get the MCP Box, whose connection this returns. Returns the MCP Box's endpoint and token, whether it is running or stopped. An MCP Box with no stored token returns 409 mcpbox_token_unavailable; its next start issues one.
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function mcpboxGetMcpboxConnection(
   client: ContinuousCore,
@@ -40,7 +42,7 @@ export function mcpboxGetMcpboxConnection(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.McpboxConnection,
+    models.MCPBoxConnection,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +68,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.McpboxConnection,
+      models.MCPBoxConnection,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -165,7 +167,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.McpboxConnection,
+    models.MCPBoxConnection,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -176,7 +178,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.McpboxConnection$inboundSchema),
+    M.json(200, models.MCPBoxConnection$inboundSchema),
     M.jsonErr([401, 404, 409], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

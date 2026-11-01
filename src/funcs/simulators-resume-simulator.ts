@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { ContinuousCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Resume Simulator Build
  *
  * @remarks
- * Resumes a build that waits at QA because its live credentials were rejected, as build.waiting reports. Refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. Returns the Simulator, still building. The wait does not count toward the build's time limit: the build resumes with the time it had left when it began waiting. A build that is not waiting returns 409 simulator_not_waiting.
+ * Resumes a build that waits, as build.waiting reports: at QA because its live credentials were rejected, or for more time after it used its time limit. For a credential wait, refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Simulator, still building. A wait does not count toward the build's time limit: a build resumed from a credential wait has the time it had left when it began waiting. A build that is not waiting returns 409 simulator_not_waiting.
  *
  * Deprecated. Use API Box for APIs and Web Box for web apps.
  *
@@ -93,7 +93,7 @@ async function $do(
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload.body, { explode: true });
 
   const pathParams = {
     id: encodeSimple("id", payload.id, {
@@ -104,6 +104,7 @@ async function $do(
   const path = pathToFunc("/v1/simulators/{id}/resume")(pathParams);
 
   const headers = new Headers(compactMap({
+    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -170,9 +171,11 @@ async function $do(
     | SDKValidationError
   >(
     M.json(202, models.Simulator$inboundSchema),
-    M.jsonErr([401, 403, 404, 409, 422], errors.ErrorT$inboundSchema, {
-      ctype: "application/problem+json",
-    }),
+    M.jsonErr(
+      [400, 401, 403, 404, 408, 409, 413, 415, 422],
+      errors.ErrorT$inboundSchema,
+      { ctype: "application/problem+json" },
+    ),
     M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

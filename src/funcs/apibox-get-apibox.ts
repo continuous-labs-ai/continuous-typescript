@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Get API Box
  *
  * @remarks
- * Returns an API Box and its status.
+ * Returns an API Box, its status and its connection: its endpoint and token, whether it is running or stopped. Requests reach it only while it is running.
  */
 export function apiboxGetApibox(
   client: ContinuousCore,
@@ -40,7 +40,7 @@ export function apiboxGetApibox(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.APIBox,
+    models.GetAPIBoxResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      models.APIBox,
+      models.GetAPIBoxResponse,
       | errors.ErrorT
       | ContinuousError
       | ResponseValidationError
@@ -164,7 +164,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.APIBox,
+    models.GetAPIBoxResponse,
     | errors.ErrorT
     | ContinuousError
     | ResponseValidationError
@@ -175,7 +175,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.APIBox$inboundSchema),
+    M.json(200, models.GetAPIBoxResponse$inboundSchema),
     M.jsonErr([401, 404], errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
     }),

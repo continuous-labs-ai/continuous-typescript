@@ -34,7 +34,7 @@ import {
 } from "../types/operations.js";
 
 /**
- * List Web Box Steps
+ * List Web Box steps
  *
  * @remarks
  * Lists the Web Box's steps in order. Each request that changed state is one step; a request that only reads registers none. A Web Box that is not running returns 409 webbox_stopped.

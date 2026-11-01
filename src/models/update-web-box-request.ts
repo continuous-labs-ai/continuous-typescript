@@ -10,7 +10,7 @@ export type UpdateWebBoxRequest = {
    */
   metadata?: any | undefined;
   /**
-   * New Web Box name.
+   * New name.
    */
   name?: string | undefined;
 };

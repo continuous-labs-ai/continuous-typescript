@@ -1,12 +1,12 @@
-# ApiboxConnection
+# APIBoxConnection
 
 ## Example Usage
 
 ```typescript
-import { ApiboxConnection } from "@continuous-labs/sdk/models";
+import { APIBoxConnection } from "@continuous-labs/sdk/models";
 
-let value: ApiboxConnection = {
-  endpoint: "<value>",
+let value: APIBoxConnection = {
+  endpoint: "https://ambitious-eggplant.info/",
   token: "<value>",
 };
 ```

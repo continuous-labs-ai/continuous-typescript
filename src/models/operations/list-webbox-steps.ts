@@ -25,7 +25,7 @@ export type ListWebboxStepsRequest = {
 };
 
 export type ListWebboxStepsResponse = {
-  result: models.ListAPIBoxStepsResponse;
+  result: models.ListBoxStepsResponse;
 };
 
 /** @internal */
@@ -59,7 +59,7 @@ export const ListWebboxStepsResponse$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    Result: models.ListAPIBoxStepsResponse$inboundSchema,
+    Result: models.ListBoxStepsResponse$inboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {

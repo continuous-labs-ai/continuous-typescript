@@ -11,8 +11,8 @@ Build API Box Snapshots from an OpenAPI, WSDL or GraphQL document, or use the ca
 * [deleteApiboxSnapshot](#deleteapiboxsnapshot) - Delete API Box Snapshot
 * [getApiboxSnapshot](#getapiboxsnapshot) - Get API Box Snapshot
 * [updateApiboxSnapshot](#updateapiboxsnapshot) - Update API Box Snapshot
-* [cancelApiboxSnapshot](#cancelapiboxsnapshot) - Cancel Snapshot build
-* [resumeApiboxSnapshot](#resumeapiboxsnapshot) - Resume Snapshot build
+* [cancelApiboxSnapshot](#cancelapiboxsnapshot) - Cancel API Box Snapshot build
+* [resumeApiboxSnapshot](#resumeapiboxsnapshot) - Resume API Box Snapshot build
 
 ## listApiboxSnapshots
 
@@ -391,11 +391,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorT                     | 400, 401, 403, 404, 408, 413, 415 | application/problem+json          |
-| errors.ErrorT                     | 500, 503                          | application/problem+json          |
-| errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
 ## cancelApiboxSnapshot
 
@@ -474,7 +474,7 @@ run();
 
 ## resumeApiboxSnapshot
 
-Resumes a build that waits at QA because its live credentials were rejected, as build.waiting reports. Refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. Returns the Snapshot, still building. The wait does not count toward the build's time limit: the build resumes with the time it had left when it began waiting. A build that is not waiting returns 409 simulator_not_waiting.
+Resumes a build that waits, as build.waiting reports: at QA because its live credentials were rejected, or for more time after it used its time limit. For a credential wait, refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a credential wait has the time it had left when it began waiting. A build that is not waiting returns 409 apibox_snapshot_not_waiting.
 
 ### Example Usage
 
@@ -541,8 +541,8 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 403, 404, 408, 409, 413, 415 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |

@@ -20,7 +20,7 @@ export class McpboxSnapshots extends ClientSDK {
    * List MCP Box Snapshots
    *
    * @remarks
-   * Returns the workspace's MCP Box Snapshots, newest first.
+   * Returns the workspace's MCP Box Snapshots and the catalog's, newest first. Results can be filtered by status and source.
    */
   async listMcpboxSnapshots(
     request?: operations.ListMcpboxSnapshotsRequest | undefined,
@@ -73,7 +73,7 @@ export class McpboxSnapshots extends ClientSDK {
    * Get MCP Box Snapshot
    *
    * @remarks
-   * Returns an MCP Box Snapshot of the workspace.
+   * Returns an MCP Box Snapshot of the workspace or the catalog, and its build status.
    */
   async getMcpboxSnapshot(
     request: operations.GetMcpboxSnapshotRequest,
@@ -104,7 +104,7 @@ export class McpboxSnapshots extends ClientSDK {
   }
 
   /**
-   * Cancel Snapshot build
+   * Cancel MCP Box Snapshot build
    *
    * @remarks
    * Requests cancellation of a pending or active build and returns the Snapshot without waiting for the build to stop. Get the Snapshot until its status leaves pending or building. The build can finish before cancellation takes effect. A Snapshot whose build has settled is returned unchanged.
@@ -121,10 +121,10 @@ export class McpboxSnapshots extends ClientSDK {
   }
 
   /**
-   * Resume Snapshot build
+   * Resume MCP Box Snapshot build
    *
    * @remarks
-   * Resumes a build that waits at QA because its live credential was rejected, as build.waiting reports. Refresh the credential it names with PATCH /v1/credentials/{id} first: QA then runs again with its current value, and the build goes on to finalize. Returns the Snapshot, still building. The wait does not count toward the build's time limit: the build resumes with the time it had left when it began waiting. A build that is not waiting returns 409 simulator_not_waiting.
+   * Resumes a build that waits, as build.waiting reports: at QA because its live credential was rejected, or for more time after it used its time limit. For a credential wait, refresh the credential it names with PATCH /v1/credentials/{id} first: QA then runs again with its current value, and the build goes on to finalize. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a credential wait has the time it had left when it began waiting. A build that is not waiting returns 409 mcpbox_snapshot_not_waiting.
    */
   async resumeMcpboxSnapshot(
     request: operations.ResumeMcpboxSnapshotRequest,

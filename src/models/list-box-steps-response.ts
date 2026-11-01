@@ -7,10 +7,10 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
-import { ApiboxStep, ApiboxStep$inboundSchema } from "./apibox-step.js";
+import { BoxStep, BoxStep$inboundSchema } from "./box-step.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type ListAPIBoxStepsResponse = {
+export type ListBoxStepsResponse = {
   /**
    * Cursor for the next page, or null.
    */
@@ -18,17 +18,17 @@ export type ListAPIBoxStepsResponse = {
   /**
    * Steps in this page.
    */
-  steps: Array<ApiboxStep>;
+  steps: Array<BoxStep>;
 };
 
 /** @internal */
-export const ListAPIBoxStepsResponse$inboundSchema: z.ZodMiniType<
-  ListAPIBoxStepsResponse,
+export const ListBoxStepsResponse$inboundSchema: z.ZodMiniType<
+  ListBoxStepsResponse,
   unknown
 > = z.pipe(
   z.object({
     next_cursor: types.nullable(types.string()),
-    steps: z.array(ApiboxStep$inboundSchema),
+    steps: z.array(BoxStep$inboundSchema),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -37,12 +37,12 @@ export const ListAPIBoxStepsResponse$inboundSchema: z.ZodMiniType<
   }),
 );
 
-export function listAPIBoxStepsResponseFromJSON(
+export function listBoxStepsResponseFromJSON(
   jsonString: string,
-): SafeParseResult<ListAPIBoxStepsResponse, SDKValidationError> {
+): SafeParseResult<ListBoxStepsResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ListAPIBoxStepsResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListAPIBoxStepsResponse' from JSON`,
+    (x) => ListBoxStepsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListBoxStepsResponse' from JSON`,
   );
 }

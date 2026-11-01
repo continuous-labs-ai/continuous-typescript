@@ -19,7 +19,7 @@ export type CreateMCPBoxRequest = {
    */
   name?: string | undefined;
   /**
-   * An MCP Box Snapshot of the workspace.
+   * A ready MCP Box Snapshot of the workspace or the catalog.
    */
   snapshotId: string;
 };

@@ -11,8 +11,8 @@ Build Web Box Snapshots from a vendor's live web app, or use the catalog's. Web 
 * [deleteWebboxSnapshot](#deletewebboxsnapshot) - Delete Web Box Snapshot
 * [getWebboxSnapshot](#getwebboxsnapshot) - Get Web Box Snapshot
 * [updateWebboxSnapshot](#updatewebboxsnapshot) - Update Web Box Snapshot
-* [cancelWebboxSnapshot](#cancelwebboxsnapshot) - Cancel Snapshot build
-* [resumeWebboxSnapshot](#resumewebboxsnapshot) - Resume Snapshot build
+* [cancelWebboxSnapshot](#cancelwebboxsnapshot) - Cancel Web Box Snapshot build
+* [resumeWebboxSnapshot](#resumewebboxsnapshot) - Resume Web Box Snapshot build
 
 ## listWebboxSnapshots
 
@@ -91,7 +91,7 @@ run();
 
 ## createWebboxSnapshot
 
-Starts an asynchronous build and returns the Web Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; Web Boxes start from a ready one. The build is a Web App build, run in real time: the builder and QA use the vendor's live web app through the Web App login credential, and the built app has no simulated clock. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request and optional file parts named document with vendor documentation.
+Starts an asynchronous build and returns the Web Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; Web Boxes start from a ready one. The build runs in real time: the builder and QA use the vendor's live web app through its login credential, and the built app has no simulated clock. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request and optional file parts named document with vendor documentation.
 
 ### Example Usage
 
@@ -403,11 +403,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorT                     | 400, 401, 403, 404, 408, 413, 415 | application/problem+json          |
-| errors.ErrorT                     | 500, 503                          | application/problem+json          |
-| errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
 ## cancelWebboxSnapshot
 
@@ -486,7 +486,7 @@ run();
 
 ## resumeWebboxSnapshot
 
-Resumes a build that waits at QA because its live credentials were rejected, as build.waiting reports. Refresh each credential it names first: QA then runs again with their current values, and the build goes on to finalize. Returns the Snapshot, still building. The wait does not count toward the build's time limit. A build that is not waiting returns 409 simulator_not_waiting.
+Resumes a build that waits, as build.waiting reports: at QA because its live credentials were rejected, or for more time after it used its time limit. For a credential wait, refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a credential wait has the time it had left when it began waiting. A build that is not waiting returns 409 webbox_snapshot_not_waiting.
 
 ### Example Usage
 
@@ -553,8 +553,8 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorT                          | 400, 401, 403, 404, 408, 409, 413, 415 | application/problem+json               |
+| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
