@@ -4,7 +4,6 @@
 
 import { apiboxCreateApibox } from "../funcs/apibox-create-apibox.js";
 import { apiboxDeleteApibox } from "../funcs/apibox-delete-apibox.js";
-import { apiboxGetApiboxConnection } from "../funcs/apibox-get-apibox-connection.js";
 import { apiboxGetApibox } from "../funcs/apibox-get-apibox.js";
 import { apiboxListApiboxSteps } from "../funcs/apibox-list-apibox-steps.js";
 import { apiboxListApiboxes } from "../funcs/apibox-list-apiboxes.js";
@@ -100,25 +99,6 @@ export class Apibox extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.APIBox> {
     return unwrapAsync(apiboxUpdateApibox(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Get API Box connection
-   *
-   * @remarks
-   * Deprecated: get the API Box, whose connection this returns. Returns the API Box's endpoint and token, whether it is running or stopped. An API Box with no stored token returns 409 apibox_token_unavailable; its next start issues one.
-   *
-   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  async getApiboxConnection(
-    request: operations.GetApiboxConnectionRequest,
-    options?: RequestOptions,
-  ): Promise<models.APIBoxConnection> {
-    return unwrapAsync(apiboxGetApiboxConnection(
       this,
       request,
       options,

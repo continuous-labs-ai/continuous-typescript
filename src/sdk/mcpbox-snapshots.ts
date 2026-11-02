@@ -90,7 +90,7 @@ export class McpboxSnapshots extends ClientSDK {
    * Update MCP Box Snapshot
    *
    * @remarks
-   * Renames an MCP Box Snapshot or replaces its metadata. Omitted fields keep their current values. Its tools do not change.
+   * Renames an MCP Box Snapshot or replaces its metadata. Omitted fields keep their current values. Its tools do not change. Catalog Snapshots cannot be updated.
    */
   async updateMcpboxSnapshot(
     request: operations.UpdateMcpboxSnapshotRequest,

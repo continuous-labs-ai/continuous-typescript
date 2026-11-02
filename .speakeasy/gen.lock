@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: 4bd5f92d7b56bf0474924dd91a38b400
+  docChecksum: c4905b7bacdfbc41b36c0dbce9f5653b
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.3.6
-  configChecksum: 16b7c20488bb6eff31daba4197fc2178
+  releaseVersion: 0.3.7
+  configChecksum: 021de5515f305ef32ffb253aa85f98c2
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 966858c0-f142-4229-b1ff-f8999ee67188
-  pristine_commit_hash: b726e84a4a525ea41b780dc746c83ca535eb366a
-  pristine_tree_hash: 9c434a874a17bd3962acfb28006a84af588690d1
+  generation_id: 416608a7-732c-4127-8558-8d75de2d0817
+  pristine_commit_hash: b6b2ca60d854b49b25fd1023482c511490ce080e
+  pristine_tree_hash: 49a2309a0b5a0742c4a9032a722a817c656cdeb3
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -135,8 +135,8 @@ trackedFiles:
     pristine_git_object: 24346522401daffc4cf6db466fd10a02ebaf7b1f
   docs/models/build-mcp-box-snapshot-request.md:
     id: a1d914da9dcf
-    last_write_checksum: sha1:ddb76cf08572b8678ac25a092f915ed422c2d310
-    pristine_git_object: 2e18a25c141869c1659b27ddcedfc6bfcda01e9d
+    last_write_checksum: sha1:917946ba4d442ac7993b7ca3b32397fa7977327f
+    pristine_git_object: f605980ddd386113db2b5289f91592952d799812
   docs/models/build-simulator-request-mode.md:
     id: 02425fad8566
     last_write_checksum: sha1:9be3e48037220e4405c7016fb1a104bd9833a948
@@ -529,10 +529,6 @@ trackedFiles:
     id: 8a239341fb0c
     last_write_checksum: sha1:e952adacb6ad60e02794971dd8219eeebc957470
     pristine_git_object: 19348b104e79efc99766c65941c60385b8714990
-  docs/models/operations/get-apibox-connection-request.md:
-    id: ea52dfaddc86
-    last_write_checksum: sha1:966bc6714cb842e81394c4293e619ee223107748
-    pristine_git_object: c7c4ba23d755f36ab98c514b8d1fcf36f92366bb
   docs/models/operations/get-apibox-request.md:
     id: 317f88a7030b
     last_write_checksum: sha1:b7c8b12b9ce8acd0e4fa4de6eb1ac79cc04e38c1
@@ -545,10 +541,6 @@ trackedFiles:
     id: 037d1892c973
     last_write_checksum: sha1:8b5f87f066b7968760016e662da019fa80e98604
     pristine_git_object: e0a363e0bd3aa6d4af505cfa11efad8165343964
-  docs/models/operations/get-mcpbox-connection-request.md:
-    id: 8d94027309c6
-    last_write_checksum: sha1:1fa94fa3d2de2e1bb519f7841b35958f8d24185a
-    pristine_git_object: fc36bbddf05396acb2b994bea8a83c9b3bab461b
   docs/models/operations/get-mcpbox-request.md:
     id: bf41c65f5d8e
     last_write_checksum: sha1:78b10e94d90591e9a2f81032336a925119d39b2c
@@ -581,10 +573,6 @@ trackedFiles:
     id: 55343e052094
     last_write_checksum: sha1:d18655a86685411cda2f18557a4d417b4e63d053
     pristine_git_object: d065c39e2fc3ef8ee3dbc8f8afe426d607352b89
-  docs/models/operations/get-webbox-connection-request.md:
-    id: ed84e37bd6c3
-    last_write_checksum: sha1:3a7c1ebdde7222534530d71ae2016801ae6dbf41
-    pristine_git_object: ff9c8e972561dfc09ea5aee90b75c27e20f41d9d
   docs/models/operations/get-webbox-request.md:
     id: d8c125429cea
     last_write_checksum: sha1:34dbf9da6c66b27486505527208ab8d54534898a
@@ -1075,8 +1063,8 @@ trackedFiles:
     pristine_git_object: 2cc22d097186e01db07c3bca72988d1d155b9474
   docs/sdks/apibox/README.md:
     id: abd4680ecea9
-    last_write_checksum: sha1:346fcf7b3a0c018e62d7b0ae0722ac700397c77f
-    pristine_git_object: b3f0ffc42feabbbef8ca1c579f6331728fd85290
+    last_write_checksum: sha1:536010545e2ebadc5fb234d9b22a9c9f4eb9f93c
+    pristine_git_object: 0e4973caa164aa21e16c5e2a95f0504d76bfa5dd
   docs/sdks/apiboxsnapshots/README.md:
     id: 1cdd53e655f6
     last_write_checksum: sha1:70c148ebfd5e972dcd950e7e692c98360bad5064
@@ -1087,12 +1075,12 @@ trackedFiles:
     pristine_git_object: cd3cb69d29eb7650d783bfa381918d38db9988f8
   docs/sdks/mcpbox/README.md:
     id: 46a53102c5b8
-    last_write_checksum: sha1:722a0d6c8b5ade9c70fc14887ae170f41fa04bf3
-    pristine_git_object: 9602a775f436a478b73fcbfbfceee4f46efc4c7e
+    last_write_checksum: sha1:29c833c573ba152f5bb720ca2a2062b473148c94
+    pristine_git_object: efdf62386384386a8f98c3fcfb16256dd5df7d93
   docs/sdks/mcpboxsnapshots/README.md:
     id: 8dfd04ebf73d
-    last_write_checksum: sha1:e3af78d6301e3f223cb9c88e49ed735759b2b618
-    pristine_git_object: 03cbb85de6f769ccbd4b5b7b0d01cdb79876665d
+    last_write_checksum: sha1:e8c4bed8632bcba028ae309c452452722adc4fac
+    pristine_git_object: 3ef48478a9982b02b75048861fc7e50b41dff8ce
   docs/sdks/simulations/README.md:
     id: a9e027fcb2b0
     last_write_checksum: sha1:65ae1c3dff2324c51f8c5fb7bd0c26550fe1981d
@@ -1107,8 +1095,8 @@ trackedFiles:
     pristine_git_object: 0b675672e0f521aa0a80c63f8dc961b21787ace4
   docs/sdks/webbox/README.md:
     id: 3f7448a0ee7a
-    last_write_checksum: sha1:12bc037a6537cdee300bee3619645d1a568e56f8
-    pristine_git_object: 2b7e163c538d62d4faad0a3c4e331cc3f326c6f9
+    last_write_checksum: sha1:043296194510914501cc41f21b79e327f1227ff0
+    pristine_git_object: ce3cc49f3900a523efdef154662b701b11cbe15c
   docs/sdks/webboxsnapshots/README.md:
     id: fcfe151b7749
     last_write_checksum: sha1:8620798cb008825f2223b0d8f613d682f98ca132
@@ -1131,12 +1119,12 @@ trackedFiles:
     pristine_git_object: a8174ac1b126a1796e076b9f3122a0ede68d2d7d
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:65018c87b645c37975f9a0e3d6ba7a365475e996
-    pristine_git_object: 19a6cf3d9009b838939575860cf5caa2ab2c1a4f
+    last_write_checksum: sha1:c9e9508d1d51d4d9c054ca7c35a62145974161d3
+    pristine_git_object: 54f0cba8c7520a290b1444c168fe45cbf6e5cd91
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:603786a6df4addcad5cfd32b507b78d3ca5f7130
-    pristine_git_object: d8fd982d1b2b2adddf13fdbd3ca892a15888836e
+    last_write_checksum: sha1:4f390b778de863d2aa3cf0674da4409c1759d2f8
+    pristine_git_object: 06588acd9d35f487a788e1b4c936f772ca1541a8
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -1149,10 +1137,6 @@ trackedFiles:
     id: b5f54699a18c
     last_write_checksum: sha1:74d93ff50321eb2da9cb2e875c931f37a1b70aa8
     pristine_git_object: 315fc2dc743f00b3a343da765dc66603f052dfd8
-  src/funcs/apibox-get-apibox-connection.ts:
-    id: b523c4d56ac7
-    last_write_checksum: sha1:f1cc75c900b9a0fc10d66374d4853ca93382f59f
-    pristine_git_object: 64a2b96275771b68a3e6bf43e0581088787e62d7
   src/funcs/apibox-get-apibox.ts:
     id: a7d1444ade2f
     last_write_checksum: sha1:c4e3b7dfc0d7ee6f9961c482dcf97d6a648c7063
@@ -1237,10 +1221,6 @@ trackedFiles:
     id: 41fc389dd414
     last_write_checksum: sha1:844d66d1258382488bdcdd15a75989fabe7c02cb
     pristine_git_object: 866b0481a17eaf1902d679c5df1f9543339b6836
-  src/funcs/mcpbox-get-mcpbox-connection.ts:
-    id: 8324035914d4
-    last_write_checksum: sha1:92802ae9daf20ae1ee34a45eb75c6c3e03f7181a
-    pristine_git_object: 448248ce315ecf647caaf10042a5f6365090012f
   src/funcs/mcpbox-get-mcpbox.ts:
     id: e72847f4e77d
     last_write_checksum: sha1:e0f66de4d7dd8e332fd5a52784720af10cb894ba
@@ -1279,8 +1259,8 @@ trackedFiles:
     pristine_git_object: dbca28df4adeb543afb8a25ffef0226c8fe8ad15
   src/funcs/mcpbox-snapshots-update-mcpbox-snapshot.ts:
     id: c96154cf8df6
-    last_write_checksum: sha1:9b7965b690414d6732d6654f86a59d3506d29b6f
-    pristine_git_object: ffd69f5f36c3d5b429ea54a4bec20a7bdc9b07a2
+    last_write_checksum: sha1:2ccc17deef1a2a25f1fd994d405f1b0059f8c1cb
+    pristine_git_object: b425ce44cb4907b4a6907bad3097c5f9b78544ac
   src/funcs/mcpbox-start-mcpbox.ts:
     id: 7e1150b5f4cc
     last_write_checksum: sha1:f5afd8030fc60b6b4cb81ba7ec1b8048e661137e
@@ -1405,10 +1385,6 @@ trackedFiles:
     id: 8a12b15ec9b2
     last_write_checksum: sha1:a892d1490e8dea1139db9fdbfc40b521d67084db
     pristine_git_object: 3a8bbbd7da17d43ddb6b20eadc7c94ed827258c0
-  src/funcs/webbox-get-webbox-connection.ts:
-    id: 1ead53260998
-    last_write_checksum: sha1:6ced8c3c429a31e0deed8bb7cf62f76383cbd483
-    pristine_git_object: 1a36678c1f238cca1983da6ae8cd3db3283c8abc
   src/funcs/webbox-get-webbox.ts:
     id: cb38a04171c9
     last_write_checksum: sha1:42f0c034f846e739032ddfcc8b4b245f9dfe7341
@@ -1487,8 +1463,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:d7d53c59d7865619175e42718bf9ffeae76bddda
-    pristine_git_object: 45efc749850dfe03dcc345483efd6f4215b295ac
+    last_write_checksum: sha1:ee09ca00379dfab31d0e5985c6379b73165c36f6
+    pristine_git_object: 331338ec2e0dfda8c6d1f289c8706a7435816f8b
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -1571,8 +1547,8 @@ trackedFiles:
     pristine_git_object: 847553a062f97a4060343dbf8ce733e063863c88
   src/models/build-mcp-box-snapshot-request.ts:
     id: 51292d8f655d
-    last_write_checksum: sha1:94d5e01f089a1751baf01049cf81c3649529c151
-    pristine_git_object: ba036d0978da22b9d026f317223086b782f59a8e
+    last_write_checksum: sha1:30cb77338402783a7f96e5764006df7a9aadce46
+    pristine_git_object: c8d2b95f41dd5ba5316b336e41612af1fb44e254
   src/models/build-simulator-request.ts:
     id: 3a8cd2fe64c6
     last_write_checksum: sha1:506594683c9ff3c04b4d5700b81d6aba5a6a4326
@@ -1881,10 +1857,6 @@ trackedFiles:
     id: 99a2f0ca7884
     last_write_checksum: sha1:48c71892e9f0f4e06e1e2febd89f3f02036840c5
     pristine_git_object: 83780941d7a39a4343874bdc39f5b8ed1b9d5363
-  src/models/operations/get-apibox-connection.ts:
-    id: 3550ebe62ff6
-    last_write_checksum: sha1:fb2dfcc737d926718304b341b9145a067be8bfbb
-    pristine_git_object: ea0262834eb6bc645b5d9bad4d98cb9d122732d2
   src/models/operations/get-apibox-snapshot.ts:
     id: bcf57e3bb0ff
     last_write_checksum: sha1:9d30fc14a7010d06f3113e6a989f644a447f779a
@@ -1897,10 +1869,6 @@ trackedFiles:
     id: 277d31f9d13f
     last_write_checksum: sha1:0393ab694f6beff71f68061c352d407745b08cbe
     pristine_git_object: b87071fadb317f43f22315faaef6d9cc65d74ef2
-  src/models/operations/get-mcpbox-connection.ts:
-    id: f19f14e62f3e
-    last_write_checksum: sha1:e9702978d356027376e3f346d593e4ebb9bef392
-    pristine_git_object: cc248353beb7b58e25fab8e045792c08e87dbb26
   src/models/operations/get-mcpbox-snapshot.ts:
     id: 4ae8883dc883
     last_write_checksum: sha1:b91d158d91a5e3d5aab8578b99eb2b5ccee703b6
@@ -1929,10 +1897,6 @@ trackedFiles:
     id: 8a433f591db2
     last_write_checksum: sha1:c90751df59f000aad84e084a9fb0677305cb2653
     pristine_git_object: b214a40adda41e20c821874970640620dcd450b9
-  src/models/operations/get-webbox-connection.ts:
-    id: 1ac61840d32f
-    last_write_checksum: sha1:bd83209db369cf964d571c4f0aef433ec780b49c
-    pristine_git_object: 9b279258bbe25d062bc37bbd9b72d2a88cccac8a
   src/models/operations/get-webbox-snapshot.ts:
     id: 422e443f44a8
     last_write_checksum: sha1:9bb5e8956a6846161d47be4c31be1435869257ad
@@ -1943,8 +1907,8 @@ trackedFiles:
     pristine_git_object: 44192ae11eced68860b948bf5e8639bd7a19ebf7
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:79d15dfd50225fa86a28b673dc990cb36904312b
-    pristine_git_object: 3dd4f1bc6b3e8ff779f86649d175034de3d9de33
+    last_write_checksum: sha1:6d317ecbcf88e2bb9e47d8c82fe90f4144537e1f
+    pristine_git_object: 60a45c751d547b07b82d79b01cb2bbb6e10bfe92
   src/models/operations/list-apibox-snapshots.ts:
     id: 9b6d574ed40b
     last_write_checksum: sha1:e9a19634560e6724b666f6133e194c319f30c621
@@ -2243,8 +2207,8 @@ trackedFiles:
     pristine_git_object: f08bf1a3dbedcca9a90cdd13a0bbd4406754454e
   src/sdk/apibox.ts:
     id: d12dfb3e81c0
-    last_write_checksum: sha1:3f25ccb0b587e56601dbb24ca129db144bf03280
-    pristine_git_object: b26eb7601ddf1c96a959121fdb97b7e64efca54c
+    last_write_checksum: sha1:f0a7b0b9fccc2ac5decc7f413c8f00b4a2e495ef
+    pristine_git_object: e06e6fcf0b243643193d7e3448e397e0e9e0cb4d
   src/sdk/credentials.ts:
     id: 4808925acf5a
     last_write_checksum: sha1:60c9b3b3a1d66eb70e71cea4cf0cdd82522f4132
@@ -2255,12 +2219,12 @@ trackedFiles:
     pristine_git_object: ecac2264817bb369ff2dbf0f0e9029807e67ff77
   src/sdk/mcpbox-snapshots.ts:
     id: 9376c6955b39
-    last_write_checksum: sha1:de9e2ed7e2d05d45c99d6280c6af41a036aa7d13
-    pristine_git_object: 8fd507754651245842d25ee0c18bacb528638822
+    last_write_checksum: sha1:a2fa97c2b1b27a679077773c53a189ae217acd6f
+    pristine_git_object: 0648adec76368939cfd317b2565c1e836cf2acb1
   src/sdk/mcpbox.ts:
     id: 27e0beda18d1
-    last_write_checksum: sha1:25a700308b669a6afa93c3137da99b38c497c8c1
-    pristine_git_object: abc893a816bf3bf060a519913a0a32cf9dd9aa21
+    last_write_checksum: sha1:ac0e43ddbc5ad54085371e413061a9120354e86b
+    pristine_git_object: ac1df839bc0dff7c75c9d3cc65eb4c35bd3905c4
   src/sdk/sdk.ts:
     id: 784571af2f69
     last_write_checksum: sha1:6106661395ef0e0a97310d9a656734890774228a
@@ -2283,8 +2247,8 @@ trackedFiles:
     pristine_git_object: 0735e8523471c5271ea89a10bbeec37eb6a43055
   src/sdk/webbox.ts:
     id: ce3e66fe7d2e
-    last_write_checksum: sha1:1262636c76f9dfa742ec996bc960dfda6bdc86b7
-    pristine_git_object: cd9f95cc67127c199745971f5131f6414c5e4b2e
+    last_write_checksum: sha1:e8adfa0137ee809ed0c5b7db68e6c7bde5fa79ca
+    pristine_git_object: d7474fe642c254c49e451a3186b2d600b5174e99
   src/types/async.ts:
     id: fac8da972f86
     last_write_checksum: sha1:675d04bb4b4081dc3482f18de98674f9b446e7b4
@@ -5322,4 +5286,8 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.mcpbox.createMcpbox()`:  `response.mcpbox` **Changed** (Breaking ⚠️)\n* `continuous.webbox.stopWebbox()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.webbox.startWebbox()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.apibox.listApiboxes()`:  `response.apiboxes[]` **Changed** (Breaking ⚠️)\n* `continuous.apibox.createApibox()`: \n  *  `response.apibox` **Changed** (Breaking ⚠️)\n  *  `error.status[422]` **Added**\n* `continuous.webbox.updateWebbox()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.status[422]` **Added**\n* `continuous.apibox.getApibox()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.apibox.updateApibox()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.status[422]` **Added**\n* `continuous.webbox.getWebbox()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.apibox.startApibox()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.apibox.stopApibox()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.webbox.createWebbox()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.status[422]` **Added**\n* `continuous.webbox.listWebboxes()`:  `response.webboxes[]` **Changed** (Breaking ⚠️)\n* `continuous.mcpbox.stopMcpbox()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.mcpbox.startMcpbox()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.mcpbox.updateMcpbox()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.status[422]` **Added**\n* `continuous.mcpbox.getMcpbox()`:  `response` **Changed** (Breaking ⚠️)\n* `continuous.mcpbox.listMcpboxes()`:  `response.mcpboxes[]` **Changed** (Breaking ⚠️)\n* `continuous.mcpboxSnapshots.listMcpboxSnapshots()`: \n  *  `request` **Changed**\n  *  `response.snapshots[]` **Changed**\n* `continuous.simulators.getSimulator()`:  `response.build.waiting.type` **Added**\n* `continuous.apiboxSnapshots.cancelApiboxSnapshot()`:  `response` **Changed**\n* `continuous.mcpbox.getMcpboxConnection()`: **Deprecated**\n* `continuous.apiboxSnapshots.updateApiboxSnapshot()`: \n  *  `response` **Changed**\n  *  `error.status[422]` **Added**\n* `continuous.apiboxSnapshots.getApiboxSnapshot()`:  `response` **Changed**\n* `continuous.apibox.saveApiboxSnapshot()`: **Added**\n* `continuous.mcpboxSnapshots.createMcpboxSnapshot()`:  `response` **Changed**\n* `continuous.mcpboxSnapshots.deleteMcpboxSnapshot()`:  `error.status[403]` **Added**\n* `continuous.mcpboxSnapshots.getMcpboxSnapshot()`:  `response` **Changed**\n* `continuous.mcpboxSnapshots.updateMcpboxSnapshot()`: \n  *  `response` **Changed**\n  *  `error` **Changed**\n* `continuous.mcpboxSnapshots.cancelMcpboxSnapshot()`: \n  *  `response` **Changed**\n  *  `error.status[403]` **Added**\n* `continuous.mcpboxSnapshots.resumeMcpboxSnapshot()`: \n  *  `request.body` **Added**\n  *  `response` **Changed**\n  *  `error` **Changed**\n* `continuous.simulators.listSimulators()`:  `response.simulators[].build.waiting.type` **Added**\n* `continuous.simulators.buildSimulator()`:  `response.build.waiting.type` **Added**\n* `continuous.apiboxSnapshots.resumeApiboxSnapshot()`: \n  *  `request.body` **Added**\n  *  `response` **Changed**\n  *  `error` **Changed**\n* `continuous.simulators.updateSimulator()`:  `response.build.waiting.type` **Added**\n* `continuous.simulators.cancelSimulator()`:  `response.build.waiting.type` **Added**\n* `continuous.simulators.resumeSimulator()`: \n  *  `request.body` **Added**\n  *  `response.build.waiting.type` **Added**\n  *  `error` **Changed**\n* `continuous.apiboxSnapshots.createApiboxSnapshot()`:  `response` **Changed**\n* `continuous.apiboxSnapshots.listApiboxSnapshots()`: \n  *  `request.source` **Changed**\n  *  `response.snapshots[]` **Changed**\n* `continuous.apibox.getApiboxConnection()`: **Deprecated**\n* `continuous.apibox.deleteApibox()`:  `error.status[409]` **Added**\n* `continuous.webbox.getWebboxConnection()`: **Deprecated**\n* `continuous.webbox.saveWebboxSnapshot()`: **Added**\n* `continuous.mcpbox.saveMcpboxSnapshot()`: **Added**\n* `continuous.webboxSnapshots.listWebboxSnapshots()`: \n  *  `request.source` **Changed**\n  *  `response.snapshots[]` **Changed**\n* `continuous.webboxSnapshots.createWebboxSnapshot()`:  `response` **Changed**\n* `continuous.webboxSnapshots.getWebboxSnapshot()`:  `response` **Changed**\n* `continuous.webboxSnapshots.updateWebboxSnapshot()`: \n  *  `response` **Changed**\n  *  `error.status[422]` **Added**\n* `continuous.webboxSnapshots.cancelWebboxSnapshot()`:  `response` **Changed**\n* `continuous.webboxSnapshots.resumeWebboxSnapshot()`: \n  *  `request.body` **Added**\n  *  `response` **Changed**\n  *  `error` **Changed**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `continuous.apibox.getApiboxConnection()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpbox.getMcpboxConnection()`: **Removed** (Breaking ⚠️)
+  * `continuous.webbox.getWebboxConnection()`: **Removed** (Breaking ⚠️)

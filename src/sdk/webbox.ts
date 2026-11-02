@@ -4,7 +4,6 @@
 
 import { webboxCreateWebbox } from "../funcs/webbox-create-webbox.js";
 import { webboxDeleteWebbox } from "../funcs/webbox-delete-webbox.js";
-import { webboxGetWebboxConnection } from "../funcs/webbox-get-webbox-connection.js";
 import { webboxGetWebbox } from "../funcs/webbox-get-webbox.js";
 import { webboxListWebboxSteps } from "../funcs/webbox-list-webbox-steps.js";
 import { webboxListWebboxes } from "../funcs/webbox-list-webboxes.js";
@@ -100,25 +99,6 @@ export class Webbox extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.WebBox> {
     return unwrapAsync(webboxUpdateWebbox(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Get Web Box connection
-   *
-   * @remarks
-   * Deprecated: get the Web Box, whose connection this returns. Returns the URL that opens the Web Box's app, whether it is running or stopped.
-   *
-   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  async getWebboxConnection(
-    request: operations.GetWebboxConnectionRequest,
-    options?: RequestOptions,
-  ): Promise<models.WebBoxConnection> {
-    return unwrapAsync(webboxGetWebboxConnection(
       this,
       request,
       options,

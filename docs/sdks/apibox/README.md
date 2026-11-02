@@ -11,7 +11,6 @@ Start API Boxes from API Box Snapshots. Each API Box serves its Snapshot's API a
 * [deleteApibox](#deleteapibox) - Delete API Box
 * [getApibox](#getapibox) - Get API Box
 * [updateApibox](#updateapibox) - Update API Box
-* [~~getApiboxConnection~~](#getapiboxconnection) - Get API Box connection :warning: **Deprecated**
 * [saveApiboxSnapshot](#saveapiboxsnapshot) - Save API Box as Snapshot
 * [startApibox](#startapibox) - Start API Box
 * [listApiboxSteps](#listapiboxsteps) - List API Box steps
@@ -405,83 +404,6 @@ run();
 | errors.ErrorT                     | 400, 401, 404, 408, 413, 415, 422 | application/problem+json          |
 | errors.ErrorT                     | 500, 503                          | application/problem+json          |
 | errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
-
-## ~~getApiboxConnection~~
-
-Deprecated: get the API Box, whose connection this returns. Returns the API Box's endpoint and token, whether it is running or stopped. An API Box with no stored token returns 409 apibox_token_unavailable; its next start issues one.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="get-apibox-connection" method="get" path="/v1/apibox/{id}/connection" -->
-```typescript
-import { Continuous } from "@continuous-labs/sdk";
-
-const continuous = new Continuous({
-  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
-});
-
-async function run() {
-  const result = await continuous.apibox.getApiboxConnection({
-    id: "<id>",
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { apiboxGetApiboxConnection } from "@continuous-labs/sdk/funcs/apibox-get-apibox-connection.js";
-
-// Use `ContinuousCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const continuous = new ContinuousCore({
-  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
-});
-
-async function run() {
-  const res = await apiboxGetApiboxConnection(continuous, {
-    id: "<id>",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("apiboxGetApiboxConnection failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetApiboxConnectionRequest](../../models/operations/get-apibox-connection-request.md)                                                                              | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[models.APIBoxConnection](../../models/api-box-connection.md)\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 404, 409                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## saveApiboxSnapshot
 

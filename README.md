@@ -143,7 +143,6 @@ run();
 * [deleteApibox](docs/sdks/apibox/README.md#deleteapibox) - Delete API Box
 * [getApibox](docs/sdks/apibox/README.md#getapibox) - Get API Box
 * [updateApibox](docs/sdks/apibox/README.md#updateapibox) - Update API Box
-* [~~getApiboxConnection~~](docs/sdks/apibox/README.md#getapiboxconnection) - Get API Box connection :warning: **Deprecated**
 * [saveApiboxSnapshot](docs/sdks/apibox/README.md#saveapiboxsnapshot) - Save API Box as Snapshot
 * [startApibox](docs/sdks/apibox/README.md#startapibox) - Start API Box
 * [listApiboxSteps](docs/sdks/apibox/README.md#listapiboxsteps) - List API Box steps
@@ -174,7 +173,6 @@ run();
 * [deleteMcpbox](docs/sdks/mcpbox/README.md#deletemcpbox) - Delete MCP Box
 * [getMcpbox](docs/sdks/mcpbox/README.md#getmcpbox) - Get MCP Box
 * [updateMcpbox](docs/sdks/mcpbox/README.md#updatemcpbox) - Update MCP Box
-* [~~getMcpboxConnection~~](docs/sdks/mcpbox/README.md#getmcpboxconnection) - Get MCP Box connection :warning: **Deprecated**
 * [saveMcpboxSnapshot](docs/sdks/mcpbox/README.md#savemcpboxsnapshot) - Save MCP Box as Snapshot
 * [startMcpbox](docs/sdks/mcpbox/README.md#startmcpbox) - Start MCP Box
 * [stopMcpbox](docs/sdks/mcpbox/README.md#stopmcpbox) - Stop MCP Box
@@ -231,7 +229,6 @@ run();
 * [deleteWebbox](docs/sdks/webbox/README.md#deletewebbox) - Delete Web Box
 * [getWebbox](docs/sdks/webbox/README.md#getwebbox) - Get Web Box
 * [updateWebbox](docs/sdks/webbox/README.md#updatewebbox) - Update Web Box
-* [~~getWebboxConnection~~](docs/sdks/webbox/README.md#getwebboxconnection) - Get Web Box connection :warning: **Deprecated**
 * [saveWebboxSnapshot](docs/sdks/webbox/README.md#savewebboxsnapshot) - Save Web Box as Snapshot
 * [startWebbox](docs/sdks/webbox/README.md#startwebbox) - Start Web Box
 * [listWebboxSteps](docs/sdks/webbox/README.md#listwebboxsteps) - List Web Box steps
@@ -317,8 +314,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`webboxStartWebbox`](docs/sdks/webbox/README.md#startwebbox) - Start Web Box
 - [`webboxStopWebbox`](docs/sdks/webbox/README.md#stopwebbox) - Stop Web Box
 - [`webboxUpdateWebbox`](docs/sdks/webbox/README.md#updatewebbox) - Update Web Box
-- ~~[`apiboxGetApiboxConnection`](docs/sdks/apibox/README.md#getapiboxconnection)~~ - Get API Box connection :warning: **Deprecated**
-- ~~[`mcpboxGetMcpboxConnection`](docs/sdks/mcpbox/README.md#getmcpboxconnection)~~ - Get MCP Box connection :warning: **Deprecated**
 - ~~[`simulationsCreateSimulation`](docs/sdks/simulations/README.md#createsimulation)~~ - Create Simulation :warning: **Deprecated**
 - ~~[`simulationsCreateSimulationAdvance`](docs/sdks/simulations/README.md#createsimulationadvance)~~ - Advance Simulation Time :warning: **Deprecated**
 - ~~[`simulationsDeleteSimulation`](docs/sdks/simulations/README.md#deletesimulation)~~ - Delete Simulation :warning: **Deprecated**
@@ -345,7 +340,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - ~~[`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators)~~ - List Simulators :warning: **Deprecated**
 - ~~[`simulatorsResumeSimulator`](docs/sdks/simulators/README.md#resumesimulator)~~ - Resume Simulator Build :warning: **Deprecated**
 - ~~[`simulatorsUpdateSimulator`](docs/sdks/simulators/README.md#updatesimulator)~~ - Update Simulator :warning: **Deprecated**
-- ~~[`webboxGetWebboxConnection`](docs/sdks/webbox/README.md#getwebboxconnection)~~ - Get Web Box connection :warning: **Deprecated**
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -555,7 +549,7 @@ run();
 
 
 **Inherit from [`ContinuousError`](./src/models/errors/continuous-error.ts)**:
-* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 81 methods.*
+* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 78 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
