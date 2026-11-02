@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type BuildMCPBoxSnapshotRequest = {
   /**
-   * The ready API Box Snapshot of the workspace or the catalog whose API the MCP Box calls. Its spec is the build's.
+   * The ready API Box Snapshot of the workspace or the catalog whose API the MCP Box calls. Its spec is the build's, and must be OpenAPI or GraphQL.
    */
   apiboxSnapshotId: string;
   /**

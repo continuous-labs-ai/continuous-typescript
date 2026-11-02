@@ -4,7 +4,6 @@
 
 import { mcpboxCreateMcpbox } from "../funcs/mcpbox-create-mcpbox.js";
 import { mcpboxDeleteMcpbox } from "../funcs/mcpbox-delete-mcpbox.js";
-import { mcpboxGetMcpboxConnection } from "../funcs/mcpbox-get-mcpbox-connection.js";
 import { mcpboxGetMcpbox } from "../funcs/mcpbox-get-mcpbox.js";
 import { mcpboxListMcpboxes } from "../funcs/mcpbox-list-mcpboxes.js";
 import { mcpboxSaveMcpboxSnapshot } from "../funcs/mcpbox-save-mcpbox-snapshot.js";
@@ -99,25 +98,6 @@ export class Mcpbox extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.MCPBox> {
     return unwrapAsync(mcpboxUpdateMcpbox(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Get MCP Box connection
-   *
-   * @remarks
-   * Deprecated: get the MCP Box, whose connection this returns. Returns the MCP Box's endpoint and token, whether it is running or stopped. An MCP Box with no stored token returns 409 mcpbox_token_unavailable; its next start issues one.
-   *
-   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  async getMcpboxConnection(
-    request: operations.GetMcpboxConnectionRequest,
-    options?: RequestOptions,
-  ): Promise<models.MCPBoxConnection> {
-    return unwrapAsync(mcpboxGetMcpboxConnection(
       this,
       request,
       options,
