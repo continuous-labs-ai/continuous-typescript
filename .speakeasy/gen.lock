@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: c4905b7bacdfbc41b36c0dbce9f5653b
+  docChecksum: dfba60fb111767ff63222ed4db3651b4
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.3.7
-  configChecksum: 021de5515f305ef32ffb253aa85f98c2
+  releaseVersion: 0.3.8
+  configChecksum: bee9b808c88301b5a4c5fcf9147cfecf
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 416608a7-732c-4127-8558-8d75de2d0817
-  pristine_commit_hash: b6b2ca60d854b49b25fd1023482c511490ce080e
-  pristine_tree_hash: 49a2309a0b5a0742c4a9032a722a817c656cdeb3
+  generation_id: 3d42d385-a118-4a3d-9201-ae24679bf295
+  pristine_commit_hash: 977f786dc8248b5713761a57d3b5211ddc5b1420
+  pristine_tree_hash: 08fb6787a379c983d89c3fc76cbb2d242f94af5d
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -103,8 +103,8 @@ trackedFiles:
     pristine_git_object: 860d4ab767f7c93109c2bd4a6ee5fd0e170914a7
   docs/models/api-box-token-response.md:
     id: 583a6f1552be
-    last_write_checksum: sha1:8905636a39f1409682b51fda0f94136dca0fddd4
-    pristine_git_object: 4ee6803bdb6af70ac693d22805156498d90ddaa5
+    last_write_checksum: sha1:aab8e8d0dfde5d2c8d3e3b07dd62e3685a876d1b
+    pristine_git_object: 9067c1c05e3a54f2c27ad8a965263c5b482489f9
   docs/models/api-box.md:
     id: 4fb79dc85a7c
     last_write_checksum: sha1:5c267d42bd5b8f66a5f03dcd5fa3026689f6653e
@@ -263,16 +263,16 @@ trackedFiles:
     pristine_git_object: ddb4ee157a3d68ce015d07d2c8875b848d940c39
   docs/models/get-api-box-response.md:
     id: 4c34f24a4168
-    last_write_checksum: sha1:a38aff4e35a95863a9b267668e2f70c8d2e4a04f
-    pristine_git_object: 0f4a126fb3a164de6d2ca41b5146aea1c0c02c62
+    last_write_checksum: sha1:472b9f598b519319f41ab2a5791e1eb426c866ab
+    pristine_git_object: 2dd8074cccbc8ccfa64ffeb62a4e6f2895b9f6cf
   docs/models/get-mcp-box-response-status.md:
     id: 0d699f6652f6
     last_write_checksum: sha1:1cd85ee81995fce96082accacbabb7b9f4d14e70
     pristine_git_object: 6bd090e02ae26d830fe3b9f4667feb81f3d14ebb
   docs/models/get-mcp-box-response.md:
     id: 86e56adaa24a
-    last_write_checksum: sha1:7cca4372273b19d36a7193ef70024370ac765bdc
-    pristine_git_object: 8486d6c440786e03afac2786398e0c3fd21c2d08
+    last_write_checksum: sha1:9065120ec3c83636ffdac30752cf32088da2769a
+    pristine_git_object: 7d7d78fd3bc158e8a99a2e6b346b592a1ddd1114
   docs/models/get-web-box-response-status.md:
     id: e6a031ac2003
     last_write_checksum: sha1:8a8ae70da3f5f5d7ef978e26c11968e2a858d40f
@@ -363,8 +363,8 @@ trackedFiles:
     pristine_git_object: a700784bef63680bb21150d2cdb3402a4b47684f
   docs/models/mcp-box-token-response.md:
     id: 72168e66e85c
-    last_write_checksum: sha1:74d151e8900a466a001398fde0b3172483d4c095
-    pristine_git_object: 79a1c93b2b52529bdbe27d438ebe12f25fd17d53
+    last_write_checksum: sha1:4b36bbd1210a6e57241d49ccd8d5d027557854d9
+    pristine_git_object: a86a853719a35268b3d5264d612756f9f5150998
   docs/models/mcp-box.md:
     id: 030d2e1d70bf
     last_write_checksum: sha1:992c7952b248fa47f1cfab723c1c7d6009a48115
@@ -1119,12 +1119,12 @@ trackedFiles:
     pristine_git_object: a8174ac1b126a1796e076b9f3122a0ede68d2d7d
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:c9e9508d1d51d4d9c054ca7c35a62145974161d3
-    pristine_git_object: 54f0cba8c7520a290b1444c168fe45cbf6e5cd91
+    last_write_checksum: sha1:c1243636734633531832edd6f12da8dc615a036e
+    pristine_git_object: e71377bbb652a93103cabb411939eaad4eefc2a8
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:4f390b778de863d2aa3cf0674da4409c1759d2f8
-    pristine_git_object: 06588acd9d35f487a788e1b4c936f772ca1541a8
+    last_write_checksum: sha1:136d87449e17bc29f48e5f89d7b7d091ed2f7cdb
+    pristine_git_object: 94be7395a30bc38a8f45e466151a91bf5a7c8a85
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -1463,8 +1463,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:ee09ca00379dfab31d0e5985c6379b73165c36f6
-    pristine_git_object: 331338ec2e0dfda8c6d1f289c8706a7435816f8b
+    last_write_checksum: sha1:ee54e0fb34d2d01314007cc5b105ddcfa6cf4034
+    pristine_git_object: e8623010e431766f89a7709ec9efa5a553498266
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -1527,8 +1527,8 @@ trackedFiles:
     pristine_git_object: da33e8584c8c79e8679d4af643a29e47f5f04da2
   src/models/api-box-token-response.ts:
     id: 878c0c127608
-    last_write_checksum: sha1:af7bdeaa231994a5b819ebc0088ffee4f840cdc3
-    pristine_git_object: a5bfc17bdf13d5b4f59058629a9572267ff3c95a
+    last_write_checksum: sha1:51c8dcb5233df4dc383383abe04291ed6f264c9e
+    pristine_git_object: 12aeae353affcd7f53f01d4ae091bbe28a8e155e
   src/models/api-box.ts:
     id: 1b04a8252a4f
     last_write_checksum: sha1:8ccb50e719847e859289e54efeb6aafd29480e1a
@@ -1671,12 +1671,12 @@ trackedFiles:
     pristine_git_object: a510536f4e08dafed3fe013c32ebcac7788abc68
   src/models/get-api-box-response.ts:
     id: c931c46aaad1
-    last_write_checksum: sha1:544f84a5c146ed2b82128b502d6792a57f852e28
-    pristine_git_object: d97eedcfc18c5cf2ca9f7467fd4d718feb43c413
+    last_write_checksum: sha1:e61377bc517f157e4ed0217852ce092829bf0989
+    pristine_git_object: b0cece4bfbad45f51dbde26fdecd76c14bb6c06d
   src/models/get-mcp-box-response.ts:
     id: a2a518ef6daa
-    last_write_checksum: sha1:49342604a16368e3eb9fe30c93f7efc185fa5c7d
-    pristine_git_object: 0c43d6c70d93959dfb67ad829c997bf56cb90e05
+    last_write_checksum: sha1:6a8a2de51302fef0b157f1d370e13a83fd9f9a06
+    pristine_git_object: 9a5e85a8c9f862fd13b3695371f1c4ad67ad5343
   src/models/get-web-box-response.ts:
     id: 4b727c32b44d
     last_write_checksum: sha1:b488692e54b997771ca86639d96dbac25b0974dd
@@ -1751,8 +1751,8 @@ trackedFiles:
     pristine_git_object: 72db093b124efbe847a834821513a1f5465d9635
   src/models/mcp-box-token-response.ts:
     id: 6d388af74b6b
-    last_write_checksum: sha1:fa6731bcd434fa076d35bb95e3044f8fcd91ca63
-    pristine_git_object: 92fb8c828700bda33b4799087ce0effe3cf74ea9
+    last_write_checksum: sha1:a301c1dc267d65ac636d95525016e138871da2ee
+    pristine_git_object: 5e2482a54b6fefe7058f4a4dd35f0fc7a7aed863
   src/models/mcp-box.ts:
     id: ec9ec671833f
     last_write_checksum: sha1:b16fa25bdec45e1c2238f95b13a2943bf4c598dd
@@ -5286,8 +5286,3 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `continuous.apibox.getApiboxConnection()`: **Removed** (Breaking ⚠️)
-  * `continuous.mcpbox.getMcpboxConnection()`: **Removed** (Breaking ⚠️)
-  * `continuous.webbox.getWebboxConnection()`: **Removed** (Breaking ⚠️)

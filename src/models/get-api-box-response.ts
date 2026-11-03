@@ -32,7 +32,7 @@ export type GetAPIBoxResponseStatus = OpenEnum<typeof GetAPIBoxResponseStatus>;
 
 export type GetAPIBoxResponse = {
   /**
-   * The API Box's endpoint and token, or null while it has no stored token; its next start issues one.
+   * The API Box's endpoint and token, or null for a box created before boxes stored their tokens.
    */
   connection: APIBoxConnection | null;
   /**

@@ -12,7 +12,7 @@ import { MCPBox, MCPBox$inboundSchema } from "./mcp-box.js";
 export type MCPBoxTokenResponse = {
   mcpbox: MCPBox;
   /**
-   * The MCP Box's token, which lasts until the MCP Box is deleted. It is null only on a retried create whose first attempt stored no token; a start then issues one, which the MCP Box's get returns.
+   * The MCP Box's token, which lasts until the MCP Box is deleted. It is null only for a box created before boxes stored their tokens.
    */
   token: string | null;
 };
