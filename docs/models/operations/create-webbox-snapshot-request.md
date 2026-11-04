@@ -7,9 +7,7 @@ import { CreateWebboxSnapshotRequest } from "@continuous-labs/sdk/models/operati
 
 let value: CreateWebboxSnapshotRequest = {
   body: {
-    request: {
-      credentialIds: [],
-    },
+    request: {},
   },
 };
 ```

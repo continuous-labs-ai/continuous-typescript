@@ -7,9 +7,9 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type BuildWebBoxSnapshotRequest = {
   /**
-   * Workspace credentials: exactly one login for the vendor's web app, whose saved sign-in the builder and QA use on the live app, and up to four others with a base_url that they can call real systems with. Each must belong to the workspace. QA may create test objects in the live app; use a sandbox or test account.
+   * Workspace credentials: exactly one login for the vendor's web app, whose saved sign-in the builder and QA use on the live app, and up to four others with a base_url that they can call real systems with. Each must belong to the workspace. Required without parent_id. QA may create test objects in the live app; use a sandbox or test account.
    */
-  credentialIds: Array<string>;
+  credentialIds?: Array<string> | undefined;
   /**
    * Instructions for the builder. At most 16,384 characters and 65,536 UTF-8 bytes; must not be blank or contain U+0000.
    */
@@ -23,6 +23,10 @@ export type BuildWebBoxSnapshotRequest = {
    */
   name?: string | undefined;
   /**
+   * A ready Web Box Snapshot of the workspace or the catalog to build on. The build starts from its source, documents and tests. What the request does not set comes from the parent: its documents, which an upload of the same name replaces, its model, its review rounds, and those of its credentials the workspace still has, which must include its login. timeout_seconds keeps its default.
+   */
+  parentId?: string | undefined;
+  /**
    * Review rounds, from 1 to 10. Defaults to 1. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
    */
   reviewRounds?: number | undefined;
@@ -34,10 +38,11 @@ export type BuildWebBoxSnapshotRequest = {
 
 /** @internal */
 export type BuildWebBoxSnapshotRequest$Outbound = {
-  credential_ids: Array<string>;
+  credential_ids?: Array<string> | undefined;
   instructions?: string | undefined;
   model?: string | undefined;
   name?: string | undefined;
+  parent_id?: string | undefined;
   review_rounds: number;
   timeout_seconds: number;
 };
@@ -48,16 +53,18 @@ export const BuildWebBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
   BuildWebBoxSnapshotRequest
 > = z.pipe(
   z.object({
-    credentialIds: z.array(z.string()),
+    credentialIds: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
     model: z.optional(z.string()),
     name: z.optional(z.string()),
+    parentId: z.optional(z.string()),
     reviewRounds: z._default(z.int(), 1),
     timeoutSeconds: z._default(z.int(), 28800),
   }),
   z.transform((v) => {
     return remap$(v, {
       credentialIds: "credential_ids",
+      parentId: "parent_id",
       reviewRounds: "review_rounds",
       timeoutSeconds: "timeout_seconds",
     });

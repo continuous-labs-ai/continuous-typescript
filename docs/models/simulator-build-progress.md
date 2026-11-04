@@ -20,10 +20,10 @@ let value: SimulatorBuildProgress = {
   waitedSeconds: 877214,
   waiting: {
     credentialIds: [],
-    deadline: new Date("2024-06-11T02:34:42.777Z"),
+    deadline: new Date("2026-12-17T12:44:55.990Z"),
     reason: "<value>",
-    since: new Date("2026-12-17T12:44:55.990Z"),
-    type: "time_limit",
+    since: new Date("2026-04-02T03:17:18.732Z"),
+    type: "live_credentials",
   },
   warnings: [],
 };

@@ -156,6 +156,7 @@ run();
 * [getApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#getapiboxsnapshot) - Get API Box Snapshot
 * [updateApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#updateapiboxsnapshot) - Update API Box Snapshot
 * [cancelApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#cancelapiboxsnapshot) - Cancel API Box Snapshot build
+* [cloneApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#cloneapiboxsnapshot) - Clone API Box Snapshot
 * [resumeApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#resumeapiboxsnapshot) - Resume API Box Snapshot build
 
 ### [Credentials](docs/sdks/credentials/README.md)
@@ -185,6 +186,7 @@ run();
 * [getMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#getmcpboxsnapshot) - Get MCP Box Snapshot
 * [updateMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#updatemcpboxsnapshot) - Update MCP Box Snapshot
 * [cancelMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#cancelmcpboxsnapshot) - Cancel MCP Box Snapshot build
+* [cloneMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#clonemcpboxsnapshot) - Clone MCP Box Snapshot
 * [resumeMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#resumemcpboxsnapshot) - Resume MCP Box Snapshot build
 
 ### [~~SimulationSnapshots~~](docs/sdks/simulationsnapshots/README.md)
@@ -242,6 +244,7 @@ run();
 * [getWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#getwebboxsnapshot) - Get Web Box Snapshot
 * [updateWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#updatewebboxsnapshot) - Update Web Box Snapshot
 * [cancelWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#cancelwebboxsnapshot) - Cancel Web Box Snapshot build
+* [cloneWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#clonewebboxsnapshot) - Clone Web Box Snapshot
 * [resumeWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#resumewebboxsnapshot) - Resume Web Box Snapshot build
 
 </details>
@@ -269,6 +272,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`apiboxListApiboxSteps`](docs/sdks/apibox/README.md#listapiboxsteps) - List API Box steps
 - [`apiboxSaveApiboxSnapshot`](docs/sdks/apibox/README.md#saveapiboxsnapshot) - Save API Box as Snapshot
 - [`apiboxSnapshotsCancelApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#cancelapiboxsnapshot) - Cancel API Box Snapshot build
+- [`apiboxSnapshotsCloneApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#cloneapiboxsnapshot) - Clone API Box Snapshot
 - [`apiboxSnapshotsCreateApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#createapiboxsnapshot) - Create API Box Snapshot
 - [`apiboxSnapshotsDeleteApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#deleteapiboxsnapshot) - Delete API Box Snapshot
 - [`apiboxSnapshotsGetApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#getapiboxsnapshot) - Get API Box Snapshot
@@ -289,6 +293,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`mcpboxListMcpboxes`](docs/sdks/mcpbox/README.md#listmcpboxes) - List MCP Boxes
 - [`mcpboxSaveMcpboxSnapshot`](docs/sdks/mcpbox/README.md#savemcpboxsnapshot) - Save MCP Box as Snapshot
 - [`mcpboxSnapshotsCancelMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#cancelmcpboxsnapshot) - Cancel MCP Box Snapshot build
+- [`mcpboxSnapshotsCloneMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#clonemcpboxsnapshot) - Clone MCP Box Snapshot
 - [`mcpboxSnapshotsCreateMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#createmcpboxsnapshot) - Create MCP Box Snapshot
 - [`mcpboxSnapshotsDeleteMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#deletemcpboxsnapshot) - Delete MCP Box Snapshot
 - [`mcpboxSnapshotsGetMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#getmcpboxsnapshot) - Get MCP Box Snapshot
@@ -305,6 +310,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`webboxListWebboxSteps`](docs/sdks/webbox/README.md#listwebboxsteps) - List Web Box steps
 - [`webboxSaveWebboxSnapshot`](docs/sdks/webbox/README.md#savewebboxsnapshot) - Save Web Box as Snapshot
 - [`webboxSnapshotsCancelWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#cancelwebboxsnapshot) - Cancel Web Box Snapshot build
+- [`webboxSnapshotsCloneWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#clonewebboxsnapshot) - Clone Web Box Snapshot
 - [`webboxSnapshotsCreateWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#createwebboxsnapshot) - Create Web Box Snapshot
 - [`webboxSnapshotsDeleteWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#deletewebboxsnapshot) - Delete Web Box Snapshot
 - [`webboxSnapshotsGetWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#getwebboxsnapshot) - Get Web Box Snapshot
@@ -549,7 +555,7 @@ run();
 
 
 **Inherit from [`ContinuousError`](./src/models/errors/continuous-error.ts)**:
-* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 78 methods.*
+* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 81 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

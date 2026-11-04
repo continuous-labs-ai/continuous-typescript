@@ -6,9 +6,7 @@
 import { CreateMcpboxSnapshotRequestBody } from "@continuous-labs/sdk/models/operations";
 
 let value: CreateMcpboxSnapshotRequestBody = {
-  request: {
-    apiboxSnapshotId: "<id>",
-  },
+  request: {},
 };
 ```
 

@@ -6,9 +6,7 @@
 import { CreateWebboxSnapshotRequestBody } from "@continuous-labs/sdk/models/operations";
 
 let value: CreateWebboxSnapshotRequestBody = {
-  request: {
-    credentialIds: [],
-  },
+  request: {},
 };
 ```
 
