@@ -7,9 +7,9 @@ import { remap as remap$ } from "../lib/primitives.js";
 
 export type BuildMCPBoxSnapshotRequest = {
   /**
-   * The ready API Box Snapshot of the workspace or the catalog whose API the MCP Box calls. Its spec is the build's, and must be OpenAPI or GraphQL.
+   * The ready API Box Snapshot of the workspace or the catalog whose API the MCP Box calls. Its spec is the build's, and must be OpenAPI or GraphQL. Required without parent_id; with it, omission takes the parent's.
    */
-  apiboxSnapshotId: string;
+  apiboxSnapshotId?: string | undefined;
   /**
    * At most one workspace credential of the source MCP server: its base_url is the server's endpoint. With it, the build captures the live server's tools and QA compares the MCP Box with it. It must belong to the workspace. QA calls only tools the source marks read-only. Use a sandbox or test account.
    */
@@ -27,6 +27,10 @@ export type BuildMCPBoxSnapshotRequest = {
    */
   name?: string | undefined;
   /**
+   * A ready MCP Box Snapshot of the workspace or the catalog to build on. The build starts from its handlers, tests and documents; its capture and research run as a new build's, with the parent's folder for reference. What the request does not set comes from the parent: its API Box Snapshot, its documents, which an upload of the same name replaces, its model, its review rounds, and its credential if the workspace still has it. timeout_seconds keeps its default.
+   */
+  parentId?: string | undefined;
+  /**
    * Review rounds, from 1 to 10. Defaults to 1. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
    */
   reviewRounds?: number | undefined;
@@ -38,11 +42,12 @@ export type BuildMCPBoxSnapshotRequest = {
 
 /** @internal */
 export type BuildMCPBoxSnapshotRequest$Outbound = {
-  apibox_snapshot_id: string;
+  apibox_snapshot_id?: string | undefined;
   credential_ids?: Array<string> | undefined;
   instructions?: string | undefined;
   model?: string | undefined;
   name?: string | undefined;
+  parent_id?: string | undefined;
   review_rounds: number;
   timeout_seconds: number;
 };
@@ -53,11 +58,12 @@ export const BuildMCPBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
   BuildMCPBoxSnapshotRequest
 > = z.pipe(
   z.object({
-    apiboxSnapshotId: z.string(),
+    apiboxSnapshotId: z.optional(z.string()),
     credentialIds: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
     model: z.optional(z.string()),
     name: z.optional(z.string()),
+    parentId: z.optional(z.string()),
     reviewRounds: z._default(z.int(), 1),
     timeoutSeconds: z._default(z.int(), 28800),
   }),
@@ -65,6 +71,7 @@ export const BuildMCPBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
     return remap$(v, {
       apiboxSnapshotId: "apibox_snapshot_id",
       credentialIds: "credential_ids",
+      parentId: "parent_id",
       reviewRounds: "review_rounds",
       timeoutSeconds: "timeout_seconds",
     });

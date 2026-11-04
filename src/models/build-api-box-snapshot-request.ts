@@ -27,7 +27,7 @@ export type BuildAPIBoxSnapshotRequest = {
    */
   credentialIds?: Array<string> | undefined;
   /**
-   * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId, the WSDL operation name, or the GraphQL Query or Mutation field name; an operation is kept when any expression matches, and an OpenAPI operation without an operationId is dropped. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation.
+   * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId, the WSDL operation name, or the GraphQL Query or Mutation field name; an operation is kept when any expression matches, and an OpenAPI operation without an operationId is dropped. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation of the spec, which for a build on a parent without a spec part is the parent's selection.
    */
   filter?: Array<string> | undefined;
   /**
@@ -42,6 +42,10 @@ export type BuildAPIBoxSnapshotRequest = {
    * Name for the Snapshot. Omission generates a name. Names must not contain U+0000. The ID stays its identity, and names need not be unique.
    */
   name?: string | undefined;
+  /**
+   * A ready API Box Snapshot of the workspace or the catalog to build on. The build starts from its source, documents and tests. What the request does not set comes from the parent: its spec, its documents, which an upload of the same name replaces, its model, its review rounds, and those of its credentials the workspace still has; timeout_seconds keeps its default. Without a spec part, filter narrows the parent's operations; to widen them, send the full spec.
+   */
+  parentId?: string | undefined;
   /**
    * Review rounds, from 1 to 10. Defaults to 1. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
    */
@@ -68,6 +72,7 @@ export type BuildAPIBoxSnapshotRequest$Outbound = {
   instructions?: string | undefined;
   model?: string | undefined;
   name?: string | undefined;
+  parent_id?: string | undefined;
   review_rounds: number;
   spec_kind?: string | undefined;
   timeout_seconds: number;
@@ -84,6 +89,7 @@ export const BuildAPIBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
     instructions: z.optional(z.string()),
     model: z.optional(z.string()),
     name: z.optional(z.string()),
+    parentId: z.optional(z.string()),
     reviewRounds: z._default(z.int(), 1),
     specKind: z.optional(BuildAPIBoxSnapshotRequestSpecKind$outboundSchema),
     timeoutSeconds: z._default(z.int(), 28800),
@@ -91,6 +97,7 @@ export const BuildAPIBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
   z.transform((v) => {
     return remap$(v, {
       credentialIds: "credential_ids",
+      parentId: "parent_id",
       reviewRounds: "review_rounds",
       specKind: "spec_kind",
       timeoutSeconds: "timeout_seconds",

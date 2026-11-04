@@ -12,6 +12,10 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import { Limitation, Limitation$inboundSchema } from "./limitation.js";
 import {
+  SimulatorActor,
+  SimulatorActor$inboundSchema,
+} from "./simulator-actor.js";
+import {
   SimulatorBuildProgress,
   SimulatorBuildProgress$inboundSchema,
 } from "./simulator-build-progress.js";
@@ -58,6 +62,10 @@ export type MCPBoxSnapshotStatus = OpenEnum<typeof MCPBoxSnapshotStatus>;
 
 export type MCPBoxSnapshot = {
   /**
+   * The callers a request to a Box started from the Snapshot can act as by sending an actor's id in the X-Continuous-Actor header. Without the header, a request acts as the default actor. An MCP Box Snapshot lists its API Box Snapshot's actors. Empty before the Snapshot is ready, when its build names none, or in a list until the Snapshot's actors are first read.
+   */
+  actors: Array<SimulatorActor>;
+  /**
    * The API Box Snapshot the MCP Box was built against, whose API it calls.
    */
   apiboxSnapshotId: string;
@@ -103,6 +111,10 @@ export type MCPBoxSnapshot = {
    */
   name: string;
   /**
+   * The Snapshot an incremental build started from, or null for any other Snapshot or once that Snapshot is deleted.
+   */
+  parentId: string | null;
+  /**
    * The build's research stage, or null when research did not run.
    */
   research: SimulatorResearch | null;
@@ -110,6 +122,14 @@ export type MCPBoxSnapshot = {
    * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an MCP Box.
    */
   source: MCPBoxSnapshotSource;
+  /**
+   * The box the Snapshot was saved from, or null for a built or published Snapshot.
+   */
+  sourceBoxId: string | null;
+  /**
+   * The Snapshot the box it was saved from started from, or null for a built or published Snapshot, or once that Snapshot is deleted.
+   */
+  sourceSnapshotId: string | null;
   /**
    * The source MCP server whose tools the MCP Box serves, or empty when the build called no live source.
    */
@@ -138,6 +158,7 @@ export const MCPBoxSnapshot$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
+    actors: z.array(SimulatorActor$inboundSchema),
     apibox_snapshot_id: types.string(),
     build: types.nullable(SimulatorBuildProgress$inboundSchema),
     composition: types.nullable(SimulatorComposition$inboundSchema),
@@ -150,8 +171,11 @@ export const MCPBoxSnapshot$inboundSchema: z.ZodMiniType<
     limitations: z.array(Limitation$inboundSchema),
     metadata: z.any(),
     name: types.string(),
+    parent_id: types.nullable(types.string()),
     research: types.nullable(SimulatorResearch$inboundSchema),
     source: MCPBoxSnapshotSource$inboundSchema,
+    source_box_id: types.nullable(types.string()),
+    source_snapshot_id: types.nullable(types.string()),
     source_url: types.string(),
     status: MCPBoxSnapshotStatus$inboundSchema,
   }),
@@ -161,6 +185,9 @@ export const MCPBoxSnapshot$inboundSchema: z.ZodMiniType<
       "created_at": "createdAt",
       "credential_ids": "credentialIds",
       "hidden_limitations": "hiddenLimitations",
+      "parent_id": "parentId",
+      "source_box_id": "sourceBoxId",
+      "source_snapshot_id": "sourceSnapshotId",
       "source_url": "sourceUrl",
     });
   }),

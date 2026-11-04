@@ -3,6 +3,7 @@
  */
 
 import { mcpboxSnapshotsCancelMcpboxSnapshot } from "../funcs/mcpbox-snapshots-cancel-mcpbox-snapshot.js";
+import { mcpboxSnapshotsCloneMcpboxSnapshot } from "../funcs/mcpbox-snapshots-clone-mcpbox-snapshot.js";
 import { mcpboxSnapshotsCreateMcpboxSnapshot } from "../funcs/mcpbox-snapshots-create-mcpbox-snapshot.js";
 import { mcpboxSnapshotsDeleteMcpboxSnapshot } from "../funcs/mcpbox-snapshots-delete-mcpbox-snapshot.js";
 import { mcpboxSnapshotsGetMcpboxSnapshot } from "../funcs/mcpbox-snapshots-get-mcpbox-snapshot.js";
@@ -39,7 +40,7 @@ export class McpboxSnapshots extends ClientSDK {
    * Create MCP Box Snapshot
    *
    * @remarks
-   * Starts an asynchronous build and returns the MCP Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; MCP Boxes serve a ready one. The build makes an MCP server that answers from the API Box Snapshot it names, run in real time: with a credential, it copies the live MCP server at the credential's base_url; without one, the server its instructions or research name. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request and optional file parts named document with vendor documentation.
+   * Starts an asynchronous build and returns the MCP Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; MCP Boxes serve a ready one. The build makes an MCP server that answers from the API Box Snapshot it names, run in real time: with a credential, it copies the live MCP server at the credential's base_url; without one, the server its instructions or research name. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request and optional file parts named document with vendor documentation. To build on a ready MCP Box Snapshot, set parent_id.
    */
   async createMcpboxSnapshot(
     request: operations.CreateMcpboxSnapshotRequest,
@@ -114,6 +115,23 @@ export class McpboxSnapshots extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.MCPBoxSnapshot> {
     return unwrapAsync(mcpboxSnapshotsCancelMcpboxSnapshot(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Clone MCP Box Snapshot
+   *
+   * @remarks
+   * Creates a ready copy of a ready MCP Box Snapshot in another workspace, without a build. The clone has a new ID and the source's artifact, documents and saved state; the source is unchanged. The clone records no credentials, since they belong to the source workspace, and no parent or source Snapshot. An API Box Snapshot of the source workspace that the MCP Box Snapshot was built against is cloned with it, and the clone is built against the copy; a catalog one is kept. The source is the caller's workspace: an API key's own workspace, or X-Workspace-Id for a session. An API key may clone into any other workspace of its organization.
+   */
+  async cloneMcpboxSnapshot(
+    request: operations.CloneMcpboxSnapshotRequest,
+    options?: RequestOptions,
+  ): Promise<models.MCPBoxSnapshot> {
+    return unwrapAsync(mcpboxSnapshotsCloneMcpboxSnapshot(
       this,
       request,
       options,

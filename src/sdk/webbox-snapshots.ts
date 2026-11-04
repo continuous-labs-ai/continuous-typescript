@@ -3,6 +3,7 @@
  */
 
 import { webboxSnapshotsCancelWebboxSnapshot } from "../funcs/webbox-snapshots-cancel-webbox-snapshot.js";
+import { webboxSnapshotsCloneWebboxSnapshot } from "../funcs/webbox-snapshots-clone-webbox-snapshot.js";
 import { webboxSnapshotsCreateWebboxSnapshot } from "../funcs/webbox-snapshots-create-webbox-snapshot.js";
 import { webboxSnapshotsDeleteWebboxSnapshot } from "../funcs/webbox-snapshots-delete-webbox-snapshot.js";
 import { webboxSnapshotsGetWebboxSnapshot } from "../funcs/webbox-snapshots-get-webbox-snapshot.js";
@@ -39,7 +40,7 @@ export class WebboxSnapshots extends ClientSDK {
    * Create Web Box Snapshot
    *
    * @remarks
-   * Starts an asynchronous build and returns the Web Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; Web Boxes start from a ready one. The build runs in real time: the builder and QA use the vendor's live web app through its login credential, and the built app has no simulated clock. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request and optional file parts named document with vendor documentation.
+   * Starts an asynchronous build and returns the Web Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; Web Boxes start from a ready one. The build runs in real time: the builder and QA use the vendor's live web app through its login credential, and the built app has no simulated clock. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request and optional file parts named document with vendor documentation. To build on a ready Snapshot, set parent_id.
    */
   async createWebboxSnapshot(
     request: operations.CreateWebboxSnapshotRequest,
@@ -114,6 +115,23 @@ export class WebboxSnapshots extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.WebBoxSnapshot> {
     return unwrapAsync(webboxSnapshotsCancelWebboxSnapshot(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Clone Web Box Snapshot
+   *
+   * @remarks
+   * Creates a ready copy of a ready Web Box Snapshot in another workspace, without a build. The clone has a new ID and the source's artifact, documents and saved state; the source is unchanged. The clone records no credentials, since they belong to the source workspace, and no parent or source Snapshot. The source is the caller's workspace: an API key's own workspace, or X-Workspace-Id for a session. An API key may clone into any other workspace of its organization.
+   */
+  async cloneWebboxSnapshot(
+    request: operations.CloneWebboxSnapshotRequest,
+    options?: RequestOptions,
+  ): Promise<models.WebBoxSnapshot> {
+    return unwrapAsync(webboxSnapshotsCloneWebboxSnapshot(
       this,
       request,
       options,

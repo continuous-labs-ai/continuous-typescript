@@ -16,6 +16,7 @@ export * from "./build-web-box-snapshot-request.js";
 export * from "./clock-advance-member.js";
 export * from "./clock-advance.js";
 export * from "./clock-event.js";
+export * from "./clone-box-snapshot-request.js";
 export * from "./clone-simulator-request.js";
 export * from "./clone-simulator-response.js";
 export * from "./create-api-box-request.js";

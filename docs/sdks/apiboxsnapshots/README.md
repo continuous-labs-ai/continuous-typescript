@@ -12,6 +12,7 @@ Build API Box Snapshots from an OpenAPI, WSDL or GraphQL document, or use the ca
 * [getApiboxSnapshot](#getapiboxsnapshot) - Get API Box Snapshot
 * [updateApiboxSnapshot](#updateapiboxsnapshot) - Update API Box Snapshot
 * [cancelApiboxSnapshot](#cancelapiboxsnapshot) - Cancel API Box Snapshot build
+* [cloneApiboxSnapshot](#cloneapiboxsnapshot) - Clone API Box Snapshot
 * [resumeApiboxSnapshot](#resumeapiboxsnapshot) - Resume API Box Snapshot build
 
 ## listApiboxSnapshots
@@ -91,7 +92,7 @@ run();
 
 ## createApiboxSnapshot
 
-Starts an asynchronous build and returns the API Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; API Boxes start from a ready one. The build is a Simulator build in api mode, run in real time: the built service has no simulated clock, and its scheduled work runs at the first request at or after its time. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request, a file part named spec with the OpenAPI, WSDL or GraphQL document, and optional file parts named document with vendor documentation.
+Starts an asynchronous build and returns the API Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; API Boxes start from a ready one. The build is a Simulator build in api mode, run in real time: the built service has no simulated clock, and its scheduled work runs at the first request at or after its time. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request, a file part named spec with the OpenAPI, WSDL or GraphQL document, and optional file parts named document with vendor documentation. To build on a ready Snapshot, set parent_id; the spec part is then optional.
 
 ### Example Usage
 
@@ -471,6 +472,142 @@ run();
 | errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
 | errors.ErrorT                 | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## cloneApiboxSnapshot
+
+Creates a ready copy of a ready API Box Snapshot in another workspace, without a build. The clone has a new ID and the source's artifact, documents and saved state; the source is unchanged. The clone records no credentials, since they belong to the source workspace, and no parent or source Snapshot. The source is the caller's workspace: an API key's own workspace, or X-Workspace-Id for a session. An API key may clone into any other workspace of its organization.
+
+### Example Usage: bad_request_body
+
+<!-- UsageSnippet language="typescript" operationID="clone-apibox-snapshot" method="post" path="/v1/apibox-snapshots/{id}/clone" example="bad_request_body" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.apiboxSnapshots.cloneApiboxSnapshot({
+    id: "<id>",
+    body: {
+      targetWorkspaceId: "<id>",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { apiboxSnapshotsCloneApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-snapshots-clone-apibox-snapshot.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await apiboxSnapshotsCloneApiboxSnapshot(continuous, {
+    id: "<id>",
+    body: {
+      targetWorkspaceId: "<id>",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("apiboxSnapshotsCloneApiboxSnapshot failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: bad_request_clone_target
+
+<!-- UsageSnippet language="typescript" operationID="clone-apibox-snapshot" method="post" path="/v1/apibox-snapshots/{id}/clone" example="bad_request_clone_target" -->
+```typescript
+import { Continuous } from "@continuous-labs/sdk";
+
+const continuous = new Continuous({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await continuous.apiboxSnapshots.cloneApiboxSnapshot({
+    id: "<id>",
+    body: {
+      targetWorkspaceId: "<id>",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ContinuousCore } from "@continuous-labs/sdk/core.js";
+import { apiboxSnapshotsCloneApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-snapshots-clone-apibox-snapshot.js";
+
+// Use `ContinuousCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const continuous = new ContinuousCore({
+  apiKeyAuth: process.env["CONTINUOUS_API_KEY_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await apiboxSnapshotsCloneApiboxSnapshot(continuous, {
+    id: "<id>",
+    body: {
+      targetWorkspaceId: "<id>",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("apiboxSnapshotsCloneApiboxSnapshot failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CloneApiboxSnapshotRequest](../../models/operations/clone-apibox-snapshot-request.md)                                                                              | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.APIBoxSnapshot](../../models/api-box-snapshot.md)\>**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
+| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
 ## resumeApiboxSnapshot
 

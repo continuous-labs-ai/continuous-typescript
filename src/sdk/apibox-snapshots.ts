@@ -3,6 +3,7 @@
  */
 
 import { apiboxSnapshotsCancelApiboxSnapshot } from "../funcs/apibox-snapshots-cancel-apibox-snapshot.js";
+import { apiboxSnapshotsCloneApiboxSnapshot } from "../funcs/apibox-snapshots-clone-apibox-snapshot.js";
 import { apiboxSnapshotsCreateApiboxSnapshot } from "../funcs/apibox-snapshots-create-apibox-snapshot.js";
 import { apiboxSnapshotsDeleteApiboxSnapshot } from "../funcs/apibox-snapshots-delete-apibox-snapshot.js";
 import { apiboxSnapshotsGetApiboxSnapshot } from "../funcs/apibox-snapshots-get-apibox-snapshot.js";
@@ -39,7 +40,7 @@ export class ApiboxSnapshots extends ClientSDK {
    * Create API Box Snapshot
    *
    * @remarks
-   * Starts an asynchronous build and returns the API Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; API Boxes start from a ready one. The build is a Simulator build in api mode, run in real time: the built service has no simulated clock, and its scheduled work runs at the first request at or after its time. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request, a file part named spec with the OpenAPI, WSDL or GraphQL document, and optional file parts named document with vendor documentation.
+   * Starts an asynchronous build and returns the API Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; API Boxes start from a ready one. The build is a Simulator build in api mode, run in real time: the built service has no simulated clock, and its scheduled work runs at the first request at or after its time. Builds queue with Simulator builds and count toward the same quotas. Send multipart/form-data with a JSON part named request, a file part named spec with the OpenAPI, WSDL or GraphQL document, and optional file parts named document with vendor documentation. To build on a ready Snapshot, set parent_id; the spec part is then optional.
    */
   async createApiboxSnapshot(
     request: operations.CreateApiboxSnapshotRequest,
@@ -114,6 +115,23 @@ export class ApiboxSnapshots extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.APIBoxSnapshot> {
     return unwrapAsync(apiboxSnapshotsCancelApiboxSnapshot(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Clone API Box Snapshot
+   *
+   * @remarks
+   * Creates a ready copy of a ready API Box Snapshot in another workspace, without a build. The clone has a new ID and the source's artifact, documents and saved state; the source is unchanged. The clone records no credentials, since they belong to the source workspace, and no parent or source Snapshot. The source is the caller's workspace: an API key's own workspace, or X-Workspace-Id for a session. An API key may clone into any other workspace of its organization.
+   */
+  async cloneApiboxSnapshot(
+    request: operations.CloneApiboxSnapshotRequest,
+    options?: RequestOptions,
+  ): Promise<models.APIBoxSnapshot> {
+    return unwrapAsync(apiboxSnapshotsCloneApiboxSnapshot(
       this,
       request,
       options,

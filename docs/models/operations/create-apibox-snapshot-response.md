@@ -6,10 +6,28 @@
 import { CreateApiboxSnapshotResponse } from "@continuous-labs/sdk/models/operations";
 
 let value: CreateApiboxSnapshotResponse = {
-  headers: {},
+  headers: {
+    "key": [
+      "<value 1>",
+      "<value 2>",
+    ],
+    "key1": [
+      "<value 1>",
+      "<value 2>",
+    ],
+  },
   result: {
+    actors: [
+      {
+        default: false,
+        entity: "<value>",
+        id: "<id>",
+        name: "<value>",
+        role: "<value>",
+      },
+    ],
     build: {
-      hiddenLimitations: 761235,
+      hiddenLimitations: 905264,
       lastSubmission: "rejected",
       lastTool: "<value>",
       limitations: [
@@ -19,33 +37,44 @@ let value: CreateApiboxSnapshotResponse = {
           operations: [
             "<value 1>",
             "<value 2>",
+            "<value 3>",
           ],
-          reviewed: false,
+          reviewed: true,
         },
       ],
-      model: "gpt-6.1-sol",
-      phase: "review",
-      reviewRound: 931544,
-      reviewRounds: 190163,
-      stage: "derive",
-      submissions: 992879,
-      toolCalls: 468781,
-      waitedSeconds: 23888,
+      model: "combined",
+      phase: "finalize",
+      reviewRound: 190163,
+      reviewRounds: 170650,
+      stage: "assemble",
+      submissions: 468781,
+      toolCalls: 23888,
+      waitedSeconds: 350029,
       waiting: {
         credentialIds: [],
-        deadline: new Date("2024-06-11T02:34:42.777Z"),
+        deadline: new Date("2026-12-17T12:44:55.990Z"),
         reason: "<value>",
-        since: new Date("2026-12-17T12:44:55.990Z"),
-        type: "time_limit",
+        since: new Date("2026-04-02T03:17:18.732Z"),
+        type: "live_credentials",
       },
-      warnings: [],
+      warnings: [
+        {
+          code: "spec.schema_limit",
+          location: "<value>",
+          message: "<value>",
+          operations: [
+            "<value 1>",
+            "<value 2>",
+          ],
+        },
+      ],
     },
     composition: {
-      entities: 586913,
-      operations: 748332,
-      sample: true,
+      entities: 188689,
+      operations: 295894,
+      sample: false,
     },
-    createdAt: new Date("2025-06-29T16:02:36.926Z"),
+    createdAt: new Date("2024-05-28T06:16:53.136Z"),
     credentialIds: [
       "<value 1>",
       "<value 2>",
@@ -57,32 +86,37 @@ let value: CreateApiboxSnapshotResponse = {
       detail: "<value>",
       reason: "specification_invalid",
       validation: {
-        issues: [
-          {
-            code: "<value>",
-            kind: "unsupported",
-            location: "<value>",
-            message: "<value>",
-            operation: "<value>",
-            suggestion: "<value>",
-          },
-        ],
+        issues: [],
       },
     },
-    hiddenLimitations: 976454,
+    hiddenLimitations: 506521,
     id: "<id>",
     instructions: "<value>",
-    limitations: [],
+    limitations: [
+      {
+        location: "<value>",
+        message: "<value>",
+        operations: [
+          "<value 1>",
+          "<value 2>",
+          "<value 3>",
+        ],
+        reviewed: true,
+      },
+    ],
     metadata: "<value>",
     name: "<value>",
+    parentId: "<id>",
     research: {
-      bytes: 359196,
-      pages: 317014,
-      status: "pending",
+      bytes: 978994,
+      pages: 244930,
+      status: "provided",
     },
-    source: "box",
+    source: "build",
+    sourceBoxId: "<id>",
+    sourceSnapshotId: "<id>",
     specKind: "graphql",
-    status: "ready",
+    status: "building",
   },
 };
 ```
