@@ -37,7 +37,7 @@ import {
  * List API Box Snapshots
  *
  * @remarks
- * Returns the workspace's API Box Snapshots and the catalog's, newest first. Results can be filtered by source and status.
+ * Returns the workspace's API Box Snapshots and the catalog's, newest first. Results can be filtered by source and status, and by the API Box a Snapshot was saved from.
  */
 export function apiboxSnapshotsListApiboxSnapshots(
   client: ContinuousCore,
@@ -109,6 +109,7 @@ async function $do(
   const path = pathToFunc("/v1/apibox-snapshots")();
 
   const query = encodeFormQuery({
+    "box_id": payload?.box_id,
     "cursor": payload?.cursor,
     "limit": payload?.limit,
     "source": payload?.source,

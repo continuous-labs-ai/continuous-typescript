@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Delete API Box Snapshot
  *
  * @remarks
- * Deletes an API Box Snapshot. A build that is still pending or building is canceled first. A Snapshot that API Boxes started from or MCP Box Snapshots were built against returns 409 apibox_snapshot_in_use; delete those first. Catalog Snapshots cannot be deleted.
+ * Deletes an API Box Snapshot. A build that is still pending or building is canceled first. A Snapshot that API Boxes started from or MCP Box Snapshots were built against returns 409 apibox_snapshot_in_use; delete those first. While a build that names it as parent_id is pending or building, it returns 409 apibox_snapshot_parent_in_use; retry after the build finishes. Catalog Snapshots cannot be deleted.
  */
 export function apiboxSnapshotsDeleteApiboxSnapshot(
   client: ContinuousCore,

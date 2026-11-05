@@ -21,7 +21,7 @@ export class WebboxSnapshots extends ClientSDK {
    * List Web Box Snapshots
    *
    * @remarks
-   * Returns the workspace's Web Box Snapshots and the catalog's, newest first. Results can be filtered by source and status.
+   * Returns the workspace's Web Box Snapshots and the catalog's, newest first. Results can be filtered by source and status, and by the Web Box a Snapshot was saved from.
    */
   async listWebboxSnapshots(
     request?: operations.ListWebboxSnapshotsRequest | undefined,
@@ -57,7 +57,7 @@ export class WebboxSnapshots extends ClientSDK {
    * Delete Web Box Snapshot
    *
    * @remarks
-   * Deletes a Web Box Snapshot. A build that is still pending or building is canceled first. A Snapshot that Web Boxes started from returns 409 webbox_snapshot_in_use; delete those Web Boxes first. Catalog Snapshots cannot be deleted.
+   * Deletes a Web Box Snapshot. A build that is still pending or building is canceled first. A Snapshot that Web Boxes started from returns 409 webbox_snapshot_in_use; delete those Web Boxes first. While a build that names it as parent_id is pending or building, it returns 409 webbox_snapshot_parent_in_use; retry after the build finishes. Catalog Snapshots cannot be deleted.
    */
   async deleteWebboxSnapshot(
     request: operations.DeleteWebboxSnapshotRequest,

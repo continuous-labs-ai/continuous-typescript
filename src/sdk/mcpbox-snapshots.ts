@@ -21,7 +21,7 @@ export class McpboxSnapshots extends ClientSDK {
    * List MCP Box Snapshots
    *
    * @remarks
-   * Returns the workspace's MCP Box Snapshots and the catalog's, newest first. Results can be filtered by status and source.
+   * Returns the workspace's MCP Box Snapshots and the catalog's, newest first. Results can be filtered by status and source, and by the MCP Box a Snapshot was saved from.
    */
   async listMcpboxSnapshots(
     request?: operations.ListMcpboxSnapshotsRequest | undefined,
@@ -57,7 +57,7 @@ export class McpboxSnapshots extends ClientSDK {
    * Delete MCP Box Snapshot
    *
    * @remarks
-   * Deletes an MCP Box Snapshot. A build that is still pending or building is canceled first. The API Box Snapshot it was built against stays. A Snapshot that MCP Boxes serve returns 409 mcpbox_snapshot_in_use; delete those MCP Boxes first.
+   * Deletes an MCP Box Snapshot. A build that is still pending or building is canceled first. The API Box Snapshot it was built against stays. A Snapshot that MCP Boxes serve returns 409 mcpbox_snapshot_in_use; delete those MCP Boxes first. While a build that names it as parent_id is pending or building, it returns 409 mcpbox_snapshot_parent_in_use; retry after the build finishes.
    */
   async deleteMcpboxSnapshot(
     request: operations.DeleteMcpboxSnapshotRequest,

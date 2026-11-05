@@ -39,7 +39,7 @@ let value: CreateWebboxSnapshotResponse = {
         },
       ],
       model: "combined",
-      phase: "finalize",
+      phase: "repair",
       reviewRound: 190163,
       reviewRounds: 170650,
       stage: "assemble",
