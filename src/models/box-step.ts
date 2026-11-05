@@ -10,7 +10,7 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type BoxStep = {
   /**
-   * The request that made the step.
+   * The request that made the step, or "Handle async events" for events the app scheduled.
    */
   label: string;
   /**

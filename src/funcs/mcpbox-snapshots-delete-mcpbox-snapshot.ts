@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Delete MCP Box Snapshot
  *
  * @remarks
- * Deletes an MCP Box Snapshot. A build that is still pending or building is canceled first. The API Box Snapshot it was built against stays. A Snapshot that MCP Boxes serve returns 409 mcpbox_snapshot_in_use; delete those MCP Boxes first.
+ * Deletes an MCP Box Snapshot. A build that is still pending or building is canceled first. The API Box Snapshot it was built against stays. A Snapshot that MCP Boxes serve returns 409 mcpbox_snapshot_in_use; delete those MCP Boxes first. While a build that names it as parent_id is pending or building, it returns 409 mcpbox_snapshot_parent_in_use; retry after the build finishes.
  */
 export function mcpboxSnapshotsDeleteMcpboxSnapshot(
   client: ContinuousCore,

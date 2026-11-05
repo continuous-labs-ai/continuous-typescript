@@ -59,6 +59,10 @@ export type ListMcpboxSnapshotsRequest = {
    * Optional source filter.
    */
   source?: ListMcpboxSnapshotsSource | undefined;
+  /**
+   * Optional filter for the Snapshots saved from this Box.
+   */
+  boxId?: string | undefined;
 };
 
 export type ListMcpboxSnapshotsResponse = {
@@ -81,18 +85,27 @@ export type ListMcpboxSnapshotsRequest$Outbound = {
   limit: number;
   cursor?: string | undefined;
   source?: string | undefined;
+  box_id?: string | undefined;
 };
 
 /** @internal */
 export const ListMcpboxSnapshotsRequest$outboundSchema: z.ZodMiniType<
   ListMcpboxSnapshotsRequest$Outbound,
   ListMcpboxSnapshotsRequest
-> = z.object({
-  status: z.optional(ListMcpboxSnapshotsStatus$outboundSchema),
-  limit: z._default(z.int(), 50),
-  cursor: z.optional(z.string()),
-  source: z.optional(ListMcpboxSnapshotsSource$outboundSchema),
-});
+> = z.pipe(
+  z.object({
+    status: z.optional(ListMcpboxSnapshotsStatus$outboundSchema),
+    limit: z._default(z.int(), 50),
+    cursor: z.optional(z.string()),
+    source: z.optional(ListMcpboxSnapshotsSource$outboundSchema),
+    boxId: z.optional(z.string()),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      boxId: "box_id",
+    });
+  }),
+);
 
 export function listMcpboxSnapshotsRequestToJSON(
   listMcpboxSnapshotsRequest: ListMcpboxSnapshotsRequest,

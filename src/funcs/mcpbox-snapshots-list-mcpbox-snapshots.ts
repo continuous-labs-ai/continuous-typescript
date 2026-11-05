@@ -37,7 +37,7 @@ import {
  * List MCP Box Snapshots
  *
  * @remarks
- * Returns the workspace's MCP Box Snapshots and the catalog's, newest first. Results can be filtered by status and source.
+ * Returns the workspace's MCP Box Snapshots and the catalog's, newest first. Results can be filtered by status and source, and by the MCP Box a Snapshot was saved from.
  */
 export function mcpboxSnapshotsListMcpboxSnapshots(
   client: ContinuousCore,
@@ -109,6 +109,7 @@ async function $do(
   const path = pathToFunc("/v1/mcpbox-snapshots")();
 
   const query = encodeFormQuery({
+    "box_id": payload?.box_id,
     "cursor": payload?.cursor,
     "limit": payload?.limit,
     "source": payload?.source,

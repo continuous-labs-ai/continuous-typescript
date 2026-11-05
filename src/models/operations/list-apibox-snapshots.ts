@@ -59,6 +59,10 @@ export type ListApiboxSnapshotsRequest = {
    * Optional source filter.
    */
   source?: ListApiboxSnapshotsSource | undefined;
+  /**
+   * Optional filter for the Snapshots saved from this Box.
+   */
+  boxId?: string | undefined;
 };
 
 export type ListApiboxSnapshotsResponse = {
@@ -81,18 +85,27 @@ export type ListApiboxSnapshotsRequest$Outbound = {
   limit: number;
   cursor?: string | undefined;
   source?: string | undefined;
+  box_id?: string | undefined;
 };
 
 /** @internal */
 export const ListApiboxSnapshotsRequest$outboundSchema: z.ZodMiniType<
   ListApiboxSnapshotsRequest$Outbound,
   ListApiboxSnapshotsRequest
-> = z.object({
-  status: z.optional(ListApiboxSnapshotsStatus$outboundSchema),
-  limit: z._default(z.int(), 50),
-  cursor: z.optional(z.string()),
-  source: z.optional(ListApiboxSnapshotsSource$outboundSchema),
-});
+> = z.pipe(
+  z.object({
+    status: z.optional(ListApiboxSnapshotsStatus$outboundSchema),
+    limit: z._default(z.int(), 50),
+    cursor: z.optional(z.string()),
+    source: z.optional(ListApiboxSnapshotsSource$outboundSchema),
+    boxId: z.optional(z.string()),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      boxId: "box_id",
+    });
+  }),
+);
 
 export function listApiboxSnapshotsRequestToJSON(
   listApiboxSnapshotsRequest: ListApiboxSnapshotsRequest,
