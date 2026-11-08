@@ -21,6 +21,19 @@ import {
 } from "./specification-warning.js";
 
 /**
+ * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running, while it waits for the requester, or for a build recorded before agents reported it.
+ */
+export const AgentState = {
+  Working: "working",
+  Idle: "idle",
+  WaitingForLimit: "waiting_for_limit",
+} as const;
+/**
+ * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running, while it waits for the requester, or for a build recorded before agents reported it.
+ */
+export type AgentState = OpenEnum<typeof AgentState>;
+
+/**
  * Outcome of the most recent submit attempt, or null.
  */
 export const LastSubmission = {
@@ -80,9 +93,17 @@ export type Stage = OpenEnum<typeof Stage>;
 
 export type SimulatorBuildProgress = {
   /**
+   * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running, while it waits for the requester, or for a build recorded before agents reported it.
+   */
+  agentState: AgentState | null;
+  /**
    * Limitations the accepted build records beyond those listed in limitations.
    */
   hiddenLimitations: number;
+  /**
+   * When the build last saw its agent act, with or without a tool call. Null when agent_state is null or no activity was seen.
+   */
+  lastActivityAt: Date | null;
   /**
    * Outcome of the most recent submit attempt, or null.
    */
@@ -132,10 +153,18 @@ export type SimulatorBuildProgress = {
    */
   waiting: SimulatorBuildWaiting | null;
   /**
+   * When the usage limit resets while agent_state is waiting_for_limit. The agent continues then, within the build's time limit. Null otherwise.
+   */
+  waitingUntil: Date | null;
+  /**
    * Specification defects the build tolerated without changing the specification, set when the build prepares its specification. Empty when none.
    */
   warnings: Array<SpecificationWarning>;
 };
+
+/** @internal */
+export const AgentState$inboundSchema: z.ZodMiniType<AgentState, unknown> =
+  openEnums.inboundSchema(AgentState);
 
 /** @internal */
 export const LastSubmission$inboundSchema: z.ZodMiniType<
@@ -163,7 +192,9 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
+    agent_state: types.nullable(AgentState$inboundSchema),
     hidden_limitations: types.number(),
+    last_activity_at: types.nullable(types.date()),
     last_submission: types.nullable(LastSubmission$inboundSchema),
     last_tool: types.nullable(types.string()),
     limitations: z.array(Limitation$inboundSchema),
@@ -176,17 +207,21 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
     tool_calls: types.number(),
     waited_seconds: types.number(),
     waiting: types.nullable(SimulatorBuildWaiting$inboundSchema),
+    waiting_until: types.nullable(types.date()),
     warnings: z.array(SpecificationWarning$inboundSchema),
   }),
   z.transform((v) => {
     return remap$(v, {
+      "agent_state": "agentState",
       "hidden_limitations": "hiddenLimitations",
+      "last_activity_at": "lastActivityAt",
       "last_submission": "lastSubmission",
       "last_tool": "lastTool",
       "review_round": "reviewRound",
       "review_rounds": "reviewRounds",
       "tool_calls": "toolCalls",
       "waited_seconds": "waitedSeconds",
+      "waiting_until": "waitingUntil",
     });
   }),
 );

@@ -7,7 +7,9 @@ import { Simulator } from "@continuous-labs/sdk/models";
 
 let value: Simulator = {
   build: {
+    agentState: "working",
     hiddenLimitations: 0,
+    lastActivityAt: new Date("2026-01-15T12:09:30Z"),
     lastSubmission: "rejected",
     lastTool: "test",
     limitations: [],
@@ -20,6 +22,7 @@ let value: Simulator = {
     toolCalls: 7,
     waitedSeconds: 0,
     waiting: null,
+    waitingUntil: null,
     warnings: [],
   },
   createdAt: new Date("2026-01-15T12:00:00Z"),
