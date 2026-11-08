@@ -8,8 +8,10 @@ import { WebBoxSnapshot } from "@continuous-labs/sdk/models";
 let value: WebBoxSnapshot = {
   actors: [],
   build: {
-    hiddenLimitations: 905264,
-    lastSubmission: "rejected",
+    agentState: "waiting_for_limit",
+    hiddenLimitations: 852380,
+    lastActivityAt: new Date("2026-01-07T20:02:24.666Z"),
+    lastSubmission: "accepted",
     lastTool: "<value>",
     limitations: [
       {
@@ -23,21 +25,26 @@ let value: WebBoxSnapshot = {
         reviewed: true,
       },
     ],
-    model: "combined",
-    phase: "repair",
-    reviewRound: 190163,
-    reviewRounds: 170650,
-    stage: "assemble",
-    submissions: 468781,
-    toolCalls: 23888,
-    waitedSeconds: 350029,
+    model: "gpt-6.1-sol",
+    phase: "review",
+    reviewRound: 23888,
+    reviewRounds: 350029,
+    stage: "derive",
+    submissions: 147908,
+    toolCalls: 986799,
+    waitedSeconds: 750125,
     waiting: {
-      credentialIds: [],
-      deadline: new Date("2026-12-17T12:44:55.990Z"),
+      credentialIds: [
+        "<value 1>",
+        "<value 2>",
+        "<value 3>",
+      ],
+      deadline: new Date("2025-10-05T06:09:26.950Z"),
       reason: "<value>",
-      since: new Date("2026-04-02T03:17:18.732Z"),
+      since: new Date("2026-03-31T04:06:20.010Z"),
       type: "live_credentials",
     },
+    waitingUntil: new Date("2024-11-20T07:12:42.749Z"),
     warnings: [
       {
         code: "spec.schema_limit",
@@ -51,8 +58,8 @@ let value: WebBoxSnapshot = {
     ],
   },
   composition: {
-    entities: 188689,
-    operations: 295894,
+    entities: 371076,
+    operations: 654632,
     sample: false,
   },
   createdAt: new Date("2024-01-04T00:43:33.310Z"),
@@ -64,7 +71,7 @@ let value: WebBoxSnapshot = {
     agentMessage: "<value>",
     code: "specification_validation_failed",
     detail: "<value>",
-    reason: "specification_invalid",
+    reason: "build_failed",
     validation: {
       issues: [],
     },

@@ -18,8 +18,8 @@ let value: MCPBoxSnapshot = {
   apiboxSnapshotId: "<id>",
   build: null,
   composition: {
-    entities: 188689,
-    operations: 295894,
+    entities: 371076,
+    operations: 654632,
     sample: false,
   },
   createdAt: new Date("2026-05-25T12:42:48.354Z"),
@@ -30,7 +30,7 @@ let value: MCPBoxSnapshot = {
     agentMessage: "<value>",
     code: "specification_validation_failed",
     detail: "<value>",
-    reason: "specification_invalid",
+    reason: "build_failed",
     validation: {
       issues: [],
     },
