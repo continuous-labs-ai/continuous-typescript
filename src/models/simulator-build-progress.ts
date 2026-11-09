@@ -149,7 +149,7 @@ export type SimulatorBuildProgress = {
    */
   waitedSeconds: number;
   /**
-   * Set while the build waits for the requester: at QA because the live systems rejected its credentials, or for more time after it used its time limit. Resume it with its resource's resume operation, such as POST /v1/simulators/{id}/resume. Null otherwise.
+   * Set while the build waits for the requester: at QA because the live systems rejected its credentials or rate limited its calls, or for more time after it used its time limit. Resume it with its resource's resume operation, such as POST /v1/simulators/{id}/resume. Null otherwise.
    */
   waiting: SimulatorBuildWaiting | null;
   /**

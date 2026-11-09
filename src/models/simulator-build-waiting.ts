@@ -12,28 +12,29 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
- * live_credentials while QA waits for the credentials it names to be refreshed; time_limit while the build waits for a resume that adds time with add_seconds.
+ * live_credentials while QA waits for the credentials it names to be refreshed; live_rate_limit while QA waits for the live systems' rate limit to reset; time_limit while the build waits for a resume that adds time with add_seconds.
  */
 export const Type = {
   LiveCredentials: "live_credentials",
+  LiveRateLimit: "live_rate_limit",
   TimeLimit: "time_limit",
 } as const;
 /**
- * live_credentials while QA waits for the credentials it names to be refreshed; time_limit while the build waits for a resume that adds time with add_seconds.
+ * live_credentials while QA waits for the credentials it names to be refreshed; live_rate_limit while QA waits for the live systems' rate limit to reset; time_limit while the build waits for a resume that adds time with add_seconds.
  */
 export type Type = OpenEnum<typeof Type>;
 
 export type SimulatorBuildWaiting = {
   /**
-   * The credentials to refresh with PATCH /v1/credentials/{id} before resuming the build. Empty for time_limit.
+   * The credentials to refresh with PATCH /v1/credentials/{id} before resuming the build. Empty for live_rate_limit and time_limit.
    */
   credentialIds: Array<string>;
   /**
-   * When the wait ends, 7 days after it began: a build not resumed by then fails, with error code live_credential_rejected for live_credentials and for its time limit for time_limit. The wait does not count toward the build's time limit.
+   * When the wait ends, 7 days after it began: a build not resumed by then fails, with error code live_credential_rejected for live_credentials, live_rate_limited for live_rate_limit, and for its time limit for time_limit. The wait does not count toward the build's time limit.
    */
   deadline: Date;
   /**
-   * Why the build waits: for live_credentials, the status and detail of the live reply that rejected QA's authenticated read.
+   * Why the build waits: for live_credentials, the status and detail of the live reply that rejected QA's authenticated read; for live_rate_limit, of the reply that rate limited QA's calls.
    */
   reason: string;
   /**
@@ -41,7 +42,7 @@ export type SimulatorBuildWaiting = {
    */
   since: Date;
   /**
-   * live_credentials while QA waits for the credentials it names to be refreshed; time_limit while the build waits for a resume that adds time with add_seconds.
+   * live_credentials while QA waits for the credentials it names to be refreshed; live_rate_limit while QA waits for the live systems' rate limit to reset; time_limit while the build waits for a resume that adds time with add_seconds.
    */
   type: Type;
 };

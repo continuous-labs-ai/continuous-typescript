@@ -1,6 +1,6 @@
 # Type
 
-live_credentials while QA waits for the credentials it names to be refreshed; time_limit while the build waits for a resume that adds time with add_seconds.
+live_credentials while QA waits for the credentials it names to be refreshed; live_rate_limit while QA waits for the live systems' rate limit to reset; time_limit while the build waits for a resume that adds time with add_seconds.
 
 ## Example Usage
 
@@ -15,5 +15,5 @@ let value: Type = "live_credentials";
 ## Values
 
 ```typescript
-"live_credentials" | "time_limit" | Unrecognized<string>
+"live_credentials" | "live_rate_limit" | "time_limit" | Unrecognized<string>
 ```
