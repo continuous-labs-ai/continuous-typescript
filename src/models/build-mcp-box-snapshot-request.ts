@@ -35,7 +35,7 @@ export type BuildMCPBoxSnapshotRequest = {
    */
   reviewRounds?: number | undefined;
   /**
-   * Time limit for generation and validation in seconds, from 1 to 172800. Defaults to 28800 (eight hours). Excludes queue wait, finalization, and any wait for live credentials. Retries share the same deadline.
+   * Time limit for generation and validation in seconds, from 1 to 172800. Defaults to 28800 (eight hours). Excludes queue wait, finalization, and any wait for the requester. Retries share the same deadline.
    */
   timeoutSeconds?: number | undefined;
 };

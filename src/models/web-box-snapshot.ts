@@ -66,7 +66,7 @@ export type WebBoxSnapshot = {
    */
   actors: Array<SimulatorActor>;
   /**
-   * The build's latest progress report, or null before the first report. A settled Snapshot keeps its last report. A build waiting for its live credentials resumes when the Snapshot's resume is requested.
+   * The build's latest progress report, or null before the first report. A settled Snapshot keeps its last report. A waiting build resumes when the Snapshot's resume is requested.
    */
   build: SimulatorBuildProgress | null;
   /**

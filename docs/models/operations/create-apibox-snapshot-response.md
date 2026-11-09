@@ -84,7 +84,7 @@ let value: CreateApiboxSnapshotResponse = {
     ],
     error: {
       agentMessage: "<value>",
-      code: "specification_validation_failed",
+      code: "live_credential_rejected",
       detail: "<value>",
       reason: "build_failed",
       validation: {
