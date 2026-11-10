@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type SimulatorActor = {
+export type Actor = {
   /**
    * Whether a request without the header acts as this caller.
    */
@@ -32,10 +32,7 @@ export type SimulatorActor = {
 };
 
 /** @internal */
-export const SimulatorActor$inboundSchema: z.ZodMiniType<
-  SimulatorActor,
-  unknown
-> = z.object({
+export const Actor$inboundSchema: z.ZodMiniType<Actor, unknown> = z.object({
   default: types.boolean(),
   entity: types.string(),
   id: types.string(),
@@ -43,12 +40,12 @@ export const SimulatorActor$inboundSchema: z.ZodMiniType<
   role: types.string(),
 });
 
-export function simulatorActorFromJSON(
+export function actorFromJSON(
   jsonString: string,
-): SafeParseResult<SimulatorActor, SDKValidationError> {
+): SafeParseResult<Actor, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SimulatorActor$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SimulatorActor' from JSON`,
+    (x) => Actor$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Actor' from JSON`,
   );
 }

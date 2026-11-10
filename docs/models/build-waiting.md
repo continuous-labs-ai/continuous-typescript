@@ -1,15 +1,18 @@
-# SimulatorBuildWaiting
+# BuildWaiting
 
 ## Example Usage
 
 ```typescript
-import { SimulatorBuildWaiting } from "@continuous-labs/sdk/models";
+import { BuildWaiting } from "@continuous-labs/sdk/models";
 
-let value: SimulatorBuildWaiting = {
-  credentialIds: [],
-  deadline: new Date("2024-02-09T03:54:25.334Z"),
+let value: BuildWaiting = {
+  credentialIds: [
+    "<value 1>",
+    "<value 2>",
+  ],
+  deadline: new Date("2026-02-20T06:34:31.170Z"),
   reason: "<value>",
-  since: new Date("2026-03-23T04:09:14.706Z"),
+  since: new Date("2025-08-21T21:33:01.942Z"),
   type: "time_limit",
 };
 ```

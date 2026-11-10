@@ -9,23 +9,20 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import { BuildError, BuildError$inboundSchema } from "./build-error.js";
+import {
+  BuildProgress,
+  BuildProgress$inboundSchema,
+} from "./build-progress.js";
+import {
+  BuildResearch,
+  BuildResearch$inboundSchema,
+} from "./build-research.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import {
-  SimulatorBuildProgress,
-  SimulatorBuildProgress$inboundSchema,
-} from "./simulator-build-progress.js";
-import {
-  SimulatorError,
-  SimulatorError$inboundSchema,
-} from "./simulator-error.js";
 import {
   SimulatorPublication,
   SimulatorPublication$inboundSchema,
 } from "./simulator-publication.js";
-import {
-  SimulatorResearch,
-  SimulatorResearch$inboundSchema,
-} from "./simulator-research.js";
 
 /**
  * api for a Simulator of the vendor's API; web_app for one of its logged-in web app.
@@ -84,7 +81,7 @@ export type Simulator = {
   /**
    * The build's latest progress report, or null before the first report. A terminal Simulator keeps its last report.
    */
-  build: SimulatorBuildProgress | null;
+  build: BuildProgress | null;
   /**
    * Simulator creation time.
    */
@@ -93,7 +90,7 @@ export type Simulator = {
    * Workspace credentials the build was allowed to call real systems with. Empty when none.
    */
   credentialIds: Array<string>;
-  error: SimulatorError | null;
+  error: BuildError | null;
   /**
    * Simulator ID.
    */
@@ -121,7 +118,7 @@ export type Simulator = {
   /**
    * The build's research stage, or null for a Simulator built before research ran on every build.
    */
-  research: SimulatorResearch | null;
+  research: BuildResearch | null;
   /**
    * workspace for a Simulator your workspace built; catalog for a read-only Simulator that Continuous publishes.
    */
@@ -164,17 +161,17 @@ export const SimulatorStatus$inboundSchema: z.ZodMiniType<
 export const Simulator$inboundSchema: z.ZodMiniType<Simulator, unknown> = z
   .pipe(
     z.object({
-      build: types.nullable(SimulatorBuildProgress$inboundSchema),
+      build: types.nullable(BuildProgress$inboundSchema),
       created_at: types.date(),
       credential_ids: z.array(types.string()),
-      error: types.nullable(SimulatorError$inboundSchema),
+      error: types.nullable(BuildError$inboundSchema),
       id: types.string(),
       instructions: types.string(),
       mode: SimulatorMode$inboundSchema,
       name: types.string(),
       parent_id: types.nullable(types.string()),
       publication: types.nullable(SimulatorPublication$inboundSchema),
-      research: types.nullable(SimulatorResearch$inboundSchema),
+      research: types.nullable(BuildResearch$inboundSchema),
       source: SimulatorSource$inboundSchema,
       spec_kind: types.nullable(SimulatorSpecKind$inboundSchema),
       status: SimulatorStatus$inboundSchema,

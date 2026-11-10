@@ -9,11 +9,8 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import { Actor, Actor$inboundSchema } from "./actor.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import {
-  SimulatorActor,
-  SimulatorActor$inboundSchema,
-} from "./simulator-actor.js";
 
 /**
  * Current status. starting means its runtime is booting; read the Simulation until it is running. running serves requests; after a period without requests, the first request can take longer while the Simulation resumes. stopping means its state is being saved, and stopped means it is saved; requests return 409 in both until you start it.
@@ -37,7 +34,7 @@ export type SimulationDetail = {
   /**
    * The callers a request can act as by sending an actor's id in the X-Continuous-Actor header. Without the header, a request acts as the default actor. Lists the actors the seed holds, plus actors only the sample holds when the Simulation includes sample data. Empty when the Simulator's build names none or its artifact cannot be read now.
    */
-  actors: Array<SimulatorActor>;
+  actors: Array<Actor>;
   /**
    * Simulation creation time.
    */
@@ -109,7 +106,7 @@ export const SimulationDetail$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     active_advance_id: types.nullable(types.string()),
-    actors: z.array(SimulatorActor$inboundSchema),
+    actors: z.array(Actor$inboundSchema),
     created_at: types.date(),
     current_time: types.date(),
     endpoint: types.string(),

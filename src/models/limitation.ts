@@ -10,11 +10,11 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export type Limitation = {
   /**
-   * The operations the limitation affects, readably, or Simulator when it names none.
+   * The operations the limitation affects, readably, or Service when it names none.
    */
   location: string;
   /**
-   * What the Simulator does differently from the real system.
+   * What the service does differently from the real system.
    */
   message: string;
   /**

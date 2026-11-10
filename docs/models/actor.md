@@ -1,12 +1,12 @@
-# SimulatorActor
+# Actor
 
 ## Example Usage
 
 ```typescript
-import { SimulatorActor } from "@continuous-labs/sdk/models";
+import { Actor } from "@continuous-labs/sdk/models";
 
-let value: SimulatorActor = {
-  default: false,
+let value: Actor = {
+  default: true,
   entity: "<value>",
   id: "<id>",
   name: "<value>",

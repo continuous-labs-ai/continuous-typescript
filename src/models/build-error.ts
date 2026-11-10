@@ -16,9 +16,9 @@ import {
 } from "./specification-validation.js";
 
 /**
- * Stable Simulator build error code. live_credential_rejected is a build that waited at QA for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited at QA for the live systems' rate limit and was not resumed within 7 days.
+ * Stable build error code. live_credential_rejected is a build that waited at QA for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited at QA for the live systems' rate limit and was not resumed within 7 days.
  */
-export const SimulatorErrorCode = {
+export const BuildErrorCode = {
   BuildFailed: "build_failed",
   BuildCanceled: "build_canceled",
   SpecificationValidationFailed: "specification_validation_failed",
@@ -26,9 +26,9 @@ export const SimulatorErrorCode = {
   LiveRateLimited: "live_rate_limited",
 } as const;
 /**
- * Stable Simulator build error code. live_credential_rejected is a build that waited at QA for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited at QA for the live systems' rate limit and was not resumed within 7 days.
+ * Stable build error code. live_credential_rejected is a build that waited at QA for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited at QA for the live systems' rate limit and was not resumed within 7 days.
  */
-export type SimulatorErrorCode = OpenEnum<typeof SimulatorErrorCode>;
+export type BuildErrorCode = OpenEnum<typeof BuildErrorCode>;
 
 /**
  * Bounded failure reason for selecting recovery guidance, or null when unavailable.
@@ -45,15 +45,15 @@ export const Reason = {
  */
 export type Reason = OpenEnum<typeof Reason>;
 
-export type SimulatorError = {
+export type BuildError = {
   /**
    * Plain-text explanation from the build agent when it could not continue, or the problems the check of the build's index found. At most 4096 UTF-8 bytes.
    */
   agentMessage: string | null;
   /**
-   * Stable Simulator build error code. live_credential_rejected is a build that waited at QA for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited at QA for the live systems' rate limit and was not resumed within 7 days.
+   * Stable build error code. live_credential_rejected is a build that waited at QA for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited at QA for the live systems' rate limit and was not resumed within 7 days.
    */
-  code: SimulatorErrorCode;
+  code: BuildErrorCode;
   /**
    * Safe human-readable error detail.
    */
@@ -66,40 +66,38 @@ export type SimulatorError = {
 };
 
 /** @internal */
-export const SimulatorErrorCode$inboundSchema: z.ZodMiniType<
-  SimulatorErrorCode,
+export const BuildErrorCode$inboundSchema: z.ZodMiniType<
+  BuildErrorCode,
   unknown
-> = openEnums.inboundSchema(SimulatorErrorCode);
+> = openEnums.inboundSchema(BuildErrorCode);
 
 /** @internal */
 export const Reason$inboundSchema: z.ZodMiniType<Reason, unknown> = openEnums
   .inboundSchema(Reason);
 
 /** @internal */
-export const SimulatorError$inboundSchema: z.ZodMiniType<
-  SimulatorError,
-  unknown
-> = z.pipe(
-  z.object({
-    agent_message: types.nullable(types.string()),
-    code: SimulatorErrorCode$inboundSchema,
-    detail: types.string(),
-    reason: types.nullable(Reason$inboundSchema),
-    validation: types.nullable(SpecificationValidation$inboundSchema),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "agent_message": "agentMessage",
-    });
-  }),
-);
+export const BuildError$inboundSchema: z.ZodMiniType<BuildError, unknown> = z
+  .pipe(
+    z.object({
+      agent_message: types.nullable(types.string()),
+      code: BuildErrorCode$inboundSchema,
+      detail: types.string(),
+      reason: types.nullable(Reason$inboundSchema),
+      validation: types.nullable(SpecificationValidation$inboundSchema),
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "agent_message": "agentMessage",
+      });
+    }),
+  );
 
-export function simulatorErrorFromJSON(
+export function buildErrorFromJSON(
   jsonString: string,
-): SafeParseResult<SimulatorError, SDKValidationError> {
+): SafeParseResult<BuildError, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SimulatorError$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SimulatorError' from JSON`,
+    (x) => BuildError$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BuildError' from JSON`,
   );
 }
