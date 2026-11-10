@@ -9,12 +9,9 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import { BuildWaiting, BuildWaiting$inboundSchema } from "./build-waiting.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import { Limitation, Limitation$inboundSchema } from "./limitation.js";
-import {
-  SimulatorBuildWaiting,
-  SimulatorBuildWaiting$inboundSchema,
-} from "./simulator-build-waiting.js";
 import {
   SpecificationWarning,
   SpecificationWarning$inboundSchema,
@@ -48,7 +45,7 @@ export type LastSubmission = OpenEnum<typeof LastSubmission>;
 /**
  * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5. A build recorded before model selection reports its provider's default.
  */
-export const SimulatorBuildProgressModel = {
+export const BuildProgressModel = {
   Gpt6Astra: "gpt-6-astra",
   Gpt61Sol: "gpt-6.1-sol",
   ClaudeOpus55: "claude-opus-5-5",
@@ -59,12 +56,10 @@ export const SimulatorBuildProgressModel = {
 /**
  * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5. A build recorded before model selection reports its provider's default.
  */
-export type SimulatorBuildProgressModel = OpenEnum<
-  typeof SimulatorBuildProgressModel
->;
+export type BuildProgressModel = OpenEnum<typeof BuildProgressModel>;
 
 /**
- * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, repair while the author fixes the findings of a review or QA. Null when not recorded.
+ * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running service from outside, after the last review round of a build with credential_ids, repair while the author fixes the findings of a review or QA. Null when not recorded.
  */
 export const Phase = {
   Research: "research",
@@ -74,7 +69,7 @@ export const Phase = {
   Repair: "repair",
 } as const;
 /**
- * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, repair while the author fixes the findings of a review or QA. Null when not recorded.
+ * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running service from outside, after the last review round of a build with credential_ids, repair while the author fixes the findings of a review or QA. Null when not recorded.
  */
 export type Phase = OpenEnum<typeof Phase>;
 
@@ -91,7 +86,7 @@ export const Stage = {
  */
 export type Stage = OpenEnum<typeof Stage>;
 
-export type SimulatorBuildProgress = {
+export type BuildProgress = {
   /**
    * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running, while it waits for the requester, or for a build recorded before agents reported it.
    */
@@ -119,9 +114,9 @@ export type SimulatorBuildProgress = {
   /**
    * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5. A build recorded before model selection reports its provider's default.
    */
-  model: SimulatorBuildProgressModel;
+  model: BuildProgressModel;
   /**
-   * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running Simulator from outside, after the last review round of a build with credential_ids, repair while the author fixes the findings of a review or QA. Null when not recorded.
+   * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running service from outside, after the last review round of a build with credential_ids, repair while the author fixes the findings of a review or QA. Null when not recorded.
    */
   phase: Phase | null;
   /**
@@ -149,9 +144,9 @@ export type SimulatorBuildProgress = {
    */
   waitedSeconds: number;
   /**
-   * Set while the build waits for the requester: at QA because the live systems rejected its credentials or rate limited its calls, or for more time after it used its time limit. Resume it with its resource's resume operation, such as POST /v1/simulators/{id}/resume. Null otherwise.
+   * Set while the build waits for the requester: at QA because the live systems rejected its credentials or rate limited its calls, or for more time after it used its time limit. Resume it with its resource's resume operation, such as POST /v1/apibox-snapshots/{id}/resume. Null otherwise.
    */
-  waiting: SimulatorBuildWaiting | null;
+  waiting: BuildWaiting | null;
   /**
    * When the usage limit resets while agent_state is waiting_for_limit. The agent continues then, within the build's time limit. Null otherwise.
    */
@@ -173,10 +168,10 @@ export const LastSubmission$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(LastSubmission);
 
 /** @internal */
-export const SimulatorBuildProgressModel$inboundSchema: z.ZodMiniType<
-  SimulatorBuildProgressModel,
+export const BuildProgressModel$inboundSchema: z.ZodMiniType<
+  BuildProgressModel,
   unknown
-> = openEnums.inboundSchema(SimulatorBuildProgressModel);
+> = openEnums.inboundSchema(BuildProgressModel);
 
 /** @internal */
 export const Phase$inboundSchema: z.ZodMiniType<Phase, unknown> = openEnums
@@ -187,8 +182,8 @@ export const Stage$inboundSchema: z.ZodMiniType<Stage, unknown> = openEnums
   .inboundSchema(Stage);
 
 /** @internal */
-export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
-  SimulatorBuildProgress,
+export const BuildProgress$inboundSchema: z.ZodMiniType<
+  BuildProgress,
   unknown
 > = z.pipe(
   z.object({
@@ -198,7 +193,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
     last_submission: types.nullable(LastSubmission$inboundSchema),
     last_tool: types.nullable(types.string()),
     limitations: z.array(Limitation$inboundSchema),
-    model: SimulatorBuildProgressModel$inboundSchema,
+    model: BuildProgressModel$inboundSchema,
     phase: types.nullable(Phase$inboundSchema),
     review_round: types.number(),
     review_rounds: types.number(),
@@ -206,7 +201,7 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
     submissions: types.number(),
     tool_calls: types.number(),
     waited_seconds: types.number(),
-    waiting: types.nullable(SimulatorBuildWaiting$inboundSchema),
+    waiting: types.nullable(BuildWaiting$inboundSchema),
     waiting_until: types.nullable(types.date()),
     warnings: z.array(SpecificationWarning$inboundSchema),
   }),
@@ -226,12 +221,12 @@ export const SimulatorBuildProgress$inboundSchema: z.ZodMiniType<
   }),
 );
 
-export function simulatorBuildProgressFromJSON(
+export function buildProgressFromJSON(
   jsonString: string,
-): SafeParseResult<SimulatorBuildProgress, SDKValidationError> {
+): SafeParseResult<BuildProgress, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SimulatorBuildProgress$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SimulatorBuildProgress' from JSON`,
+    (x) => BuildProgress$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BuildProgress' from JSON`,
   );
 }

@@ -8,24 +8,24 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
-export type SimulatorComposition = {
+export type SnapshotComposition = {
   /**
-   * Entities that the Simulator stores.
+   * Entities that the service stores.
    */
   entities: number;
   /**
-   * Operations that the Simulator routes.
+   * Operations that the service routes.
    */
   operations: number;
   /**
-   * Whether the Simulator carries sample data that a new Simulation can start with.
+   * Whether the build carries sample data that a new Box can start with.
    */
   sample: boolean;
 };
 
 /** @internal */
-export const SimulatorComposition$inboundSchema: z.ZodMiniType<
-  SimulatorComposition,
+export const SnapshotComposition$inboundSchema: z.ZodMiniType<
+  SnapshotComposition,
   unknown
 > = z.object({
   entities: types.number(),
@@ -33,12 +33,12 @@ export const SimulatorComposition$inboundSchema: z.ZodMiniType<
   sample: types.boolean(),
 });
 
-export function simulatorCompositionFromJSON(
+export function snapshotCompositionFromJSON(
   jsonString: string,
-): SafeParseResult<SimulatorComposition, SDKValidationError> {
+): SafeParseResult<SnapshotComposition, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SimulatorComposition$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SimulatorComposition' from JSON`,
+    (x) => SnapshotComposition$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SnapshotComposition' from JSON`,
   );
 }

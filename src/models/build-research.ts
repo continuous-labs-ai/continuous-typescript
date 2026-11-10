@@ -13,7 +13,7 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 /**
  * pending until the stage starts; running while the research agent indexes the documents and saves the vendor pages they lack; complete when it wrote an index that names every document; failed when it could not finish, which fails the build, or when the build ended first; provided when research did not run because the build already had an index.
  */
-export const SimulatorResearchStatus = {
+export const BuildResearchStatus = {
   Pending: "pending",
   Running: "running",
   Complete: "complete",
@@ -23,9 +23,9 @@ export const SimulatorResearchStatus = {
 /**
  * pending until the stage starts; running while the research agent indexes the documents and saves the vendor pages they lack; complete when it wrote an index that names every document; failed when it could not finish, which fails the build, or when the build ended first; provided when research did not run because the build already had an index.
  */
-export type SimulatorResearchStatus = OpenEnum<typeof SimulatorResearchStatus>;
+export type BuildResearchStatus = OpenEnum<typeof BuildResearchStatus>;
 
-export type SimulatorResearch = {
+export type BuildResearch = {
   /**
    * Total size of the saved pages in bytes.
    */
@@ -37,31 +37,31 @@ export type SimulatorResearch = {
   /**
    * pending until the stage starts; running while the research agent indexes the documents and saves the vendor pages they lack; complete when it wrote an index that names every document; failed when it could not finish, which fails the build, or when the build ended first; provided when research did not run because the build already had an index.
    */
-  status: SimulatorResearchStatus;
+  status: BuildResearchStatus;
 };
 
 /** @internal */
-export const SimulatorResearchStatus$inboundSchema: z.ZodMiniType<
-  SimulatorResearchStatus,
+export const BuildResearchStatus$inboundSchema: z.ZodMiniType<
+  BuildResearchStatus,
   unknown
-> = openEnums.inboundSchema(SimulatorResearchStatus);
+> = openEnums.inboundSchema(BuildResearchStatus);
 
 /** @internal */
-export const SimulatorResearch$inboundSchema: z.ZodMiniType<
-  SimulatorResearch,
+export const BuildResearch$inboundSchema: z.ZodMiniType<
+  BuildResearch,
   unknown
 > = z.object({
   bytes: types.number(),
   pages: types.number(),
-  status: SimulatorResearchStatus$inboundSchema,
+  status: BuildResearchStatus$inboundSchema,
 });
 
-export function simulatorResearchFromJSON(
+export function buildResearchFromJSON(
   jsonString: string,
-): SafeParseResult<SimulatorResearch, SDKValidationError> {
+): SafeParseResult<BuildResearch, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SimulatorResearch$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SimulatorResearch' from JSON`,
+    (x) => BuildResearch$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BuildResearch' from JSON`,
   );
 }

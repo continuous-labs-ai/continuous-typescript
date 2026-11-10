@@ -9,28 +9,22 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import { Actor, Actor$inboundSchema } from "./actor.js";
+import { BuildError, BuildError$inboundSchema } from "./build-error.js";
+import {
+  BuildProgress,
+  BuildProgress$inboundSchema,
+} from "./build-progress.js";
+import {
+  BuildResearch,
+  BuildResearch$inboundSchema,
+} from "./build-research.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import { Limitation, Limitation$inboundSchema } from "./limitation.js";
 import {
-  SimulatorActor,
-  SimulatorActor$inboundSchema,
-} from "./simulator-actor.js";
-import {
-  SimulatorBuildProgress,
-  SimulatorBuildProgress$inboundSchema,
-} from "./simulator-build-progress.js";
-import {
-  SimulatorComposition,
-  SimulatorComposition$inboundSchema,
-} from "./simulator-composition.js";
-import {
-  SimulatorError,
-  SimulatorError$inboundSchema,
-} from "./simulator-error.js";
-import {
-  SimulatorResearch,
-  SimulatorResearch$inboundSchema,
-} from "./simulator-research.js";
+  SnapshotComposition,
+  SnapshotComposition$inboundSchema,
+} from "./snapshot-composition.js";
 
 /**
  * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an MCP Box.
@@ -64,7 +58,7 @@ export type MCPBoxSnapshot = {
   /**
    * The callers a request to a Box started from the Snapshot can act as by sending an actor's id in the X-Continuous-Actor header. Without the header, a request acts as the default actor. An MCP Box Snapshot lists its API Box Snapshot's actors. A Web Box Snapshot lists its one actor, the account every page is served as, which no header selects. Empty before the Snapshot is ready, when its build names none, or in a list until the Snapshot's actors are first read.
    */
-  actors: Array<SimulatorActor>;
+  actors: Array<Actor>;
   /**
    * The API Box Snapshot the MCP Box was built against, whose API it calls.
    */
@@ -72,11 +66,11 @@ export type MCPBoxSnapshot = {
   /**
    * The build's latest progress report, or null before the first report. A settled Snapshot keeps its last report. A waiting build resumes when the Snapshot's resume is requested.
    */
-  build: SimulatorBuildProgress | null;
+  build: BuildProgress | null;
   /**
    * What a ready Snapshot serves, or null.
    */
-  composition: SimulatorComposition | null;
+  composition: SnapshotComposition | null;
   /**
    * Snapshot creation time.
    */
@@ -85,7 +79,7 @@ export type MCPBoxSnapshot = {
    * Workspace credentials the build used, such as a web app login or credentials it was allowed to call real systems with. Empty when none.
    */
   credentialIds: Array<string>;
-  error: SimulatorError | null;
+  error: BuildError | null;
   /**
    * Limitations the Snapshot records beyond those listed in limitations.
    */
@@ -117,7 +111,7 @@ export type MCPBoxSnapshot = {
   /**
    * The build's research stage, or null when research did not run.
    */
-  research: SimulatorResearch | null;
+  research: BuildResearch | null;
   /**
    * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an MCP Box.
    */
@@ -158,13 +152,13 @@ export const MCPBoxSnapshot$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    actors: z.array(SimulatorActor$inboundSchema),
+    actors: z.array(Actor$inboundSchema),
     apibox_snapshot_id: types.string(),
-    build: types.nullable(SimulatorBuildProgress$inboundSchema),
-    composition: types.nullable(SimulatorComposition$inboundSchema),
+    build: types.nullable(BuildProgress$inboundSchema),
+    composition: types.nullable(SnapshotComposition$inboundSchema),
     created_at: types.date(),
     credential_ids: z.array(types.string()),
-    error: types.nullable(SimulatorError$inboundSchema),
+    error: types.nullable(BuildError$inboundSchema),
     hidden_limitations: types.number(),
     id: types.string(),
     instructions: types.string(),
@@ -172,7 +166,7 @@ export const MCPBoxSnapshot$inboundSchema: z.ZodMiniType<
     metadata: z.any(),
     name: types.string(),
     parent_id: types.nullable(types.string()),
-    research: types.nullable(SimulatorResearch$inboundSchema),
+    research: types.nullable(BuildResearch$inboundSchema),
     source: MCPBoxSnapshotSource$inboundSchema,
     source_box_id: types.nullable(types.string()),
     source_snapshot_id: types.nullable(types.string()),

@@ -24,7 +24,7 @@ export const Type = {
  */
 export type Type = OpenEnum<typeof Type>;
 
-export type SimulatorBuildWaiting = {
+export type BuildWaiting = {
   /**
    * The credentials to refresh with PATCH /v1/credentials/{id} before resuming the build. Empty for live_rate_limit and time_limit.
    */
@@ -52,30 +52,28 @@ export const Type$inboundSchema: z.ZodMiniType<Type, unknown> = openEnums
   .inboundSchema(Type);
 
 /** @internal */
-export const SimulatorBuildWaiting$inboundSchema: z.ZodMiniType<
-  SimulatorBuildWaiting,
-  unknown
-> = z.pipe(
-  z.object({
-    credential_ids: z.array(types.string()),
-    deadline: types.date(),
-    reason: types.string(),
-    since: types.date(),
-    type: Type$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "credential_ids": "credentialIds",
-    });
-  }),
-);
+export const BuildWaiting$inboundSchema: z.ZodMiniType<BuildWaiting, unknown> =
+  z.pipe(
+    z.object({
+      credential_ids: z.array(types.string()),
+      deadline: types.date(),
+      reason: types.string(),
+      since: types.date(),
+      type: Type$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "credential_ids": "credentialIds",
+      });
+    }),
+  );
 
-export function simulatorBuildWaitingFromJSON(
+export function buildWaitingFromJSON(
   jsonString: string,
-): SafeParseResult<SimulatorBuildWaiting, SDKValidationError> {
+): SafeParseResult<BuildWaiting, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SimulatorBuildWaiting$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SimulatorBuildWaiting' from JSON`,
+    (x) => BuildWaiting$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BuildWaiting' from JSON`,
   );
 }
