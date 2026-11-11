@@ -45,7 +45,7 @@ export function simulationSnapshotsGetSimulationSnapshot(
 ): APIPromise<
   Result<
     models.SimulationSnapshot,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -71,7 +71,7 @@ async function $do(
   [
     Result<
       models.SimulationSnapshot,
-      | errors.ErrorT
+      | errors.APIError
       | ContinuousError
       | ResponseValidationError
       | ConnectionError
@@ -170,7 +170,7 @@ async function $do(
 
   const [result] = await M.match<
     models.SimulationSnapshot,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -181,10 +181,10 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, models.SimulationSnapshot$inboundSchema),
-    M.jsonErr([401, 404], errors.ErrorT$inboundSchema, {
+    M.jsonErr([401, 404], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
-    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 503], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

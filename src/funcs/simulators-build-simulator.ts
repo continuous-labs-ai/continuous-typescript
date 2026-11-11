@@ -56,7 +56,7 @@ export function simulatorsBuildSimulator(
 ): APIPromise<
   Result<
     operations.BuildSimulatorResponse,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -82,7 +82,7 @@ async function $do(
   [
     Result<
       operations.BuildSimulatorResponse,
-      | errors.ErrorT
+      | errors.APIError
       | ContinuousError
       | ResponseValidationError
       | ConnectionError
@@ -233,7 +233,7 @@ async function $do(
 
   const [result] = await M.match<
     operations.BuildSimulatorResponse,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -248,17 +248,17 @@ async function $do(
     }),
     M.jsonErr(
       [400, 401, 404, 408, 409, 413, 415, 422],
-      errors.ErrorT$inboundSchema,
+      errors.APIError$inboundSchema,
       { ctype: "application/problem+json" },
     ),
-    M.jsonErr(429, errors.ErrorT$inboundSchema, {
+    M.jsonErr(429, errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
       hdrs: true,
     }),
-    M.jsonErr(500, errors.ErrorT$inboundSchema, {
+    M.jsonErr(500, errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
-    M.jsonErr(503, errors.ErrorT$inboundSchema, {
+    M.jsonErr(503, errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
       hdrs: true,
     }),

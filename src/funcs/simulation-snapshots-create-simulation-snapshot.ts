@@ -45,7 +45,7 @@ export function simulationSnapshotsCreateSimulationSnapshot(
 ): APIPromise<
   Result<
     models.SimulationSnapshot,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -71,7 +71,7 @@ async function $do(
   [
     Result<
       models.SimulationSnapshot,
-      | errors.ErrorT
+      | errors.APIError
       | ContinuousError
       | ResponseValidationError
       | ConnectionError
@@ -160,7 +160,7 @@ async function $do(
 
   const [result] = await M.match<
     models.SimulationSnapshot,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -173,10 +173,10 @@ async function $do(
     M.json(202, models.SimulationSnapshot$inboundSchema),
     M.jsonErr(
       [400, 401, 403, 404, 408, 409, 413, 415, 422],
-      errors.ErrorT$inboundSchema,
+      errors.APIError$inboundSchema,
       { ctype: "application/problem+json" },
     ),
-    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 503], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

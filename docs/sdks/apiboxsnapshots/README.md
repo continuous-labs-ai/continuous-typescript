@@ -6,16 +6,16 @@ Build API Box Snapshots from an OpenAPI, WSDL or GraphQL document, or use the ca
 
 ### Available Operations
 
-* [listApiboxSnapshots](#listapiboxsnapshots) - List API Box Snapshots
-* [createApiboxSnapshot](#createapiboxsnapshot) - Create API Box Snapshot
-* [deleteApiboxSnapshot](#deleteapiboxsnapshot) - Delete API Box Snapshot
-* [getApiboxSnapshot](#getapiboxsnapshot) - Get API Box Snapshot
-* [updateApiboxSnapshot](#updateapiboxsnapshot) - Update API Box Snapshot
-* [cancelApiboxSnapshot](#cancelapiboxsnapshot) - Cancel API Box Snapshot build
-* [cloneApiboxSnapshot](#cloneapiboxsnapshot) - Clone API Box Snapshot
-* [resumeApiboxSnapshot](#resumeapiboxsnapshot) - Resume API Box Snapshot build
+* [list](#list) - List API Box Snapshots
+* [create](#create) - Create API Box Snapshot
+* [delete](#delete) - Delete API Box Snapshot
+* [get](#get) - Get API Box Snapshot
+* [update](#update) - Update API Box Snapshot
+* [cancel](#cancel) - Cancel API Box Snapshot build
+* [clone](#clone) - Clone API Box Snapshot
+* [resume](#resume) - Resume API Box Snapshot build
 
-## listApiboxSnapshots
+## list
 
 Returns the workspace's API Box Snapshots and the catalog's, newest first. Results can be filtered by source and status, and by the API Box a Snapshot was saved from.
 
@@ -30,7 +30,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apiboxSnapshots.listApiboxSnapshots({});
+  const result = await continuous.apiboxSnapshots.list({});
 
   for await (const page of result) {
     console.log(page);
@@ -46,7 +46,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { apiboxSnapshotsListApiboxSnapshots } from "@continuous-labs/sdk/funcs/apibox-snapshots-list-apibox-snapshots.js";
+import { apiboxSnapshotsList } from "@continuous-labs/sdk/funcs/apibox-snapshots-list.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -55,14 +55,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await apiboxSnapshotsListApiboxSnapshots(continuous, {});
+  const res = await apiboxSnapshotsList(continuous, {});
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
     console.log(page);
   }
   } else {
-    console.log("apiboxSnapshotsListApiboxSnapshots failed:", res.error);
+    console.log("apiboxSnapshotsList failed:", res.error);
   }
 }
 
@@ -86,11 +86,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 422                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 400, 401, 422                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createApiboxSnapshot
+## create
 
 Starts an asynchronous build and returns the API Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; API Boxes start from a ready one. The build runs in real time: the built service has no simulated clock, and its scheduled work runs at the first request at or after its time. Builds of every kind share one queue and the daily quota. Send multipart/form-data with a JSON part named request, a file part named spec with the OpenAPI, WSDL or GraphQL document, and optional file parts named document with vendor documentation. To build on a ready Snapshot, set parent_id; the spec part is then optional.
 
@@ -105,7 +105,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apiboxSnapshots.createApiboxSnapshot({
+  const result = await continuous.apiboxSnapshots.create({
     body: {
       request: {},
     },
@@ -123,7 +123,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { apiboxSnapshotsCreateApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-snapshots-create-apibox-snapshot.js";
+import { apiboxSnapshotsCreate } from "@continuous-labs/sdk/funcs/apibox-snapshots-create.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -132,7 +132,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await apiboxSnapshotsCreateApiboxSnapshot(continuous, {
+  const res = await apiboxSnapshotsCreate(continuous, {
     body: {
       request: {},
     },
@@ -141,7 +141,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("apiboxSnapshotsCreateApiboxSnapshot failed:", res.error);
+    console.log("apiboxSnapshotsCreate failed:", res.error);
   }
 }
 
@@ -165,13 +165,13 @@ run();
 
 | Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorT                     | 400, 401, 404, 408, 409, 413, 415 | application/problem+json          |
-| errors.ErrorT                     | 429                               | application/problem+json          |
-| errors.ErrorT                     | 500                               | application/problem+json          |
-| errors.ErrorT                     | 503                               | application/problem+json          |
+| errors.APIError                   | 400, 401, 404, 408, 409, 413, 415 | application/problem+json          |
+| errors.APIError                   | 429                               | application/problem+json          |
+| errors.APIError                   | 500                               | application/problem+json          |
+| errors.APIError                   | 503                               | application/problem+json          |
 | errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
 
-## deleteApiboxSnapshot
+## delete
 
 Deletes an API Box Snapshot. A build that is still pending or building is canceled first. A Snapshot that API Boxes started from or MCP Box Snapshots were built against returns 409 apibox_snapshot_in_use; delete those first. While a build that names it as parent_id is pending or building, it returns 409 apibox_snapshot_parent_in_use; retry after the build finishes. Catalog Snapshots cannot be deleted.
 
@@ -186,7 +186,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  await continuous.apiboxSnapshots.deleteApiboxSnapshot({
+  await continuous.apiboxSnapshots.delete({
     id: "<id>",
   });
 
@@ -202,7 +202,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { apiboxSnapshotsDeleteApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-snapshots-delete-apibox-snapshot.js";
+import { apiboxSnapshotsDelete } from "@continuous-labs/sdk/funcs/apibox-snapshots-delete.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -211,14 +211,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await apiboxSnapshotsDeleteApiboxSnapshot(continuous, {
+  const res = await apiboxSnapshotsDelete(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     
   } else {
-    console.log("apiboxSnapshotsDeleteApiboxSnapshot failed:", res.error);
+    console.log("apiboxSnapshotsDelete failed:", res.error);
   }
 }
 
@@ -242,11 +242,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404, 409            | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getApiboxSnapshot
+## get
 
 Returns an API Box Snapshot of the workspace or the catalog, and its build status.
 
@@ -261,7 +261,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apiboxSnapshots.getApiboxSnapshot({
+  const result = await continuous.apiboxSnapshots.get({
     id: "<id>",
   });
 
@@ -277,7 +277,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { apiboxSnapshotsGetApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-snapshots-get-apibox-snapshot.js";
+import { apiboxSnapshotsGet } from "@continuous-labs/sdk/funcs/apibox-snapshots-get.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -286,14 +286,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await apiboxSnapshotsGetApiboxSnapshot(continuous, {
+  const res = await apiboxSnapshotsGet(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("apiboxSnapshotsGetApiboxSnapshot failed:", res.error);
+    console.log("apiboxSnapshotsGet failed:", res.error);
   }
 }
 
@@ -317,11 +317,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 404                      | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 404                      | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## updateApiboxSnapshot
+## update
 
 Renames an API Box Snapshot or replaces its metadata. Omitted fields keep their current values. The built service does not change. Catalog Snapshots cannot be updated.
 
@@ -336,7 +336,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apiboxSnapshots.updateApiboxSnapshot({
+  const result = await continuous.apiboxSnapshots.update({
     id: "<id>",
     body: {},
   });
@@ -353,7 +353,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { apiboxSnapshotsUpdateApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-snapshots-update-apibox-snapshot.js";
+import { apiboxSnapshotsUpdate } from "@continuous-labs/sdk/funcs/apibox-snapshots-update.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -362,7 +362,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await apiboxSnapshotsUpdateApiboxSnapshot(continuous, {
+  const res = await apiboxSnapshotsUpdate(continuous, {
     id: "<id>",
     body: {},
   });
@@ -370,7 +370,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("apiboxSnapshotsUpdateApiboxSnapshot failed:", res.error);
+    console.log("apiboxSnapshotsUpdate failed:", res.error);
   }
 }
 
@@ -394,11 +394,11 @@ run();
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
-| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.APIError                        | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.APIError                        | 500, 503                               | application/problem+json               |
 | errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
-## cancelApiboxSnapshot
+## cancel
 
 Requests cancellation of a pending or active build and returns the Snapshot without waiting for the build to stop. Get the Snapshot until its status leaves pending or building. The build can finish before cancellation takes effect. A Snapshot whose build has settled is returned unchanged.
 
@@ -413,7 +413,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apiboxSnapshots.cancelApiboxSnapshot({
+  const result = await continuous.apiboxSnapshots.cancel({
     id: "<id>",
   });
 
@@ -429,7 +429,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { apiboxSnapshotsCancelApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-snapshots-cancel-apibox-snapshot.js";
+import { apiboxSnapshotsCancel } from "@continuous-labs/sdk/funcs/apibox-snapshots-cancel.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -438,14 +438,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await apiboxSnapshotsCancelApiboxSnapshot(continuous, {
+  const res = await apiboxSnapshotsCancel(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("apiboxSnapshotsCancelApiboxSnapshot failed:", res.error);
+    console.log("apiboxSnapshotsCancel failed:", res.error);
   }
 }
 
@@ -469,11 +469,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## cloneApiboxSnapshot
+## clone
 
 Creates a ready copy of a ready API Box Snapshot in another workspace, without a build. The clone has a new ID and the source's artifact, documents and saved state; the source is unchanged. The clone records no credentials, since they belong to the source workspace, and no parent or source Snapshot. The source is the caller's workspace. An API key may clone into any other workspace of its organization.
 
@@ -488,7 +488,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apiboxSnapshots.cloneApiboxSnapshot({
+  const result = await continuous.apiboxSnapshots.clone({
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -507,7 +507,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { apiboxSnapshotsCloneApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-snapshots-clone-apibox-snapshot.js";
+import { apiboxSnapshotsClone } from "@continuous-labs/sdk/funcs/apibox-snapshots-clone.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -516,7 +516,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await apiboxSnapshotsCloneApiboxSnapshot(continuous, {
+  const res = await apiboxSnapshotsClone(continuous, {
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -526,7 +526,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("apiboxSnapshotsCloneApiboxSnapshot failed:", res.error);
+    console.log("apiboxSnapshotsClone failed:", res.error);
   }
 }
 
@@ -543,7 +543,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apiboxSnapshots.cloneApiboxSnapshot({
+  const result = await continuous.apiboxSnapshots.clone({
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -562,7 +562,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { apiboxSnapshotsCloneApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-snapshots-clone-apibox-snapshot.js";
+import { apiboxSnapshotsClone } from "@continuous-labs/sdk/funcs/apibox-snapshots-clone.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -571,7 +571,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await apiboxSnapshotsCloneApiboxSnapshot(continuous, {
+  const res = await apiboxSnapshotsClone(continuous, {
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -581,7 +581,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("apiboxSnapshotsCloneApiboxSnapshot failed:", res.error);
+    console.log("apiboxSnapshotsClone failed:", res.error);
   }
 }
 
@@ -605,11 +605,11 @@ run();
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
-| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.APIError                             | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
+| errors.APIError                             | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
-## resumeApiboxSnapshot
+## resume
 
 Resumes a build that waits, as build.waiting reports: at QA because its live credentials were rejected or the live systems rate limited its calls, or for more time after it used its time limit. For a credential wait, refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. For a rate-limit wait, resume once the rate limit resets: QA then runs again. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a QA wait has the time it had left when it began waiting. A build that is not waiting returns 409 apibox_snapshot_not_waiting.
 
@@ -624,7 +624,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apiboxSnapshots.resumeApiboxSnapshot({
+  const result = await continuous.apiboxSnapshots.resume({
     id: "<id>",
   });
 
@@ -640,7 +640,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { apiboxSnapshotsResumeApiboxSnapshot } from "@continuous-labs/sdk/funcs/apibox-snapshots-resume-apibox-snapshot.js";
+import { apiboxSnapshotsResume } from "@continuous-labs/sdk/funcs/apibox-snapshots-resume.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -649,14 +649,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await apiboxSnapshotsResumeApiboxSnapshot(continuous, {
+  const res = await apiboxSnapshotsResume(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("apiboxSnapshotsResumeApiboxSnapshot failed:", res.error);
+    console.log("apiboxSnapshotsResume failed:", res.error);
   }
 }
 
@@ -680,6 +680,6 @@ run();
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 403, 404, 408, 409, 413, 415 | application/problem+json               |
-| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.APIError                        | 400, 401, 403, 404, 408, 409, 413, 415 | application/problem+json               |
+| errors.APIError                        | 500, 503                               | application/problem+json               |
 | errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |

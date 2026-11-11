@@ -44,7 +44,7 @@ export function simulationsRegenerateSimulationToken(
 ): APIPromise<
   Result<
     operations.RegenerateSimulationTokenResponse,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -70,7 +70,7 @@ async function $do(
   [
     Result<
       operations.RegenerateSimulationTokenResponse,
-      | errors.ErrorT
+      | errors.APIError
       | ContinuousError
       | ResponseValidationError
       | ConnectionError
@@ -167,7 +167,7 @@ async function $do(
 
   const [result] = await M.match<
     operations.RegenerateSimulationTokenResponse,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -181,10 +181,10 @@ async function $do(
       hdrs: true,
       key: "Result",
     }),
-    M.jsonErr([401, 403, 404, 409, 422], errors.ErrorT$inboundSchema, {
+    M.jsonErr([401, 403, 404, 409, 422], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
-    M.jsonErr([500, 502, 503], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 502, 503], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

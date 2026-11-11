@@ -51,7 +51,7 @@ export function simulationsListSimulationSteps(
   PageIterator<
     Result<
       operations.ListSimulationStepsResponse,
-      | errors.ErrorT
+      | errors.APIError
       | ContinuousError
       | ResponseValidationError
       | ConnectionError
@@ -80,7 +80,7 @@ async function $do(
     PageIterator<
       Result<
         operations.ListSimulationStepsResponse,
-        | errors.ErrorT
+        | errors.APIError
         | ContinuousError
         | ResponseValidationError
         | ConnectionError
@@ -187,7 +187,7 @@ async function $do(
 
   const [result, raw] = await M.match<
     operations.ListSimulationStepsResponse,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -200,10 +200,10 @@ async function $do(
     M.json(200, operations.ListSimulationStepsResponse$inboundSchema, {
       key: "Result",
     }),
-    M.jsonErr([400, 401, 403, 404, 409, 422], errors.ErrorT$inboundSchema, {
+    M.jsonErr([400, 401, 403, 404, 409, 422], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
-    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 503], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),
@@ -223,7 +223,7 @@ async function $do(
     next: Paginator<
       Result<
         operations.ListSimulationStepsResponse,
-        | errors.ErrorT
+        | errors.APIError
         | ContinuousError
         | ResponseValidationError
         | ConnectionError

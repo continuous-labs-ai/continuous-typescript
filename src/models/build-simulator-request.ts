@@ -7,14 +7,14 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * What the Simulator simulates. api, the default, builds the vendor's API from a spec, or from a parent with instructions. web_app builds the vendor's logged-in web app and the private API behind it: it takes no spec, spec_kind or filter, needs exactly one Web App login credential in credential_ids, runs on a Claude model or combined, and its builder and QA use the live app through that login. With parent_id and instructions, it builds from a ready web_app Simulator.
+ * What the Simulator simulates. api, the default, builds the vendor's API from a spec, or from a parent with instructions. web_app builds the vendor's logged-in web app and the private API behind it: it takes no spec, spec_kind or filter, needs exactly one Web App login credential in credential_ids, and its builder and QA use the live app through that login. With parent_id and instructions, it builds from a ready web_app Simulator.
  */
 export const BuildSimulatorRequestMode = {
   Api: "api",
   WebApp: "web_app",
 } as const;
 /**
- * What the Simulator simulates. api, the default, builds the vendor's API from a spec, or from a parent with instructions. web_app builds the vendor's logged-in web app and the private API behind it: it takes no spec, spec_kind or filter, needs exactly one Web App login credential in credential_ids, runs on a Claude model or combined, and its builder and QA use the live app through that login. With parent_id and instructions, it builds from a ready web_app Simulator.
+ * What the Simulator simulates. api, the default, builds the vendor's API from a spec, or from a parent with instructions. web_app builds the vendor's logged-in web app and the private API behind it: it takes no spec, spec_kind or filter, needs exactly one Web App login credential in credential_ids, and its builder and QA use the live app through that login. With parent_id and instructions, it builds from a ready web_app Simulator.
  */
 export type BuildSimulatorRequestMode = ClosedEnum<
   typeof BuildSimulatorRequestMode
@@ -66,7 +66,7 @@ export type BuildSimulatorRequest = {
    */
   instructions?: string | undefined;
   /**
-   * What the Simulator simulates. api, the default, builds the vendor's API from a spec, or from a parent with instructions. web_app builds the vendor's logged-in web app and the private API behind it: it takes no spec, spec_kind or filter, needs exactly one Web App login credential in credential_ids, runs on a Claude model or combined, and its builder and QA use the live app through that login. With parent_id and instructions, it builds from a ready web_app Simulator.
+   * What the Simulator simulates. api, the default, builds the vendor's API from a spec, or from a parent with instructions. web_app builds the vendor's logged-in web app and the private API behind it: it takes no spec, spec_kind or filter, needs exactly one Web App login credential in credential_ids, and its builder and QA use the live app through that login. With parent_id and instructions, it builds from a ready web_app Simulator.
    */
   mode?: BuildSimulatorRequestMode | undefined;
   /**

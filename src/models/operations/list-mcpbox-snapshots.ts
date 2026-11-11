@@ -62,7 +62,7 @@ export type ListMcpboxSnapshotsRequest = {
   /**
    * Optional filter for the Snapshots saved from this Box.
    */
-  boxId?: string | undefined;
+  sourceBoxId?: string | undefined;
 };
 
 export type ListMcpboxSnapshotsResponse = {
@@ -85,7 +85,7 @@ export type ListMcpboxSnapshotsRequest$Outbound = {
   limit: number;
   cursor?: string | undefined;
   source?: string | undefined;
-  box_id?: string | undefined;
+  source_box_id?: string | undefined;
 };
 
 /** @internal */
@@ -98,11 +98,11 @@ export const ListMcpboxSnapshotsRequest$outboundSchema: z.ZodMiniType<
     limit: z._default(z.int(), 50),
     cursor: z.optional(z.string()),
     source: z.optional(ListMcpboxSnapshotsSource$outboundSchema),
-    boxId: z.optional(z.string()),
+    sourceBoxId: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
-      boxId: "box_id",
+      sourceBoxId: "source_box_id",
     });
   }),
 );

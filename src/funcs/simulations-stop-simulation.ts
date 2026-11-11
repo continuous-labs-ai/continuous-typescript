@@ -45,7 +45,7 @@ export function simulationsStopSimulation(
 ): APIPromise<
   Result<
     models.Simulation,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -71,7 +71,7 @@ async function $do(
   [
     Result<
       models.Simulation,
-      | errors.ErrorT
+      | errors.APIError
       | ContinuousError
       | ResponseValidationError
       | ConnectionError
@@ -159,7 +159,7 @@ async function $do(
 
   const [result] = await M.match<
     models.Simulation,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -170,10 +170,10 @@ async function $do(
     | SDKValidationError
   >(
     M.json(202, models.Simulation$inboundSchema),
-    M.jsonErr([401, 403, 404, 409], errors.ErrorT$inboundSchema, {
+    M.jsonErr([401, 403, 404, 409], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
-    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 503], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

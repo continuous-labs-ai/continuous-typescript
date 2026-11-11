@@ -98,8 +98,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 422                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 400, 401, 422                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~createSimulation~~
@@ -311,8 +311,8 @@ run();
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorT                               | 400, 401, 404, 408, 409, 413, 415, 422, 429 | application/problem+json                    |
-| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.APIError                             | 400, 401, 404, 408, 409, 413, 415, 422, 429 | application/problem+json                    |
+| errors.APIError                             | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
 ## ~~deleteSimulation~~
@@ -390,8 +390,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~getSimulation~~
@@ -469,8 +469,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~updateSimulation~~
@@ -550,8 +550,8 @@ run();
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
-| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.APIError                        | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.APIError                        | 500, 503                               | application/problem+json               |
 | errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
 ## ~~createSimulationAdvance~~
@@ -637,8 +637,8 @@ run();
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
-| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.APIError                             | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
+| errors.APIError                             | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
 ## ~~getSimulationAdvance~~
@@ -718,8 +718,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404, 409            | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~listSimulationAdvanceEvents~~
@@ -803,8 +803,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404, 409, 422  | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 400, 401, 403, 404, 409, 422  | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~startSimulation~~
@@ -882,8 +882,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409, 429       | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404, 409, 429       | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~listSimulationSteps~~
@@ -965,8 +965,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 403, 404, 409, 422  | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 400, 401, 403, 404, 409, 422  | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~stopSimulation~~
@@ -1044,8 +1044,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404, 409            | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~getSimulationToken~~
@@ -1123,8 +1123,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~regenerateSimulationToken~~
@@ -1204,6 +1204,6 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409, 422       | application/problem+json      |
-| errors.ErrorT                 | 500, 502, 503                 | application/problem+json      |
+| errors.APIError               | 401, 403, 404, 409, 422       | application/problem+json      |
+| errors.APIError               | 500, 502, 503                 | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |

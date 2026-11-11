@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: 3061394210432529a66d3e6e38708dd8
+  docChecksum: 2be7c823c671f72203f88af75fa96ac8
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.3.14
-  configChecksum: e968a10eaaea971d052347226a1cd792
+  releaseVersion: 0.4.0
+  configChecksum: 28343fb76e0baac371fb79847094e645
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: f308afc5-e507-4c4e-8a15-4459925a6972
-  pristine_commit_hash: 8479fdba9b3cc384a3607b569cd0cef63d42b2af
-  pristine_tree_hash: 867d8cbe883009fbc5600bf829e527750586ae6b
+  generation_id: 70dc8c4f-9e09-4f1f-9174-85ddeb60284d
+  pristine_commit_hash: c760e81805dd68bdc51f469dce551f830369c61e
+  pristine_tree_hash: 5412080ca7efe26eef74d346cabe2d3b69cc5051
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -29,6 +29,7 @@ features:
     globalSecurityFlattening: 0.1.1
     globalServerURLs: 2.83.1
     methodArguments: 0.1.2
+    nameOverrides: 2.81.4
     nullables: 0.1.1
     openEnums: 0.1.3
     pagination: 2.83.2
@@ -59,16 +60,16 @@ trackedFiles:
     pristine_git_object: 6ee2921010070a544e252596defc55d501e1c1ae
   FUNCTIONS.md:
     id: 21b9df02aaeb
-    last_write_checksum: sha1:d4ce880b5899dbbd963ae40d99b72d66dbc19b2d
-    pristine_git_object: 5b6be06d25a81470aa8b5a96686220aee62e0331
+    last_write_checksum: sha1:fa2038e69d6b2502dd0b22c62403a865df279bcd
+    pristine_git_object: 76e8322d301f098f2130c3defb494cc309dd761c
   RUNTIMES.md:
     id: 620c490847b6
     last_write_checksum: sha1:e45b854f02c357cbcfdb8c3663000e8339e16505
     pristine_git_object: 27731c3b5ace66bedc454ed5acbe15075aacd3dc
   USAGE.md:
     id: 3aed33ce6e6f
-    last_write_checksum: sha1:64290f6b00fd2b8ae2579658f9509f91753e90c8
-    pristine_git_object: a04acd225cab08919674e56ff7a7bc971bd7fe4f
+    last_write_checksum: sha1:7b8d47e4d64716c36fda20a7519e535757e380e1
+    pristine_git_object: e95d8d7658596970a6eb3233f8a46259ca78088b
   docs/lib/utils/retryconfig.md:
     id: 0ce9707cb848
     last_write_checksum: sha1:bc4454e196fcd219f5a78da690375a884f5ed07b
@@ -109,10 +110,6 @@ trackedFiles:
     id: 7d1b5fa9639f
     last_write_checksum: sha1:454972b06b14cb966ebd26650da60246dc06d02a
     pristine_git_object: 860d4ab767f7c93109c2bd4a6ee5fd0e170914a7
-  docs/models/api-box-token-response.md:
-    id: 583a6f1552be
-    last_write_checksum: sha1:c1f0570c7aecd134d8f09978fae507a5c7e61155
-    pristine_git_object: 51190a45067e64ba33a367bcf90ececf736c68f4
   docs/models/api-box.md:
     id: 4fb79dc85a7c
     last_write_checksum: sha1:5c267d42bd5b8f66a5f03dcd5fa3026689f6653e
@@ -159,8 +156,8 @@ trackedFiles:
     pristine_git_object: 95043709f40ed0007b8891290c6a18642abbe053
   docs/models/build-progress.md:
     id: 9c693a06a7bc
-    last_write_checksum: sha1:7b7d5ed6e7980766b24d873e4f8aab5cb492bfd1
-    pristine_git_object: 0383d983b3f7927b6a006cec73fb33dd06d48312
+    last_write_checksum: sha1:92a917b64fde573c5f336d8103d8332142185123
+    pristine_git_object: 38f04f948e40904be70512867befb3baba9aee47
   docs/models/build-research-status.md:
     id: 9d117244f32f
     last_write_checksum: sha1:b2f2e9782d32fc7861756f0a5fcf35c40875001a
@@ -171,8 +168,8 @@ trackedFiles:
     pristine_git_object: accd18aac43958ed9fdcdb0d01bdd39e95a5b2d6
   docs/models/build-simulator-request-mode.md:
     id: 02425fad8566
-    last_write_checksum: sha1:9be3e48037220e4405c7016fb1a104bd9833a948
-    pristine_git_object: a911c87da0c4bd2971a8290e12c340a2cfb5588b
+    last_write_checksum: sha1:858a0581790d0578175e9f48be57d38fadb33508
+    pristine_git_object: c84d594a710a1998abcca682ca9edf925937785b
   docs/models/build-simulator-request-model.md:
     id: c353ce92d853
     last_write_checksum: sha1:7b8da530b358b1eabbd93a353c36f515d7b78eb7
@@ -183,16 +180,16 @@ trackedFiles:
     pristine_git_object: 07f823f744ba6ad04a8547dfaf54ec90a4ea422d
   docs/models/build-simulator-request.md:
     id: b6246c28546a
-    last_write_checksum: sha1:de3b3797ec79cd8160236547213dfd43eae62598
-    pristine_git_object: 88b15459b8e89b619a6f252974dde117a4286d3f
+    last_write_checksum: sha1:407b0f2855fbb2074e67dd7b935668c25f4c81e0
+    pristine_git_object: 4596f98685fd4912ba9a13a303688496e7406c05
   docs/models/build-waiting.md:
     id: dc30d45f16ad
     last_write_checksum: sha1:35ff8064f5e7b9b88906b0ef4ea53c9976c8d942
     pristine_git_object: 0dcaf7a5fb4180e035b04158a366e384f4774dc4
   docs/models/build-web-box-snapshot-request.md:
     id: 3dbff6577818
-    last_write_checksum: sha1:ebd026ec84afa1e3067b2e22bb62fd24c91ce2e4
-    pristine_git_object: 462abcb78344bdce27f01106067d0254c7598dc6
+    last_write_checksum: sha1:24d506017fe6af061f69b70a25129628a5d58a5c
+    pristine_git_object: 6b7492b0581ae2dcae2bdf8b13ee09a57c08bc1a
   docs/models/clock-advance-member-status.md:
     id: 68bade113394
     last_write_checksum: sha1:8f7e929d0a831ae05740a257bf1ae25223d83c9f
@@ -229,6 +226,10 @@ trackedFiles:
     id: 051ab627d4bc
     last_write_checksum: sha1:92251094487dfde52c99f163fdef45df8b4a2d4b
     pristine_git_object: 9f3a2ea19c30df8b218c13f5e7c16738f1f9789e
+  docs/models/create-api-box-response.md:
+    id: 35d0951f5552
+    last_write_checksum: sha1:2469f63b1cecbc8783628c0ad586d15745ffa78a
+    pristine_git_object: 3e5b7736761bbd116e5258bf410b57ca5312cbed
   docs/models/create-credential-request.md:
     id: 143c458c0b5a
     last_write_checksum: sha1:c0e3ba3600eda695e8cf689c99f79a1cf1fd9d32
@@ -237,6 +238,10 @@ trackedFiles:
     id: 9d21d57f3a38
     last_write_checksum: sha1:439cf3296fa886f3364f6321f1e004ffe462b3fe
     pristine_git_object: 979ac0790698083c1ab0241a656a3a7abf28b42f
+  docs/models/create-mcp-box-response.md:
+    id: 3a684cdc35fe
+    last_write_checksum: sha1:a382e2dbe8c802deca07e77ec9c6adaaaff1ce3d
+    pristine_git_object: f833c0721210343d5b9cde0379984f9a39e238d6
   docs/models/create-simulation-request.md:
     id: 16b46262ec4f
     last_write_checksum: sha1:5ecf34787b7e29bac0bc506e1ba6c797add31186
@@ -289,10 +294,10 @@ trackedFiles:
     id: 4a4d91850070
     last_write_checksum: sha1:a103dd799977282eca076b92d5af48ed8a2333c0
     pristine_git_object: 312d1da74ad8bc4e983bc2cfe60c177189eb4988
-  docs/models/errors/error-t.md:
-    id: ee0036d35000
-    last_write_checksum: sha1:c97f3dec8da1057b7a7057c7f5c1abbcc0f7d9fd
-    pristine_git_object: d998ff1a31926e3b244a400e8fce14b69798d43d
+  docs/models/errors/api-error.md:
+    id: 9bd6b090035d
+    last_write_checksum: sha1:23fed1b62379ca3daae2046315d2915218502aeb
+    pristine_git_object: 920d280f3d954b292bbe8b6b81b248e562c9f109
   docs/models/errors/simulator-delete-conflict-error.md:
     id: 510f0fe3bc83
     last_write_checksum: sha1:20a1c6fe52459d68ab2bd925766c2c435b62322d
@@ -401,10 +406,6 @@ trackedFiles:
     id: f808632fd4e6
     last_write_checksum: sha1:1dfd00617732c2fde7faa39de3116890ee507474
     pristine_git_object: a700784bef63680bb21150d2cdb3402a4b47684f
-  docs/models/mcp-box-token-response.md:
-    id: 72168e66e85c
-    last_write_checksum: sha1:cc1a87708b0f1a2711226f5ef46b2649a0d4fedc
-    pristine_git_object: 83f58ae618800652dc1d22da6878939c003f7507
   docs/models/mcp-box.md:
     id: 030d2e1d70bf
     last_write_checksum: sha1:992c7952b248fa47f1cfab723c1c7d6009a48115
@@ -639,8 +640,8 @@ trackedFiles:
     pristine_git_object: e8fe321311a38dd4a0c61b07de0d213b34445232
   docs/models/operations/list-apibox-snapshots-request.md:
     id: a3a1371d8876
-    last_write_checksum: sha1:627dbdd4cca632d98279e0dcc4ffacb2a66786ce
-    pristine_git_object: 291832f13736831e8ddb57fe62212cfc66db8a79
+    last_write_checksum: sha1:e84e1bcecb4ab538aab8e2fadc15c99e33a8d00f
+    pristine_git_object: 184193e410c64ba7928b0078fc97511646b875ba
   docs/models/operations/list-apibox-snapshots-response.md:
     id: 6dced5b0897b
     last_write_checksum: sha1:0e8e0cf9d4223cafd82976546c8d57b830d4c2c3
@@ -683,8 +684,8 @@ trackedFiles:
     pristine_git_object: 396c2842459c03f69faeb106a76177ca266471d7
   docs/models/operations/list-mcpbox-snapshots-request.md:
     id: 43d24b222cd2
-    last_write_checksum: sha1:3f475d6a64600f3b6b3a528dd0418f65fd5b82b9
-    pristine_git_object: 637bb49e1ed9d60120ea03e55d825f64dcfb3fac
+    last_write_checksum: sha1:d824134ade1ba1219d5d135e235bb84a669088e7
+    pristine_git_object: bed5d5e49b253ca98642073c3173ec2d7cdbb3a0
   docs/models/operations/list-mcpbox-snapshots-response.md:
     id: 949a52658001
     last_write_checksum: sha1:0b310ed3dafba322c18e29a583bcf4df54296b0b
@@ -759,8 +760,8 @@ trackedFiles:
     pristine_git_object: 4fe550b586b9041da6c884461577f251df99331c
   docs/models/operations/list-webbox-snapshots-request.md:
     id: 278565f0b441
-    last_write_checksum: sha1:dd4be5da77fe6b76bae5cf00c0713872f0a70670
-    pristine_git_object: 4fc6f11faf7e6c0efa37731145ae0134a1fbfedb
+    last_write_checksum: sha1:d35599ee2c01e95c3eff2fd8373445388127b86e
+    pristine_git_object: 9c1b7b7876317fa3451175e3fd1e0d0b68f41b57
   docs/models/operations/list-webbox-snapshots-response.md:
     id: 3501c04cf767
     last_write_checksum: sha1:7b0a8860023effe4d35463a4e0b4874e9a088db7
@@ -1085,46 +1086,46 @@ trackedFiles:
     id: e91e50ca9e3e
     last_write_checksum: sha1:d5e1735cdbc50c05e7b4e198a5b72b17dcb29664
     pristine_git_object: 2cc22d097186e01db07c3bca72988d1d155b9474
-  docs/sdks/apibox/README.md:
-    id: abd4680ecea9
-    last_write_checksum: sha1:536010545e2ebadc5fb234d9b22a9c9f4eb9f93c
-    pristine_git_object: 0e4973caa164aa21e16c5e2a95f0504d76bfa5dd
+  docs/sdks/apiboxes/README.md:
+    id: 13d119d8f9fc
+    last_write_checksum: sha1:12ae989f0512e496ce7c63f35dd9e61fdcf011a8
+    pristine_git_object: cc368f79bb93a02a42088511b9a66445ca21b135
   docs/sdks/apiboxsnapshots/README.md:
     id: 1cdd53e655f6
-    last_write_checksum: sha1:92a94d1e70cebb937a70fe90f15f9d5ce6038095
-    pristine_git_object: dae468e5b9ea2d9953da6b18e0564ad2273547db
+    last_write_checksum: sha1:6ba3291392539939e8964c9552d94c09ecde3b1a
+    pristine_git_object: a73ed3af5b6b7cbfee43230f19dddd1f2dca1185
   docs/sdks/credentials/README.md:
     id: fb7e49751327
-    last_write_checksum: sha1:c439d91b108381c22b436b70991403ffe9bf6fe5
-    pristine_git_object: 24a578cece35cd0aaf0758a71b68dbdad3f7e2a3
-  docs/sdks/mcpbox/README.md:
-    id: 46a53102c5b8
-    last_write_checksum: sha1:29c833c573ba152f5bb720ca2a2062b473148c94
-    pristine_git_object: efdf62386384386a8f98c3fcfb16256dd5df7d93
+    last_write_checksum: sha1:5a4fd53a229f5906b5fd91a73f76bbca43c8d9f7
+    pristine_git_object: bc6650ed08ecbbe33ccc104db218e081995144f6
+  docs/sdks/mcpboxes/README.md:
+    id: de306b6d63bc
+    last_write_checksum: sha1:4c0a1deffa31e235b87bb2e260f98a76b78f80ac
+    pristine_git_object: da55baf2a262b22dbf4fb3ba783921ca6442b5ff
   docs/sdks/mcpboxsnapshots/README.md:
     id: 8dfd04ebf73d
-    last_write_checksum: sha1:efe182e5f3ec18312fe74c99954dcf53efe1fa31
-    pristine_git_object: c009cca9bb3025c662b30f7f4b70bdc5c32bdd00
+    last_write_checksum: sha1:930fc238b38bc7e2d69444a13ed2183bfa411165
+    pristine_git_object: 28aa256a0e856401b00438dcab2ab4d4712bf967
   docs/sdks/simulations/README.md:
     id: a9e027fcb2b0
-    last_write_checksum: sha1:65ae1c3dff2324c51f8c5fb7bd0c26550fe1981d
-    pristine_git_object: 275c585a6c68917768aa6c2758c9eae78d8ce9ea
+    last_write_checksum: sha1:15ee3ef14ffb9e3e143418753ba2a27c65680ad1
+    pristine_git_object: 31282c235266b2ce9711f93a97984f49ea2f0290
   docs/sdks/simulationsnapshots/README.md:
     id: 2dfce73279a1
-    last_write_checksum: sha1:9d65d4c5d9c88cbdf1bdcd65c31342f5b21e6139
-    pristine_git_object: df7578aed274ed9716a040f45009073ae8e568da
+    last_write_checksum: sha1:2f3405160875f30e358310586260eb70008859cb
+    pristine_git_object: 783a47038de9c9cea5994db951548fc56873f7ad
   docs/sdks/simulators/README.md:
     id: 55eacdd8fa62
-    last_write_checksum: sha1:55caf3f558be92c8c15c3af254b343e463d3f980
-    pristine_git_object: 993ec3d3fcf805f2a9c9eaa3f2f8c01ebee79334
-  docs/sdks/webbox/README.md:
-    id: 3f7448a0ee7a
-    last_write_checksum: sha1:043296194510914501cc41f21b79e327f1227ff0
-    pristine_git_object: ce3cc49f3900a523efdef154662b701b11cbe15c
+    last_write_checksum: sha1:86a0b36a5b89d5fd18e176f3306a5a223c7a938d
+    pristine_git_object: a301aacbabb59f0e627cdaff4537fe213708f683
+  docs/sdks/webboxes/README.md:
+    id: 40c97909b902
+    last_write_checksum: sha1:7b1debc192476e4de6ffaa0a9d42c4e468854fd0
+    pristine_git_object: 93682e956ca5e286879979d320b8e3fa69bdde3b
   docs/sdks/webboxsnapshots/README.md:
     id: fcfe151b7749
-    last_write_checksum: sha1:587ec6da2bfb50267293f6194831a83c1c783d32
-    pristine_git_object: d3ae128f6d2bc04e39625ce26209da7e6518baa8
+    last_write_checksum: sha1:1c4fff5dc52021996625471f774f99f3c5b4f347
+    pristine_git_object: 539cd5e54e3f2715430095c8de338e9bfc47cc1b
   examples/.env.template:
     id: 52cbe5afed92
     last_write_checksum: sha1:5efb9f04268a512dea693dbdefdd798fbd924d40
@@ -1133,350 +1134,350 @@ trackedFiles:
     id: 9d0f69d6e677
     last_write_checksum: sha1:b572e98ea9a02fc5e82c03951a3e019516524245
     pristine_git_object: 577ea033203a89f89e1a721722a13bd59792c43e
-  examples/apiboxListApiboxes.example.ts:
-    id: 697f0ae68cc9
-    last_write_checksum: sha1:3e9341a390afb2c60c5e74f2a43e90c7a3a7fa42
-    pristine_git_object: dc9b4ca625de4c37318e3e71489ad0b1fd2febb5
+  examples/apiboxesList.example.ts:
+    id: 5bf48d03275d
+    last_write_checksum: sha1:1a86d5fd3c5ac7bab3ed5845437b78c4a4af282d
+    pristine_git_object: 656f5743b506addfac7cd679155cbbb171fc0400
   examples/package.json:
     id: c1d7b0ec8e7e
     last_write_checksum: sha1:b9f1a7dc4e20c7dcccff0df575b8ae8d77aeef26
     pristine_git_object: a8174ac1b126a1796e076b9f3122a0ede68d2d7d
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:5c9cfaf7833c00c587a2bc8dcea1cbe176e97d9a
-    pristine_git_object: 67261f5d8a4094393ad447e885cb62dc2d6cef50
+    last_write_checksum: sha1:5e34c40624e5e33055c1612d0b9f5e957238b82e
+    pristine_git_object: 2ff03de1f37f9597a5453042c0e63e1de3ea40fc
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:f67138315a3de474edbecf09434ca2441dee5fd8
-    pristine_git_object: 0b955a34088a0e14eab85b9cf73056733fe0721d
+    last_write_checksum: sha1:72eaa05cfa12117110ff7489c43c992eaaee3b5e
+    pristine_git_object: d3e19d2590c62d1d1c37b8569ac3b8594194dc2a
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
     pristine_git_object: a3286224e4782a009f98bb224c9c5d5ba36bb23f
-  src/funcs/apibox-create-apibox.ts:
-    id: cc1671bfc271
-    last_write_checksum: sha1:6f21ac74abc8c0d6268f8c18a7790e816fb003db
-    pristine_git_object: 5efb62270fbeb52123c40719e33297dbe3d3bd96
-  src/funcs/apibox-delete-apibox.ts:
-    id: b5f54699a18c
-    last_write_checksum: sha1:74d93ff50321eb2da9cb2e875c931f37a1b70aa8
-    pristine_git_object: 315fc2dc743f00b3a343da765dc66603f052dfd8
-  src/funcs/apibox-get-apibox.ts:
-    id: a7d1444ade2f
-    last_write_checksum: sha1:c4e3b7dfc0d7ee6f9961c482dcf97d6a648c7063
-    pristine_git_object: 764acb2aac79063e3acb564217a8bfe1f432ab6c
-  src/funcs/apibox-list-apibox-steps.ts:
-    id: 7e36e6c02445
-    last_write_checksum: sha1:e74b230e19007f4b71cac646e0ea1cb064bf391b
-    pristine_git_object: 472634c8a451895f75c6db9c0b3ecfd92be3faa1
-  src/funcs/apibox-list-apiboxes.ts:
-    id: 30ce99e02380
-    last_write_checksum: sha1:ee519a6e0f82a61249d43d556980851ea46dcef5
-    pristine_git_object: 49757acd8a4f4e6bb5a2ee42bc4d39808439e891
-  src/funcs/apibox-save-apibox-snapshot.ts:
-    id: 5605dbb6be3a
-    last_write_checksum: sha1:47325ae13a4b4e02c9dc759db9643965fcf54773
-    pristine_git_object: 62e15f79aff08f65f5684b94ea52ebd4b4525258
-  src/funcs/apibox-snapshots-cancel-apibox-snapshot.ts:
-    id: 8baa8cdbf24a
-    last_write_checksum: sha1:daeb9a572bd7f0091ceaaedadc5514c61d1daac2
-    pristine_git_object: d3f5373b174f0d264e93ad59b4ca5afd5b142800
-  src/funcs/apibox-snapshots-clone-apibox-snapshot.ts:
-    id: e939c012ab12
-    last_write_checksum: sha1:488fa4d39e9cb62656b57cf726f75a2509426656
-    pristine_git_object: 8d6d6ef3b88cab0b9bf83d2a6eb6e8813b9b0c1f
-  src/funcs/apibox-snapshots-create-apibox-snapshot.ts:
-    id: 5f0e01638dfc
-    last_write_checksum: sha1:5d11698eed00b7066463f44c228b436aa155f7de
-    pristine_git_object: 20971ef92acc5dc9445faec67dc7b76de14633aa
-  src/funcs/apibox-snapshots-delete-apibox-snapshot.ts:
-    id: c2bb2a7f748f
-    last_write_checksum: sha1:6389fa3a518d68cfcc7e3b7d1f395a20f706c20f
-    pristine_git_object: 5fc011d5c40d06293191f5207ca4abbb687d1c04
-  src/funcs/apibox-snapshots-get-apibox-snapshot.ts:
-    id: bb79bdb45b2d
-    last_write_checksum: sha1:66769f157bec90553e3b17faa57e228a3ec08924
-    pristine_git_object: d1273a0f65c163eed735e78128fdf2f0cb8dbfc4
-  src/funcs/apibox-snapshots-list-apibox-snapshots.ts:
-    id: cf4ec987793d
-    last_write_checksum: sha1:508c72118fd6c388e736477c3a2aeee4b2a6d817
-    pristine_git_object: 2f401cc5ba996694646556afbe6bb20ca8242231
-  src/funcs/apibox-snapshots-resume-apibox-snapshot.ts:
-    id: e8cadf058a24
-    last_write_checksum: sha1:2034b85b821fa746c7af90d11557d6a9d440ef7f
-    pristine_git_object: 861239bd4e1af293487e797e1d3fb0ad1b2b99eb
-  src/funcs/apibox-snapshots-update-apibox-snapshot.ts:
-    id: a51e70d61d7a
-    last_write_checksum: sha1:6a26cac49794114b88651230b955a978ba7ecef4
-    pristine_git_object: dbb3557c64e0f6f1181f7d0dd4962d59bd311368
-  src/funcs/apibox-start-apibox.ts:
-    id: 56069ab27a98
-    last_write_checksum: sha1:d20c2f7a9b853265f573509a0e506fd337f7cccd
-    pristine_git_object: 84d2690d21f222a04386e32249b99780c55c3363
-  src/funcs/apibox-stop-apibox.ts:
-    id: 1478fec1546e
-    last_write_checksum: sha1:ae943155420ea8700726cacc337f02d2987f1791
-    pristine_git_object: 27a40475f897b90b8a9fecae16a3effdff118acb
-  src/funcs/apibox-update-apibox.ts:
-    id: c09fd613b55a
-    last_write_checksum: sha1:ead967b5b1439b405bce1c384cf7db21ab2364bf
-    pristine_git_object: 4e82b9209490cb81c5d84028eca84062206212a6
-  src/funcs/credentials-create-credential.ts:
-    id: 463de41adc31
-    last_write_checksum: sha1:3eb82b4acf09acfbeabc42c83eaf7625b08c6ce8
-    pristine_git_object: 737a387c000b444026c8268f1b0780be78770103
-  src/funcs/credentials-delete-credential.ts:
-    id: 948ff1e5f1c7
-    last_write_checksum: sha1:eaa279c015379334b687d84625a542f1947f4a82
-    pristine_git_object: 6a50042cd0f7243764697c5307a432b29e4aa9cc
-  src/funcs/credentials-get-credential.ts:
-    id: 863a8f8bd21a
-    last_write_checksum: sha1:0c53daf98cb577da016ed521f58905604e824c6e
-    pristine_git_object: dfb950d5d29495dd9275eaced262158ba04692b9
-  src/funcs/credentials-list-credentials.ts:
-    id: 1a827ac4211f
-    last_write_checksum: sha1:42cacfd3eaf8e55c110120156183a4509cda0124
-    pristine_git_object: 544d55074b370fd7605386d59bad66800e43364b
-  src/funcs/credentials-update-credential.ts:
-    id: aa7397e0a59c
-    last_write_checksum: sha1:4b4f4ec42b0743e72e096adcd660f3eba878555e
-    pristine_git_object: d9648ec53e9aa577d9530a9c4addd3b9933ce7c0
-  src/funcs/mcpbox-create-mcpbox.ts:
-    id: 3cbb342e21e0
-    last_write_checksum: sha1:13da04f7206aef0883f3221953b93377fc39485d
-    pristine_git_object: 1c1386a69eab226f3ad84b85fcdd75b748eb8dff
-  src/funcs/mcpbox-delete-mcpbox.ts:
-    id: 41fc389dd414
-    last_write_checksum: sha1:844d66d1258382488bdcdd15a75989fabe7c02cb
-    pristine_git_object: 866b0481a17eaf1902d679c5df1f9543339b6836
-  src/funcs/mcpbox-get-mcpbox.ts:
-    id: e72847f4e77d
-    last_write_checksum: sha1:e0f66de4d7dd8e332fd5a52784720af10cb894ba
-    pristine_git_object: 57f0542b4039c8aa843e88bce0301a812699b122
-  src/funcs/mcpbox-list-mcpboxes.ts:
-    id: ee3e26702ab3
-    last_write_checksum: sha1:93e940ed60db4eef0d17a7f266ccdebd037d25e9
-    pristine_git_object: e31e27802d4e468a58b509eecbf53d37b70741e2
-  src/funcs/mcpbox-save-mcpbox-snapshot.ts:
-    id: 782ec8606c37
-    last_write_checksum: sha1:4677917f7d1c016bf43ffc18258f4fa959b420b6
-    pristine_git_object: ca4a6e7bf34bf3ec00fe466e3371090b9bfdfefe
-  src/funcs/mcpbox-snapshots-cancel-mcpbox-snapshot.ts:
-    id: f17e81431afb
-    last_write_checksum: sha1:c458a09b17b686a934b888d5dac15d867e219d58
-    pristine_git_object: 7f12882534d09b7d134093f8126cd8b82fc50181
-  src/funcs/mcpbox-snapshots-clone-mcpbox-snapshot.ts:
-    id: eadee826ff10
-    last_write_checksum: sha1:c877af05deaf0e1092daaaeb5efec2d7b72b9d1e
-    pristine_git_object: daf21758bf3152b92e3119cf98a74eb80190b26c
-  src/funcs/mcpbox-snapshots-create-mcpbox-snapshot.ts:
-    id: 1c340b5b924d
-    last_write_checksum: sha1:44929d6f4bc37e78874f70793976d7ba692ed537
-    pristine_git_object: be5d3d477a8be05684a62d9a1e04152e584f2139
-  src/funcs/mcpbox-snapshots-delete-mcpbox-snapshot.ts:
-    id: 1dab73a0ea99
-    last_write_checksum: sha1:f55353591f044a636a75a6893e469c5c4a1c6b27
-    pristine_git_object: e2796cbdffbc52069d04c42c53efee295c232d52
-  src/funcs/mcpbox-snapshots-get-mcpbox-snapshot.ts:
-    id: 6a0414f437fb
-    last_write_checksum: sha1:1b66f707a3500fcfb3d75c9a45f20844fd6093e5
-    pristine_git_object: ffc9cd1e4ec79164447f06b2577046ef71106aa2
-  src/funcs/mcpbox-snapshots-list-mcpbox-snapshots.ts:
-    id: 454f58afa407
-    last_write_checksum: sha1:82d7628e948ef295332ea051b3cf69798112b2b9
-    pristine_git_object: cadccb1e6d3907974736e1863dde0382a0db55fc
-  src/funcs/mcpbox-snapshots-resume-mcpbox-snapshot.ts:
-    id: 3b2b9be82aea
-    last_write_checksum: sha1:26a51ca49ae145bad3f29c7a18447c398bcc8fc5
-    pristine_git_object: f0a8b7ff498f8a1e75087daa1a096c9af67b021f
-  src/funcs/mcpbox-snapshots-update-mcpbox-snapshot.ts:
-    id: c96154cf8df6
-    last_write_checksum: sha1:2ccc17deef1a2a25f1fd994d405f1b0059f8c1cb
-    pristine_git_object: b425ce44cb4907b4a6907bad3097c5f9b78544ac
-  src/funcs/mcpbox-start-mcpbox.ts:
-    id: 7e1150b5f4cc
-    last_write_checksum: sha1:f5afd8030fc60b6b4cb81ba7ec1b8048e661137e
-    pristine_git_object: 3ceb5c6ccb075fec59ef5186299f8fa0e7a40dc1
-  src/funcs/mcpbox-stop-mcpbox.ts:
-    id: d7acb724939c
-    last_write_checksum: sha1:2c30109de63c62ce2a33543fcd38db747eb26d50
-    pristine_git_object: dc0ac81cd6412fc63e4fbb706b7e466c6326431c
-  src/funcs/mcpbox-update-mcpbox.ts:
-    id: d527a561e17c
-    last_write_checksum: sha1:2ea274c3a4b796ec292eae6fb5d41712717f4227
-    pristine_git_object: 5c05c80cf78e7e4e73f36957c1f65a8622dc7247
+  src/funcs/apibox-snapshots-cancel.ts:
+    id: 8bcbd34a066a
+    last_write_checksum: sha1:ce7d7b5a47c6754b5e705982b358f25cbb603cba
+    pristine_git_object: ee6f9cd3a965789bdcf430127fec5e98e2d14910
+  src/funcs/apibox-snapshots-clone.ts:
+    id: 507112644c3b
+    last_write_checksum: sha1:771dda23b22aee9576ca0e677e8c8b4a19f38a20
+    pristine_git_object: 62e8ae422ed6980ab03f3fa185311bad5d3bfbc1
+  src/funcs/apibox-snapshots-create.ts:
+    id: 4fae671434ef
+    last_write_checksum: sha1:08fa14305247349a1aa534e26babc7d51c2ba182
+    pristine_git_object: ae76b90e0794d8eb6c63b9526529e908accb374c
+  src/funcs/apibox-snapshots-delete.ts:
+    id: c6868a48d01a
+    last_write_checksum: sha1:b33f1e25e1a86ca5a068a50e08e5c9196b3f0537
+    pristine_git_object: ad4c20aa8a846dcd33d989138ca5012b9dda6ffb
+  src/funcs/apibox-snapshots-get.ts:
+    id: fa11f8d3d08c
+    last_write_checksum: sha1:f7fe13d90778839930e5d398bce0cd5252999a39
+    pristine_git_object: bb026b1d9cc46beebfd922caae20155d07c005db
+  src/funcs/apibox-snapshots-list.ts:
+    id: 502a8025e89a
+    last_write_checksum: sha1:63cf0d1d6b219928e0d6590bf4b71be85cb30aa0
+    pristine_git_object: 9327bb463abe3cbce91eed33ee41262b6e32213c
+  src/funcs/apibox-snapshots-resume.ts:
+    id: 3fe006ecc290
+    last_write_checksum: sha1:e78324a3907953440e5a5c7e9aca33141af9c08c
+    pristine_git_object: 2ca4ef2668bee0ec8fe47ff01a0ac129c70bfcc9
+  src/funcs/apibox-snapshots-update.ts:
+    id: 9576c856b232
+    last_write_checksum: sha1:14837968c9be89f6029ef2e78c12b3bb7dc5ede8
+    pristine_git_object: eeb48b123ec8b15a344c3cec10be4f49097783c2
+  src/funcs/apiboxes-create.ts:
+    id: 932f8b5f01f4
+    last_write_checksum: sha1:2b51f5f6a46fe1af354d0c324ba38eb7d8de732f
+    pristine_git_object: 38947c95b171674876a49c960e045c699adecffd
+  src/funcs/apiboxes-delete.ts:
+    id: b438c35af88b
+    last_write_checksum: sha1:5a31fb7a726918b0f2b7cceec9be55abc98dee6f
+    pristine_git_object: 3ea3f14ed06f59fd0f1a30a3fa6d73483fb4e2bb
+  src/funcs/apiboxes-get.ts:
+    id: 2ec3f57f29b1
+    last_write_checksum: sha1:2b8c4c91e78d3a58e8e9da020eeb6a8c1cbef1e5
+    pristine_git_object: 6cad9dd05f5de51d78d0bb628744ca7428ba0ce1
+  src/funcs/apiboxes-list-steps.ts:
+    id: 7047f649f2c0
+    last_write_checksum: sha1:c35ef2a06a9344e9dee09b8561052841d902fd9e
+    pristine_git_object: ad0330c4cbabaa4dc79d1b91d0f932dcf701b061
+  src/funcs/apiboxes-list.ts:
+    id: 8e90309c47a6
+    last_write_checksum: sha1:2148bef8a613a496136580d47026e71f438add5c
+    pristine_git_object: 019943af63ea7bd5453f31287a2c7ff2d8fb05a5
+  src/funcs/apiboxes-save-snapshot.ts:
+    id: 5825bf4c786b
+    last_write_checksum: sha1:e91b6155b7d0e3593eb90253bee4ce0344fafa3e
+    pristine_git_object: c80fdda063ef9df98e901bd021dc76bebb47749c
+  src/funcs/apiboxes-start.ts:
+    id: f3db5819d204
+    last_write_checksum: sha1:ee1a2358d0f2a547f329844c6109a3856ed3136d
+    pristine_git_object: c2967e6bd2d4627542d7d5d89ad12a0620bee14a
+  src/funcs/apiboxes-stop.ts:
+    id: f5932a06788a
+    last_write_checksum: sha1:05733b9d633eb5551cfc672c7cf0863cbf6ec5d3
+    pristine_git_object: b08be919e8d4785319b36e907285daf3695ca139
+  src/funcs/apiboxes-update.ts:
+    id: ff960e3ac734
+    last_write_checksum: sha1:e85406d73377397fb34d9da559122cf4368e351d
+    pristine_git_object: 9cef5b64ce6d8bdd5cdb6b935ab32df892aa6075
+  src/funcs/credentials-create.ts:
+    id: a776abb59d75
+    last_write_checksum: sha1:bbd71f0b0216926a9d31daa8c85b42b0336b9e5a
+    pristine_git_object: 67b82db918ab984f7292d81fa064ef932e460467
+  src/funcs/credentials-delete.ts:
+    id: a804705f6b4c
+    last_write_checksum: sha1:c1ad79a1656dd3da9bea578f05a4ba6ec7299792
+    pristine_git_object: 86eefce61aeaa0f8a49c90708f2ad63937127dd5
+  src/funcs/credentials-get.ts:
+    id: 357455a2bd2a
+    last_write_checksum: sha1:8bbbaa0ae7d1cf713519d75fb8ecc12013da6fe6
+    pristine_git_object: 61b4f8771f13c8a9e160ced1482dcbe7ff79dd21
+  src/funcs/credentials-list.ts:
+    id: b010c0ef39e1
+    last_write_checksum: sha1:ede0dc69895503ab91fe781de57074d90b822e71
+    pristine_git_object: 5371e25da374430f98c38a087024453ecd6ce9e1
+  src/funcs/credentials-update.ts:
+    id: 3db15d33b6c7
+    last_write_checksum: sha1:98cbf86634420b5f15b08ab78cb8f66058d12d96
+    pristine_git_object: 9b288a80adc42c8490877e0dab68bf81e32f8b63
+  src/funcs/mcpbox-snapshots-cancel.ts:
+    id: 6561eb4ecd33
+    last_write_checksum: sha1:338ed92a91896b430cba1f19b5747f73a6c14c70
+    pristine_git_object: 3e84061adb13e598a55265e936de1bbd00658d6e
+  src/funcs/mcpbox-snapshots-clone.ts:
+    id: 6a4ceeb5ff10
+    last_write_checksum: sha1:0f32f3b33c4fbb047dc0d88f2d8119a71cbaa813
+    pristine_git_object: 335144ef0e0212ded8cb55a72617f375cc33958e
+  src/funcs/mcpbox-snapshots-create.ts:
+    id: 965480adb1e7
+    last_write_checksum: sha1:6cd6a5358e5b9a0d6211be1c3f14555c69c94475
+    pristine_git_object: 133f6d558b77ee8d5f105f5078f6e56ca7048a4f
+  src/funcs/mcpbox-snapshots-delete.ts:
+    id: 657fe6f59bd7
+    last_write_checksum: sha1:ac7a7cda994477f729024deaa000aa76577daf1f
+    pristine_git_object: 1ede94353f4a7c5a00943e4198a0a4484ea8f13f
+  src/funcs/mcpbox-snapshots-get.ts:
+    id: 9040cb6040c9
+    last_write_checksum: sha1:a29851728bb800c0846ca80aff1284ff20df5f6b
+    pristine_git_object: 5ded685ec8b3384e7bdbcaa0b1adc4ac26872a25
+  src/funcs/mcpbox-snapshots-list.ts:
+    id: f45a6c1c0fa9
+    last_write_checksum: sha1:ce923c2e428a9abd58f14a826f53ba62dad0b5b7
+    pristine_git_object: 57f51d330e7ae707d92ee6bfb9bc459ad54dd984
+  src/funcs/mcpbox-snapshots-resume.ts:
+    id: a07b1b2b701c
+    last_write_checksum: sha1:e2cb0ffaeeb4ed268ec84f19d8fd3bcc88a23a9f
+    pristine_git_object: 4d499357a4c8c3fd1ca2f6effb47cf12dbbf2542
+  src/funcs/mcpbox-snapshots-update.ts:
+    id: e56e3a5daca9
+    last_write_checksum: sha1:da3bf15237b5877bae648163305275a1a3d5c43e
+    pristine_git_object: 613a54fa68a4d4b680718c0b87ffc0e2aa5fb12e
+  src/funcs/mcpboxes-create.ts:
+    id: 99f37c342439
+    last_write_checksum: sha1:dc87fe5beaf489fa7aa7b4cfdf818590394a3663
+    pristine_git_object: 06f3680eeaaf53da1c30aabc492a8255875a3c11
+  src/funcs/mcpboxes-delete.ts:
+    id: 652567c6de96
+    last_write_checksum: sha1:ccf0b9f3903186832f6b500d78ef243d12e000d9
+    pristine_git_object: 0d41f97a6f7a331b85783531b3b96449505bbcc4
+  src/funcs/mcpboxes-get.ts:
+    id: da4bdc44c436
+    last_write_checksum: sha1:75df1eec82dedcf90c56cb2573444b7093833007
+    pristine_git_object: 7a26948cb7df772da15ade6de2da2b580da68d71
+  src/funcs/mcpboxes-list.ts:
+    id: ea431e7f4b20
+    last_write_checksum: sha1:b8c8b2de3a29e8bea26d3f7d17e2b715fb217668
+    pristine_git_object: fee84343511b35b08df693b7341ace06cb394b2b
+  src/funcs/mcpboxes-save-snapshot.ts:
+    id: 33f6f9d79fc6
+    last_write_checksum: sha1:e11f3452cabb52ce54a3cf3596002644dcdf712f
+    pristine_git_object: 2f6ef073cc3e86b19f67687e2b1547ff6c59ae6c
+  src/funcs/mcpboxes-start.ts:
+    id: 4f5c939e0763
+    last_write_checksum: sha1:f5598f5e44eb441080ea63653209a5653a3f2a7c
+    pristine_git_object: 20b191cee42467518ca507d7a50b5be6b7d962a2
+  src/funcs/mcpboxes-stop.ts:
+    id: 43ba74259d9f
+    last_write_checksum: sha1:9bea88f7d3294c2925423e849a0c053e6e37d82c
+    pristine_git_object: 1c46e8b6747ebb2374086a17fe536e6b85554551
+  src/funcs/mcpboxes-update.ts:
+    id: 354c65d6bc28
+    last_write_checksum: sha1:34b0c4b6c2ddefba5fc06738625c0c78ff1505f5
+    pristine_git_object: 036ec6603c3366fb840ae4dc343e44406e1a18bd
   src/funcs/simulation-snapshots-create-simulation-snapshot.ts:
     id: fbaceba920fc
-    last_write_checksum: sha1:f9bbadac22067963f8cd0ee9e6ec65b81a71a674
-    pristine_git_object: afa1d9d30e28fb6656d58a4053e719edd8054cfa
+    last_write_checksum: sha1:f8991015457a7663463a5eb86285428a457e88a1
+    pristine_git_object: 0bf5c156717fc2b9aa93458cea018f5275d74507
   src/funcs/simulation-snapshots-delete-simulation-snapshot.ts:
     id: 19cc0792b6c6
-    last_write_checksum: sha1:a7be2d4c511ffc176a4dff3604b2a0180e04b255
-    pristine_git_object: de8f00655e39e1158da35458f3fe383f0e5047e6
+    last_write_checksum: sha1:d0635adcd8b08bfdadbffc680be759d1eda968b6
+    pristine_git_object: 5d756b56e424ab431d80c537ea130b48a58d12f4
   src/funcs/simulation-snapshots-get-simulation-snapshot.ts:
     id: d2b0804266ee
-    last_write_checksum: sha1:3958908e11fad5e053ff60f7e6e5925fb0f70386
-    pristine_git_object: e59a2637620d86ccd188d84d3a17ef1cc0f79d6b
+    last_write_checksum: sha1:d579ba709e02d2432552c9e7444c8b1d70603de9
+    pristine_git_object: fda9e463f122d105120945bc7d8f322440df1109
   src/funcs/simulation-snapshots-list-simulation-snapshots.ts:
     id: b060614010b6
-    last_write_checksum: sha1:91fa193a07f0427eedcd6dc43d96328e94ab328e
-    pristine_git_object: ff2a38c357be7ce3c3556eaf4e843669f03d3835
+    last_write_checksum: sha1:5b5e1be54dc0483b34b5ae7a5cc278ada69c722c
+    pristine_git_object: 36f2c38bb7726becfd57031d2515870612994f2a
   src/funcs/simulation-snapshots-update-simulation-snapshot.ts:
     id: 71a493eae5a6
-    last_write_checksum: sha1:3d0de0dcba30356000338606a158bb42093cbf23
-    pristine_git_object: c48df84f7449c111a3748acc87f11e92cf7f78e8
+    last_write_checksum: sha1:0a598f8f5cc24194bec6199968b4e82688815ceb
+    pristine_git_object: 890d330a4f264a4a5b4b9bed9e1b0a87213419d4
   src/funcs/simulations-create-simulation-advance.ts:
     id: 73f97ac79a25
-    last_write_checksum: sha1:e84b5f9971a2a7cf58420cf7fa5e2d3a5d0fb466
-    pristine_git_object: 17f9a2580bcc0a57118ad4ef535c61e9174e72c1
+    last_write_checksum: sha1:d2686a48af1660d07ec7d6868d87f6e196172c33
+    pristine_git_object: c45e2db34c5eb5302af526b6603a0bdd4e7aec23
   src/funcs/simulations-create-simulation.ts:
     id: b408688d170e
-    last_write_checksum: sha1:d0289a7583a2b9510de1c1c1f6a33588e650c9fa
-    pristine_git_object: 45076914d6bbe485c5f40e886cfe688f703e9539
+    last_write_checksum: sha1:b0282b2e2d395990faad6e0c8764ac5a5f0df83e
+    pristine_git_object: 2a69d7133b814edaf891772152b92cc8b701e056
   src/funcs/simulations-delete-simulation.ts:
     id: dbd6f532a0a1
-    last_write_checksum: sha1:6defca69cd9d56936d645c3e281109e1b6312823
-    pristine_git_object: 06bc80b89485e2b1d4c2d62b07462d0b1356e395
+    last_write_checksum: sha1:3e3598d4b810d9a9637df2537c42f1423d2e8cbb
+    pristine_git_object: a2efb0f71e7725ba18aa061e0f9abbdf1d65ae90
   src/funcs/simulations-get-simulation-advance.ts:
     id: 36643df9cf30
-    last_write_checksum: sha1:9bc3966c66f420195187ad3ba0c63dc6da559303
-    pristine_git_object: 799fbcaab22b661e083a4f54820e28cf5271ba58
+    last_write_checksum: sha1:0d7486d0f2960c675da671c502875d7d6843d886
+    pristine_git_object: 41a71865d959452d4dc5756b42acc9ed18b3f9f5
   src/funcs/simulations-get-simulation-token.ts:
     id: 3f8f87db5206
-    last_write_checksum: sha1:4e5441e19f414226b36439d0cd98a6a88d237677
-    pristine_git_object: a676f2c28c2a27e59fb5be03fb071ae82cbc2abe
+    last_write_checksum: sha1:57d761583775ff83a989a35bbacfa0895f7903ea
+    pristine_git_object: 851fd18e705e1eccd570976f5cd30450808917ce
   src/funcs/simulations-get-simulation.ts:
     id: 4d69a4677dba
-    last_write_checksum: sha1:b1b46a5a9b25ed0c43834b5cc9d8e06fad6ace83
-    pristine_git_object: 95c9cfd5761286ac49a36bff9826c164c8e848e1
+    last_write_checksum: sha1:9c09694f04a43a1ab5d6b09b7c1c5d19adca0a40
+    pristine_git_object: d92d98b678df609226cbe0d8c9fafe098f08e56c
   src/funcs/simulations-list-simulation-advance-events.ts:
     id: b5ae40349202
-    last_write_checksum: sha1:ce5a266b87ff818590af3b2eb5f05be4da3d322b
-    pristine_git_object: 4e7c7b78f654d4d24321bc0e32687e5dc33d668e
+    last_write_checksum: sha1:c864f1b8cba4fc8c94d25b871c12569bd9b49391
+    pristine_git_object: a0a83317f6a75bc69a3558fe7ecc44a4b410b3aa
   src/funcs/simulations-list-simulation-steps.ts:
     id: 9e8abb323909
-    last_write_checksum: sha1:ae1896debb9f8a4ebdfb4a1007b40846c001f864
-    pristine_git_object: e86fea432e04b887ec9fc250b21b045c01850425
+    last_write_checksum: sha1:882c5b54e135bd022fc25989d94d2980d9a85161
+    pristine_git_object: 03fa4737cd90e75701368e7920a4636187224454
   src/funcs/simulations-list-simulations.ts:
     id: 362b9f37a1d1
-    last_write_checksum: sha1:1138a9fc8d075a7a259e54da7eac94348d77ee53
-    pristine_git_object: 1fd1861eb11147168a8732442c00e92bdd748a9a
+    last_write_checksum: sha1:f22e494a27ef8a2bad70451c9a6076a540b3d01a
+    pristine_git_object: e2973d4c9e7246cbee6cf5f9693eada384d1529f
   src/funcs/simulations-regenerate-simulation-token.ts:
     id: de35ea1ec34d
-    last_write_checksum: sha1:4f98692f440be4f4128923e83a0489605576a2bb
-    pristine_git_object: 084ddecede68d19fa2e7165a744b0edd6a9314f6
+    last_write_checksum: sha1:dc2f538612879518e615d206dbb41efe70c8b4a8
+    pristine_git_object: b755747b38b78a1462e0348d3bc3a183f0fffffd
   src/funcs/simulations-start-simulation.ts:
     id: 90465bf5435b
-    last_write_checksum: sha1:0329ec3de1f7a60bf832301071bcf0a324adecf2
-    pristine_git_object: 6384e5d5f1d9701302f733f52c1c5527df24bca0
+    last_write_checksum: sha1:19fb57ce64104da9afb148f6873adeb84094353f
+    pristine_git_object: 3a8d52275fe9ea9b5ff2fe7e8ed5f9a9bb12b7a7
   src/funcs/simulations-stop-simulation.ts:
     id: ae99828fbcd8
-    last_write_checksum: sha1:fd2fe5f58afd018f2276b1c5f556326b95314a77
-    pristine_git_object: 89a2a0edb45ad17418db1f465629c0f2d327c905
+    last_write_checksum: sha1:24669165306b678f72d6c85947bd7e59d89f09de
+    pristine_git_object: 750bd4a7c19aacfdfa5600212d960235bc038b38
   src/funcs/simulations-update-simulation.ts:
     id: 4fa6d5654fd0
-    last_write_checksum: sha1:f71b2b208a5c420e8d736dd7049b3847638a2d93
-    pristine_git_object: ef4b506c7ed10b7383d8c5817ebfb3ceefe623a3
+    last_write_checksum: sha1:c70477d4cbbc7e0ddcd5acea65b1c5cdf0ce6402
+    pristine_git_object: 6ce9ebace158f1b0ed72a2bb995bef84d6d6c179
   src/funcs/simulators-build-simulator.ts:
     id: 78fe7e51307a
-    last_write_checksum: sha1:b1b6172a9cf9377943fc5fae3849ecaeae500fe6
-    pristine_git_object: 2407ac885e7eede2eb081a0d3a7d5757cdba665b
+    last_write_checksum: sha1:2dcdf8c74aab747fa95b673a011a043e45e7a069
+    pristine_git_object: 4bdc387b5aa8491db904418e8b23c67c9264cddf
   src/funcs/simulators-cancel-simulator.ts:
     id: 78529d3bd4a4
-    last_write_checksum: sha1:6ad1b918bca6780c2319ecbbd95ca143786dc8a7
-    pristine_git_object: 4b6aa06032e70174276322900fe9132a49dcdc97
+    last_write_checksum: sha1:99145cb0adb28f483a7a6f90845f55802bac1af5
+    pristine_git_object: 9b443f306fdad71bc9b5b12b112586e22b44441c
   src/funcs/simulators-clone-simulator.ts:
     id: 032934ef1a02
-    last_write_checksum: sha1:a6e24b52559139fcbda9dbb3d230df61bbda40ec
-    pristine_git_object: 0785addfab0f33b3e949c602c770ae2169dc77aa
+    last_write_checksum: sha1:b494dde430fb7f3dd79a5b8aa76f7c41a8d9d7fe
+    pristine_git_object: 55729dc011dd88a90b79ab9319495769b2b92b38
   src/funcs/simulators-delete-simulator.ts:
     id: 39ae64564776
-    last_write_checksum: sha1:148b1e40ad3f0773e3b00c595d0318af96b39149
-    pristine_git_object: cc27146fb1f720a9d448c99ef96839456f39602a
+    last_write_checksum: sha1:78a1b83c55843712b71259ef0f3ea132084b45db
+    pristine_git_object: 16ccb9e6cc30a3b2b670c9e95ec9e5744b45e3c3
   src/funcs/simulators-get-simulator.ts:
     id: 9e6edbf771c2
-    last_write_checksum: sha1:4a1055c3019e71fe244e85b888e8ed750a8f6e36
-    pristine_git_object: a1884207cb3db8ca7646e926b5aba55fbce36e45
+    last_write_checksum: sha1:f28687a0e4702360f72130441bc3d725fc3c8b87
+    pristine_git_object: aa6be9451a64ad34fc508b249d549e15edaa0f21
   src/funcs/simulators-list-simulators.ts:
     id: b43cc23c2ead
-    last_write_checksum: sha1:ad247afb6129ec78fc90cdc4df8492423a055086
-    pristine_git_object: d23105ce28416223b155e0ae2076a8877a3fea16
+    last_write_checksum: sha1:e18bb653a5beceb18d450da0f667d407fa5b452a
+    pristine_git_object: 1f1e676bc9510fb85a0cc2e3ddbffe8636086cd0
   src/funcs/simulators-resume-simulator.ts:
     id: 6551a54eedc3
-    last_write_checksum: sha1:dc00c42d656bf2678a863c10f97740fccdedb290
-    pristine_git_object: 7d766dfbb962bfb1759ce4e41ac24e494efcb279
+    last_write_checksum: sha1:62fecc8b0a07559f90d2261f87f172d62285fda9
+    pristine_git_object: 7786cf62e0ceacafd36be358f5675ef89c313916
   src/funcs/simulators-update-simulator.ts:
     id: 3647da4877f0
-    last_write_checksum: sha1:86dcede226adb7056aca3bdec678501ad1d32357
-    pristine_git_object: f0c76cf658a5ef78f2b291922ec5a3ed07e55168
-  src/funcs/webbox-create-webbox.ts:
-    id: e481183232b8
-    last_write_checksum: sha1:3cfe446c1fe59eef0b2579ace0da73b8a04aae8e
-    pristine_git_object: b6961f20aceb1ee00dfd5032b3969fcfa7a32eec
-  src/funcs/webbox-delete-webbox.ts:
-    id: 8a12b15ec9b2
-    last_write_checksum: sha1:a892d1490e8dea1139db9fdbfc40b521d67084db
-    pristine_git_object: 3a8bbbd7da17d43ddb6b20eadc7c94ed827258c0
-  src/funcs/webbox-get-webbox.ts:
-    id: cb38a04171c9
-    last_write_checksum: sha1:42f0c034f846e739032ddfcc8b4b245f9dfe7341
-    pristine_git_object: 2c10dba3dba3ccd7d30588b58141a48cfd829d87
-  src/funcs/webbox-list-webbox-steps.ts:
-    id: 201461687bb5
-    last_write_checksum: sha1:25be244d704180219cf6ebba5c6e6efdae1698c4
-    pristine_git_object: c7d2ab5429ac605e8815ed373f87cec45d480177
-  src/funcs/webbox-list-webboxes.ts:
-    id: 124bd78882c7
-    last_write_checksum: sha1:9257b23d7e444dd08cdb605d8f4503b81ef25dff
-    pristine_git_object: 546d5fd4eecfe60f78de4eb06f7573a7fbbf12a2
-  src/funcs/webbox-save-webbox-snapshot.ts:
-    id: 11b4de35c940
-    last_write_checksum: sha1:540c0f3a0cbe7995ce6f9231ce9722a017ea3c3b
-    pristine_git_object: b3a49c52e1ae54ef445e26f0f60993fb36210bc8
-  src/funcs/webbox-snapshots-cancel-webbox-snapshot.ts:
-    id: 534d19971972
-    last_write_checksum: sha1:d304a24f77f6b9a6369a409abf4451e0d238d6ee
-    pristine_git_object: ae7658c87b883d55d818adb610a5e38fb8cb9ecd
-  src/funcs/webbox-snapshots-clone-webbox-snapshot.ts:
-    id: 594f35174c3a
-    last_write_checksum: sha1:04f48cd40ff530d3fe3e81780046403598646342
-    pristine_git_object: 2df7a96488bc4608d135ee7d3a2da2101a5465c6
-  src/funcs/webbox-snapshots-create-webbox-snapshot.ts:
-    id: 3425354030ae
-    last_write_checksum: sha1:66769ccb076cdd572a76b2e9f929f77921c0b458
-    pristine_git_object: 15de6c8a6158214034eb1b89de808e88f4b87606
-  src/funcs/webbox-snapshots-delete-webbox-snapshot.ts:
-    id: 3b02fc1922a0
-    last_write_checksum: sha1:accbe13b28053c60223b5dee9adb35217080c0e4
-    pristine_git_object: 83c42f773167249feeb3f4266608e2aefb3bbf7e
-  src/funcs/webbox-snapshots-get-webbox-snapshot.ts:
-    id: ce25d15bec01
-    last_write_checksum: sha1:fe8300ede372b07bf9ef58c05136732f843f3678
-    pristine_git_object: 9c9e1594c6d6ee9c54ae2cb27e3f75079dfa0b3b
-  src/funcs/webbox-snapshots-list-webbox-snapshots.ts:
-    id: 941fc5e7e7c3
-    last_write_checksum: sha1:ec73bf010b51c2d7fb86f240177e1e44d0021360
-    pristine_git_object: 63ce94c1395dbd5b6d5d87e7c37d773d48d7001a
-  src/funcs/webbox-snapshots-resume-webbox-snapshot.ts:
-    id: 07721b9320c8
-    last_write_checksum: sha1:9c577598732e30aa860d7a14584fb6a1678115cc
-    pristine_git_object: 6f45fffb5d93b764bdfd4ae449b4e0674b759cd0
-  src/funcs/webbox-snapshots-update-webbox-snapshot.ts:
-    id: a8b43c8beb7c
-    last_write_checksum: sha1:2ab4c6b597a49d023ec93a29bdaea10921b88633
-    pristine_git_object: dd79dffd00e804d247bd5f91bf7119b97394de4b
-  src/funcs/webbox-start-webbox.ts:
-    id: d88230947c49
-    last_write_checksum: sha1:f3d5daac47a922d5b55791d6d6af3b5723ead58a
-    pristine_git_object: 534a755ac249ebe10a52904914ba154920a9e5a1
-  src/funcs/webbox-stop-webbox.ts:
-    id: eca45670b88f
-    last_write_checksum: sha1:c3e3121a83b07063da871a609dbccad1b14efba9
-    pristine_git_object: 546669f6b33ce1c33c4412b0dd0f87ec11191785
-  src/funcs/webbox-update-webbox.ts:
-    id: 4b7c73bc4b33
-    last_write_checksum: sha1:147bfa944467bc8bfee49bbe4bdcdff01919de72
-    pristine_git_object: af88a04570a1baa80dfe25acd56cc26d1e2736a4
+    last_write_checksum: sha1:834333a6ae1486bc02be27554186ca5930bdabc7
+    pristine_git_object: bca50abc2fc6892e3ac5ffd83e2bc943e48d570e
+  src/funcs/webbox-snapshots-cancel.ts:
+    id: dacbb129523f
+    last_write_checksum: sha1:04d1c59b012117a6185ed370bcd1a99bc35f661e
+    pristine_git_object: 8060280e1deda472aee0b494e2bbe092371651c7
+  src/funcs/webbox-snapshots-clone.ts:
+    id: 14ab90642195
+    last_write_checksum: sha1:ff701f9ee2063063c3c73377df182a5243e01f3b
+    pristine_git_object: 33671be0721280205499e27afde488d0592ad61b
+  src/funcs/webbox-snapshots-create.ts:
+    id: 8f129af329a9
+    last_write_checksum: sha1:b2cdcc403481a95d05a9df1d32ccd383406d34aa
+    pristine_git_object: 12c843c713355fc5c91c2e9fed2fa4b6dbd55541
+  src/funcs/webbox-snapshots-delete.ts:
+    id: 70019ad57fd5
+    last_write_checksum: sha1:4dc80fbf364e639a9cae2d27acebed747359f78c
+    pristine_git_object: 971345f58a231ee985dfdd2853868ce54455f733
+  src/funcs/webbox-snapshots-get.ts:
+    id: 0f35163936ca
+    last_write_checksum: sha1:cbc4cdb819d6ca78db1ffe5ed1b749d5f8359858
+    pristine_git_object: 7d6f22e22031b818a08bcf9efa17a04df26fa58a
+  src/funcs/webbox-snapshots-list.ts:
+    id: 446ee32ecbea
+    last_write_checksum: sha1:a919ba5d113de92c4490b37ad234f4ab6cbee2c8
+    pristine_git_object: af7f573375b3fd46a9c13939427a1af0bd670bf7
+  src/funcs/webbox-snapshots-resume.ts:
+    id: b621c4accb92
+    last_write_checksum: sha1:7998e5bb5cdfbdabd8518461383e5219cd1e6580
+    pristine_git_object: db75abb2bbddfa0adc3af452e591f7e7a442b80d
+  src/funcs/webbox-snapshots-update.ts:
+    id: 8dbea2747193
+    last_write_checksum: sha1:2f0b24bfa5ef6547a4697fc137f3259a86ddb17b
+    pristine_git_object: 36235c7acf198224b7ac727e02c2e2cd63399ee6
+  src/funcs/webboxes-create.ts:
+    id: 200e1484f844
+    last_write_checksum: sha1:276a474682a24e07d3c46921a07469bfe0355253
+    pristine_git_object: c35dd1e5bad98200de35b9f39036f724b8adf436
+  src/funcs/webboxes-delete.ts:
+    id: d52c40afe394
+    last_write_checksum: sha1:1ed16dfdb5d65e173f574fb07fb509e0b1ed5a9b
+    pristine_git_object: 8abb42ede1425ac50795b4f3c319981043587fec
+  src/funcs/webboxes-get.ts:
+    id: b79e7d7a59c4
+    last_write_checksum: sha1:04dc3766c865f8fd428df16518ae6b931bf42a8d
+    pristine_git_object: 6a413374eea51786d69f1e9aefd4b9b50e4782f2
+  src/funcs/webboxes-list-steps.ts:
+    id: 2d1880417e48
+    last_write_checksum: sha1:69630e10b1cb5ccba13bf2eca35f329942064b3b
+    pristine_git_object: 767fcab9c75b0f1d408adce0abb6eedba9eded2d
+  src/funcs/webboxes-list.ts:
+    id: b9bf377df0f1
+    last_write_checksum: sha1:58013dbc918c0a6c5346cf72ad0649e010bc7c61
+    pristine_git_object: 7e2e0a80d34abe5acf4ed49f40f6afce3d8a0d02
+  src/funcs/webboxes-save-snapshot.ts:
+    id: 4646dd30a8af
+    last_write_checksum: sha1:e602cfd63005ee00df4d2cb976febf89aef72f55
+    pristine_git_object: 3e8b40a499b6b39899ab3f563cd1e854d0b6b016
+  src/funcs/webboxes-start.ts:
+    id: c7c68dec8f25
+    last_write_checksum: sha1:ec1e8fa39771877c9602d00e6dfdf528ff95c4d7
+    pristine_git_object: 580b01ff64638c0cc50562fb95ad30ac9db61eb1
+  src/funcs/webboxes-stop.ts:
+    id: be601b8c7c2f
+    last_write_checksum: sha1:33e3e9349f69fe0cc3bb50bf235b01b670a4405b
+    pristine_git_object: 2b637e920046964ecccea4d8a6ebc977f70521e6
+  src/funcs/webboxes-update.ts:
+    id: 18a37b191732
+    last_write_checksum: sha1:cef41fde563d4ecc59ad08bc1b83770545a2edd1
+    pristine_git_object: 7a3f724af1500651e714b4738ca504279c0032b9
   src/hooks/hooks.ts:
     id: a2463fc6f69b
     last_write_checksum: sha1:7dd975bbcc46a32dd394f86a4652b74ecc70d874
@@ -1499,8 +1500,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:802a0e1def7f26f42a2d5060989901f0f07fa977
-    pristine_git_object: 78b77cbdebc367e741d3280a2447e00af333f7c4
+    last_write_checksum: sha1:d83932c4474d73170ec134e94b93c1a42ad46d49
+    pristine_git_object: 65c7ff42e59fcd7c9451baeca4b645b46fa301cf
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -1565,10 +1566,6 @@ trackedFiles:
     id: 49edbbe45787
     last_write_checksum: sha1:4e3a1a32b957f7560a3c9ec1a4e21c6c3828c437
     pristine_git_object: 52184f457fba5df35586b6374f85dbc018303d08
-  src/models/api-box-token-response.ts:
-    id: 878c0c127608
-    last_write_checksum: sha1:9c9e952103f319ede421648118d53a54ac8b292d
-    pristine_git_object: 1be10f55cf35bd6ab5995ca2559ebc438776fc38
   src/models/api-box.ts:
     id: 1b04a8252a4f
     last_write_checksum: sha1:8ccb50e719847e859289e54efeb6aafd29480e1a
@@ -1595,24 +1592,24 @@ trackedFiles:
     pristine_git_object: 9c5b28e173881ca99f2b3f08ea49ca3ae840bb8a
   src/models/build-progress.ts:
     id: 89c38fb97a87
-    last_write_checksum: sha1:f41dfc82e392f7fcb02483ecb704874cf7b5f85a
-    pristine_git_object: 19896d7d4338e3128f98e54e19abdc37500ef4cc
+    last_write_checksum: sha1:c04c6f08fe5611e56cddc864bfca80cd7cc6f198
+    pristine_git_object: da40fb3d4fe4676a7d04f2c65088a16e15bdc581
   src/models/build-research.ts:
     id: 6c82cc6045f4
     last_write_checksum: sha1:5e678041a1b53bff289a749402352d083aa9ea9a
     pristine_git_object: 596e09cbfc1a806ed6323d9df69161ef53be5033
   src/models/build-simulator-request.ts:
     id: 3a8cd2fe64c6
-    last_write_checksum: sha1:51d87c8ea25a2413af2acd29ad83dd0c9b42c05f
-    pristine_git_object: 6e84b2083d80ed6c9edf22285ef6b722d4f412f8
+    last_write_checksum: sha1:ea8e3c149e8baaf4347d928b4670292349b8063c
+    pristine_git_object: 028a480b56b56cf720007846121092e49a5a66b0
   src/models/build-waiting.ts:
     id: ee5f0eb6c057
     last_write_checksum: sha1:15b5d09d55e81103f22d6a2a77d7aaab9474abe5
     pristine_git_object: 079ff90362511a053c946dd5e344d169e0522ce2
   src/models/build-web-box-snapshot-request.ts:
     id: 1205c566815d
-    last_write_checksum: sha1:174d79c34cc6c55f64f4b2c88b097db01671b2e1
-    pristine_git_object: 4f6bec3adbf8d8d5815d65e1b7cdc2d73bf27cb9
+    last_write_checksum: sha1:ddfed0bfc142c19fa9a78a3dab04282f1b4b2629
+    pristine_git_object: 9f0d217025816525ad8eaf3be375529204cf4bf4
   src/models/clock-advance-member.ts:
     id: "963694071905"
     last_write_checksum: sha1:edb0e7a38c72b6672fd9a0612a844eb214f06a1c
@@ -1641,6 +1638,10 @@ trackedFiles:
     id: 93589df7a021
     last_write_checksum: sha1:603874fccf7c4ad4db13205297a0bf100316939f
     pristine_git_object: 60098011ecdf122c53ccfc342117b6a4410839f1
+  src/models/create-api-box-response.ts:
+    id: 7369c54712d0
+    last_write_checksum: sha1:1deaee2cb6ee0ed98a407b260f8f97d556b6d09c
+    pristine_git_object: 03c24b78667080dd5179edeb641d858d460549ca
   src/models/create-credential-request.ts:
     id: bfedbfeee8e4
     last_write_checksum: sha1:444c517c6305e16030f303d1d4049f93bceec55e
@@ -1649,6 +1650,10 @@ trackedFiles:
     id: 6d76e3e67798
     last_write_checksum: sha1:e12cc3d1d38ba779081cc6f7a12dd8b7e6fb38f5
     pristine_git_object: 75310e7f8f0d3041e50a55956c7389694b2135a3
+  src/models/create-mcp-box-response.ts:
+    id: f62a7f2cee8b
+    last_write_checksum: sha1:1c652977c232ba583e401dc66c9454356c82a5e5
+    pristine_git_object: d6478c471ef7c22f1bff92b26e5b04e6591221c3
   src/models/create-simulation-request.ts:
     id: 0cf20400e5a9
     last_write_checksum: sha1:5ee50f2d5bde40ed76caa8410ad3a336b058162f
@@ -1697,6 +1702,10 @@ trackedFiles:
     id: 38f1d8189a23
     last_write_checksum: sha1:559f51b80e40312fc6b54a7b80cd4aea6a2e8e6c
     pristine_git_object: 08c028dcf244082db98846c4b1efe0790f5704d7
+  src/models/errors/api-error.ts:
+    id: ee8983319270
+    last_write_checksum: sha1:efa1c0ec99dda46e5a4adf9773201228e8679103
+    pristine_git_object: 2d8fc3bf72936c80b53f6dc8341c882279622e75
   src/models/errors/continuous-default-error.ts:
     id: 1d9c5a9fc2ec
     last_write_checksum: sha1:4b1812ce52f4e705b559664f3b59a0c30ac1a847
@@ -1705,18 +1714,14 @@ trackedFiles:
     id: a5315acf2a61
     last_write_checksum: sha1:7f8388327bda0c802bca37bc2a1947a36683c6ea
     pristine_git_object: 38c2c5890e2abbb23ececc5d104dd45ed8b13e3b
-  src/models/errors/error.ts:
-    id: b25549ecd884
-    last_write_checksum: sha1:22f51c532a50332967e6651c9e6e7760f2cb5733
-    pristine_git_object: 13a09d11e5e7b6da0b86c4e4de8dc11e0d08b954
   src/models/errors/http-client-errors.ts:
     id: 08390231aab8
     last_write_checksum: sha1:994ced121c54fecd0af038ccfb7855fbfd3868ec
     pristine_git_object: b34f612124c797c2a1106b9735708f679a90b74f
   src/models/errors/index.ts:
     id: c4e22507cb83
-    last_write_checksum: sha1:2d6bb8ef8c6cd170c465a26f5f465caaf3cc84ff
-    pristine_git_object: 233a46cb0357f1a413cd1323953ac0cac06844ca
+    last_write_checksum: sha1:5bd343285fdcb70c0466b979840e9e8b571d9b66
+    pristine_git_object: 9b9b5ad21f7aaa7e5b0a2c5ffe455781f86a6af9
   src/models/errors/response-validation-error.ts:
     id: a6ce701a9571
     last_write_checksum: sha1:4dbdeb0226fd26eb14ca151732af4ccdc8568d30
@@ -1743,8 +1748,8 @@ trackedFiles:
     pristine_git_object: 27c9d168ee47ff28a3b28aae1e955eee3e8d01ee
   src/models/index.ts:
     id: f93644b0f37e
-    last_write_checksum: sha1:fcd1a973f0382c3aff471c77336c72d9acd982fa
-    pristine_git_object: 7091b7a7a80beb18446f941a30386e8fa3ae48c9
+    last_write_checksum: sha1:8807d0b83137c389d69488aa96c22eee3a583e4a
+    pristine_git_object: c49c68448584d813d740d42882771ab17b449120
   src/models/limitation.ts:
     id: f246fad7e459
     last_write_checksum: sha1:107157cc1f4cd4139a823e39c5b863c9dcfb7e4e
@@ -1809,10 +1814,6 @@ trackedFiles:
     id: ecd0c0a85625
     last_write_checksum: sha1:c13b8e920163390e9574964320071de8f1f8eef1
     pristine_git_object: 44159e0d3cc65004ce296738641317eab47e0610
-  src/models/mcp-box-token-response.ts:
-    id: 6d388af74b6b
-    last_write_checksum: sha1:58847cce68e117cd0c4dbc28e3b5f5bee03b165e
-    pristine_git_object: 80a68616f270f6e61fa40e5011edcf9a038c15a5
   src/models/mcp-box.ts:
     id: ec9ec671833f
     last_write_checksum: sha1:b16fa25bdec45e1c2238f95b13a2943bf4c598dd
@@ -1987,8 +1988,8 @@ trackedFiles:
     pristine_git_object: 0a136d6e17ad5c407784b4aaed160330e14b4779
   src/models/operations/list-apibox-snapshots.ts:
     id: 9b6d574ed40b
-    last_write_checksum: sha1:00a329bbb372dc81a9d856be4db3a22a5a512e23
-    pristine_git_object: c2065b153219939a4ac43a280dc62fcb1a27cd45
+    last_write_checksum: sha1:1d38db5b82c7b77688d1eec6ba5ef7de65b87f02
+    pristine_git_object: feba2236b92c2fd0f441e60235516c15c6800988
   src/models/operations/list-apibox-steps.ts:
     id: 0878681fbeaa
     last_write_checksum: sha1:f81c5f9caeb7a0e607e4005828ebe696f7aeefeb
@@ -2003,8 +2004,8 @@ trackedFiles:
     pristine_git_object: f9c3b3d9a4e6dc391f48f68fe45a8e451ccfea56
   src/models/operations/list-mcpbox-snapshots.ts:
     id: 2fd7239324ea
-    last_write_checksum: sha1:90a68327133097e70dd9cf312ab3407a57b120b8
-    pristine_git_object: b76746185cb43f55f17c1f3087149c01588f31f8
+    last_write_checksum: sha1:d0de87b16e5982194b2d2dc6ae8b9de487fdc7c8
+    pristine_git_object: a2a16f0383ba171f2a41b3903d4fda99079dffea
   src/models/operations/list-mcpboxes.ts:
     id: cc0f864f7fca
     last_write_checksum: sha1:b5899bd9225f12c8472b17beeccff4058c2c5179
@@ -2031,8 +2032,8 @@ trackedFiles:
     pristine_git_object: fc764dc8cc514a9cd8165ebb604a9be40c5cbb9c
   src/models/operations/list-webbox-snapshots.ts:
     id: 46c4409f5c78
-    last_write_checksum: sha1:66955acf84ea0dca69408db973e28c5925d26d17
-    pristine_git_object: e49b1b515daac1107d76f3adcc83d667a73247d3
+    last_write_checksum: sha1:b8ec8236677b0bb11cf42cdbda056b997c759dad
+    pristine_git_object: 0277a27605ef152992066b894bd96b3c0c901246
   src/models/operations/list-webbox-steps.ts:
     id: 9a24ecc31141
     last_write_checksum: sha1:ff7972f9bff2a12deb697974d11d4f0a2f7b114d
@@ -2259,32 +2260,32 @@ trackedFiles:
     pristine_git_object: 60fd1012aaa60b98f09f0940a0eb00ece68e90e9
   src/sdk/apibox-snapshots.ts:
     id: 9780fd3c7888
-    last_write_checksum: sha1:1666a92799051ee9a251d38bb3e30be22b6e3ecb
-    pristine_git_object: 05ebe2a24fcf4a30ed2b9113daa52467c32f1ead
-  src/sdk/apibox.ts:
-    id: d12dfb3e81c0
-    last_write_checksum: sha1:f0a7b0b9fccc2ac5decc7f413c8f00b4a2e495ef
-    pristine_git_object: e06e6fcf0b243643193d7e3448e397e0e9e0cb4d
+    last_write_checksum: sha1:60879d72e34835034c97db579ebe5842063a97b1
+    pristine_git_object: c60140a0f740eaf90876f8c0f98694f29972f9ad
+  src/sdk/apiboxes.ts:
+    id: 65aee2d81dd3
+    last_write_checksum: sha1:a2e2a42531e419bf74876a162676af506d4c9d3b
+    pristine_git_object: e088464a67cb592ad411b04059b0a84ec73314e9
   src/sdk/credentials.ts:
     id: 4808925acf5a
-    last_write_checksum: sha1:313052b02730903b7e6fc6b584e71b23b62c5852
-    pristine_git_object: 222177a569add8a3b385efdfe941618000863172
+    last_write_checksum: sha1:6f284a5fd0c67cb91191898336ec88a13e5354eb
+    pristine_git_object: ce43fcc0d803203cd40db784d4c281618fd581cb
   src/sdk/index.ts:
     id: a857902a703f
     last_write_checksum: sha1:ed6d64f2a6135349aa8498b8d8cff9ba85c7fb8f
     pristine_git_object: ecac2264817bb369ff2dbf0f0e9029807e67ff77
   src/sdk/mcpbox-snapshots.ts:
     id: 9376c6955b39
-    last_write_checksum: sha1:d74fa593ba6795fc1a9842718ead1442b024505d
-    pristine_git_object: b75c410c8417acf3a29f299bd9f5da53732e7d69
-  src/sdk/mcpbox.ts:
-    id: 27e0beda18d1
-    last_write_checksum: sha1:ac0e43ddbc5ad54085371e413061a9120354e86b
-    pristine_git_object: ac1df839bc0dff7c75c9d3cc65eb4c35bd3905c4
+    last_write_checksum: sha1:0f4748a2c93c450f5ceb02e5a631c82b4cbcac03
+    pristine_git_object: 08795e9d6bc5b3b39a359d0ebb58d77d9d12955d
+  src/sdk/mcpboxes.ts:
+    id: 3f9735934501
+    last_write_checksum: sha1:63d1ac3949559ac84bbe1049c78369bae6a89328
+    pristine_git_object: 7f37076dfb0c20519593c92dafe212246c38b964
   src/sdk/sdk.ts:
     id: 784571af2f69
-    last_write_checksum: sha1:6106661395ef0e0a97310d9a656734890774228a
-    pristine_git_object: 234d3c2bde8fbd9bbd3c2eeeb17fbbc4b2da094c
+    last_write_checksum: sha1:cd57faef9cbf4af21d8317772a867f9dceab2a62
+    pristine_git_object: 4e08a65d518e5a9150d31d00ea7c3b6b2a69a86c
   src/sdk/simulation-snapshots.ts:
     id: b62e6f873d62
     last_write_checksum: sha1:bef9dcf287104ba474756195eee4c5dfeae25440
@@ -2299,12 +2300,12 @@ trackedFiles:
     pristine_git_object: d82def012fe3b741dcb7c4c7338f500f348c8aba
   src/sdk/webbox-snapshots.ts:
     id: eef51c1621f4
-    last_write_checksum: sha1:98e04bc601e5978c178aceb085a2d0f3a1013490
-    pristine_git_object: aaf9483a57f73334cda556aa1cf7942e5062bb39
-  src/sdk/webbox.ts:
-    id: ce3e66fe7d2e
-    last_write_checksum: sha1:e8adfa0137ee809ed0c5b7db68e6c7bde5fa79ca
-    pristine_git_object: d7474fe642c254c49e451a3186b2d600b5174e99
+    last_write_checksum: sha1:f19eda7b4697ffa767542f509f8409f410732e87
+    pristine_git_object: 85b04d23264f94cafb654354f4c7a284c71a568b
+  src/sdk/webboxes.ts:
+    id: ca7cdb6ab65f
+    last_write_checksum: sha1:743b4526c3800bebabfea8d6ab8c427559c166a0
+    pristine_git_object: ec9c8d65a3d686910f6eed72e05adb6268b0fd94
   src/types/async.ts:
     id: fac8da972f86
     last_write_checksum: sha1:675d04bb4b4081dc3482f18de98674f9b446e7b4
@@ -5768,4 +5769,115 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.apiboxSnapshots.createApiboxSnapshot()`:  `error` **Changed** (Breaking ⚠️)\n* `continuous.credentials.createCredential()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `error.status[409]` **Added**\n* `continuous.mcpboxSnapshots.createMcpboxSnapshot()`:  `error.status[422]` **Removed** (Breaking ⚠️)\n* `continuous.webboxSnapshots.createWebboxSnapshot()`:  `error` **Changed** (Breaking ⚠️)\n* `continuous.simulators.buildSimulator()`:  `error.status[404]` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `continuous.apiboxes.list()`: **Added**
+  * `continuous.apiboxes.create()`: **Added**
+  * `continuous.apiboxes.delete()`: **Added**
+  * `continuous.apiboxes.get()`: **Added**
+  * `continuous.apiboxes.update()`: **Added**
+  * `continuous.apiboxes.saveSnapshot()`: **Added**
+  * `continuous.apiboxes.start()`: **Added**
+  * `continuous.apiboxes.listSteps()`: **Added**
+  * `continuous.apiboxes.stop()`: **Added**
+  * `continuous.apiboxSnapshots.list()`: **Added**
+  * `continuous.apiboxSnapshots.create()`: **Added**
+  * `continuous.apiboxSnapshots.delete()`: **Added**
+  * `continuous.apiboxSnapshots.get()`: **Added**
+  * `continuous.apiboxSnapshots.update()`: **Added**
+  * `continuous.apiboxSnapshots.cancel()`: **Added**
+  * `continuous.apiboxSnapshots.clone()`: **Added**
+  * `continuous.apiboxSnapshots.resume()`: **Added**
+  * `continuous.credentials.list()`: **Added**
+  * `continuous.credentials.create()`: **Added**
+  * `continuous.credentials.delete()`: **Added**
+  * `continuous.credentials.get()`: **Added**
+  * `continuous.credentials.update()`: **Added**
+  * `continuous.mcpboxes.list()`: **Added**
+  * `continuous.mcpboxes.create()`: **Added**
+  * `continuous.mcpboxes.delete()`: **Added**
+  * `continuous.mcpboxes.get()`: **Added**
+  * `continuous.mcpboxes.update()`: **Added**
+  * `continuous.mcpboxes.saveSnapshot()`: **Added**
+  * `continuous.mcpboxes.start()`: **Added**
+  * `continuous.mcpboxes.stop()`: **Added**
+  * `continuous.mcpboxSnapshots.list()`: **Added**
+  * `continuous.mcpboxSnapshots.create()`: **Added**
+  * `continuous.mcpboxSnapshots.delete()`: **Added**
+  * `continuous.mcpboxSnapshots.get()`: **Added**
+  * `continuous.mcpboxSnapshots.update()`: **Added**
+  * `continuous.mcpboxSnapshots.cancel()`: **Added**
+  * `continuous.mcpboxSnapshots.clone()`: **Added**
+  * `continuous.mcpboxSnapshots.resume()`: **Added**
+  * `continuous.webboxes.list()`: **Added**
+  * `continuous.webboxes.create()`: **Added**
+  * `continuous.webboxes.delete()`: **Added**
+  * `continuous.webboxes.get()`: **Added**
+  * `continuous.webboxes.update()`: **Added**
+  * `continuous.webboxes.saveSnapshot()`: **Added**
+  * `continuous.webboxes.start()`: **Added**
+  * `continuous.webboxes.listSteps()`: **Added**
+  * `continuous.webboxes.stop()`: **Added**
+  * `continuous.webboxSnapshots.list()`: **Added**
+  * `continuous.webboxSnapshots.create()`: **Added**
+  * `continuous.webboxSnapshots.delete()`: **Added**
+  * `continuous.webboxSnapshots.get()`: **Added**
+  * `continuous.webboxSnapshots.update()`: **Added**
+  * `continuous.webboxSnapshots.cancel()`: **Added**
+  * `continuous.webboxSnapshots.clone()`: **Added**
+  * `continuous.webboxSnapshots.resume()`: **Added**
+  * `continuous.apibox.listApiboxes()`: **Removed** (Breaking ⚠️)
+  * `continuous.apibox.createApibox()`: **Removed** (Breaking ⚠️)
+  * `continuous.apibox.deleteApibox()`: **Removed** (Breaking ⚠️)
+  * `continuous.apibox.getApibox()`: **Removed** (Breaking ⚠️)
+  * `continuous.apibox.updateApibox()`: **Removed** (Breaking ⚠️)
+  * `continuous.apibox.saveApiboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.apibox.startApibox()`: **Removed** (Breaking ⚠️)
+  * `continuous.apibox.listApiboxSteps()`: **Removed** (Breaking ⚠️)
+  * `continuous.apibox.stopApibox()`: **Removed** (Breaking ⚠️)
+  * `continuous.apiboxSnapshots.listApiboxSnapshots()`: **Removed** (Breaking ⚠️)
+  * `continuous.apiboxSnapshots.createApiboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.apiboxSnapshots.deleteApiboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.apiboxSnapshots.getApiboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.apiboxSnapshots.updateApiboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.apiboxSnapshots.cancelApiboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.apiboxSnapshots.cloneApiboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.apiboxSnapshots.resumeApiboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.credentials.listCredentials()`: **Removed** (Breaking ⚠️)
+  * `continuous.credentials.createCredential()`: **Removed** (Breaking ⚠️)
+  * `continuous.credentials.deleteCredential()`: **Removed** (Breaking ⚠️)
+  * `continuous.credentials.getCredential()`: **Removed** (Breaking ⚠️)
+  * `continuous.credentials.updateCredential()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpbox.listMcpboxes()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpbox.createMcpbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpbox.deleteMcpbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpbox.getMcpbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpbox.updateMcpbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpbox.saveMcpboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpbox.startMcpbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpbox.stopMcpbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpboxSnapshots.listMcpboxSnapshots()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpboxSnapshots.createMcpboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpboxSnapshots.deleteMcpboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpboxSnapshots.getMcpboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpboxSnapshots.updateMcpboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpboxSnapshots.cancelMcpboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpboxSnapshots.cloneMcpboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.mcpboxSnapshots.resumeMcpboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.webbox.listWebboxes()`: **Removed** (Breaking ⚠️)
+  * `continuous.webbox.createWebbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.webbox.deleteWebbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.webbox.getWebbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.webbox.updateWebbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.webbox.saveWebboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.webbox.startWebbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.webbox.listWebboxSteps()`: **Removed** (Breaking ⚠️)
+  * `continuous.webbox.stopWebbox()`: **Removed** (Breaking ⚠️)
+  * `continuous.webboxSnapshots.listWebboxSnapshots()`: **Removed** (Breaking ⚠️)
+  * `continuous.webboxSnapshots.createWebboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.webboxSnapshots.deleteWebboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.webboxSnapshots.getWebboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.webboxSnapshots.updateWebboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.webboxSnapshots.cancelWebboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.webboxSnapshots.cloneWebboxSnapshot()`: **Removed** (Breaking ⚠️)
+  * `continuous.webboxSnapshots.resumeWebboxSnapshot()`: **Removed** (Breaking ⚠️)
