@@ -103,10 +103,12 @@ const continuous = new Continuous({
 
 async function run() {
   const result = await continuous.credentials.createCredential({
-    baseUrl: "https://api.stripe.com",
-    header: "Authorization",
-    name: "stripe-test",
-    value: "Bearer <redacted>",
+    body: {
+      baseUrl: "https://api.stripe.com",
+      header: "Authorization",
+      name: "stripe-test",
+      value: "Bearer <redacted>",
+    },
   });
 
   console.log(result);
@@ -131,10 +133,12 @@ const continuous = new ContinuousCore({
 
 async function run() {
   const res = await credentialsCreateCredential(continuous, {
-    baseUrl: "https://api.stripe.com",
-    header: "Authorization",
-    name: "stripe-test",
-    value: "Bearer <redacted>",
+    body: {
+      baseUrl: "https://api.stripe.com",
+      header: "Authorization",
+      name: "stripe-test",
+      value: "Bearer <redacted>",
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -151,7 +155,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.CreateCredentialRequest](../../models/create-credential-request.md)                                                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CreateCredentialRequest](../../models/operations/create-credential-request.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -162,11 +166,11 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 408, 413, 415, 422  | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
-| errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorT                     | 400, 401, 408, 409, 413, 415, 422 | application/problem+json          |
+| errors.ErrorT                     | 500, 503                          | application/problem+json          |
+| errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
 
 ## deleteCredential
 

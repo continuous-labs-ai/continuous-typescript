@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Clone Simulator
  *
  * @remarks
- * Creates a ready copy of a ready Simulator in another workspace. The clone has a new ID and the source's image digest; the source is unchanged. The source is the caller's workspace: an API key's own workspace, or X-Workspace-Id for a session. An API key may clone into any other workspace of its organization.
+ * Creates a ready copy of a ready Simulator in another workspace. The clone has a new ID and the source's image digest; the source is unchanged. The source is the caller's workspace. An API key may clone into any other workspace of its organization.
  *
  * Deprecated. Use API Box for APIs and Web Box for web apps.
  *

@@ -40,7 +40,7 @@ export class Credentials extends ClientSDK {
    * Stores a connection to a real system: an API base URL and the header that carries the credential, with either the header value or an OAuth 2.0 client whose access token the API gets and renews; or a Web App login with its sign-in URL, which a person then signs in to by hand in the console. Returns the credential without its value.
    */
   async createCredential(
-    request: models.CreateCredentialRequest,
+    request: operations.CreateCredentialRequest,
     options?: RequestOptions,
   ): Promise<models.Credential> {
     return unwrapAsync(credentialsCreateCredential(

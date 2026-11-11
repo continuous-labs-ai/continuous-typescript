@@ -12,7 +12,7 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 export type APIBoxTokenResponse = {
   apibox: APIBox;
   /**
-   * The API Box's token, which lasts until the API Box is deleted. It is null only for a box created before boxes stored their tokens.
+   * The API Box's token, which lasts until the API Box is deleted.
    */
   token: string | null;
 };

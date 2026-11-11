@@ -18,7 +18,7 @@ import {
 } from "./specification-warning.js";
 
 /**
- * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running, while it waits for the requester, or for a build recorded before agents reported it.
+ * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running or while it waits for the requester.
  */
 export const AgentState = {
   Working: "working",
@@ -26,7 +26,7 @@ export const AgentState = {
   WaitingForLimit: "waiting_for_limit",
 } as const;
 /**
- * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running, while it waits for the requester, or for a build recorded before agents reported it.
+ * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running or while it waits for the requester.
  */
 export type AgentState = OpenEnum<typeof AgentState>;
 
@@ -43,7 +43,7 @@ export const LastSubmission = {
 export type LastSubmission = OpenEnum<typeof LastSubmission>;
 
 /**
- * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5. A build recorded before model selection reports its provider's default.
+ * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5.
  */
 export const BuildProgressModel = {
   Gpt6Astra: "gpt-6-astra",
@@ -54,7 +54,7 @@ export const BuildProgressModel = {
   Combined: "combined",
 } as const;
 /**
- * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5. A build recorded before model selection reports its provider's default.
+ * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5.
  */
 export type BuildProgressModel = OpenEnum<typeof BuildProgressModel>;
 
@@ -88,7 +88,7 @@ export type Stage = OpenEnum<typeof Stage>;
 
 export type BuildProgress = {
   /**
-   * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running, while it waits for the requester, or for a build recorded before agents reported it.
+   * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running or while it waits for the requester.
    */
   agentState: AgentState | null;
   /**
@@ -112,7 +112,7 @@ export type BuildProgress = {
    */
   limitations: Array<Limitation>;
   /**
-   * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5. A build recorded before model selection reports its provider's default.
+   * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5.
    */
   model: BuildProgressModel;
   /**

@@ -27,7 +27,7 @@ import {
 } from "./snapshot-composition.js";
 
 /**
- * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an MCP Box.
+ * catalog for a Snapshot Continuous publishes, build for one built or cloned into the workspace, box for one saved from an MCP Box.
  */
 export const MCPBoxSnapshotSource = {
   Catalog: "catalog",
@@ -35,7 +35,7 @@ export const MCPBoxSnapshotSource = {
   Box: "box",
 } as const;
 /**
- * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an MCP Box.
+ * catalog for a Snapshot Continuous publishes, build for one built or cloned into the workspace, box for one saved from an MCP Box.
  */
 export type MCPBoxSnapshotSource = OpenEnum<typeof MCPBoxSnapshotSource>;
 
@@ -113,15 +113,15 @@ export type MCPBoxSnapshot = {
    */
   research: BuildResearch | null;
   /**
-   * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an MCP Box.
+   * catalog for a Snapshot Continuous publishes, build for one built or cloned into the workspace, box for one saved from an MCP Box.
    */
   source: MCPBoxSnapshotSource;
   /**
-   * The box the Snapshot was saved from, or null for a built or published Snapshot.
+   * The box the Snapshot was saved from, or null for a Snapshot not saved from a box.
    */
   sourceBoxId: string | null;
   /**
-   * The Snapshot the box it was saved from started from, or null for a built or published Snapshot, or once that Snapshot is deleted.
+   * The Snapshot the box it was saved from started from, or null for a Snapshot not saved from a box, or once that Snapshot is deleted.
    */
   sourceSnapshotId: string | null;
   /**

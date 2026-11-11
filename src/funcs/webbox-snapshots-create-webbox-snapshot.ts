@@ -214,9 +214,11 @@ async function $do(
     M.json(202, operations.CreateWebboxSnapshotResponse$inboundSchema, {
       key: "Result",
     }),
-    M.jsonErr([400, 401, 408, 413, 415, 422], errors.ErrorT$inboundSchema, {
-      ctype: "application/problem+json",
-    }),
+    M.jsonErr(
+      [400, 401, 404, 408, 409, 413, 415],
+      errors.ErrorT$inboundSchema,
+      { ctype: "application/problem+json" },
+    ),
     M.jsonErr(429, errors.ErrorT$inboundSchema, {
       ctype: "application/problem+json",
       hdrs: true,

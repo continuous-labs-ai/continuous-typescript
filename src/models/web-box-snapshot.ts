@@ -113,11 +113,11 @@ export type WebBoxSnapshot = {
    */
   source: WebBoxSnapshotSource;
   /**
-   * The box the Snapshot was saved from, or null for a built or published Snapshot.
+   * The box the Snapshot was saved from, or null for a Snapshot not saved from a box.
    */
   sourceBoxId: string | null;
   /**
-   * The Snapshot the box it was saved from started from, or null for a built or published Snapshot, or once that Snapshot is deleted.
+   * The Snapshot the box it was saved from started from, or null for a Snapshot not saved from a box, or once that Snapshot is deleted.
    */
   sourceSnapshotId: string | null;
   /**
