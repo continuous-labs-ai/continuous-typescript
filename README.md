@@ -86,7 +86,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apibox.listApiboxes({});
+  const result = await continuous.apiboxes.list({});
 
   for await (const page of result) {
     console.log(page);
@@ -118,7 +118,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apibox.listApiboxes({});
+  const result = await continuous.apiboxes.list({});
 
   for await (const page of result) {
     console.log(page);
@@ -136,58 +136,58 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [Apibox](docs/sdks/apibox/README.md)
-
-* [listApiboxes](docs/sdks/apibox/README.md#listapiboxes) - List API Boxes
-* [createApibox](docs/sdks/apibox/README.md#createapibox) - Create API Box
-* [deleteApibox](docs/sdks/apibox/README.md#deleteapibox) - Delete API Box
-* [getApibox](docs/sdks/apibox/README.md#getapibox) - Get API Box
-* [updateApibox](docs/sdks/apibox/README.md#updateapibox) - Update API Box
-* [saveApiboxSnapshot](docs/sdks/apibox/README.md#saveapiboxsnapshot) - Save API Box as Snapshot
-* [startApibox](docs/sdks/apibox/README.md#startapibox) - Start API Box
-* [listApiboxSteps](docs/sdks/apibox/README.md#listapiboxsteps) - List API Box steps
-* [stopApibox](docs/sdks/apibox/README.md#stopapibox) - Stop API Box
-
 ### [ApiboxSnapshots](docs/sdks/apiboxsnapshots/README.md)
 
-* [listApiboxSnapshots](docs/sdks/apiboxsnapshots/README.md#listapiboxsnapshots) - List API Box Snapshots
-* [createApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#createapiboxsnapshot) - Create API Box Snapshot
-* [deleteApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#deleteapiboxsnapshot) - Delete API Box Snapshot
-* [getApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#getapiboxsnapshot) - Get API Box Snapshot
-* [updateApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#updateapiboxsnapshot) - Update API Box Snapshot
-* [cancelApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#cancelapiboxsnapshot) - Cancel API Box Snapshot build
-* [cloneApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#cloneapiboxsnapshot) - Clone API Box Snapshot
-* [resumeApiboxSnapshot](docs/sdks/apiboxsnapshots/README.md#resumeapiboxsnapshot) - Resume API Box Snapshot build
+* [list](docs/sdks/apiboxsnapshots/README.md#list) - List API Box Snapshots
+* [create](docs/sdks/apiboxsnapshots/README.md#create) - Create API Box Snapshot
+* [delete](docs/sdks/apiboxsnapshots/README.md#delete) - Delete API Box Snapshot
+* [get](docs/sdks/apiboxsnapshots/README.md#get) - Get API Box Snapshot
+* [update](docs/sdks/apiboxsnapshots/README.md#update) - Update API Box Snapshot
+* [cancel](docs/sdks/apiboxsnapshots/README.md#cancel) - Cancel API Box Snapshot build
+* [clone](docs/sdks/apiboxsnapshots/README.md#clone) - Clone API Box Snapshot
+* [resume](docs/sdks/apiboxsnapshots/README.md#resume) - Resume API Box Snapshot build
+
+### [Apiboxes](docs/sdks/apiboxes/README.md)
+
+* [list](docs/sdks/apiboxes/README.md#list) - List API Boxes
+* [create](docs/sdks/apiboxes/README.md#create) - Create API Box
+* [delete](docs/sdks/apiboxes/README.md#delete) - Delete API Box
+* [get](docs/sdks/apiboxes/README.md#get) - Get API Box
+* [update](docs/sdks/apiboxes/README.md#update) - Update API Box
+* [saveSnapshot](docs/sdks/apiboxes/README.md#savesnapshot) - Save API Box as Snapshot
+* [start](docs/sdks/apiboxes/README.md#start) - Start API Box
+* [listSteps](docs/sdks/apiboxes/README.md#liststeps) - List API Box steps
+* [stop](docs/sdks/apiboxes/README.md#stop) - Stop API Box
 
 ### [Credentials](docs/sdks/credentials/README.md)
 
-* [listCredentials](docs/sdks/credentials/README.md#listcredentials) - List credentials
-* [createCredential](docs/sdks/credentials/README.md#createcredential) - Create credential
-* [deleteCredential](docs/sdks/credentials/README.md#deletecredential) - Delete credential
-* [getCredential](docs/sdks/credentials/README.md#getcredential) - Get credential
-* [updateCredential](docs/sdks/credentials/README.md#updatecredential) - Update credential
-
-### [Mcpbox](docs/sdks/mcpbox/README.md)
-
-* [listMcpboxes](docs/sdks/mcpbox/README.md#listmcpboxes) - List MCP Boxes
-* [createMcpbox](docs/sdks/mcpbox/README.md#createmcpbox) - Create MCP Box
-* [deleteMcpbox](docs/sdks/mcpbox/README.md#deletemcpbox) - Delete MCP Box
-* [getMcpbox](docs/sdks/mcpbox/README.md#getmcpbox) - Get MCP Box
-* [updateMcpbox](docs/sdks/mcpbox/README.md#updatemcpbox) - Update MCP Box
-* [saveMcpboxSnapshot](docs/sdks/mcpbox/README.md#savemcpboxsnapshot) - Save MCP Box as Snapshot
-* [startMcpbox](docs/sdks/mcpbox/README.md#startmcpbox) - Start MCP Box
-* [stopMcpbox](docs/sdks/mcpbox/README.md#stopmcpbox) - Stop MCP Box
+* [list](docs/sdks/credentials/README.md#list) - List credentials
+* [create](docs/sdks/credentials/README.md#create) - Create credential
+* [delete](docs/sdks/credentials/README.md#delete) - Delete credential
+* [get](docs/sdks/credentials/README.md#get) - Get credential
+* [update](docs/sdks/credentials/README.md#update) - Update credential
 
 ### [McpboxSnapshots](docs/sdks/mcpboxsnapshots/README.md)
 
-* [listMcpboxSnapshots](docs/sdks/mcpboxsnapshots/README.md#listmcpboxsnapshots) - List MCP Box Snapshots
-* [createMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#createmcpboxsnapshot) - Create MCP Box Snapshot
-* [deleteMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#deletemcpboxsnapshot) - Delete MCP Box Snapshot
-* [getMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#getmcpboxsnapshot) - Get MCP Box Snapshot
-* [updateMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#updatemcpboxsnapshot) - Update MCP Box Snapshot
-* [cancelMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#cancelmcpboxsnapshot) - Cancel MCP Box Snapshot build
-* [cloneMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#clonemcpboxsnapshot) - Clone MCP Box Snapshot
-* [resumeMcpboxSnapshot](docs/sdks/mcpboxsnapshots/README.md#resumemcpboxsnapshot) - Resume MCP Box Snapshot build
+* [list](docs/sdks/mcpboxsnapshots/README.md#list) - List MCP Box Snapshots
+* [create](docs/sdks/mcpboxsnapshots/README.md#create) - Create MCP Box Snapshot
+* [delete](docs/sdks/mcpboxsnapshots/README.md#delete) - Delete MCP Box Snapshot
+* [get](docs/sdks/mcpboxsnapshots/README.md#get) - Get MCP Box Snapshot
+* [update](docs/sdks/mcpboxsnapshots/README.md#update) - Update MCP Box Snapshot
+* [cancel](docs/sdks/mcpboxsnapshots/README.md#cancel) - Cancel MCP Box Snapshot build
+* [clone](docs/sdks/mcpboxsnapshots/README.md#clone) - Clone MCP Box Snapshot
+* [resume](docs/sdks/mcpboxsnapshots/README.md#resume) - Resume MCP Box Snapshot build
+
+### [Mcpboxes](docs/sdks/mcpboxes/README.md)
+
+* [list](docs/sdks/mcpboxes/README.md#list) - List MCP Boxes
+* [create](docs/sdks/mcpboxes/README.md#create) - Create MCP Box
+* [delete](docs/sdks/mcpboxes/README.md#delete) - Delete MCP Box
+* [get](docs/sdks/mcpboxes/README.md#get) - Get MCP Box
+* [update](docs/sdks/mcpboxes/README.md#update) - Update MCP Box
+* [saveSnapshot](docs/sdks/mcpboxes/README.md#savesnapshot) - Save MCP Box as Snapshot
+* [start](docs/sdks/mcpboxes/README.md#start) - Start MCP Box
+* [stop](docs/sdks/mcpboxes/README.md#stop) - Stop MCP Box
 
 ### [~~SimulationSnapshots~~](docs/sdks/simulationsnapshots/README.md)
 
@@ -224,28 +224,28 @@ run();
 * [~~cloneSimulator~~](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator :warning: **Deprecated**
 * [~~resumeSimulator~~](docs/sdks/simulators/README.md#resumesimulator) - Resume Simulator Build :warning: **Deprecated**
 
-### [Webbox](docs/sdks/webbox/README.md)
-
-* [listWebboxes](docs/sdks/webbox/README.md#listwebboxes) - List Web Boxes
-* [createWebbox](docs/sdks/webbox/README.md#createwebbox) - Create Web Box
-* [deleteWebbox](docs/sdks/webbox/README.md#deletewebbox) - Delete Web Box
-* [getWebbox](docs/sdks/webbox/README.md#getwebbox) - Get Web Box
-* [updateWebbox](docs/sdks/webbox/README.md#updatewebbox) - Update Web Box
-* [saveWebboxSnapshot](docs/sdks/webbox/README.md#savewebboxsnapshot) - Save Web Box as Snapshot
-* [startWebbox](docs/sdks/webbox/README.md#startwebbox) - Start Web Box
-* [listWebboxSteps](docs/sdks/webbox/README.md#listwebboxsteps) - List Web Box steps
-* [stopWebbox](docs/sdks/webbox/README.md#stopwebbox) - Stop Web Box
-
 ### [WebboxSnapshots](docs/sdks/webboxsnapshots/README.md)
 
-* [listWebboxSnapshots](docs/sdks/webboxsnapshots/README.md#listwebboxsnapshots) - List Web Box Snapshots
-* [createWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#createwebboxsnapshot) - Create Web Box Snapshot
-* [deleteWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#deletewebboxsnapshot) - Delete Web Box Snapshot
-* [getWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#getwebboxsnapshot) - Get Web Box Snapshot
-* [updateWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#updatewebboxsnapshot) - Update Web Box Snapshot
-* [cancelWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#cancelwebboxsnapshot) - Cancel Web Box Snapshot build
-* [cloneWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#clonewebboxsnapshot) - Clone Web Box Snapshot
-* [resumeWebboxSnapshot](docs/sdks/webboxsnapshots/README.md#resumewebboxsnapshot) - Resume Web Box Snapshot build
+* [list](docs/sdks/webboxsnapshots/README.md#list) - List Web Box Snapshots
+* [create](docs/sdks/webboxsnapshots/README.md#create) - Create Web Box Snapshot
+* [delete](docs/sdks/webboxsnapshots/README.md#delete) - Delete Web Box Snapshot
+* [get](docs/sdks/webboxsnapshots/README.md#get) - Get Web Box Snapshot
+* [update](docs/sdks/webboxsnapshots/README.md#update) - Update Web Box Snapshot
+* [cancel](docs/sdks/webboxsnapshots/README.md#cancel) - Cancel Web Box Snapshot build
+* [clone](docs/sdks/webboxsnapshots/README.md#clone) - Clone Web Box Snapshot
+* [resume](docs/sdks/webboxsnapshots/README.md#resume) - Resume Web Box Snapshot build
+
+### [Webboxes](docs/sdks/webboxes/README.md)
+
+* [list](docs/sdks/webboxes/README.md#list) - List Web Boxes
+* [create](docs/sdks/webboxes/README.md#create) - Create Web Box
+* [delete](docs/sdks/webboxes/README.md#delete) - Delete Web Box
+* [get](docs/sdks/webboxes/README.md#get) - Get Web Box
+* [update](docs/sdks/webboxes/README.md#update) - Update Web Box
+* [saveSnapshot](docs/sdks/webboxes/README.md#savesnapshot) - Save Web Box as Snapshot
+* [start](docs/sdks/webboxes/README.md#start) - Start Web Box
+* [listSteps](docs/sdks/webboxes/README.md#liststeps) - List Web Box steps
+* [stop](docs/sdks/webboxes/README.md#stop) - Stop Web Box
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -265,61 +265,61 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`apiboxCreateApibox`](docs/sdks/apibox/README.md#createapibox) - Create API Box
-- [`apiboxDeleteApibox`](docs/sdks/apibox/README.md#deleteapibox) - Delete API Box
-- [`apiboxGetApibox`](docs/sdks/apibox/README.md#getapibox) - Get API Box
-- [`apiboxListApiboxes`](docs/sdks/apibox/README.md#listapiboxes) - List API Boxes
-- [`apiboxListApiboxSteps`](docs/sdks/apibox/README.md#listapiboxsteps) - List API Box steps
-- [`apiboxSaveApiboxSnapshot`](docs/sdks/apibox/README.md#saveapiboxsnapshot) - Save API Box as Snapshot
-- [`apiboxSnapshotsCancelApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#cancelapiboxsnapshot) - Cancel API Box Snapshot build
-- [`apiboxSnapshotsCloneApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#cloneapiboxsnapshot) - Clone API Box Snapshot
-- [`apiboxSnapshotsCreateApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#createapiboxsnapshot) - Create API Box Snapshot
-- [`apiboxSnapshotsDeleteApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#deleteapiboxsnapshot) - Delete API Box Snapshot
-- [`apiboxSnapshotsGetApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#getapiboxsnapshot) - Get API Box Snapshot
-- [`apiboxSnapshotsListApiboxSnapshots`](docs/sdks/apiboxsnapshots/README.md#listapiboxsnapshots) - List API Box Snapshots
-- [`apiboxSnapshotsResumeApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#resumeapiboxsnapshot) - Resume API Box Snapshot build
-- [`apiboxSnapshotsUpdateApiboxSnapshot`](docs/sdks/apiboxsnapshots/README.md#updateapiboxsnapshot) - Update API Box Snapshot
-- [`apiboxStartApibox`](docs/sdks/apibox/README.md#startapibox) - Start API Box
-- [`apiboxStopApibox`](docs/sdks/apibox/README.md#stopapibox) - Stop API Box
-- [`apiboxUpdateApibox`](docs/sdks/apibox/README.md#updateapibox) - Update API Box
-- [`credentialsCreateCredential`](docs/sdks/credentials/README.md#createcredential) - Create credential
-- [`credentialsDeleteCredential`](docs/sdks/credentials/README.md#deletecredential) - Delete credential
-- [`credentialsGetCredential`](docs/sdks/credentials/README.md#getcredential) - Get credential
-- [`credentialsListCredentials`](docs/sdks/credentials/README.md#listcredentials) - List credentials
-- [`credentialsUpdateCredential`](docs/sdks/credentials/README.md#updatecredential) - Update credential
-- [`mcpboxCreateMcpbox`](docs/sdks/mcpbox/README.md#createmcpbox) - Create MCP Box
-- [`mcpboxDeleteMcpbox`](docs/sdks/mcpbox/README.md#deletemcpbox) - Delete MCP Box
-- [`mcpboxGetMcpbox`](docs/sdks/mcpbox/README.md#getmcpbox) - Get MCP Box
-- [`mcpboxListMcpboxes`](docs/sdks/mcpbox/README.md#listmcpboxes) - List MCP Boxes
-- [`mcpboxSaveMcpboxSnapshot`](docs/sdks/mcpbox/README.md#savemcpboxsnapshot) - Save MCP Box as Snapshot
-- [`mcpboxSnapshotsCancelMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#cancelmcpboxsnapshot) - Cancel MCP Box Snapshot build
-- [`mcpboxSnapshotsCloneMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#clonemcpboxsnapshot) - Clone MCP Box Snapshot
-- [`mcpboxSnapshotsCreateMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#createmcpboxsnapshot) - Create MCP Box Snapshot
-- [`mcpboxSnapshotsDeleteMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#deletemcpboxsnapshot) - Delete MCP Box Snapshot
-- [`mcpboxSnapshotsGetMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#getmcpboxsnapshot) - Get MCP Box Snapshot
-- [`mcpboxSnapshotsListMcpboxSnapshots`](docs/sdks/mcpboxsnapshots/README.md#listmcpboxsnapshots) - List MCP Box Snapshots
-- [`mcpboxSnapshotsResumeMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#resumemcpboxsnapshot) - Resume MCP Box Snapshot build
-- [`mcpboxSnapshotsUpdateMcpboxSnapshot`](docs/sdks/mcpboxsnapshots/README.md#updatemcpboxsnapshot) - Update MCP Box Snapshot
-- [`mcpboxStartMcpbox`](docs/sdks/mcpbox/README.md#startmcpbox) - Start MCP Box
-- [`mcpboxStopMcpbox`](docs/sdks/mcpbox/README.md#stopmcpbox) - Stop MCP Box
-- [`mcpboxUpdateMcpbox`](docs/sdks/mcpbox/README.md#updatemcpbox) - Update MCP Box
-- [`webboxCreateWebbox`](docs/sdks/webbox/README.md#createwebbox) - Create Web Box
-- [`webboxDeleteWebbox`](docs/sdks/webbox/README.md#deletewebbox) - Delete Web Box
-- [`webboxGetWebbox`](docs/sdks/webbox/README.md#getwebbox) - Get Web Box
-- [`webboxListWebboxes`](docs/sdks/webbox/README.md#listwebboxes) - List Web Boxes
-- [`webboxListWebboxSteps`](docs/sdks/webbox/README.md#listwebboxsteps) - List Web Box steps
-- [`webboxSaveWebboxSnapshot`](docs/sdks/webbox/README.md#savewebboxsnapshot) - Save Web Box as Snapshot
-- [`webboxSnapshotsCancelWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#cancelwebboxsnapshot) - Cancel Web Box Snapshot build
-- [`webboxSnapshotsCloneWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#clonewebboxsnapshot) - Clone Web Box Snapshot
-- [`webboxSnapshotsCreateWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#createwebboxsnapshot) - Create Web Box Snapshot
-- [`webboxSnapshotsDeleteWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#deletewebboxsnapshot) - Delete Web Box Snapshot
-- [`webboxSnapshotsGetWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#getwebboxsnapshot) - Get Web Box Snapshot
-- [`webboxSnapshotsListWebboxSnapshots`](docs/sdks/webboxsnapshots/README.md#listwebboxsnapshots) - List Web Box Snapshots
-- [`webboxSnapshotsResumeWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#resumewebboxsnapshot) - Resume Web Box Snapshot build
-- [`webboxSnapshotsUpdateWebboxSnapshot`](docs/sdks/webboxsnapshots/README.md#updatewebboxsnapshot) - Update Web Box Snapshot
-- [`webboxStartWebbox`](docs/sdks/webbox/README.md#startwebbox) - Start Web Box
-- [`webboxStopWebbox`](docs/sdks/webbox/README.md#stopwebbox) - Stop Web Box
-- [`webboxUpdateWebbox`](docs/sdks/webbox/README.md#updatewebbox) - Update Web Box
+- [`apiboxesCreate`](docs/sdks/apiboxes/README.md#create) - Create API Box
+- [`apiboxesDelete`](docs/sdks/apiboxes/README.md#delete) - Delete API Box
+- [`apiboxesGet`](docs/sdks/apiboxes/README.md#get) - Get API Box
+- [`apiboxesList`](docs/sdks/apiboxes/README.md#list) - List API Boxes
+- [`apiboxesListSteps`](docs/sdks/apiboxes/README.md#liststeps) - List API Box steps
+- [`apiboxesSaveSnapshot`](docs/sdks/apiboxes/README.md#savesnapshot) - Save API Box as Snapshot
+- [`apiboxesStart`](docs/sdks/apiboxes/README.md#start) - Start API Box
+- [`apiboxesStop`](docs/sdks/apiboxes/README.md#stop) - Stop API Box
+- [`apiboxesUpdate`](docs/sdks/apiboxes/README.md#update) - Update API Box
+- [`apiboxSnapshotsCancel`](docs/sdks/apiboxsnapshots/README.md#cancel) - Cancel API Box Snapshot build
+- [`apiboxSnapshotsClone`](docs/sdks/apiboxsnapshots/README.md#clone) - Clone API Box Snapshot
+- [`apiboxSnapshotsCreate`](docs/sdks/apiboxsnapshots/README.md#create) - Create API Box Snapshot
+- [`apiboxSnapshotsDelete`](docs/sdks/apiboxsnapshots/README.md#delete) - Delete API Box Snapshot
+- [`apiboxSnapshotsGet`](docs/sdks/apiboxsnapshots/README.md#get) - Get API Box Snapshot
+- [`apiboxSnapshotsList`](docs/sdks/apiboxsnapshots/README.md#list) - List API Box Snapshots
+- [`apiboxSnapshotsResume`](docs/sdks/apiboxsnapshots/README.md#resume) - Resume API Box Snapshot build
+- [`apiboxSnapshotsUpdate`](docs/sdks/apiboxsnapshots/README.md#update) - Update API Box Snapshot
+- [`credentialsCreate`](docs/sdks/credentials/README.md#create) - Create credential
+- [`credentialsDelete`](docs/sdks/credentials/README.md#delete) - Delete credential
+- [`credentialsGet`](docs/sdks/credentials/README.md#get) - Get credential
+- [`credentialsList`](docs/sdks/credentials/README.md#list) - List credentials
+- [`credentialsUpdate`](docs/sdks/credentials/README.md#update) - Update credential
+- [`mcpboxesCreate`](docs/sdks/mcpboxes/README.md#create) - Create MCP Box
+- [`mcpboxesDelete`](docs/sdks/mcpboxes/README.md#delete) - Delete MCP Box
+- [`mcpboxesGet`](docs/sdks/mcpboxes/README.md#get) - Get MCP Box
+- [`mcpboxesList`](docs/sdks/mcpboxes/README.md#list) - List MCP Boxes
+- [`mcpboxesSaveSnapshot`](docs/sdks/mcpboxes/README.md#savesnapshot) - Save MCP Box as Snapshot
+- [`mcpboxesStart`](docs/sdks/mcpboxes/README.md#start) - Start MCP Box
+- [`mcpboxesStop`](docs/sdks/mcpboxes/README.md#stop) - Stop MCP Box
+- [`mcpboxesUpdate`](docs/sdks/mcpboxes/README.md#update) - Update MCP Box
+- [`mcpboxSnapshotsCancel`](docs/sdks/mcpboxsnapshots/README.md#cancel) - Cancel MCP Box Snapshot build
+- [`mcpboxSnapshotsClone`](docs/sdks/mcpboxsnapshots/README.md#clone) - Clone MCP Box Snapshot
+- [`mcpboxSnapshotsCreate`](docs/sdks/mcpboxsnapshots/README.md#create) - Create MCP Box Snapshot
+- [`mcpboxSnapshotsDelete`](docs/sdks/mcpboxsnapshots/README.md#delete) - Delete MCP Box Snapshot
+- [`mcpboxSnapshotsGet`](docs/sdks/mcpboxsnapshots/README.md#get) - Get MCP Box Snapshot
+- [`mcpboxSnapshotsList`](docs/sdks/mcpboxsnapshots/README.md#list) - List MCP Box Snapshots
+- [`mcpboxSnapshotsResume`](docs/sdks/mcpboxsnapshots/README.md#resume) - Resume MCP Box Snapshot build
+- [`mcpboxSnapshotsUpdate`](docs/sdks/mcpboxsnapshots/README.md#update) - Update MCP Box Snapshot
+- [`webboxesCreate`](docs/sdks/webboxes/README.md#create) - Create Web Box
+- [`webboxesDelete`](docs/sdks/webboxes/README.md#delete) - Delete Web Box
+- [`webboxesGet`](docs/sdks/webboxes/README.md#get) - Get Web Box
+- [`webboxesList`](docs/sdks/webboxes/README.md#list) - List Web Boxes
+- [`webboxesListSteps`](docs/sdks/webboxes/README.md#liststeps) - List Web Box steps
+- [`webboxesSaveSnapshot`](docs/sdks/webboxes/README.md#savesnapshot) - Save Web Box as Snapshot
+- [`webboxesStart`](docs/sdks/webboxes/README.md#start) - Start Web Box
+- [`webboxesStop`](docs/sdks/webboxes/README.md#stop) - Stop Web Box
+- [`webboxesUpdate`](docs/sdks/webboxes/README.md#update) - Update Web Box
+- [`webboxSnapshotsCancel`](docs/sdks/webboxsnapshots/README.md#cancel) - Cancel Web Box Snapshot build
+- [`webboxSnapshotsClone`](docs/sdks/webboxsnapshots/README.md#clone) - Clone Web Box Snapshot
+- [`webboxSnapshotsCreate`](docs/sdks/webboxsnapshots/README.md#create) - Create Web Box Snapshot
+- [`webboxSnapshotsDelete`](docs/sdks/webboxsnapshots/README.md#delete) - Delete Web Box Snapshot
+- [`webboxSnapshotsGet`](docs/sdks/webboxsnapshots/README.md#get) - Get Web Box Snapshot
+- [`webboxSnapshotsList`](docs/sdks/webboxsnapshots/README.md#list) - List Web Box Snapshots
+- [`webboxSnapshotsResume`](docs/sdks/webboxsnapshots/README.md#resume) - Resume Web Box Snapshot build
+- [`webboxSnapshotsUpdate`](docs/sdks/webboxsnapshots/README.md#update) - Update Web Box Snapshot
 - ~~[`simulationsCreateSimulation`](docs/sdks/simulations/README.md#createsimulation)~~ - Create Simulation :warning: **Deprecated**
 - ~~[`simulationsCreateSimulationAdvance`](docs/sdks/simulations/README.md#createsimulationadvance)~~ - Advance Simulation Time :warning: **Deprecated**
 - ~~[`simulationsDeleteSimulation`](docs/sdks/simulations/README.md#deletesimulation)~~ - Delete Simulation :warning: **Deprecated**
@@ -370,7 +370,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apibox.listApiboxes({});
+  const result = await continuous.apiboxes.list({});
 
   for await (const page of result) {
     console.log(page);
@@ -404,7 +404,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apiboxSnapshots.createApiboxSnapshot({
+  const result = await continuous.apiboxSnapshots.create({
     body: {
       request: {},
     },
@@ -432,7 +432,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apibox.listApiboxes({}, {
+  const result = await continuous.apiboxes.list({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -473,7 +473,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apibox.listApiboxes({});
+  const result = await continuous.apiboxes.list({});
 
   for await (const page of result) {
     console.log(page);
@@ -510,7 +510,7 @@ const continuous = new Continuous({
 
 async function run() {
   try {
-    const result = await continuous.apibox.listApiboxes({});
+    const result = await continuous.apiboxes.list({});
 
     for await (const page of result) {
       console.log(page);
@@ -524,7 +524,7 @@ async function run() {
       console.log(error.headers);
 
       // Depending on the method different errors may be thrown
-      if (error instanceof errors.ErrorT) {
+      if (error instanceof errors.APIError) {
         console.log(error.data$.code); // string
         console.log(error.data$.detail); // string
         console.log(error.data$.validation); // models.SpecificationValidation
@@ -540,7 +540,7 @@ run();
 ### Error Classes
 **Primary errors:**
 * [`ContinuousError`](./src/models/errors/continuous-error.ts): The base class for HTTP error responses.
-  * [`ErrorT`](./src/models/errors/error-t.ts): Generic error.
+  * [`APIError`](./src/models/errors/api-error.ts): Generic error.
 
 <details><summary>Less common errors (7)</summary>
 
@@ -578,7 +578,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.apibox.listApiboxes({});
+  const result = await continuous.apiboxes.list({});
 
   for await (const page of result) {
     console.log(page);

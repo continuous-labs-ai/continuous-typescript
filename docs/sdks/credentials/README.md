@@ -6,13 +6,13 @@ Store connections to real systems: a base URL, the header that carries the crede
 
 ### Available Operations
 
-* [listCredentials](#listcredentials) - List credentials
-* [createCredential](#createcredential) - Create credential
-* [deleteCredential](#deletecredential) - Delete credential
-* [getCredential](#getcredential) - Get credential
-* [updateCredential](#updatecredential) - Update credential
+* [list](#list) - List credentials
+* [create](#create) - Create credential
+* [delete](#delete) - Delete credential
+* [get](#get) - Get credential
+* [update](#update) - Update credential
 
-## listCredentials
+## list
 
 Returns the workspace's credentials, newest first. Credential values are never returned.
 
@@ -27,7 +27,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.listCredentials({});
+  const result = await continuous.credentials.list({});
 
   for await (const page of result) {
     console.log(page);
@@ -43,7 +43,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { credentialsListCredentials } from "@continuous-labs/sdk/funcs/credentials-list-credentials.js";
+import { credentialsList } from "@continuous-labs/sdk/funcs/credentials-list.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -52,14 +52,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await credentialsListCredentials(continuous, {});
+  const res = await credentialsList(continuous, {});
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
     console.log(page);
   }
   } else {
-    console.log("credentialsListCredentials failed:", res.error);
+    console.log("credentialsList failed:", res.error);
   }
 }
 
@@ -83,11 +83,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 422                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 400, 401, 422                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createCredential
+## create
 
 Stores a connection to a real system: an API base URL and the header that carries the credential, with either the header value or an OAuth 2.0 client whose access token the API gets and renews; or a Web App login with its sign-in URL, which a person then signs in to by hand in the console. Returns the credential without its value.
 
@@ -102,7 +102,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.createCredential({
+  const result = await continuous.credentials.create({
     body: {
       baseUrl: "https://api.stripe.com",
       header: "Authorization",
@@ -123,7 +123,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { credentialsCreateCredential } from "@continuous-labs/sdk/funcs/credentials-create-credential.js";
+import { credentialsCreate } from "@continuous-labs/sdk/funcs/credentials-create.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -132,7 +132,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await credentialsCreateCredential(continuous, {
+  const res = await credentialsCreate(continuous, {
     body: {
       baseUrl: "https://api.stripe.com",
       header: "Authorization",
@@ -144,7 +144,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("credentialsCreateCredential failed:", res.error);
+    console.log("credentialsCreate failed:", res.error);
   }
 }
 
@@ -168,11 +168,11 @@ run();
 
 | Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorT                     | 400, 401, 408, 409, 413, 415, 422 | application/problem+json          |
-| errors.ErrorT                     | 500, 503                          | application/problem+json          |
+| errors.APIError                   | 400, 401, 408, 409, 413, 415, 422 | application/problem+json          |
+| errors.APIError                   | 500, 503                          | application/problem+json          |
 | errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
 
-## deleteCredential
+## delete
 
 Deletes a credential and its stored value.
 
@@ -187,7 +187,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  await continuous.credentials.deleteCredential({
+  await continuous.credentials.delete({
     id: "<id>",
   });
 
@@ -203,7 +203,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { credentialsDeleteCredential } from "@continuous-labs/sdk/funcs/credentials-delete-credential.js";
+import { credentialsDelete } from "@continuous-labs/sdk/funcs/credentials-delete.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -212,14 +212,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await credentialsDeleteCredential(continuous, {
+  const res = await credentialsDelete(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     
   } else {
-    console.log("credentialsDeleteCredential failed:", res.error);
+    console.log("credentialsDelete failed:", res.error);
   }
 }
 
@@ -243,11 +243,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getCredential
+## get
 
 Returns a credential without its value.
 
@@ -262,7 +262,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.getCredential({
+  const result = await continuous.credentials.get({
     id: "<id>",
   });
 
@@ -278,7 +278,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { credentialsGetCredential } from "@continuous-labs/sdk/funcs/credentials-get-credential.js";
+import { credentialsGet } from "@continuous-labs/sdk/funcs/credentials-get.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -287,14 +287,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await credentialsGetCredential(continuous, {
+  const res = await credentialsGet(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("credentialsGetCredential failed:", res.error);
+    console.log("credentialsGet failed:", res.error);
   }
 }
 
@@ -318,11 +318,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## updateCredential
+## update
 
 Renames a credential, changes its base URL and header or its login, or replaces its value or its OAuth 2.0 client. An API credential can move between a value and an OAuth client; a login stays a login. Omitted fields keep their current values.
 
@@ -337,7 +337,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.credentials.updateCredential({
+  const result = await continuous.credentials.update({
     id: "<id>",
     body: {},
   });
@@ -354,7 +354,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { credentialsUpdateCredential } from "@continuous-labs/sdk/funcs/credentials-update-credential.js";
+import { credentialsUpdate } from "@continuous-labs/sdk/funcs/credentials-update.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -363,7 +363,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await credentialsUpdateCredential(continuous, {
+  const res = await credentialsUpdate(continuous, {
     id: "<id>",
     body: {},
   });
@@ -371,7 +371,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("credentialsUpdateCredential failed:", res.error);
+    console.log("credentialsUpdate failed:", res.error);
   }
 }
 
@@ -395,6 +395,6 @@ run();
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
-| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.APIError                        | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.APIError                        | 500, 503                               | application/problem+json               |
 | errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |

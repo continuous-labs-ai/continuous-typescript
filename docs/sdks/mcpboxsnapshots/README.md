@@ -6,16 +6,16 @@ Build MCP Box Snapshots of an MCP server's tools against a ready API Box Snapsho
 
 ### Available Operations
 
-* [listMcpboxSnapshots](#listmcpboxsnapshots) - List MCP Box Snapshots
-* [createMcpboxSnapshot](#createmcpboxsnapshot) - Create MCP Box Snapshot
-* [deleteMcpboxSnapshot](#deletemcpboxsnapshot) - Delete MCP Box Snapshot
-* [getMcpboxSnapshot](#getmcpboxsnapshot) - Get MCP Box Snapshot
-* [updateMcpboxSnapshot](#updatemcpboxsnapshot) - Update MCP Box Snapshot
-* [cancelMcpboxSnapshot](#cancelmcpboxsnapshot) - Cancel MCP Box Snapshot build
-* [cloneMcpboxSnapshot](#clonemcpboxsnapshot) - Clone MCP Box Snapshot
-* [resumeMcpboxSnapshot](#resumemcpboxsnapshot) - Resume MCP Box Snapshot build
+* [list](#list) - List MCP Box Snapshots
+* [create](#create) - Create MCP Box Snapshot
+* [delete](#delete) - Delete MCP Box Snapshot
+* [get](#get) - Get MCP Box Snapshot
+* [update](#update) - Update MCP Box Snapshot
+* [cancel](#cancel) - Cancel MCP Box Snapshot build
+* [clone](#clone) - Clone MCP Box Snapshot
+* [resume](#resume) - Resume MCP Box Snapshot build
 
-## listMcpboxSnapshots
+## list
 
 Returns the workspace's MCP Box Snapshots and the catalog's, newest first. Results can be filtered by status and source, and by the MCP Box a Snapshot was saved from.
 
@@ -30,7 +30,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.mcpboxSnapshots.listMcpboxSnapshots({});
+  const result = await continuous.mcpboxSnapshots.list({});
 
   for await (const page of result) {
     console.log(page);
@@ -46,7 +46,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { mcpboxSnapshotsListMcpboxSnapshots } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-list-mcpbox-snapshots.js";
+import { mcpboxSnapshotsList } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-list.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -55,14 +55,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await mcpboxSnapshotsListMcpboxSnapshots(continuous, {});
+  const res = await mcpboxSnapshotsList(continuous, {});
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
     console.log(page);
   }
   } else {
-    console.log("mcpboxSnapshotsListMcpboxSnapshots failed:", res.error);
+    console.log("mcpboxSnapshotsList failed:", res.error);
   }
 }
 
@@ -86,11 +86,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 422                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 400, 401, 422                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createMcpboxSnapshot
+## create
 
 Starts an asynchronous build and returns the MCP Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; MCP Boxes serve a ready one. The build makes an MCP server that answers from the API Box Snapshot it names, run in real time: with a credential, it copies the live MCP server at the credential's base_url; without one, the server its instructions or research name. Builds of every kind share one queue and the daily quota. Send multipart/form-data with a JSON part named request and optional file parts named document with vendor documentation. To build on a ready MCP Box Snapshot, set parent_id.
 
@@ -105,7 +105,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.mcpboxSnapshots.createMcpboxSnapshot({
+  const result = await continuous.mcpboxSnapshots.create({
     body: {
       request: {},
     },
@@ -123,7 +123,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { mcpboxSnapshotsCreateMcpboxSnapshot } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-create-mcpbox-snapshot.js";
+import { mcpboxSnapshotsCreate } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-create.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -132,7 +132,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await mcpboxSnapshotsCreateMcpboxSnapshot(continuous, {
+  const res = await mcpboxSnapshotsCreate(continuous, {
     body: {
       request: {},
     },
@@ -141,7 +141,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("mcpboxSnapshotsCreateMcpboxSnapshot failed:", res.error);
+    console.log("mcpboxSnapshotsCreate failed:", res.error);
   }
 }
 
@@ -165,13 +165,13 @@ run();
 
 | Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorT                     | 400, 401, 404, 408, 409, 413, 415 | application/problem+json          |
-| errors.ErrorT                     | 429                               | application/problem+json          |
-| errors.ErrorT                     | 500                               | application/problem+json          |
-| errors.ErrorT                     | 503                               | application/problem+json          |
+| errors.APIError                   | 400, 401, 404, 408, 409, 413, 415 | application/problem+json          |
+| errors.APIError                   | 429                               | application/problem+json          |
+| errors.APIError                   | 500                               | application/problem+json          |
+| errors.APIError                   | 503                               | application/problem+json          |
 | errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
 
-## deleteMcpboxSnapshot
+## delete
 
 Deletes an MCP Box Snapshot. A build that is still pending or building is canceled first. The API Box Snapshot it was built against stays. A Snapshot that MCP Boxes serve returns 409 mcpbox_snapshot_in_use; delete those MCP Boxes first. While a build that names it as parent_id is pending or building, it returns 409 mcpbox_snapshot_parent_in_use; retry after the build finishes.
 
@@ -186,7 +186,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  await continuous.mcpboxSnapshots.deleteMcpboxSnapshot({
+  await continuous.mcpboxSnapshots.delete({
     id: "<id>",
   });
 
@@ -202,7 +202,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { mcpboxSnapshotsDeleteMcpboxSnapshot } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-delete-mcpbox-snapshot.js";
+import { mcpboxSnapshotsDelete } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-delete.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -211,14 +211,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await mcpboxSnapshotsDeleteMcpboxSnapshot(continuous, {
+  const res = await mcpboxSnapshotsDelete(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     
   } else {
-    console.log("mcpboxSnapshotsDeleteMcpboxSnapshot failed:", res.error);
+    console.log("mcpboxSnapshotsDelete failed:", res.error);
   }
 }
 
@@ -242,11 +242,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404, 409            | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getMcpboxSnapshot
+## get
 
 Returns an MCP Box Snapshot of the workspace or the catalog, and its build status.
 
@@ -261,7 +261,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.mcpboxSnapshots.getMcpboxSnapshot({
+  const result = await continuous.mcpboxSnapshots.get({
     id: "<id>",
   });
 
@@ -277,7 +277,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { mcpboxSnapshotsGetMcpboxSnapshot } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-get-mcpbox-snapshot.js";
+import { mcpboxSnapshotsGet } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-get.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -286,14 +286,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await mcpboxSnapshotsGetMcpboxSnapshot(continuous, {
+  const res = await mcpboxSnapshotsGet(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("mcpboxSnapshotsGetMcpboxSnapshot failed:", res.error);
+    console.log("mcpboxSnapshotsGet failed:", res.error);
   }
 }
 
@@ -317,11 +317,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 404                      | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 404                      | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## updateMcpboxSnapshot
+## update
 
 Renames an MCP Box Snapshot or replaces its metadata. Omitted fields keep their current values. Its tools do not change. Catalog Snapshots cannot be updated.
 
@@ -336,7 +336,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.mcpboxSnapshots.updateMcpboxSnapshot({
+  const result = await continuous.mcpboxSnapshots.update({
     id: "<id>",
     body: {},
   });
@@ -353,7 +353,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { mcpboxSnapshotsUpdateMcpboxSnapshot } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-update-mcpbox-snapshot.js";
+import { mcpboxSnapshotsUpdate } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-update.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -362,7 +362,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await mcpboxSnapshotsUpdateMcpboxSnapshot(continuous, {
+  const res = await mcpboxSnapshotsUpdate(continuous, {
     id: "<id>",
     body: {},
   });
@@ -370,7 +370,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("mcpboxSnapshotsUpdateMcpboxSnapshot failed:", res.error);
+    console.log("mcpboxSnapshotsUpdate failed:", res.error);
   }
 }
 
@@ -394,11 +394,11 @@ run();
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
-| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.APIError                        | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.APIError                        | 500, 503                               | application/problem+json               |
 | errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
-## cancelMcpboxSnapshot
+## cancel
 
 Requests cancellation of a pending or active build and returns the Snapshot without waiting for the build to stop. Get the Snapshot until its status leaves pending or building. The build can finish before cancellation takes effect. A Snapshot whose build has settled is returned unchanged.
 
@@ -413,7 +413,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.mcpboxSnapshots.cancelMcpboxSnapshot({
+  const result = await continuous.mcpboxSnapshots.cancel({
     id: "<id>",
   });
 
@@ -429,7 +429,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { mcpboxSnapshotsCancelMcpboxSnapshot } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-cancel-mcpbox-snapshot.js";
+import { mcpboxSnapshotsCancel } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-cancel.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -438,14 +438,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await mcpboxSnapshotsCancelMcpboxSnapshot(continuous, {
+  const res = await mcpboxSnapshotsCancel(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("mcpboxSnapshotsCancelMcpboxSnapshot failed:", res.error);
+    console.log("mcpboxSnapshotsCancel failed:", res.error);
   }
 }
 
@@ -469,11 +469,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## cloneMcpboxSnapshot
+## clone
 
 Creates a ready copy of a ready MCP Box Snapshot in another workspace, without a build. The clone has a new ID and the source's artifact, documents and saved state; the source is unchanged. The clone records no credentials, since they belong to the source workspace, and no parent or source Snapshot. An API Box Snapshot of the source workspace that the MCP Box Snapshot was built against is cloned with it, and the clone is built against the copy; a catalog one is kept. The source is the caller's workspace. An API key may clone into any other workspace of its organization.
 
@@ -488,7 +488,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.mcpboxSnapshots.cloneMcpboxSnapshot({
+  const result = await continuous.mcpboxSnapshots.clone({
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -507,7 +507,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { mcpboxSnapshotsCloneMcpboxSnapshot } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-clone-mcpbox-snapshot.js";
+import { mcpboxSnapshotsClone } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-clone.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -516,7 +516,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await mcpboxSnapshotsCloneMcpboxSnapshot(continuous, {
+  const res = await mcpboxSnapshotsClone(continuous, {
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -526,7 +526,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("mcpboxSnapshotsCloneMcpboxSnapshot failed:", res.error);
+    console.log("mcpboxSnapshotsClone failed:", res.error);
   }
 }
 
@@ -543,7 +543,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.mcpboxSnapshots.cloneMcpboxSnapshot({
+  const result = await continuous.mcpboxSnapshots.clone({
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -562,7 +562,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { mcpboxSnapshotsCloneMcpboxSnapshot } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-clone-mcpbox-snapshot.js";
+import { mcpboxSnapshotsClone } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-clone.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -571,7 +571,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await mcpboxSnapshotsCloneMcpboxSnapshot(continuous, {
+  const res = await mcpboxSnapshotsClone(continuous, {
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -581,7 +581,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("mcpboxSnapshotsCloneMcpboxSnapshot failed:", res.error);
+    console.log("mcpboxSnapshotsClone failed:", res.error);
   }
 }
 
@@ -605,11 +605,11 @@ run();
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
-| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.APIError                             | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
+| errors.APIError                             | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
-## resumeMcpboxSnapshot
+## resume
 
 Resumes a build that waits, as build.waiting reports: at QA because its live credential was rejected or the live source rate limited its calls, or for more time after it used its time limit. For a credential wait, refresh the credential it names with PATCH /v1/credentials/{id} first: QA then runs again with its current value, and the build goes on to finalize. For a rate-limit wait, resume once the rate limit resets: QA then runs again. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a QA wait has the time it had left when it began waiting. A build that is not waiting returns 409 mcpbox_snapshot_not_waiting.
 
@@ -624,7 +624,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.mcpboxSnapshots.resumeMcpboxSnapshot({
+  const result = await continuous.mcpboxSnapshots.resume({
     id: "<id>",
   });
 
@@ -640,7 +640,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { mcpboxSnapshotsResumeMcpboxSnapshot } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-resume-mcpbox-snapshot.js";
+import { mcpboxSnapshotsResume } from "@continuous-labs/sdk/funcs/mcpbox-snapshots-resume.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -649,14 +649,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await mcpboxSnapshotsResumeMcpboxSnapshot(continuous, {
+  const res = await mcpboxSnapshotsResume(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("mcpboxSnapshotsResumeMcpboxSnapshot failed:", res.error);
+    console.log("mcpboxSnapshotsResume failed:", res.error);
   }
 }
 
@@ -680,6 +680,6 @@ run();
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 403, 404, 408, 409, 413, 415 | application/problem+json               |
-| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.APIError                        | 400, 401, 403, 404, 408, 409, 413, 415 | application/problem+json               |
+| errors.APIError                        | 500, 503                               | application/problem+json               |
 | errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |

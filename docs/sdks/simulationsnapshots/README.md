@@ -90,8 +90,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 422                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 400, 401, 422                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~createSimulationSnapshot~~
@@ -177,8 +177,8 @@ run();
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
-| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.APIError                             | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
+| errors.APIError                             | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
 ## ~~deleteSimulationSnapshot~~
@@ -256,8 +256,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 404, 409                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 404, 409                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~getSimulationSnapshot~~
@@ -335,8 +335,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 404                      | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 404                      | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~updateSimulationSnapshot~~
@@ -416,6 +416,6 @@ run();
 
 | Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorT                     | 400, 401, 404, 408, 413, 415, 422 | application/problem+json          |
-| errors.ErrorT                     | 500, 503                          | application/problem+json          |
+| errors.APIError                   | 400, 401, 404, 408, 413, 415, 422 | application/problem+json          |
+| errors.APIError                   | 500, 503                          | application/problem+json          |
 | errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |

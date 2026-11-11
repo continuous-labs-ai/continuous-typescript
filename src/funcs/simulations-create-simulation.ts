@@ -44,7 +44,7 @@ export function simulationsCreateSimulation(
 ): APIPromise<
   Result<
     operations.CreateSimulationResponse,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -70,7 +70,7 @@ async function $do(
   [
     Result<
       operations.CreateSimulationResponse,
-      | errors.ErrorT
+      | errors.APIError
       | ContinuousError
       | ResponseValidationError
       | ConnectionError
@@ -159,7 +159,7 @@ async function $do(
 
   const [result] = await M.match<
     operations.CreateSimulationResponse,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -175,10 +175,10 @@ async function $do(
     }),
     M.jsonErr(
       [400, 401, 404, 408, 409, 413, 415, 422, 429],
-      errors.ErrorT$inboundSchema,
+      errors.APIError$inboundSchema,
       { ctype: "application/problem+json" },
     ),
-    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 503], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),

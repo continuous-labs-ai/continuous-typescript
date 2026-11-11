@@ -6,16 +6,16 @@ Build Web Box Snapshots from a vendor's live web app, or use the catalog's. Web 
 
 ### Available Operations
 
-* [listWebboxSnapshots](#listwebboxsnapshots) - List Web Box Snapshots
-* [createWebboxSnapshot](#createwebboxsnapshot) - Create Web Box Snapshot
-* [deleteWebboxSnapshot](#deletewebboxsnapshot) - Delete Web Box Snapshot
-* [getWebboxSnapshot](#getwebboxsnapshot) - Get Web Box Snapshot
-* [updateWebboxSnapshot](#updatewebboxsnapshot) - Update Web Box Snapshot
-* [cancelWebboxSnapshot](#cancelwebboxsnapshot) - Cancel Web Box Snapshot build
-* [cloneWebboxSnapshot](#clonewebboxsnapshot) - Clone Web Box Snapshot
-* [resumeWebboxSnapshot](#resumewebboxsnapshot) - Resume Web Box Snapshot build
+* [list](#list) - List Web Box Snapshots
+* [create](#create) - Create Web Box Snapshot
+* [delete](#delete) - Delete Web Box Snapshot
+* [get](#get) - Get Web Box Snapshot
+* [update](#update) - Update Web Box Snapshot
+* [cancel](#cancel) - Cancel Web Box Snapshot build
+* [clone](#clone) - Clone Web Box Snapshot
+* [resume](#resume) - Resume Web Box Snapshot build
 
-## listWebboxSnapshots
+## list
 
 Returns the workspace's Web Box Snapshots and the catalog's, newest first. Results can be filtered by source and status, and by the Web Box a Snapshot was saved from.
 
@@ -30,7 +30,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.webboxSnapshots.listWebboxSnapshots({});
+  const result = await continuous.webboxSnapshots.list({});
 
   for await (const page of result) {
     console.log(page);
@@ -46,7 +46,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { webboxSnapshotsListWebboxSnapshots } from "@continuous-labs/sdk/funcs/webbox-snapshots-list-webbox-snapshots.js";
+import { webboxSnapshotsList } from "@continuous-labs/sdk/funcs/webbox-snapshots-list.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -55,14 +55,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await webboxSnapshotsListWebboxSnapshots(continuous, {});
+  const res = await webboxSnapshotsList(continuous, {});
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
     console.log(page);
   }
   } else {
-    console.log("webboxSnapshotsListWebboxSnapshots failed:", res.error);
+    console.log("webboxSnapshotsList failed:", res.error);
   }
 }
 
@@ -86,11 +86,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 400, 401, 422                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 400, 401, 422                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createWebboxSnapshot
+## create
 
 Starts an asynchronous build and returns the Web Box Snapshot with status pending. Get the Snapshot until its status is ready, failed or canceled; Web Boxes start from a ready one. The build runs in real time: the builder and QA use the vendor's live web app through its login credential, and the built app has no simulated clock. Builds of every kind share one queue and the daily quota. Send multipart/form-data with a JSON part named request and optional file parts named document with vendor documentation. To build on a ready Snapshot, set parent_id.
 
@@ -105,7 +105,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.webboxSnapshots.createWebboxSnapshot({
+  const result = await continuous.webboxSnapshots.create({
     body: {
       request: {},
     },
@@ -123,7 +123,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { webboxSnapshotsCreateWebboxSnapshot } from "@continuous-labs/sdk/funcs/webbox-snapshots-create-webbox-snapshot.js";
+import { webboxSnapshotsCreate } from "@continuous-labs/sdk/funcs/webbox-snapshots-create.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -132,7 +132,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await webboxSnapshotsCreateWebboxSnapshot(continuous, {
+  const res = await webboxSnapshotsCreate(continuous, {
     body: {
       request: {},
     },
@@ -141,7 +141,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("webboxSnapshotsCreateWebboxSnapshot failed:", res.error);
+    console.log("webboxSnapshotsCreate failed:", res.error);
   }
 }
 
@@ -165,13 +165,13 @@ run();
 
 | Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorT                     | 400, 401, 404, 408, 409, 413, 415 | application/problem+json          |
-| errors.ErrorT                     | 429                               | application/problem+json          |
-| errors.ErrorT                     | 500                               | application/problem+json          |
-| errors.ErrorT                     | 503                               | application/problem+json          |
+| errors.APIError                   | 400, 401, 404, 408, 409, 413, 415 | application/problem+json          |
+| errors.APIError                   | 429                               | application/problem+json          |
+| errors.APIError                   | 500                               | application/problem+json          |
+| errors.APIError                   | 503                               | application/problem+json          |
 | errors.ContinuousDefaultError     | 4XX, 5XX                          | \*/\*                             |
 
-## deleteWebboxSnapshot
+## delete
 
 Deletes a Web Box Snapshot. A build that is still pending or building is canceled first. A Snapshot that Web Boxes started from returns 409 webbox_snapshot_in_use; delete those Web Boxes first. While a build that names it as parent_id is pending or building, it returns 409 webbox_snapshot_parent_in_use; retry after the build finishes. Catalog Snapshots cannot be deleted.
 
@@ -186,7 +186,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  await continuous.webboxSnapshots.deleteWebboxSnapshot({
+  await continuous.webboxSnapshots.delete({
     id: "<id>",
   });
 
@@ -202,7 +202,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { webboxSnapshotsDeleteWebboxSnapshot } from "@continuous-labs/sdk/funcs/webbox-snapshots-delete-webbox-snapshot.js";
+import { webboxSnapshotsDelete } from "@continuous-labs/sdk/funcs/webbox-snapshots-delete.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -211,14 +211,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await webboxSnapshotsDeleteWebboxSnapshot(continuous, {
+  const res = await webboxSnapshotsDelete(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     
   } else {
-    console.log("webboxSnapshotsDeleteWebboxSnapshot failed:", res.error);
+    console.log("webboxSnapshotsDelete failed:", res.error);
   }
 }
 
@@ -242,11 +242,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404, 409            | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404, 409            | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getWebboxSnapshot
+## get
 
 Returns a Web Box Snapshot of the workspace or the catalog, and its build status.
 
@@ -261,7 +261,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.webboxSnapshots.getWebboxSnapshot({
+  const result = await continuous.webboxSnapshots.get({
     id: "<id>",
   });
 
@@ -277,7 +277,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { webboxSnapshotsGetWebboxSnapshot } from "@continuous-labs/sdk/funcs/webbox-snapshots-get-webbox-snapshot.js";
+import { webboxSnapshotsGet } from "@continuous-labs/sdk/funcs/webbox-snapshots-get.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -286,14 +286,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await webboxSnapshotsGetWebboxSnapshot(continuous, {
+  const res = await webboxSnapshotsGet(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("webboxSnapshotsGetWebboxSnapshot failed:", res.error);
+    console.log("webboxSnapshotsGet failed:", res.error);
   }
 }
 
@@ -317,11 +317,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 404                      | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 404                      | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## updateWebboxSnapshot
+## update
 
 Renames a Web Box Snapshot or replaces its metadata. Omitted fields keep their current values. The built app does not change. Catalog Snapshots cannot be updated.
 
@@ -336,7 +336,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.webboxSnapshots.updateWebboxSnapshot({
+  const result = await continuous.webboxSnapshots.update({
     id: "<id>",
     body: {},
   });
@@ -353,7 +353,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { webboxSnapshotsUpdateWebboxSnapshot } from "@continuous-labs/sdk/funcs/webbox-snapshots-update-webbox-snapshot.js";
+import { webboxSnapshotsUpdate } from "@continuous-labs/sdk/funcs/webbox-snapshots-update.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -362,7 +362,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await webboxSnapshotsUpdateWebboxSnapshot(continuous, {
+  const res = await webboxSnapshotsUpdate(continuous, {
     id: "<id>",
     body: {},
   });
@@ -370,7 +370,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("webboxSnapshotsUpdateWebboxSnapshot failed:", res.error);
+    console.log("webboxSnapshotsUpdate failed:", res.error);
   }
 }
 
@@ -394,11 +394,11 @@ run();
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
-| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.APIError                        | 400, 401, 403, 404, 408, 413, 415, 422 | application/problem+json               |
+| errors.APIError                        | 500, 503                               | application/problem+json               |
 | errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |
 
-## cancelWebboxSnapshot
+## cancel
 
 Requests cancellation of a pending or active build and returns the Snapshot without waiting for the build to stop. Get the Snapshot until its status leaves pending or building. The build can finish before cancellation takes effect. A Snapshot whose build has settled is returned unchanged.
 
@@ -413,7 +413,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.webboxSnapshots.cancelWebboxSnapshot({
+  const result = await continuous.webboxSnapshots.cancel({
     id: "<id>",
   });
 
@@ -429,7 +429,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { webboxSnapshotsCancelWebboxSnapshot } from "@continuous-labs/sdk/funcs/webbox-snapshots-cancel-webbox-snapshot.js";
+import { webboxSnapshotsCancel } from "@continuous-labs/sdk/funcs/webbox-snapshots-cancel.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -438,14 +438,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await webboxSnapshotsCancelWebboxSnapshot(continuous, {
+  const res = await webboxSnapshotsCancel(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("webboxSnapshotsCancelWebboxSnapshot failed:", res.error);
+    console.log("webboxSnapshotsCancel failed:", res.error);
   }
 }
 
@@ -469,11 +469,11 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ErrorT                 | 401, 403, 404                 | application/problem+json      |
-| errors.ErrorT                 | 500, 503                      | application/problem+json      |
+| errors.APIError               | 401, 403, 404                 | application/problem+json      |
+| errors.APIError               | 500, 503                      | application/problem+json      |
 | errors.ContinuousDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## cloneWebboxSnapshot
+## clone
 
 Creates a ready copy of a ready Web Box Snapshot in another workspace, without a build. The clone has a new ID and the source's artifact, documents and saved state; the source is unchanged. The clone records no credentials, since they belong to the source workspace, and no parent or source Snapshot. The source is the caller's workspace. An API key may clone into any other workspace of its organization.
 
@@ -488,7 +488,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.webboxSnapshots.cloneWebboxSnapshot({
+  const result = await continuous.webboxSnapshots.clone({
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -507,7 +507,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { webboxSnapshotsCloneWebboxSnapshot } from "@continuous-labs/sdk/funcs/webbox-snapshots-clone-webbox-snapshot.js";
+import { webboxSnapshotsClone } from "@continuous-labs/sdk/funcs/webbox-snapshots-clone.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -516,7 +516,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await webboxSnapshotsCloneWebboxSnapshot(continuous, {
+  const res = await webboxSnapshotsClone(continuous, {
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -526,7 +526,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("webboxSnapshotsCloneWebboxSnapshot failed:", res.error);
+    console.log("webboxSnapshotsClone failed:", res.error);
   }
 }
 
@@ -543,7 +543,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.webboxSnapshots.cloneWebboxSnapshot({
+  const result = await continuous.webboxSnapshots.clone({
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -562,7 +562,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { webboxSnapshotsCloneWebboxSnapshot } from "@continuous-labs/sdk/funcs/webbox-snapshots-clone-webbox-snapshot.js";
+import { webboxSnapshotsClone } from "@continuous-labs/sdk/funcs/webbox-snapshots-clone.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -571,7 +571,7 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await webboxSnapshotsCloneWebboxSnapshot(continuous, {
+  const res = await webboxSnapshotsClone(continuous, {
     id: "<id>",
     body: {
       targetWorkspaceId: "<id>",
@@ -581,7 +581,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("webboxSnapshotsCloneWebboxSnapshot failed:", res.error);
+    console.log("webboxSnapshotsClone failed:", res.error);
   }
 }
 
@@ -605,11 +605,11 @@ run();
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorT                               | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
-| errors.ErrorT                               | 500, 503                                    | application/problem+json                    |
+| errors.APIError                             | 400, 401, 403, 404, 408, 409, 413, 415, 422 | application/problem+json                    |
+| errors.APIError                             | 500, 503                                    | application/problem+json                    |
 | errors.ContinuousDefaultError               | 4XX, 5XX                                    | \*/\*                                       |
 
-## resumeWebboxSnapshot
+## resume
 
 Resumes a build that waits, as build.waiting reports: at QA because its live credentials were rejected or the live systems rate limited its calls, or for more time after it used its time limit. For a credential wait, refresh each credential it names with PATCH /v1/credentials/{id} first: QA then runs again with their current values, and the build goes on to finalize. For a rate-limit wait, resume once the rate limit resets: QA then runs again. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a QA wait has the time it had left when it began waiting. A build that is not waiting returns 409 webbox_snapshot_not_waiting.
 
@@ -624,7 +624,7 @@ const continuous = new Continuous({
 });
 
 async function run() {
-  const result = await continuous.webboxSnapshots.resumeWebboxSnapshot({
+  const result = await continuous.webboxSnapshots.resume({
     id: "<id>",
   });
 
@@ -640,7 +640,7 @@ The standalone function version of this method:
 
 ```typescript
 import { ContinuousCore } from "@continuous-labs/sdk/core.js";
-import { webboxSnapshotsResumeWebboxSnapshot } from "@continuous-labs/sdk/funcs/webbox-snapshots-resume-webbox-snapshot.js";
+import { webboxSnapshotsResume } from "@continuous-labs/sdk/funcs/webbox-snapshots-resume.js";
 
 // Use `ContinuousCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -649,14 +649,14 @@ const continuous = new ContinuousCore({
 });
 
 async function run() {
-  const res = await webboxSnapshotsResumeWebboxSnapshot(continuous, {
+  const res = await webboxSnapshotsResume(continuous, {
     id: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("webboxSnapshotsResumeWebboxSnapshot failed:", res.error);
+    console.log("webboxSnapshotsResume failed:", res.error);
   }
 }
 
@@ -680,6 +680,6 @@ run();
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorT                          | 400, 401, 403, 404, 408, 409, 413, 415 | application/problem+json               |
-| errors.ErrorT                          | 500, 503                               | application/problem+json               |
+| errors.APIError                        | 400, 401, 403, 404, 408, 409, 413, 415 | application/problem+json               |
+| errors.APIError                        | 500, 503                               | application/problem+json               |
 | errors.ContinuousDefaultError          | 4XX, 5XX                               | \*/\*                                  |

@@ -148,7 +148,7 @@ export type BuildProgress = {
    */
   waiting: BuildWaiting | null;
   /**
-   * When the usage limit resets while agent_state is waiting_for_limit. The agent continues then, within the build's time limit. Null otherwise.
+   * When the usage limit resets while agent_state is waiting_for_limit. The agent continues then, and the wait does not use the build's time limit. Null otherwise.
    */
   waitingUntil: Date | null;
   /**

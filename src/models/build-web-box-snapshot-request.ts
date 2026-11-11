@@ -15,7 +15,7 @@ export type BuildWebBoxSnapshotRequest = {
    */
   instructions?: string | undefined;
   /**
-   * Model that builds and reviews the Snapshot: a Claude model or combined, the default. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
+   * Model that builds and reviews the Snapshot. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
    */
   model?: string | undefined;
   /**

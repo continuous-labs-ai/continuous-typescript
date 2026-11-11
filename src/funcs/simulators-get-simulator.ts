@@ -45,7 +45,7 @@ export function simulatorsGetSimulator(
 ): APIPromise<
   Result<
     models.Simulator,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -71,7 +71,7 @@ async function $do(
   [
     Result<
       models.Simulator,
-      | errors.ErrorT
+      | errors.APIError
       | ContinuousError
       | ResponseValidationError
       | ConnectionError
@@ -169,7 +169,7 @@ async function $do(
 
   const [result] = await M.match<
     models.Simulator,
-    | errors.ErrorT
+    | errors.APIError
     | ContinuousError
     | ResponseValidationError
     | ConnectionError
@@ -180,10 +180,10 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, models.Simulator$inboundSchema),
-    M.jsonErr([401, 403, 404, 422], errors.ErrorT$inboundSchema, {
+    M.jsonErr([401, 403, 404, 422], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
-    M.jsonErr([500, 503], errors.ErrorT$inboundSchema, {
+    M.jsonErr([500, 503], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.fail("4XX"),
