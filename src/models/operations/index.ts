@@ -13,6 +13,7 @@ export * from "./clone-simulator.js";
 export * from "./clone-webbox-snapshot.js";
 export * from "./create-apibox-snapshot.js";
 export * from "./create-apibox.js";
+export * from "./create-credential.js";
 export * from "./create-mcpbox-snapshot.js";
 export * from "./create-mcpbox.js";
 export * from "./create-simulation-advance.js";

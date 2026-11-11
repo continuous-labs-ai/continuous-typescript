@@ -215,7 +215,7 @@ async function $do(
       key: "Result",
     }),
     M.jsonErr(
-      [400, 401, 404, 408, 409, 413, 415, 422],
+      [400, 401, 404, 408, 409, 413, 415],
       errors.ErrorT$inboundSchema,
       { ctype: "application/problem+json" },
     ),

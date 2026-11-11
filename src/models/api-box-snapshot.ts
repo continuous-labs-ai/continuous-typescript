@@ -27,7 +27,7 @@ import {
 } from "./snapshot-composition.js";
 
 /**
- * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an API Box.
+ * catalog for a Snapshot Continuous publishes, build for one built or cloned into the workspace, box for one saved from an API Box.
  */
 export const APIBoxSnapshotSource = {
   Catalog: "catalog",
@@ -35,7 +35,7 @@ export const APIBoxSnapshotSource = {
   Box: "box",
 } as const;
 /**
- * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an API Box.
+ * catalog for a Snapshot Continuous publishes, build for one built or cloned into the workspace, box for one saved from an API Box.
  */
 export type APIBoxSnapshotSource = OpenEnum<typeof APIBoxSnapshotSource>;
 
@@ -122,15 +122,15 @@ export type APIBoxSnapshot = {
    */
   research: BuildResearch | null;
   /**
-   * catalog for a Snapshot Continuous publishes, build for one built or published into the workspace, box for one saved from an API Box.
+   * catalog for a Snapshot Continuous publishes, build for one built or cloned into the workspace, box for one saved from an API Box.
    */
   source: APIBoxSnapshotSource;
   /**
-   * The box the Snapshot was saved from, or null for a built or published Snapshot.
+   * The box the Snapshot was saved from, or null for a Snapshot not saved from a box.
    */
   sourceBoxId: string | null;
   /**
-   * The Snapshot the box it was saved from started from, or null for a built or published Snapshot, or once that Snapshot is deleted.
+   * The Snapshot the box it was saved from started from, or null for a Snapshot not saved from a box, or once that Snapshot is deleted.
    */
   sourceSnapshotId: string | null;
   /**

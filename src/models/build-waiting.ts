@@ -30,7 +30,7 @@ export type BuildWaiting = {
    */
   credentialIds: Array<string>;
   /**
-   * When the wait ends, 7 days after it began: a build not resumed by then fails, with error code live_credential_rejected for live_credentials, live_rate_limited for live_rate_limit, and for its time limit for time_limit. The wait does not count toward the build's time limit.
+   * When the wait ends, 7 days after it began: a build not resumed by then fails with error code live_credential_rejected for live_credentials, live_rate_limited for live_rate_limit, or build_failed with reason time_limit for time_limit. The wait does not count toward the build's time limit.
    */
   deadline: Date;
   /**

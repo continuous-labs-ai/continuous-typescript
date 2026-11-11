@@ -36,7 +36,7 @@ export type GetMCPBoxResponse = {
    */
   apiboxId: string;
   /**
-   * The MCP Box's endpoint and token, or null for a box created before boxes stored their tokens.
+   * The MCP Box's endpoint and token.
    */
   connection: MCPBoxConnection | null;
   /**
