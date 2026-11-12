@@ -7,6 +7,23 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
+ * Model that builds and reviews the Snapshot. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
+ */
+export const BuildAPIBoxSnapshotRequestModel = {
+  Gpt6Astra: "gpt-6-astra",
+  Gpt61Sol: "gpt-6.1-sol",
+  ClaudeOpus55: "claude-opus-5-5",
+  ClaudeFable52: "claude-fable-5-2",
+  Combined: "combined",
+} as const;
+/**
+ * Model that builds and reviews the Snapshot. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
+ */
+export type BuildAPIBoxSnapshotRequestModel = ClosedEnum<
+  typeof BuildAPIBoxSnapshotRequestModel
+>;
+
+/**
  * Source specification format. Omission detects the format; GraphQL SDL needs graphql, and a GraphQL introspection result is stored as SDL.
  */
 export const BuildAPIBoxSnapshotRequestSpecKind = {
@@ -37,7 +54,7 @@ export type BuildAPIBoxSnapshotRequest = {
   /**
    * Model that builds and reviews the Snapshot. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
    */
-  model?: string | undefined;
+  model?: BuildAPIBoxSnapshotRequestModel | undefined;
   /**
    * Name for the Snapshot. Omission generates a name. Names must not contain U+0000. The ID stays its identity, and names need not be unique.
    */
@@ -61,6 +78,11 @@ export type BuildAPIBoxSnapshotRequest = {
 };
 
 /** @internal */
+export const BuildAPIBoxSnapshotRequestModel$outboundSchema: z.ZodMiniEnum<
+  typeof BuildAPIBoxSnapshotRequestModel
+> = z.enum(BuildAPIBoxSnapshotRequestModel);
+
+/** @internal */
 export const BuildAPIBoxSnapshotRequestSpecKind$outboundSchema: z.ZodMiniEnum<
   typeof BuildAPIBoxSnapshotRequestSpecKind
 > = z.enum(BuildAPIBoxSnapshotRequestSpecKind);
@@ -70,7 +92,7 @@ export type BuildAPIBoxSnapshotRequest$Outbound = {
   credential_ids?: Array<string> | undefined;
   filter?: Array<string> | undefined;
   instructions?: string | undefined;
-  model?: string | undefined;
+  model: string;
   name?: string | undefined;
   parent_id?: string | undefined;
   review_rounds: number;
@@ -87,7 +109,10 @@ export const BuildAPIBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
     credentialIds: z.optional(z.array(z.string())),
     filter: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
-    model: z.optional(z.string()),
+    model: z._default(
+      BuildAPIBoxSnapshotRequestModel$outboundSchema,
+      "combined",
+    ),
     name: z.optional(z.string()),
     parentId: z.optional(z.string()),
     reviewRounds: z._default(z.int(), 1),

@@ -8,7 +8,7 @@ import { BuildSimulatorRequest } from "@continuous-labs/sdk/models";
 let value: BuildSimulatorRequest = {
   filter: [],
   instructions: "Return stable example data for every operation.",
-  model: "claude-fable-5-1",
+  model: "claude-fable-5-2",
   name: "billing-api",
   specKind: "openapi",
 };

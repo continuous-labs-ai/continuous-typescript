@@ -13,5 +13,5 @@ let value: BuildSimulatorRequestModel = "combined";
 ## Values
 
 ```typescript
-"gpt-6-astra" | "gpt-6.1-sol" | "claude-opus-5-5" | "claude-fable-5-1" | "combined"
+"gpt-6-astra" | "gpt-6.1-sol" | "claude-opus-5-5" | "claude-fable-5-2" | "combined"
 ```

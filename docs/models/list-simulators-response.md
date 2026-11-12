@@ -16,7 +16,7 @@ let value: ListSimulatorsResponse = {
         lastSubmission: "rejected",
         lastTool: "test",
         limitations: [],
-        model: "claude-fable-5-1",
+        model: "claude-fable-5-2",
         phase: "build",
         reviewRound: 0,
         reviewRounds: 1,
