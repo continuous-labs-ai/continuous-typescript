@@ -18,39 +18,15 @@ import {
 } from "./specification-warning.js";
 
 /**
- * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running or while it waits for the requester.
- */
-export const AgentState = {
-  Working: "working",
-  Idle: "idle",
-  WaitingForLimit: "waiting_for_limit",
-} as const;
-/**
- * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running or while it waits for the requester.
- */
-export type AgentState = OpenEnum<typeof AgentState>;
-
-/**
- * Outcome of the most recent submit attempt, or null.
- */
-export const LastSubmission = {
-  Accepted: "accepted",
-  Rejected: "rejected",
-} as const;
-/**
- * Outcome of the most recent submit attempt, or null.
- */
-export type LastSubmission = OpenEnum<typeof LastSubmission>;
-
-/**
  * The model the builder and reviewer run on, or combined, which currently runs as claude-opus-5-5.
  */
 export const BuildProgressModel = {
   Gpt6Astra: "gpt-6-astra",
   Gpt61Sol: "gpt-6.1-sol",
   ClaudeOpus55: "claude-opus-5-5",
-  ClaudeFable51: "claude-fable-5-1",
+  ClaudeFable52: "claude-fable-5-2",
   Gpt6Sol: "gpt-6-sol",
+  ClaudeFable51: "claude-fable-5-1",
   Combined: "combined",
 } as const;
 /**
@@ -58,39 +34,11 @@ export const BuildProgressModel = {
  */
 export type BuildProgressModel = OpenEnum<typeof BuildProgressModel>;
 
-/**
- * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running service from outside, after the last review round of a build with credential_ids, repair while the author fixes the findings of a review or QA. Null when not recorded.
- */
-export const Phase = {
-  Research: "research",
-  Build: "build",
-  Review: "review",
-  Qa: "qa",
-  Repair: "repair",
-} as const;
-/**
- * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running service from outside, after the last review round of a build with credential_ids, repair while the author fixes the findings of a review or QA. Null when not recorded.
- */
-export type Phase = OpenEnum<typeof Phase>;
-
-/**
- * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
- */
-export const Stage = {
-  Derive: "derive",
-  Build: "build",
-  Assemble: "assemble",
-} as const;
-/**
- * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
- */
-export type Stage = OpenEnum<typeof Stage>;
-
 export type BuildProgress = {
   /**
-   * What the build's agent was doing when the build last checked on it, every few minutes: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while a subscription model waits for its usage limit to reset. Null when the build is not running or while it waits for the requester.
+   * What the build's agent was doing when the build last checked on it, every few minutes. The values are informational and can change. Today's values: working while it thinks or runs a command, idle when its turn ended without a tool call, waiting_for_limit while the agent waits for its usage limit to reset. Null when the build is not running or while it waits for the requester.
    */
-  agentState: AgentState | null;
+  agentState: string | null;
   /**
    * Limitations the accepted build records beyond those listed in limitations.
    */
@@ -100,9 +48,9 @@ export type BuildProgress = {
    */
   lastActivityAt: Date | null;
   /**
-   * Outcome of the most recent submit attempt, or null.
+   * Outcome of the most recent submit attempt, or null. The values are informational and can change. Today's values: accepted, rejected.
    */
-  lastSubmission: LastSubmission | null;
+  lastSubmission: string | null;
   /**
    * Name of the most recent tool call, or null. Tool arguments and output are private.
    */
@@ -116,9 +64,9 @@ export type BuildProgress = {
    */
   model: BuildProgressModel;
   /**
-   * Agent phase: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running service from outside, after the last review round of a build with credential_ids, repair while the author fixes the findings of a review or QA. Null when not recorded.
+   * Agent phase. The values are informational and can change. Today's values: research while the research agent indexes the documents and saves the vendor pages they lack; build for generation, review for the separate reviewer, qa while QA tests the running service from outside, after the last review round of a build with credential_ids, repair while the author fixes the findings of a review or QA. Null when not recorded.
    */
-  phase: Phase | null;
+  phase: string | null;
   /**
    * Review round that phase review, qa, or repair belongs to, from 1. In a build with credential_ids, QA and the repair after it are in round review_rounds + 1. 0 before the first review.
    */
@@ -128,9 +76,9 @@ export type BuildProgress = {
    */
   reviewRounds: number;
   /**
-   * derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
+   * Build stage. The values are informational and can change. Today's values: derive while the effective spec, build skeleton, and sandbox are prepared; build while the coding loop runs; assemble while an accepted artifact publishes.
    */
-  stage: Stage;
+  stage: string;
   /**
    * Submit attempts.
    */
@@ -158,28 +106,10 @@ export type BuildProgress = {
 };
 
 /** @internal */
-export const AgentState$inboundSchema: z.ZodMiniType<AgentState, unknown> =
-  openEnums.inboundSchema(AgentState);
-
-/** @internal */
-export const LastSubmission$inboundSchema: z.ZodMiniType<
-  LastSubmission,
-  unknown
-> = openEnums.inboundSchema(LastSubmission);
-
-/** @internal */
 export const BuildProgressModel$inboundSchema: z.ZodMiniType<
   BuildProgressModel,
   unknown
 > = openEnums.inboundSchema(BuildProgressModel);
-
-/** @internal */
-export const Phase$inboundSchema: z.ZodMiniType<Phase, unknown> = openEnums
-  .inboundSchema(Phase);
-
-/** @internal */
-export const Stage$inboundSchema: z.ZodMiniType<Stage, unknown> = openEnums
-  .inboundSchema(Stage);
 
 /** @internal */
 export const BuildProgress$inboundSchema: z.ZodMiniType<
@@ -187,17 +117,17 @@ export const BuildProgress$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    agent_state: types.nullable(AgentState$inboundSchema),
+    agent_state: types.nullable(types.string()),
     hidden_limitations: types.number(),
     last_activity_at: types.nullable(types.date()),
-    last_submission: types.nullable(LastSubmission$inboundSchema),
+    last_submission: types.nullable(types.string()),
     last_tool: types.nullable(types.string()),
     limitations: z.array(Limitation$inboundSchema),
     model: BuildProgressModel$inboundSchema,
-    phase: types.nullable(Phase$inboundSchema),
+    phase: types.nullable(types.string()),
     review_round: types.number(),
     review_rounds: types.number(),
-    stage: Stage$inboundSchema,
+    stage: types.string(),
     submissions: types.number(),
     tool_calls: types.number(),
     waited_seconds: types.number(),

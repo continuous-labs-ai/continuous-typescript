@@ -27,7 +27,7 @@ export const BuildSimulatorRequestModel = {
   Gpt6Astra: "gpt-6-astra",
   Gpt61Sol: "gpt-6.1-sol",
   ClaudeOpus55: "claude-opus-5-5",
-  ClaudeFable51: "claude-fable-5-1",
+  ClaudeFable52: "claude-fable-5-2",
   Combined: "combined",
 } as const;
 /**

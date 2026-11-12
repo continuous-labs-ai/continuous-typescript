@@ -4,6 +4,24 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../lib/primitives.js";
+import { ClosedEnum } from "../types/enums.js";
+
+/**
+ * Model that builds and reviews the Snapshot. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
+ */
+export const BuildMCPBoxSnapshotRequestModel = {
+  Gpt6Astra: "gpt-6-astra",
+  Gpt61Sol: "gpt-6.1-sol",
+  ClaudeOpus55: "claude-opus-5-5",
+  ClaudeFable52: "claude-fable-5-2",
+  Combined: "combined",
+} as const;
+/**
+ * Model that builds and reviews the Snapshot. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
+ */
+export type BuildMCPBoxSnapshotRequestModel = ClosedEnum<
+  typeof BuildMCPBoxSnapshotRequestModel
+>;
 
 export type BuildMCPBoxSnapshotRequest = {
   /**
@@ -21,7 +39,7 @@ export type BuildMCPBoxSnapshotRequest = {
   /**
    * Model that builds and reviews the Snapshot. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
    */
-  model?: string | undefined;
+  model?: BuildMCPBoxSnapshotRequestModel | undefined;
   /**
    * Name for the Snapshot. Omission generates a name. Names must not contain U+0000. The ID stays its identity, and names need not be unique.
    */
@@ -41,11 +59,16 @@ export type BuildMCPBoxSnapshotRequest = {
 };
 
 /** @internal */
+export const BuildMCPBoxSnapshotRequestModel$outboundSchema: z.ZodMiniEnum<
+  typeof BuildMCPBoxSnapshotRequestModel
+> = z.enum(BuildMCPBoxSnapshotRequestModel);
+
+/** @internal */
 export type BuildMCPBoxSnapshotRequest$Outbound = {
   apibox_snapshot_id?: string | undefined;
   credential_ids?: Array<string> | undefined;
   instructions?: string | undefined;
-  model?: string | undefined;
+  model: string;
   name?: string | undefined;
   parent_id?: string | undefined;
   review_rounds: number;
@@ -61,7 +84,10 @@ export const BuildMCPBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
     apiboxSnapshotId: z.optional(z.string()),
     credentialIds: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
-    model: z.optional(z.string()),
+    model: z._default(
+      BuildMCPBoxSnapshotRequestModel$outboundSchema,
+      "combined",
+    ),
     name: z.optional(z.string()),
     parentId: z.optional(z.string()),
     reviewRounds: z._default(z.int(), 1),

@@ -121,7 +121,7 @@ async function run() {
       request: {
         filter: [],
         instructions: "Return stable example data for every operation.",
-        model: "claude-fable-5-1",
+        model: "claude-fable-5-2",
         name: "billing-api",
         specKind: "openapi",
       },
@@ -154,7 +154,7 @@ async function run() {
       request: {
         filter: [],
         instructions: "Return stable example data for every operation.",
-        model: "claude-fable-5-1",
+        model: "claude-fable-5-2",
         name: "billing-api",
         specKind: "openapi",
       },
@@ -186,7 +186,7 @@ async function run() {
       request: {
         filter: [],
         instructions: "Return stable example data for every operation.",
-        model: "claude-fable-5-1",
+        model: "claude-fable-5-2",
         name: "billing-api",
         specKind: "openapi",
       },
@@ -219,7 +219,7 @@ async function run() {
       request: {
         filter: [],
         instructions: "Return stable example data for every operation.",
-        model: "claude-fable-5-1",
+        model: "claude-fable-5-2",
         name: "billing-api",
         specKind: "openapi",
       },

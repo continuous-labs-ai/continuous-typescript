@@ -18,8 +18,8 @@ let value: MCPBoxSnapshot = {
   apiboxSnapshotId: "<id>",
   build: null,
   composition: {
-    entities: 371076,
-    operations: 654632,
+    entities: 750125,
+    operations: 394300,
     sample: false,
   },
   createdAt: new Date("2026-05-25T12:42:48.354Z"),
@@ -28,9 +28,9 @@ let value: MCPBoxSnapshot = {
   ],
   error: {
     agentMessage: "<value>",
-    code: "live_credential_rejected",
+    code: "build_canceled",
     detail: "<value>",
-    reason: "build_failed",
+    reason: "service_unavailable",
     validation: {
       issues: [],
     },
@@ -45,7 +45,6 @@ let value: MCPBoxSnapshot = {
       operations: [
         "<value 1>",
         "<value 2>",
-        "<value 3>",
       ],
       reviewed: true,
     },
@@ -54,8 +53,8 @@ let value: MCPBoxSnapshot = {
   name: "<value>",
   parentId: "<id>",
   research: {
-    bytes: 978994,
-    pages: 244930,
+    bytes: 509538,
+    pages: 124429,
     status: "provided",
   },
   source: "box",
