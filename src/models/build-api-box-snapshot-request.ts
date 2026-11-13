@@ -7,7 +7,7 @@ import { remap as remap$ } from "../lib/primitives.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * Model that builds and reviews the Snapshot. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
+ * Model that builds and reviews the Snapshot. Omission means combined without parent_id and the parent's model with it. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
  */
 export const BuildAPIBoxSnapshotRequestModel = {
   Gpt6Astra: "gpt-6-astra",
@@ -17,7 +17,7 @@ export const BuildAPIBoxSnapshotRequestModel = {
   Combined: "combined",
 } as const;
 /**
- * Model that builds and reviews the Snapshot. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
+ * Model that builds and reviews the Snapshot. Omission means combined without parent_id and the parent's model with it. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
  */
 export type BuildAPIBoxSnapshotRequestModel = ClosedEnum<
   typeof BuildAPIBoxSnapshotRequestModel
@@ -52,7 +52,7 @@ export type BuildAPIBoxSnapshotRequest = {
    */
   instructions?: string | undefined;
   /**
-   * Model that builds and reviews the Snapshot. Defaults to combined. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
+   * Model that builds and reviews the Snapshot. Omission means combined without parent_id and the parent's model with it. Its provider is derived from the model. combined currently builds, reviews, and runs QA exactly as claude-opus-5-5 does.
    */
   model?: BuildAPIBoxSnapshotRequestModel | undefined;
   /**
@@ -64,7 +64,7 @@ export type BuildAPIBoxSnapshotRequest = {
    */
   parentId?: string | undefined;
   /**
-   * Review rounds, from 1 to 10. Defaults to 1. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
+   * Review rounds, from 1 to 10. Omission means 1 without parent_id and the parent's review rounds with it. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
    */
   reviewRounds?: number | undefined;
   /**
@@ -92,10 +92,10 @@ export type BuildAPIBoxSnapshotRequest$Outbound = {
   credential_ids?: Array<string> | undefined;
   filter?: Array<string> | undefined;
   instructions?: string | undefined;
-  model: string;
+  model?: string | undefined;
   name?: string | undefined;
   parent_id?: string | undefined;
-  review_rounds: number;
+  review_rounds?: number | undefined;
   spec_kind?: string | undefined;
   timeout_seconds: number;
 };
@@ -109,13 +109,10 @@ export const BuildAPIBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
     credentialIds: z.optional(z.array(z.string())),
     filter: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
-    model: z._default(
-      BuildAPIBoxSnapshotRequestModel$outboundSchema,
-      "combined",
-    ),
+    model: z.optional(BuildAPIBoxSnapshotRequestModel$outboundSchema),
     name: z.optional(z.string()),
     parentId: z.optional(z.string()),
-    reviewRounds: z._default(z.int(), 1),
+    reviewRounds: z.optional(z.int()),
     specKind: z.optional(BuildAPIBoxSnapshotRequestSpecKind$outboundSchema),
     timeoutSeconds: z._default(z.int(), 28800),
   }),

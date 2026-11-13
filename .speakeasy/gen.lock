@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: ed811480ab8db4d5943a012bc8067936
+  docChecksum: e070184c4efee51ab67e1404a37f8011
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.4.1
-  configChecksum: 086af2c25693589571b05f552bf7f92d
+  releaseVersion: 0.4.2
+  configChecksum: c4c4d334191a817b9461b57c6c74a9a5
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 76b48c04-f261-4bca-937f-aa48e38e3222
-  pristine_commit_hash: 4b75e72bdbaf5746ba45b5d8836e3452eb926ec7
-  pristine_tree_hash: 5099ba6a5afbbea7d05ac4aaf9456704df1069dc
+  generation_id: dd93bad9-bc7d-4838-a680-4a223f52b12c
+  pristine_commit_hash: d8e38cf426b61a8d2752da4b2f9de012e0ada7ab
+  pristine_tree_hash: 572ef42a24cf2b57ca8b711f3e00d95d7fce7819
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -128,16 +128,16 @@ trackedFiles:
     pristine_git_object: 848692ed01da9e9c6ab855f52de9e0c661b90daf
   docs/models/build-api-box-snapshot-request-model.md:
     id: ad80f4c7b10b
-    last_write_checksum: sha1:540cc8e819e6d8e7f4c8442f737a8fac5e177925
-    pristine_git_object: 93611f5f8f8ae6dfb85452159cadff9ec0774de2
+    last_write_checksum: sha1:d91dc4d20490045d825a7bf60842ff1a33bd895c
+    pristine_git_object: 55e23917555af1625988b5a9625ab7c7c2987652
   docs/models/build-api-box-snapshot-request-spec-kind.md:
     id: 66edc54503cb
     last_write_checksum: sha1:b3a356dc0f05a57c11f37ace85131b169062b1a4
     pristine_git_object: e18846752e303837deef575a6b09b918e8d2eebc
   docs/models/build-api-box-snapshot-request.md:
     id: 64b6b96364bf
-    last_write_checksum: sha1:d31088497b43e7be611f90b99ed60b3d560acfe8
-    pristine_git_object: c5a94d396636b1adb44f637e5eabf5229bae6e8f
+    last_write_checksum: sha1:969e7a404c19c3f7a435bfdd3d5356ceaf0e0735
+    pristine_git_object: eb675b75534336fb9366a4adb4d7c001654469f8
   docs/models/build-error-code.md:
     id: 7222f7a9a296
     last_write_checksum: sha1:220fb1af54816c1a5aea2a9963f060368ed43024
@@ -148,12 +148,12 @@ trackedFiles:
     pristine_git_object: 4df94eebfdf3493ca17bcb901ec7def313854e39
   docs/models/build-mcp-box-snapshot-request-model.md:
     id: bb37f6302fd2
-    last_write_checksum: sha1:f25dc2dca7f469286892f62218d04e0a5d437f58
-    pristine_git_object: 5d65549bda65be6398797e6f9234c6bc0e1ec402
+    last_write_checksum: sha1:13f176c86f93cc4029c59536a90487eeec675ba1
+    pristine_git_object: 1c300db7690d060ac6224c1c1dbe574b7bce1274
   docs/models/build-mcp-box-snapshot-request.md:
     id: a1d914da9dcf
-    last_write_checksum: sha1:b075590576bc1dce732b72cf7903801a93ca64f1
-    pristine_git_object: 68c963edfdacfdcc6f36404ca4250a13a7d4b65b
+    last_write_checksum: sha1:d6ee36ab7dba5558d3511b5d1430a72120f15629
+    pristine_git_object: 4a8feb7e22be7f7fe8394066e3f95486701f7d91
   docs/models/build-progress-model.md:
     id: 8d31a85097a2
     last_write_checksum: sha1:82263bccaf630b6c2e374ee06aa0abc0904d2e1e
@@ -192,12 +192,12 @@ trackedFiles:
     pristine_git_object: 0dcaf7a5fb4180e035b04158a366e384f4774dc4
   docs/models/build-web-box-snapshot-request-model.md:
     id: fa092e2c5121
-    last_write_checksum: sha1:ff087149b97ee706e350fc6463892ba6aad4722d
-    pristine_git_object: 4fa16e4017e517115b0ede2e7ed4d4972fbec0be
+    last_write_checksum: sha1:046a826646ac2558577673f5ab9239cf4a41c3d3
+    pristine_git_object: 6fada0b2fe62cc41c0240f67a79c12a43c220bb9
   docs/models/build-web-box-snapshot-request.md:
     id: 3dbff6577818
-    last_write_checksum: sha1:35ab72ea2c0ca9745a4e048d71011c3fa01563ec
-    pristine_git_object: 269d932e6def11545a1ebcb5b9e9a204c7ff6771
+    last_write_checksum: sha1:a2bbb39f403a6a88a0645de3a91eedb09b99c0a3
+    pristine_git_object: 5069a64d8afa26aa71a2375ffa3e8917f1128528
   docs/models/clock-advance-member-status.md:
     id: 68bade113394
     last_write_checksum: sha1:8f7e929d0a831ae05740a257bf1ae25223d83c9f
@@ -1140,12 +1140,12 @@ trackedFiles:
     pristine_git_object: a8174ac1b126a1796e076b9f3122a0ede68d2d7d
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:94a5978805b167a9d10c27e9782d88a9ee7f465f
-    pristine_git_object: 1c936421e4d3073c27bd021c8f4492791aadccc1
+    last_write_checksum: sha1:f7cfce9326e747cc1e6bef080797ee5c3f9fb303
+    pristine_git_object: 4a68c7ead59663c2c348a959b2450dab25e3fa11
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:d4901df83afe8d68786293dc0adc3e0580e4bc88
-    pristine_git_object: ff3315ba4079d143cf4e00e6a66c37e68f8a7c16
+    last_write_checksum: sha1:3afcccad3a9dda580fb08df18f21c16fc159fdbc
+    pristine_git_object: dac5b96cbbea3d6795ec1b031c6a78ad6c366ffb
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -1496,8 +1496,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:01bd106cc6db2cb8a61f5d19a20ed443275276a8
-    pristine_git_object: a08555b311007f77f0f43bd9d75b9eec2dc03b07
+    last_write_checksum: sha1:156053fd8627a4efb22a2fd2d229cbd25946d819
+    pristine_git_object: 45816b65a8ef003d3aab88ea196eba4ea4931e56
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -1576,16 +1576,16 @@ trackedFiles:
     pristine_git_object: e58e82a932dbda9b15fdfb0c17805c222efc677a
   src/models/build-api-box-snapshot-request.ts:
     id: 9ef8137bb1f5
-    last_write_checksum: sha1:ba86450d7780d7789759a58b2cf9b19c01523940
-    pristine_git_object: 0aa8a723bfcec98a62dbb07d55569e5ab75cae95
+    last_write_checksum: sha1:40700256aa0c6d7aafc693a2a85b9fa868f11902
+    pristine_git_object: 9366ea9cbf2eac97178bb89daaeceee5b5499d16
   src/models/build-error.ts:
     id: d220236517eb
     last_write_checksum: sha1:a7eee266c6a323fc15c019602e8258c72714e11b
     pristine_git_object: 411a27a57852ac87e5f82e4a7e3788bc46d1e724
   src/models/build-mcp-box-snapshot-request.ts:
     id: 51292d8f655d
-    last_write_checksum: sha1:e6b1edb4295490a0c95a20f9222fb8267983bf37
-    pristine_git_object: edd76f5ffbb51a2aaf65ae541842a2dbfa84cd46
+    last_write_checksum: sha1:385431075b260862b905125bb4e82ad785240c97
+    pristine_git_object: 75365da73b541d14f4047b5d293c9acbccc9003c
   src/models/build-progress.ts:
     id: 89c38fb97a87
     last_write_checksum: sha1:802c3def997c9bf845c4872bddba7e8234114c9f
@@ -1604,8 +1604,8 @@ trackedFiles:
     pristine_git_object: 079ff90362511a053c946dd5e344d169e0522ce2
   src/models/build-web-box-snapshot-request.ts:
     id: 1205c566815d
-    last_write_checksum: sha1:868d469b9557854363d175bfb2e34a52d4cc013b
-    pristine_git_object: 03d08d0da34c2c92e518a7d810be7c35f2db09b8
+    last_write_checksum: sha1:bf589fb198d3b0e25eef99629f6bc747ae7b216f
+    pristine_git_object: d87a824883f7abe91a615949e837effdabff5e55
   src/models/clock-advance-member.ts:
     id: "963694071905"
     last_write_checksum: sha1:edb0e7a38c72b6672fd9a0612a844eb214f06a1c
@@ -4380,7 +4380,7 @@ examples:
   create-apibox-snapshot:
     bad_request_body:
       requestBody:
-        multipart/form-data: {"request": {"model": "combined", "review_rounds": 1, "timeout_seconds": 28800}}
+        multipart/form-data: {"request": {"timeout_seconds": 28800}}
       responses:
         "400":
           application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
@@ -4392,7 +4392,7 @@ examples:
           application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
     speakeasy-default-create-apibox-snapshot:
       requestBody:
-        multipart/form-data: {"request": {"model": "combined", "review_rounds": 1, "timeout_seconds": 28800}}
+        multipart/form-data: {"request": {"timeout_seconds": 28800}}
       responses:
         "202":
           application/json: {"actors": [{"default": false, "entity": "<value>", "id": "<id>", "name": "<value>", "role": "<value>"}], "build": {"agent_state": "waiting_for_limit", "hidden_limitations": 848274, "last_activity_at": null, "last_submission": null, "last_tool": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>"], "reviewed": false}], "model": "claude-opus-5-5", "phase": "review", "review_round": 132479, "review_rounds": 275550, "stage": "derive", "submissions": 995961, "tool_calls": 180750, "waited_seconds": 121407, "waiting": {"credential_ids": ["<value 1>", "<value 2>"], "deadline": "2025-03-13T17:04:42.031Z", "reason": "<value>", "since": "2024-11-13T22:02:31.552Z", "type": "time_limit"}, "waiting_until": "2025-11-17T12:26:18.537Z", "warnings": []}, "composition": {"entities": 26097, "operations": 27093, "sample": false}, "created_at": "2026-01-02T09:15:33.916Z", "credential_ids": ["<value 1>"], "error": {"agent_message": "<value>", "code": "build_failed", "detail": "<value>", "reason": "time_limit", "validation": {"issues": []}}, "hidden_limitations": 67986, "id": "<id>", "instructions": "<value>", "limitations": [], "metadata": "<value>", "name": "<value>", "parent_id": null, "research": {"bytes": 504376, "pages": 407090, "status": "running"}, "source": "catalog", "source_box_id": "<id>", "source_snapshot_id": "<id>", "spec_kind": "graphql", "status": "pending"}
@@ -4867,7 +4867,7 @@ examples:
   create-mcpbox-snapshot:
     bad_request_body:
       requestBody:
-        multipart/form-data: {"request": {"model": "combined", "review_rounds": 1, "timeout_seconds": 28800}}
+        multipart/form-data: {"request": {"timeout_seconds": 28800}}
       responses:
         "400":
           application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
@@ -4879,7 +4879,7 @@ examples:
           application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
     speakeasy-default-create-mcpbox-snapshot:
       requestBody:
-        multipart/form-data: {"request": {"model": "combined", "review_rounds": 1, "timeout_seconds": 28800}}
+        multipart/form-data: {"request": {"timeout_seconds": 28800}}
       responses:
         "202":
           application/json: {"actors": [{"default": false, "entity": "<value>", "id": "<id>", "name": "<value>", "role": "<value>"}], "apibox_snapshot_id": "<id>", "build": {"agent_state": "waiting_for_limit", "hidden_limitations": 741990, "last_activity_at": "2024-01-09T22:13:12.724Z", "last_submission": "accepted", "last_tool": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>", "<value 2>"], "reviewed": true}], "model": "combined", "phase": "review", "review_round": 392293, "review_rounds": 958047, "stage": "build", "submissions": 475968, "tool_calls": 953993, "waited_seconds": 949523, "waiting": {"credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "deadline": "2024-11-29T07:13:28.056Z", "reason": "<value>", "since": "2026-06-22T11:38:11.258Z", "type": "time_limit"}, "waiting_until": "2025-10-03T12:04:01.952Z", "warnings": [{"code": "spec.default_invalid", "location": "<value>", "message": "<value>", "operations": ["<value 1>"]}]}, "composition": {"entities": 718593, "operations": 8144, "sample": true}, "created_at": "2024-06-10T12:49:50.134Z", "credential_ids": ["<value 1>", "<value 2>", "<value 3>"], "error": {"agent_message": "<value>", "code": "specification_validation_failed", "detail": "<value>", "reason": "canceled", "validation": null}, "hidden_limitations": 585313, "id": "<id>", "instructions": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>"], "reviewed": false}], "metadata": "<value>", "name": "<value>", "parent_id": "<id>", "research": {"bytes": 353810, "pages": 538370, "status": "running"}, "source": "build", "source_box_id": null, "source_snapshot_id": "<id>", "source_url": "https://sticky-harp.name/", "status": "ready"}
@@ -5379,7 +5379,7 @@ examples:
   create-webbox-snapshot:
     bad_request_body:
       requestBody:
-        multipart/form-data: {"request": {"model": "combined", "review_rounds": 1, "timeout_seconds": 28800}}
+        multipart/form-data: {"request": {"timeout_seconds": 28800}}
       responses:
         "400":
           application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
@@ -5391,7 +5391,7 @@ examples:
           application/problem+json: {"code": "bad_request", "detail": "request body is invalid", "validation": null}
     speakeasy-default-create-webbox-snapshot:
       requestBody:
-        multipart/form-data: {"request": {"model": "combined", "review_rounds": 1, "timeout_seconds": 28800}}
+        multipart/form-data: {"request": {"timeout_seconds": 28800}}
       responses:
         "202":
           application/json: {"actors": [{"default": true, "entity": "<value>", "id": "<id>", "name": "<value>", "role": "<value>"}], "build": null, "composition": {"entities": 612094, "operations": 173088, "sample": true}, "created_at": "2025-07-20T04:18:20.874Z", "credential_ids": [], "error": {"agent_message": "<value>", "code": "specification_validation_failed", "detail": "<value>", "reason": "time_limit", "validation": {"issues": [{"code": "<value>", "kind": "limit", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}, "hidden_limitations": 187300, "id": "<id>", "instructions": "<value>", "limitations": [{"location": "<value>", "message": "<value>", "operations": ["<value 1>"], "reviewed": false}], "metadata": "<value>", "name": "<value>", "parent_id": "<id>", "research": {"bytes": 859524, "pages": 193083, "status": "failed"}, "source": "catalog", "source_box_id": "<id>", "source_snapshot_id": "<id>", "status": "failed"}
@@ -5765,4 +5765,4 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.apiboxes.saveSnapshot()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.apiboxSnapshots.list()`:  `response.snapshots[].build` **Changed** (Breaking ⚠️)\n* `continuous.apiboxSnapshots.create()`: \n  *  `request.body.request` **Changed** (Breaking ⚠️)\n  *  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.apiboxSnapshots.get()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.apiboxSnapshots.update()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.apiboxSnapshots.cancel()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.apiboxSnapshots.clone()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.apiboxSnapshots.resume()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.mcpboxes.saveSnapshot()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.mcpboxSnapshots.list()`:  `response.snapshots[].build` **Changed** (Breaking ⚠️)\n* `continuous.mcpboxSnapshots.create()`: \n  *  `request.body.request` **Changed** (Breaking ⚠️)\n  *  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.mcpboxSnapshots.get()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.mcpboxSnapshots.update()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.mcpboxSnapshots.cancel()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.mcpboxSnapshots.clone()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.mcpboxSnapshots.resume()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.simulators.listSimulators()`:  `response.simulators[].build` **Changed** (Breaking ⚠️)\n* `continuous.simulators.buildSimulator()`: \n  *  `request.body.request` **Changed** (Breaking ⚠️)\n  *  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.simulators.getSimulator()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.simulators.updateSimulator()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.simulators.cancelSimulator()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.simulators.resumeSimulator()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.webboxes.saveSnapshot()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.webboxSnapshots.list()`:  `response.snapshots[].build` **Changed** (Breaking ⚠️)\n* `continuous.webboxSnapshots.create()`: \n  *  `request.body.request` **Changed** (Breaking ⚠️)\n  *  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.webboxSnapshots.get()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.webboxSnapshots.update()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.webboxSnapshots.cancel()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.webboxSnapshots.clone()`:  `response.build` **Changed** (Breaking ⚠️)\n* `continuous.webboxSnapshots.resume()`:  `response.build` **Changed** (Breaking ⚠️)\n"
+releaseNotes: "## Typescript SDK Changes:\n* `continuous.apiboxSnapshots.create()`: \n  *  `request.body.request` **Changed**\n* `continuous.mcpboxSnapshots.create()`: \n  *  `request.body.request` **Changed**\n* `continuous.webboxSnapshots.create()`: \n  *  `request.body.request` **Changed**\n"
