@@ -15,7 +15,7 @@ export type CreateApiboxSnapshotDocument = {
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
-export type CreateApiboxSnapshotSpec = {
+export type Spec = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
@@ -29,7 +29,7 @@ export type CreateApiboxSnapshotRequestBody = {
   /**
    * OpenAPI, WSDL or GraphQL document, UTF-8 encoded, at most 64 MiB.
    */
-  spec?: CreateApiboxSnapshotSpec | Blob | undefined;
+  spec?: Spec | Blob | undefined;
 };
 
 export type CreateApiboxSnapshotRequest = {
@@ -76,38 +76,33 @@ export function createApiboxSnapshotDocumentToJSON(
 }
 
 /** @internal */
-export type CreateApiboxSnapshotSpec$Outbound = {
+export type Spec$Outbound = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
 /** @internal */
-export const CreateApiboxSnapshotSpec$outboundSchema: z.ZodMiniType<
-  CreateApiboxSnapshotSpec$Outbound,
-  CreateApiboxSnapshotSpec
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
-    z.custom<Blob>(x => x instanceof Blob),
-    z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
-    z.custom<Uint8Array>(x => x instanceof Uint8Array),
-  ]),
-});
+export const Spec$outboundSchema: z.ZodMiniType<Spec$Outbound, Spec> = z.object(
+  {
+    fileName: z.string(),
+    content: z.union([
+      z.custom<ReadableStream<Uint8Array>>(x => x instanceof ReadableStream),
+      z.custom<Blob>(x => x instanceof Blob),
+      z.custom<ArrayBuffer>(x => x instanceof ArrayBuffer),
+      z.custom<Uint8Array>(x => x instanceof Uint8Array),
+    ]),
+  },
+);
 
-export function createApiboxSnapshotSpecToJSON(
-  createApiboxSnapshotSpec: CreateApiboxSnapshotSpec,
-): string {
-  return JSON.stringify(
-    CreateApiboxSnapshotSpec$outboundSchema.parse(createApiboxSnapshotSpec),
-  );
+export function specToJSON(spec: Spec): string {
+  return JSON.stringify(Spec$outboundSchema.parse(spec));
 }
 
 /** @internal */
 export type CreateApiboxSnapshotRequestBody$Outbound = {
   document?: Array<CreateApiboxSnapshotDocument$Outbound> | undefined;
   request: models.BuildAPIBoxSnapshotRequest$Outbound;
-  spec?: CreateApiboxSnapshotSpec$Outbound | Blob | undefined;
+  spec?: Spec$Outbound | Blob | undefined;
 };
 
 /** @internal */
@@ -120,10 +115,7 @@ export const CreateApiboxSnapshotRequestBody$outboundSchema: z.ZodMiniType<
   ),
   request: models.BuildAPIBoxSnapshotRequest$outboundSchema,
   spec: z.optional(
-    z.union([
-      z.lazy(() => CreateApiboxSnapshotSpec$outboundSchema),
-      blobLikeSchema,
-    ]),
+    z.union([z.lazy(() => Spec$outboundSchema), blobLikeSchema]),
   ),
 });
 

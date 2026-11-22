@@ -39,6 +39,10 @@ export type GetWebBoxResponse = {
    * Web Box creation time.
    */
   createdAt: Date;
+  /**
+   * When the Box was deleted, in a list of deleted Boxes; null otherwise.
+   */
+  deletedAt: Date | null;
   error: BoxError | null;
   /**
    * Web Box ID.
@@ -61,7 +65,7 @@ export type GetWebBoxResponse = {
    */
   name: string;
   /**
-   * The Web Box Snapshot it started from.
+   * The Web Box Snapshot it started from; empty for a deleted Web Box whose Snapshot is deleted too.
    */
   snapshotId: string;
   /**
@@ -92,6 +96,7 @@ export const GetWebBoxResponse$inboundSchema: z.ZodMiniType<
   z.object({
     connection: types.nullable(WebBoxConnection$inboundSchema),
     created_at: types.date(),
+    deleted_at: types.nullable(types.date()),
     error: types.nullable(BoxError$inboundSchema),
     id: types.string(),
     include_sample_data: types.boolean(),
@@ -106,6 +111,7 @@ export const GetWebBoxResponse$inboundSchema: z.ZodMiniType<
   z.transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
+      "deleted_at": "deletedAt",
       "include_sample_data": "includeSampleData",
       "last_active_at": "lastActiveAt",
       "snapshot_id": "snapshotId",

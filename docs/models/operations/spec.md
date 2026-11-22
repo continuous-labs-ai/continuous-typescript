@@ -1,9 +1,9 @@
-# BuildSimulatorSpec
+# Spec
 
 ## Example Usage
 
 ```typescript
-import { BuildSimulatorSpec } from "@continuous-labs/sdk/models/operations";
+import { Spec } from "@continuous-labs/sdk/models/operations";
 
 // No examples available for this model
 ```

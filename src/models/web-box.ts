@@ -31,6 +31,10 @@ export type WebBox = {
    * Web Box creation time.
    */
   createdAt: Date;
+  /**
+   * When the Box was deleted, in a list of deleted Boxes; null otherwise.
+   */
+  deletedAt: Date | null;
   error: BoxError | null;
   /**
    * Web Box ID.
@@ -53,7 +57,7 @@ export type WebBox = {
    */
   name: string;
   /**
-   * The Web Box Snapshot it started from.
+   * The Web Box Snapshot it started from; empty for a deleted Web Box whose Snapshot is deleted too.
    */
   snapshotId: string;
   /**
@@ -78,6 +82,7 @@ export const WebBoxStatus$inboundSchema: z.ZodMiniType<WebBoxStatus, unknown> =
 export const WebBox$inboundSchema: z.ZodMiniType<WebBox, unknown> = z.pipe(
   z.object({
     created_at: types.date(),
+    deleted_at: types.nullable(types.date()),
     error: types.nullable(BoxError$inboundSchema),
     id: types.string(),
     include_sample_data: types.boolean(),
@@ -92,6 +97,7 @@ export const WebBox$inboundSchema: z.ZodMiniType<WebBox, unknown> = z.pipe(
   z.transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
+      "deleted_at": "deletedAt",
       "include_sample_data": "includeSampleData",
       "last_active_at": "lastActiveAt",
       "snapshot_id": "snapshotId",

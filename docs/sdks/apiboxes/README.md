@@ -18,7 +18,7 @@ Start API Boxes from API Box Snapshots. Each API Box serves its Snapshot's API a
 
 ## list
 
-Returns the workspace's API Boxes, newest first. Results can be filtered by status and Snapshot.
+Returns the workspace's API Boxes, newest first. Results can be filtered by status and Snapshot. With deleted=true, it returns the API Boxes deleted in the last 14 days instead.
 
 ### Example Usage
 

@@ -189,41 +189,6 @@ run();
 * [start](docs/sdks/mcpboxes/README.md#start) - Start MCP Box
 * [stop](docs/sdks/mcpboxes/README.md#stop) - Stop MCP Box
 
-### [~~SimulationSnapshots~~](docs/sdks/simulationsnapshots/README.md)
-
-* [~~listSimulationSnapshots~~](docs/sdks/simulationsnapshots/README.md#listsimulationsnapshots) - List Simulation Snapshots :warning: **Deprecated**
-* [~~createSimulationSnapshot~~](docs/sdks/simulationsnapshots/README.md#createsimulationsnapshot) - Create Simulation Snapshot :warning: **Deprecated**
-* [~~deleteSimulationSnapshot~~](docs/sdks/simulationsnapshots/README.md#deletesimulationsnapshot) - Delete Simulation Snapshot :warning: **Deprecated**
-* [~~getSimulationSnapshot~~](docs/sdks/simulationsnapshots/README.md#getsimulationsnapshot) - Get Simulation Snapshot :warning: **Deprecated**
-* [~~updateSimulationSnapshot~~](docs/sdks/simulationsnapshots/README.md#updatesimulationsnapshot) - Update Simulation Snapshot :warning: **Deprecated**
-
-### [~~Simulations~~](docs/sdks/simulations/README.md)
-
-* [~~listSimulations~~](docs/sdks/simulations/README.md#listsimulations) - List Simulations :warning: **Deprecated**
-* [~~createSimulation~~](docs/sdks/simulations/README.md#createsimulation) - Create Simulation :warning: **Deprecated**
-* [~~deleteSimulation~~](docs/sdks/simulations/README.md#deletesimulation) - Delete Simulation :warning: **Deprecated**
-* [~~getSimulation~~](docs/sdks/simulations/README.md#getsimulation) - Get Simulation :warning: **Deprecated**
-* [~~updateSimulation~~](docs/sdks/simulations/README.md#updatesimulation) - Update Simulation :warning: **Deprecated**
-* [~~createSimulationAdvance~~](docs/sdks/simulations/README.md#createsimulationadvance) - Advance Simulation Time :warning: **Deprecated**
-* [~~getSimulationAdvance~~](docs/sdks/simulations/README.md#getsimulationadvance) - Get Simulation Clock Advance :warning: **Deprecated**
-* [~~listSimulationAdvanceEvents~~](docs/sdks/simulations/README.md#listsimulationadvanceevents) - List Clock Advance Events :warning: **Deprecated**
-* [~~startSimulation~~](docs/sdks/simulations/README.md#startsimulation) - Start Simulation :warning: **Deprecated**
-* [~~listSimulationSteps~~](docs/sdks/simulations/README.md#listsimulationsteps) - List Simulation Steps :warning: **Deprecated**
-* [~~stopSimulation~~](docs/sdks/simulations/README.md#stopsimulation) - Stop Simulation :warning: **Deprecated**
-* [~~getSimulationToken~~](docs/sdks/simulations/README.md#getsimulationtoken) - Get Current Simulation Token :warning: **Deprecated**
-* [~~regenerateSimulationToken~~](docs/sdks/simulations/README.md#regeneratesimulationtoken) - Regenerate Simulation Token :warning: **Deprecated**
-
-### [~~Simulators~~](docs/sdks/simulators/README.md)
-
-* [~~listSimulators~~](docs/sdks/simulators/README.md#listsimulators) - List Simulators :warning: **Deprecated**
-* [~~buildSimulator~~](docs/sdks/simulators/README.md#buildsimulator) - Build Simulator :warning: **Deprecated**
-* [~~deleteSimulator~~](docs/sdks/simulators/README.md#deletesimulator) - Delete Simulator :warning: **Deprecated**
-* [~~getSimulator~~](docs/sdks/simulators/README.md#getsimulator) - Get Simulator :warning: **Deprecated**
-* [~~updateSimulator~~](docs/sdks/simulators/README.md#updatesimulator) - Update Simulator :warning: **Deprecated**
-* [~~cancelSimulator~~](docs/sdks/simulators/README.md#cancelsimulator) - Cancel Simulator Build :warning: **Deprecated**
-* [~~cloneSimulator~~](docs/sdks/simulators/README.md#clonesimulator) - Clone Simulator :warning: **Deprecated**
-* [~~resumeSimulator~~](docs/sdks/simulators/README.md#resumesimulator) - Resume Simulator Build :warning: **Deprecated**
-
 ### [WebboxSnapshots](docs/sdks/webboxsnapshots/README.md)
 
 * [list](docs/sdks/webboxsnapshots/README.md#list) - List Web Box Snapshots
@@ -320,32 +285,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`webboxSnapshotsList`](docs/sdks/webboxsnapshots/README.md#list) - List Web Box Snapshots
 - [`webboxSnapshotsResume`](docs/sdks/webboxsnapshots/README.md#resume) - Resume Web Box Snapshot build
 - [`webboxSnapshotsUpdate`](docs/sdks/webboxsnapshots/README.md#update) - Update Web Box Snapshot
-- ~~[`simulationsCreateSimulation`](docs/sdks/simulations/README.md#createsimulation)~~ - Create Simulation :warning: **Deprecated**
-- ~~[`simulationsCreateSimulationAdvance`](docs/sdks/simulations/README.md#createsimulationadvance)~~ - Advance Simulation Time :warning: **Deprecated**
-- ~~[`simulationsDeleteSimulation`](docs/sdks/simulations/README.md#deletesimulation)~~ - Delete Simulation :warning: **Deprecated**
-- ~~[`simulationsGetSimulation`](docs/sdks/simulations/README.md#getsimulation)~~ - Get Simulation :warning: **Deprecated**
-- ~~[`simulationsGetSimulationAdvance`](docs/sdks/simulations/README.md#getsimulationadvance)~~ - Get Simulation Clock Advance :warning: **Deprecated**
-- ~~[`simulationsGetSimulationToken`](docs/sdks/simulations/README.md#getsimulationtoken)~~ - Get Current Simulation Token :warning: **Deprecated**
-- ~~[`simulationsListSimulationAdvanceEvents`](docs/sdks/simulations/README.md#listsimulationadvanceevents)~~ - List Clock Advance Events :warning: **Deprecated**
-- ~~[`simulationsListSimulations`](docs/sdks/simulations/README.md#listsimulations)~~ - List Simulations :warning: **Deprecated**
-- ~~[`simulationsListSimulationSteps`](docs/sdks/simulations/README.md#listsimulationsteps)~~ - List Simulation Steps :warning: **Deprecated**
-- ~~[`simulationSnapshotsCreateSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#createsimulationsnapshot)~~ - Create Simulation Snapshot :warning: **Deprecated**
-- ~~[`simulationSnapshotsDeleteSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#deletesimulationsnapshot)~~ - Delete Simulation Snapshot :warning: **Deprecated**
-- ~~[`simulationSnapshotsGetSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#getsimulationsnapshot)~~ - Get Simulation Snapshot :warning: **Deprecated**
-- ~~[`simulationSnapshotsListSimulationSnapshots`](docs/sdks/simulationsnapshots/README.md#listsimulationsnapshots)~~ - List Simulation Snapshots :warning: **Deprecated**
-- ~~[`simulationSnapshotsUpdateSimulationSnapshot`](docs/sdks/simulationsnapshots/README.md#updatesimulationsnapshot)~~ - Update Simulation Snapshot :warning: **Deprecated**
-- ~~[`simulationsRegenerateSimulationToken`](docs/sdks/simulations/README.md#regeneratesimulationtoken)~~ - Regenerate Simulation Token :warning: **Deprecated**
-- ~~[`simulationsStartSimulation`](docs/sdks/simulations/README.md#startsimulation)~~ - Start Simulation :warning: **Deprecated**
-- ~~[`simulationsStopSimulation`](docs/sdks/simulations/README.md#stopsimulation)~~ - Stop Simulation :warning: **Deprecated**
-- ~~[`simulationsUpdateSimulation`](docs/sdks/simulations/README.md#updatesimulation)~~ - Update Simulation :warning: **Deprecated**
-- ~~[`simulatorsBuildSimulator`](docs/sdks/simulators/README.md#buildsimulator)~~ - Build Simulator :warning: **Deprecated**
-- ~~[`simulatorsCancelSimulator`](docs/sdks/simulators/README.md#cancelsimulator)~~ - Cancel Simulator Build :warning: **Deprecated**
-- ~~[`simulatorsCloneSimulator`](docs/sdks/simulators/README.md#clonesimulator)~~ - Clone Simulator :warning: **Deprecated**
-- ~~[`simulatorsDeleteSimulator`](docs/sdks/simulators/README.md#deletesimulator)~~ - Delete Simulator :warning: **Deprecated**
-- ~~[`simulatorsGetSimulator`](docs/sdks/simulators/README.md#getsimulator)~~ - Get Simulator :warning: **Deprecated**
-- ~~[`simulatorsListSimulators`](docs/sdks/simulators/README.md#listsimulators)~~ - List Simulators :warning: **Deprecated**
-- ~~[`simulatorsResumeSimulator`](docs/sdks/simulators/README.md#resumesimulator)~~ - Resume Simulator Build :warning: **Deprecated**
-- ~~[`simulatorsUpdateSimulator`](docs/sdks/simulators/README.md#updatesimulator)~~ - Update Simulator :warning: **Deprecated**
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -542,7 +481,7 @@ run();
 * [`ContinuousError`](./src/models/errors/continuous-error.ts): The base class for HTTP error responses.
   * [`APIError`](./src/models/errors/api-error.ts): Generic error.
 
-<details><summary>Less common errors (7)</summary>
+<details><summary>Less common errors (6)</summary>
 
 <br />
 
@@ -555,12 +494,9 @@ run();
 
 
 **Inherit from [`ContinuousError`](./src/models/errors/continuous-error.ts)**:
-* [`SimulatorDeleteConflictError`](./src/models/errors/simulator-delete-conflict-error.ts): Conflict. Status code `409`. Applicable to 1 of 81 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
-
-\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->

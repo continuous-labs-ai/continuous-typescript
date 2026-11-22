@@ -13,7 +13,7 @@ import { SDKValidationError } from "./errors/sdk-validation-error.js";
 /**
  * Whether the input is invalid, unsupported, incomplete, exceeds a build limit, or has no specific diagnosis.
  */
-export const SpecificationIssueKind = {
+export const Kind = {
   Invalid: "invalid",
   Unsupported: "unsupported",
   Incomplete: "incomplete",
@@ -23,7 +23,7 @@ export const SpecificationIssueKind = {
 /**
  * Whether the input is invalid, unsupported, incomplete, exceeds a build limit, or has no specific diagnosis.
  */
-export type SpecificationIssueKind = OpenEnum<typeof SpecificationIssueKind>;
+export type Kind = OpenEnum<typeof Kind>;
 
 export type SpecificationIssue = {
   /**
@@ -33,7 +33,7 @@ export type SpecificationIssue = {
   /**
    * Whether the input is invalid, unsupported, incomplete, exceeds a build limit, or has no specific diagnosis.
    */
-  kind: SpecificationIssueKind;
+  kind: Kind;
   /**
    * Readable endpoint or field affected by this issue.
    */
@@ -53,10 +53,8 @@ export type SpecificationIssue = {
 };
 
 /** @internal */
-export const SpecificationIssueKind$inboundSchema: z.ZodMiniType<
-  SpecificationIssueKind,
-  unknown
-> = openEnums.inboundSchema(SpecificationIssueKind);
+export const Kind$inboundSchema: z.ZodMiniType<Kind, unknown> = openEnums
+  .inboundSchema(Kind);
 
 /** @internal */
 export const SpecificationIssue$inboundSchema: z.ZodMiniType<
@@ -64,7 +62,7 @@ export const SpecificationIssue$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   code: types.string(),
-  kind: SpecificationIssueKind$inboundSchema,
+  kind: Kind$inboundSchema,
   location: types.string(),
   message: types.string(),
   operation: types.string(),

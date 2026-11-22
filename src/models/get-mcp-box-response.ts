@@ -32,7 +32,7 @@ export type GetMCPBoxResponseStatus = OpenEnum<typeof GetMCPBoxResponseStatus>;
 
 export type GetMCPBoxResponse = {
   /**
-   * The API Box it fronts, whose state its tools read and change.
+   * The API Box it fronts, whose state its tools read and change; empty for a deleted MCP Box.
    */
   apiboxId: string;
   /**
@@ -43,6 +43,10 @@ export type GetMCPBoxResponse = {
    * MCP Box creation time.
    */
   createdAt: Date;
+  /**
+   * When the Box was deleted, in a list of deleted Boxes; null otherwise.
+   */
+  deletedAt: Date | null;
   /**
    * Base URL of the MCP Box. Send MCP Streamable HTTP requests to it followed by /mcp, with the MCP Box's token in X-Continuous-Token.
    */
@@ -65,7 +69,7 @@ export type GetMCPBoxResponse = {
    */
   name: string;
   /**
-   * The MCP Box Snapshot it serves.
+   * The MCP Box Snapshot it serves; empty for a deleted MCP Box whose Snapshot is deleted too.
    */
   snapshotId: string;
   /**
@@ -93,6 +97,7 @@ export const GetMCPBoxResponse$inboundSchema: z.ZodMiniType<
     apibox_id: types.string(),
     connection: types.nullable(MCPBoxConnection$inboundSchema),
     created_at: types.date(),
+    deleted_at: types.nullable(types.date()),
     endpoint: types.string(),
     error: types.nullable(BoxError$inboundSchema),
     id: types.string(),
@@ -107,6 +112,7 @@ export const GetMCPBoxResponse$inboundSchema: z.ZodMiniType<
     return remap$(v, {
       "apibox_id": "apiboxId",
       "created_at": "createdAt",
+      "deleted_at": "deletedAt",
       "last_active_at": "lastActiveAt",
       "snapshot_id": "snapshotId",
       "status_changed_at": "statusChangedAt",

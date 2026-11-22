@@ -18,7 +18,7 @@ Start Web Boxes from Web Box Snapshots. Each Web Box serves its Snapshot's web a
 
 ## list
 
-Returns the workspace's Web Boxes, newest first. Results can be filtered by status and Snapshot.
+Returns the workspace's Web Boxes, newest first. Results can be filtered by status and Snapshot. With deleted=true, it returns the Web Boxes deleted in the last 14 days instead.
 
 ### Example Usage
 

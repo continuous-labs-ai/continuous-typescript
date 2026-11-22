@@ -17,7 +17,7 @@ Start MCP Boxes from MCP Box Snapshots. Each MCP Box serves its Snapshot's tools
 
 ## list
 
-Returns the workspace's MCP Boxes, newest first. Results can be filtered by status and Snapshot.
+Returns the workspace's MCP Boxes, newest first. Results can be filtered by status and Snapshot. With deleted=true, it returns the MCP Boxes deleted in the last 14 days instead.
 
 ### Example Usage
 

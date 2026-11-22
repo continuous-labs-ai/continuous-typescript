@@ -37,7 +37,7 @@ import {
  * List API Boxes
  *
  * @remarks
- * Returns the workspace's API Boxes, newest first. Results can be filtered by status and Snapshot.
+ * Returns the workspace's API Boxes, newest first. Results can be filtered by status and Snapshot. With deleted=true, it returns the API Boxes deleted in the last 14 days instead.
  */
 export function apiboxesList(
   client: ContinuousCore,
@@ -107,6 +107,7 @@ async function $do(
 
   const query = encodeFormQuery({
     "cursor": payload?.cursor,
+    "deleted": payload?.deleted,
     "limit": payload?.limit,
     "snapshot_id": payload?.snapshot_id,
     "status": payload?.status,

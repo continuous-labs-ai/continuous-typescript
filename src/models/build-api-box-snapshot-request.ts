@@ -44,7 +44,7 @@ export type BuildAPIBoxSnapshotRequest = {
    */
   credentialIds?: Array<string> | undefined;
   /**
-   * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId, the WSDL operation name, or the GraphQL Query or Mutation field name; an operation is kept when any expression matches, and an OpenAPI operation without an operationId is dropped. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation of the spec, which for a build on a parent without a spec part is the parent's selection.
+   * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId, the WSDL operation ID (the operation name, or <port>.<operation> when two bindings declare the name), or the GraphQL Query or Mutation field name; an operation is kept when any expression matches. An OpenAPI operation without an operationId is given one from its method and path in lower camel case, with each path parameter as By<Name> and a numeric suffix when the ID is taken: GET /v2/accounts/{accountId} becomes getV2AccountsByAccountId. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation of the spec, which for a build on a parent without a spec part is the parent's selection.
    */
   filter?: Array<string> | undefined;
   /**

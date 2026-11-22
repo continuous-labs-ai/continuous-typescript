@@ -22,7 +22,7 @@ export class Apiboxes extends ClientSDK {
    * List API Boxes
    *
    * @remarks
-   * Returns the workspace's API Boxes, newest first. Results can be filtered by status and Snapshot.
+   * Returns the workspace's API Boxes, newest first. Results can be filtered by status and Snapshot. With deleted=true, it returns the API Boxes deleted in the last 14 days instead.
    */
   async list(
     request?: operations.ListApiboxesRequest | undefined,

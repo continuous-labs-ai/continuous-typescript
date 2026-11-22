@@ -41,6 +41,10 @@ export type ListApiboxesRequest = {
    * Opaque next_cursor value from a previous page.
    */
   cursor?: string | undefined;
+  /**
+   * List only the API Boxes deleted in the last 14 days, each with when it was deleted, in place of those not deleted.
+   */
+  deleted?: boolean | undefined;
 };
 
 export type ListApiboxesResponse = {
@@ -58,6 +62,7 @@ export type ListApiboxesRequest$Outbound = {
   snapshot_id?: string | undefined;
   limit: number;
   cursor?: string | undefined;
+  deleted?: boolean | undefined;
 };
 
 /** @internal */
@@ -70,6 +75,7 @@ export const ListApiboxesRequest$outboundSchema: z.ZodMiniType<
     snapshotId: z.optional(z.string()),
     limit: z._default(z.int(), 50),
     cursor: z.optional(z.string()),
+    deleted: z.optional(z.boolean()),
   }),
   z.transform((v) => {
     return remap$(v, {
