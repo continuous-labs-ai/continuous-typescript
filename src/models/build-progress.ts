@@ -25,8 +25,6 @@ export const BuildProgressModel = {
   Gpt61Sol: "gpt-6.1-sol",
   ClaudeOpus55: "claude-opus-5-5",
   ClaudeFable52: "claude-fable-5-2",
-  Gpt6Sol: "gpt-6-sol",
-  ClaudeFable51: "claude-fable-5-1",
   Combined: "combined",
 } as const;
 /**
