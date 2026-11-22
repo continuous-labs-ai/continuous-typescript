@@ -37,7 +37,7 @@ import {
  * List MCP Boxes
  *
  * @remarks
- * Returns the workspace's MCP Boxes, newest first. Results can be filtered by status and Snapshot.
+ * Returns the workspace's MCP Boxes, newest first. Results can be filtered by status and Snapshot. With deleted=true, it returns the MCP Boxes deleted in the last 14 days instead.
  */
 export function mcpboxesList(
   client: ContinuousCore,
@@ -107,6 +107,7 @@ async function $do(
 
   const query = encodeFormQuery({
     "cursor": payload?.cursor,
+    "deleted": payload?.deleted,
     "limit": payload?.limit,
     "snapshot_id": payload?.snapshot_id,
     "status": payload?.status,

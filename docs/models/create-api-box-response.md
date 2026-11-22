@@ -8,19 +8,20 @@ import { CreateAPIBoxResponse } from "@continuous-labs/sdk/models";
 let value: CreateAPIBoxResponse = {
   apibox: {
     createdAt: new Date("2026-10-19T23:42:15.600Z"),
-    endpoint: "https://unique-stool.info",
+    deletedAt: new Date("2026-09-03T23:04:53.868Z"),
+    endpoint: "https://inexperienced-configuration.info",
     error: {
-      code: "mcpbox_runtime_lost",
+      code: "mcpbox_apibox_unissued",
       detail: "<value>",
     },
     id: "<id>",
     includeSampleData: true,
-    lastActiveAt: new Date("2025-04-11T22:39:48.214Z"),
+    lastActiveAt: new Date("2024-01-30T05:44:46.139Z"),
     metadata: "<value>",
     name: "<value>",
     snapshotId: "<id>",
-    status: "starting",
-    statusChangedAt: new Date("2024-01-30T05:44:46.139Z"),
+    status: "stopping",
+    statusChangedAt: new Date("2026-03-16T00:30:22.935Z"),
   },
   token: "<value>",
 };

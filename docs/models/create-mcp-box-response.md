@@ -9,17 +9,21 @@ let value: CreateMCPBoxResponse = {
   mcpbox: {
     apiboxId: "<id>",
     createdAt: new Date("2024-12-09T09:21:40.748Z"),
-    endpoint: "https://second-tenement.info/",
-    error: null,
+    deletedAt: new Date("2026-02-23T04:47:13.793Z"),
+    endpoint: "https://ironclad-ad.net",
+    error: {
+      code: "mcpbox_apibox_unissued",
+      detail: "<value>",
+    },
     id: "<id>",
-    lastActiveAt: new Date("2026-02-21T02:28:04.168Z"),
+    lastActiveAt: new Date("2026-09-21T20:34:19.859Z"),
     metadata: "<value>",
     name: "<value>",
     snapshotId: "<id>",
-    status: "running",
-    statusChangedAt: new Date("2026-09-21T20:34:19.859Z"),
+    status: "starting",
+    statusChangedAt: new Date("2025-07-12T05:23:06.065Z"),
   },
-  token: null,
+  token: "<value>",
 };
 ```
 

@@ -8,9 +8,6 @@ import { Apiboxes } from "./apiboxes.js";
 import { Credentials } from "./credentials.js";
 import { McpboxSnapshots } from "./mcpbox-snapshots.js";
 import { Mcpboxes } from "./mcpboxes.js";
-import { SimulationSnapshots } from "./simulation-snapshots.js";
-import { Simulations } from "./simulations.js";
-import { Simulators } from "./simulators.js";
 import { WebboxSnapshots } from "./webbox-snapshots.js";
 import { Webboxes } from "./webboxes.js";
 
@@ -38,23 +35,6 @@ export class Continuous extends ClientSDK {
   private _mcpboxSnapshots?: McpboxSnapshots;
   get mcpboxSnapshots(): McpboxSnapshots {
     return (this._mcpboxSnapshots ??= new McpboxSnapshots(this._options));
-  }
-
-  private _simulationSnapshots?: SimulationSnapshots;
-  get simulationSnapshots(): SimulationSnapshots {
-    return (this._simulationSnapshots ??= new SimulationSnapshots(
-      this._options,
-    ));
-  }
-
-  private _simulations?: Simulations;
-  get simulations(): Simulations {
-    return (this._simulations ??= new Simulations(this._options));
-  }
-
-  private _simulators?: Simulators;
-  get simulators(): Simulators {
-    return (this._simulators ??= new Simulators(this._options));
   }
 
   private _webboxes?: Webboxes;

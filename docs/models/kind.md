@@ -1,13 +1,13 @@
-# SpecificationIssueKind
+# Kind
 
 Whether the input is invalid, unsupported, incomplete, exceeds a build limit, or has no specific diagnosis.
 
 ## Example Usage
 
 ```typescript
-import { SpecificationIssueKind } from "@continuous-labs/sdk/models";
+import { Kind } from "@continuous-labs/sdk/models";
 
-let value: SpecificationIssueKind = "invalid";
+let value: Kind = "invalid";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```

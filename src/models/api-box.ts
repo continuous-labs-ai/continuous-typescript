@@ -32,6 +32,10 @@ export type APIBox = {
    */
   createdAt: Date;
   /**
+   * When the Box was deleted, in a list of deleted Boxes; null otherwise.
+   */
+  deletedAt: Date | null;
+  /**
    * Base URL of the API Box's API. Send the API Box's token in X-Continuous-Token.
    */
   endpoint: string;
@@ -57,7 +61,7 @@ export type APIBox = {
    */
   name: string;
   /**
-   * The API Box Snapshot it started from.
+   * The API Box Snapshot it started from; empty for a deleted API Box whose Snapshot is deleted too.
    */
   snapshotId: string;
   /**
@@ -78,6 +82,7 @@ export const APIBoxStatus$inboundSchema: z.ZodMiniType<APIBoxStatus, unknown> =
 export const APIBox$inboundSchema: z.ZodMiniType<APIBox, unknown> = z.pipe(
   z.object({
     created_at: types.date(),
+    deleted_at: types.nullable(types.date()),
     endpoint: types.string(),
     error: types.nullable(BoxError$inboundSchema),
     id: types.string(),
@@ -92,6 +97,7 @@ export const APIBox$inboundSchema: z.ZodMiniType<APIBox, unknown> = z.pipe(
   z.transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
+      "deleted_at": "deletedAt",
       "include_sample_data": "includeSampleData",
       "last_active_at": "lastActiveAt",
       "snapshot_id": "snapshotId",
