@@ -5,15 +5,15 @@ management:
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.5.1
-  configChecksum: 7be707cf2428d723ef5a482c50a4f980
+  releaseVersion: 0.5.2
+  configChecksum: 65a6760c053e9f21fba9a5c704c26588
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 408a0433-43b0-4988-a7d6-bb81a8a28eca
-  pristine_commit_hash: 58dd4a9b7d45509c06987bfbdbdc710f62ce2e94
-  pristine_tree_hash: a3781763f5907b750e030c2d0653fd7206ace49c
+  generation_id: 99328f0e-2866-4b2d-8b60-54a1e26e223b
+  pristine_commit_hash: c178a379d9d51f1f0bf81d5c24884fa57e16d20e
+  pristine_tree_hash: d9fbb2835dd76da6bbcd2271cc631121e13345a3
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -794,12 +794,12 @@ trackedFiles:
     pristine_git_object: a8174ac1b126a1796e076b9f3122a0ede68d2d7d
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:4c679f80c5fac2e0a1b99f5aaf1e6a86b2911d00
-    pristine_git_object: c92be468fd0ecd33b8fa90d2cccd72f635de1fdd
+    last_write_checksum: sha1:5fa9e20cec4b3c1a0a30c9ce811244cff39dd3e8
+    pristine_git_object: 2de4c5c83b0251defb9c4e4976c1ecf264435633
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:e8165ad7cb3aa90cc3ca1fa9084de1e2ac43c102
-    pristine_git_object: eec33faeedfcac63859104451e3b0919fe517376
+    last_write_checksum: sha1:5c48e32e7b3bafeb389f9ceb61d8576a6f37e972
+    pristine_git_object: e36c98643d489056f914fb8b49116343da346813
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -1046,8 +1046,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:703a743a76783e72f50fed5325ca381718d5a9f6
-    pristine_git_object: 406ee2b514bdd0cc7ec440b0549bd45239c15ed9
+    last_write_checksum: sha1:4d062a9f129662d23f7ba37bf2eacf01b5d718bb
+    pristine_git_object: 043cfa5458757d877c83c07d3462f7366d09c51a
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -3415,29 +3415,3 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": {"issues": [{"code": "<value>", "kind": "invalid", "location": "<value>", "message": "<value>", "operation": "<value>", "suggestion": "<value>"}]}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `continuous.apiboxes.saveSnapshot()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.apiboxSnapshots.list()`:  `response.snapshots[].build.model` **Changed** (Breaking ⚠️)
-  * `continuous.apiboxSnapshots.create()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.apiboxSnapshots.get()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.apiboxSnapshots.update()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.apiboxSnapshots.cancel()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.apiboxSnapshots.clone()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.apiboxSnapshots.resume()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.mcpboxes.saveSnapshot()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.mcpboxSnapshots.list()`:  `response.snapshots[].build.model` **Changed** (Breaking ⚠️)
-  * `continuous.mcpboxSnapshots.create()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.mcpboxSnapshots.get()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.mcpboxSnapshots.update()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.mcpboxSnapshots.cancel()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.mcpboxSnapshots.clone()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.mcpboxSnapshots.resume()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.webboxes.saveSnapshot()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.webboxSnapshots.list()`:  `response.snapshots[].build.model` **Changed** (Breaking ⚠️)
-  * `continuous.webboxSnapshots.create()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.webboxSnapshots.get()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.webboxSnapshots.update()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.webboxSnapshots.cancel()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.webboxSnapshots.clone()`:  `response.build.model` **Changed** (Breaking ⚠️)
-  * `continuous.webboxSnapshots.resume()`:  `response.build.model` **Changed** (Breaking ⚠️)

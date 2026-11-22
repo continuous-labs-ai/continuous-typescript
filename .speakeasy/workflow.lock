@@ -1,31 +1,31 @@
 speakeasyVersion: 1.796.4
 sources:
-    continuous-simulation:
-        sourceNamespace: continuous-simulation
+    continuous-api:
+        sourceNamespace: continuous-api
         sourceRevisionDigest: sha256:89ffcfd297f4f9684823afd30868cbc088992faffe2a4d52fa0dc90ea416a623
         sourceBlobDigest: sha256:10881a46ebcff7db4af96e42735f0d4c191d5e08813b0712a333e2aaa6b431de
         tags:
             - latest
 targets:
     continuous-typescript:
-        source: continuous-simulation
-        sourceNamespace: continuous-simulation
+        source: continuous-api
+        sourceNamespace: continuous-api
         sourceRevisionDigest: sha256:89ffcfd297f4f9684823afd30868cbc088992faffe2a4d52fa0dc90ea416a623
         sourceBlobDigest: sha256:10881a46ebcff7db4af96e42735f0d4c191d5e08813b0712a333e2aaa6b431de
         codeSamplesNamespace: continuous-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:bf151ef7d19d0f384472b1c556e103e5285258faaf6754513d963f60a0257c02
+        codeSamplesRevisionDigest: sha256:5bcf83a15a116e6f6945600b9e4ecd0650476f1e03d3182776ad20b7e0445554
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.796.4
     sources:
-        continuous-simulation:
+        continuous-api:
             inputs:
-                - location: registry.speakeasyapi.dev/continuous/continuous/continuous-simulation@main
+                - location: registry.speakeasyapi.dev/continuous/continuous/continuous-api@main
             output: .speakeasy/out.openapi.yaml
     targets:
         continuous-typescript:
             target: typescript
-            source: continuous-simulation
+            source: continuous-api
             publish:
                 npm:
                     token: $npm_token
