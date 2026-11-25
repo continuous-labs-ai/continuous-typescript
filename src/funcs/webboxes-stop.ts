@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Stop Web Box
  *
  * @remarks
- * Stops a running Web Box: it saves its state, and releases its runtime. It returns at once with status stopping; get the Web Box until it is stopped. A stopped Web Box is returned unchanged; a starting one returns 409 webbox_starting.
+ * Stops a running Web Box: it saves its state, and releases its runtime. It returns at once with status stopping; get the Web Box until it is stopped. A stopped Web Box is returned unchanged; a starting one returns 409 webbox_starting. A Web Box that fronts an API Box only closes its URL: the API Box keeps running, with the state.
  */
 export function webboxesStop(
   client: ContinuousCore,

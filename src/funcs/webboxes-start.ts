@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Start Web Box
  *
  * @remarks
- * Starts a stopped Web Box from the state its stop saved, and returns at once with status starting. A running, starting or stopping Web Box returns 409 webbox_not_stopped.
+ * Starts a stopped Web Box from the state its stop saved, and returns at once with status starting. A running, starting or stopping Web Box returns 409 webbox_not_stopped. A Web Box that fronts an API Box only opens its URL again: start the API Box on its own.
  */
 export function webboxesStart(
   client: ContinuousCore,

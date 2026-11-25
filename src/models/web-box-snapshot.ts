@@ -60,6 +60,10 @@ export type WebBoxSnapshot = {
    */
   actors: Array<Actor>;
   /**
+   * The API Box Snapshot it was built on, whose API it also serves; empty for a Snapshot built on none. A Web Box created from it fronts a new API Box and shares that API Box's state.
+   */
+  apiboxSnapshotId: string;
+  /**
    * The build's latest progress report, or null before the first report. A settled Snapshot keeps its last report. A waiting build resumes when the Snapshot's resume is requested.
    */
   build: BuildProgress | null;
@@ -145,6 +149,7 @@ export const WebBoxSnapshot$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     actors: z.array(Actor$inboundSchema),
+    apibox_snapshot_id: types.string(),
     build: types.nullable(BuildProgress$inboundSchema),
     composition: types.nullable(SnapshotComposition$inboundSchema),
     created_at: types.date(),
@@ -165,6 +170,7 @@ export const WebBoxSnapshot$inboundSchema: z.ZodMiniType<
   }),
   z.transform((v) => {
     return remap$(v, {
+      "apibox_snapshot_id": "apiboxSnapshotId",
       "created_at": "createdAt",
       "credential_ids": "credentialIds",
       "hidden_limitations": "hiddenLimitations",

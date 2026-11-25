@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -14,7 +15,11 @@ export type APIBoxConnection = {
    */
   endpoint: string;
   /**
-   * The API Box's token. Send it in X-Continuous-Token on each request to the endpoint.
+   * Base URL of the private API that the web app calls, for an API Box of a pair: one paired with a Web Box, or started from the API Box Snapshot of a pair saved from a Web Box, while that pair's Web Box Snapshot exists. It takes the same token and never reaches an operation of the API. Send the path the web app sends: its own paths as they are, and a call to another host under /_origin/{host}/. Empty for any other API Box.
+   */
+  privateEndpoint: string;
+  /**
+   * The API Box's token. Send it in X-Continuous-Token on each request to either endpoint.
    */
   token: string;
 };
@@ -23,10 +28,18 @@ export type APIBoxConnection = {
 export const APIBoxConnection$inboundSchema: z.ZodMiniType<
   APIBoxConnection,
   unknown
-> = z.object({
-  endpoint: types.string(),
-  token: types.string(),
-});
+> = z.pipe(
+  z.object({
+    endpoint: types.string(),
+    private_endpoint: types.string(),
+    token: types.string(),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "private_endpoint": "privateEndpoint",
+    });
+  }),
+);
 
 export function apiBoxConnectionFromJSON(
   jsonString: string,

@@ -90,7 +90,7 @@ export type BuildProgress = {
    */
   waitedSeconds: number;
   /**
-   * Set while the build waits for the requester: at QA because the live systems rejected its credentials or rate limited its calls, or for more time after it used its time limit. Resume it with its resource's resume operation, such as POST /v1/apibox-snapshots/{id}/resume. Null otherwise.
+   * Set while the build waits for the requester: because the live system rejected its credentials, rate limited its calls or could not be reached, or for more time after it used its time limit. Resume it with its resource's resume operation, such as POST /v1/apibox-snapshots/{id}/resume. Null otherwise.
    */
   waiting: BuildWaiting | null;
   /**

@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Create Web Box
  *
  * @remarks
- * Creates a Web Box from a ready Web Box Snapshot and starts it. It returns at once with status starting; get the Web Box until it is running. Open its url in a browser: the app is served at a host of its own, open to anyone with the URL. Each Web Box has its own state, and runs in real time.
+ * Creates a Web Box from a ready Web Box Snapshot and starts it. It returns at once with status starting; get the Web Box until it is running. Open its url in a browser: the app is served at a host of its own, open to anyone with the URL. Each Web Box has its own state, and runs in real time. From a Snapshot built on an API Box Snapshot, it also creates a new API Box, named in apibox_id, and the Web Box fronts it: the API Box owns the state and the runtime, and the web app and the API read and write the same data. Each of the two Boxes counts toward the Box quota.
  */
 export function webboxesCreate(
   client: ContinuousCore,

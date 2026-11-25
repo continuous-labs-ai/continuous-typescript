@@ -8,6 +8,7 @@ import { GetAPIBoxResponse } from "@continuous-labs/sdk/models";
 let value: GetAPIBoxResponse = {
   connection: {
     endpoint: "https://sardonic-affect.org/",
+    privateEndpoint: "<value>",
     token: "<value>",
   },
   createdAt: new Date("2025-10-16T04:33:04.940Z"),
