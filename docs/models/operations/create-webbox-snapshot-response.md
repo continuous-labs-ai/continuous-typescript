@@ -22,6 +22,7 @@ let value: CreateWebboxSnapshotResponse = {
         role: "<value>",
       },
     ],
+    apiboxSnapshotId: "<id>",
     build: {
       agentState: "<value>",
       hiddenLimitations: 999940,

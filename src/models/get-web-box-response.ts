@@ -32,6 +32,10 @@ export type GetWebBoxResponseStatus = OpenEnum<typeof GetWebBoxResponseStatus>;
 
 export type GetWebBoxResponse = {
   /**
+   * The API Box it fronts, which owns its state and runtime and serves the same data over the API; empty for a Web Box with a runtime of its own, and for a deleted Web Box. While that API Box is stopped, the Web Box's URL answers 409.
+   */
+  apiboxId: string;
+  /**
    * The URL that opens the Web Box's app, or null where the API serves no Web App hosts.
    */
   connection: WebBoxConnection | null;
@@ -94,6 +98,7 @@ export const GetWebBoxResponse$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
+    apibox_id: types.string(),
     connection: types.nullable(WebBoxConnection$inboundSchema),
     created_at: types.date(),
     deleted_at: types.nullable(types.date()),
@@ -110,6 +115,7 @@ export const GetWebBoxResponse$inboundSchema: z.ZodMiniType<
   }),
   z.transform((v) => {
     return remap$(v, {
+      "apibox_id": "apiboxId",
       "created_at": "createdAt",
       "deleted_at": "deletedAt",
       "include_sample_data": "includeSampleData",

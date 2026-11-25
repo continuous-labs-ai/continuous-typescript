@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Delete Web Box
  *
  * @remarks
- * Deletes a Web Box, running or stopped, with its state. Its runtime is released after the response.
+ * Deletes a Web Box, running or stopped, with its state. Its runtime is released after the response. The API Box that a Web Box fronts stays, with its state.
  */
 export function webboxesDelete(
   client: ContinuousCore,

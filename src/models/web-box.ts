@@ -28,6 +28,10 @@ export type WebBoxStatus = OpenEnum<typeof WebBoxStatus>;
 
 export type WebBox = {
   /**
+   * The API Box it fronts, which owns its state and runtime and serves the same data over the API; empty for a Web Box with a runtime of its own, and for a deleted Web Box. While that API Box is stopped, the Web Box's URL answers 409.
+   */
+  apiboxId: string;
+  /**
    * Web Box creation time.
    */
   createdAt: Date;
@@ -81,6 +85,7 @@ export const WebBoxStatus$inboundSchema: z.ZodMiniType<WebBoxStatus, unknown> =
 /** @internal */
 export const WebBox$inboundSchema: z.ZodMiniType<WebBox, unknown> = z.pipe(
   z.object({
+    apibox_id: types.string(),
     created_at: types.date(),
     deleted_at: types.nullable(types.date()),
     error: types.nullable(BoxError$inboundSchema),
@@ -96,6 +101,7 @@ export const WebBox$inboundSchema: z.ZodMiniType<WebBox, unknown> = z.pipe(
   }),
   z.transform((v) => {
     return remap$(v, {
+      "apibox_id": "apiboxId",
       "created_at": "createdAt",
       "deleted_at": "deletedAt",
       "include_sample_data": "includeSampleData",

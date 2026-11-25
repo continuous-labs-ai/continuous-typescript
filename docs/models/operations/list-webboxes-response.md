@@ -10,6 +10,7 @@ let value: ListWebboxesResponse = {
     nextCursor: "<value>",
     webboxes: [
       {
+        apiboxId: "<id>",
         createdAt: new Date("2025-02-16T09:36:15.303Z"),
         deletedAt: new Date("2025-08-13T01:18:55.801Z"),
         error: null,

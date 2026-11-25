@@ -16,7 +16,7 @@ import {
 } from "./specification-validation.js";
 
 /**
- * Stable build error code. live_credential_rejected is a build that waited at QA for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited at QA for the live systems' rate limit and was not resumed within 7 days.
+ * Stable build error code. live_credential_rejected is a build that waited for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited for the live system's rate limit and was not resumed within 7 days.
  */
 export const BuildErrorCode = {
   BuildFailed: "build_failed",
@@ -26,7 +26,7 @@ export const BuildErrorCode = {
   LiveRateLimited: "live_rate_limited",
 } as const;
 /**
- * Stable build error code. live_credential_rejected is a build that waited at QA for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited at QA for the live systems' rate limit and was not resumed within 7 days.
+ * Stable build error code. live_credential_rejected is a build that waited for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited for the live system's rate limit and was not resumed within 7 days.
  */
 export type BuildErrorCode = OpenEnum<typeof BuildErrorCode>;
 
@@ -51,7 +51,7 @@ export type BuildError = {
    */
   agentMessage: string | null;
   /**
-   * Stable build error code. live_credential_rejected is a build that waited at QA for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited at QA for the live systems' rate limit and was not resumed within 7 days.
+   * Stable build error code. live_credential_rejected is a build that waited for its rejected live credentials and was not resumed within 7 days; live_rate_limited is one that waited for the live system's rate limit and was not resumed within 7 days.
    */
   code: BuildErrorCode;
   /**

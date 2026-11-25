@@ -25,6 +25,10 @@ export type BuildWebBoxSnapshotRequestModel = ClosedEnum<
 
 export type BuildWebBoxSnapshotRequest = {
   /**
+   * A ready API Box Snapshot of the workspace or the catalog to build the web app on. The build starts from its source and spec, keeps its API, and adds the app on the same state. Web Boxes created from the result front an API Box that serves that API. Not allowed with parent_id: a build on a parent keeps the parent's.
+   */
+  apiboxSnapshotId?: string | undefined;
+  /**
    * Workspace credentials: exactly one login for the vendor's web app, whose saved sign-in the builder and QA use on the live app, and up to four others with a base_url that they can call real systems with. Each must belong to the workspace. Required without parent_id. QA may create test objects in the live app; use a sandbox or test account.
    */
   credentialIds?: Array<string> | undefined;
@@ -61,6 +65,7 @@ export const BuildWebBoxSnapshotRequestModel$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type BuildWebBoxSnapshotRequest$Outbound = {
+  apibox_snapshot_id?: string | undefined;
   credential_ids?: Array<string> | undefined;
   instructions?: string | undefined;
   model?: string | undefined;
@@ -76,6 +81,7 @@ export const BuildWebBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
   BuildWebBoxSnapshotRequest
 > = z.pipe(
   z.object({
+    apiboxSnapshotId: z.optional(z.string()),
     credentialIds: z.optional(z.array(z.string())),
     instructions: z.optional(z.string()),
     model: z.optional(BuildWebBoxSnapshotRequestModel$outboundSchema),
@@ -86,6 +92,7 @@ export const BuildWebBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
   }),
   z.transform((v) => {
     return remap$(v, {
+      apiboxSnapshotId: "apibox_snapshot_id",
       credentialIds: "credential_ids",
       parentId: "parent_id",
       reviewRounds: "review_rounds",

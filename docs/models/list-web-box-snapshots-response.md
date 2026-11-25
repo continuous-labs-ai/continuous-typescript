@@ -10,6 +10,7 @@ let value: ListWebBoxSnapshotsResponse = {
   snapshots: [
     {
       actors: [],
+      apiboxSnapshotId: "<id>",
       build: {
         agentState: "<value>",
         hiddenLimitations: 999940,

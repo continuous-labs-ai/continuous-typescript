@@ -7,6 +7,7 @@ import { CreateWebBoxResponse } from "@continuous-labs/sdk/models";
 
 let value: CreateWebBoxResponse = {
   webbox: {
+    apiboxId: "<id>",
     createdAt: new Date("2024-09-16T13:00:47.056Z"),
     deletedAt: new Date("2025-02-10T20:19:09.886Z"),
     error: {

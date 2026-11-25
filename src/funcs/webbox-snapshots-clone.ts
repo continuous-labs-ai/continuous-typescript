@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Clone Web Box Snapshot
  *
  * @remarks
- * Creates a ready copy of a ready Web Box Snapshot in another workspace, without a build. The clone has a new ID and the source's artifact, documents and saved state; the source is unchanged. The clone records no credentials, since they belong to the source workspace, and no parent or source Snapshot. The source is the caller's workspace. An API key may clone into any other workspace of its organization.
+ * Creates a ready copy of a ready Web Box Snapshot in another workspace, without a build. The clone has a new ID and the source's artifact, documents and saved state; the source is unchanged. The clone records no credentials, since they belong to the source workspace, and no parent or source Snapshot. A Snapshot built on an API Box Snapshot of the source workspace is cloned with a clone of that Snapshot, which the clone's apibox_snapshot_id names; one built on a catalog API Box Snapshot keeps it. The source is the caller's workspace. An API key may clone into any other workspace of its organization.
  */
 export function webboxSnapshotsClone(
   client: ContinuousCore,

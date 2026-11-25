@@ -41,7 +41,7 @@ export class Webboxes extends ClientSDK {
    * Create Web Box
    *
    * @remarks
-   * Creates a Web Box from a ready Web Box Snapshot and starts it. It returns at once with status starting; get the Web Box until it is running. Open its url in a browser: the app is served at a host of its own, open to anyone with the URL. Each Web Box has its own state, and runs in real time.
+   * Creates a Web Box from a ready Web Box Snapshot and starts it. It returns at once with status starting; get the Web Box until it is running. Open its url in a browser: the app is served at a host of its own, open to anyone with the URL. Each Web Box has its own state, and runs in real time. From a Snapshot built on an API Box Snapshot, it also creates a new API Box, named in apibox_id, and the Web Box fronts it: the API Box owns the state and the runtime, and the web app and the API read and write the same data. Each of the two Boxes counts toward the Box quota.
    */
   async create(
     request: operations.CreateWebboxRequest,
@@ -58,7 +58,7 @@ export class Webboxes extends ClientSDK {
    * Delete Web Box
    *
    * @remarks
-   * Deletes a Web Box, running or stopped, with its state. Its runtime is released after the response.
+   * Deletes a Web Box, running or stopped, with its state. Its runtime is released after the response. The API Box that a Web Box fronts stays, with its state.
    */
   async delete(
     request: operations.DeleteWebboxRequest,
@@ -109,7 +109,7 @@ export class Webboxes extends ClientSDK {
    * Save Web Box as Snapshot
    *
    * @remarks
-   * Saves a running Web Box's app and current state as a Web Box Snapshot, ready when the response returns. The Web Box keeps running, and a paused one is woken. Web Boxes created from the Snapshot start with the saved state instead of a new workspace, so they refuse include_sample_data. The Snapshot outlives the Web Box. A starting Web Box returns 409 webbox_starting; a stopping or stopped one returns 409 webbox_stopped; one whose runtime cannot save its state returns 409 webbox_rebuild_required.
+   * Saves a running Web Box's app and current state as a Web Box Snapshot, ready when the response returns. The Web Box keeps running, and a paused one is woken. Web Boxes created from the Snapshot start with the saved state instead of a new workspace, so they refuse include_sample_data. The Snapshot outlives the Web Box. A starting Web Box returns 409 webbox_starting; a stopping or stopped one returns 409 webbox_stopped; one whose runtime cannot save its state returns 409 webbox_rebuild_required. A Web Box that fronts an API Box saves a pair, both ready or neither: a new API Box Snapshot with the API Box's current state, and the Web Box Snapshot, whose apibox_snapshot_id names it. The API Box must be running: a starting one returns 409 apibox_starting, and a stopping or stopped one 409 apibox_stopped. A Web Box created from the Web Box Snapshot starts with the saved state.
    */
   async saveSnapshot(
     request: operations.SaveWebboxSnapshotRequest,
@@ -126,7 +126,7 @@ export class Webboxes extends ClientSDK {
    * Start Web Box
    *
    * @remarks
-   * Starts a stopped Web Box from the state its stop saved, and returns at once with status starting. A running, starting or stopping Web Box returns 409 webbox_not_stopped.
+   * Starts a stopped Web Box from the state its stop saved, and returns at once with status starting. A running, starting or stopping Web Box returns 409 webbox_not_stopped. A Web Box that fronts an API Box only opens its URL again: start the API Box on its own.
    */
   async start(
     request: operations.StartWebboxRequest,
@@ -162,7 +162,7 @@ export class Webboxes extends ClientSDK {
    * Stop Web Box
    *
    * @remarks
-   * Stops a running Web Box: it saves its state, and releases its runtime. It returns at once with status stopping; get the Web Box until it is stopped. A stopped Web Box is returned unchanged; a starting one returns 409 webbox_starting.
+   * Stops a running Web Box: it saves its state, and releases its runtime. It returns at once with status stopping; get the Web Box until it is stopped. A stopped Web Box is returned unchanged; a starting one returns 409 webbox_starting. A Web Box that fronts an API Box only closes its URL: the API Box keeps running, with the state.
    */
   async stop(
     request: operations.StopWebboxRequest,
