@@ -53,7 +53,7 @@ export type BuildWebBoxSnapshotRequest = {
    */
   reviewRounds?: number | undefined;
   /**
-   * Time limit for generation and validation in seconds, from 1 to 172800. Defaults to 28800 (eight hours). Excludes queue wait, finalization, and any wait for the requester. Retries share the same deadline.
+   * Time limit for generation and validation in seconds, from 1 to 172800. Defaults to 43200 (twelve hours). Excludes queue wait, finalization, and any wait for the requester. Retries share the same deadline.
    */
   timeoutSeconds?: number | undefined;
 };
@@ -88,7 +88,7 @@ export const BuildWebBoxSnapshotRequest$outboundSchema: z.ZodMiniType<
     name: z.optional(z.string()),
     parentId: z.optional(z.string()),
     reviewRounds: z.optional(z.int()),
-    timeoutSeconds: z._default(z.int(), 28800),
+    timeoutSeconds: z._default(z.int(), 43200),
   }),
   z.transform((v) => {
     return remap$(v, {
