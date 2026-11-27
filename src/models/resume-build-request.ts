@@ -10,11 +10,16 @@ export type ResumeBuildRequest = {
    * Seconds to add to a build that waits for more time, from 1 to the largest timeout_seconds a build request accepts. Required for a build whose build.waiting.type is time_limit, and refused for any other wait. The build's time limit with every addition is at most 259200 seconds (72 hours).
    */
   addSeconds?: number | undefined;
+  /**
+   * A message for the builder, such as what changed while the build waited. The builder reads it once, at its next turn boundary; reviewers, QA and research never read it. At most 16,384 characters and 65,536 UTF-8 bytes; must not be blank or contain U+0000.
+   */
+  message?: string | undefined;
 };
 
 /** @internal */
 export type ResumeBuildRequest$Outbound = {
   add_seconds?: number | undefined;
+  message?: string | undefined;
 };
 
 /** @internal */
@@ -24,6 +29,7 @@ export const ResumeBuildRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     addSeconds: z.optional(z.int()),
+    message: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
