@@ -8,6 +8,7 @@ import { mcpboxSnapshotsCreate } from "../funcs/mcpbox-snapshots-create.js";
 import { mcpboxSnapshotsDelete } from "../funcs/mcpbox-snapshots-delete.js";
 import { mcpboxSnapshotsGet } from "../funcs/mcpbox-snapshots-get.js";
 import { mcpboxSnapshotsList } from "../funcs/mcpbox-snapshots-list.js";
+import { mcpboxSnapshotsPause } from "../funcs/mcpbox-snapshots-pause.js";
 import { mcpboxSnapshotsResume } from "../funcs/mcpbox-snapshots-resume.js";
 import { mcpboxSnapshotsUpdate } from "../funcs/mcpbox-snapshots-update.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -139,10 +140,27 @@ export class McpboxSnapshots extends ClientSDK {
   }
 
   /**
+   * Pause MCP Box Snapshot build
+   *
+   * @remarks
+   * Requests a pause of a running build and returns the Snapshot without waiting for the pause to take effect. The build ends its agent's turn and pauses once no tool result is waiting to reach the agent, which can take a few minutes; build.waiting then has type paused. Get the Snapshot until build.waiting is set. A build that is accepted before the pause takes effect finishes instead. Resume the build with POST /v1/mcpbox-snapshots/{id}/resume. The pause does not count toward the build's time limit, and a build not resumed within 7 days fails. A build that is waiting or has settled returns 409 mcpbox_snapshot_not_ready.
+   */
+  async pause(
+    request: operations.PauseMcpboxSnapshotRequest,
+    options?: RequestOptions,
+  ): Promise<models.MCPBoxSnapshot> {
+    return unwrapAsync(mcpboxSnapshotsPause(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Resume MCP Box Snapshot build
    *
    * @remarks
-   * Resumes a build that waits, as build.waiting reports: because its live source rejected its credential, rate limited its calls or could not be reached, because its model or sandbox provider was unavailable, or for more time after it used its time limit. For a credential wait, refresh the credential it names with PATCH /v1/credentials/{id} first. For a rate-limit wait, resume once the rate limit resets. For an unavailable wait, resume once what the wait's reason names can be reached. The build then tries it again and continues where it stopped, or waits again if it still fails. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a live wait has the time it had left when it began waiting. A build that is not waiting returns 409 mcpbox_snapshot_not_waiting.
+   * Resumes a build that waits, as build.waiting reports: because its live source rejected its credential, rate limited its calls or could not be reached, because its model or sandbox provider was unavailable, for more time after it used its time limit, or because it was paused. For a credential wait, refresh the credential it names with PATCH /v1/credentials/{id} first. For a rate-limit wait, resume once the rate limit resets. For an unavailable wait, resume once what the wait's reason names can be reached. The build then tries it again and continues where it stopped, or waits again if it still fails. A paused build continues where it stopped. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. To tell the builder what changed while the build waited, send message: the builder reads it once. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a live wait has the time it had left when it began waiting. A build that is not waiting returns 409 mcpbox_snapshot_not_waiting.
    */
   async resume(
     request: operations.ResumeMcpboxSnapshotRequest,

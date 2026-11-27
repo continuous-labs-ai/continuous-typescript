@@ -8,6 +8,7 @@ import { apiboxSnapshotsCreate } from "../funcs/apibox-snapshots-create.js";
 import { apiboxSnapshotsDelete } from "../funcs/apibox-snapshots-delete.js";
 import { apiboxSnapshotsGet } from "../funcs/apibox-snapshots-get.js";
 import { apiboxSnapshotsList } from "../funcs/apibox-snapshots-list.js";
+import { apiboxSnapshotsPause } from "../funcs/apibox-snapshots-pause.js";
 import { apiboxSnapshotsResume } from "../funcs/apibox-snapshots-resume.js";
 import { apiboxSnapshotsUpdate } from "../funcs/apibox-snapshots-update.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -139,10 +140,27 @@ export class ApiboxSnapshots extends ClientSDK {
   }
 
   /**
+   * Pause API Box Snapshot build
+   *
+   * @remarks
+   * Requests a pause of a running build and returns the Snapshot without waiting for the pause to take effect. The build ends its agent's turn and pauses once no tool result is waiting to reach the agent, which can take a few minutes; build.waiting then has type paused. Get the Snapshot until build.waiting is set. A build that is accepted before the pause takes effect finishes instead. Resume the build with POST /v1/apibox-snapshots/{id}/resume. The pause does not count toward the build's time limit, and a build not resumed within 7 days fails. A build that is waiting or has settled returns 409 apibox_snapshot_not_ready.
+   */
+  async pause(
+    request: operations.PauseApiboxSnapshotRequest,
+    options?: RequestOptions,
+  ): Promise<models.APIBoxSnapshot> {
+    return unwrapAsync(apiboxSnapshotsPause(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Resume API Box Snapshot build
    *
    * @remarks
-   * Resumes a build that waits, as build.waiting reports: because its live system rejected its credentials, rate limited its calls or could not be reached, because its model or sandbox provider was unavailable, or for more time after it used its time limit. For a credential wait, refresh each credential it names with PATCH /v1/credentials/{id} first. For a rate-limit wait, resume once the rate limit resets. For an unavailable wait, resume once what the wait's reason names can be reached. The build then tries it again and continues where it stopped, or waits again if it still fails. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a live wait has the time it had left when it began waiting. A build that is not waiting returns 409 apibox_snapshot_not_waiting.
+   * Resumes a build that waits, as build.waiting reports: because its live system rejected its credentials, rate limited its calls or could not be reached, because its model or sandbox provider was unavailable, for more time after it used its time limit, or because it was paused. For a credential wait, refresh each credential it names with PATCH /v1/credentials/{id} first. For a rate-limit wait, resume once the rate limit resets. For an unavailable wait, resume once what the wait's reason names can be reached. The build then tries it again and continues where it stopped, or waits again if it still fails. A paused build continues where it stopped. For a wait for more time, send add_seconds: the build continues where it stopped, with that much time from the resume. To tell the builder what changed while the build waited, send message: the builder reads it once. Returns the Snapshot, still building. A wait does not count toward the build's time limit: a build resumed from a live wait has the time it had left when it began waiting. A build that is not waiting returns 409 apibox_snapshot_not_waiting.
    */
   async resume(
     request: operations.ResumeApiboxSnapshotRequest,

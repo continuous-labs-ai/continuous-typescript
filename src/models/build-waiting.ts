@@ -12,26 +12,27 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
- * live_credentials while the build waits for the credentials it names to be refreshed; live_rate_limit while it waits for the live system's rate limit to reset; unavailable while it waits for a service it could not reach, such as its live system, its model or sandbox provider, or its own test runner; time_limit while it waits for a resume that adds time with add_seconds.
+ * live_credentials while the build waits for the credentials it names to be refreshed; live_rate_limit while it waits for the live system's rate limit to reset; unavailable while it waits for a service it could not reach, such as its live system, its model or sandbox provider, or its own test runner; time_limit while it waits for a resume that adds time with add_seconds; paused while it waits for a resume after its resource's pause operation.
  */
 export const Type = {
   LiveCredentials: "live_credentials",
   LiveRateLimit: "live_rate_limit",
   Unavailable: "unavailable",
   TimeLimit: "time_limit",
+  Paused: "paused",
 } as const;
 /**
- * live_credentials while the build waits for the credentials it names to be refreshed; live_rate_limit while it waits for the live system's rate limit to reset; unavailable while it waits for a service it could not reach, such as its live system, its model or sandbox provider, or its own test runner; time_limit while it waits for a resume that adds time with add_seconds.
+ * live_credentials while the build waits for the credentials it names to be refreshed; live_rate_limit while it waits for the live system's rate limit to reset; unavailable while it waits for a service it could not reach, such as its live system, its model or sandbox provider, or its own test runner; time_limit while it waits for a resume that adds time with add_seconds; paused while it waits for a resume after its resource's pause operation.
  */
 export type Type = OpenEnum<typeof Type>;
 
 export type BuildWaiting = {
   /**
-   * The credentials to refresh with PATCH /v1/credentials/{id} before resuming the build. Empty for live_rate_limit, unavailable and time_limit.
+   * The credentials to refresh with PATCH /v1/credentials/{id} before resuming the build. Empty for live_rate_limit, unavailable, time_limit and paused.
    */
   credentialIds: Array<string>;
   /**
-   * When the wait ends, 7 days after it began: a build not resumed by then fails with error code live_credential_rejected for live_credentials, live_rate_limited for live_rate_limit, build_failed with reason service_unavailable for unavailable, or build_failed with reason time_limit for time_limit. The wait does not count toward the build's time limit.
+   * When the wait ends, 7 days after it began: a build not resumed by then fails with error code live_credential_rejected for live_credentials, live_rate_limited for live_rate_limit, build_failed with reason service_unavailable for unavailable, build_failed with reason time_limit for time_limit, or build_failed with reason build_failed for paused. The wait does not count toward the build's time limit.
    */
   deadline: Date;
   /**
@@ -43,7 +44,7 @@ export type BuildWaiting = {
    */
   since: Date;
   /**
-   * live_credentials while the build waits for the credentials it names to be refreshed; live_rate_limit while it waits for the live system's rate limit to reset; unavailable while it waits for a service it could not reach, such as its live system, its model or sandbox provider, or its own test runner; time_limit while it waits for a resume that adds time with add_seconds.
+   * live_credentials while the build waits for the credentials it names to be refreshed; live_rate_limit while it waits for the live system's rate limit to reset; unavailable while it waits for a service it could not reach, such as its live system, its model or sandbox provider, or its own test runner; time_limit while it waits for a resume that adds time with add_seconds; paused while it waits for a resume after its resource's pause operation.
    */
   type: Type;
 };

@@ -145,6 +145,7 @@ run();
 * [update](docs/sdks/apiboxsnapshots/README.md#update) - Update API Box Snapshot
 * [cancel](docs/sdks/apiboxsnapshots/README.md#cancel) - Cancel API Box Snapshot build
 * [clone](docs/sdks/apiboxsnapshots/README.md#clone) - Clone API Box Snapshot
+* [pause](docs/sdks/apiboxsnapshots/README.md#pause) - Pause API Box Snapshot build
 * [resume](docs/sdks/apiboxsnapshots/README.md#resume) - Resume API Box Snapshot build
 
 ### [Apiboxes](docs/sdks/apiboxes/README.md)
@@ -176,6 +177,7 @@ run();
 * [update](docs/sdks/mcpboxsnapshots/README.md#update) - Update MCP Box Snapshot
 * [cancel](docs/sdks/mcpboxsnapshots/README.md#cancel) - Cancel MCP Box Snapshot build
 * [clone](docs/sdks/mcpboxsnapshots/README.md#clone) - Clone MCP Box Snapshot
+* [pause](docs/sdks/mcpboxsnapshots/README.md#pause) - Pause MCP Box Snapshot build
 * [resume](docs/sdks/mcpboxsnapshots/README.md#resume) - Resume MCP Box Snapshot build
 
 ### [Mcpboxes](docs/sdks/mcpboxes/README.md)
@@ -198,6 +200,7 @@ run();
 * [update](docs/sdks/webboxsnapshots/README.md#update) - Update Web Box Snapshot
 * [cancel](docs/sdks/webboxsnapshots/README.md#cancel) - Cancel Web Box Snapshot build
 * [clone](docs/sdks/webboxsnapshots/README.md#clone) - Clone Web Box Snapshot
+* [pause](docs/sdks/webboxsnapshots/README.md#pause) - Pause Web Box Snapshot build
 * [resume](docs/sdks/webboxsnapshots/README.md#resume) - Resume Web Box Snapshot build
 
 ### [Webboxes](docs/sdks/webboxes/README.md)
@@ -245,6 +248,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`apiboxSnapshotsDelete`](docs/sdks/apiboxsnapshots/README.md#delete) - Delete API Box Snapshot
 - [`apiboxSnapshotsGet`](docs/sdks/apiboxsnapshots/README.md#get) - Get API Box Snapshot
 - [`apiboxSnapshotsList`](docs/sdks/apiboxsnapshots/README.md#list) - List API Box Snapshots
+- [`apiboxSnapshotsPause`](docs/sdks/apiboxsnapshots/README.md#pause) - Pause API Box Snapshot build
 - [`apiboxSnapshotsResume`](docs/sdks/apiboxsnapshots/README.md#resume) - Resume API Box Snapshot build
 - [`apiboxSnapshotsUpdate`](docs/sdks/apiboxsnapshots/README.md#update) - Update API Box Snapshot
 - [`credentialsCreate`](docs/sdks/credentials/README.md#create) - Create credential
@@ -266,6 +270,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`mcpboxSnapshotsDelete`](docs/sdks/mcpboxsnapshots/README.md#delete) - Delete MCP Box Snapshot
 - [`mcpboxSnapshotsGet`](docs/sdks/mcpboxsnapshots/README.md#get) - Get MCP Box Snapshot
 - [`mcpboxSnapshotsList`](docs/sdks/mcpboxsnapshots/README.md#list) - List MCP Box Snapshots
+- [`mcpboxSnapshotsPause`](docs/sdks/mcpboxsnapshots/README.md#pause) - Pause MCP Box Snapshot build
 - [`mcpboxSnapshotsResume`](docs/sdks/mcpboxsnapshots/README.md#resume) - Resume MCP Box Snapshot build
 - [`mcpboxSnapshotsUpdate`](docs/sdks/mcpboxsnapshots/README.md#update) - Update MCP Box Snapshot
 - [`webboxesCreate`](docs/sdks/webboxes/README.md#create) - Create Web Box
@@ -283,6 +288,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`webboxSnapshotsDelete`](docs/sdks/webboxsnapshots/README.md#delete) - Delete Web Box Snapshot
 - [`webboxSnapshotsGet`](docs/sdks/webboxsnapshots/README.md#get) - Get Web Box Snapshot
 - [`webboxSnapshotsList`](docs/sdks/webboxsnapshots/README.md#list) - List Web Box Snapshots
+- [`webboxSnapshotsPause`](docs/sdks/webboxsnapshots/README.md#pause) - Pause Web Box Snapshot build
 - [`webboxSnapshotsResume`](docs/sdks/webboxsnapshots/README.md#resume) - Resume Web Box Snapshot build
 - [`webboxSnapshotsUpdate`](docs/sdks/webboxsnapshots/README.md#update) - Update Web Box Snapshot
 
