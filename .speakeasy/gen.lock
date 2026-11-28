@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6182e33f-95c7-452b-8af6-1fe3148548bf
 management:
-  docChecksum: 09a356b74976dda2cc242f35a93898d3
+  docChecksum: 8c9620d5d737d6b7a77c6e98e2f95fea
   docVersion: v1
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.5.5
-  configChecksum: 1f8997c42635ca23156d727bde27bc79
+  releaseVersion: 0.5.6
+  configChecksum: 4692bd84501fe57b00c8f2f7afb159c1
   repoURL: https://github.com/continuous-labs-ai/continuous-typescript.git
   installationURL: https://github.com/continuous-labs-ai/continuous-typescript
   published: true
 persistentEdits:
-  generation_id: 4dc681e6-936e-4c48-b3fe-38262255797a
-  pristine_commit_hash: c33ae5e8f550d1421abf61e5baff86ad3dd6dbbf
-  pristine_tree_hash: 1c8a843ab0ae5099264efa2ee7fa483909060d83
+  generation_id: f7f93d3f-2708-426d-835c-9c2452d41a2a
+  pristine_commit_hash: 150203dab9385dc4d8e9ff32bb1e058bd102502a
+  pristine_tree_hash: fe815ec785b87e42fd9e67746f7adba24ffc4539
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -130,8 +130,8 @@ trackedFiles:
     pristine_git_object: e18846752e303837deef575a6b09b918e8d2eebc
   docs/models/build-api-box-snapshot-request.md:
     id: 64b6b96364bf
-    last_write_checksum: sha1:1149a7ec06c4bc66f3eb7f5ed8aa13ad9b4226c5
-    pristine_git_object: 98bf341f09f9f19a1d37d59d464e4412742b5e51
+    last_write_checksum: sha1:8028f8d156fbdc620e68348b7bce7ee97605878f
+    pristine_git_object: 7fd26b662003a883c354f44518a90183017ee266
   docs/models/build-error-code.md:
     id: 7222f7a9a296
     last_write_checksum: sha1:a58e6c5af7784f3a43b44b2e271e9df5ca59999b
@@ -146,8 +146,8 @@ trackedFiles:
     pristine_git_object: 1c300db7690d060ac6224c1c1dbe574b7bce1274
   docs/models/build-mcp-box-snapshot-request.md:
     id: a1d914da9dcf
-    last_write_checksum: sha1:c0c7d59ee6ad0cb6a586d8a21802cfa0e11ac08b
-    pristine_git_object: c000cccfb6091f432c344726f2dac254652a7534
+    last_write_checksum: sha1:0682143dfec828c6c17da36876a07f521939cf2c
+    pristine_git_object: 499810e8830b9f8124ebf7cd327e1809a4ebe49f
   docs/models/build-progress-model.md:
     id: 8d31a85097a2
     last_write_checksum: sha1:8b6e675035955ad2c198ca584448711aff296e7b
@@ -174,8 +174,8 @@ trackedFiles:
     pristine_git_object: 6fada0b2fe62cc41c0240f67a79c12a43c220bb9
   docs/models/build-web-box-snapshot-request.md:
     id: 3dbff6577818
-    last_write_checksum: sha1:4102e4be7ba8825af08ad52060d6e730a5d46074
-    pristine_git_object: 92746b71864f289c35898580a4adfd783f4492a3
+    last_write_checksum: sha1:39112e991fe84b6c5fc8348e5a8c8865c584edd6
+    pristine_git_object: cb604da1e715b4cc01da14591226c142f5381664
   docs/models/clone-box-snapshot-request.md:
     id: c63d7bd76e29
     last_write_checksum: sha1:0cb98c3b2bd3afba746f360646ab7fa19190324f
@@ -766,8 +766,8 @@ trackedFiles:
     pristine_git_object: c51afdf5f90b0d84646c5f6460ed1413a1787682
   docs/sdks/apiboxsnapshots/README.md:
     id: 1cdd53e655f6
-    last_write_checksum: sha1:deb4a6724037e51baef2f2849a576aa8fe5adacb
-    pristine_git_object: 2744ba2b9eaf418519b2a9275951d2ac147e8b99
+    last_write_checksum: sha1:3a130f6dce6ce723edac8112b352604d60f7ba46
+    pristine_git_object: 49deaa8f8966c7a4dc720034d19776dc2d75ec20
   docs/sdks/credentials/README.md:
     id: fb7e49751327
     last_write_checksum: sha1:5a4fd53a229f5906b5fd91a73f76bbca43c8d9f7
@@ -778,16 +778,16 @@ trackedFiles:
     pristine_git_object: da0aaffe2f5b8271b38d252fd32797646b4fcd98
   docs/sdks/mcpboxsnapshots/README.md:
     id: 8dfd04ebf73d
-    last_write_checksum: sha1:a58b3d2f4c2dd0a8b980fc9df19469dc122fd4a3
-    pristine_git_object: 2f17167dbcd9916de4f742044fc235d2ccf7dbd2
+    last_write_checksum: sha1:4e4955af083582df8eeb77f19882e4299af76009
+    pristine_git_object: c642611b50efc0250cf4d64ffd54298c74d5d7ae
   docs/sdks/webboxes/README.md:
     id: 40c97909b902
-    last_write_checksum: sha1:c4867ab5c0d9d03b19081e5ad6ddf0030b199593
-    pristine_git_object: 93d3d968fb8f72225e9299a1d6dd23741053d326
+    last_write_checksum: sha1:35f4427c8c8aaabfc382cb2658371ae942bf76c8
+    pristine_git_object: 8f1ce75ea10dd6f3bcdc25075f56c7c5065286f3
   docs/sdks/webboxsnapshots/README.md:
     id: fcfe151b7749
-    last_write_checksum: sha1:4f0bc09c0a9e9b93de897d03a3890b3ac3fda158
-    pristine_git_object: 004ec1fd283f718ecf4f5ef08d2e9b8c02f930f2
+    last_write_checksum: sha1:f5c0a39ad3d79e2d2e606bbc939ebd746b0887e9
+    pristine_git_object: b5b3486b69789fd1751a47c41dc8aa0ce7dfb730
   examples/.env.template:
     id: 52cbe5afed92
     last_write_checksum: sha1:5efb9f04268a512dea693dbdefdd798fbd924d40
@@ -806,12 +806,12 @@ trackedFiles:
     pristine_git_object: a8174ac1b126a1796e076b9f3122a0ede68d2d7d
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:8ba2897245b59543cf4186585e6fb7380414b040
-    pristine_git_object: a5559e7543770f4a925a23ceac4098616394188d
+    last_write_checksum: sha1:da39ec4ec1e0e1b94d32f1ff118f6d20b37f6930
+    pristine_git_object: 11b023987fc2d32b5fee45841e348a6d6f6c523a
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:3362eed400945de7b25df6a3ffd1f974f2bae4bb
-    pristine_git_object: b55f045dff3d7021899d0bc4754afe665b8768c7
+    last_write_checksum: sha1:b71774dd27d76bda47270b8fe5ca44e52e230411
+    pristine_git_object: 9c5476c47e0b62eec005dcae7cf17eaa1470d386
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:0c958215ad60b6e060a2a3bea994f464e4151a2e
@@ -842,12 +842,12 @@ trackedFiles:
     pristine_git_object: 9327bb463abe3cbce91eed33ee41262b6e32213c
   src/funcs/apibox-snapshots-pause.ts:
     id: dd1ec8d68759
-    last_write_checksum: sha1:715a32944155af7f6f3d83c73ed649a51d0484e9
-    pristine_git_object: 3d54aa64a9c9224c9e450457c16c7a64c245ae98
+    last_write_checksum: sha1:ab81f173d73c8deade51237c664b33336b161901
+    pristine_git_object: 6370c661b3524612799e245905fd80686426fdc7
   src/funcs/apibox-snapshots-resume.ts:
     id: 3fe006ecc290
-    last_write_checksum: sha1:9c993eb6347b59ee0987a6dd23ca03789fdc8e71
-    pristine_git_object: ca3fa643ae680695d8cc1fb3d5c98ed403ab4863
+    last_write_checksum: sha1:7873cd02b8473b40fd83fbdc1af47fb2df2cf513
+    pristine_git_object: 3cd5b0b2e61af690f3d92b4200e633f40f38cd89
   src/funcs/apibox-snapshots-update.ts:
     id: 9576c856b232
     last_write_checksum: sha1:14837968c9be89f6029ef2e78c12b3bb7dc5ede8
@@ -934,12 +934,12 @@ trackedFiles:
     pristine_git_object: 57f51d330e7ae707d92ee6bfb9bc459ad54dd984
   src/funcs/mcpbox-snapshots-pause.ts:
     id: 3bb57dc644c2
-    last_write_checksum: sha1:4cf9be5bc8532518e17a7c797dee40f493b8094e
-    pristine_git_object: a1c7b620d251e57f0149245505a4027a5438eaf8
+    last_write_checksum: sha1:ffe2e0a42b2b0b65d8198bda2ee718dc56e4b7f6
+    pristine_git_object: 81f3af0d91a3bddf62ff4887bf9d02203f7bf8b1
   src/funcs/mcpbox-snapshots-resume.ts:
     id: a07b1b2b701c
-    last_write_checksum: sha1:4ea07649f8ee6706145acf3bd8b43188387e9559
-    pristine_git_object: 082b62f62e0a1ef2f7ff2335cb4fd467d97b64be
+    last_write_checksum: sha1:bc4a272f55fc04fe65246e594bf8db64aefbee97
+    pristine_git_object: aad011d6c704e0a59dde24ca4d649c7462a43dcc
   src/funcs/mcpbox-snapshots-update.ts:
     id: e56e3a5daca9
     last_write_checksum: sha1:da3bf15237b5877bae648163305275a1a3d5c43e
@@ -1002,12 +1002,12 @@ trackedFiles:
     pristine_git_object: af7f573375b3fd46a9c13939427a1af0bd670bf7
   src/funcs/webbox-snapshots-pause.ts:
     id: 1f2e7a25a7ee
-    last_write_checksum: sha1:9903f786ae7f1ad298768e96c4c46659c51edb42
-    pristine_git_object: e0460a04f9978b74e146001f2c757a55ffe12bb0
+    last_write_checksum: sha1:6a55e78f9b7fed5935ea7707167054bb8ee62ac1
+    pristine_git_object: f1851b0540a30e264daa617b9f14364dff46f3c5
   src/funcs/webbox-snapshots-resume.ts:
     id: b621c4accb92
-    last_write_checksum: sha1:18389098e3ae57331c0ade03001c19ebf76352e2
-    pristine_git_object: 70e7f878a2eb06a373a4d9738c50bc276a8b64a0
+    last_write_checksum: sha1:0ca8e8d963cad9f4a0c004e00936c1bc7bbee1f2
+    pristine_git_object: b835c30fdfaad8239d49c9ee64876b82a5a17482
   src/funcs/webbox-snapshots-update.ts:
     id: 8dbea2747193
     last_write_checksum: sha1:2f0b24bfa5ef6547a4697fc137f3259a86ddb17b
@@ -1018,8 +1018,8 @@ trackedFiles:
     pristine_git_object: 02972842bdecc93e10c7b214d1a438a4b72f8108
   src/funcs/webboxes-delete.ts:
     id: d52c40afe394
-    last_write_checksum: sha1:2dd6ae35d86792e4d20146aeddfb6df5bd504113
-    pristine_git_object: 0120d2df042b46f94bf95c15788f1367550a5af1
+    last_write_checksum: sha1:8c46f1674aad8da0f877e2462378657b68ba71a8
+    pristine_git_object: 243222e673dbf6b28ec0abf3a7b567296a127226
   src/funcs/webboxes-get.ts:
     id: b79e7d7a59c4
     last_write_checksum: sha1:04dc3766c865f8fd428df16518ae6b931bf42a8d
@@ -1070,8 +1070,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:06a216e0c82911d556268defbb394ae1bec844c8
-    pristine_git_object: 036d8719e4e82b4aac1470fe59d2d9600670c92a
+    last_write_checksum: sha1:2cc9f08b308a50409ec6aba7ea9b2a978d3ffc86
+    pristine_git_object: a98cbb0fd21521eec8975ece9ce34a37b76d4fb9
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -1146,16 +1146,16 @@ trackedFiles:
     pristine_git_object: e58e82a932dbda9b15fdfb0c17805c222efc677a
   src/models/build-api-box-snapshot-request.ts:
     id: 9ef8137bb1f5
-    last_write_checksum: sha1:866b02b0321aad3d6eb328a2e47a2c67f2f4c7ff
-    pristine_git_object: 456243ca8f4565de80f0117d6aac1873e76ba19f
+    last_write_checksum: sha1:89268f8cc55eeff300990e5881e05e410584ca99
+    pristine_git_object: 2adfb9e2617580c79e6c6862a8b9e036640bd8be
   src/models/build-error.ts:
     id: d220236517eb
     last_write_checksum: sha1:cf1fe36cde00ead8699eea47f77b8eea51f3a0f2
     pristine_git_object: 65b7fdc4d220b53542ac57e7eb1e54800d22f25f
   src/models/build-mcp-box-snapshot-request.ts:
     id: 51292d8f655d
-    last_write_checksum: sha1:abe137faa5f6542cee5c652efb9382f5a26a8dcc
-    pristine_git_object: db58fe16e55a95eb4b3601bb2167c46bd54d6c97
+    last_write_checksum: sha1:5e08fbcb6f638cd308bb807a8988545886b79a05
+    pristine_git_object: 7050eb28d04db6fb8ed13cc514e3682e830b81ec
   src/models/build-progress.ts:
     id: 89c38fb97a87
     last_write_checksum: sha1:dacaeb95b1ba02a27e59219afff21d682277f896
@@ -1170,8 +1170,8 @@ trackedFiles:
     pristine_git_object: cafb23be4610b76c9a72fa35f9b26c062a62df03
   src/models/build-web-box-snapshot-request.ts:
     id: 1205c566815d
-    last_write_checksum: sha1:50b4443d015e98f981fd4a76150cb0361bed0f2a
-    pristine_git_object: d1065715c473af90c52598dbb6bec9ac2ce2848a
+    last_write_checksum: sha1:21a9a0a61e62f2eeb3dd929d8dd2eb2bc664a729
+    pristine_git_object: c0efce8aa485849c995c2ce3aa91e740b3643e76
   src/models/clone-box-snapshot-request.ts:
     id: 4fa3055f91a2
     last_write_checksum: sha1:5edbf09b67917cb8eb30fd97f5d28e73d10a841f
@@ -1626,8 +1626,8 @@ trackedFiles:
     pristine_git_object: c45fd073f352757eefc73d74caf631a132fc4ca0
   src/sdk/apibox-snapshots.ts:
     id: 9780fd3c7888
-    last_write_checksum: sha1:0f4cb7415702bd8383d69d16196773120ba4fe50
-    pristine_git_object: 643b4d66d4abc988a19217690ee67f6c6e6cee5e
+    last_write_checksum: sha1:4d50bab923e4568c24b3a5d31654d53fa37450a3
+    pristine_git_object: a3e3b0abdc070deaab002832b2a91dfed170f742
   src/sdk/apiboxes.ts:
     id: 65aee2d81dd3
     last_write_checksum: sha1:379412bd791d4bfc43521fac2fd661cc16c4d82f
@@ -1642,8 +1642,8 @@ trackedFiles:
     pristine_git_object: ecac2264817bb369ff2dbf0f0e9029807e67ff77
   src/sdk/mcpbox-snapshots.ts:
     id: 9376c6955b39
-    last_write_checksum: sha1:ddd8ed0004af9421ac976559db8c4962e2294069
-    pristine_git_object: 3528acb121e1bd11ee623b80b9146c0285aeec06
+    last_write_checksum: sha1:b38f5e39288dd9dfba8fd1ccde25dd9c67175038
+    pristine_git_object: 4b61e4e165dabd5bf4129a64ee6596bcfac4bbaf
   src/sdk/mcpboxes.ts:
     id: 3f9735934501
     last_write_checksum: sha1:26e10729f7394c50b399cbd6a5848f5db8bbeed2
@@ -1654,12 +1654,12 @@ trackedFiles:
     pristine_git_object: 95c03421acdbdb5321df2ed59f2b0f9e87c2d3d5
   src/sdk/webbox-snapshots.ts:
     id: eef51c1621f4
-    last_write_checksum: sha1:51d369b45ce609e2369b6189e0b3c5cd3eebe495
-    pristine_git_object: 2a51ca14422bc7e6cfbf979e429d0118bf2c9fef
+    last_write_checksum: sha1:0ed1401cdeb7d577230be9b952204cedb2f82d21
+    pristine_git_object: 61d6cd5926c1a95be8eae2292e167f59d5635f15
   src/sdk/webboxes.ts:
     id: ca7cdb6ab65f
-    last_write_checksum: sha1:30706187c1aa16ba59547feb7232af23f8e26845
-    pristine_git_object: 52acaff52936788ca7eebaf5fe555ea1e75318e4
+    last_write_checksum: sha1:29bb5d96ade187931527f544b24aeef3350c2584
+    pristine_git_object: c0c8c8afeb676382f382874b03aad0c81580850b
   src/types/async.ts:
     id: fac8da972f86
     last_write_checksum: sha1:675d04bb4b4081dc3482f18de98674f9b446e7b4
@@ -3541,4 +3541,6 @@ examples:
         "500":
           application/problem+json: {"code": "<value>", "detail": "<value>", "validation": null}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `continuous.apiboxSnapshots.pause()`: **Added**\n* `continuous.mcpboxSnapshots.pause()`: **Added**\n* `continuous.webboxSnapshots.pause()`: **Added**\n* `continuous.apiboxes.saveSnapshot()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.apiboxSnapshots.list()`:  `response.snapshots[].build.waiting.type.enum(paused)` **Added**\n* `continuous.apiboxSnapshots.create()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.apiboxSnapshots.get()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.apiboxSnapshots.update()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.apiboxSnapshots.cancel()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.apiboxSnapshots.clone()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.apiboxSnapshots.resume()`: \n  *  `request.body.message` **Added**\n  *  `response.build.waiting.type.enum(paused)` **Added**\n  *  `error.status[422]` **Added**\n* `continuous.mcpboxes.saveSnapshot()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.mcpboxSnapshots.list()`:  `response.snapshots[].build.waiting.type.enum(paused)` **Added**\n* `continuous.mcpboxSnapshots.create()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.mcpboxSnapshots.get()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.mcpboxSnapshots.update()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.mcpboxSnapshots.cancel()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.mcpboxSnapshots.clone()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.mcpboxSnapshots.resume()`: \n  *  `request.body.message` **Added**\n  *  `response.build.waiting.type.enum(paused)` **Added**\n  *  `error.status[422]` **Added**\n* `continuous.webboxes.saveSnapshot()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.webboxSnapshots.list()`:  `response.snapshots[].build.waiting.type.enum(paused)` **Added**\n* `continuous.webboxSnapshots.create()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.webboxSnapshots.get()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.webboxSnapshots.update()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.webboxSnapshots.cancel()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.webboxSnapshots.clone()`:  `response.build.waiting.type.enum(paused)` **Added**\n* `continuous.webboxSnapshots.resume()`: \n  *  `request.body.message` **Added**\n  *  `response.build.waiting.type.enum(paused)` **Added**\n  *  `error.status[422]` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `continuous.webboxes.delete()`:  `error.status[409]` **Added**

@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Delete Web Box
  *
  * @remarks
- * Deletes a Web Box, running or stopped, with its state. Its runtime is released after the response. The API Box that a Web Box fronts stays, with its state.
+ * Deletes a Web Box, running or stopped, with its state. Its runtime is released after the response. A Web Box that fronts an API Box is deleted with that API Box and its state. While an MCP Box fronts the API Box, the delete removes the Web Box and returns 409 apibox_in_use: delete the MCP Box, then send the delete again.
  */
 export function webboxesDelete(
   client: ContinuousCore,
@@ -165,7 +165,7 @@ async function $do(
     | SDKValidationError
   >(
     M.nil(204, z.void()),
-    M.jsonErr([401, 404], errors.APIError$inboundSchema, {
+    M.jsonErr([401, 404, 409], errors.APIError$inboundSchema, {
       ctype: "application/problem+json",
     }),
     M.jsonErr([500, 503], errors.APIError$inboundSchema, {

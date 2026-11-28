@@ -25,7 +25,7 @@ export type BuildWebBoxSnapshotRequestModel = ClosedEnum<
 
 export type BuildWebBoxSnapshotRequest = {
   /**
-   * A ready API Box Snapshot of the workspace or the catalog to build the web app on. The build starts from its source and spec, keeps its API, and adds the app on the same state. Web Boxes created from the result front an API Box that serves that API. Not allowed with parent_id: a build on a parent keeps the parent's.
+   * A ready API Box Snapshot of the workspace or the catalog to build the web app on. The build starts from its source and spec, keeps its API, and adds the app on the same state. Web Boxes created from the result front an API Box that serves that API. One saved from a Web Box pair takes its API files from the API Box Snapshot it was saved from, which must still exist in the same workspace or the catalog. With parent_id, it moves a parent built on another API Box Snapshot onto this one: the build keeps the parent's app, docs and Web tests, replaces every file of the API with this Snapshot's, and runs research and this Snapshot's tests again. Without it, a build on a parent keeps the parent's.
    */
   apiboxSnapshotId?: string | undefined;
   /**
@@ -45,11 +45,11 @@ export type BuildWebBoxSnapshotRequest = {
    */
   name?: string | undefined;
   /**
-   * A ready Web Box Snapshot of the workspace or the catalog to build on. The build starts from its source, documents and tests. What the request does not set comes from the parent: its documents, which an upload of the same name replaces, its model, its review rounds, and those of its credentials the workspace still has, which must include its login. timeout_seconds keeps its default.
+   * A ready Web Box Snapshot of the workspace or the catalog to build on. The build starts from its source, documents and tests. What the request does not set comes from the parent: its documents, which an upload of the same name replaces, its model, and those of its credentials the workspace still has, which must include its login. A login the request sends must be for the app the parent was built on. Its API Box Snapshot comes from the parent too, unless apibox_snapshot_id names a newer one. timeout_seconds keeps its default.
    */
   parentId?: string | undefined;
   /**
-   * Review rounds, from 1 to 10. Omission means 1 without parent_id and the parent's review rounds with it. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
+   * Review rounds, from 1 to 10. Omission means 1, with or without parent_id. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
    */
   reviewRounds?: number | undefined;
   /**

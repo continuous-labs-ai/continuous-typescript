@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Pause Web Box Snapshot build
  *
  * @remarks
- * Requests a pause of a running build and returns the Snapshot without waiting for the pause to take effect. The build ends its agent's turn and pauses once no tool result is waiting to reach the agent, which can take a few minutes; build.waiting then has type paused. Get the Snapshot until build.waiting is set. A build that is accepted before the pause takes effect finishes instead. Resume the build with POST /v1/webbox-snapshots/{id}/resume. The pause does not count toward the build's time limit, and a build not resumed within 7 days fails. A build that is waiting or has settled returns 409 webbox_snapshot_not_ready.
+ * Requests a pause of a running build and returns the Snapshot without waiting for the pause to take effect. The build interrupts its agent's turn and pauses, usually within a minute; a host tool call in progress, such as a submit, finishes first. build.waiting then has type paused. Get the Snapshot until build.waiting is set. A build that is accepted before the pause takes effect finishes instead. Resume the build with POST /v1/webbox-snapshots/{id}/resume. The pause does not count toward the build's time limit, and a build not resumed within 7 days fails. A build that is waiting or has settled returns 409 webbox_snapshot_not_ready.
  */
 export function webboxSnapshotsPause(
   client: ContinuousCore,

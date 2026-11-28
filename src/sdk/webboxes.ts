@@ -58,7 +58,7 @@ export class Webboxes extends ClientSDK {
    * Delete Web Box
    *
    * @remarks
-   * Deletes a Web Box, running or stopped, with its state. Its runtime is released after the response. The API Box that a Web Box fronts stays, with its state.
+   * Deletes a Web Box, running or stopped, with its state. Its runtime is released after the response. A Web Box that fronts an API Box is deleted with that API Box and its state. While an MCP Box fronts the API Box, the delete removes the Web Box and returns 409 apibox_in_use: delete the MCP Box, then send the delete again.
    */
   async delete(
     request: operations.DeleteWebboxRequest,
