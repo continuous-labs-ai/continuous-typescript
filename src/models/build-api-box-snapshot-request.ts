@@ -44,7 +44,7 @@ export type BuildAPIBoxSnapshotRequest = {
    */
   credentialIds?: Array<string> | undefined;
   /**
-   * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId, the WSDL operation ID (the operation name, or <port>.<operation> when two bindings declare the name), or the GraphQL Query or Mutation field name; an operation is kept when any expression matches. An OpenAPI operation without an operationId is given one from its method and path in lower camel case, with each path parameter as By<Name> and a numeric suffix when the ID is taken: GET /v2/accounts/{accountId} becomes getV2AccountsByAccountId. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation of the spec, which for a build on a parent without a spec part is the parent's selection.
+   * Regular expressions (RE2 syntax) that select the operations to implement. Each is matched against the OpenAPI operationId, the WSDL operation ID (the operation name, or <port>.<operation> when two bindings declare the name), or the GraphQL Query or Mutation field name; an operation is kept when any expression matches. An OpenAPI operation without an operationId is given one from its method and path in lower camel case, with each path parameter as By<Name> and a numeric suffix when the ID is taken: GET /v2/accounts/{accountId} becomes getV2AccountsByAccountId. At most 64 expressions of at most 1,024 characters each. Omit or send an empty list to keep every operation of the spec. On a parent, omission or an empty list keeps the parent's selection: a spec part is filtered as the parent's was; send [".*"] to keep every operation of it.
    */
   filter?: Array<string> | undefined;
   /**
@@ -60,11 +60,11 @@ export type BuildAPIBoxSnapshotRequest = {
    */
   name?: string | undefined;
   /**
-   * A ready API Box Snapshot of the workspace or the catalog to build on. The build starts from its source, documents and tests. What the request does not set comes from the parent: its spec, its documents, which an upload of the same name replaces, its model, its review rounds, and those of its credentials the workspace still has; timeout_seconds keeps its default. Without a spec part, filter narrows the parent's operations; to widen them, send the full spec.
+   * A ready API Box Snapshot of the workspace or the catalog to build on. The build starts from its source, documents and tests. What the request does not set comes from the parent: its spec, its documents, which an upload of the same name replaces, its model, and those of its credentials the workspace still has; timeout_seconds keeps its default. Without a spec part, filter narrows the parent's operations; to widen them, send the full spec with a filter that selects them.
    */
   parentId?: string | undefined;
   /**
-   * Review rounds, from 1 to 10. Omission means 1 without parent_id and the parent's review rounds with it. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
+   * Review rounds, from 1 to 10. Omission means 1, with or without parent_id. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
    */
   reviewRounds?: number | undefined;
   /**

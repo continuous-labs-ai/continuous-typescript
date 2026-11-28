@@ -45,11 +45,11 @@ export type BuildMCPBoxSnapshotRequest = {
    */
   name?: string | undefined;
   /**
-   * A ready MCP Box Snapshot of the workspace or the catalog to build on. The build starts from its handlers, tests and documents; its capture and research run as a new build's, with the parent's folder for reference. What the request does not set comes from the parent: its API Box Snapshot, its documents, which an upload of the same name replaces, its model, its review rounds, and its credential if the workspace still has it. timeout_seconds keeps its default.
+   * A ready MCP Box Snapshot of the workspace or the catalog to build on. The build starts from its handlers, tests and documents, with the parent's folder for reference. Without a credential it serves the parent's capture, so its tools stay the parent's; send a credential to capture them again. Research runs again unless the build keeps the parent's API Box Snapshot and index and its capture matches the parent's. What the request does not set comes from the parent: its API Box Snapshot, its documents, which an upload of the same name replaces, its model, and its credential if the workspace still has it. timeout_seconds keeps its default.
    */
   parentId?: string | undefined;
   /**
-   * Review rounds, from 1 to 10. Omission means 1 without parent_id and the parent's review rounds with it. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
+   * Review rounds, from 1 to 10. Omission means 1, with or without parent_id. Each round is a review and a repair of its findings, by the same builder and reviewer. The rounds stop early when the reviewer reports no findings.
    */
   reviewRounds?: number | undefined;
   /**
